@@ -5,6 +5,7 @@ import util.FileUtil;
 import util.SystemLog;
 import util.cmd.SimpleParameters;
 import util.estrattori.ExtractInfoMySQL;
+import util.estrattori.ExtractInfoSpring;
 import util.gate.DataStoreApplication;
 
 import javax.xml.transform.TransformerException;
@@ -75,6 +76,9 @@ public class MainExtractInfo {
                                 SystemLog.write("Caricamento costruttore...", "OUT");
                                 ExtractInfoMySQL m = new ExtractInfoMySQL(params);
                                 SystemLog.write("... construttore pronto.", "OUT");
+                                m.Extraction();
+                            }else if(params.getValue("PARAM_TYPE_EXTRACTION").equals("SPRING")){
+                                ExtractInfoSpring m = new ExtractInfoSpring(params);
                                 m.Extraction();
                             }
                             /*} else if (params.getValue("PARAM_TYPE_EXTRACTION").equals("HIBERNATE_POJO")) {
