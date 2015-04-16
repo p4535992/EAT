@@ -1,0 +1,17 @@
+<component name="libraryTable">
+  <library name="sesame-owlim 2.7.8-4.1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../LIB/lib_sesame/commons-httpclient-3.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../LIB/lib_sesame/commons-io-2.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../LIB/lib_sesame/lubm.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../LIB/lib_sesame/openrdf-sesame-2.7.8-onejar.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../LIB/lib_sesame/sesame-http-client-2.7.8.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../LIB/lib_sesame/lib_owlim/graphdb-lite-6.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../LIB/lib_sesame/lib_owlim/graphdb-notifications-6.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../LIB/lib_sesame/lib_owlim/graphdb-se-6.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../LIB/lib_sesame/lib_owlim/migration-adapter-4.x.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

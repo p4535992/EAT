@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <resourceExtensions />
+    <wildcardResourcePatterns>
+      <entry name="!?*.java" />
+      <entry name="!?*.form" />
+      <entry name="!?*.class" />
+      <entry name="!?*.groovy" />
+      <entry name="!?*.scala" />
+      <entry name="!?*.flex" />
+      <entry name="!?*.kt" />
+      <entry name="!?*.clj" />
+      <entry name="!?*.aj" />
+    </wildcardResourcePatterns>
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="false">
+        <processorPath useClasspath="true" />
+      </profile>
+      <profile default="false" name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="commands-alignment" />
+        <module name="commands-alignment-openrdf" />
+        <module name="commands-cleaning" />
+        <module name="commands-common" />
+        <module name="commands-publish" />
+        <module name="commands-publish-alignment-openrdf" />
+        <module name="commands-publish-jdbc" />
+        <module name="commands-python" />
+        <module name="commands-update" />
+        <module name="commands-update-jdbc" />
+        <module name="commands-worksheet" />
+        <module name="import-avro" />
+        <module name="import-common" />
+        <module name="import-csv" />
+        <module name="import-database" />
+        <module name="import-excel" />
+        <module name="import-file" />
+        <module name="import-json" />
+        <module name="import-ontology" />
+        <module name="import-service" />
+        <module name="import-spatial" />
+        <module name="import-xml" />
+        <module name="karma-cleaning" />
+        <module name="karma-common" />
+        <module name="karma-jdbc" />
+        <module name="karma-mr" />
+        <module name="karma-offline" />
+        <module name="karma-storm" />
+        <module name="karma-typer" />
+        <module name="karma-util" />
+        <module name="karma-web" />
+        <module name="web-services-rdf" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel target="1.7">
+      <module name="commands-alignment" target="1.7" />
+      <module name="commands-alignment-openrdf" target="1.7" />
+      <module name="commands-cleaning" target="1.7" />
+      <module name="commands-common" target="1.7" />
+      <module name="commands-import" target="1.7" />
+      <module name="commands-include" target="1.7" />
+      <module name="commands-publish" target="1.7" />
+      <module name="commands-publish-alignment-openrdf" target="1.7" />
+      <module name="commands-publish-jdbc" target="1.7" />
+      <module name="commands-python" target="1.7" />
+      <module name="commands-update" target="1.7" />
+      <module name="commands-update-jdbc" target="1.7" />
+      <module name="commands-worksheet" target="1.7" />
+      <module name="EAT" target="1.7" />
+      <module name="ExtractInfo" target="1.7" />
+      <module name="Extractnfo" target="1.7" />
+      <module name="import-avro" target="1.7" />
+      <module name="import-common" target="1.7" />
+      <module name="import-csv" target="1.7" />
+      <module name="import-database" target="1.7" />
+      <module name="import-excel" target="1.7" />
+      <module name="import-file" target="1.7" />
+      <module name="import-json" target="1.7" />
+      <module name="import-ontology" target="1.7" />
+      <module name="import-service" target="1.7" />
+      <module name="import-spatial" target="1.7" />
+      <module name="import-xml" target="1.7" />
+      <module name="karma-cleaning" target="1.7" />
+      <module name="karma-commands" target="1.7" />
+      <module name="karma-common" target="1.7" />
+      <module name="karma-jdbc" target="1.7" />
+      <module name="karma-mr" target="1.7" />
+      <module name="karma-offline" target="1.7" />
+      <module name="karma-storm" target="1.7" />
+      <module name="karma-typer" target="1.7" />
+      <module name="karma-util" target="1.7" />
+      <module name="karma-web" target="1.7" />
+      <module name="karma-web-services" target="1.7" />
+      <module name="simpleGraphTest" target="1.7" />
+      <module name="web-services-rdf" target="1.7" />
+      <module name="webkarma" target="1.7" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <option name="DEFAULT_COMPILER" value="Javac" />
+    <resourceExtensions />
+    <wildcardResourcePatterns>
+      <entry name="!?*.java" />
+      <entry name="!?*.form" />
+      <entry name="!?*.class" />
+      <entry name="!?*.groovy" />
+      <entry name="!?*.scala" />
+      <entry name="!?*.flex" />
+      <entry name="!?*.kt" />
+      <entry name="!?*.clj" />
+    </wildcardResourcePatterns>
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="false">
+        <processorPath useClasspath="true" />
+      </profile>
+      <profile default="false" name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="commands-alignment" />
+        <module name="commands-alignment-openrdf" />
+        <module name="commands-cleaning" />
+        <module name="commands-common" />
+        <module name="commands-publish" />
+        <module name="commands-publish-alignment-openrdf" />
+        <module name="commands-publish-jdbc" />
+        <module name="commands-python" />
+        <module name="commands-update" />
+        <module name="commands-update-jdbc" />
+        <module name="commands-worksheet" />
+        <module name="import-avro" />
+        <module name="import-common" />
+        <module name="import-csv" />
+        <module name="import-excel" />
+        <module name="import-file" />
+        <module name="import-json" />
+        <module name="import-ontology" />
+        <module name="import-service" />
+        <module name="import-spatial" />
+        <module name="import-xml" />
+        <module name="karma-cleaning" />
+        <module name="karma-common" />
+        <module name="karma-jdbc" />
+        <module name="karma-mr" />
+        <module name="karma-offline" />
+        <module name="karma-storm" />
+        <module name="karma-typer" />
+        <module name="karma-util" />
+        <module name="karma-web" />
+        <module name="web-services-rdf" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel target="1.7">
+      <module name="ExtractInfo" target="1.7" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

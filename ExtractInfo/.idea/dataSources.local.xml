@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="MySQL - urldb_2015@localhost [2]" uuid="b43d6cde-d05b-40a6-908e-a27f7a70efdb">
+      <secret-storage>master_key</secret-storage>
+      <user-name>siimobility</user-name>
+      <schema-pattern>urldb_2015.*</schema-pattern>
+      <default-schemas>urldb_2015.*</default-schemas>
+    </data-source>
+    <data-source name="MySQL - geolocationdb@localhost" uuid="8027a6f9-8a2c-4ce5-beb6-2203bd96a251">
+      <secret-storage>master_key</secret-storage>
+      <user-name>siimobility</user-name>
+      <schema-pattern>geolocationdb.*</schema-pattern>
+      <default-schemas>geolocationdb.*</default-schemas>
+    </data-source>
+  </component>
+</project>

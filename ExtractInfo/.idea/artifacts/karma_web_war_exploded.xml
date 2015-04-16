@@ -1,0 +1,6 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="karma-web:war exploded">
+    <output-path>$PROJECT_DIR$/web-karma-master/karma-web/target/karma-web-0.0.1-SNAPSHOT</output-path>
+    <root id="root" />
+  </artifact>
+</component>

@@ -1,0 +1,6 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="web-services-rdf:war exploded">
+    <output-path>$PROJECT_DIR$/web-karma-master/karma-web-services/web-services-rdf/target/web-services-rdf-0.0.1-SNAPSHOT</output-path>
+    <root id="root" />
+  </artifact>
+</component>
