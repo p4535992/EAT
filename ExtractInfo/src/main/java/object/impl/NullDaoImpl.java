@@ -1,16 +1,26 @@
 package object.impl;
 
 import object.dao.NullDao;
+import object.model.GeoDocument;
+import object.model.Website;
+import org.hibernate.HibernateException;
+import org.hibernate.Query;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.ResultSetExtractor;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.orm.hibernate4.HibernateCallback;
 import org.springframework.orm.hibernate4.HibernateTemplate;
 import util.SystemLog;
 
 import javax.sql.DataSource;
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -60,7 +70,7 @@ public class NullDaoImpl<T> implements NullDao {
     }
 
     @Override
-    public void loadSpringConfig(String filePathXml, Class<? extends Object> cl) {
+    public void loadSpringConfig(String filePathXml, Class cl) {
         contextClassPath = new ClassPathXmlApplicationContext(filePathXml);
         Object classObject = contextClassPath.getBean(cl);
     }
@@ -77,7 +87,7 @@ public class NullDaoImpl<T> implements NullDao {
     }
 
     @Override
-    public void loadHibernateConfig(String filePathXml,Class<? extends Object> cl) {
+    public void loadHibernateConfig(String filePathXml,Class cl) {
 
     }
 
@@ -153,8 +163,22 @@ public class NullDaoImpl<T> implements NullDao {
     }
 
     @Override
-    public void insertAndTrim(String SQL,Object[] params,int[] types) {
-        String query = SQL;
+    public void insertAndTrim(Object[] params,int[] types) {
+        String query =  "INSERT INTO "+myInsertTable+"  (";
+        for(int i = 0; i <  params.length; i++){
+            query += params[i];
+            if(i < params.length-1){
+                query+= ",";
+            }
+        }
+        query +=" ) VALUES ( ";
+        for(int i = 0; i <  params.length; i++){
+            query += "?";
+            if(i < params.length-1){
+                query+= ",";
+            }
+        }
+        query += ");";
         // execute insert query to insert the data
         // return number of row / rows processed by the executed query
         jdbcTemplate.update(query, params, types);
@@ -175,14 +199,40 @@ public class NullDaoImpl<T> implements NullDao {
     }
 
     @Override
-    public List selectAll() {
-        return null;
+    public List selectAll(String column) {
+        return this.jdbcTemplate.query("select FIRSTNAME, LASTNAME from PERSON",
+                new RowMapper<Website>() {
+                    @Override
+                    public Website mapRow(ResultSet rs, int rowNum) throws SQLException {
+                        final Website w = new Website();
+                        ResultSetExtractor extractor = new ResultSetExtractor() {
+
+                            @Override
+                            public Object extractData(ResultSet rs) throws SQLException, DataAccessException {
+                                w.setId(rs.getString("id"));
+                                w.setCity(rs.getString("city"));
+                                w.setUrl(rs.getString("url"));
+                                return w;
+                            }
+                        };
+                        return w;
+                    }
+                }
+        );
     }
 
     @Override
-    public List select(String column, String limit, String offset) {
-        return null;
+    public List select(final String column, String limit, String offset) {
+        return this.jdbcTemplate.query("select "+column+" from " + myInsertTable + " LIMIT " + limit + " OFFSET " + offset + "",
+                new RowMapper<Object>() {
+                    @Override
+                    public Object mapRow(ResultSet rs, int rowNum) throws SQLException {
+                        return rs.getObject(column);
+                    }
+                }
+        );
     }
+
 
     @Override
     public List select(String column, String datatype, String limit, String offset) {
@@ -190,34 +240,56 @@ public class NullDaoImpl<T> implements NullDao {
     }
 
     @Override
-    public void saveH(Object object) {
+    public void saveSimpleH(Object object) {
         hibernateTemplate.save(object);
     }
 
     @Override
-    public void updateH(Object object) {
+    public void updateSimpleH(Object object) {
         hibernateTemplate.update(object);
     }
 
     @Override
-    public void deleteH(Object object) {
+    public void deleteSimpleH(Object object) {
         hibernateTemplate.delete(object);
     }
 
     @Override
-    public Object getHByColumn(String column,Object object) {
-        Object g = hibernateTemplate.get(object.class,column);
+    public Object getHByColumn(String column,Class cl) {
+        Object g = hibernateTemplate.get(cl,column);
         return g;
     }
 
     @Override
-    public List getAllH() {
-        return null;
+    public List selectAllSimpleH(Class cl) {
+        List<Object> list = new ArrayList<>();
+        list = hibernateTemplate.loadAll(cl);
+        return list;
     }
 
     @Override
-    public List getAllH(String limit, String offset) {
-        return null;
+    public List selectAllSimpleH(final String limit,final String offset) {
+        List<GeoDocument> docs = new ArrayList<GeoDocument>();
+        //METHOD 1 (Boring)
+        /*
+        Query q = getHibernateTemplate().getSession().createQuery("from User");
+        q.setFirstResult(0); // modify this to adjust paging
+        q.setMaxResults(limit);
+        return (List<User>) q.list();
+        */
+        if(limit != null && offset != null) {
+            //METHOD 2 (Probably the best)
+            docs =
+                    (List<GeoDocument>) hibernateTemplate.execute(new HibernateCallback() {
+                        public Object doInHibernate(Session session) throws HibernateException {
+                            Query query = session.createQuery("from " + mySelectTable + "");
+                            query.setFirstResult(Integer.parseInt(offset));
+                            query.setMaxResults(Integer.parseInt(limit));
+                            return (List<GeoDocument>) query.list();
+                        }
+                    });
+        }
+        return docs;
     }
 
     @Override
