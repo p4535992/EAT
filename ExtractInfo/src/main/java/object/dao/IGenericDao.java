@@ -17,8 +17,7 @@ public interface IGenericDao<T> {
     //BASE - SPRING//
     /////////////////
     void setDriverManager(String driver, String typeDb, String host, String port, String user, String pass, String database);
-    void setTable(String nameOfTable);
-    void setJdbcTemplate(JdbcTemplate jdbcTemplate);
+    void setNewJdbcTemplate();
     void setDataSource(DataSource ds);
     void loadSpringConfig(String filePathXml);
 
@@ -26,7 +25,7 @@ public interface IGenericDao<T> {
     //BASE -HIBERNATE//
     //////////////////
     void setHibernateTemplate(HibernateTemplate hibernateTemplate);
-    void setHibernateTemplate(SessionFactory sessionFactory);
+    void setNewHibernateTemplate(SessionFactory sessionFactory);
     void loadHibernateConfig(String filePathXml);
 
     /////////

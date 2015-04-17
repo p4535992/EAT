@@ -1,0 +1,198 @@
+package util.gate.servlet;;
+
+import gate.Corpus;
+import gate.CorpusController;
+import gate.Document;
+import gate.Factory;
+import gate.creole.ExecutionException;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.Map;
+import java.util.concurrent.atomic.AtomicInteger;
+
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import object.dao.IWebsiteDao;
+import object.impl.WebsiteDaoImpl;
+import org.apache.log4j.Logger;
+import org.springframework.web.HttpRequestHandler;
+import util.gate.CreateCorpus;
+
+/**
+ * Simple HttpRequestHandler that uses a GATE application to process
+ * some text as a GATE document and render the document's features as an
+ * HTML table.
+ */
+public class MyGateHandler implements HttpRequestHandler {
+  
+  private static ArrayList<URL> listaUrl= new ArrayList<URL>();
+  private static final Logger log = Logger.getLogger(MyGateHandler.class);
+  private static CreateCorpus create = new CreateCorpus();
+
+  /**Atomic counter that we use to obtain a unique ID for each handler instance.*/
+  private static AtomicInteger nextId = new AtomicInteger(1);
+  /**The ID of this handler instance.*/
+  private int handlerId;
+  /**The application that will be run. */
+  private CorpusController application;
+  /**A corpus that will be used to hold the document being processed.*/
+  private Corpus corpus;
+  /**Set the application that will be run over the documents.*/
+  public void setApplication(CorpusController application) {this.application = application; }
+
+  /**
+   * Create the corpus. The PostConstruct annotation means that this
+   * method will be called by spring once the handler object has been
+   * constructed and its properties (i.e. the application) have been
+   * set.
+   */
+  @PostConstruct
+  public void init() throws Exception {
+    IWebsiteDao websiteDao = new WebsiteDaoImpl();
+    websiteDao.setTableSelect("website");
+    websiteDao.setDriverManager(
+            "com.mysql.jdbc.Driver",
+            "jdbc:mysql",
+            "localhost",
+            "3306",
+            "siimobility",
+            "siimobility",
+            "urldb");
+
+    listaUrl = (ArrayList<URL>) websiteDao.selectAllUrl("url","8", "0");
+    for(int i = 0; i < listaUrl.size(); i++) {System.out.println("url["+i+"]:"+listaUrl.get(i));}
+    //init GATE
+     try {
+       // create a GATE corpus and add a document for each command-line argument
+       corpus = Factory.newCorpus("MainPipeline corpus");
+       corpus = create.createCorpusByListOfUrls(listaUrl, corpus.getName(), handlerId, null);
+       System.err.println("Fine caricamento della PIPELINE");
+       //controller.setCorpus(corpus2);
+       application.setCorpus(corpus);//set corpus
+       System.err.println("...START");
+       application.execute();
+       //controller.execute();//execute the corpus fatto da spring
+     }catch (Exception e){
+       e.printStackTrace();
+     }
+  }
+
+  /**
+   * Clean-up method. The PreDestroy annotation means that Spring will
+   * call the method when the object is no longer required.
+   */
+  @PreDestroy
+  public void cleanup() {
+    log.info("cleanup() for GateHandler " + handlerId);
+    Factory.deleteResource(corpus);
+    Factory.deleteResource(application);
+  }
+
+  /**
+   * Handle a request.
+   */
+  public void handleRequest(HttpServletRequest request,
+          HttpServletResponse response) throws ServletException, IOException {
+    log.info("Handler " + handlerId + " handling request");
+//    // we take the text to annotate from a form field
+//    String text = request.getParameter("text");
+//    // the form also allows you to provide a mime type
+//    String mime = request.getParameter("mime");
+    
+    // delay parameter to fake a long-running process
+    int delay = 0;
+    String delayParam = request.getParameter("delay");
+    if(delayParam != null) {
+      try {
+        delay = Integer.parseInt(delayParam);
+      }
+      catch(NumberFormatException e) {
+        log.warn("Failed to parse delay value " + delayParam + ", ignored", e);
+      }
+    }
+
+      Document doc = corpus.get(0);
+    try {
+      application.execute();
+      // fake a long-running application by sleeping for delay seconds
+      try {
+        Thread.sleep(delay * 1000);
+      }
+      catch(InterruptedException e) {
+        // re-interrupt self
+        Thread.currentThread().interrupt();
+      }
+      log.info("Application completed");
+      successMessage(doc, response);
+    }
+    catch(ExecutionException e) {
+      failureMessage("Error occurred which executing GATE application", e,response);
+    }
+    finally {
+      // remember to do the clean-up tasks in a finally
+      corpus.clear();
+       log.info("Deleting corpus");
+      log.info("Deleting document");
+      Factory.deleteResource(doc);
+    }
+  }
+  
+  
+  /**
+   * Render the document's features in an HTML table.
+   */
+  private void successMessage(Document doc, HttpServletResponse response)
+          throws IOException {
+    response.setContentType("text/html");
+    PrintWriter w = response.getWriter();
+    w.println("<html>");
+    w.println("<head>");
+    w.println("<title>Results - GATE handler " + handlerId + "</title>");
+    w.println("</head>");
+    w.println("<body>");
+    w.println("<h1>Document features: GATE handler " + handlerId + "</h1>");
+    w.println("<table>");
+    w.println("<tr><td><b>Name</b></td><td><b>Value</b></td></tr>");
+    for(Map.Entry<Object, Object> entry : doc.getFeatures().entrySet()) {
+      w.println("<tr><td>" + entry.getKey() + "</td><td>" + entry.getValue()
+              + "</td></tr>");
+    }
+    w.println("</table>");
+    w.println("</body>");
+    w.println("</html>");
+  }
+
+  /**
+   * Simple error handler - you would obviously use something more
+   * sophisticated in a real application.
+   */
+  private void failureMessage(String message, Exception e,
+          HttpServletResponse response) throws IOException {
+    response.setContentType("text/html");
+    PrintWriter w = response.getWriter();
+    w.println("<html>");
+    w.println("<head>");
+    w.println("<title>Error - GATE handler " + handlerId + "</title>");
+    w.println("</head>");
+    w.println("<body>");
+    w.println("<h1>Error in GATE handler " + handlerId + "</h1>");
+    w.println("<p>" + message + "</p>");
+    if(e != null) {
+      w.println("<pre>");
+      e.printStackTrace(w);
+      w.println("</pre>");
+    }
+    w.println("</body>");
+    w.println("</html>");
+  }
+  
+  
+  
+}

@@ -37,15 +37,8 @@ public class FileUtil {
         extensionSeparator = ext;
     }
 
-    public static String extension() {
-        int dot = fullPath.lastIndexOf(extensionSeparator);
-        return fullPath.substring(dot + 1);
-    }
-
     public static String extension(File f) {
-        String fullPath = f.getAbsolutePath();
-        int dot = fullPath.lastIndexOf(extensionSeparator);
-        return fullPath.substring(dot + 1);
+        return extension(f.getAbsolutePath());
     }
 
     public static String extension(String fullPath) {
@@ -53,17 +46,8 @@ public class FileUtil {
         return fullPath.substring(dot + 1);
     }
 
-    public static String filenameNoExt() { // gets filename without extension
-        int dot = fullPath.lastIndexOf(extensionSeparator);
-        int sep = fullPath.lastIndexOf(pathSeparator);
-        return fullPath.substring(sep + 1, dot);
-    }
-
     public static String filenameNoExt(File f) { // gets filename without extension
-        String fullPath = f.getAbsolutePath();
-        int dot = fullPath.lastIndexOf(extensionSeparator);
-        int sep = fullPath.lastIndexOf(pathSeparator);
-        return fullPath.substring(sep + 1, dot);
+        return filenameNoExt(f.getAbsolutePath());
     }
 
     public static String filenameNoExt(String fullPath) { // gets filename without extension
@@ -85,17 +69,25 @@ public class FileUtil {
         return name;
     }
 
+    public static String convertToRelativePath(String base,String absolutePath){
+        return new File(base).toURI().relativize(new File(absolutePath).toURI()).getPath();
+    }
+
+    public static String localPath(String localPath){
+        return localPath("",localPath);
+    }
+
+    public static String localPath(String basePath,String localPath){
+        basePath = basePath.replace(System.getProperty("user.dir"),"");
+        return basePath+File.separator+localPath;
+    }
+
     public static String path() {
-        //int sep = fullPath.lastIndexOf(pathSeparator);
-        //String path = fullPath.substring(0, sep);
         return fullPath.substring(0, fullPath.lastIndexOf(File.separator));
     }
 
     public static String path(File f) {
-        //int sep = fullPath.lastIndexOf(pathSeparator);
-        //String path = fullPath.substring(0, sep);
-        String fullPath = f.getAbsolutePath();
-        return fullPath.substring(0, fullPath.lastIndexOf(File.separator));
+       return path(f.getAbsolutePath());
     }
 
     public static String path(String fullPath) {
@@ -187,38 +179,7 @@ public class FileUtil {
     }
 
 
-    public static void writeOutputStreamToFile(OutputStream out, File f) throws IOException {
-        //OutputStream out=null;
-        //FileOutputStream os = new FileOutputStream(file);
-        //OutputStreamWriter ow = new OutputStreamWriter(os);
-        //BufferedWriter writer = new BufferedWriter(ow);
-        //Path path = Paths.get(file.getAbsolutePath());
-        //Charset ENCODING = StandardCharsets.UTF_8;
-        //OutputStreamWriter ow = new OutputStreamWriter(out);
-        out = new FileOutputStream(f);
-        OutputStreamWriter ow = new OutputStreamWriter(out);
-        BufferedWriter writer = new BufferedWriter(ow);
-        try {
-           /*
-           DataInputStream din = new DataInputStream(new FileInputStream("test1.txt"));
-           DataOutputStream dout = new DataOutputStream(new FileOutputStream("test1.txt"));        
-            String count;
-                while((count = din.readLine()) != null){
-                    String u = count.toUpperCase();
-                    System.out.println(u);
-                    dout.writeBytes(u + "  ,");
-                }
-                din.close();
-                dout.close();
-             }
-             */
-        } catch (Exception e) {
-        } finally {
-            if (out != null) {
-                out.close();
-            }
-        }
-    }
+
 
 
     /**

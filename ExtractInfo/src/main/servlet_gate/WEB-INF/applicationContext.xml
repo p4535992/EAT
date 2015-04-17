@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+
+      xmlns="http://www.springframework.org/schema/beans"
+      xmlns:context="http://www.springframework.org/schema/context"
+      xmlns:gate="http://gate.ac.uk/ns/spring"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="
+      http://www.springframework.org/schema/beans
+      http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+      http://www.springframework.org/schema/context
+      http://www.springframework.org/schema/context/spring-context-2.5.xsd
+      http://gate.ac.uk/ns/spring
+      http://gate.ac.uk/ns/spring.xsd"
+    >
+  <!-- enable the @PostConstruct and @PreDestroy annotation handling --> 
+  <context:annotation-config />
+
+  <!-- init gate -->
+  <gate:init gate-home="gate_files"
+             plugins-home="plugins"
+             site-config-file="gate_files/gate.xml"
+             user-config-file="gate_files/user-gate-mio.xml"/>
+
+  <!-- set up the definition of the GATE application.  This will load one copy
+  of the application and then duplicate it. -->
+  <gate:duplicate id="myApp" >
+    <!--<gate:saved-application location="/WEB-INF/gate-files/marcoPipeline.xgapp" />-->
+    <gate:saved-application location="gate_files/custom/gapp/geoLocationPipeline06102014v7_fastMode.xgapp" />
+  </gate:duplicate>
+ 
+  <!-- Define the pooled handler bean -->
+  <!-- Pooling configuration, modify this to control pool parameters -->
+  <!--<bean class="org.springframework.web.HttpRequestHandler"-->
+
+  <!-- Define the pooled handler bean -->
+  <bean id="MyGateHandler" class="util.gate.servlet.MyGateHandler">
+    <property name="application" ref="myApp">
+    </property> 
+     <!--Pooling configuration, modify this to control pool parameters--> 
+    <gate:pooled-proxy max-size="1" initial-size="1" />
+  </bean>
+  
+<!--  <bean id="gateHandler" class="servlet.GateHandler">
+    <property name="application" ref="myApp">
+    </property> 
+     Pooling configuration, modify this to control pool parameters 
+    <gate:pooled-proxy max-size="1"
+                       initial-size="1" />
+  </bean>-->
+</beans>
+
+

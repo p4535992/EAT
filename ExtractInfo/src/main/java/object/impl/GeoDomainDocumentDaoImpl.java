@@ -25,44 +25,11 @@ import java.util.List;
  */
 @org.springframework.stereotype.Component("GeoDomainDocumentDao")
 public class GeoDomainDocumentDaoImpl extends GenericDaoImpl<GeoDomainDocument> implements IGeoDomainDocumentDao {
-    private DriverManagerDataSource driverManag;
-    private JdbcTemplate jdbcTemplate;
-    private String myTable;
-    private String myTableSelect;
-    private DataSource dataSource;
-    private HibernateTemplate hibernateTemplate;
-    private SessionFactory sessionFactory;
-    private ClassPathXmlApplicationContext contextClassPath;
 
     @Override
     public void setDriverManager(String driver, String typeDb, String host,String port, String user, String pass, String database) {
-        driverManag = new DriverManagerDataSource();
-        driverManag.setDriverClassName(driver);//"com.mysql.jdbc.Driver"
-        driverManag.setUrl("" + typeDb + "://" + host + ":" + port + "/" + database); //"jdbc:mysql://localhost:3306/jdbctest"
-        driverManag.setUsername(user);
-        driverManag.setPassword(pass);
-        this.jdbcTemplate = new JdbcTemplate();
-        this.dataSource = driverManag;
-        this.jdbcTemplate.setDataSource(dataSource);
+        super.setDriverManager(driver,typeDb, host, port,user,  pass, database);
     }
-
-    @Override
-    public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
-        this.jdbcTemplate = new JdbcTemplate();
-        this.jdbcTemplate.setDataSource(dataSource);
-    }
-
-    @Override
-    public void setHibernateTemplate(HibernateTemplate ht) {
-        this.hibernateTemplate = ht;
-    }
-
-    @Override
-    public void setHibernateTemplate(SessionFactory sessionFactory) {
-        this.sessionFactory = sessionFactory;
-        this.hibernateTemplate = new HibernateTemplate(getSessionFactory());
-    }
-
 
     @Override
     public void setDataSource(DataSource ds) {
@@ -83,13 +50,13 @@ public class GeoDomainDocumentDaoImpl extends GenericDaoImpl<GeoDomainDocument> 
 
     @Override
     public void setTableSelect(String nameOfTable){
-        this.myTableSelect = nameOfTable;
+        this.mySelectTable = nameOfTable;
     }
 
     @Override
     public void setTableInsert(String nameOfTable){
 
-        this.myTable = nameOfTable;
+        this.myInsertTable = nameOfTable;
     }
 
     public void setSessionFactory(SessionFactory sessionFactory) {
@@ -107,10 +74,10 @@ public class GeoDomainDocumentDaoImpl extends GenericDaoImpl<GeoDomainDocument> 
 
     @Override
     public void create() throws Exception {
-        if(myTable.isEmpty()) {
+        if(myInsertTable.isEmpty()) {
             throw new Exception("Name of the table is empty!!!");
         }
-        String query ="CREATE TABLE IF NOT EXISTS `"+myTable+"` (\n" +
+        String query ="CREATE TABLE IF NOT EXISTS `"+myInsertTable+"` (\n" +
                 "  `doc_id` int(11) NOT NULL AUTO_INCREMENT,\n" +
                 "  `url` varchar(255) COLLATE utf8_bin DEFAULT NULL,\n" +
                 "  `regione` varchar(50) COLLATE utf8_bin DEFAULT NULL,\n" +
@@ -139,7 +106,7 @@ public class GeoDomainDocumentDaoImpl extends GenericDaoImpl<GeoDomainDocument> 
     public void create(boolean erase) throws Exception {
         String query;
         if(erase==true) {
-            query = "DROP TABLE IF EXISTS "+myTable+";";
+            query = "DROP TABLE IF EXISTS "+myInsertTable+";";
             jdbcTemplate.execute(query);
         }
         create();
@@ -147,7 +114,7 @@ public class GeoDomainDocumentDaoImpl extends GenericDaoImpl<GeoDomainDocument> 
 
     @Override
     public boolean verifyDuplicate(String columnWhereName, String valueWhereName) {
-        int c = this.jdbcTemplate.queryForObject("select count(*) from "+myTable+" where "+columnWhereName+"='"+valueWhereName+"'", Integer.class);
+        int c = this.jdbcTemplate.queryForObject("select count(*) from "+myInsertTable+" where "+columnWhereName+"='"+valueWhereName+"'", Integer.class);
         boolean b = false;
         if(c > 0){
             b = true;
@@ -159,7 +126,7 @@ public class GeoDomainDocumentDaoImpl extends GenericDaoImpl<GeoDomainDocument> 
 
     @Override
     public List<String> selectAllString(final String column,String limit, String offset) {
-        return this.jdbcTemplate.query("select "+column+" from " + myTable + " LIMIT " + limit + " OFFSET " + offset + "",
+        return this.jdbcTemplate.query("select "+column+" from " + mySelectTable + " LIMIT " + limit + " OFFSET " + offset + "",
                 new RowMapper<String>() {
                     @Override
                     public String mapRow(ResultSet rs, int rowNum) throws SQLException {
@@ -172,7 +139,7 @@ public class GeoDomainDocumentDaoImpl extends GenericDaoImpl<GeoDomainDocument> 
     @Override
     public void insertAndTrim(GeoDocument g) {
         String query =
-                "INSERT INTO "+myTable+" "
+                "INSERT INTO "+myInsertTable+" "
                         + "(url, regione, provincia, city, indirizzo, iva, email, telefono, fax," +
                         " edificio, latitude,longitude,nazione,description,postalCode,indirizzoNoCAP," +
                         "indirizzoHasNumber) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
@@ -191,7 +158,7 @@ public class GeoDomainDocumentDaoImpl extends GenericDaoImpl<GeoDomainDocument> 
         jdbcTemplate.update(query, params, types);
 
         //Method 1 ROWMAP
-        query = "SELECT * FROM "+myTable+" LIMIT 1";
+        query = "SELECT * FROM "+myInsertTable+" LIMIT 1";
 
         try {
             Connection connection = dataSource.getConnection();
@@ -202,7 +169,7 @@ public class GeoDomainDocumentDaoImpl extends GenericDaoImpl<GeoDomainDocument> 
 
             // get the column names; column indexes start from 1
             for (int i = 1; i < numberOfColumns + 1; i++) {
-                query = "UPDATE `" + myTable + "` SET `" + rsMetaData.getColumnName(i) + "` = LTRIM(RTRIM(`" + rsMetaData.getColumnName(i) + "`));";
+                query = "UPDATE `" + myInsertTable + "` SET `" + rsMetaData.getColumnName(i) + "` = LTRIM(RTRIM(`" + rsMetaData.getColumnName(i) + "`));";
                 SystemLog.write(query, "OUT");
                 jdbcTemplate.execute(query);
             }
@@ -257,7 +224,7 @@ public class GeoDomainDocumentDaoImpl extends GenericDaoImpl<GeoDomainDocument> 
             docs =
              (List<GeoDocument>) hibernateTemplate.execute(new HibernateCallback() {
                 public Object doInHibernate(Session session) throws HibernateException {
-                    Query query = session.createQuery("from " + myTableSelect + "");
+                    Query query = session.createQuery("from " + mySelectTable + "");
                     query.setFirstResult(Integer.parseInt(offset));
                     query.setMaxResults(Integer.parseInt(limit));
                     return (List<GeoDocument>) query.list();

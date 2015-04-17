@@ -27,31 +27,11 @@ import java.util.Map;
 @org.springframework.stereotype.Component("WebsiteDao")
 public class WebsiteDaoImpl extends GenericDaoImpl<Website> implements IWebsiteDao {
 
-    private DriverManagerDataSource driverManag;
-    private JdbcTemplate jdbcTemplate;
-    private String myTable;
-    private DataSource dataSource;
-    private HibernateTemplate hibernateTemplate;
-    private SessionFactory sessionFactory;
-    private ClassPathXmlApplicationContext contextClassPath;
-
     @Override
     public void setDriverManager(String driver, String typeDb, String host,String port, String user, String pass, String database) {
-        driverManag = new DriverManagerDataSource();
-        driverManag.setDriverClassName(driver);//"com.mysql.jdbc.Driver"
-        driverManag.setUrl("" + typeDb + "://" + host + ":" + port + "/" + database); //"jdbc:mysql://localhost:3306/jdbctest"
-        driverManag.setUsername(user);
-        driverManag.setPassword(pass);
-        this.jdbcTemplate = new JdbcTemplate();
-        this.dataSource = driverManag;
-        this.jdbcTemplate.setDataSource(dataSource);
+        super.setDriverManager(driver,typeDb, host, port,user,  pass, database);
     }
 
-    @Override
-    public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
-        this.jdbcTemplate = new JdbcTemplate();
-        this.jdbcTemplate.setDataSource(dataSource);
-    }
 
     @Override
     public void setHibernateTemplate(HibernateTemplate ht) {
@@ -59,8 +39,8 @@ public class WebsiteDaoImpl extends GenericDaoImpl<Website> implements IWebsiteD
     }
 
     @Override
-    public void setHibernateTemplate(SessionFactory sessionFactory) {
-        this.hibernateTemplate = new HibernateTemplate(sessionFactory);
+    public void setNewHibernateTemplate(SessionFactory sessionFactory) {
+        hibernateTemplate = new HibernateTemplate(sessionFactory);
     }
 
     @Override
@@ -69,8 +49,8 @@ public class WebsiteDaoImpl extends GenericDaoImpl<Website> implements IWebsiteD
     }
 
     @Override
-    public void setTable(String nameOfTable){
-        this.myTable = nameOfTable;
+    public void setTableSelect(String nameOfTable){
+        this.mySelectTable = nameOfTable;
     }
 
     @Override
@@ -97,12 +77,12 @@ public class WebsiteDaoImpl extends GenericDaoImpl<Website> implements IWebsiteD
 
     @Override
     public int getCount() {
-        return this.jdbcTemplate.queryForObject("select count(*) from " + myTable + "", Integer.class);
+        return this.jdbcTemplate.queryForObject("select count(*) from " + mySelectTable + "", Integer.class);
     }
 
     @Override
     public List<Map<String,Object>> getAll() {
-        return this.jdbcTemplate.queryForList("select * from " + myTable + "");
+        return this.jdbcTemplate.queryForList("select * from " + mySelectTable + "");
     }
 
     @Override
@@ -111,7 +91,7 @@ public class WebsiteDaoImpl extends GenericDaoImpl<Website> implements IWebsiteD
         jdbcTemplate.update(
                 new PreparedStatementCreator() {
                     public PreparedStatement createPreparedStatement(Connection connection) throws SQLException {
-                        PreparedStatement ps = connection.prepareStatement("insert into "+myTable+" ("+ idColumn+") values(?)", new String[]{"id"});
+                        PreparedStatement ps = connection.prepareStatement("insert into "+mySelectTable+" ("+ idColumn+") values(?)", new String[]{"id"});
                         ps.setString(1, "Marco");
                         return ps;
                     }
@@ -147,7 +127,7 @@ public class WebsiteDaoImpl extends GenericDaoImpl<Website> implements IWebsiteD
 
     @Override
     public List<String> selectAllString(String column,String limit, String offset) {
-       return this.jdbcTemplate.query("select " + column + " from " + myTable + " LIMIT " + limit + " OFFSET " + offset + "",
+       return this.jdbcTemplate.query("select " + column + " from " + mySelectTable + " LIMIT " + limit + " OFFSET " + offset + "",
                 new RowMapper<String>() {
                     @Override
                     public String mapRow(ResultSet rs, int rowNum) throws SQLException {
@@ -191,7 +171,7 @@ public class WebsiteDaoImpl extends GenericDaoImpl<Website> implements IWebsiteD
 
     @Override
     public boolean verifyDuplicate(String columnWhereName,String valueWhereName){
-        int c = this.jdbcTemplate.queryForObject("select count(*) from "+myTable+" where "+columnWhereName+"='"+valueWhereName+"'", Integer.class);
+        int c = this.jdbcTemplate.queryForObject("select count(*) from "+ mySelectTable+" where "+columnWhereName+"='"+valueWhereName+"'", Integer.class);
         boolean b = false;
         if(c > 0){
             b = true;
@@ -201,7 +181,7 @@ public class WebsiteDaoImpl extends GenericDaoImpl<Website> implements IWebsiteD
 
     @Override
     public void deleteAll() {
-        jdbcTemplate.update("DELETE from "+myTable+"");
+        jdbcTemplate.update("DELETE from "+ mySelectTable +"");
     }
 
 

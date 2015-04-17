@@ -11,6 +11,7 @@ import util.ManageJsonWithGoogleMaps;
 import util.SystemLog;
 import util.cmd.SimpleParameters;
 import util.gate.DataStoreApplication;
+import util.gate.GateKit;
 import util.http.HttpUtil;
 import util.karma.GenerationOfTriple;
 import util.setInfoParameterIta.SetCodicePostale;
@@ -141,30 +142,8 @@ public class ExtractInfoSpring {
             par.getParameters().clear();
      }
 
-    private  String qCreateGeoDocument ="CREATE TABLE IF NOT EXISTS `"+TABLE_OUTPUT+"` (\n" +
-            "  `doc_id` int(11) NOT NULL AUTO_INCREMENT,\n" +
-            "  `url` varchar(255) COLLATE utf8_bin DEFAULT NULL,\n" +
-            "  `regione` varchar(50) COLLATE utf8_bin DEFAULT NULL,\n" +
-            "  `provincia` varchar(50) COLLATE utf8_bin DEFAULT NULL,\n" +
-            "  `city` varchar(50) COLLATE utf8_bin DEFAULT NULL,\n" +
-            "  `indirizzo` varchar(255) COLLATE utf8_bin DEFAULT NULL,\n" +
-            "  `iva` varchar(50) COLLATE utf8_bin DEFAULT NULL,\n" +
-            "  `email` varchar(255) COLLATE utf8_bin DEFAULT NULL,\n" +
-            "  `telefono` varchar(255) COLLATE utf8_bin DEFAULT NULL,\n" +
-            "  `fax` varchar(255) COLLATE utf8_bin DEFAULT NULL,\n" +
-            "  `edificio` varchar(1000) COLLATE utf8_bin DEFAULT NULL,\n" +
-            "  `latitude` varchar(255) COLLATE utf8_bin DEFAULT NULL,\n" +
-            "  `longitude` varchar(255) COLLATE utf8_bin DEFAULT NULL,\n" +
-            "  `nazione` varchar(50) COLLATE utf8_bin DEFAULT NULL,\n" +
-            "  `description` varchar(5000) COLLATE utf8_bin DEFAULT NULL,\n" +
-            "  `postalCode` varchar(1000) COLLATE utf8_bin DEFAULT NULL,\n" +
-            "  `indirizzoNoCAP` varchar(1000) COLLATE utf8_bin DEFAULT NULL,\n" +
-            "  `indirizzoHasNumber` varchar(1000) COLLATE utf8_bin DEFAULT NULL,\n" +
-            "  PRIMARY KEY (`doc_id`),\n" +
-            "  KEY `url` (`url`)\n" +
-            ") ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;";
-
-    private static IGenericDao nDao;
+    private static IGenericDao gDao;
+    private static CorpusController controller;
     /**
      * Metodo Main del programma per la creazione di InfoDocument
      */
@@ -176,10 +155,10 @@ public class ExtractInfoSpring {
             try{
                  if(PROCESS_PROGAMM != 4){
                      IGeoDocumentDao geoDocumentDao = new GeoDocumentDaoImpl();
-                     geoDocumentDao.setTable(TABLE_OUTPUT);
+                     geoDocumentDao.setTableSelect(TABLE_OUTPUT);
                      geoDocumentDao.setDriverManager(DRIVER_DATABASE, DIALECT_DATABASE, HOST_DATABASE, PORT_DATABASE.toString(), USER, PASS, DB_OUTPUT);
                      IWebsiteDao websiteDao = new WebsiteDaoImpl();
-                     websiteDao.setTable(TABLE_INPUT);
+                     websiteDao.setTableSelect(TABLE_INPUT);
                      websiteDao.setDriverManager(DRIVER_DATABASE, DIALECT_DATABASE, HOST_DATABASE, PORT_DATABASE.toString(), USER, PASS, DB_INPUT);
                      if(CreaNuovaTabellaGeoDocumenti ==true){
                          geoDocumentDao.create();
@@ -187,21 +166,11 @@ public class ExtractInfoSpring {
                      //Estraiamo dal database la nostra lista di url
                      listUrl = (ArrayList<URL>) websiteDao.selectAllUrl(COLUMN_TABLE_INPUT, LIMIT.toString(), OFFSET.toString());
 
-                    SystemLog.write("Lista di URL con " + listUrl.size() + " elements", "OUT");
-                    //SETTIAMO GATE PER IL PROGRAMMA
-                    SystemLog.write("Inizializzazione GATE...", "OUT");
-                    Gate.setGateHome(new File("gate_files"));
-                    Gate.setPluginsHome(new File("gate_files/plugins"));
-                    Gate.setSiteConfigFile(new File("gate_files/gate.xml"));
-                    Gate.setUserConfigFile(new File("gate_files/user-gate.xml"));
-                     Gate.setUserSessionFile(new File("gate_files/gate.session"));
-                    Gate.init();
-                    //INIZIALIZZIAMO IL PROGRAMMA CON IL NOSTRO FILE GAPP
-                    init();
-                    SystemLog.write("...GATE initialised", "OUT");
-                    //**********************************************************************
-                    //Lavorare con l'interfaccia grafica di GATE
-                    /*MainFrame.getInstance().setVisible(true);*/
+                     SystemLog.message("Lista di URL con " + listUrl.size() + " elements");
+                     //SETTIAMO GATE PER IL PROGRAMMA
+                     GateKit.setUpGateEmbedded("gate_files","plugins","gate.xml","user-gate.xml","gate.session");
+                     GateKit.loadGapp("custom/gapp", "geoLocationPipeline06102014v7_fastMode.xgapp");
+                     controller = GateKit.getController();
                     //*************************************************************************
                     //QUIT THE PROGRAMM SE LA LISTA DEGLI URL E' VUOTA
                     if(listUrl.isEmpty()){
@@ -281,8 +250,8 @@ public class ExtractInfoSpring {
                 if(ONTOLOGY_PROGRAMM == true){
                     SystemLog.write("RUN ONTOLOGY PROGRAMM", "OUT");
                     IInfoDocumentDao infoDocumentDao = new InfoDocumentDaoImpl();
-                    infoDocumentDao.setTable(TABLE_OUTPUT_ONTOLOGY);
-                    infoDocumentDao.setSecondTable(TABLE_OUTPUT);
+                    infoDocumentDao.setTableInsert(TABLE_OUTPUT_ONTOLOGY);
+                    infoDocumentDao.setTableSelect(TABLE_OUTPUT);
                     infoDocumentDao.setDriverManager(DRIVER_DATABASE, DIALECT_DATABASE, HOST_DATABASE, PORT_DATABASE.toString(), USER, PASS, DB_OUTPUT);
                     if(CREA_NUOVA_TABELLA_INFODOCUMENT_ONTOLOGY == true){
                        infoDocumentDao.create(ERASE_ONTOLOGY);
@@ -427,26 +396,6 @@ public class ExtractInfoSpring {
     
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////
     
-    /** The Corpus Pipeline application to contain ANNE,Lingpipe,Tools,ecc. */
-    private static CorpusController controller;
-
-    /**
-     * Initialise the GATE system. This creates a "corpus pipeline"
-     * application that can be used to run sets of documents through
-     * the extraction system.
-     */
-    public void init() throws GateException, IOException {
-      //Out.prln("Loading file .gapp...");
-      //Carica tutte le applicazioni della GATE_HOME attraverso il file .gapp
-      File home = Gate.getGateHome();
-      //Con il controllo della lingua
-      File gapp = new File(home, "custom/gapp/geoLocationPipeline06102014v7_fastMode.xgapp");
-      //Senza il controllo della lingua
-      //File gapp = new File(home, "custom/gapp/geoLocationPipelineFast.xgapp");
-      controller = (CorpusController) PersistenceManager.loadObjectFromFile(gapp);
-        CorpusController  con = (CorpusController) PersistenceManager.loadObjectFromFile(gapp);
-    } // initAnnie()
-    
     private GeoDocument UpgradeTheDocumentWithOtherInfo(GeoDocument geo) throws URISyntaxException{
        try{
         SystemLog.write("**************DOCUMENT*********************", "OUT");
@@ -456,7 +405,7 @@ public class ExtractInfoSpring {
 
            SystemLog.write("Integrazione Keyworddb", "OUT");
             IDocumentDao dao = new DocumentDaoImpl();
-            dao.setTable(TABLE_KEYWORD_DOCUMENT);
+            dao.setTableSelect(TABLE_KEYWORD_DOCUMENT);
             dao.setDriverManager(DRIVER_DATABASE, DIALECT_DATABASE, HOST_DATABASE, PORT_DATABASE.toString(), USER, PASS ,DB_KEYWORD);
             geo.setCity(dao.selectValueForSpecificColumn("city","url",geo.getUrl().toString()));
 
@@ -621,7 +570,7 @@ public class ExtractInfoSpring {
                 if(geo.getUrl()!=null && geo.getEdificio()!=null){
                     SystemLog.write("INSERIMENTO", "OUT");
                     IGeoDocumentDao dao = new GeoDocumentDaoImpl();
-                    dao.setTable(TABLE_OUTPUT);
+                    dao.setTableInsert(TABLE_OUTPUT);
                     dao.setDriverManager(DRIVER_DATABASE, DIALECT_DATABASE, HOST_DATABASE, PORT_DATABASE.toString(), USER, PASS, DB_OUTPUT);
                     dao.insertAndTrim(geo);
                    //*********************************************************************************************************

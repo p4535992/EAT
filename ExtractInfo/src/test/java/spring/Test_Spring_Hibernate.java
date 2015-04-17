@@ -52,7 +52,7 @@ public class Test_Spring_Hibernate {
 //            }
 //        }
         IGeoDocumentDao dao = new GeoDocumentDaoImpl();
-        dao.setTable("test_34");
+        dao.setTableInsert("test_34");
         //dao.setDriverManager("com.mysql.jdbc.Driver","jdbc:mysql","localhost","3306","siimobility","siimobility","geolocationddb")
         dao.loadHibernateConfig(filePathXml);
         dao.saveH(geo);

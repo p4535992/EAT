@@ -8,7 +8,7 @@
 
     <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="location">
-            <value>spring_hibernate_files/database.properties</value>
+            <value>spring_hibernate/database.properties</value>
         </property>
     </bean>
 

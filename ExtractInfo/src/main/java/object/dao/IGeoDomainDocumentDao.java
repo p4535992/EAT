@@ -16,9 +16,9 @@ public interface IGeoDomainDocumentDao extends IGenericDao<GeoDomainDocument> {
     void setDriverManager(String driver, String typeDb, String host, String port, String user, String pass, String database);
     void setTableInsert(String nameOfTable);
     void setTableSelect(String nameOfTable);
-    void setJdbcTemplate(JdbcTemplate jdbcTemplate);
+    void setNewJdbcTemplate();
     void setHibernateTemplate(HibernateTemplate ht);
-    void setHibernateTemplate(SessionFactory sessionFactory);
+    void setNewHibernateTemplate(SessionFactory sessionFactory);
     void setDataSource(DataSource ds);
     void loadSpringConfig(String filePathXml);
     void loadHibernateConfig(String filePathXml);

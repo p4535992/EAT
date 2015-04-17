@@ -27,20 +27,9 @@ import static util.JenaKit.readQueryAndCleanTripleInfoDocument;
  */
 public class GenerationOfTriple {
 
-    private String MODEL_TURTLE_KARMA;
-    private String SOURCETYPE_KARMA;
-    private String TRIPLE_OUTPUT_KARMA;
-    private String DBTYPE_KARMA;
-    private String HOSTNAME_KARMA;
-    private String USERNAME_KARMA;
-    private String PASSWORD_KARMA;
-    private String PORTNUMBER_KARMA;
-    private String DBNAME_KARMA;
-    private String TABLENAME_KARMA;
-    
-    private String OUTPUT_FORMAT_KARMA;
-    private String DISK_STORE_KARMA;
-    private String KARMA_HOME;
+    private String MODEL_TURTLE_KARMA,SOURCETYPE_KARMA,TRIPLE_OUTPUT_KARMA,
+            DBTYPE_KARMA,HOSTNAME_KARMA,USERNAME_KARMA,PASSWORD_KARMA,
+            PORTNUMBER_KARMA,DBNAME_KARMA,TABLENAME_KARMA,OUTPUT_FORMAT_KARMA,KARMA_HOME;
     
     private ExecuteCmdAndPrintOnOutput rte = new ExecuteCmdAndPrintOnOutput();
     public GenerationOfTriple(
@@ -286,32 +275,5 @@ public class GenerationOfTriple {
    public static String GetTimeAndDate(){
        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
        return timeStamp;
-   }  
-   
-   
-    
-    
-    //METODI SUPPORTO
-   public void GenericRDFGenerator(){
-       /*
-       GenericRDFGenerator rdfGenerator = new GenericRDFGenerator();
-        //Construct a R2RMLMappingIdentifier that provides the location of the model and a name for the model and add the model to the JSONRDFGenerator. You can add multiple models using this API.
-        R2RMLMappingIdentifier modelIdentifier = new R2RMLMappingIdentifier(
-                        "people-model", new File("/files/models/people-model.ttl").toURI().toURL());
-        rdfGenerator.addModel(modelIdentifier);
-
-        String filename = "files/data/people.json";
-        StringWriter sw = new StringWriter();
-        PrintWriter pw = new PrintWriter(sw);
-        N3KR2RMLRDFWriter writer = new N3KR2RMLRDFWriter(new URIFormatter(), pw);
-        RDFGeneratorRequest request = new RDFGeneratorRequest("people-model", filename);
-        request.setInputFile(new File(getTestResource(filename).toURI()));
-        request.setAddProvenance(true);
-        request.setDataType(InputType.JSON);
-        request.addWriter(writer);
-        rdfGenerator.generateRDF(request);
-        String rdf = sw.toString();
-        System.out.println("Generated RDF: " + rdf);
-        */
    }
 }

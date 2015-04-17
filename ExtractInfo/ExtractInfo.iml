@@ -61,33 +61,6 @@
     <orderEntry type="library" name="mysql-connector-java-5.1.33-bin" level="application" />
     <orderEntry type="library" name="spring-framework-4.1.6" level="application" />
     <orderEntry type="library" name="gate_8_nospring" level="project" />
-    <orderEntry type="module" module-name="karma-offline" />
-    <orderEntry type="module" module-name="karma-common" />
-    <orderEntry type="module" module-name="karma-typer" />
-    <orderEntry type="module" module-name="karma-util" />
-    <orderEntry type="module" module-name="commands-alignment" />
-    <orderEntry type="module" module-name="commands-alignment-openrdf" />
-    <orderEntry type="module" module-name="commands-common" />
-    <orderEntry type="module" module-name="commands-publish" />
-    <orderEntry type="module" module-name="commands-publish-jdbc" />
-    <orderEntry type="module" module-name="karma-jdbc" />
-    <orderEntry type="module" module-name="commands-python" />
-    <orderEntry type="module" module-name="commands-publish-alignment-openrdf" />
-    <orderEntry type="module" module-name="commands-update" />
-    <orderEntry type="module" module-name="commands-update-jdbc" />
-    <orderEntry type="module" module-name="commands-worksheet" />
-    <orderEntry type="module" module-name="import-common" />
-    <orderEntry type="module" module-name="import-csv" />
-    <orderEntry type="module" module-name="import-database" />
-    <orderEntry type="module" module-name="import-excel" />
-    <orderEntry type="module" module-name="import-file" />
-    <orderEntry type="module" module-name="import-ontology" />
-    <orderEntry type="module" module-name="import-json" />
-    <orderEntry type="module" module-name="import-service" />
-    <orderEntry type="module" module-name="import-spatial" />
-    <orderEntry type="module" module-name="import-xml" />
-    <orderEntry type="module" module-name="import-avro" />
-    <orderEntry type="module" module-name="webkarma" />
     <orderEntry type="library" name="Maven: org.springframework:spring-core:4.1.6.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: commons-logging:commons-logging:1.2" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-context:4.1.6.RELEASE" level="project" />

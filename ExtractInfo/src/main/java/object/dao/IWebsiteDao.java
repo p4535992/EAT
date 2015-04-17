@@ -17,10 +17,10 @@ import java.util.List;
 public interface IWebsiteDao extends IGenericDao<Website> {
 
     void setDriverManager(String driver, String typeDb, String host, String port, String user, String pass, String database);
-    void setTable(String nameOfTable);
-    void setJdbcTemplate(JdbcTemplate jdbcTemplate);
+    void setTableSelect(String nameOfTable);
+    void setNewJdbcTemplate();
     void setHibernateTemplate(HibernateTemplate ht);
-    void setHibernateTemplate(SessionFactory sessionFactory);
+    void setNewHibernateTemplate(SessionFactory sessionFactory);
     void setDataSource(DataSource ds);
     void loadSpringConfig(String filePathXml);
     void loadHibernateConfig(String filePathXml);

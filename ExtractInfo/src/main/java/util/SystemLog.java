@@ -8,11 +8,7 @@ package util;
 
 import org.slf4j.Logger;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -34,7 +30,7 @@ public class SystemLog {
     /** Flag to provide basic support for debug information (not used within class). */
     public static boolean DEBUG = false;
     /** {@code DateFormat} instance for formatting log entries. */
-    private static SimpleDateFormat logTimestamp = new SimpleDateFormat("HH:mm:ss");
+    private static SimpleDateFormat logTimestamp = new SimpleDateFormat("[HH:mm:ss]");
     private static SimpleDateFormat logTimesAndDateStamp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss,SSS");
 
 
@@ -50,22 +46,27 @@ public class SystemLog {
     private static String separator = ": ";
 
     public SystemLog(){
-        this.LOGFILE = new File(System.getProperty("user.dir")+"\\"+ LOGNAME);
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
         this.LOGNAME = "LOG_"+timeStamp+".txt";
-
+        this.logging = true;
+        this.LOGFILE = new File(System.getProperty("user.dir")+"\\"+ LOGNAME);
+        setLogWriter();
     }
 
     public SystemLog(String LOGNAME, String SUFFIX){
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
+        this.LOGNAME = LOGNAME +"_"+timeStamp+"."+ SUFFIX;
+        this.logging = true;
         this.LOGFILE = new File(System.getProperty("user.dir")+"\\"+ LOGNAME);
-        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
-        this.LOGNAME = LOGNAME +"_"+timeStamp+"."+ SUFFIX;
-
+        setLogWriter();
     }
+
     public SystemLog(String LOGNAME, String SUFFIX,String PATHFILE){
-        this.LOGFILE = new File(PATHFILE+"\\"+ LOGNAME);
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
         this.LOGNAME = LOGNAME +"_"+timeStamp+"."+ SUFFIX;
+        this.logging = true;
+        this.LOGFILE = new File(PATHFILE+"\\"+ LOGNAME);
+        setLogWriter();
     }
 
     ///////////////////////////
@@ -105,6 +106,13 @@ public class SystemLog {
         printString2File(log, System.getProperty("user.dir"));
     }
 
+    /**
+     * Method for print the strin to a specific file
+     * @deprecated  use {@link private static void print2File(String content) } instead.
+     * @param content
+     * @param pathToFile
+     */
+    @Deprecated
     private static void printString2File(String content, String pathToFile) {
         File f = new File(pathToFile+"\\"+ LOGNAME);
         try(PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(f.getAbsolutePath(), true)))) {
@@ -116,7 +124,15 @@ public class SystemLog {
         }
     }
 
+    /**
+     * Method for print the strin to a specific file
+     * @deprecated  use {@link private static void print2File(String content) } instead.
+     * @param content
+     */
+    @Deprecated
     private static void printString2File(String content) {
+        if(VERBOSE >= 10) System.err.println(content);
+        else System.out.println(content);
         try(PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(LOGFILE.getAbsolutePath(), true)))) {
             out.print(content+System.getProperty("line.separator"));
             out.flush();
@@ -124,6 +140,19 @@ public class SystemLog {
         }catch (IOException e) {
             //exception handling left as an exercise for the reader
         }
+    }
+
+    /**
+     * Method to print a string to a file
+     * @param content
+     */
+    private static void print2File(String content) {
+        if(VERBOSE >= 10) System.err.println(content);
+        else if(VERBOSE == 0){}
+        else System.out.println(content);
+        logWriter.print(content + System.getProperty("line.separator"));
+        logWriter.flush();
+        logWriter.close();
     }
 
     /**
@@ -167,7 +196,6 @@ public class SystemLog {
         if (!logging)
             return;
         StringBuilder sb = new StringBuilder();
-        sb.append("[");
         if (logTimestamp != null)
             //logTimestamp.format(new Date())
             sb.append(logTimestamp.format(new Date()));
@@ -177,12 +205,12 @@ public class SystemLog {
                 df = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG);
             sb.append(df.format(logTimestamp));
         }
-        sb.append("]");
         if (separator != null)
             sb.append(separator);
 
         sb.append(logEntry);
-        logWriter.println(sb.toString());
+        //logWriter.println(sb.toString()); //???
+        printString2File(sb.toString());
     }
 
 
@@ -197,6 +225,7 @@ public class SystemLog {
      * @param logEntry message to write as a log entry
      */
     public static synchronized void message(String logEntry) {write(logEntry);}
+    public static synchronized void error(String logEntry) {VERBOSE = 10; write(logEntry);}
 
     /**
      * Writes a message to the log with an optional prefix.
@@ -361,6 +390,14 @@ public class SystemLog {
      * @return The current {@code PrintWriter} used to write to the log
      */
     public synchronized PrintWriter getLogWriter() {return logWriter;}
+    public synchronized void setLogWriter()  {
+        try {
+            this.logWriter = new PrintWriter(new BufferedWriter(new FileWriter(LOGFILE.getAbsolutePath(), true)));
+        } catch (IOException e) {
+            SystemLog.logStackTrace(e,logger);
+            e.printStackTrace();
+        }
+    }
 
     /**
      * Closes the log.

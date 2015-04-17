@@ -15,40 +15,10 @@ import javax.sql.DataSource;
  */
 @org.springframework.stereotype.Component("DocumentDao")
 public class DocumentDaoImpl extends GenericDaoImpl<Document> implements IDocumentDao {
-    private DriverManagerDataSource driverManag;
-    private JdbcTemplate jdbcTemplate;
-    private String myTable;
-    private DataSource dataSource;
-    private HibernateTemplate hibernateTemplate;
-    private SessionFactory sessionFactory;
-    private ClassPathXmlApplicationContext contextClassPath;
 
     @Override
     public void setDriverManager(String driver, String typeDb, String host,String port, String user, String pass, String database) {
-        driverManag = new DriverManagerDataSource();
-        driverManag.setDriverClassName(driver);//"com.mysql.jdbc.Driver"
-        driverManag.setUrl("" + typeDb + "://" + host + ":" + port + "/" + database); //"jdbc:mysql://localhost:3306/jdbctest"
-        driverManag.setUsername(user);
-        driverManag.setPassword(pass);
-        this.jdbcTemplate = new JdbcTemplate();
-        this.dataSource = driverManag;
-        this.jdbcTemplate.setDataSource(dataSource);
-    }
-
-    @Override
-    public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
-        this.jdbcTemplate = new JdbcTemplate();
-        this.jdbcTemplate.setDataSource(dataSource);
-    }
-
-    @Override
-    public void setHibernateTemplate(HibernateTemplate ht) {
-        this.hibernateTemplate = ht;
-    }
-
-    @Override
-    public void setHibernateTemplate(SessionFactory sessionFactory) {
-        this.hibernateTemplate = new HibernateTemplate(sessionFactory);
+        super.setDriverManager(driver,typeDb, host, port,user,  pass, database);
     }
 
     @Override
@@ -69,8 +39,8 @@ public class DocumentDaoImpl extends GenericDaoImpl<Document> implements IDocume
     }
 
     @Override
-    public void setTable(String nameOfTable){
-        this.myTable = nameOfTable;
+    public void setTableSelect(String nameOfTable){
+        this.mySelectTable = nameOfTable;
     }
 
 
@@ -81,8 +51,9 @@ public class DocumentDaoImpl extends GenericDaoImpl<Document> implements IDocume
 
     @Override
     public String selectValueForSpecificColumn(String column, String column_where, String value_where){
-        String query = "SELECT "+ column + " from " + myTable + " WHERE " + column_where + "= ?";
+        String query = "SELECT "+ column + " from " + mySelectTable + " WHERE " + column_where + " = ?";
         String city =(String) jdbcTemplate.queryForObject(query ,new Object[]{value_where},String.class);
+        //String name = (String)getJdbcTemplate().queryForObject(query, new Object[] { custId }, String.class);
         return city;
     }
 
