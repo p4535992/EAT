@@ -164,7 +164,7 @@ public class ExtractInfoSpring {
             "  KEY `url` (`url`)\n" +
             ") ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;";
 
-    private static NullDao nDao;
+    private static IGenericDao nDao;
     /**
      * Metodo Main del programma per la creazione di InfoDocument
      */
@@ -173,43 +173,20 @@ public class ExtractInfoSpring {
             SystemLog.write("Run the extraction method.", "OUT");
             ArrayList<URL> listUrl = new ArrayList<>();
             ArrayList<GeoDocument> listGeo = new ArrayList<>();
-            ArrayList<String> listStringUrl = new ArrayList<String>();
             try{
                  if(PROCESS_PROGAMM != 4){
+                     IGeoDocumentDao geoDocumentDao = new GeoDocumentDaoImpl();
+                     geoDocumentDao.setTable(TABLE_OUTPUT);
+                     geoDocumentDao.setDriverManager(DRIVER_DATABASE, DIALECT_DATABASE, HOST_DATABASE, PORT_DATABASE.toString(), USER, PASS, DB_OUTPUT);
+                     IWebsiteDao websiteDao = new WebsiteDaoImpl();
+                     websiteDao.setTable(TABLE_INPUT);
+                     websiteDao.setDriverManager(DRIVER_DATABASE, DIALECT_DATABASE, HOST_DATABASE, PORT_DATABASE.toString(), USER, PASS, DB_INPUT);
                      if(CreaNuovaTabellaGeoDocumenti ==true){
-                         nDao = new NullDaoImpl<GeoDocument>();
-                         nDao.setTable(TABLE_OUTPUT);
-                         nDao.setDriverManager(DRIVER_DATABASE, DIALECT_DATABASE, HOST_DATABASE, PORT_DATABASE.toString(), USER, PASS, DB_OUTPUT);
-                         nDao.create(qCreateGeoDocument,ERASE);
+                         geoDocumentDao.create();
                      }
-                     nDao = new NullDaoImpl<WebsiteDao>();
-                     nDao.setTable(TABLE_INPUT);
-                     nDao.setDriverManager(DRIVER_DATABASE, DIALECT_DATABASE, HOST_DATABASE, PORT_DATABASE.toString(), USER, PASS, DB_INPUT);
                      //Estraiamo dal database la nostra lista di url
-                     listStringUrl =(ArrayList<String>) nDao.select(COLUMN_TABLE_INPUT,LIMIT.toString(),OFFSET.toString());
-                    for(String sUrl : listStringUrl){
-                        URL u;
-                        if(!(sUrl.contains("http://")) && !(sUrl.contains("www"))){
-                            u = new URL("http://www."+sUrl);
-                        }
-                        else if(!(sUrl.contains("http://"))){
-                            u = new URL("http://"+sUrl);
-                        }else{
-                            u = new URL(sUrl);
-                        }
-                        listUrl.add(u);
-                    }
-                    listStringUrl.clear();
+                     listUrl = (ArrayList<URL>) websiteDao.selectAllUrl(COLUMN_TABLE_INPUT, LIMIT.toString(), OFFSET.toString());
 
-                      for(URL url : listUrl){
-                        if(nDao.verifyDuplicate(COLUMN_TABLE_INPUT,url.toString())==true){
-                            listStringUrl.add(url.toString());
-                        }
-                    }
-                    for(int i = 0; i < listStringUrl.size(); i++){
-                        listUrl.remove(new URL(listStringUrl.get(i)));
-                    }
-                    listStringUrl.clear();
                     SystemLog.write("Lista di URL con " + listUrl.size() + " elements", "OUT");
                     //SETTIAMO GATE PER IL PROGRAMMA
                     SystemLog.write("Inizializzazione GATE...", "OUT");
@@ -289,7 +266,7 @@ public class ExtractInfoSpring {
             finally {
                 //CREAZIONE DI UNA TABELLA DI GEODOMAINDOCUMENT
                 if(GEODOMAIN_PROGRAMM == true){
-                    GeoDomainDocumentDao geoDomainDocumentDao = new GeoDomainDocumentDaoImpl();
+                    IGeoDomainDocumentDao geoDomainDocumentDao = new GeoDomainDocumentDaoImpl();
                     geoDomainDocumentDao.setTableInsert(TABLE_OUTPUT_GEODOMAIN);
                     geoDomainDocumentDao.setTableSelect(TABLE_INPUT_GEODOMAIN);
                     geoDomainDocumentDao.setDriverManager(DRIVER_DATABASE, DIALECT_DATABASE, HOST_DATABASE, PORT_DATABASE.toString(), USER, PASS, DB_OUTPUT_GEODOMAIN);
@@ -303,7 +280,7 @@ public class ExtractInfoSpring {
                 //INTEGRIAMO LA TABELLA INFODOCUMENT PER LAVORARE CON UN'ONTOLOGIA
                 if(ONTOLOGY_PROGRAMM == true){
                     SystemLog.write("RUN ONTOLOGY PROGRAMM", "OUT");
-                    InfoDocumentDao infoDocumentDao = new InfoDocumentDaoImpl();
+                    IInfoDocumentDao infoDocumentDao = new InfoDocumentDaoImpl();
                     infoDocumentDao.setTable(TABLE_OUTPUT_ONTOLOGY);
                     infoDocumentDao.setSecondTable(TABLE_OUTPUT);
                     infoDocumentDao.setDriverManager(DRIVER_DATABASE, DIALECT_DATABASE, HOST_DATABASE, PORT_DATABASE.toString(), USER, PASS, DB_OUTPUT);
@@ -478,7 +455,7 @@ public class ExtractInfoSpring {
         if(setNullForEmptyString(geo.getCity())==null){
 
            SystemLog.write("Integrazione Keyworddb", "OUT");
-            DocumentDao dao = new DocumentDaoImpl();
+            IDocumentDao dao = new DocumentDaoImpl();
             dao.setTable(TABLE_KEYWORD_DOCUMENT);
             dao.setDriverManager(DRIVER_DATABASE, DIALECT_DATABASE, HOST_DATABASE, PORT_DATABASE.toString(), USER, PASS ,DB_KEYWORD);
             geo.setCity(dao.selectValueForSpecificColumn("city","url",geo.getUrl().toString()));
@@ -643,7 +620,7 @@ public class ExtractInfoSpring {
             for(GeoDocument geo: listGeo){
                 if(geo.getUrl()!=null && geo.getEdificio()!=null){
                     SystemLog.write("INSERIMENTO", "OUT");
-                    GeoDocumentDao dao = new GeoDocumentDaoImpl();
+                    IGeoDocumentDao dao = new GeoDocumentDaoImpl();
                     dao.setTable(TABLE_OUTPUT);
                     dao.setDriverManager(DRIVER_DATABASE, DIALECT_DATABASE, HOST_DATABASE, PORT_DATABASE.toString(), USER, PASS, DB_OUTPUT);
                     dao.insertAndTrim(geo);

@@ -1,22 +1,14 @@
 package object.impl;
 
-import object.dao.GeoDocumentDao;
+import object.dao.IGeoDocumentDao;
 import object.model.GeoDocument;
-import object.model.GeoDomainDocument;
-import object.model.Website;
-import object.dao.DocumentDao;
 import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate4.HibernateTemplate;
-import org.springframework.orm.hibernate4.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.Transactional;
 import util.Resources;
 import util.SystemLog;
@@ -24,14 +16,13 @@ import util.SystemLog;
 import javax.sql.DataSource;
 import java.io.File;
 import java.sql.*;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by Marco on 01/04/2015.
  */
-public class GeoDocumentDaoImpl implements GeoDocumentDao {
+@org.springframework.stereotype.Component("GeoDocumentDao")
+public class GeoDocumentDaoImpl extends GenericDaoImpl<GeoDocument> implements IGeoDocumentDao {
 
     private DriverManagerDataSource driverManag;
     private JdbcTemplate jdbcTemplate;
@@ -84,7 +75,7 @@ public class GeoDocumentDaoImpl implements GeoDocumentDao {
     }
 
     @Override
-    public GeoDocumentDaoImpl loadSpringConfig(String filePathXml) {
+    public void loadSpringConfig(String filePathXml) {
         File file = Resources.getResourceAsFile(filePathXml);
         if(file.exists()){
             try {
@@ -94,11 +85,10 @@ public class GeoDocumentDaoImpl implements GeoDocumentDao {
             }
         }
         GeoDocumentDaoImpl g = contextClassPath.getBean(GeoDocumentDaoImpl.class);
-        return g;
     }
 
     @Override
-    public GeoDocumentDaoImpl loadHibernateConfig(String filePathXml) {
+    public void loadHibernateConfig(String filePathXml) {
         //ApplicationContext contextClassPath = new ClassPathXmlApplicationContext(filePathXml);
         File file = Resources.getResourceAsFile(filePathXml);
         if(file.exists()){
@@ -109,7 +99,6 @@ public class GeoDocumentDaoImpl implements GeoDocumentDao {
             }
         }
         GeoDocumentDaoImpl g = (GeoDocumentDaoImpl) contextClassPath.getBean("GeoDocumentDao");
-        return g;
     }
 
     @Override
@@ -232,8 +221,6 @@ public class GeoDocumentDaoImpl implements GeoDocumentDao {
                 jdbcTemplate.execute(query);
             }
         }catch(Exception e){}
-
-
     }
     /*
     private List<String> getListColumnSDAO(String builder) {

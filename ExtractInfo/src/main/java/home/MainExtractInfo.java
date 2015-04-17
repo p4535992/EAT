@@ -31,8 +31,6 @@ public class MainExtractInfo {
 
 
     //ALTRE VARIABILI
-    private static String PARAM_LOG_FILE = "LOG_"+GetTimeAndDate();
-    private static String PARAM_LOG_SUFFIX = "txt";
     private static Integer LIMIT;
     private static Integer OFFSET;
     private static DataStoreApplication datastore;
@@ -50,7 +48,7 @@ public class MainExtractInfo {
             //SwingUtilities.invokeAndWait(new Runnable() {
                public void run() {
                    try{
-                    SystemLog LOG = new SystemLog(PARAM_LOG_FILE,PARAM_LOG_SUFFIX);
+                    SystemLog LOG = new SystemLog();
                     SystemLog.write("===== START THE PROGRAMM =========", "OUT");
                     /*long start = System.currentTimeMillis();*/                  
                     // Parse all the parameters
@@ -63,8 +61,6 @@ public class MainExtractInfo {
                         //C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\resources\input.properties
                         mParameters = FileUtil.ReadStringFromFileLineByLine(System.getProperty("user.dir")+"//ExtractInfo//src//main//resources//input.properties",'=',params);
                         //VARIABILI ALTRE
-                        params.setDefaultValue("PARAM_LOG_FILE", PARAM_LOG_FILE + PARAM_LOG_SUFFIX);
-                        //params.setDefaultValue(PARAM_LOG_SUFFIX,".txt");
                         //PRINT SULLA CONSOLE
                         SystemLog.write("Using parameters:", "OUT");
                         SystemLog.write(params.toString(), "OUT");
@@ -153,15 +149,6 @@ public class MainExtractInfo {
             return OFFSET;
         }
 
-        /**
-         * Meto che scriva data e ora come un'unico numero yyyyMMdd_HHmmss
-         * @return formato stringa della data e ora attuali
-         */
-        public static String GetTimeAndDate(){
-            String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
-            return timeStamp;
-        }  
-        
         public void printOutputConsoleToFile() throws FileNotFoundException{
             PrintStream out = new PrintStream(new FileOutputStream("output.txt"));
             System.setOut(out);

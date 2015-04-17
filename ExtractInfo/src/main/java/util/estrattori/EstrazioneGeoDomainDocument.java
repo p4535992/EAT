@@ -1,12 +1,11 @@
 package util.estrattori;
 
 import object.support.DepositFrequencyInfo;
-import object.support.FrequencyInfo;
 import object.model.GeoDocument;
 import object.model.GeoDomainDocument;
 import util.SystemLog;
 import object.impl.GeoDomainDocumentDaoImpl;
-import util.hibernate.GeoDocumentDAO;
+
 import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.net.URI;

@@ -1,17 +1,11 @@
 package spring;
 
-import object.dao.GeoDocumentDao;
+import object.dao.IGeoDocumentDao;
 import object.impl.GeoDocumentDaoImpl;
 import object.model.GeoDocument;
-import org.junit.runner.RunWith;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.ResourceLoaderAware;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.web.WebAppConfiguration;
-import util.Resources;
 
 import java.io.*;
 import java.net.URISyntaxException;
@@ -57,7 +51,7 @@ public class Test_Spring_Hibernate {
 //                e.printStackTrace();
 //            }
 //        }
-        GeoDocumentDao dao = new GeoDocumentDaoImpl();
+        IGeoDocumentDao dao = new GeoDocumentDaoImpl();
         dao.setTable("test_34");
         //dao.setDriverManager("com.mysql.jdbc.Driver","jdbc:mysql","localhost","3306","siimobility","siimobility","geolocationddb")
         dao.loadHibernateConfig(filePathXml);

@@ -187,10 +187,10 @@ public class ExtractInfoMySQL {
             ArrayList<String> listStringUrl = new ArrayList<String>();
             try{             
                  if(PROCESS_PROGAMM != 4){
-                     GeoDocumentDao geoDocumentDao = new GeoDocumentDaoImpl();
+                     IGeoDocumentDao geoDocumentDao = new GeoDocumentDaoImpl();
                      geoDocumentDao.setTable(TABLE_OUTPUT);
                      geoDocumentDao.setDriverManager(DRIVER_DATABASE, DIALECT_DATABASE, HOST_DATABASE, PORT_DATABASE.toString(), USER, PASS, DB_OUTPUT);
-                     WebsiteDao websiteDao = new WebsiteDaoImpl();
+                     IWebsiteDao websiteDao = new WebsiteDaoImpl();
                      websiteDao.setTable(TABLE_INPUT);
                      websiteDao.setDriverManager(DRIVER_DATABASE, DIALECT_DATABASE, HOST_DATABASE, PORT_DATABASE.toString(), USER, PASS, DB_INPUT);
                      if(CreaNuovaTabellaGeoDocumenti ==true){
@@ -300,7 +300,7 @@ public class ExtractInfoMySQL {
             finally {
                 //CREAZIONE DI UNA TABELLA DI GEODOMAINDOCUMENT       
                 if(GEODOMAIN_PROGRAMM == true){
-                    GeoDomainDocumentDao geoDomainDocumentDao = new GeoDomainDocumentDaoImpl();
+                    IGeoDomainDocumentDao geoDomainDocumentDao = new GeoDomainDocumentDaoImpl();
                     geoDomainDocumentDao.setTableInsert(TABLE_OUTPUT_GEODOMAIN);
                     geoDomainDocumentDao.setTableSelect(TABLE_INPUT_GEODOMAIN);
                     geoDomainDocumentDao.setDriverManager(DRIVER_DATABASE, DIALECT_DATABASE, HOST_DATABASE, PORT_DATABASE.toString(), USER, PASS, DB_OUTPUT_GEODOMAIN);
@@ -314,7 +314,7 @@ public class ExtractInfoMySQL {
                 //INTEGRIAMO LA TABELLA INFODOCUMENT PER LAVORARE CON UN'ONTOLOGIA        
                 if(ONTOLOGY_PROGRAMM == true){ 
                     SystemLog.write("RUN ONTOLOGY PROGRAMM", "OUT");
-                    InfoDocumentDao infoDocumentDao = new InfoDocumentDaoImpl();
+                    IInfoDocumentDao infoDocumentDao = new InfoDocumentDaoImpl();
                     infoDocumentDao.setTable(TABLE_OUTPUT_ONTOLOGY);
                     infoDocumentDao.setSecondTable(TABLE_OUTPUT);
                     infoDocumentDao.setDriverManager(DRIVER_DATABASE, DIALECT_DATABASE, HOST_DATABASE, PORT_DATABASE.toString(), USER, PASS, DB_OUTPUT);
@@ -489,7 +489,7 @@ public class ExtractInfoMySQL {
         if(setNullForEmptyString(geo.getCity())==null){
 
            SystemLog.write("Integrazione Keyworddb", "OUT");
-            DocumentDao dao = new DocumentDaoImpl();
+            IDocumentDao dao = new DocumentDaoImpl();
             dao.setTable(TABLE_KEYWORD_DOCUMENT);
             dao.setDriverManager(DRIVER_DATABASE, DIALECT_DATABASE, HOST_DATABASE, PORT_DATABASE.toString(), USER, PASS ,DB_KEYWORD);
             geo.setCity(dao.selectValueForSpecificColumn("city","url",geo.getUrl().toString()));
@@ -654,7 +654,7 @@ public class ExtractInfoMySQL {
             for(GeoDocument geo: listGeo){
                 if(geo.getUrl()!=null && geo.getEdificio()!=null){
                     SystemLog.write("INSERIMENTO", "OUT");
-                    GeoDocumentDao dao = new GeoDocumentDaoImpl();
+                    IGeoDocumentDao dao = new GeoDocumentDaoImpl();
                     dao.setTable(TABLE_OUTPUT);
                     dao.setDriverManager(DRIVER_DATABASE, DIALECT_DATABASE, HOST_DATABASE, PORT_DATABASE.toString(), USER, PASS, DB_OUTPUT);
                     dao.insertAndTrim(geo);

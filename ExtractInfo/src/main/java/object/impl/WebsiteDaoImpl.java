@@ -1,10 +1,8 @@
 package object.impl;
-import object.dao.WebsiteDao;
-import object.model.InfoDocument;
+import object.dao.IGeoDocumentDao;
+import object.dao.IWebsiteDao;
 import object.model.Website;
-import object.dao.DocumentDao;
 import org.hibernate.SessionFactory;
-import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -17,6 +15,8 @@ import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.orm.hibernate4.HibernateTemplate;
 
 import javax.sql.DataSource;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +24,8 @@ import java.util.Map;
 /**
  * Created by Marco on 31/03/2015.
  */
-public class WebsiteDaoImpl implements WebsiteDao {
+@org.springframework.stereotype.Component("WebsiteDao")
+public class WebsiteDaoImpl extends GenericDaoImpl<Website> implements IWebsiteDao {
 
     private DriverManagerDataSource driverManag;
     private JdbcTemplate jdbcTemplate;
@@ -100,7 +101,7 @@ public class WebsiteDaoImpl implements WebsiteDao {
     }
 
     @Override
-    public List<Map<String, Object>> getAll() {
+    public List<Map<String,Object>> getAll() {
         return this.jdbcTemplate.queryForList("select * from " + myTable + "");
     }
 
@@ -146,7 +147,7 @@ public class WebsiteDaoImpl implements WebsiteDao {
 
     @Override
     public List<String> selectAllString(String column,String limit, String offset) {
-        return this.jdbcTemplate.query("select " + column + " from " + myTable + " LIMIT " + limit + " OFFSET " + offset + "",
+       return this.jdbcTemplate.query("select " + column + " from " + myTable + " LIMIT " + limit + " OFFSET " + offset + "",
                 new RowMapper<String>() {
                     @Override
                     public String mapRow(ResultSet rs, int rowNum) throws SQLException {
@@ -154,6 +155,37 @@ public class WebsiteDaoImpl implements WebsiteDao {
                     }
                 }
         );
+    }
+
+    @Override
+    public List<URL> selectAllUrl(String column,String limit,String offset) throws MalformedURLException {
+        List<String> listStringUrl = selectAllString(column,limit, offset);
+        List<URL> listUrl = new ArrayList<URL>();
+        for(String sUrl : listStringUrl){
+            URL u;
+            if(!(sUrl.contains("http://")) && !(sUrl.contains("www"))){
+                u = new URL("http://www."+sUrl);
+            }
+            else if(!(sUrl.contains("http://"))){
+                u = new URL("http://"+sUrl);
+            }else{
+                u = new URL(sUrl);
+            }
+            listUrl.add(u);
+        }
+        listStringUrl.clear();
+
+        IGeoDocumentDao geoDoc = new GeoDocumentDaoImpl();
+        for(URL url : listUrl){
+            if(geoDoc.verifyDuplicate(column, url.toString())==true){
+                listStringUrl.add(url.toString());
+            }
+        }
+        for(int i = 0; i < listStringUrl.size(); i++){
+            listUrl.remove(new URL(listStringUrl.get(i)));
+        }
+        listStringUrl.clear();
+        return listUrl;
     }
 
 

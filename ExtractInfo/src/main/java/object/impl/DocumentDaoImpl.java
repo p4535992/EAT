@@ -1,10 +1,7 @@
 package object.impl;
 
 import object.model.Document;
-import object.model.GeoDocument;
-import object.model.GeoDomainDocument;
-import object.model.Website;
-import object.dao.DocumentDao;
+import object.dao.IDocumentDao;
 import org.hibernate.SessionFactory;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -12,14 +9,12 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate4.HibernateTemplate;
 
 import javax.sql.DataSource;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 /**
  * Created by Marco on 01/04/2015.
  */
-public class DocumentDaoImpl implements DocumentDao {
+@org.springframework.stereotype.Component("DocumentDao")
+public class DocumentDaoImpl extends GenericDaoImpl<Document> implements IDocumentDao {
     private DriverManagerDataSource driverManag;
     private JdbcTemplate jdbcTemplate;
     private String myTable;
@@ -62,17 +57,15 @@ public class DocumentDaoImpl implements DocumentDao {
     }
 
     @Override
-    public DocumentDaoImpl loadSpringConfig(String filePathXml) {
+    public void loadSpringConfig(String filePathXml) {
         contextClassPath = new ClassPathXmlApplicationContext(filePathXml);
         DocumentDaoImpl g = contextClassPath.getBean(DocumentDaoImpl.class);
-        return g;
     }
 
     @Override
-    public DocumentDaoImpl loadHibernateConfig(String filePathXml) {
+    public void loadHibernateConfig(String filePathXml) {
         contextClassPath = new ClassPathXmlApplicationContext(filePathXml);
         DocumentDaoImpl g = contextClassPath.getBean(DocumentDaoImpl.class);
-        return g;
     }
 
     @Override
@@ -81,52 +74,10 @@ public class DocumentDaoImpl implements DocumentDao {
     }
 
 
-    public void setSessionFactory(SessionFactory sessionFactory) {
-        this.sessionFactory = sessionFactory;
-    }
-
-
+    @Override
     public SessionFactory getSessionFactory() {
         return sessionFactory;
     }
-
-
-    ////////////////
-    //SPRING METHOD
-    ////////////////
-
-
-    @Override
-    public void create() throws Exception {
-
-    }
-
-    @Override
-    public void create(boolean erase) throws Exception {
-
-    }
-
-    @Override
-    public boolean verifyDuplicate(String columnWhereName, String valueWhereName) {
-        return false;
-    }
-
-    @Override
-    public List<Map<String, Object>> getAll() {
-        return null;
-    }
-
-    @Override
-    public List<String> selectAllString(String column,String limit, String offset) {
-        return null;
-    }
-
-    @Override
-    public void insertAndTrim(Document obj) {
-
-    }
-
-
 
     @Override
     public String selectValueForSpecificColumn(String column, String column_where, String value_where){
@@ -140,34 +91,19 @@ public class DocumentDaoImpl implements DocumentDao {
     //HIBERNATE
     //////////////////////
 
-    //method to save
-    @Override
-    public void saveH(Document g ){
-        hibernateTemplate.save(g);
-    }
-    //method to update
     @Override
     public void updateH(Document g){
         hibernateTemplate.update(g);
     }
-    //method to delete
-    @Override
-    public void deleteH(Document g){
-        hibernateTemplate.delete(g);
-    }
+
     //method to return one of given id
     @Override
     public Document  getHByColumn(String column){
         Document g = hibernateTemplate.get(Document.class,column);
         return g;
     }
-    //method to return all
-    @Override
-    public List<Document> getAllH(){
-        List<Document> list = new ArrayList<Document>();
-        list = hibernateTemplate.loadAll(Document.class);
-        return list;
-    }
+
+
 
 
 

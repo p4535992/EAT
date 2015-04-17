@@ -49,20 +49,24 @@ public class SystemLog {
     /** Separator string (between date and log message). */
     private static String separator = ": ";
 
+    public SystemLog(){
+        this.LOGFILE = new File(System.getProperty("user.dir")+"\\"+ LOGNAME);
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
+        this.LOGNAME = "LOG_"+timeStamp+".txt";
+
+    }
 
     public SystemLog(String LOGNAME, String SUFFIX){
         this.LOGFILE = new File(System.getProperty("user.dir")+"\\"+ LOGNAME);
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
-        this.LOGNAME = LOGNAME +"."+ SUFFIX+"_"+timeStamp;
+        this.LOGNAME = LOGNAME +"_"+timeStamp+"."+ SUFFIX;
 
     }
     public SystemLog(String LOGNAME, String SUFFIX,String PATHFILE){
         this.LOGFILE = new File(PATHFILE+"\\"+ LOGNAME);
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
-        this.LOGNAME = LOGNAME +"."+ SUFFIX+"_"+timeStamp;
+        this.LOGNAME = LOGNAME +"_"+timeStamp+"."+ SUFFIX;
     }
-    public SystemLog(){}
-
 
     ///////////////////////////
     //WRTING AND READING METHOD

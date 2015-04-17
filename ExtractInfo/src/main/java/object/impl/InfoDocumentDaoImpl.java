@@ -1,11 +1,8 @@
 package object.impl;
 
-import object.dao.InfoDocumentDao;
+import object.dao.IInfoDocumentDao;
 import object.model.GeoDocument;
-import object.model.GeoDomainDocument;
 import object.model.InfoDocument;
-import object.model.Website;
-import object.dao.DocumentDao;
 import org.hibernate.SessionFactory;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -17,12 +14,12 @@ import javax.sql.DataSource;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by Marco on 01/04/2015.
  */
-public class InfoDocumentDaoImpl implements InfoDocumentDao {
+@org.springframework.stereotype.Component("InfoDocumentDao")
+public class InfoDocumentDaoImpl extends GenericDaoImpl<InfoDocument> implements IInfoDocumentDao {
 
     private String mySecondTable;
 
@@ -75,17 +72,15 @@ public class InfoDocumentDaoImpl implements InfoDocumentDao {
     }
 
     @Override
-    public InfoDocumentDaoImpl loadSpringConfig(String filePathXml) {
+    public void loadSpringConfig(String filePathXml) {
         contextClassPath = new ClassPathXmlApplicationContext(filePathXml);
         InfoDocumentDaoImpl g = contextClassPath.getBean(InfoDocumentDaoImpl.class);
-        return g;
     }
 
     @Override
-    public InfoDocumentDaoImpl loadHibernateConfig(String filePathXml) {
+    public void loadHibernateConfig(String filePathXml) {
         contextClassPath = new ClassPathXmlApplicationContext(filePathXml);
         InfoDocumentDaoImpl g = contextClassPath.getBean(InfoDocumentDaoImpl.class);
-        return g;
     }
 
     @Override
