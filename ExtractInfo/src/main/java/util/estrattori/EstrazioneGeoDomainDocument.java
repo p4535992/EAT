@@ -107,7 +107,7 @@ public class EstrazioneGeoDomainDocument {
              //TENTA DI ESTRARRE IL DOMINIO HOST DELL'INDIRIZZO URL
              try{                                                  
                  String domain = m.getDomainName(geoDoc.getUrl().toString());                          
-                 SystemLog.write("(" + i + ")" + "DOMAIN:" + domain, "OUT");
+                 SystemLog.ticket("(" + i + ")" + "DOMAIN:" + domain, "OUT");
                  if(listFinalDomains.contains(domain)==false){                                 
                    m.applyTheMemorizeRecordCordinatesRules(domain,geoDoc,tipo);  
                  }
@@ -117,13 +117,13 @@ public class EstrazioneGeoDomainDocument {
            }
          }//for
       } catch (RuntimeException e2) {
-              SystemLog.write(e2.getMessage(), "ERROR");
+              SystemLog.ticket(e2.getMessage(), "ERROR");
               e2.printStackTrace();                                      
       } finally{
             //MOSTRIAMO I NOSTRI DepositFrequencyInfo CON SUFFICIENTE VALORE DI SOGLIA DA INSERIRE NEL DATABASE
             for (DepositFrequencyInfo dfi2 : listDepositFrequency) {
                 if(dfi2.getFrequency()>=FREQUENZA_INTERVALLO_URL){
-                 SystemLog.write("CONTROL:" + dfi2.toString(), "OUT");
+                 SystemLog.ticket("CONTROL:" + dfi2.toString(), "OUT");
                 }
             }
             listDomains = null;
@@ -182,7 +182,7 @@ public class EstrazioneGeoDomainDocument {
                     GeoDocument geo = prepareTheDomainWebGeoDocumentWithMoreCommonParameter(dfi2);
                     geo.setUrl(new URL("http://"+dfi2.getDomain()));
                     //INSERIAMO I NOSTRI GEODOMAINDOCUMENT NELLA TABELLA DEL DATABASE
-                    SystemLog.write("INSERIMENTO GEODOMAINDOCUMENT NELLA TABELLA", "OUT");
+                    SystemLog.ticket("INSERIMENTO GEODOMAINDOCUMENT NELLA TABELLA", "OUT");
                     if(tipo == "mysql"){
                         geoDomainDocDao.insertAndTrim(geo);
                     }else if(tipo == "hibernate_pojo"){

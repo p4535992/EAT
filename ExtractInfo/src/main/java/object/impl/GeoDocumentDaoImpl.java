@@ -4,13 +4,9 @@ import object.dao.IGeoDocumentDao;
 import object.model.GeoDocument;
 import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.datasource.DriverManagerDataSource;
-import org.springframework.orm.hibernate4.HibernateTemplate;
 import org.springframework.transaction.annotation.Transactional;
-import util.Resources;
+import util.ResourcesKit;
 import util.SystemLog;
 
 import javax.sql.DataSource;
@@ -42,7 +38,7 @@ public class GeoDocumentDaoImpl extends GenericDaoImpl<GeoDocument> implements I
 
     @Override
     public void loadSpringConfig(String filePathXml) {
-        File file = Resources.getResourceAsFile(filePathXml);
+        File file = ResourcesKit.getResourceAsFile(filePathXml);
         if(file.exists()){
             try {
                 contextClassPath = new ClassPathXmlApplicationContext(filePathXml);
@@ -56,7 +52,7 @@ public class GeoDocumentDaoImpl extends GenericDaoImpl<GeoDocument> implements I
     @Override
     public void loadHibernateConfig(String filePathXml) {
         //ApplicationContext contextClassPath = new ClassPathXmlApplicationContext(filePathXml);
-        File file = Resources.getResourceAsFile(filePathXml);
+        File file = ResourcesKit.getResourceAsFile(filePathXml);
         if(file.exists()){
             try {
                 contextClassPath = new ClassPathXmlApplicationContext(filePathXml);
@@ -185,7 +181,7 @@ public class GeoDocumentDaoImpl extends GenericDaoImpl<GeoDocument> implements I
             // get the column names; column indexes start from 1
             for (int i = 1; i < numberOfColumns + 1; i++) {
                 query = "UPDATE `" + myInsertTable + "` SET `" + rsMetaData.getColumnName(i) + "` = LTRIM(RTRIM(`" + rsMetaData.getColumnName(i) + "`));";
-                SystemLog.write(query, "OUT");
+                SystemLog.ticket(query, "OUT");
                 jdbcTemplate.execute(query);
             }
         }catch(Exception e){}

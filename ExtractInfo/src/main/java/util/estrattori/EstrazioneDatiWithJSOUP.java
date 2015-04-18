@@ -42,20 +42,20 @@ public class EstrazioneDatiWithJSOUP {
                 //doc = Jsoup.parse(Jsoup.connect(url).ignoreContentType(true).execute().contentType());
                 
                 doc = Jsoup.connect(url).timeout(10*1000).get();
-                SystemLog.write("JSOUP GET HA AVUTO SUCCESSO", "OUT");
+                SystemLog.ticket("JSOUP GET HA AVUTO SUCCESSO", "OUT");
             }else{
                 //util.log.write("JSOUP GET HA FALLITO","WARNING");
                 tentativi = 0;
-                SystemLog.write("JSOUP GET HA FALLITO PROVIAMO CON HTTP GET...", "WAR");
+                SystemLog.ticket("JSOUP GET HA FALLITO PROVIAMO CON HTTP GET...", "WAR");
             }
         }catch(SocketTimeoutException e){           
             tentativi++;
-            SystemLog.write("JSOUP GET HA FALLITO:" + e.getMessage(), "ERR");
+            SystemLog.ticket("JSOUP GET HA FALLITO:" + e.getMessage(), "ERR");
             HttpUtil.waiter();
             GetTitleAndHeadingTags(url,geo);              
         }catch(Exception en){        
             tentativi++;
-            SystemLog.write("JSOUP GET HA FALLITO:" + en.getMessage(), "ERR");
+            SystemLog.ticket("JSOUP GET HA FALLITO:" + en.getMessage(), "ERR");
             HttpUtil.waiter();
             GetTitleAndHeadingTags(url,geo);  
         }finally{
@@ -65,12 +65,12 @@ public class EstrazioneDatiWithJSOUP {
                     String html = HttpUtil.get(url);
                     doc = Jsoup.parse(html);
                     if(html!=null || html !=""){
-                         SystemLog.write("HTTP GET HA AVUTO SUCCESSO", "OUT");
+                         SystemLog.ticket("HTTP GET HA AVUTO SUCCESSO", "OUT");
                     }else{
                         //return null;                               
                     }
                 }catch(Exception en){                 
-                    SystemLog.write("HTTP GET HA FALLITO:" + en.getMessage(), "ERR");
+                    SystemLog.ticket("HTTP GET HA FALLITO:" + en.getMessage(), "ERR");
                 }
             }           
         }
@@ -153,11 +153,11 @@ public class EstrazioneDatiWithJSOUP {
                 result="it";
             }
             geo.setNazione(result);    
-            SystemLog.write("DESCRIPTION:" + geo.getDescription(), "OUT");
-            SystemLog.write("EDIFICIO:" + geo.getEdificio(), "OUT");
-            SystemLog.write("LANGUAGE:" + geo.getNazione(), "OUT");
+            SystemLog.ticket("DESCRIPTION:" + geo.getDescription(), "OUT");
+            SystemLog.ticket("EDIFICIO:" + geo.getEdificio(), "OUT");
+            SystemLog.ticket("LANGUAGE:" + geo.getNazione(), "OUT");
         }else{        
-            SystemLog.write("FALLITO IL GET PER LA PAGINA:" + url + " ANDIAMO ALLA SUCESSIVA", "WAR");
+            SystemLog.ticket("FALLITO IL GET PER LA PAGINA:" + url + " ANDIAMO ALLA SUCESSIVA", "WAR");
             geo.setEdificio(null);
         }
         

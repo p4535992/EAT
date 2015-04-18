@@ -298,12 +298,12 @@ public class EncodingUtil {
 	
 	private static void log(Object aMsg){
 	  //System.out.println(String.valueOf(aMsg));
-        SystemLog.write(String.valueOf(aMsg), "OUT");
+        SystemLog.ticket(String.valueOf(aMsg), "OUT");
     }
         
     private static void log(Object aMsg,String type){
   //System.out.println(String.valueOf(aMsg));
-        SystemLog.write(String.valueOf(aMsg), type);
+        SystemLog.ticket(String.valueOf(aMsg), type);
     }
 
 	private String quote(String aText){

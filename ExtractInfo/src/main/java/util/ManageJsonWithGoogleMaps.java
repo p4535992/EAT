@@ -116,7 +116,7 @@ public class ManageJsonWithGoogleMaps {
         try {   
             url =new URL(prefix+address+region+suffix);
             //*****************************************
-            SystemLog.write("URL for GM:" + url.toString(), "OUT");
+            SystemLog.ticket("URL for GM:" + url.toString(), "OUT");
             //**************************************
             //Questo metodo è più veloce ma non tiene conto
             //del numero limitato di query che fornisce Google Maps
@@ -138,10 +138,10 @@ public class ManageJsonWithGoogleMaps {
                         g.setLng(lng);
                     }
                 }catch(org.json.JSONException je){
-                    SystemLog.write("JSON:" + json.toString(), "WARNING");
+                    SystemLog.ticket("JSON:" + json.toString(), "WARNING");
                     Logger.getLogger(ManageJsonWithGoogleMaps.class.getName()).log(Level.SEVERE, null, je);
                 }catch(Exception ex){
-                     SystemLog.write("JSON:" + json.toString(), "WARNING");
+                     SystemLog.ticket("JSON:" + json.toString(), "WARNING");
                      Logger.getLogger(ManageJsonWithGoogleMaps.class.getName()).log(Level.SEVERE, null, ex);
                 }
             //Se Google Maps ha raggiunto il massimo numero di query possibili
@@ -158,23 +158,23 @@ public class ManageJsonWithGoogleMaps {
 //                }catch(Exception ex){}  
             }else{
                 if(json.toString().contains("\"status\":\"OVER_QUERY_LIMIT\"")){
-                    SystemLog.write(json.toString(), "ERROR");
+                    SystemLog.ticket(json.toString(), "ERROR");
                 }
                 g.setLat(null);
                 g.setLng(null); 
             }
         } catch (JSONException ex) {
-            SystemLog.write(ex.getMessage() + " -> " + json.toString(), "ERROR");
+            SystemLog.ticket(ex.getMessage() + " -> " + json.toString(), "ERROR");
             Logger.getLogger(ManageJsonWithGoogleMaps.class.getName()).log(Level.SEVERE, null, ex);                 
         } catch (java.lang.NullPointerException ex) {            
-            SystemLog.write(ex.getMessage(), "ERR+AVOID");
+            SystemLog.ticket(ex.getMessage(), "ERR+AVOID");
             Logger.getLogger(ManageJsonWithGoogleMaps.class.getName()).log(Level.SEVERE, null, ex);
         } catch (MalformedURLException ex) {
-            SystemLog.write(ex.getMessage(), "ERROR");
+            SystemLog.ticket(ex.getMessage(), "ERROR");
             Logger.getLogger(ManageJsonWithGoogleMaps.class.getName()).log(Level.SEVERE, null, ex);
         
         } catch (Exception ex) {
-            SystemLog.write(ex.getMessage(), "ERROR");
+            SystemLog.ticket(ex.getMessage(), "ERROR");
             Logger.getLogger(ManageJsonWithGoogleMaps.class.getName()).log(Level.SEVERE, null, ex);        
         }        
       fua = "";      

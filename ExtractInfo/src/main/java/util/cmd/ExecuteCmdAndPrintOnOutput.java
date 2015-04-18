@@ -76,11 +76,11 @@ public class ExecuteCmdAndPrintOnOutput {
                 while ( (line = br.readLine()) != null) {
                     buffer.append(line);//.append("\n");
                     if(!line.isEmpty()){
-                        SystemLog.write("CMD:" + line, "OUT");}
+                        SystemLog.ticket("CMD:" + line, "OUT");}
                 }
                 message = buffer.toString();
             } catch (IOException ioe) {
-                SystemLog.write(ioe.getMessage(), "ERROR");
+                SystemLog.ticket(ioe.getMessage(), "ERROR");
                 ioe.printStackTrace(); 
             }
         }
@@ -115,13 +115,13 @@ public class ExecuteCmdAndPrintOnOutput {
             error.join(3000);
             output.join(3000);
             exitVal = proc.waitFor();
-            SystemLog.write("Output: " + output.message, "OUT");
-            SystemLog.write("Error: " + error.message, "WARNING");
+            SystemLog.ticket("Output: " + output.message, "OUT");
+            SystemLog.ticket("Error: " + error.message, "WARNING");
             
             //file.delete();
             //file.deleteOnExit();
         }catch(Exception e){
-             SystemLog.write(e.getMessage(), "ERROR");
+             SystemLog.ticket(e.getMessage(), "ERROR");
              e.printStackTrace();
         }finally{
             file.delete();
@@ -164,7 +164,7 @@ public class ExecuteCmdAndPrintOnOutput {
             System.out.println("Error: "+error.message);
             */
         }catch(Exception e){
-            SystemLog.write(e.getMessage(), "ERROR");
+            SystemLog.ticket(e.getMessage(), "ERROR");
             e.printStackTrace();
         }
     }

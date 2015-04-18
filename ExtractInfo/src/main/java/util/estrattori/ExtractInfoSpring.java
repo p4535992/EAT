@@ -1,16 +1,13 @@
 package util.estrattori;
 
 import gate.CorpusController;
-import gate.Gate;
-import gate.util.GateException;
-import gate.util.persistence.PersistenceManager;
 import object.dao.*;
 import object.impl.*;
 import object.model.GeoDocument;
 import util.ManageJsonWithGoogleMaps;
 import util.SystemLog;
 import util.cmd.SimpleParameters;
-import util.gate.DataStoreApplication;
+import util.gate.GateDataStoreKit;
 import util.gate.GateKit;
 import util.http.HttpUtil;
 import util.karma.GenerationOfTriple;
@@ -18,16 +15,11 @@ import util.setInfoParameterIta.SetCodicePostale;
 import util.setInfoParameterIta.SetNazioneELanguage;
 import util.setInfoParameterIta.SetRegioneEProvincia;
 
-import java.io.File;
-import java.io.IOException;
-import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 /**
  * MainEstrazioneInfoDocument.java
@@ -66,7 +58,7 @@ public class ExtractInfoSpring {
      private boolean CREA_NUOVA_TABELLA_GEODOMAIN,ERASE_GEODOMAIN;
 
      //COSTRUTTORI
-     private DataStoreApplication datastore = new DataStoreApplication();
+     private GateDataStoreKit datastore = new GateDataStoreKit();
      private GenerationOfTriple got = new GenerationOfTriple();
      private ManageJsonWithGoogleMaps j = new ManageJsonWithGoogleMaps();
      private EstrazioneGeoDomainDocument egd = new EstrazioneGeoDomainDocument();
@@ -115,7 +107,7 @@ public class ExtractInfoSpring {
                 this.DS_DIR = par.getValue("PARAM_DS_DIR");
                 this.RANGE = Integer.parseInt(par.getValue("PARAM_RANGE"));
                 this.tentativiOutMemory = Integer.parseInt(par.getValue("PARAM_TENTATIVI_OUT_OF_MEMORY"));
-                datastore = new DataStoreApplication(DS_DIR,NOME_DATASTORE);
+                datastore = new GateDataStoreKit(DS_DIR,NOME_DATASTORE);
             }
 
             if(GENERATION_TRIPLE_KARMA_PROGRAMM==true) {
@@ -149,7 +141,7 @@ public class ExtractInfoSpring {
      */
     public void Extraction() throws Exception {
         try{
-            SystemLog.write("Run the extraction method.", "OUT");
+            SystemLog.ticket("Run the extraction method.", "OUT");
             ArrayList<URL> listUrl = new ArrayList<>();
             ArrayList<GeoDocument> listGeo = new ArrayList<>();
             try{
@@ -174,23 +166,23 @@ public class ExtractInfoSpring {
                     //*************************************************************************
                     //QUIT THE PROGRAMM SE LA LISTA DEGLI URL E' VUOTA
                     if(listUrl.isEmpty()){
-                        SystemLog.write("Lista degli url vuota uscita forzata dal programma di estrazione", "ERROR");}
+                        SystemLog.ticket("Lista degli url vuota uscita forzata dal programma di estrazione", "ERROR");}
                     else{
                         //*****************************************************************************************************
                         if(PROCESS_PROGAMM == 1){
                         // <editor-fold defaultstate="collapsed" desc="PROCESSO 1">
-                        SystemLog.write("RUN PROCESS 1", "OUT");
+                        SystemLog.ticket("RUN PROCESS 1", "OUT");
                         //METODOLOGIE PER SINGOLO URL
                         workWithSingleUrl(listUrl);
                         // </editor-fold>
                         //********************************************************************************************************
                         }else if(PROCESS_PROGAMM == 2){
                         // <editor-fold defaultstate="collapsed" desc="PROCESSO 2">
-                        SystemLog.write("RUN PROCESS 2", "OUT");
+                        SystemLog.ticket("RUN PROCESS 2", "OUT");
                         //METODOLOGIE PER MULTIPLI URL
                         listGeo = workWithMultipleUrls(listUrl);
                         if(listGeo==null || listGeo.isEmpty()){
-                            SystemLog.write("Lista degli URL vuota o di elementi tutti irraggiungibili", "ERROR");}
+                            SystemLog.ticket("Lista degli URL vuota o di elementi tutti irraggiungibili", "ERROR");}
                         else{
                             //Richiama il metodo per l'inserimento dei GeoDocument nellla tabella MySQL
                              insertGeoDocumentToMySQLTableMainMethod(listGeo);
@@ -204,10 +196,10 @@ public class ExtractInfoSpring {
                         //SI PUO' IMPOSTARE LA MACCHINA PER RILANCIARE IL PROGRAMMA DAL DOCUMENTO X DEL CORPUS Y
                         //PER MANCANZE DI TEMPO CI LIMITIAMO A RILANCIARE IL PROGRAMMA CON UN DIVERSO VALORE DI OFFSET
                         //FINO AL RAGGIUNGIMENTO DEL LIMIT IMPOSTATO (NON E' DETTO CHE FUNZIONI AL 100%)
-                        SystemLog.write("RUN PROCESS 3", "OUT");
+                        SystemLog.ticket("RUN PROCESS 3", "OUT");
                         listGeo = workWithMultipleUrlsAndDataStore(listUrl);
                         if(listGeo==null || listGeo.isEmpty()){
-                            SystemLog.write("Lista degli URL vuota o di elementi tutti irraggiungibili", "ERROR");}
+                            SystemLog.ticket("Lista degli URL vuota o di elementi tutti irraggiungibili", "ERROR");}
                         else{
                             //Richiama il metodo per l'inserimento dei GeoDocument nellla tabella MySQL
                              insertGeoDocumentToMySQLTableMainMethod(listGeo);
@@ -215,18 +207,18 @@ public class ExtractInfoSpring {
                         // </editor-fold>
                         //*********************************************************************************************************
                         }else{
-                            SystemLog.write("ERRORE NELLA SELEZIONE DEL PROCESSO DA UTILIZZARE 1,2,3,4 SONO I VALORI POSSIBILI", "ERROR");
+                            SystemLog.ticket("ERRORE NELLA SELEZIONE DEL PROCESSO DA UTILIZZARE 1,2,3,4 SONO I VALORI POSSIBILI", "ERROR");
                         }
                     }//else lista url non vuota
                  } //SE PROCESS_PROGRAMM == 4
-                 SystemLog.write("RUN PROCESS 4", "OUT");
+                 SystemLog.ticket("RUN PROCESS 4", "OUT");
             } catch (RuntimeException e2) {
                 //Err.prln("ECCEZIONE DI QUALCHE TIPO CAUSATA IN FASE DI RUN");
-                SystemLog.write(e2.getMessage(), "ERROR");
+                SystemLog.ticket(e2.getMessage(), "ERROR");
                 e2.printStackTrace();
                 Logger.getLogger(ExtractInfoSpring.class.getName()).log(Level.SEVERE, null, e2);
             } catch (Exception e2){
-                SystemLog.write(e2.getMessage(), "ERROR");
+                SystemLog.ticket(e2.getMessage(), "ERROR");
                 e2.printStackTrace();
                 Logger.getLogger(ExtractInfoSpring.class.getName()).log(Level.SEVERE, null, e2);
             }
@@ -239,7 +231,7 @@ public class ExtractInfoSpring {
                     geoDomainDocumentDao.setTableInsert(TABLE_OUTPUT_GEODOMAIN);
                     geoDomainDocumentDao.setTableSelect(TABLE_INPUT_GEODOMAIN);
                     geoDomainDocumentDao.setDriverManager(DRIVER_DATABASE, DIALECT_DATABASE, HOST_DATABASE, PORT_DATABASE.toString(), USER, PASS, DB_OUTPUT_GEODOMAIN);
-                    SystemLog.write("RUN GEODOMAIN PROGRAMM", "OUT");
+                    SystemLog.ticket("RUN GEODOMAIN PROGRAMM", "OUT");
                     if(CREA_NUOVA_TABELLA_GEODOMAIN==true){
                           geoDomainDocumentDao.create(ERASE_GEODOMAIN);
                     }
@@ -248,7 +240,7 @@ public class ExtractInfoSpring {
                 }
                 //INTEGRIAMO LA TABELLA INFODOCUMENT PER LAVORARE CON UN'ONTOLOGIA
                 if(ONTOLOGY_PROGRAMM == true){
-                    SystemLog.write("RUN ONTOLOGY PROGRAMM", "OUT");
+                    SystemLog.ticket("RUN ONTOLOGY PROGRAMM", "OUT");
                     IInfoDocumentDao infoDocumentDao = new InfoDocumentDaoImpl();
                     infoDocumentDao.setTableInsert(TABLE_OUTPUT_ONTOLOGY);
                     infoDocumentDao.setTableSelect(TABLE_OUTPUT);
@@ -265,7 +257,7 @@ public class ExtractInfoSpring {
                 //GENERIAMO IL FILE DI TRIPLE CORRISPONDENTE ALLE INFORMAZIONI ESTRATTE CON KARMA
                 if(GENERATION_TRIPLE_KARMA_PROGRAMM == true)
                 {
-                    SystemLog.write("RUN GENERATION TRIPLE WITH KARMA PROGRAMM", "OUT");
+                    SystemLog.ticket("RUN GENERATION TRIPLE WITH KARMA PROGRAMM", "OUT");
                     got = new GenerationOfTriple(
                             ID_DATABASE_KARMA,//DB
                             FILE_MAP_TURTLE_KARMA, //PATH: karma_files/model/
@@ -285,7 +277,7 @@ public class ExtractInfoSpring {
                 }
             }//finally
     }catch(OutOfMemoryError e){
-        SystemLog.write("java.lang.OutOfMemoryError, Reload the programm please", "ERROR");
+        SystemLog.message("java.lang.OutOfMemoryError, Reload the programm please");
     }
 }//main
 
@@ -301,23 +293,22 @@ public class ExtractInfoSpring {
              GeoDocument geo = new GeoDocument(null,null,null, null, null, null, null,null, null, null,null,null,null,null,null,null,null);
              GeoDocument geo2 = new GeoDocument(null, null, null, null, null, null, null, null, null, null, null, null,null,null,null,null,null);
               try{
-                SystemLog.write("(" + indGDoc + ")URL:" + url, "OUT");
+                SystemLog.ticket("(" + indGDoc + ")URL:" + url, "OUT");
                 indGDoc++;
                 if(geo2.getEdificio()==null){
-                    SystemLog.write("*********************************************", "OUT");
-                    SystemLog.write("Run JSOUP", "OUT");
+                    SystemLog.ticket("*********************************************", "OUT");
+                    SystemLog.ticket("Run JSOUP", "OUT");
                     EstrazioneDatiWithJSOUP j = new EstrazioneDatiWithJSOUP();
                     geo2 = j.GetTitleAndHeadingTags(url.toString(),geo2);
                 }   
                if(geo2==null || geo2.getEdificio()==null){continue;}
                else{
-                    SystemLog.write("*********************************************", "OUT");
-                    SystemLog.write("Run GATE", "OUT");
+                    SystemLog.message("*********************************************", "OUT");
+                    SystemLog.message("Run GATE", "OUT");
                     geo = egate.extractMicrodataWithGATESingleUrl(url,null,controller,indGDoc);                        
 
                     if(geo!=null){
                        geo = compareInfo3(geo, geo2);
-                    // </editor-fold>
                        //AGGIUNGIAMO ALTRE INFORMAZIONI AL GEODOCUMENT
                        geo = UpgradeTheDocumentWithOtherInfo(geo); 
                        geo = pulisciDiNuovoGeoDocument(geo);
@@ -345,8 +336,8 @@ public class ExtractInfoSpring {
         ArrayList<GeoDocument> listGeo = new ArrayList<> ();
         ArrayList<GeoDocument> listGeoFinal = new ArrayList<> ();
         try{                                                                                        
-          SystemLog.write("*********************************************", "OUT");
-          SystemLog.write("Run GATE", "OUT");
+          SystemLog.message("*********************************************");
+          SystemLog.message("Run GATE");
           listGeo = egate.extractMicrodataWithGATEMultipleUrls(listUrl,null,controller,indGDoc);                        
           listUrl.clear();          
           for(GeoDocument geo: listGeo){
@@ -358,7 +349,7 @@ public class ExtractInfoSpring {
           }//for each GeoDocument     
        }//try for
        catch(Exception e){
-           SystemLog.write(e.getMessage(), "ERROR");e.printStackTrace();}
+           SystemLog.error("ERROR:"+ e.getMessage());e.printStackTrace();}
        return listGeoFinal;              
     }
     /**
@@ -372,8 +363,8 @@ public class ExtractInfoSpring {
         //QUESTA LINEA DI CODICE E' INUTILE SE SPECIFICATA ALL'INIZIO
         //DataStoreApplication datastore = new DataStoreApplication(DS_DIR,NOME_DATASTORE);
         try{       
-          SystemLog.write("*********************************************", "OUT");
-          SystemLog.write("Run GATE", "OUT");
+          SystemLog.message("*********************************************");
+          SystemLog.message("Run GATE");
           //System.out.println("*********************************************");
           listGeo = egateDataStore.extractMicrodataWithGATEMultipleUrls(listUrl,null,controller,indGDoc,datastore);                        
           //***************************************************************************************************  
@@ -390,7 +381,7 @@ public class ExtractInfoSpring {
         //************************************************************************* 
        }//try for
        catch(Exception e){
-           SystemLog.write(e.getMessage(), "ERROR");e.printStackTrace();}
+           SystemLog.ticket(e.getMessage(), "ERROR");e.printStackTrace();}
        return listGeoFinal;              
     }
     
@@ -398,12 +389,11 @@ public class ExtractInfoSpring {
     
     private GeoDocument UpgradeTheDocumentWithOtherInfo(GeoDocument geo) throws URISyntaxException{
        try{
-        SystemLog.write("**************DOCUMENT*********************", "OUT");
+        SystemLog.message("**************DOCUMENT*********************");
         //*************************************************************************************  
         //INTEGRAZIONE FINALE CON IL DATABASE KEYWORDDB
         if(setNullForEmptyString(geo.getCity())==null){
-
-           SystemLog.write("Integrazione Keyworddb", "OUT");
+            SystemLog.message("Integrazione Keyworddb");
             IDocumentDao dao = new DocumentDaoImpl();
             dao.setTableSelect(TABLE_KEYWORD_DOCUMENT);
             dao.setDriverManager(DRIVER_DATABASE, DIALECT_DATABASE, HOST_DATABASE, PORT_DATABASE.toString(), USER, PASS ,DB_KEYWORD);
@@ -422,7 +412,7 @@ public class ExtractInfoSpring {
          //INTEGRAZIONE DEL CAMPO LANGUAGE -> NAZIONE
          SetNazioneELanguage set = new SetNazioneELanguage();
          String language = geo.getNazione();
-         String domain = getDomainName(geo.getUrl().toString());
+         String domain = HttpUtil.getDomainName(geo.getUrl().toString());
          String nazione = set.checkNazioneByDomain(domain);
          geo.setNazione(nazione);
          //con il linguaggio identificato da Tika se fallisce il controllo del
@@ -434,7 +424,7 @@ public class ExtractInfoSpring {
          //*************************************************************************************
          //INTEGRAZIONE DEI CAMPI DELLE COORDINATE CON GOOGLE MAPS             
          geo =j.connection(geo);    
-         SystemLog.write("COORD[LAT:" + geo.getLat() + ",LNG:" + geo.getLng() + "]", "OUT");
+         SystemLog.message("COORD[LAT:" + geo.getLat() + ",LNG:" + geo.getLng() + "]");
          //PULIAMO NUOVAMENTE LA STRINGA EDIFICIO E INDIRIZZO (UTILE NEL CASO DI SearchMonkey e Tika)
          geo = pulisciDiNuovoLaStringaEdificio(geo);
          geo = pulisciDiNuovoLaStringaIndirizzo(geo);
@@ -568,7 +558,7 @@ public class ExtractInfoSpring {
         try{ 
             for(GeoDocument geo: listGeo){
                 if(geo.getUrl()!=null && geo.getEdificio()!=null){
-                    SystemLog.write("INSERIMENTO", "OUT");
+                    SystemLog.message("INSERIMENTO");
                     IGeoDocumentDao dao = new GeoDocumentDaoImpl();
                     dao.setTableInsert(TABLE_OUTPUT);
                     dao.setDriverManager(DRIVER_DATABASE, DIALECT_DATABASE, HOST_DATABASE, PORT_DATABASE.toString(), USER, PASS, DB_OUTPUT);
@@ -577,7 +567,7 @@ public class ExtractInfoSpring {
                 }//if
          }//for
         }catch(Exception e){
-                SystemLog.write("Errore durante l'inserimento del record nella tabella MySQL:" + e.getMessage(), "ERROR");
+                SystemLog.ticket("Errore durante l'inserimento del record nella tabella MySQL:" + e.getMessage(), "ERROR");
                 e.printStackTrace();
                 Logger.getLogger(ExtractInfoSpring.class.getName()).log(Level.SEVERE,null,e);
         }finally{
@@ -586,49 +576,6 @@ public class ExtractInfoSpring {
         }           
     }
 
-    /**
-     * Metodo che matcha e sostituisce determinati parti di una stringa attraverso le regular expression
-     * @param input stringa di input
-     * @param expression regular expression da applicare
-     * @param replace setta la stringa con cui sostituire il risultato del match
-     * @return il risultato in formato stringa della regular expression
-     */
-    public String RegexAndReplace(String input,String expression,String replace){
-        String result ="";
-        //String expression = "\\d{5,7}";
-        ///[^a-z0-9\s]+/ig
-        if(replace==null){
-            Pattern pattern = Pattern.compile(expression);
-            Matcher matcher = pattern.matcher(input);
-            while(matcher.find()){
-                 result = matcher.group().toString();   
-                 if(result != null && result != ""){break;}
-            }
-        }else{
-            input.replaceAll(expression, replace);
-        }
-        return result;
-    }
-     
-    /**
-     * Semplice metodo che estare il domino web di appartenenza dell'url analizzato
-     * @param u url di ingresso in fromato stringa
-     * @return il dominio web dell'url in formato stringa
-     * @throws URISyntaxException 
-     */
-    private String getDomainName(String u) {     
-            String domain ="";
-            try{
-            URI uri = new URI(u);
-            domain = uri.getHost();           
-            //return domain.startsWith("www.") ? domain.substring(4) : domain;
-            }catch(URISyntaxException ue){
-                String[] ss = u.split("/");
-                domain = ss[0]+"/";
-            }
-            return domain;
-    }//getDomainName
-    
     /**
     * Setta a null se verifica che la stringa non è
     * nulla, non è vuota e non è composta da soli spaceToken (white space)

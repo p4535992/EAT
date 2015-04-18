@@ -23,7 +23,7 @@ import object.dao.IWebsiteDao;
 import object.impl.WebsiteDaoImpl;
 import org.apache.log4j.Logger;
 import org.springframework.web.HttpRequestHandler;
-import util.gate.CreateCorpus;
+import util.gate.GateCorpusKit;
 
 /**
  * Simple HttpRequestHandler that uses a GATE application to process
@@ -34,7 +34,7 @@ public class MyGateHandler implements HttpRequestHandler {
   
   private static ArrayList<URL> listaUrl= new ArrayList<URL>();
   private static final Logger log = Logger.getLogger(MyGateHandler.class);
-  private static CreateCorpus create = new CreateCorpus();
+  private static GateCorpusKit create = new GateCorpusKit();
 
   /**Atomic counter that we use to obtain a unique ID for each handler instance.*/
   private static AtomicInteger nextId = new AtomicInteger(1);

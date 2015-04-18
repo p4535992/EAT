@@ -83,7 +83,7 @@ public class GenerationOfTriple {
                 + "--dbname "+DBNAME_KARMA+" "
                 + "--tablename "+TABLENAME_KARMA+""
                 + "\"";  
-        SystemLog.write("KARMA:" + cmdKarma + "", "OUT");
+        SystemLog.ticket("KARMA:" + cmdKarma + "", "OUT");
         return cmdKarma;
     }
     
@@ -118,7 +118,7 @@ public class GenerationOfTriple {
             //CODIFICHIAMO IL FILE DI TRIPLE DA ASCII A UNICODE (UTF8)
             List<String> lines = new ArrayList<>();		           
             //treat as a large file - use some buffering
-            SystemLog.write("Codifica Unicode per il file di triple...", "OUT");
+            SystemLog.ticket("Codifica Unicode per il file di triple...", "OUT");
             //**************************************************************************
             /*
             util.encoding.ConvertASCIIToUnicode text =
@@ -138,14 +138,14 @@ public class GenerationOfTriple {
             text.writeLargerTextFileWithReplace2(output,lines);
             //******************************************************************
             
-            SystemLog.write("...File di triple " + output + " codificato", "OUT");
+            SystemLog.ticket("...File di triple " + output + " codificato", "OUT");
             File filePathTriple = new File(pathTriple);
             filePathTriple.delete();
             
             // filePathTriple.delete();
             File f = new File(output);
             //RIPULIAMO LETRIPLE DALLE LOCATION SENZA COORDINATE CON JENA
-            SystemLog.write("Ripuliamo le triple infodocument dalle Location senza coordinate nel file:" + output, "OUT");
+            SystemLog.ticket("Ripuliamo le triple infodocument dalle Location senza coordinate nel file:" + output, "OUT");
 
             readQueryAndCleanTripleInfoDocument(
                     FileUtil.filenameNoExt(f), //filenameInput
@@ -157,13 +157,13 @@ public class GenerationOfTriple {
             f.delete();
             
         } catch (FileNotFoundException ex) {
-            SystemLog.write("KARMA:" + ex.getMessage() + "", "ERRROR");
+            SystemLog.ticket("KARMA:" + ex.getMessage() + "", "ERRROR");
             Logger.getLogger(GenerationOfTriple.class.getName()).log(Level.SEVERE, null, ex);
         } catch (UnsupportedEncodingException ex) {
-            SystemLog.write("KARMA:" + ex.getMessage() + "", "ERRROR");
+            SystemLog.ticket("KARMA:" + ex.getMessage() + "", "ERRROR");
             Logger.getLogger(GenerationOfTriple.class.getName()).log(Level.SEVERE, null, ex);
         }catch(IOException ioe){
-            SystemLog.write("KARMA:" + ioe.getMessage() + "", "ERRROR");
+            SystemLog.ticket("KARMA:" + ioe.getMessage() + "", "ERRROR");
             Logger.getLogger(GenerationOfTriple.class.getName()).log(Level.SEVERE, null,ioe);
         }
     }

@@ -45,5 +45,5 @@ Temporary Items
 # exclude everything except directory  in the direcotry web-karma-master and the file README
 /web-karma-master/doc
 /web-karma-master/*
-!/web-karma-master/README.md
+#!/web-karma-master/README.md
 

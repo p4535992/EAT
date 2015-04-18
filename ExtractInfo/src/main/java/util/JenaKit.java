@@ -52,7 +52,7 @@ public class JenaKit {
               + " OPTIONAL{?s <http://schema.org/longitude> ?o .}"
               + " FILTER (!bound(?o))"
               + "}";
-        SystemLog.write("Query SPARQL:" + SPARQL_QUERY, "OUT");
+        SystemLog.ticket("Query SPARQL:" + SPARQL_QUERY, "OUT");
         //CREA IL TUO MODELLO DI JENA A PARTIRE DA UN FILE
         com.hp.hpl.jena.rdf.model.Model model = loadFileTriple(filenameInput,filepath,inputFormat);
 
@@ -68,7 +68,7 @@ public class JenaKit {
                 try{
                     com.hp.hpl.jena.rdf.model.Statement stmt  = iter.nextStatement();  // get next statement
                     model.remove(stmt);
-                    SystemLog.write("REMOVE 1:<" + stmt.getSubject() + "> <" + stmt.getPredicate() + "> <" + stmt.getObject() + ">.", "OUT");
+                    SystemLog.ticket("REMOVE 1:<" + stmt.getSubject() + "> <" + stmt.getPredicate() + "> <" + stmt.getObject() + ">.", "OUT");
 
                     com.hp.hpl.jena.rdf.model.Resource  subject   = stmt.getSubject();     // get the subject
 
@@ -84,9 +84,9 @@ public class JenaKit {
                            (com.hp.hpl.jena.rdf.model.Resource)null,
                             predicate2,
                             object2);
-                    SystemLog.write("REMOVE 2:<" + subject2 + "> <" + predicate2 + "> <" + object2 + ">.", "OUT");
+                    SystemLog.ticket("REMOVE 2:<" + subject2 + "> <" + predicate2 + "> <" + object2 + ">.", "OUT");
                 }catch(Exception e){
-                    SystemLog.write("ECCEZIONE IN FASE DI RIPULITURA DELLE TRIPLE:" + e.getMessage(), "ERR");
+                    SystemLog.ticket("ECCEZIONE IN FASE DI RIPULITURA DELLE TRIPLE:" + e.getMessage(), "ERR");
                     e.printStackTrace();
                 }
              //OPPURE
@@ -107,7 +107,7 @@ public class JenaKit {
                 if(
                   //x.asLiteral().getDatatype().equals(stringToXSDDatatypeToString("string"))){
                   x.asLiteral().getDatatype().equals(com.hp.hpl.jena.datatypes.xsd.XSDDatatype.XSDstring)){
-                    SystemLog.write("MODIFY STRING LITERAL:" + x.asLiteral().getLexicalForm(), "AVOID");
+                    SystemLog.ticket("MODIFY STRING LITERAL:" + x.asLiteral().getLexicalForm(), "AVOID");
                     model2.add(stmt.getSubject(),
                                stmt.getPredicate(),
                             com.hp.hpl.jena.rdf.model.ResourceFactory.createPlainLiteral(x.asLiteral().getLexicalForm()
@@ -164,7 +164,7 @@ public class JenaKit {
                     +"\\"+FileUtil.filenameNoExt(fullPath)+"."+outputFormat.toLowerCase());
             
 	    try (BufferedWriter writer = Files.newBufferedWriter(path, ENCODING)){
-                SystemLog.write("Scrittura del nuovo file di triple:" + path, "OUT");
+                SystemLog.ticket("Scrittura del nuovo file di triple:" + path, "OUT");
 	    	//org.apache.jena.riot.RDFDataMgr.write(writer, model, stringToRiotLang(outputFormat));
             model.write(writer,outputFormat);
 	    }
@@ -216,12 +216,16 @@ public class JenaKit {
 			     }
 			   }
 			   */
-			   try (com.hp.hpl.jena.query.QueryExecution qexec2 = 
-			   com.hp.hpl.jena.query.QueryExecutionFactory.create(queryString, model)) {
-				   results = qexec2.execSelect() ;
-				   results = com.hp.hpl.jena.query.ResultSetFactory.copyResults(results) ;
-				   //return results ;    // Passes the result set out of the try-resources
-			   }
+//			   try (com.hp.hpl.jena.query.QueryExecution qexec2 =
+//			   com.hp.hpl.jena.query.QueryExecutionFactory.create(queryString, model)) {
+//				   results = qexec2.execSelect() ;
+//				   results = com.hp.hpl.jena.query.ResultSetFactory.copyResults(results) ;
+//				   //return results ;    // Passes the result set out of the try-resources
+//			   }
+               com.hp.hpl.jena.query.QueryExecution qexec2 =
+                            com.hp.hpl.jena.query.QueryExecutionFactory.create(queryString, model);
+               results = qexec2.execSelect() ;
+               results = com.hp.hpl.jena.query.ResultSetFactory.copyResults(results) ;
 			   break;
 		   case "CONSTRUCT":
 			   //CONSTRUCT queries return a single RDF graph. 
@@ -462,13 +466,16 @@ public class JenaKit {
                ||outputFormat.toLowerCase().contains("sse")||outputFormat.toLowerCase().contains("bio")
                ||outputFormat.toLowerCase().contains("rdf")||outputFormat.toLowerCase().contains("bio")
                     ){
-                try (com.hp.hpl.jena.query.QueryExecution qexec2 =
-                com.hp.hpl.jena.query.QueryExecutionFactory.create(sparql, model)) {
-                        results = qexec2.execSelect() ;
-                        results = com.hp.hpl.jena.query.ResultSetFactory.copyResults(results) ;
-                }
+//               try (com.hp.hpl.jena.query.QueryExecution qexec2 =
+//                          com.hp.hpl.jena.query.QueryExecutionFactory.create(sparql, model)) {
+//                      results = qexec2.execSelect() ;
+//               }
+                com.hp.hpl.jena.query.QueryExecution qexec2 =
+                          com.hp.hpl.jena.query.QueryExecutionFactory.create(sparql, model);
+                results = qexec2.execSelect() ;
+                results = com.hp.hpl.jena.query.ResultSetFactory.copyResults(results);
 
-                //PRINT THE RESULT
+                    //PRINT THE RESULT
                 FileOutputStream fos = new FileOutputStream(new File(fullPathOutputFile));
                 if(outputFormat.toLowerCase().contains("csv")){
                     com.hp.hpl.jena.query.ResultSetFormatter.outputAsCSV(fos,results);
@@ -479,11 +486,11 @@ public class JenaKit {
                 }else if(outputFormat.toLowerCase().contains("tsv")){
                     com.hp.hpl.jena.query.ResultSetFormatter.outputAsTSV(fos,results);
                 }else if(outputFormat.toLowerCase().contains("sse")){
-                    com.hp.hpl.jena.query.ResultSetFormatter.outputAsSSE(fos,results);
-                }else if(outputFormat.toLowerCase().contains("bio")){
-                    com.hp.hpl.jena.query.ResultSetFormatter.outputAsBIO(fos,results);
+                    com.hp.hpl.jena.query.ResultSetFormatter.outputAsSSE(fos, results);
+//                }else if(outputFormat.toLowerCase().contains("bio")){
+//                   com.hp.hpl.jena.query.ResultSetFormatter.outputAsBIO(fos,results);
                 }else if(outputFormat.toLowerCase().contains("rdf")){
-                    com.hp.hpl.jena.query.ResultSetFormatter.outputAsRDF(fos,"RDF/XML", results);
+                    com.hp.hpl.jena.query.ResultSetFormatter.outputAsRDF(fos, "RDF/XML", results);
                 }
             }
 
@@ -496,7 +503,7 @@ public class JenaKit {
                 //writeLargerModelJenaToFile(fullPathOutputFile, model, outputFormat);
                 //FileOutputStream out = new FileOutputStream("Jena_test.n3");
                 Writer writer = new FileWriter(new File(fullPathOutputFile));
-                model.write(writer,outputFormat);
+                model.write(writer, outputFormat);
             }
     }
 
@@ -716,23 +723,23 @@ public class JenaKit {
         // I used to pass encoding in here, but that's dumb. I'm reading XML
         // which is self-describing.
         com.hp.hpl.jena.rdf.model.Model model = com.hp.hpl.jena.rdf.model.ModelFactory.createDefaultModel();
-        SystemLog.write("Loading " + filename + "...", "OUT");
+        SystemLog.ticket("Loading " + filename + "...", "OUT");
         try {
             File inputFile = new File(filename);
             FileInputStream input = new FileInputStream(inputFile);
             if (input == null) {
                 //SystemKit.abort(1, "Failed to open " + filename);
-                SystemLog.write("Failed to open " + filename, "OUT");
+                SystemLog.ticket("Failed to open " + filename, "OUT");
             }
             model.read(input, uriFromFile(inputFile));
             input.close();
         } catch (FileNotFoundException fnfe) {
-            SystemLog.write("No file: " + filename, "ERR");
+            SystemLog.ticket("No file: " + filename, "ERR");
             fnfe.printStackTrace();
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         } catch (IOException e) {
-            SystemLog.write("Failed to read: " + filename, "ERR");
+            SystemLog.ticket("Failed to read: " + filename, "ERR");
             e.printStackTrace();
         }
         return model;
@@ -843,7 +850,7 @@ public class JenaKit {
         try {
             String rdfValue = queryLiteral(model, subject, property,prefix);
             if (value != null && !value.equals(rdfValue)) {
-                SystemLog.write("Updating " + property + "=" + value, "OUT");
+                SystemLog.ticket("Updating " + property + "=" + value, "OUT");
                 deleteLiteral(model,subject,property,rdfValue);
                 int pos = property.indexOf(":");
                 prefix = property.substring(0, pos);
@@ -950,7 +957,7 @@ public class JenaKit {
                 if (stmt.getObject()instanceof com.hp.hpl.jena.rdf.model.Resource) {
                     type = "resource";
                 }
-                SystemLog.write("\tdelete " + type + ": " + prefix + ":" + p.getLocalName()
+                SystemLog.ticket("\tdelete " + type + ": " + prefix + ":" + p.getLocalName()
                         + "=" + stmt.getObject().toString(), "OUT");
                 model.remove(stmt);
             }

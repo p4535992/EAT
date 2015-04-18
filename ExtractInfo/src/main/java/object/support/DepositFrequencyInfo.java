@@ -60,7 +60,7 @@ public class DepositFrequencyInfo {
                 "DepositFrequencyInfo{" + "domain=" + domain + ", listGeoDoc=" + listGeoDoc + ", frequency=" + frequency + '}' +
                 "******************************************************************************************************" 
                 + System.getProperties().get("line.separator");
-        SystemLog.write(s, "OUT");
+        SystemLog.message(0,s);
         return s;
     }
 

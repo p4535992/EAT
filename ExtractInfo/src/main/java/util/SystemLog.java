@@ -24,7 +24,7 @@ public class SystemLog {
 
     private static String LOGNAME;
     private static File LOGFILE;
-    public static int VERBOSE = 0;
+    public static int VERBOSE = 1;
     /** {@code org.slf4j.Logger} */
     private static org.slf4j.Logger logger;
     /** Flag to provide basic support for debug information (not used within class). */
@@ -41,7 +41,7 @@ public class SystemLog {
     /** Flag determining whether log entries are written to the log stream. */
     private static boolean logging = false;
     /** Flag determining whether the {@code LogWriter} is closed when {@link #close()} method is called. */
-    private static boolean closeWriterOnExit = true;
+    private static boolean closeWriterOnExit = false;
     /** Separator string (between date and log message). */
     private static String separator = ": ";
 
@@ -74,12 +74,10 @@ public class SystemLog {
     ///////////////////////////
     /**
      * Method to Write the content of a message type for the log
-     * @deprecated  use {@link public static void message(int level, String message) } instead.
      * @param message
      * @param err
      */
-    @Deprecated
-    public static void write(String message,String err) {
+    public static void ticket(String message,String err) {
         String log;
         if(err.contains("OUT")){
             log =logTimestamp.format(new Date()) + message;
@@ -103,36 +101,23 @@ public class SystemLog {
             log =logTimestamp.format(new Date()) + message;
             System.out.println(log);
         }
-        printString2File(log, System.getProperty("user.dir"));
+        printString2File(message);
+
     }
+
+    public static void ticket(String message) {
+        printString2File(message);
+    }
+
 
     /**
      * Method for print the strin to a specific file
-     * @deprecated  use {@link private static void print2File(String content) } instead.
-     * @param content
-     * @param pathToFile
-     */
-    @Deprecated
-    private static void printString2File(String content, String pathToFile) {
-        File f = new File(pathToFile+"\\"+ LOGNAME);
-        try(PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(f.getAbsolutePath(), true)))) {
-            out.print(content+System.getProperty("line.separator"));
-            out.flush();
-            out.close();
-        }catch (IOException e) {
-            //exception handling left as an exercise for the reader
-        }
-    }
-
-    /**
-     * Method for print the strin to a specific file
-     * @deprecated  use {@link private static void print2File(String content) } instead.
      * @param content
      */
-    @Deprecated
     private static void printString2File(String content) {
-        if(VERBOSE >= 10) System.err.println(content);
-        else System.out.println(content);
+        if(VERBOSE >= 10) {System.out.println(content);}
+        else if(VERBOSE == 0) {}
+        else {System.out.println(content);}
         try(PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(LOGFILE.getAbsolutePath(), true)))) {
             out.print(content+System.getProperty("line.separator"));
             out.flush();
@@ -147,9 +132,9 @@ public class SystemLog {
      * @param content
      */
     private static void print2File(String content) {
-        if(VERBOSE >= 10) System.err.println(content);
-        else if(VERBOSE == 0){}
-        else System.out.println(content);
+        if(VERBOSE >= 10) {System.err.println(content);}
+        else if(VERBOSE == 0){/*avoid*/}
+        else {System.out.println(content);}
         logWriter.print(content + System.getProperty("line.separator"));
         logWriter.flush();
         logWriter.close();
@@ -157,11 +142,9 @@ public class SystemLog {
 
     /**
      * Method to Read the content of a message type for the lo
-     * @deprecated  use {@link public static void message(int level, String message) } instead.
      * @param message
      * @param err
      */
-    @Deprecated
     public static void read(String message,String err) {
          String log;
         if(err.contains("OUT")){
@@ -192,7 +175,7 @@ public class SystemLog {
      * Writes a message to the log.
      * @param logEntry message to write as a log entry
      */
-    protected static synchronized void write(String logEntry) {
+    protected static void write(String logEntry) {
         if (!logging)
             return;
         StringBuilder sb = new StringBuilder();
@@ -210,7 +193,7 @@ public class SystemLog {
 
         sb.append(logEntry);
         //logWriter.println(sb.toString()); //???
-        printString2File(sb.toString());
+        print2File(sb.toString());
     }
 
 
@@ -218,21 +201,21 @@ public class SystemLog {
     //MESSAGE
     ///////////////
 
-    public static void message(int level, String logEntry) {if (VERBOSE >= level) {write(logEntry);}}
+    public static void message(int level, String logEntry) {VERBOSE = level; write(logEntry);}
 
     /**
      * Writes a message to the log.
      * @param logEntry message to write as a log entry
      */
-    public static synchronized void message(String logEntry) {write(logEntry);}
-    public static synchronized void error(String logEntry) {VERBOSE = 10; write(logEntry);}
+    public static void message(String logEntry) {write(logEntry);}
+    public static  void error(String logEntry) {VERBOSE = 10; write(logEntry);}
 
     /**
      * Writes a message to the log with an optional prefix.
      * @param prefix prefix string for the log entry
      * @param logEntry message to write as a log entry
      */
-    public static synchronized void message(String prefix, String logEntry)
+    public static void message(String prefix, String logEntry)
     {
         if (prefix == null || prefix.equals(""))
             write(logEntry);
@@ -251,7 +234,7 @@ public class SystemLog {
      * @param logEntry message to write as a log entry
      * @param throwable {@code Throwable} instance to log with this entry
      */
-    public static synchronized void message(String prefix, String logEntry, Throwable throwable)
+    public static void message(String prefix, String logEntry, Throwable throwable)
     {
         if (!logging)
             return;
@@ -271,7 +254,7 @@ public class SystemLog {
      * @param throwable {@code Throwable} instance to log with this entry
      * @param logEntry message to write as a log entry
      */
-    public static synchronized void message(String logEntry, Throwable throwable)
+    public static void message(String logEntry, Throwable throwable)
     {
         if (!logging)
             return;
@@ -297,7 +280,7 @@ public class SystemLog {
      * If debug is enabled, writes a message to the log.
      * @param logEntry message to write as a log entry
      */
-    public static synchronized void debug(String logEntry) {
+    public static void debug(String logEntry) {
         if (isDebug())
             logEntry = "<!-- [debug] " + logEntry + " -->";
             write(logEntry);
@@ -308,14 +291,14 @@ public class SystemLog {
      * @param prefix prefix string for the log entry
      * @param logEntry message to write as a log entry
      */
-    public static synchronized void debug(String prefix, String logEntry) {if (isDebug()) message(prefix, logEntry);}
+    public static void debug(String prefix, String logEntry) {if (isDebug()) message(prefix, logEntry);}
 
     /**
      * If debug is enabled, writes a message with a {@code Throwable} to the log file.
      * @param logEntry message to write as a log entry
      * @param throwable {@code Throwable} instance to log with this entry
      */
-    public static synchronized void debug(String logEntry, Throwable throwable) {if (isDebug()) message(logEntry, throwable);}
+    public static  void debug(String logEntry, Throwable throwable) {if (isDebug()) message(logEntry, throwable);}
 
     ///////////////////////////////
     //OTHER LOGGING PARAMETER
@@ -341,22 +324,13 @@ public class SystemLog {
             logger.error(e.getStackTrace()[i].toString());
     }
 
-    /**
-     * Sets the date formatter for the logging.
-     * The default format is obtained using the method call:
-     * {@code DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG)}
-     * @param df {@code DateFormat} instance to use for formatting log messages
-     * @see java.text.DateFormat
-     * @usage DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG)
-     */
-    public static synchronized void setDateFormat(SimpleDateFormat df){logTimestamp = df;}
 
     /**
      * Sets the separator string between the date and log message (default &quot;: &quot;).
      * To set the default separator, call with a null argument.
      * @param sep string to use as separator
      */
-    public static synchronized void setSeparator(String sep) {separator = (sep == null) ? ": " : sep;}
+    public static void setSeparator(String sep) {separator = (sep == null) ? ": " : sep;}
 
     /**
      * Sets the log stream and enables logging.
@@ -364,14 +338,14 @@ public class SystemLog {
      * method is called.
      * @param writer {@code PrintWriter} to which to write log entries
      */
-    public final synchronized void setLog(PrintWriter writer) {setLog(writer, true);}
+    public final  void setLog(PrintWriter writer) {setLog(writer, true);}
 
     /**
      * Sets the log stream and enables logging.
      * @param writer {@code PrintWriter} to which to write log entries
      * @param closeOnExit whether to close the {@code PrintWriter} when {@link #close()} is called
      */
-    public synchronized void setLog(PrintWriter writer, boolean closeOnExit) {
+    public  static void setLog(PrintWriter writer, boolean closeOnExit) {
         if (logWriter != null)
         {
             logWriter.flush();
@@ -382,17 +356,17 @@ public class SystemLog {
             logWriter = writer;
         else
             logWriter = null;
-        this.closeWriterOnExit = (logWriter != null) ? closeOnExit : false;
+        closeWriterOnExit = (logWriter != null) ? closeOnExit : false;
     }
 
     /**
      * Returns the current {@code PrintWriter} used to write to the log.
      * @return The current {@code PrintWriter} used to write to the log
      */
-    public synchronized PrintWriter getLogWriter() {return logWriter;}
-    public synchronized void setLogWriter()  {
+
+    private static  void setLogWriter()  {
         try {
-            this.logWriter = new PrintWriter(new BufferedWriter(new FileWriter(LOGFILE.getAbsolutePath(), true)));
+            logWriter = new PrintWriter(new BufferedWriter(new FileWriter(LOGFILE.getAbsolutePath(), true)));
         } catch (IOException e) {
             SystemLog.logStackTrace(e,logger);
             e.printStackTrace();
@@ -402,7 +376,7 @@ public class SystemLog {
     /**
      * Closes the log.
      */
-    public static synchronized void close() {
+    public static  void close() {
         logging = false;
         if (logWriter != null)
         {
@@ -417,31 +391,31 @@ public class SystemLog {
      * Writes a {@code Throwable} to the log file.
      * @param throwable {@code Throwable} instance to log with this entry
      */
-    public synchronized static void throwException(Throwable throwable) {message(throwable.getMessage(), throwable);}
+    public static void throwException(Throwable throwable) {message(throwable.getMessage(), throwable);}
 
     /**
      * Determines whether calls to the logging methods actually write to the log.
      * @param b flag indicating whether to write to the log
      */
-    public synchronized void setLogging(boolean b) {logging = b;}
+    public static void setLogging(boolean b) {logging = b;}
 
     /**
      * Returns whether calls to the logging methods actually write to the log.
      * @return true if logging is enabled, false otherwise.
      */
-    public static synchronized boolean isLogging() {return logging;}
+    public static  boolean isLogging() {return logging;}
 
     /**
      * Determines whether to perform debug logging.
      * @param b flag indicating whether to perform debug logging
      */
-    public static synchronized void setDebug(boolean b) {DEBUG = b;}
+    public static  void setDebug(boolean b) {DEBUG = b;}
 
     /**
      * Returns whether debug logging is enabled.
      * @return true if debug logging is enabled, false otherwise.
      */
-    public static synchronized boolean isDebug() {return DEBUG;}
+    public static  boolean isDebug() {return DEBUG;}
 
         
 }

@@ -549,11 +549,18 @@ public class HttpUtil {
         * @return il dominio web dell'url in formato stringa
         * @throws URISyntaxException 
         */
-       public static String getDomainName(String url) throws URISyntaxException {     
-               URI uri = new URI(url);
-               String domain = uri.getHost();           
-               //return domain.startsWith("www.") ? domain.substring(4) : domain;
-               return domain;
+       public static String getDomainName(String url) {
+
+			   String domain ="";
+			   try{
+				   URI uri = new URI(url);
+				   domain = uri.getHost();
+				   //return domain.startsWith("www.") ? domain.substring(4) : domain;
+			   }catch(URISyntaxException ue){
+				   String[] ss = url.split("/");
+				   domain = ss[0]+"/";
+			   }
+			   return domain;
        }//getDomainName
         
        

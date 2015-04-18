@@ -170,7 +170,7 @@ public class GeoDomainDocumentDaoImpl extends GenericDaoImpl<GeoDomainDocument> 
             // get the column names; column indexes start from 1
             for (int i = 1; i < numberOfColumns + 1; i++) {
                 query = "UPDATE `" + myInsertTable + "` SET `" + rsMetaData.getColumnName(i) + "` = LTRIM(RTRIM(`" + rsMetaData.getColumnName(i) + "`));";
-                SystemLog.write(query, "OUT");
+                SystemLog.message(query);
                 jdbcTemplate.execute(query);
             }
         }catch(Exception e){}

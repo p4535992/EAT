@@ -21,6 +21,15 @@ public class DocumentDaoImpl extends GenericDaoImpl<Document> implements IDocume
         super.setDriverManager(driver,typeDb, host, port,user,  pass, database);
     }
 
+    public void setSessionFactory(SessionFactory sessionFactory) {
+        this.sessionFactory = sessionFactory;
+    }
+
+
+    public SessionFactory getSessionFactory() {
+        return sessionFactory;
+    }
+
     @Override
     public void setDataSource(DataSource ds) {
         this.dataSource = ds;
@@ -45,14 +54,14 @@ public class DocumentDaoImpl extends GenericDaoImpl<Document> implements IDocume
 
 
     @Override
-    public SessionFactory getSessionFactory() {
-        return sessionFactory;
-    }
-
-    @Override
     public String selectValueForSpecificColumn(String column, String column_where, String value_where){
-        String query = "SELECT "+ column + " from " + mySelectTable + " WHERE " + column_where + " = ?";
-        String city =(String) jdbcTemplate.queryForObject(query ,new Object[]{value_where},String.class);
+        String city ="";
+        try {
+            String query = "SELECT " + column + " from " + mySelectTable + " WHERE " + column_where + " = ?";
+            city = (String) jdbcTemplate.queryForObject(query, new Object[]{value_where}, String.class);
+        }catch(org.springframework.dao.EmptyResultDataAccessException e){
+            city = "";
+        }
         //String name = (String)getJdbcTemplate().queryForObject(query, new Object[] { custId }, String.class);
         return city;
     }

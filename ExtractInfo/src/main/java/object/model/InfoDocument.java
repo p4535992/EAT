@@ -318,7 +318,7 @@ public class InfoDocument {
                 + "}" 
                 + System.getProperties().get("line.separator") 
                 + "******************************************************************************************************"+ System.getProperties().get("line.separator");
-        SystemLog.write(s, "AVOID");
+        SystemLog.message(0,s);
         return s;
        
     }

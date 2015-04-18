@@ -10,7 +10,7 @@ import gate.Gate;
 import gate.util.GateException;
 import gate.util.persistence.PersistenceManager;
 import object.model.GeoDocument;
-import util.gate.DataStoreApplication;
+import util.gate.GateDataStoreKit;
 import util.http.HttpUtil;
 import util.karma.GenerationOfTriple;
 import util.setInfoParameterIta.SetCodicePostale;
@@ -101,7 +101,7 @@ public class ExtractInfoMySQL {
      private boolean ERASE_GEODOMAIN;
       
      //COSTRUTTORI
-     private DataStoreApplication datastore = new DataStoreApplication(); 
+     private GateDataStoreKit datastore = new GateDataStoreKit();
      private GenerationOfTriple got = new GenerationOfTriple();
      private ManageJsonWithGoogleMaps j = new ManageJsonWithGoogleMaps(); 
      private EstrazioneGeoDomainDocument egd = new EstrazioneGeoDomainDocument(); 
@@ -150,7 +150,7 @@ public class ExtractInfoMySQL {
                 this.DS_DIR = par.getValue("PARAM_DS_DIR");
                 this.RANGE = Integer.parseInt(par.getValue("PARAM_RANGE"));          
                 this.tentativiOutMemory = Integer.parseInt(par.getValue("PARAM_TENTATIVI_OUT_OF_MEMORY"));
-                datastore = new DataStoreApplication(DS_DIR,NOME_DATASTORE);
+                datastore = new GateDataStoreKit(DS_DIR,NOME_DATASTORE);
             }
             
             if(GENERATION_TRIPLE_KARMA_PROGRAMM==true) {
@@ -181,7 +181,7 @@ public class ExtractInfoMySQL {
      */
     public void Extraction() throws Exception {
         try{
-            SystemLog.write("Run the extraction method.", "OUT");
+            SystemLog.ticket("Run the extraction method.", "OUT");
             ArrayList<URL> listUrl = new ArrayList<>();        
             ArrayList<GeoDocument> listGeo = new ArrayList<>();   
             ArrayList<String> listStringUrl = new ArrayList<String>();
@@ -221,9 +221,9 @@ public class ExtractInfoMySQL {
                         listUrl.remove(new URL(listStringUrl.get(i)));
                     }
                     listStringUrl.clear();
-                    SystemLog.write("Lista di URL con " + listUrl.size() + " elements", "OUT");
+                    SystemLog.ticket("Lista di URL con " + listUrl.size() + " elements", "OUT");
                     //SETTIAMO GATE PER IL PROGRAMMA
-                    SystemLog.write("Inizializzazione GATE...", "OUT");
+                    SystemLog.ticket("Inizializzazione GATE...", "OUT");
                     Gate.setGateHome(new File("gate_files"));
                     Gate.setPluginsHome(new File("gate_files/plugins"));
                     Gate.setSiteConfigFile(new File("gate_files/gate.xml"));
@@ -232,30 +232,30 @@ public class ExtractInfoMySQL {
                     Gate.init();
                     //INIZIALIZZIAMO IL PROGRAMMA CON IL NOSTRO FILE GAPP
                     init();
-                    SystemLog.write("...GATE initialised", "OUT");
+                    SystemLog.ticket("...GATE initialised", "OUT");
                     //**********************************************************************
                     //Lavorare con l'interfaccia grafica di GATE
                     /*MainFrame.getInstance().setVisible(true);*/
                     //*************************************************************************
                     //QUIT THE PROGRAMM SE LA LISTA DEGLI URL E' VUOTA
                     if(listUrl.isEmpty()){
-                        SystemLog.write("Lista degli url vuota uscita forzata dal programma di estrazione", "ERROR");}
+                        SystemLog.ticket("Lista degli url vuota uscita forzata dal programma di estrazione", "ERROR");}
                     else{
                         //*****************************************************************************************************
                         if(PROCESS_PROGAMM == 1){
                         // <editor-fold defaultstate="collapsed" desc="PROCESSO 1">
-                        SystemLog.write("RUN PROCESS 1", "OUT");
+                        SystemLog.ticket("RUN PROCESS 1", "OUT");
                         //METODOLOGIE PER SINGOLO URL        
                         workWithSingleUrl(listUrl);
                         // </editor-fold>                       
                         //********************************************************************************************************
                         }else if(PROCESS_PROGAMM == 2){
                         // <editor-fold defaultstate="collapsed" desc="PROCESSO 2">
-                        SystemLog.write("RUN PROCESS 2", "OUT");
+                        SystemLog.ticket("RUN PROCESS 2", "OUT");
                         //METODOLOGIE PER MULTIPLI URL 
                         listGeo = workWithMultipleUrls(listUrl);
                         if(listGeo==null || listGeo.isEmpty()){
-                            SystemLog.write("Lista degli URL vuota o di elementi tutti irraggiungibili", "ERROR");}
+                            SystemLog.ticket("Lista degli URL vuota o di elementi tutti irraggiungibili", "ERROR");}
                         else{
                             //Richiama il metodo per l'inserimento dei GeoDocument nellla tabella MySQL
                              insertGeoDocumentToMySQLTableMainMethod(listGeo);
@@ -269,10 +269,10 @@ public class ExtractInfoMySQL {
                         //SI PUO' IMPOSTARE LA MACCHINA PER RILANCIARE IL PROGRAMMA DAL DOCUMENTO X DEL CORPUS Y
                         //PER MANCANZE DI TEMPO CI LIMITIAMO A RILANCIARE IL PROGRAMMA CON UN DIVERSO VALORE DI OFFSET
                         //FINO AL RAGGIUNGIMENTO DEL LIMIT IMPOSTATO (NON E' DETTO CHE FUNZIONI AL 100%)            
-                        SystemLog.write("RUN PROCESS 3", "OUT");
+                        SystemLog.ticket("RUN PROCESS 3", "OUT");
                         listGeo = workWithMultipleUrlsAndDataStore(listUrl);
                         if(listGeo==null || listGeo.isEmpty()){
-                            SystemLog.write("Lista degli URL vuota o di elementi tutti irraggiungibili", "ERROR");}
+                            SystemLog.ticket("Lista degli URL vuota o di elementi tutti irraggiungibili", "ERROR");}
                         else{
                             //Richiama il metodo per l'inserimento dei GeoDocument nellla tabella MySQL
                              insertGeoDocumentToMySQLTableMainMethod(listGeo);
@@ -280,18 +280,18 @@ public class ExtractInfoMySQL {
                         // </editor-fold>     
                         //*********************************************************************************************************   
                         }else{
-                            SystemLog.write("ERRORE NELLA SELEZIONE DEL PROCESSO DA UTILIZZARE 1,2,3,4 SONO I VALORI POSSIBILI", "ERROR");
+                            SystemLog.ticket("ERRORE NELLA SELEZIONE DEL PROCESSO DA UTILIZZARE 1,2,3,4 SONO I VALORI POSSIBILI", "ERROR");
                         }
                     }//else lista url non vuota
                  } //SE PROCESS_PROGRAMM == 4 
-                 SystemLog.write("RUN PROCESS 4", "OUT");
+                 SystemLog.ticket("RUN PROCESS 4", "OUT");
             } catch (RuntimeException e2) {
                 //Err.prln("ECCEZIONE DI QUALCHE TIPO CAUSATA IN FASE DI RUN");
-                SystemLog.write(e2.getMessage(), "ERROR");
+                SystemLog.ticket(e2.getMessage(), "ERROR");
                 e2.printStackTrace();
                 Logger.getLogger(ExtractInfoMySQL.class.getName()).log(Level.SEVERE, null, e2);
             } catch (Exception e2){
-                SystemLog.write(e2.getMessage(), "ERROR");
+                SystemLog.ticket(e2.getMessage(), "ERROR");
                 e2.printStackTrace();
                 Logger.getLogger(ExtractInfoMySQL.class.getName()).log(Level.SEVERE, null, e2);
             } 
@@ -304,7 +304,7 @@ public class ExtractInfoMySQL {
                     geoDomainDocumentDao.setTableInsert(TABLE_OUTPUT_GEODOMAIN);
                     geoDomainDocumentDao.setTableSelect(TABLE_INPUT_GEODOMAIN);
                     geoDomainDocumentDao.setDriverManager(DRIVER_DATABASE, DIALECT_DATABASE, HOST_DATABASE, PORT_DATABASE.toString(), USER, PASS, DB_OUTPUT_GEODOMAIN);
-                    SystemLog.write("RUN GEODOMAIN PROGRAMM", "OUT");
+                    SystemLog.ticket("RUN GEODOMAIN PROGRAMM", "OUT");
                     if(CREA_NUOVA_TABELLA_GEODOMAIN==true){
                           geoDomainDocumentDao.create(ERASE_GEODOMAIN);
                     }
@@ -313,7 +313,7 @@ public class ExtractInfoMySQL {
                 }
                 //INTEGRIAMO LA TABELLA INFODOCUMENT PER LAVORARE CON UN'ONTOLOGIA        
                 if(ONTOLOGY_PROGRAMM == true){ 
-                    SystemLog.write("RUN ONTOLOGY PROGRAMM", "OUT");
+                    SystemLog.ticket("RUN ONTOLOGY PROGRAMM", "OUT");
                     IInfoDocumentDao infoDocumentDao = new InfoDocumentDaoImpl();
                     infoDocumentDao.setTableInsert(TABLE_OUTPUT_ONTOLOGY);
                     infoDocumentDao.setTableSelect(TABLE_OUTPUT);
@@ -330,7 +330,7 @@ public class ExtractInfoMySQL {
                 //GENERIAMO IL FILE DI TRIPLE CORRISPONDENTE ALLE INFORMAZIONI ESTRATTE CON KARMA
                 if(GENERATION_TRIPLE_KARMA_PROGRAMM == true)
                 {
-                    SystemLog.write("RUN GENERATION TRIPLE WITH KARMA PROGRAMM", "OUT");
+                    SystemLog.ticket("RUN GENERATION TRIPLE WITH KARMA PROGRAMM", "OUT");
                     got = new GenerationOfTriple(
                             ID_DATABASE_KARMA,//DB
                             FILE_MAP_TURTLE_KARMA, //PATH: karma_files/model/
@@ -350,7 +350,7 @@ public class ExtractInfoMySQL {
                 }  
             }//finally
     }catch(java.lang.OutOfMemoryError e){
-        SystemLog.write("java.lang.OutOfMemoryError, Reload the programm please", "ERROR");
+        SystemLog.ticket("java.lang.OutOfMemoryError, Reload the programm please", "ERROR");
     }
 }//main	
 
@@ -366,18 +366,18 @@ public class ExtractInfoMySQL {
              GeoDocument geo = new GeoDocument(null,null,null, null, null, null, null,null, null, null,null,null,null,null,null,null,null);
              GeoDocument geo2 = new GeoDocument(null, null, null, null, null, null, null, null, null, null, null, null,null,null,null,null,null);
               try{
-                SystemLog.write("(" + indGDoc + ")URL:" + url, "OUT");
+                SystemLog.ticket("(" + indGDoc + ")URL:" + url, "OUT");
                 indGDoc++;
                 if(geo2.getEdificio()==null){
-                    SystemLog.write("*********************************************", "OUT");
-                    SystemLog.write("Run JSOUP", "OUT");
+                    SystemLog.ticket("*********************************************", "OUT");
+                    SystemLog.ticket("Run JSOUP", "OUT");
                     util.estrattori.EstrazioneDatiWithJSOUP j = new util.estrattori.EstrazioneDatiWithJSOUP();                   
                     geo2 = j.GetTitleAndHeadingTags(url.toString(),geo2);
                 }   
                if(geo2==null || geo2.getEdificio()==null){continue;}
                else{
-                    SystemLog.write("*********************************************", "OUT");
-                    SystemLog.write("Run GATE", "OUT");
+                    SystemLog.ticket("*********************************************", "OUT");
+                    SystemLog.ticket("Run GATE", "OUT");
                     geo = egate.extractMicrodataWithGATESingleUrl(url,null,controller,indGDoc);                        
 
                     if(geo!=null){
@@ -410,8 +410,8 @@ public class ExtractInfoMySQL {
         ArrayList<GeoDocument> listGeo = new ArrayList<> ();
         ArrayList<GeoDocument> listGeoFinal = new ArrayList<> ();
         try{                                                                                        
-          SystemLog.write("*********************************************", "OUT");
-          SystemLog.write("Run GATE", "OUT");
+          SystemLog.ticket("*********************************************", "OUT");
+          SystemLog.ticket("Run GATE", "OUT");
           listGeo = egate.extractMicrodataWithGATEMultipleUrls(listUrl,null,controller,indGDoc);                        
           listUrl.clear();          
           for(GeoDocument geo: listGeo){
@@ -423,7 +423,7 @@ public class ExtractInfoMySQL {
           }//for each GeoDocument     
        }//try for
        catch(Exception e){
-           SystemLog.write(e.getMessage(), "ERROR");e.printStackTrace();}
+           SystemLog.ticket(e.getMessage(), "ERROR");e.printStackTrace();}
        return listGeoFinal;              
     }
     /**
@@ -437,8 +437,8 @@ public class ExtractInfoMySQL {
         //QUESTA LINEA DI CODICE E' INUTILE SE SPECIFICATA ALL'INIZIO
         //DataStoreApplication datastore = new DataStoreApplication(DS_DIR,NOME_DATASTORE);
         try{       
-          SystemLog.write("*********************************************", "OUT");
-          SystemLog.write("Run GATE", "OUT");
+          SystemLog.ticket("*********************************************", "OUT");
+          SystemLog.ticket("Run GATE", "OUT");
           //System.out.println("*********************************************");
           listGeo = egateDataStore.extractMicrodataWithGATEMultipleUrls(listUrl,null,controller,indGDoc,datastore);                        
           //***************************************************************************************************  
@@ -455,7 +455,7 @@ public class ExtractInfoMySQL {
         //************************************************************************* 
        }//try for
        catch(Exception e){
-           SystemLog.write(e.getMessage(), "ERROR");e.printStackTrace();}
+           SystemLog.ticket(e.getMessage(), "ERROR");e.printStackTrace();}
        return listGeoFinal;              
     }
     
@@ -483,12 +483,12 @@ public class ExtractInfoMySQL {
     
     private GeoDocument UpgradeTheDocumentWithOtherInfo(GeoDocument geo) throws URISyntaxException{
        try{
-        SystemLog.write("**************DOCUMENT*********************", "OUT");
+        SystemLog.ticket("**************DOCUMENT*********************", "OUT");
         //*************************************************************************************  
         //INTEGRAZIONE FINALE CON IL DATABASE KEYWORDDB
         if(setNullForEmptyString(geo.getCity())==null){
 
-           SystemLog.write("Integrazione Keyworddb", "OUT");
+           SystemLog.ticket("Integrazione Keyworddb", "OUT");
             IDocumentDao dao = new DocumentDaoImpl();
             dao.setTableSelect(TABLE_KEYWORD_DOCUMENT);
             dao.setDriverManager(DRIVER_DATABASE, DIALECT_DATABASE, HOST_DATABASE, PORT_DATABASE.toString(), USER, PASS ,DB_KEYWORD);
@@ -519,7 +519,7 @@ public class ExtractInfoMySQL {
          //*************************************************************************************
          //INTEGRAZIONE DEI CAMPI DELLE COORDINATE CON GOOGLE MAPS             
          geo =j.connection(geo);    
-         SystemLog.write("COORD[LAT:" + geo.getLat() + ",LNG:" + geo.getLng() + "]", "OUT");
+         SystemLog.ticket("COORD[LAT:" + geo.getLat() + ",LNG:" + geo.getLng() + "]", "OUT");
          //PULIAMO NUOVAMENTE LA STRINGA EDIFICIO E INDIRIZZO (UTILE NEL CASO DI SearchMonkey e Tika)
          geo = pulisciDiNuovoLaStringaEdificio(geo);
          geo = pulisciDiNuovoLaStringaIndirizzo(geo);
@@ -653,7 +653,7 @@ public class ExtractInfoMySQL {
         try{ 
             for(GeoDocument geo: listGeo){
                 if(geo.getUrl()!=null && geo.getEdificio()!=null){
-                    SystemLog.write("INSERIMENTO", "OUT");
+                    SystemLog.ticket("INSERIMENTO", "OUT");
                     IGeoDocumentDao dao = new GeoDocumentDaoImpl();
                     dao.setTableInsert(TABLE_OUTPUT);
                     dao.setDriverManager(DRIVER_DATABASE, DIALECT_DATABASE, HOST_DATABASE, PORT_DATABASE.toString(), USER, PASS, DB_OUTPUT);
@@ -662,7 +662,7 @@ public class ExtractInfoMySQL {
                 }//if
          }//for
         }catch(Exception e){
-                SystemLog.write("Errore durante l'inserimento del record nella tabella MySQL:" + e.getMessage(), "ERROR");
+                SystemLog.ticket("Errore durante l'inserimento del record nella tabella MySQL:" + e.getMessage(), "ERROR");
                 e.printStackTrace();
                 Logger.getLogger(ExtractInfoMySQL.class.getName()).log(Level.SEVERE,null,e);
         }finally{

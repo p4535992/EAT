@@ -43,7 +43,7 @@ public class GeoDocumentDAO {
                 session.getTransaction().commit();
             } catch (RuntimeException e) {
                 if (trns != null) {trns.rollback();}
-                SystemLog.write(e.getMessage(), "ERROR");
+                SystemLog.ticket(e.getMessage(), "ERROR");
                 e.printStackTrace();
             } finally {
                 session.flush();
@@ -62,7 +62,7 @@ public class GeoDocumentDAO {
         Session session = factory.openSession();
         try {
             trns = session.beginTransaction();
-            SystemLog.write("INSERIMENTO", "OUT");
+            SystemLog.ticket("INSERIMENTO", "OUT");
             //System.out.println("---------------------------------------------------------------------------------------------------------------------------------------");
             System.out.println(geo.toString());
             //System.out.println("---------------------------------------------------------------------------------------------------------------------------------------");                                       
@@ -70,7 +70,7 @@ public class GeoDocumentDAO {
             session.getTransaction().commit();
         } catch (RuntimeException e) {
             if (trns != null) { trns.rollback();}
-            SystemLog.write(e.getMessage(), "ERROR");
+            SystemLog.ticket(e.getMessage(), "ERROR");
             e.printStackTrace();
         } finally {
             session.flush();
@@ -88,7 +88,7 @@ public class GeoDocumentDAO {
         Session session = factory.openSession();
         try {
             trns = session.beginTransaction();
-            SystemLog.write("INSERIMENTO", "OUT");
+            SystemLog.ticket("INSERIMENTO", "OUT");
             //System.out.println("---------------------------------------------------------------------------------------------------------------------------------------");
             System.out.println(geo.toString());
             //System.out.println("---------------------------------------------------------------------------------------------------------------------------------------");                                       
@@ -96,7 +96,7 @@ public class GeoDocumentDAO {
             session.getTransaction().commit();
         } catch (RuntimeException e) {
             if (trns != null) { trns.rollback();}
-            SystemLog.write(e.getMessage(), "ERROR");
+            SystemLog.ticket(e.getMessage(), "ERROR");
             e.printStackTrace();
         } finally {
             session.flush();
@@ -114,7 +114,7 @@ public class GeoDocumentDAO {
         Session session = factory.openSession();
         try {
             trns = session.beginTransaction();
-            SystemLog.write("INSERIMENTO", "OUT");
+            SystemLog.ticket("INSERIMENTO", "OUT");
             //System.out.println("---------------------------------------------------------------------------------------------------------------------------------------");
             System.out.println(info.toString());
             //System.out.println("---------------------------------------------------------------------------------------------------------------------------------------");                                      
@@ -122,7 +122,7 @@ public class GeoDocumentDAO {
             session.getTransaction().commit();
         } catch (RuntimeException e) {
             if (trns != null) {trns.rollback();}
-            SystemLog.write(e.getMessage(), "ERROR");
+            SystemLog.ticket(e.getMessage(), "ERROR");
             e.printStackTrace();
         } finally {
             session.flush();
@@ -140,7 +140,7 @@ public class GeoDocumentDAO {
             session.getTransaction().commit();
         } catch (RuntimeException e) {
             if (trns != null) {trns.rollback(); }
-            SystemLog.write(e.getMessage(), "ERROR");
+            SystemLog.ticket(e.getMessage(), "ERROR");
             e.printStackTrace();
         } finally {
             session.flush();
@@ -157,7 +157,7 @@ public class GeoDocumentDAO {
             session.getTransaction().commit();
         } catch (RuntimeException e) {
             if (trns != null) {trns.rollback();}
-            SystemLog.write(e.getMessage(), "ERROR");
+            SystemLog.ticket(e.getMessage(), "ERROR");
             e.printStackTrace();
         } finally {
             session.flush();
@@ -176,7 +176,7 @@ public class GeoDocumentDAO {
                  + "edificio,latitude,longitude,nazione,description,postalCode,"
                  + "indirizzoNoCAP,indirizzoHasNumber "
                  + "FROM "+nomeTabella+"";
-            SystemLog.write("HIBERNATE:" + sql + " LIMIT " + LIMIT + " OFFSET " + OFFSET + "", "AVOID");
+            SystemLog.ticket("HIBERNATE:" + sql + " LIMIT " + LIMIT + " OFFSET " + OFFSET + "", "AVOID");
             SQLQuery query = session.createSQLQuery(sql).addEntity(GeoDocument.class);  
             if(LIMIT !=null && OFFSET !=null){
                 query.setFirstResult(OFFSET); 
@@ -188,7 +188,7 @@ public class GeoDocumentDAO {
             //org.hibernate.hql.internal.ast.QuerySyntaxException: infodocument_gianni_update4_h is not mapped [FROM infodocument_gianni_update4_h]
             tx.commit();
         } catch (RuntimeException e) {
-            SystemLog.write(e.getMessage(), "ERROR");
+            SystemLog.ticket(e.getMessage(), "ERROR");
             e.printStackTrace();
         } finally {
             session.flush();
@@ -204,12 +204,12 @@ public class GeoDocumentDAO {
         try {
             trns = session.beginTransaction();
             String queryString = "FROM "+nomeTabella+" WHERE "+nameColumnID+" = :"+nameColumnID+"";
-            SystemLog.write("HIBERNATE:" + queryString + "", "AVOID");
+            SystemLog.ticket("HIBERNATE:" + queryString + "", "AVOID");
             Query query = session.createQuery(queryString);
             query.setString(nameColumnID, valueID);
             geo = (GeoDocument) query.uniqueResult();
         } catch (RuntimeException e) {
-            SystemLog.write(e.getMessage(), "ERROR");
+            SystemLog.ticket(e.getMessage(), "ERROR");
             e.printStackTrace();
         } finally {
             session.flush();
@@ -227,7 +227,7 @@ public class GeoDocumentDAO {
             //String hql = "SELECT "+nomeColonna+" FROM "+nomeTabella+" "; 
             //Query query = session.createQuery(hql); 
             String sql = "SELECT "+nameColumn+" FROM "+nameTable+"";
-            SystemLog.write("HIBERNATE:" + sql + " LIMIT " + LIMIT + " OFFSET " + OFFSET + "", "AVOID");
+            SystemLog.ticket("HIBERNATE:" + sql + " LIMIT " + LIMIT + " OFFSET " + OFFSET + "", "AVOID");
             SQLQuery query = session.createSQLQuery(sql);            
             query.setFirstResult(OFFSET); 
             query.setMaxResults(LIMIT);
@@ -258,7 +258,7 @@ public class GeoDocumentDAO {
              tx.commit();
         }catch (HibernateException e) { 
             if (tx!=null) {tx.rollback();}
-            SystemLog.write(e.getMessage(), "ERROR");
+            SystemLog.ticket(e.getMessage(), "ERROR");
             e.printStackTrace(); 
         }
         finally { 
@@ -284,7 +284,7 @@ public class GeoDocumentDAO {
              if(erase==true){
                  sql ="DROP TABLE IF EXISTS "+nomeTabella+";";
                  //SQLQuery query = session.createSQLQuery(sql); 
-                 SystemLog.write("HIBERNATE:" + sql + "", "AVOID");
+                 SystemLog.ticket("HIBERNATE:" + sql + "", "AVOID");
                  session.createSQLQuery(sql).executeUpdate();
                  tx = session.beginTransaction();
                  tx.commit();
@@ -314,7 +314,7 @@ public class GeoDocumentDAO {
                 "  KEY `url` (`url`)\n" +
                 ") ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;";
             //SQLQuery query = session.createSQLQuery(sql);
-            SystemLog.write("HIBERNATE:" + sql + "", "AVOID");
+            SystemLog.ticket("HIBERNATE:" + sql + "", "AVOID");
             session.createSQLQuery(sql).executeUpdate();
             tx = session.beginTransaction();
             //Criteria cr = session.createCriteria(GeoDocument.class); 
@@ -322,7 +322,7 @@ public class GeoDocumentDAO {
             tx.commit();
         }catch (HibernateException e) { 
             if (tx!=null) {tx.rollback(); }
-            SystemLog.write(e.getMessage(), "ERROR");
+            SystemLog.ticket(e.getMessage(), "ERROR");
             e.printStackTrace(); 
         }
         finally { 
@@ -347,7 +347,7 @@ public class GeoDocumentDAO {
              if(erase==true){
                  sql ="DROP TABLE IF EXISTS "+nomeTabella+";";
                  //SQLQuery query = session.createSQLQuery(sql); 
-                 SystemLog.write("HIBERNATE:" + sql + "", "AVOID");
+                 SystemLog.ticket("HIBERNATE:" + sql + "", "AVOID");
                  session.createSQLQuery(sql).executeUpdate();
                  tx = session.beginTransaction();
                  tx.commit();
@@ -379,7 +379,7 @@ public class GeoDocumentDAO {
                 "  KEY `url` (`url`)\n" +
                 ") ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;";
             //SQLQuery query = session.createSQLQuery(sql);
-            SystemLog.write("HIBERNATE:" + sql + "", "AVOID");
+            SystemLog.ticket("HIBERNATE:" + sql + "", "AVOID");
             session.createSQLQuery(sql).executeUpdate();
             tx = session.beginTransaction();
             //Criteria cr = session.createCriteria(GeoDocument.class); 
@@ -387,7 +387,7 @@ public class GeoDocumentDAO {
             tx.commit();
         }catch (HibernateException e) { 
             if (tx!=null){tx.rollback();}
-            SystemLog.write(e.getMessage(), "ERROR");
+            SystemLog.ticket(e.getMessage(), "ERROR");
             e.printStackTrace(); 
         }
         finally { 
@@ -406,7 +406,7 @@ public class GeoDocumentDAO {
         try{
            
             String sql ="SELECT "+nameSelectColumn+" FROM "+nomeTabella+" WHERE "+nameWhereColumn+"='"+valueWhereColumn+"'";
-            SystemLog.write("HIBERNATE:" + sql, "AVOID");
+            SystemLog.ticket("HIBERNATE:" + sql, "AVOID");
             SQLQuery query = session.createSQLQuery(sql);
             
             List results = query.list();
@@ -419,7 +419,7 @@ public class GeoDocumentDAO {
             tx.commit();
         }catch (HibernateException e) { 
             if (tx!=null) {tx.rollback(); }
-            SystemLog.write(e.getMessage(), "ERROR");
+            SystemLog.ticket(e.getMessage(), "ERROR");
             e.printStackTrace(); 
         }
         finally { 
@@ -448,10 +448,10 @@ public class GeoDocumentDAO {
                 addInfoDocument(info);
             }    
         }catch (HibernateException e) {
-            SystemLog.write(e.getMessage(), "ERROR");
+            SystemLog.ticket(e.getMessage(), "ERROR");
             e.printStackTrace(); 
         }catch (Exception e) {
-            SystemLog.write(e.getMessage(), "ERROR");
+            SystemLog.ticket(e.getMessage(), "ERROR");
             e.printStackTrace(); 
         }
         finally { 
@@ -479,10 +479,10 @@ public class GeoDocumentDAO {
                 addObjectAnnotated(geo,"home.object_h.InfoDocument");  
             }    
         }catch (HibernateException e) {
-            SystemLog.write(e.getMessage(), "ERROR");
+            SystemLog.ticket(e.getMessage(), "ERROR");
             e.printStackTrace(); 
         }catch (Exception e) {
-            SystemLog.write(e.getMessage(), "ERROR");
+            SystemLog.ticket(e.getMessage(), "ERROR");
             e.printStackTrace(); 
         }
         finally { 
@@ -535,15 +535,15 @@ public class GeoDocumentDAO {
          try {                    
             if(LIMIT == null && OFFSET ==null){
                 sql = "SELECT * FROM "+nomeTabella+" ";
-                SystemLog.write(sql, "AVOID");
+                SystemLog.ticket(sql, "AVOID");
                 query = session.createSQLQuery(sql).addEntity(GeoDocument.class);
-                SystemLog.write(query.getQueryString(), "AVOID");
+                SystemLog.ticket(query.getQueryString(), "AVOID");
                 
             }else{
                 sql = "SELECT * FROM "+nomeTabella+" LIMIT "+LIMIT+" OFFSET "+OFFSET+" ";
-                SystemLog.write(sql, "AVOID");
+                SystemLog.ticket(sql, "AVOID");
                 query = session.createSQLQuery(sql).addEntity(GeoDocument.class);
-                SystemLog.write(query.getQueryString(), "AVOID");
+                SystemLog.ticket(query.getQueryString(), "AVOID");
                 
             }  
             //List results = query.list();
@@ -565,7 +565,7 @@ public class GeoDocumentDAO {
               sql = "UPDATE `"+nomeTabella+"` SET `"+s+"` = LTRIM(RTRIM(`"+s+"`));";
               //home.utils.log.write(sql,"OUT");
               query = session.createSQLQuery(sql);
-                SystemLog.write(query.getQueryString(), "AVOID");
+                SystemLog.ticket(query.getQueryString(), "AVOID");
              // session.getTransaction().commit();
               session.createSQLQuery(sql).executeUpdate();
               trns = session.beginTransaction();
@@ -573,7 +573,7 @@ public class GeoDocumentDAO {
             }              
         } catch (RuntimeException e) {
             if (trns != null) {trns.rollback();}
-             SystemLog.write(e.getMessage(), "ERROR");
+             SystemLog.ticket(e.getMessage(), "ERROR");
             e.printStackTrace();
         } finally {
             session.flush();
@@ -589,19 +589,19 @@ public class GeoDocumentDAO {
         try{
            
             String sql ="SELECT * FROM "+nomeTabella+" WHERE "+nameWhereColumn+"='"+valueWhereColumn+"' LIMIT 1";
-            SystemLog.write("HIBERNATE:" + sql, "AVOID");
+            SystemLog.ticket("HIBERNATE:" + sql, "AVOID");
             SQLQuery query = session.createSQLQuery(sql);
             
             List results = query.list();           
             if(results!=null && results.size() > 0){
-                SystemLog.write("Attenzione! Il record con " + nameWhereColumn.toString() + "='" + valueWhereColumn.toString() + "' è già presente nel database", "WAR");
+                SystemLog.ticket("Attenzione! Il record con " + nameWhereColumn.toString() + "='" + valueWhereColumn.toString() + "' è già presente nel database", "WAR");
                 b=true;
             }
             tx =session.beginTransaction();
             tx.commit();
         }catch (HibernateException e) { 
             if (tx!=null) {tx.rollback(); }
-            SystemLog.write(e.getMessage(), "ERROR");
+            SystemLog.ticket(e.getMessage(), "ERROR");
             e.printStackTrace(); 
         }
         finally { 
@@ -625,14 +625,14 @@ public class GeoDocumentDAO {
       Transaction tx = null;
       try{
          tx = session.beginTransaction();
-          SystemLog.write("INSERIMENTO", "OUT");
+          SystemLog.ticket("INSERIMENTO", "OUT");
          //session.save(obj);
          //Class clsObjectAnnotated = HibernateUtil.createNewClass(pathPackageToObjectAnnotated);
          //session.save(clsObjectAnnotated.cast(obj));
          session.save(obj);
          //session.getTransaction().commit();
          tx.commit();
-          SystemLog.write("E' stato creato un GeoDocument:" + obj.toString() + " nel database", "AVOID");
+          SystemLog.ticket("E' stato creato un GeoDocument:" + obj.toString() + " nel database", "AVOID");
       }catch (HibernateException e) {
          if (tx!=null) tx.rollback();
          e.printStackTrace();  
@@ -701,7 +701,7 @@ public class GeoDocumentDAO {
          }else{
             sql = "SELECT * FROM "+clsObjectAnnotated.getSimpleName().toLowerCase()+"";  
          }
-          SystemLog.write("HIBERNATE:" + sql + " LIMIT " + LIMIT + " OFFSET " + OFFSET + "", "AVOID");
+          SystemLog.ticket("HIBERNATE:" + sql + " LIMIT " + LIMIT + " OFFSET " + OFFSET + "", "AVOID");
          SQLQuery query = session.createSQLQuery(sql);            
          query.addEntity(clsObjectAnnotated);
          query.setFirstResult(OFFSET); 
@@ -736,7 +736,7 @@ public class GeoDocumentDAO {
      }catch (HibernateException ex) {
        if (tx!=null) {tx.rollback();}
        ex.printStackTrace();
-          SystemLog.write("", "");
+          SystemLog.ticket("", "");
      }finally {
         session.close();        
      }

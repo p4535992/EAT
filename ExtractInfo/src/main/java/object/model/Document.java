@@ -93,7 +93,7 @@ public class Document {
     @Override
     public String toString() {
         String s = "Document{" + "doc_id=" + doc_id + ", url=" + url + ", city=" + city + ", latitude=" + latitude + ", longitude=" + longitude + ", crawling_date=" + crawling_date + ", crawling_time=" + crawling_time + '}';
-        SystemLog.write(s, "OUT");
+        SystemLog.message(0,s);
         return s;
     }
     

@@ -154,9 +154,8 @@ public class AnnotationInfo {
         + ", indirizzo=" + indirizzo + ", iva=" + iva + ", email="
         + email + ", telefono=" + telefono + ", edificio=" + edificio
         + ", nazione=" + nazione + "]" +
-                "******************************************************************************************************"
-                + System.getProperties().get("line.separator");
-        SystemLog.write(s, "OUT");
+                "******************************************************************************************************";
+        SystemLog.message(0,s);
         return s;
 	}
     

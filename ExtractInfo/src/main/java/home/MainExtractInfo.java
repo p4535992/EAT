@@ -6,17 +6,14 @@ import util.SystemLog;
 import util.cmd.SimpleParameters;
 import util.estrattori.ExtractInfoMySQL;
 import util.estrattori.ExtractInfoSpring;
-import util.gate.DataStoreApplication;
+import util.gate.GateDataStoreKit;
 
-import javax.xml.transform.TransformerException;
 import java.awt.EventQueue;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.lang.reflect.InvocationTargetException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -33,7 +30,7 @@ public class MainExtractInfo {
     //ALTRE VARIABILI
     private static Integer LIMIT;
     private static Integer OFFSET;
-    private static DataStoreApplication datastore;
+    private static GateDataStoreKit datastore;
 //////////////////////////////////////////////////////////////
     public MainExtractInfo(){}
     // The storage for the command line parameters
@@ -49,29 +46,29 @@ public class MainExtractInfo {
                public void run() {
                    try{
                     SystemLog LOG = new SystemLog();
-                    SystemLog.write("===== START THE PROGRAMM =========", "OUT");
+                    SystemLog.message("===== START THE PROGRAMM =========", "OUT");
                     /*long start = System.currentTimeMillis();*/                  
                     // Parse all the parameters
                     SimpleParameters params = new SimpleParameters();
                     if(args.length > 0){
                         params = new SimpleParameters(args);
-                        SystemLog.write("Using parameters:", "OUT");
-                        SystemLog.write(params.toString(), "OUT");
+                        SystemLog.message("Using parameters:", "OUT");
+                        SystemLog.message(params.toString(), "OUT");
                     }else{
                         //C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\resources\input.properties
                         mParameters = FileUtil.ReadStringFromFileLineByLine(System.getProperty("user.dir")+"//ExtractInfo//src//main//resources//input.properties",'=',params);
                         //VARIABILI ALTRE
                         //PRINT SULLA CONSOLE
-                        SystemLog.write("Using parameters:", "OUT");
-                        SystemLog.write(params.toString(), "OUT");
+                        SystemLog.message("Using parameters:", "OUT");
+                        SystemLog.message(params.toString(), "OUT");
 
                         String test = params.getValue("PARAM_PATH_FILE_CFG_DB_INPUT_KEYWORD");
 //                        try {
                             if ( params.getValue("PARAM_TYPE_EXTRACTION").equals("MYSQL")) {
-                                SystemLog.write("Selezionato Estrazione MySQL", "OUT");
-                                SystemLog.write("Caricamento costruttore...", "OUT");
+                                SystemLog.message("Selezionato Estrazione MySQL", "OUT");
+                                SystemLog.message("Caricamento costruttore...");
                                 ExtractInfoMySQL m = new ExtractInfoMySQL(params);
-                                SystemLog.write("... construttore pronto.", "OUT");
+                                SystemLog.message("... construttore pronto.");
                                 m.Extraction();
                             }else if(params.getValue("PARAM_TYPE_EXTRACTION").equals("SPRING")){
                                 ExtractInfoSpring m = new ExtractInfoSpring(params);
@@ -100,12 +97,12 @@ public class MainExtractInfo {
                          System.currentTimeMillis() - start));*/   
                 }catch(InterruptedException ie){
                     ie.printStackTrace();
-                    SystemLog.write(ie.getMessage(), "ERROR");
+                       SystemLog.error("ERROR:" + ie.getMessage());
                     Logger.getLogger(MainExtractInfo.class.getName()).log(Level.SEVERE, null, ie);
                     //log(Logger.getLogger(home.MainExtractInfo.class.getName()).log(Level.SEVERE, null, ie));
                 }catch(InvocationTargetException iie){
                     iie.printStackTrace();
-                    SystemLog.write(iie.getMessage(), "ERROR");
+                    SystemLog.error("ERROR:" + iie.getMessage());
                     Logger.getLogger(MainExtractInfo.class.getName()).log(Level.SEVERE, null, iie);
                 } catch (IOException e) {
                        e.printStackTrace();
@@ -118,7 +115,7 @@ public class MainExtractInfo {
         });//runnable    
     }catch(java.lang.OutOfMemoryError e){
         //ricarica il programma 
-        SystemLog.write("java.lang.OutOfMemoryError, Ricarica il programma modificando LIMIT e OFFSET.\n GATE execute in timeout", "ERROR");
+        SystemLog.error("java.lang.OutOfMemoryError, Ricarica il programma modificando LIMIT e OFFSET.\n GATE execute in timeout");
         /*
         if(tentativiOutMemory ==2){OFFSET = OFFSET + i + 1;System.exit(0);}
         else{ 

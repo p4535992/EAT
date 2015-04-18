@@ -18,6 +18,7 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.engine.spi.SessionFactoryImplementor;
 import org.hibernate.internal.SessionFactoryImpl;
 import org.xml.sax.SAXException;
+import util.SystemLog;
 import util.xml.XMLKit;
 
 import javax.xml.transform.TransformerException;
@@ -39,7 +40,7 @@ public class HibernateUtil {
             sessionFactory = new Configuration().configure().buildSessionFactory();
         } catch (Throwable ex) {
             // Make sure you SystemLog the exception, as it might be swallowed
-            util.SystemLog.write("Initial SessionFactory creation failed." + ex,"ERROR");
+            util.SystemLog.message("Initial SessionFactory creation failed." + ex);
             throw new ExceptionInInitializerError(ex);
         }
     }
@@ -66,7 +67,7 @@ public class HibernateUtil {
  
 		} catch (Throwable ex) {
 			// Make sure you SystemLog the exception, as it might be swallowed
-			util.SystemLog.write("Initial SessionFactory creation failed." + ex,"ERROR");
+			SystemLog.error("ERROR: Initial SessionFactory creation failed." + ex);
 			throw new ExceptionInInitializerError(ex);
 		}
 	}
@@ -86,7 +87,7 @@ public class HibernateUtil {
                }                  
            } catch (Throwable ex) {
                    // Make sure you SystemLog the exception, as it might be swallowed
-                   util.SystemLog.write("Initial SessionFactory creation failed." + ex,"ERROR");
+                   util.SystemLog.error("ERROR: Initial SessionFactory creation failed." + ex);
                    throw new ExceptionInInitializerError(ex);
            }
     }
@@ -102,7 +103,7 @@ public class HibernateUtil {
                }                    
            } catch (Throwable ex) {
                    // Make sure you SystemLog the exception, as it might be swallowed
-                   util.SystemLog.write("Initial SessionFactory creation failed." + ex,"ERROR");
+                   SystemLog.error("ERROR: Initial SessionFactory creation failed." + ex);
                    throw new ExceptionInInitializerError(ex);
            }
     }
@@ -117,7 +118,7 @@ public class HibernateUtil {
                }                    
            } catch (Throwable ex) {
                    // Make sure you SystemLog the exception, as it might be swallowed
-                   util.SystemLog.write("Initial SessionFactory creation failed." + ex,"ERROR");
+                   SystemLog.error("ERROR: Initial SessionFactory creation failed." + ex);
                    throw new ExceptionInInitializerError(ex);
            }
     }
@@ -184,7 +185,7 @@ public class HibernateUtil {
 
             sessionFactory=configuration.buildSessionFactory();
           }catch (Throwable ex) {
-            util.SystemLog.write("Initial SessionFactory creation failed." + ex,"ERROR");
+            util.SystemLog.error("ERROR: Initial SessionFactory creation failed." + ex);
             throw new ExceptionInInitializerError(ex);
           }
     }
@@ -250,7 +251,7 @@ public class HibernateUtil {
         Object instanceOfMyClass = constructor.newInstance(new Double(0), this);
         */
         //You can use reflection : Class.forName(className).getConstructor(String.class).newInstance(arg);
-       util.SystemLog.write("Create new Class Object con Name: " + cls.getName(),"OUT");
+        SystemLog.message("Create new Class Object con Name: " + cls.getName());
        return cls;
   }
     
@@ -258,7 +259,7 @@ public class HibernateUtil {
         //e.g. oracle.jdbc.driver.OracleDriver#sthash.4rtwgiWJ.dpuf
         Class cls = Class.forName(pathPackageToAnnotatedClass).getConstructor().newInstance().getClass();       
         //You can use reflection : Class.forName(className).getConstructor(String.class).newInstance(arg);
-       util.SystemLog.write("Create new Class Object con Name: " + cls.getName(),"OUT");
+       SystemLog.message("Create new Class Object con Name: " + cls.getName());
        //System.out.println(cls.getName());
        //System.out.println(cls.getSimpleName());
        return cls;
@@ -309,14 +310,14 @@ public class HibernateUtil {
   public static void setNewTable(File xmlFile,String newNameTable) throws TransformerException, IOException, SAXException {
       //XMLUtil.updateValueOfAttribute(file, "class", "table", "xxx");
       XMLKit.updateValueOfAttribute(xmlFile, "class", "table", newNameTable);
-      util.SystemLog.write("Settata una nuova tabella "+newNameTable+" nel file "+xmlFile.getAbsolutePath()+"","OUT");
+      SystemLog.message("Settata una nuova tabella "+newNameTable+" nel file "+xmlFile.getAbsolutePath()+"");
   }
   
   public static void setNewTable(String xmlFilePath,String newNameTable) throws TransformerException, IOException, SAXException {
       //XMLUtil.updateValueOfAttribute(file, "class", "table", "xxx");
       File xmlFile = new File(xmlFilePath);
       XMLKit.updateValueOfAttribute(xmlFile, "class", "table", newNameTable);
-      util.SystemLog.write("Settata una nuova tabella "+newNameTable+" nel file "+xmlFilePath+"","OUT");
+      SystemLog.message("Settata una nuova tabella "+newNameTable+" nel file "+xmlFilePath+"");
   }
   /*
   public static void setNewDatabase(

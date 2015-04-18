@@ -69,31 +69,31 @@ public class InfoDocumentDaoImpl extends GenericDaoImpl<InfoDocument> implements
         //Copy the geodocument table
         try {
             query = "CREATE TABLE " + myInsertTable + " LIKE " + mySelectTable + ";";
-            SystemLog.write(query, "OUT");
+            SystemLog.message(query);
             jdbcTemplate.execute(query);
             query = "INSERT " + myInsertTable + " SELECT * FROM " + mySelectTable + ";";
-            SystemLog.write(query, "OUT");
+            SystemLog.message(query);
             jdbcTemplate.execute(query);
 
             //Add identifier
             query = "ALTER TABLE " + myInsertTable + " ADD identifier varchar(1000);";
-            SystemLog.write(query, "OUT");
+            SystemLog.message(query);
             jdbcTemplate.execute(query);
             query = "UPDATE " + myInsertTable + " SET identifier = edificio;";
             jdbcTemplate.execute(query);
 
             //Add name location
             query = " ALTER TABLE " +myInsertTable + " ADD name_location varchar(1000);";
-            SystemLog.write(query, "OUT");
+            SystemLog.message(query);
             jdbcTemplate.execute(query);
             query = "SELECT identifier FROM " + myInsertTable + ";";
-            SystemLog.write(query, "OUT");
+            SystemLog.message(query);
             jdbcTemplate.execute(query);
             query = "UPDATE " + myInsertTable + " SET name_location = identifier;";
-            SystemLog.write(query, "OUT");
+            SystemLog.message(query);
             jdbcTemplate.execute(query);
             query = "UPDATE " + myInsertTable + " SET name_location=CONCAT('Location_',name_location);";
-            SystemLog.write(query, "OUT");
+            SystemLog.message(query);
         }catch(Exception e){
             if(!e.getMessage().contains("already exists")){
                 e.printStackTrace();
@@ -171,7 +171,7 @@ public class InfoDocumentDaoImpl extends GenericDaoImpl<InfoDocument> implements
             // get the column names; column indexes start from 1
             for (int i = 1; i < numberOfColumns + 1; i++) {
                 query = "UPDATE `" + myInsertTable + "` SET `" + rsMetaData.getColumnName(i) + "` = LTRIM(RTRIM(`" + rsMetaData.getColumnName(i) + "`));";
-                SystemLog.write(query, "OUT");
+                SystemLog.message(query);
                 jdbcTemplate.execute(query);
             }
         }catch(Exception e){}

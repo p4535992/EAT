@@ -1,7 +1,7 @@
 package util.estrattori;
 import util.SystemLog;
-import util.gate.CreateCorpus;
-import util.gate.ManageAnnotationAndContent;
+import util.gate.GateCorpusKit;
+import util.gate.GateAnnotationKit;
 import gate.Corpus;
 import gate.CorpusController;
 import gate.Document;
@@ -30,8 +30,8 @@ public class EstrazioneDatiWithGATE {
 //        //PASSWORD PER L'HOST MYSQL
 //        private static final String PASS="";
         //**********************************************************************************
-        private static CreateCorpus cc = new CreateCorpus();
-        private static ManageAnnotationAndContent maac=new ManageAnnotationAndContent();
+        private static GateCorpusKit cc = new GateCorpusKit();
+        private static GateAnnotationKit maac=new GateAnnotationKit();
         //private static ManageJsonWithGoogleMaps j = new ManageJsonWithGoogleMaps(API_KEY_GM);
 
       /** The Corpus Pipeline application to contain ANNE,Lingpipe,Tools,ecc. */
@@ -129,13 +129,13 @@ public class EstrazioneDatiWithGATE {
           }//else
         }//try
         catch(GateException ex){
-              SystemLog.write(ex.getMessage(), "ERROR");
+              SystemLog.ticket(ex.getMessage(), "ERROR");
               ex.printStackTrace();                 
       } catch (RuntimeException ex) {
-              SystemLog.write(ex.getMessage(), "ERROR");
+              SystemLog.ticket(ex.getMessage(), "ERROR");
               ex.printStackTrace();                        
       } catch (IOException ex) {
-              SystemLog.write(ex.getMessage(), "ERROR");
+              SystemLog.ticket(ex.getMessage(), "ERROR");
               ex.printStackTrace(); 
       }
        finally{
@@ -218,7 +218,7 @@ public class EstrazioneDatiWithGATE {
                   null,                   /*postalCode*/
                   null                    /*indirizzoHasNumber*/
                 );   
-                SystemLog.write("GATE document:" + geoDoc.toString(), "OUT");
+                SystemLog.ticket("GATE document:" + geoDoc.toString(), "OUT");
                 //*****************************************************************
                 //RUN APACHE TIKA -> LIBRERIA TIKA VA IN CONTRASTO CON HIBERNATE
                 //******************************************************************
@@ -229,8 +229,8 @@ public class EstrazioneDatiWithGATE {
                 geoDoc2 = etika.extractMicrodataWithTika(annInfo.getUrl(), geoDoc2);
                 */
                 if(geoDoc2.getEdificio()==null){
-                    SystemLog.write("*********************************************", "OUT");
-                    SystemLog.write("Run JSOUP", "OUT");
+                    SystemLog.ticket("*********************************************", "OUT");
+                    SystemLog.ticket("Run JSOUP", "OUT");
                     util.estrattori.EstrazioneDatiWithJSOUP j = new util.estrattori.EstrazioneDatiWithJSOUP();                   
                     geoDoc2 = j.GetTitleAndHeadingTags(annInfo.getUrl().toString(),geoDoc2);
                 }   
@@ -245,14 +245,14 @@ public class EstrazioneDatiWithGATE {
           }//else
         }//try
         catch(GateException ex){
-              SystemLog.write(ex.getMessage(), "ERROR");
+              SystemLog.ticket(ex.getMessage(), "ERROR");
               ex.printStackTrace();
               //continue;                  
       } catch (RuntimeException ex) {
-              SystemLog.write(ex.getMessage(), "ERROR");
+              SystemLog.ticket(ex.getMessage(), "ERROR");
               ex.printStackTrace();                        
       } catch (IOException ex) {
-              SystemLog.write(ex.getMessage(), "ERROR");
+              SystemLog.ticket(ex.getMessage(), "ERROR");
               ex.printStackTrace(); 
       }
        finally{
