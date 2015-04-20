@@ -57,7 +57,7 @@ public class XMLKitJDOM {
      * @throws org.jdom2.JDOMException
      */
     public static org.w3c.dom.Document convertJDOM2DOMDocument( org.jdom2.Document jdomdoc) throws org.jdom2.JDOMException{
-        // create JDOM to DOM converter:
+        // insert JDOM to DOM converter:
         org.jdom2.output.DOMOutputter output = new org.jdom2.output.DOMOutputter();
         // here we have a DOM-document:
         org.w3c.dom.Document w3cdoc = output.output(jdomdoc);

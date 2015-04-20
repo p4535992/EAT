@@ -917,7 +917,7 @@ public class SesameUtil {
 
 			// Add a statement directly to the SAIL
 			log("----- Upload and check --------------------------------");
-			// first, create the RDF nodes for the statement
+			// first, insert the RDF nodes for the statement
 			URI subj = repository.getValueFactory().createURI("http://example.org/owlim#Pilot");
 			URI pred = RDF.TYPE;
 			URI obj = repository.getValueFactory().createURI("http://example.org/owlim#Human");

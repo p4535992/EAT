@@ -50,6 +50,7 @@ public interface IGenericDao<T> {
     String selectValueForSpecificColumn(String column, String column_where, String value_where);
 
     void insertAndTrim(Object[] params,int[] types);
+    List<T> selectAll(Class<T> aClass,String column, String limit, String offset);
     List<T> selectAll(String query);
     List<T> select(final String column, String limit, String offset);
     List<T> select(String column, String datatype,String limit, String offset);
@@ -57,7 +58,7 @@ public interface IGenericDao<T> {
     /////////////
     //MANAGER////
     /////////////
-    void create(T object);
+    void insert(T object);
     void delete(final Object id);
     T find(final Object id);
     T update(final T t);

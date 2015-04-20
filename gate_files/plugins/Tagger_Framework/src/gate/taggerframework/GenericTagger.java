@@ -343,7 +343,7 @@ public class GenericTagger extends AbstractLanguageAnalyser implements
     File gateTextFile = null;
 
     try {
-      // create an empty temp file so we don't overwrite any existing
+      // insert an empty temp file so we don't overwrite any existing
       // files
       gateTextFile = File.createTempFile("tagger", ".txt");
 
@@ -419,7 +419,7 @@ public class GenericTagger extends AbstractLanguageAnalyser implements
    * Returns the text that will be sent to the tagger for a given
    * annotation. By default this is simply the value of the "string"
    * feature from the annotation. If this assumption does not match the
-   * tagger you wish to use then you will need to create a subclass and
+   * tagger you wish to use then you will need to insert a subclass and
    * override this method.
    * 
    * @param ann the annotation
@@ -568,7 +568,7 @@ public class GenericTagger extends AbstractLanguageAnalyser implements
           // if the line matches then it contains data we need to
           // process
 
-          // create an empty feature map to store the data
+          // insert an empty feature map to store the data
           FeatureMap features = Factory.newFeatureMap();
 
           for(Map.Entry<Object, Object> kv : featureMapping.entrySet()) {

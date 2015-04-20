@@ -197,7 +197,7 @@ public class SesameUtil2 {
         //org.openrdf.repository.RepositoryConnection conn= repository.getConnection();
         //conn = repository.getConnection();
         openSesameConnection(repository);
-        // finally, create the DatasetGraph instance
+        // finally, insert the DatasetGraph instance
         SesameDataset dataset = new SesameDataset(conn);
 
         //From now on the SesameDataset object can be used through the Jena API 
@@ -379,7 +379,7 @@ public class SesameUtil2 {
              }
             BufferedReader in
                     = new BufferedReader(new InputStreamReader(inputStream));
-            // create a parser for Turtle and a writer for RDF/XML
+            // insert a parser for Turtle and a writer for RDF/XML
             //org.openrdf.rio.RDFParser rdfParser = 
             //        org.openrdf.rio.Rio.createParser(stringToRDFFormat(inputFormat));
             org.openrdf.rio.RDFParser rdfParser = 
@@ -452,11 +452,11 @@ public class SesameUtil2 {
         //String queryString = "PREFIX dc: <" + com.hp.hpl.jena.vocabulary.DC.getURI() + "> " +
         //                     "SELECT ?title WHERE {?x dc:title ?title . }";
         
-        com.hp.hpl.jena.query.Query query = com.hp.hpl.jena.query.QueryFactory.create(querySelectString);
+        com.hp.hpl.jena.query.Query query = com.hp.hpl.jena.query.QueryFactory.insert(querySelectString);
         // Create a single execution of this query, apply to a model
         // which is wrapped up as a QueryExecution and then fetch the results
         com.hp.hpl.jena.query.QueryExecution qexec = 
-                com.hp.hpl.jena.query.QueryExecutionFactory.create(query, dataset.asDataset());
+                com.hp.hpl.jena.query.QueryExecutionFactory.insert(query, dataset.asDataset());
         try {
             // Assumption: it's a SELECT query.
             com.hp.hpl.jena.query.ResultSet rs = qexec.execSelect();

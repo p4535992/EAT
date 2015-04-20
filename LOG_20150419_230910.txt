@@ -1,0 +1,5 @@
+[23:09:10]: ===== START THE PROGRAMM =========
+[23:09:21]Run the extraction method.
+[23:09:21]RUN PROCESS 4
+[23:09:31]RUN GEODOMAIN PROGRAMM
+[23:10:50][ERROR]StatementCallback; bad SQL grammar [SELECT doc_id ,url ,regione ,provincia ,city ,indirizzo ,iva ,email ,telefono ,fax ,edificio ,latitude ,longitude ,nazione ,description ,indirizzoNoCAP ,postalCodeindirizzoHasNumber FROM geodocument LIMIT 3 OFFSET 0]; nested exception is com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'postalCodeindirizzoHasNumber' in 'field list'

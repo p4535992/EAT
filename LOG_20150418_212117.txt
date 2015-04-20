@@ -1,0 +1,15 @@
+[21:21:17]: ===== START THE PROGRAMM =========
+Run the extraction method.
+RUN PROCESS 1
+(0)URL:http://www.colorobbiaitalia.it/
+JSOUP GET HA AVUTO SUCCESSO
+DESCRIPTION:Produttore internazionale di materie prime e semilavorati per il settore ceramico. 
+EDIFICIO:Colorobbia Italia  Colorificio Ceramico  Materiali e Servizi per l'Industria Ceramica Colorobbia Italia  Colorificio Ceramico  Materiali e Servizi per l'Industria Ceramica
+LANGUAGE:it
+URL for GM:https://maps.googleapis.com/maps/api/geocode/json?address=Colorobbia+Italia+Colorificio+Ceramico+Materiali+e+Servizi+per+l+Industria+Ceramica&region=it&sensor=false
+JSON:{"results":[],"status":"ZERO_RESULTS"}
+(1)URL:http://www.seriplast.it/
+JSOUP GET HA AVUTO SUCCESSO
+DESCRIPTION:Blister; Seriplast realizza blister e plateau termoformati, vaschette termoformate, vaschette alimentari, blister saldati, vaschette, bivalva, vassoi termoformati.
+EDIFICIO:BLISTER blister saldati  bivalva Vassoi plateau termoformati vaschette alimentari blister
+LANGUAGE:it

@@ -170,7 +170,7 @@ public class Gaze extends AbstractVisualResource
       /* make the ontology tree invisible because not initialized yet*/
       oTree.setVisible(false);
 
-      /* create and associate linear listeners... */
+      /* insert and associate linear listeners... */
       createLinearListeneres();
 
       /*...and non linear (mapping, ontology) listeners */
@@ -181,13 +181,13 @@ public class Gaze extends AbstractVisualResource
       createGazListBtnListeners();
       createMappingDefBtnListeners();
 
-      /* create a new cell renderer for the linear definition list */
+      /* insert a new cell renderer for the linear definition list */
       linearList.setCellRenderer(new LinearCR());
 
       /* add modifications listener over the gazetteer list text area */
       listArea.getDocument().addDocumentListener(new GazListDL());
 
-      /* create Linear Definition Popup menu */
+      /* insert Linear Definition Popup menu */
       linearPopupEdit = new JMenuItem("edit");
       linearPopupInsert = new JMenuItem("insert");
       linearPopupRemove = new JMenuItem("remove");
@@ -455,7 +455,7 @@ public class Gaze extends AbstractVisualResource
   /**Sets the listeners for the load,save and save as
    * buttons in the linear definition pane */
   private void createLinearDefBtnListeners() {
-    /* add a create/new action listener */
+    /* add a insert/new action listener */
     btnLinearNew.addActionListener(new LinearNewListener());
     menuLinearNew.addActionListener(new LinearNewListener());
 
@@ -503,7 +503,7 @@ public class Gaze extends AbstractVisualResource
    * buttons in the mapping pane */
   private void createMappingDefBtnListeners() {
 
-    /* add create new action listener */
+    /* add insert new action listener */
     btnMappingNew.addActionListener(new MappingNewListener());
     menuMappingNew.addActionListener(new MappingNewListener());
 
@@ -870,7 +870,7 @@ public class Gaze extends AbstractVisualResource
    * @param mirror the tree to mimic the expansion of the original
    */
   public static void synchronizeTreeExpansion(JTree orig, JTree mirror) {
-    /*create a Set of expanded node names*/
+    /*insert a Set of expanded node names*/
     /*below will :
       iterate all nodes of the tree
       accumulate the path for each node as an arraylist

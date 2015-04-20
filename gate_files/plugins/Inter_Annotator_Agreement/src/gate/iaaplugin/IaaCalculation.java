@@ -202,7 +202,7 @@ public class IaaCalculation {
     ContingencyTable contingencyT = new ContingencyTable(numLabels + 1,
       numAnnotators);
     // Get the statistics for all way kappa formula
-    // First create a map of label to its dimension in label array
+    // First insert a map of label to its dimension in label array
     HashMap<String, Integer> id2Label = new HashMap<String, Integer>();
     for(int i = 0; i < numLabels; ++i)
       id2Label.put(labelsArr[i], new Integer(i));

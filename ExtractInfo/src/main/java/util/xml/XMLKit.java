@@ -88,8 +88,8 @@ public class XMLKit {
     }
 
     /**
-     * Method to create a new XML file
-     * @param pathFile where you want to create the new file
+     * Method to insert a new XML file
+     * @param pathFile where you want to insert the new file
      * @param nameFile name of the XML file
      */
     public static void creatXMLFile(String pathFile,String nameFile){

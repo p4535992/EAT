@@ -211,7 +211,7 @@ public class OntoRootGaz extends DefaultGazetteer {
     }
     fsmStates = new HashSet<FSMState>();
     initialState = new FSMState(this);
-    /* create a corpus and hide it inside the GATE GUI */
+    /* insert a corpus and hide it inside the GATE GUI */
     FeatureMap corpusParams = Factory.newFeatureMap();
     corpusParams.put("name", this.getClass().getCanonicalName());
     FeatureMap corpusFeatures = Factory.newFeatureMap();
@@ -262,7 +262,7 @@ public class OntoRootGaz extends DefaultGazetteer {
           if(columns.length == 3) {
             String uri = columns[0].trim();
             try {
-              /* create uriURI for validation purposes */
+              /* insert uriURI for validation purposes */
               // URI uriUri = new URI(uri, false);
               // OURI uriUri = ontology.createOURI(uri);
               gate.creole.ontology.URI uriUri = null;

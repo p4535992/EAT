@@ -263,7 +263,29 @@ public class GenerationOfTriple {
         try {
             args2 = StringKit.mergeArraysString(param, value);
             edu.isi.karma.rdf.OfflineRdfGenerator.main(args2);
-        }catch(Exception ex ){}
+        }catch(Exception ex ){ex.printStackTrace();}
+        String output = System.getProperty("user.dir")+"\\karma_files\\output\\"+FileUtil.filename(TRIPLE_OUTPUT_KARMA)
+                .replace("."+FileUtil.extension(TRIPLE_OUTPUT_KARMA), "-UTF8."+FileUtil.extension(TRIPLE_OUTPUT_KARMA));
+        SystemLog.message("...File of triples create in the path:" + pathOut);
+
+        List<String> lines = EncodingUtil.UnicodeEscape2UTF8(new File(pathOut));
+        EncodingUtil.writeLargerTextFileWithReplace2(output, lines);
+        //File filePathTriple = new File(pathOut);
+        //filePathTriple.delete();
+
+        // filePathTriple.delete();
+        File f = new File(output);
+        //RIPULIAMO LETRIPLE DALLE LOCATION SENZA COORDINATE CON JENA
+        SystemLog.message("Ripuliamo le triple infodocument dalle Location senza coordinate nel file:" + output);
+
+        readQueryAndCleanTripleInfoDocument(
+                FileUtil.filenameNoExt(f), //filenameInput
+                FileUtil.path(f), //filepath
+                FileUtil.filenameNoExt(f) + "-c", //fileNameOutput
+                FileUtil.extension(f), //inputFormat n3
+                OUTPUT_FORMAT_KARMA //outputFormat "ttl"
+        );
+        f.delete();
 
     }
 

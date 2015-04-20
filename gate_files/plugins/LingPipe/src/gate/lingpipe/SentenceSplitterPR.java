@@ -75,7 +75,7 @@ public class SentenceSplitterPR extends AbstractLanguageAnalyser implements
 	 * Reinitialises the processing resource. After calling this method the
 	 * resource should be in the state it is after calling init. If the resource
 	 * depends on external resources (such as rules files) then the resource
-	 * will re-read those resources. If the data used to create the resource has
+	 * will re-read those resources. If the data used to insert the resource has
 	 * changed since the resource has been created then the resource will change
 	 * too after calling reInit().
 	 */

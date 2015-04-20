@@ -133,7 +133,7 @@ public class OntologyViewer extends AbstractDocumentView implements
       (JTextArea)((JScrollPane)documentTextualDocumentView.getGUI())
         .getViewport().getView();
 
-    // lets create the OntologyTree Component
+    // lets insert the OntologyTree Component
     ontologyTreePanel = new OntologyTreePanel(this);
 
     // first lets find out all the annotations
@@ -147,7 +147,7 @@ public class OntologyViewer extends AbstractDocumentView implements
     ontologyCBPanel.setLayout(new FlowLayout());
     ontologyCBPanel.add(ontologyCB);
 
-    // then lets create main panel design
+    // then lets insert main panel design
     mainPanel = new JPanel();
     mainPanel.setLayout(new BorderLayout());
     mainPanel.add(ontologyCBPanel, BorderLayout.NORTH);

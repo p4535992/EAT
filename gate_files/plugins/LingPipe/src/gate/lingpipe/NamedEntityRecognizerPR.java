@@ -121,14 +121,14 @@ public class NamedEntityRecognizerPR extends AbstractLanguageAnalyser implements
 
   /**
    * Returns the name of the AnnotationSet that has been provided to
-   * create the AnnotationSet
+   * insert the AnnotationSet
    */
   public String getOutputASName() {
     return outputASName;
   }
 
   /**
-   * Sets the AnnonationSet name, that is used to create the
+   * Sets the AnnonationSet name, that is used to insert the
    * AnnotationSet
    * 
    * @param annotationSetName

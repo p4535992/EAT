@@ -123,7 +123,7 @@ public class FSMPDA extends FSM {
 		PatternElement currentPattern;
 
 		for (int i = 0; i < constraints.length; i++) {
-			// for each row we have to create a sequence of states that will
+			// for each row we have to insert a sequence of states that will
 			// accept
 			// the sequence of annotations described by the restrictions on that
 			// row.
@@ -344,7 +344,7 @@ public class FSMPDA extends FSM {
 		PatternElement currentPattern;
 
 		for (int i = 0; i < constraints.length; i++) {
-			// for each row we have to create a sequence of states that will
+			// for each row we have to insert a sequence of states that will
 			// accept
 			// the sequence of annotations described by the restrictions on that
 			// row.

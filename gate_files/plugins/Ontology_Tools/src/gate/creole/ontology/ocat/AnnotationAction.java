@@ -36,7 +36,7 @@ public class AnnotationAction extends MouseInputAdapter {
   private final int DELAY = 500;
 
   /**
-   * Action that is performed when user decides to create a new annotation.
+   * Action that is performed when user decides to insert a new annotation.
    */
   private AnnotationEditor annotationEditor;
 

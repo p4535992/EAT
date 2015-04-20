@@ -71,7 +71,7 @@ public class HashedAlias implements Serializable, Comparable<HashedAlias> {
   public HashedAlias(int aliasHash2, int prefLen, int suffLen,
           String shortInstURI, int classID) {
     if (prefLen > 127 || suffLen > 127 )
-      throw new RuntimeException("Cannot create HashedAlias with" +
+      throw new RuntimeException("Cannot insert HashedAlias with" +
       "symbolic prefix/suffix longer than 127!");
     this.aliasHash2 = aliasHash2;
     this.prefLen = (byte) prefLen;

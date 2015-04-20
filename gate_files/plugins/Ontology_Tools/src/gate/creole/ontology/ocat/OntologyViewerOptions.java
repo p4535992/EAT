@@ -1038,7 +1038,7 @@ public class OntologyViewerOptions implements DocumentListener {
    * @param classesToHide
    */
   public void setClassesToHide(HashSet<String> ontologyClassesToFilterOut) {
-    // ok here we need to create a temporary file and add these classes
+    // ok here we need to insert a temporary file and add these classes
     // in it
     if(ontologyClassesToFilterOut == null) {
       ontologyClassesToFilterOut = new HashSet<String>();
@@ -1071,7 +1071,7 @@ public class OntologyViewerOptions implements DocumentListener {
    * @param classesToHide
    */
   public void setClassesToShow(HashSet<String> ontologyClassesToShow) {
-    // ok here we need to create a temporary file and add these classes
+    // ok here we need to insert a temporary file and add these classes
     // in it
     if(ontologyClassesToShow == null) {
       ontologyClassesToShow = new HashSet<String>();

@@ -129,7 +129,7 @@ public class HibernateKit {
      * This factory is intended to be used with a hibernate.cfg.xml
      * including the following property <property
      * name="current_session_context_class">thread</property> This would return
-     * the current open session or if this does not exist, will create a new session
+     * the current open session or if this does not exist, will insert a new session
      * @return the session
      */
     public Session getCurrentSession() {
@@ -246,7 +246,7 @@ public class HibernateKit {
 
             //.setProperty("hibernate.hbm2ddl.auto","update")
             //.setProperty("hibernate.format_sql","true")
-            //.setProperty("hibernate.hbm2ddl.auto","create-drop")
+            //.setProperty("hibernate.hbm2ddl.auto","insert-drop")
 
             //OTHER PROPERTIES
             /*
@@ -315,7 +315,7 @@ public class HibernateKit {
 
             //.setProperty("hibernate.hbm2ddl.auto","update")
             //.setProperty("hibernate.format_sql","true")
-            //.setProperty("hibernate.hbm2ddl.auto","create-drop")
+            //.setProperty("hibernate.hbm2ddl.auto","insert-drop")
 
             //OTHER PROPERTIES
             /*

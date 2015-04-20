@@ -84,22 +84,22 @@ public class EstrazioneGeoDomainDocument {
     public void CreateTableOfGeoDomainDocument(String tipo){
         try{
         EstrazioneGeoDomainDocument m = new EstrazioneGeoDomainDocument();      
-        ArrayList<GeoDocument> listGeoDoc = new ArrayList<GeoDocument>();
+        List<GeoDocument> listGeoDoc = new ArrayList<>();
         if(tipo == "mysql"){
-            geoDomainDocDao.selectAllString("*", LIMIT.toString(),OFFSET.toString());
-
-        }else if(tipo == "hibernate_pojo"){
-            
-            List<GeoDocument> listGeoDoc2 = geoDomainDocDao.getAllH(LIMIT.toString(), OFFSET.toString());
-            for(GeoDocument geo: listGeoDoc2){listGeoDoc.add(geo);}
-            listGeoDoc2.clear();
-            
-         }else if(tipo == "hibernate_jira"){
-            List<GeoDocument> listGeoDoc2 = geoDomainDocDao.getAllH(LIMIT.toString(), OFFSET.toString());
-            for(GeoDocument geo: listGeoDoc2){listGeoDoc.add(geo);}
-            listGeoDoc2.clear();
-        }else{
-            new Exception("ERRORE IN FASE DI CREAZIONE DEI GEODOMAINDOCUMENT");
+            //listGeoDoc = geoDomainDocDao.selectAllGeoDocument("*", LIMIT.toString(), OFFSET.toString());
+            listGeoDoc = geoDomainDocDao.selectGeoDocuments("*",LIMIT.toString(),OFFSET.toString());
+//        }else if(tipo == "hibernate_pojo"){
+//
+//            List<GeoDocument> listGeoDoc2 = geoDomainDocDao.getAllH(LIMIT.toString(), OFFSET.toString());
+//            for(GeoDocument geo: listGeoDoc2){listGeoDoc.add(geo);}
+//            listGeoDoc2.clear();
+//
+//         }else if(tipo == "hibernate_jira"){
+//            List<GeoDocument> listGeoDoc2 = geoDomainDocDao.getAllH(LIMIT.toString(), OFFSET.toString());
+//            for(GeoDocument geo: listGeoDoc2){listGeoDoc.add(geo);}
+//            listGeoDoc2.clear();
+//        }else{
+//            new Exception("ERRORE IN FASE DI CREAZIONE DEI GEODOMAINDOCUMENT");
         }
         Integer i = 0;
         for (GeoDocument geoDoc : listGeoDoc) {

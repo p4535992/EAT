@@ -22,10 +22,6 @@ public class GeoDocumentDaoImpl extends GenericDaoImpl<GeoDocument> implements I
 
     public GeoDocumentDaoImpl(){}
 
-    public GeoDocumentDaoImpl(SessionFactory sessionFactory) {
-        this.sessionFactory = sessionFactory;
-    }
-
     @Override
     public void setDriverManager(String driver, String typeDb, String host,String port, String user, String pass, String database) {
         super.setDriverManager(driver,typeDb, host, port,user,  pass, database);
@@ -143,7 +139,7 @@ public class GeoDocumentDaoImpl extends GenericDaoImpl<GeoDocument> implements I
 
     @Override
     public boolean verifyDuplicate(String columnWhereName, String valueWhereName) {
-        return false;
+        return super.verifyDuplicate(columnWhereName,valueWhereName);
     }
 
 
@@ -155,6 +151,7 @@ public class GeoDocumentDaoImpl extends GenericDaoImpl<GeoDocument> implements I
                         " edificio, latitude,longitude,nazione,description,postalCode,indirizzoNoCAP," +
                         "indirizzoHasNumber) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
 
+        SystemLog.message(query);
         // define query arguments
         Object[] params = new Object[] {
                 g.getUrl(), g.getRegione(), g.getProvincia(), g.getCity(),
@@ -181,7 +178,6 @@ public class GeoDocumentDaoImpl extends GenericDaoImpl<GeoDocument> implements I
             // get the column names; column indexes start from 1
             for (int i = 1; i < numberOfColumns + 1; i++) {
                 query = "UPDATE `" + myInsertTable + "` SET `" + rsMetaData.getColumnName(i) + "` = LTRIM(RTRIM(`" + rsMetaData.getColumnName(i) + "`));";
-                SystemLog.ticket(query, "OUT");
                 jdbcTemplate.execute(query);
             }
         }catch(Exception e){}

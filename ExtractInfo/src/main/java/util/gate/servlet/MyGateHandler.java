@@ -70,7 +70,7 @@ public class MyGateHandler implements HttpRequestHandler {
     for(int i = 0; i < listaUrl.size(); i++) {System.out.println("url["+i+"]:"+listaUrl.get(i));}
     //init GATE
      try {
-       // create a GATE corpus and add a document for each command-line argument
+       // insert a GATE corpus and add a document for each command-line argument
        corpus = Factory.newCorpus("MainPipeline corpus");
        corpus = create.createCorpusByListOfUrls(listaUrl, corpus.getName(), handlerId, null);
        System.err.println("Fine caricamento della PIPELINE");

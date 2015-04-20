@@ -35,7 +35,7 @@
     </fileset>
   </path>
 
-  <!-- create build directory structure -->
+  <!-- insert build directory structure -->
   <target name="prepare">
     <mkdir dir="${classes.dir}" />
   </target>
@@ -55,7 +55,7 @@
     </javac>
   </target>
 
-  <!-- create the JAR file -->
+  <!-- insert the JAR file -->
   <target name="jar" depends="compile" >
     <jar destfile="${jar.location}"
          update="false"

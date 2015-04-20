@@ -139,10 +139,10 @@ public class ManageJsonWithGoogleMaps {
                     }
                 }catch(org.json.JSONException je){
                     SystemLog.ticket("JSON:" + json.toString(), "WARNING");
-                    Logger.getLogger(ManageJsonWithGoogleMaps.class.getName()).log(Level.SEVERE, null, je);
+                    //Logger.getLogger(ManageJsonWithGoogleMaps.class.getName()).log(Level.SEVERE, null, je);
                 }catch(Exception ex){
                      SystemLog.ticket("JSON:" + json.toString(), "WARNING");
-                     Logger.getLogger(ManageJsonWithGoogleMaps.class.getName()).log(Level.SEVERE, null, ex);
+                     //Logger.getLogger(ManageJsonWithGoogleMaps.class.getName()).log(Level.SEVERE, null, ex);
                 }
             //Se Google Maps ha raggiunto il massimo numero di query possibili
             //prova con OpenStreetMap

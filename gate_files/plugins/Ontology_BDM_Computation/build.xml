@@ -76,7 +76,7 @@
 		<fileset refid="gate.libs" />
 	</path>
 
-	<!-- create build directory structure -->
+	<!-- insert build directory structure -->
 	<target name="prepare">
 		<mkdir dir="${buildDir}" />
 	</target>

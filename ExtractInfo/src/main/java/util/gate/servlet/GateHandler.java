@@ -77,7 +77,7 @@ public class GateHandler implements HttpRequestHandler {
   public void init() throws Exception {
     handlerId = nextId.getAndIncrement();
     log.info("init() for GateHandler " + handlerId);
-    // create a corpus and give it to the controller
+    // insert a corpus and give it to the controller
     corpus = Factory.newCorpus("webapp corpus");
     application.setCorpus(corpus);
   }
@@ -123,7 +123,7 @@ public class GateHandler implements HttpRequestHandler {
                   Utils.featureMap("stringContent", text, "mimeType", mime));
     }
     catch(ResourceInstantiationException e) {
-      failureMessage("Could not create GATE document for input text", e,
+      failureMessage("Could not insert GATE document for input text", e,
               response);
       return;
     }

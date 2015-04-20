@@ -278,7 +278,7 @@ public class AliasCacheImpl implements AliasLookupDictionary {
         ensureCachePath(dictionaryPath);
       } catch (IOException e1) {
         log.error(
-                "Could not create entity cache.", e1);
+                "Could not insert entity cache.", e1);
       }
     }
 
@@ -366,7 +366,7 @@ public class AliasCacheImpl implements AliasLookupDictionary {
         && entPrior.getFilterLookups();
       } catch (Exception e) {
         log.error(
-                "Cannot create instance of Priorities class", e);
+                "Cannot insert instance of Priorities class", e);
         entPrior = null;
       }
     }

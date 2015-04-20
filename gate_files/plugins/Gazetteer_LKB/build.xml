@@ -21,7 +21,7 @@
   <!--=======================================================
     Property settings.  You should not need to edit these
     directly, if you need to set a different value for any
-    property you should create or edit build.properties and override
+    property you should insert or edit build.properties and override
     them there. build.properties is ignored in SVN, so you can safely
 	put local settings there.
   ========================================================-->
@@ -74,7 +74,7 @@
   
   <!--====================== Targets ============================-->
   
-  <!-- create build directory structure -->
+  <!-- insert build directory structure -->
   <target name="prepare">
     <mkdir dir="${classes.dir}" />
   </target>
@@ -101,7 +101,7 @@
     </copy>
   </target>
 
-  <!-- create the JAR file -->
+  <!-- insert the JAR file -->
   <target name="jar" depends="compile, copy.resources" >
     <jar destfile="${jar.location}"
          update="false"

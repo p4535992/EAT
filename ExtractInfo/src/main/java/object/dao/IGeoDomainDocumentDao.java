@@ -29,8 +29,6 @@ public interface IGeoDomainDocumentDao extends IGenericDao<GeoDomainDocument> {
 
     boolean verifyDuplicate(String columnWhereName, String valueWhereName);
 
-    List<String> selectAllString(String column, String limit, String offset);
-
     void insertAndTrim(GeoDocument g);
 
     //method to save

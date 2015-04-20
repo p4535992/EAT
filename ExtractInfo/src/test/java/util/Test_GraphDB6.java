@@ -3,7 +3,7 @@ public class Test_GraphDB6 {
 
 	/**
 	 * This is the entry point of the example application. First, the command-line parameters are intialised.
-	 * Then these parameters are passed to an instance of the GettingStarted application and used to create,
+	 * Then these parameters are passed to an instance of the GettingStarted application and used to insert,
 	 * initialise and login to the local instance of Sesame.
 	 * 
 	 * @param args

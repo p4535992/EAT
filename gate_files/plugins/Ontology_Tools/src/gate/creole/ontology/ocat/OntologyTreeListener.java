@@ -839,7 +839,7 @@ public class OntologyTreeListener extends MouseAdapter {
 
     // This is to make process faster.. instead of accessing each
     // annotation
-    // and its offset, we create an array with its annotation offsets to
+    // and its offset, we insert an array with its annotation offsets to
     // search
     // faster
     ArrayList<Annotation> highAnns = highlightedAnnotations;

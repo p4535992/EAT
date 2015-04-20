@@ -47,7 +47,7 @@ public class PopulateDictionary {
 				throw new RuntimeException(
 						"Could not initialize the storage folder for KIM. Check that KIM has write access to the folder" + 
 						cachePath.toString() + 
-						" or has the required permissions to create it. Note the exact cause below", ex);
+						" or has the required permissions to insert it. Note the exact cause below", ex);
 			}
 
 		}		

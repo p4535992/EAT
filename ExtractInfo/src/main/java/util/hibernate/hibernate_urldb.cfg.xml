@@ -17,7 +17,7 @@
    <!-- <property name="cache.provider_class">org.hibernate.cache.NoCacheRegionFactoryAvailableException</property>-->
     <!-- Echo all executed SQL to stdout -->
     <property name="show_sql">true</property>
-    <!-- Drop and re-create the database schema on startup -->
+    <!-- Drop and re-insert the database schema on startup -->
     <property name="hbm2ddl.auto">update</property>
     <!-- Mapping files -->
     <!--<mapping class="object.model.Website" resource="util/hibernate/cfg/urldb/Website.hbm.xml"/>-->

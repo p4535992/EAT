@@ -358,7 +358,7 @@ public class OntologyTreePanel extends JPanel {
 
     currentOntology = ontology;
     ClassNode root = null;
-    // lets create the new model for this new selected ontology
+    // lets insert the new model for this new selected ontology
     if(ontology2OntoTreeModels != null
       && ontology2OntoTreeModels.containsKey(ontology)) {
       currentOntologyTreeModel = ontology2OntoTreeModels.get(ontology);

@@ -29,9 +29,12 @@ public class SystemLog {
     private static org.slf4j.Logger logger;
     /** Flag to provide basic support for debug information (not used within class). */
     public static boolean DEBUG = false;
+    private static boolean OUT = false;
+    private static boolean ERROR = false;
+    private static boolean EXIT = false;
     /** {@code DateFormat} instance for formatting log entries. */
     private static SimpleDateFormat logTimestamp = new SimpleDateFormat("[HH:mm:ss]");
-    private static SimpleDateFormat logTimesAndDateStamp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss,SSS");
+   // private static SimpleDateFormat logTimesAndDateStamp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss,SSS");
 
 
     /** Default {@code DateFormat} instance, used when custom one not set. */
@@ -81,27 +84,26 @@ public class SystemLog {
         String log;
         if(err.contains("OUT")){
             log =logTimestamp.format(new Date()) + message;
-            System.out.println(log);
+            OUT = true;
         }else if(err.contains("ERR")){
             log =logTimestamp.format(new Date()) + "[ERROR]" + message;
-            System.err.println(log);
+            ERROR = true;
         }else if(err.contains("WAR")){
             log =logTimestamp.format(new Date()) + "[WARNING]" + message;
-            System.err.println(log);
+           ERROR = true;
         }else if(err.contains("EXIT")){
             log =logTimestamp.format(new Date()) + "[EXIT 1]" + message;
-            System.out.println(log);
-            System.exit(1);
+            EXIT = true;
         }else if(err.contains("AVOID")){
             log =logTimestamp.format(new Date()) + message;
-            //System.err.println(log);
+            ERROR = true;
         }else if(err.contains("ERR+AVOID")){
             log =logTimestamp.format(new Date()) + "[ERROR]" + message;
         }else{
             log =logTimestamp.format(new Date()) + message;
-            System.out.println(log);
+            //System.out.println(log);
         }
-        printString2File(message);
+        printString2File(log);
 
     }
 
@@ -115,15 +117,17 @@ public class SystemLog {
      * @param content
      */
     private static void printString2File(String content) {
-        if(VERBOSE >= 10) {System.out.println(content);}
-        else if(VERBOSE == 0) {}
-        else {System.out.println(content);}
+        if(OUT) {System.out.println(content);}
+        else if(ERROR) {System.err.println(content);}
+        else {}
         try(PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(LOGFILE.getAbsolutePath(), true)))) {
             out.print(content+System.getProperty("line.separator"));
             out.flush();
             out.close();
         }catch (IOException e) {
             //exception handling left as an exercise for the reader
+        }finally {
+            if(EXIT)System.exit(1);
         }
     }
 
@@ -132,43 +136,12 @@ public class SystemLog {
      * @param content
      */
     private static void print2File(String content) {
-        if(VERBOSE >= 10) {System.err.println(content);}
-        else if(VERBOSE == 0){/*avoid*/}
-        else {System.out.println(content);}
+        if(OUT) {System.out.println(content);}
+        else if(ERROR) {System.err.println(content);}
+        else {}
         logWriter.print(content + System.getProperty("line.separator"));
         logWriter.flush();
         logWriter.close();
-    }
-
-    /**
-     * Method to Read the content of a message type for the lo
-     * @param message
-     * @param err
-     */
-    public static void read(String message,String err) {
-         String log;
-        if(err.contains("OUT")){
-            log =logTimestamp.format(new Date()) + message;
-            System.out.println(log);
-        }else if(err.contains("ERR")){
-            log =logTimestamp.format(new Date()) + "[ERROR]" + message;
-            System.err.println(log);
-        }else if(err.contains("WAR")){
-            log =logTimestamp.format(new Date()) + "[WARNING]" + message;
-            System.err.println(log);
-        }else if(err.contains("EXIT")){
-            log =logTimestamp.format(new Date()) + "[EXIT 1]" + message;
-            System.out.println(log);
-            System.exit(1);
-        }else if(err.contains("AVOID")){
-            log =logTimestamp.format(new Date()) + message;
-            //System.err.println(log);
-        }else if(err.contains("ERR+AVOID")){
-            log =logTimestamp.format(new Date()) + "[ERROR]" + message;
-        }else{
-            log =logTimestamp.format(new Date()) + message;
-            System.out.println(log);
-        }
     }
 
     /**
@@ -188,9 +161,7 @@ public class SystemLog {
                 df = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG);
             sb.append(df.format(logTimestamp));
         }
-        if (separator != null)
-            sb.append(separator);
-
+        if (separator != null)sb.append(separator);
         sb.append(logEntry);
         //logWriter.println(sb.toString()); //???
         print2File(sb.toString());

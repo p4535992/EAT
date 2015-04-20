@@ -185,7 +185,7 @@ public class ExecuteCmdAndPrintOnOutput {
         
         //commandLine.setSubstitutionMap(map);
 
-        // create the executor and consider the exitValue '0' as success
+        // insert the executor and consider the exitValue '0' as success
         Executor executor = new DefaultExecutor();
         executor.setWorkingDirectory(new File(System.getProperty("user.dir")+"/Web-Karma-master v2.031/karma-offline/"));
         //executor.setExitValue(0);
@@ -196,7 +196,7 @@ public class ExecuteCmdAndPrintOnOutput {
         commandLine.addArgument(" -Dexec.args=\" --sourcetype DB --modelfilepath \""+System.getProperty("user.dir")+"/karma_files/model/R2RML_infodocument_nadia3_ontology-model_2014-12-22.ttl\" --outputfile \""+System.getProperty("user.dir")+"/karma_files/output/tripla-model-java-2015-01-13.n3\" --dbtype MySQL --hostname localhost --username siimobility --password siimobility --portnumber 3306 --dbname geolocationdb --tablename infodocument_u4_link_test_ontology\"");
         
         
-        // create a watchdog if requested
+        // insert a watchdog if requested
         watchdog = new ExecuteWatchdog(printJobTimeout);
         executor.setWatchdog(watchdog);
         
@@ -240,7 +240,7 @@ public class ExecuteCmdAndPrintOnOutput {
                     //CommandLine commandLine = new CommandLine("cd "+System.getProperty("user.dir")+"/Web-Karma-master v2.031/karma-offline");
                     //commandLine.setSubstitutionMap(map);
 
-                    // create the executor and consider the exitValue '0' as success
+                    // insert the executor and consider the exitValue '0' as success
                     Executor executor = new DefaultExecutor();
                     //DefaultExecutor executor = new DefaultExecutor();
                     executor.setWorkingDirectory(file);
@@ -249,7 +249,7 @@ public class ExecuteCmdAndPrintOnOutput {
                              
                     CommandLine cl = new CommandLine(s.getAbsolutePath());
                     
-                    // create a watchdog if requested
+                    // insert a watchdog if requested
                     watchdog = new ExecuteWatchdog(printJobTimeout);
                     executor.setWatchdog(watchdog);
 

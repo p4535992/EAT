@@ -1,4 +1,5 @@
 package object.impl;
+import home.MainExtractInfo;
 import object.dao.IGeoDocumentDao;
 import object.dao.IWebsiteDao;
 import object.model.Website;
@@ -13,6 +14,7 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.orm.hibernate4.HibernateTemplate;
+import util.estrattori.ExtractInfoSpring;
 
 import javax.sql.DataSource;
 import java.net.MalformedURLException;
@@ -155,9 +157,8 @@ public class WebsiteDaoImpl extends GenericDaoImpl<Website> implements IWebsiteD
         }
         listStringUrl.clear();
 
-        IGeoDocumentDao geoDoc = new GeoDocumentDaoImpl();
         for(URL url : listUrl){
-            if(geoDoc.verifyDuplicate(column, url.toString())==true){
+            if(ExtractInfoSpring.getGeoDocumentDao().verifyDuplicate(column, url.toString())){
                 listStringUrl.add(url.toString());
             }
         }
@@ -240,7 +241,7 @@ public class WebsiteDaoImpl extends GenericDaoImpl<Website> implements IWebsiteD
 
       /*
     @Override
-    public void create(String firstName, String lastName) {
+    public void insert(String firstName, String lastName) {
         jdbcTemplate.update("INSERT INTO PERSON (FIRSTNAME, LASTNAME) VALUES(?,?)",
                 new Object[] { firstName, lastName });
     }

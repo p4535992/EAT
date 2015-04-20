@@ -161,7 +161,7 @@ public class FileUtil {
         String[] paths;
 
         try {
-            // create new file object
+            // insert new file object
             file = new File(fullPathDir);
 
             // array of files and directory

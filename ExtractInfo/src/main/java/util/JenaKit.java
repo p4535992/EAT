@@ -32,122 +32,8 @@ public class JenaKit {
         return model;
     }
 
-    /**
-     * Method for read,query and clean a specific set of triple
-     * @param filenameInput
-     * @param filepath
-     * @param fileNameOutput
-     * @param inputFormat
-     * @param outputFormat
-     * @throws IOException
-     */
-    public static void readQueryAndCleanTripleInfoDocument(
-                    String filenameInput,String filepath,String fileNameOutput,String inputFormat,String outputFormat)
-            throws IOException{
-        //Crea la tua query SPARQL
-        SPARQL_QUERY = "CONSTRUCT {?s <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/goodrelations/v1#Location>  }"
-              + " WHERE { "
-              + " ?s <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/goodrelations/v1#Location> ."
-              + " OPTIONAL{?s <http://schema.org/latitude> ?o .}"
-              + " OPTIONAL{?s <http://schema.org/longitude> ?o .}"
-              + " FILTER (!bound(?o))"
-              + "}";
-        SystemLog.ticket("Query SPARQL:" + SPARQL_QUERY, "OUT");
-        //CREA IL TUO MODELLO DI JENA A PARTIRE DA UN FILE
-        com.hp.hpl.jena.rdf.model.Model model = loadFileTriple(filenameInput,filepath,inputFormat);
 
-        //ESEGUI LA QUERY SPARQL
-        //execQuerySparqlOnModel(sparql,model,"SELECT");
-        com.hp.hpl.jena.rdf.model.Model myGraph = model;
 
-        myGraph = execQuerySparqlOnModel(SPARQL_QUERY,model,"CONSTRUCT");
-        //model = loadFileAndCOnvertToTriple(filename,filepath);
-        com.hp.hpl.jena.rdf.model.StmtIterator iter = myGraph.listStatements();
-
-        while (iter.hasNext()) {
-                try{
-                    com.hp.hpl.jena.rdf.model.Statement stmt  = iter.nextStatement();  // get next statement
-                    model.remove(stmt);
-                    SystemLog.ticket("REMOVE 1:<" + stmt.getSubject() + "> <" + stmt.getPredicate() + "> <" + stmt.getObject() + ">.", "OUT");
-
-                    com.hp.hpl.jena.rdf.model.Resource  subject   = stmt.getSubject();     // get the subject
-
-                    com.hp.hpl.jena.rdf.model.RDFNode   object2  =
-                            (com.hp.hpl.jena.rdf.model.RDFNode) subject;      // get the object
-                    com.hp.hpl.jena.rdf.model.Resource subject2 =
-                            new com.hp.hpl.jena.rdf.model.impl.ResourceImpl(object2.toString().replace("Location_",""));
-                    com.hp.hpl.jena.rdf.model.Property  predicate2 =
-                            new com.hp.hpl.jena.rdf.model.impl.PropertyImpl("http://purl.org/goodrelations/v1#hasPOS");   // get the predicate
-
-                    //model.remove(subject2,predicate2,object2);
-                    model.removeAll(
-                           (com.hp.hpl.jena.rdf.model.Resource)null,
-                            predicate2,
-                            object2);
-                    SystemLog.ticket("REMOVE 2:<" + subject2 + "> <" + predicate2 + "> <" + object2 + ">.", "OUT");
-                }catch(Exception e){
-                    SystemLog.ticket("ECCEZIONE IN FASE DI RIPULITURA DELLE TRIPLE:" + e.getMessage(), "ERR");
-                    e.printStackTrace();
-                }
-             //OPPURE
-        }
-        //RISCRIVIAMO GLI STATEMENT
-        com.hp.hpl.jena.rdf.model.Model model2 = com.hp.hpl.jena.rdf.model.ModelFactory.createDefaultModel();
-
-        //stmt.getPredicate().asResource().getURI().toLowerCase()
-        //.contains("http://schema.org/latitude")||
-        //stmt.getPredicate().asResource().getURI().toLowerCase()
-        //.contains("http://schema.org/longitude")
-
-        com.hp.hpl.jena.rdf.model.StmtIterator stats = model.listStatements();
-        while (stats.hasNext()) {
-            com.hp.hpl.jena.rdf.model.Statement stmt = stats.next();
-            com.hp.hpl.jena.rdf.model.RDFNode x = stmt.getObject();
-            if (x.isLiteral()) {
-                if(
-                  //x.asLiteral().getDatatype().equals(stringToXSDDatatypeToString("string"))){
-                  x.asLiteral().getDatatype().equals(com.hp.hpl.jena.datatypes.xsd.XSDDatatype.XSDstring)){
-                    SystemLog.ticket("MODIFY STRING LITERAL:" + x.asLiteral().getLexicalForm(), "AVOID");
-                    model2.add(stmt.getSubject(),
-                               stmt.getPredicate(),
-                            com.hp.hpl.jena.rdf.model.ResourceFactory.createPlainLiteral(x.asLiteral().getLexicalForm()
-                               ));
-                }else{
-                    model2.add(
-                            stmt.getSubject(),
-                            stmt.getPredicate(),
-                            com.hp.hpl.jena.rdf.model.ResourceFactory.createTypedLiteral(
-                                    stmt.getObject().asLiteral().toString(),
-                                    stmt.getObject().asLiteral().getDatatype()
-                            )
-                    );
-                }
-
-            } else if (x.isURIResource()) {
-                model2.add(stmt);
-
-            }
-        }//while
-         model.close();
-        /*
-        com.hp.hpl.jena.rdf.model.StmtIterator stats = model.listStatements();
-        while (stats.hasNext()) {
-            com.hp.hpl.jena.rdf.model.Statement stmt = stats.next();
-            Triple triple = stmt.asTriple();
-            Node object = triple.getObject();
-            if (object.isLiteral()) {
-                    Literal literal = ResourceFactory.createPlainLiteral(object.getLiteralLexicalForm());
-                    triple = new Triple(triple.getSubject(), triple.getPredicate(), literal.asNode());
-                    com.hp.hpl.jena.rdf.model.Statement s =
-                            ResourceFactory.createStatement(
-                                    stmt.getSubject(),stmt.getPredicate(),literal);
-                    model2.add(s);
-            }
-        }
-        */
-        writeLargerModelJenaToFile(filepath + "\\" + fileNameOutput + "." + outputFormat, model2, outputFormat);
-    }
-    // <editor-fold defaultstate="collapsed" desc="JenaKit Method 2014-01">
     /**
      * Method  to Write large model jena to file of text
      * @param fullPath
@@ -166,9 +52,26 @@ public class JenaKit {
 	    try (BufferedWriter writer = Files.newBufferedWriter(path, ENCODING)){
                 SystemLog.ticket("Scrittura del nuovo file di triple:" + path, "OUT");
 	    	//org.apache.jena.riot.RDFDataMgr.write(writer, model, stringToRiotLang(outputFormat));
-            model.write(writer,outputFormat);
+            model.write(writer,null,outputFormat);
 	    }
 	  }
+
+    public static void writeLargerModelJenaToFile2(String fullPath, com.hp.hpl.jena.rdf.model.Model model, String outputFormat){
+        try {
+            FileWriter out = new FileWriter(fullPath);
+            try {
+                model.write( out, outputFormat.toUpperCase() );
+            }
+            finally {
+                try {
+                    out.close();
+                }
+                catch (IOException closeException) {
+                    // ignore
+                }
+            }
+        }catch(Exception e){SystemLog.error("Exception during the writing:"+ fullpath)}
+    }
 
     /**
      * Method  to Write little model jena to file of text
@@ -204,8 +107,8 @@ public class JenaKit {
 		switch(typeSparql){
 		   case "SELECT":
 			   /*
-			   query = QueryFactory.create(queryString) ;
-			   try (com.hp.hpl.jena.query.QueryExecution qexec2 = com.hp.hpl.jena.query.QueryExecutionFactory.create(query, model)) {
+			   query = QueryFactory.insert(queryString) ;
+			   try (com.hp.hpl.jena.query.QueryExecution qexec2 = com.hp.hpl.jena.query.QueryExecutionFactory.insert(query, model)) {
 				   com.hp.hpl.jena.query.ResultSet results = qexec2.execSelect() ;
 			     for ( ; results.hasNext() ; )
 			     {
@@ -217,7 +120,7 @@ public class JenaKit {
 			   }
 			   */
 //			   try (com.hp.hpl.jena.query.QueryExecution qexec2 =
-//			   com.hp.hpl.jena.query.QueryExecutionFactory.create(queryString, model)) {
+//			   com.hp.hpl.jena.query.QueryExecutionFactory.insert(queryString, model)) {
 //				   results = qexec2.execSelect() ;
 //				   results = com.hp.hpl.jena.query.ResultSetFactory.copyResults(results) ;
 //				   //return results ;    // Passes the result set out of the try-resources
@@ -289,7 +192,7 @@ public class JenaKit {
 
         // use the FileManager to find the input file
         InputStream in = com.hp.hpl.jena.util.FileManager.get().open( filepath+"\\"+filename+"."+inputFormat);
-        if (in == null) {
+        if (in == null || !new File(filepath+"\\"+filename+"."+inputFormat).exists()) {
             throw new IllegalArgumentException( "File: " + filepath+"\\"+filename + " not found");
         }
         /*
@@ -304,7 +207,9 @@ public class JenaKit {
         //org.apache.jena.riot.RDFDataMgr.read(model,filepath+"\\"+filename+"."+inputFormat);
         //org.apache.jena.riot.RDFDataMgr.read(model, in,Lang.N3);
         //org.apache.jena.riot.RDFDataMgr.read(model,in,stringToRiotLang("N3"));
-        org.apache.jena.riot.RDFDataMgr.read(model,in,stringToRiotLang(inputFormat.toUpperCase()));
+        //org.apache.jena.riot.RDFDataMgr.read(model,in,stringToRiotLang(inputFormat.toUpperCase()));
+        SystemLog.message("Read file of triples from the path:" + new File(filepath+"\\"+filename+"."+inputFormat).getAbsolutePath());
+        model.read(in, null, "N-TRIPLES") ;
         return model;
     }
     /**
@@ -313,7 +218,7 @@ public class JenaKit {
      * @return the jena model of the file
      */
      public static com.hp.hpl.jena.rdf.model.Model loadFileTriple(File file){
-        // create an empty model
+        // insert an empty model
          String filename = FileUtil.filenameNoExt(file);
          String filepath = FileUtil.path(file);
          String inputFormat = FileUtil.extension(file).toLowerCase();
@@ -415,7 +320,7 @@ public class JenaKit {
      * @return lang
      */
  	public static org.apache.jena.riot.Lang stringToRiotLang(String strFormat) {	
-            if(strFormat.toUpperCase().contains("NT") || strFormat.toUpperCase().contains("NTRIPLES")){
+            if(strFormat.toUpperCase().contains("NT") || strFormat.toUpperCase().contains("NTRIPLES")|| strFormat.toUpperCase().contains("N3")){
                  strFormat="N-Triples";
              }
             if(strFormat.toUpperCase().contains("TTL") || strFormat.toUpperCase().contains("TURTLE")){
@@ -449,8 +354,8 @@ public class JenaKit {
             com.hp.hpl.jena.rdf.model.Model resultModel=null;
             com.hp.hpl.jena.query.ResultSet results;
             /*
-            query = QueryFactory.create(queryString) ;
-            try (com.hp.hpl.jena.query.QueryExecution qexec2 = com.hp.hpl.jena.query.QueryExecutionFactory.create(query, model)) {
+            query = QueryFactory.insert(queryString) ;
+            try (com.hp.hpl.jena.query.QueryExecution qexec2 = com.hp.hpl.jena.query.QueryExecutionFactory.insert(query, model)) {
                     com.hp.hpl.jena.query.ResultSet results = qexec2.execSelect() ;
               for ( ; results.hasNext() ; )
               {
@@ -467,7 +372,7 @@ public class JenaKit {
                ||outputFormat.toLowerCase().contains("rdf")||outputFormat.toLowerCase().contains("bio")
                     ){
 //               try (com.hp.hpl.jena.query.QueryExecution qexec2 =
-//                          com.hp.hpl.jena.query.QueryExecutionFactory.create(sparql, model)) {
+//                          com.hp.hpl.jena.query.QueryExecutionFactory.insert(sparql, model)) {
 //                      results = qexec2.execSelect() ;
 //               }
                 com.hp.hpl.jena.query.QueryExecution qexec2 =
@@ -546,7 +451,7 @@ public class JenaKit {
 
 		If you do an ARQ query, you can get the Node-level result ResultSet.nextBinding() which maps Var to Node. Var is ARQ's extension of Node_Variable. Create with Var.alloc(...)
 
-		You don't need to cast to Node_URI (it's an implementation class really) - at the SPI, there are "Nodes" as generic items (and you can create Triples that aren't RDF like ones with variables).
+		You don't need to cast to Node_URI (it's an implementation class really) - at the SPI, there are "Nodes" as generic items (and you can insert Triples that aren't RDF like ones with variables).
 
 	 */
         
@@ -1075,7 +980,7 @@ public class JenaKit {
     public static void setUri(com.hp.hpl.jena.rdf.model.Resource resource, URI uri) {
         try {
             com.hp.hpl.jena.rdf.model.Model model = resource.getModel();
-            // create a new resource
+            // insert a new resource
             com.hp.hpl.jena.rdf.model.Resource newResource = model.createResource(uri.toString());
             com.hp.hpl.jena.rdf.model.StmtIterator iterator = resource.listProperties();
             // copy properties from old resource

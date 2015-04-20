@@ -56,6 +56,11 @@ public class GateDataStoreKit {
         DS_DIR = DS_DIR;
         NOME_DATASTORE = NOME_DATASTORE;
     }
+
+    public static GateDataStoreKit getNewDataStore(){
+        GateDataStoreKit datastore = new GateDataStoreKit(DS_DIR,NOME_DATASTORE);
+        return datastore;
+    }
   
   /**
    * Operazioni CRUD nel Datastore
@@ -71,12 +76,12 @@ public class GateDataStoreKit {
     SystemLog.ticket("Datastore directory:" + DS_DIR, "OUT");
     SystemLog.ticket("Nome DataStore:" + NOME_DATASTORE, "OUT");
     try {
-      //create&open a new Serial Data Store
+      //insert&open a new Serial Data Store
       //pass the datastore class and path as parameteres
       sds  = (SerialDataStore)Factory.createDataStore("gate.persist.SerialDataStore",DS_DIR);
       sds.setName(NOME_DATASTORE);      
       SystemLog.ticket("Serial datastore created...", "OUT");
-      //create test corpus     
+      //insert test corpus
       // SecurityInfo is ingored for SerialDataStore - just pass null
       // a new persisent corpus is returned     
       Corpus persistCorp = null;
@@ -290,7 +295,7 @@ public class GateDataStoreKit {
    
    public static void saveACorpusOnTheDataStore(Corpus corp,String pathToDataStore) throws PersistenceException, SecurityException{
       //sds.open();
-       //create test corpus
+       //insert test corpus
       //Corpus corp = dsApp.createTestCorpus();
       //openDataStore(pathToDataStore);     
       Corpus persistCorp = null;

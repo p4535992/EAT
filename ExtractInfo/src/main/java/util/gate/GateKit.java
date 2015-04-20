@@ -81,7 +81,8 @@ public class GateKit {
             Gate.init();
         }
         SystemLog.message("...GATE initialised");
-        if(showGate) {//Lavorare con l'interfaccia grafica di GATE
+        if(showGate) {
+            //Work with graphic GATE interface
             MainFrame.getInstance().setVisible(true);
         }
     }

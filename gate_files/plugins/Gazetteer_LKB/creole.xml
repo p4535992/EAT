@@ -33,7 +33,7 @@
 			<!-- Setting limit of the number of the created annotations 
 	           will reduce the memory consumption of GATE on large documents.
 		 Note that GATE documents consume gigabytes of memory if there are tens of thousands
-		 of annotations in the document. All PRs that create large number of 
+		 of annotations in the document. All PRs that insert large number of
 		 annotations like the gazetteers and tokenizers may cause an Out Of Memory error
 		 on large texts. Setting that options limits the amount of memory that the gazetteer will use. -->
 			<PARAMETER NAME="annotationLimit" RUNTIME="true"

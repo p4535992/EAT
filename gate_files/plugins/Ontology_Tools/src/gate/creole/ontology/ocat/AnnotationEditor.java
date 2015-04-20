@@ -1028,7 +1028,7 @@ public class AnnotationEditor extends AbstractAction {
             ? (createInstance.isSelected() ? true : false)
             : false;
 
-        // if user wants to create an instance, it cannot be class
+        // if user wants to insert an instance, it cannot be class
         // annotation and it must be instanceAnnotation
         isClassAnnotation = shouldCreateInstance ? false : isClassAnnotation;
         Annotation addedAnnotation =
@@ -1113,7 +1113,7 @@ public class AnnotationEditor extends AbstractAction {
               ? (createInstance.isSelected() ? true : false)
               : false;
 
-          // if user wants to create an instance, it cannot be class
+          // if user wants to insert an instance, it cannot be class
           // annotation and it must be instanceAnnotation
           isClassAnnotation = shouldCreateInstance ? false : isClassAnnotation;
 

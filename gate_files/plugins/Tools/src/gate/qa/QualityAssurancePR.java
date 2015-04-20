@@ -134,7 +134,7 @@ public class QualityAssurancePR extends AbstractLanguageAnalyser implements
       outputFolder = new File(outputFolderUrl.toURI());
       if(!outputFolder.exists()) {
         if(!outputFolder.mkdirs()) {
-          throw new ExecutionException("Could not create a folder : "
+          throw new ExecutionException("Could not insert a folder : "
                   + outputFolder.getAbsolutePath());
         }
       }

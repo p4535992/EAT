@@ -3,22 +3,29 @@ package object.impl;
 import object.dao.IGeoDomainDocumentDao;
 import object.model.GeoDocument;
 import object.model.GeoDomainDocument;
+import object.model.Website;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate4.HibernateCallback;
 import org.springframework.orm.hibernate4.HibernateTemplate;
+import util.StringKit;
 import util.SystemLog;
 
 import javax.sql.DataSource;
+import java.net.URL;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Marco on 01/04/2015.
@@ -50,13 +57,13 @@ public class GeoDomainDocumentDaoImpl extends GenericDaoImpl<GeoDomainDocument> 
 
     @Override
     public void setTableSelect(String nameOfTable){
-        this.mySelectTable = nameOfTable;
+        mySelectTable = nameOfTable;
     }
 
     @Override
     public void setTableInsert(String nameOfTable){
 
-        this.myInsertTable = nameOfTable;
+        myInsertTable = nameOfTable;
     }
 
     public void setSessionFactory(SessionFactory sessionFactory) {
@@ -123,17 +130,127 @@ public class GeoDomainDocumentDaoImpl extends GenericDaoImpl<GeoDomainDocument> 
     }
 
 
-
-    @Override
-    public List<String> selectAllString(final String column,String limit, String offset) {
-        return this.jdbcTemplate.query("select "+column+" from " + mySelectTable + " LIMIT " + limit + " OFFSET " + offset + "",
-                new RowMapper<String>() {
+    public List<GeoDocument> selectAllGeoDocument(final String column,String limit, String offset) {
+        query = "SELECT * FROM "+mySelectTable+" LIMIT 1 OFFSET 0";
+        if(column == "*"){
+            Connection connection = null;
+            try {
+                connection = dataSource.getConnection();
+                PreparedStatement p = connection.prepareStatement(query);
+                ResultSet rs = p.executeQuery();
+                ResultSetMetaData rsMetaData = rs.getMetaData();
+                int numberOfColumns = rsMetaData.getColumnCount();
+                query = "SELECT ";
+                // get the column names; column indexes start from 1
+                for (int i = 1; i < numberOfColumns + 1; i++) {
+                    query += rsMetaData.getColumnName(i);
+                    if(i < numberOfColumns){query += " ,";}
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        query += " FROM "+mySelectTable+" LIMIT "+limit+" OFFSET "+offset+"";
+        SystemLog.message(query);
+        return jdbcTemplate.query(query,
+                new RowMapper<GeoDocument>() {
                     @Override
-                    public String mapRow(ResultSet rs, int rowNum) throws SQLException {
-                        return rs.getString(column).toString();
+                    public GeoDocument mapRow(ResultSet rs, int rowNum) throws SQLException {
+                        final GeoDocument w = new GeoDocument();
+                        ResultSetExtractor extractor = new ResultSetExtractor() {
+                            @Override
+                            public Object extractData(ResultSet rs) throws SQLException, DataAccessException {
+                                w.setDoc_id(rs.getInt("doc_id"));
+                                w.setCity(rs.getString("city"));
+                                w.setUrl(rs.getURL("url"));
+                                w.setDescription(rs.getString("description"));
+                                w.setEdificio(rs.getString("edificio"));
+                                w.setEmail(rs.getString("email"));
+                                w.setFax(rs.getString("fax"));
+                                w.setIndirizzo(rs.getString("indirizzo"));
+                                w.setIndirizzoHasNumber(rs.getString("indirizzoHasNumber"));
+                                w.setIndirizzoNoCAP(rs.getString("indirizzoNoCAP"));
+                                w.setIva(rs.getString("iva"));
+                                w.setLat(rs.getDouble("latitude"));
+                                w.setLng(rs.getDouble("longitude"));
+                                w.setNazione(rs.getString("nazione"));
+                                w.setPostalCode(rs.getString("postalCode"));
+                                w.setRegione(rs.getString("regione"));
+                                w.setProvincia(rs.getString("provincia"));
+                                return w;
+                            }
+                        };
+                        return w;
                     }
                 }
         );
+        //Class aClass = GeoDocument.class;
+        //return super.selectAll(aClass,column, limit, offset);
+
+//        query = "select "+column+" from " + mySelectTable + " LIMIT " + limit + " OFFSET " + offset + "";
+//        List<Map<String, Object>> map = jdbcTemplate.queryForList(query);
+//        for (Map<String, Object> geoDoc : map) {
+//            for (Iterator<Map.Entry<String, Object>> it = geoDoc.entrySet().iterator(); it.hasNext();) {
+//                Map.Entry<String, Object> entry = it.next();
+//                String key = entry.getKey();
+//                Object value = entry.getValue();
+//                //System.out.println(key + " = " + value);
+//            }
+//
+//            System.out.println();
+//
+//        }
+    }
+
+    public List<GeoDocument> selectGeoDocuments(String column,String limit,String offset){
+        List<GeoDocument> ges = new ArrayList<>();
+
+        query = "select "+column+" from " + mySelectTable + " LIMIT " + limit + " OFFSET " + offset + "";
+        try {
+            List<Map<String, Object>> map = jdbcTemplate.queryForList(query);
+            for (Map<String, Object> geoDoc : map) {
+                GeoDocument g = new GeoDocument();
+                for (Iterator<Map.Entry<String, Object>> it = geoDoc.entrySet().iterator(); it.hasNext(); ) {
+                    Map.Entry<String, Object> entry = it.next();
+                    String value;
+                    if(entry.getValue()==null) value  = "";
+                    else value = entry.getValue().toString();
+                    switch (entry.getKey()) {
+                        case "url": g.setUrl(new URL(StringKit.setNullForEmptyString(value)));break;
+                        case"doc_id":
+                            if(StringKit.setNullForEmptyString(value) == null)  g.setDoc_id(null);
+                            else  g.setDoc_id(Integer.parseInt(value));
+                            break;
+                        case"city": g.setCity(StringKit.setNullForEmptyString(value));break;
+                        case"description": g.setDescription(StringKit.setNullForEmptyString(value));break;
+                        case"edificio": g.setEdificio(StringKit.setNullForEmptyString(value));break;
+                        case"email": g.setEmail(StringKit.setNullForEmptyString(value));break;
+                        case"fax": g.setFax(StringKit.setNullForEmptyString(value));break;
+                        case"indirizzo": g.setIndirizzo(StringKit.setNullForEmptyString(value));break;
+                        case"indirizzoHasNumber": g.setIndirizzoHasNumber(StringKit.setNullForEmptyString(value));break;
+                        case"indirizzoNoCAP": g.setIndirizzoNoCAP(StringKit.setNullForEmptyString(value));break;
+                        case"iva": g.setIva(StringKit.setNullForEmptyString(value));break;
+                        case"latitude":
+                            if(StringKit.setNullForEmptyString(value) == null)  g.setLat(null);
+                            else g.setLat(Double.parseDouble(value));
+                            break;
+                        case"longitude":
+                            if(StringKit.setNullForEmptyString(value) == null)  g.setLng(null);
+                            else g.setLng(Double.parseDouble(value));
+                            break;
+                        case"nazione": g.setNazione(StringKit.setNullForEmptyString(value));break;
+                        case"postalCode": g.setPostalCode(StringKit.setNullForEmptyString(value));break;
+                        case"regione": g.setRegione(StringKit.setNullForEmptyString(value));break;
+                        case"provincia": g.setProvincia(StringKit.setNullForEmptyString(value));break;
+                    }
+                }
+                ges.add(g);
+            }
+        }catch(Exception e){
+             e.printStackTrace();
+        }
+        return ges;
+
     }
 
     @Override

@@ -94,13 +94,13 @@ public class GateCorpusKit {
         Document doc = new DocumentImpl();
         try {
             //Qui si crea un documento per ogni URL con le sue feature e annotazioni
-            //document features create with GATE
+            //document features insert with GATE
             FeatureMap params = Factory.newFeatureMap();
             params.put("sourceUrl", url);
             params.put("preserveOriginalContent", new Boolean(true));
             params.put("collectRepositioningInfo", new Boolean(true));
             params.put(Document.DOCUMENT_ENCODING_PARAMETER_NAME, "UTF-8");
-            //document features create by me
+            //document features insert by me
             FeatureMap feats = Factory.newFeatureMap();
             feats.put("date", new Date());
             //creazione del documento
@@ -116,7 +116,7 @@ public class GateCorpusKit {
             SystemLog.ticket("Documento " + url + " non più disponibile o raggiungibile.", "ERROR");
         }
         catch (NullPointerException ne){
-            SystemLog.error("ERROR:"+ne.getMessage());
+            SystemLog.ticket("ERROR:" + ne.getMessage(),"ERROR");
             //ne.printStackTrace();
             doc = null;
         }

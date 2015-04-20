@@ -46,21 +46,21 @@ public class MainExtractInfo {
                public void run() {
                    try{
                     SystemLog LOG = new SystemLog();
-                    SystemLog.message("===== START THE PROGRAMM =========", "OUT");
+                    SystemLog.message("===== START THE PROGRAMM =========");
                     /*long start = System.currentTimeMillis();*/                  
                     // Parse all the parameters
                     SimpleParameters params = new SimpleParameters();
                     if(args.length > 0){
                         params = new SimpleParameters(args);
-                        SystemLog.message("Using parameters:", "OUT");
-                        SystemLog.message(params.toString(), "OUT");
+                        SystemLog.message("Using parameters:");
+                        SystemLog.message(params.toString());
                     }else{
                         //C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\resources\input.properties
                         mParameters = FileUtil.ReadStringFromFileLineByLine(System.getProperty("user.dir")+"//ExtractInfo//src//main//resources//input.properties",'=',params);
                         //VARIABILI ALTRE
                         //PRINT SULLA CONSOLE
-                        SystemLog.message("Using parameters:", "OUT");
-                        SystemLog.message(params.toString(), "OUT");
+                        SystemLog.message("Using parameters:");
+                        SystemLog.message(params.toString());
 
                         String test = params.getValue("PARAM_PATH_FILE_CFG_DB_INPUT_KEYWORD");
 //                        try {

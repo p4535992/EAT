@@ -38,7 +38,7 @@ public class ClassNode implements IFolder, Transferable, Cloneable,
 	private Object source;
 
 	/**
-	 * create a structure representing the class hierarchy of an ontology
+	 * insert a structure representing the class hierarchy of an ontology
 	 * 
 	 * @return the root node of the structure
 	 */

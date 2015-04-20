@@ -48,6 +48,7 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
     protected EntityManager em;
     protected Class<T> cl;
     protected String clName;
+    protected String query;
 
 
     public GenericDaoImpl() {
@@ -122,16 +123,10 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
         this.mySelectTable = nameOfTable;
     }
 
-    @Override
-    public void create(final T object) {
-        this.em.persist(object);
-        //return object;
-    }
 
     @Override
     public void create(String SQL) throws Exception {
         //Copy the geodocument table
-        String query;
         try {
             query = SQL;
             SystemLog.message(query);
@@ -155,8 +150,9 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
 
     @Override
     public boolean verifyDuplicate(String columnWhereName, String valueWhereName) {
+        query = "select count(*) from "+myInsertTable+" where "+columnWhereName+"='"+valueWhereName+"'";
         int c = this.jdbcTemplate.queryForObject(
-                "select count(*) from "+myInsertTable+" where "+columnWhereName+"='"+valueWhereName+"'", Integer.class);
+                query, Integer.class);
         boolean b = false;
         if(c > 0){
             b = true;
@@ -168,6 +164,9 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
     public int getCount() {
         return this.jdbcTemplate.queryForObject("select count(*) from " + myInsertTable + "", Integer.class);
     }
+
+    @Override
+    public void insert(final T object) {this.em.persist(object); }
 
     @Override
     public void delete(final Object id) {
@@ -208,7 +207,7 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
 
     @Override
     public void insertAndTrim(Object[] params,int[] types) {
-        String query =  "INSERT INTO "+myInsertTable+"  (";
+        query =  "INSERT INTO "+myInsertTable+"  (";
         for(int i = 0; i <  params.length; i++){
             query += params[i];
             if(i < params.length-1){
@@ -240,6 +239,31 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
                 jdbcTemplate.execute(query);
             }
         }catch(Exception e){}
+    }
+
+    @Override
+    public List selectAll(Class<T> aClass,String column, String limit, String offset){
+        query = "SELECT * FROM "+mySelectTable+" LIMIT 1 OFFSET 0";
+        if(column == "*"){
+            Connection connection = null;
+            try {
+                connection = dataSource.getConnection();
+                PreparedStatement p = connection.prepareStatement(query);
+                ResultSet rs = p.executeQuery();
+                ResultSetMetaData rsMetaData = rs.getMetaData();
+                int numberOfColumns = rsMetaData.getColumnCount();
+                query = "SELECT ";
+                // get the column names; column indexes start from 1
+                for (int i = 1; i < numberOfColumns + 1; i++) {
+                    query += rsMetaData.getColumnName(i);
+                    if(i < numberOfColumns){query += " ,";}
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        query += " FROM "+mySelectTable+" LIMIT "+limit+" OFFSET "+offset+"";
+        return null;
     }
 
     @Override

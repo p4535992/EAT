@@ -36,7 +36,7 @@ public class AliasTextTransformer implements Transformer {
         int mergedWS = 0;
         StringBuilder strip = null;
         if (changed) {
-            // If change case is detected create the change buff
+            // If change case is detected insert the change buff
             strip = new StringBuilder(j-i+1);
         }
         for (int k = i; k<=j ; k++) {
@@ -60,7 +60,7 @@ public class AliasTextTransformer implements Transformer {
                 }
                 
                 if (changed) {
-                    // If change case is detected create the change buff
+                    // If change case is detected insert the change buff
                     strip = new StringBuilder(j-i+1);
                     // append the string so far
                     strip.append(in.substring(i,k));

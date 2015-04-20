@@ -242,7 +242,7 @@ public class ConfigurableExporter extends AbstractLanguageAnalyser implements
 
     List<Annotation> instances = null;
     if(instanceName == null || instanceName.equals("")) {
-      // There is no instance name so we will create one instance (line) per
+      // There is no instance name so we will insert one instance (line) per
       // document.
       // Here, we find the first annotation of the right type for each slot in
       // the config file.
@@ -278,7 +278,7 @@ public class ConfigurableExporter extends AbstractLanguageAnalyser implements
       }
       this.outputStream.println();
     } else {
-      // We have an instance type so we will create one output line per
+      // We have an instance type so we will insert one output line per
       // instance.
       instances = Utils.inDocumentOrder(inputAS.get(this.instanceName));
       
