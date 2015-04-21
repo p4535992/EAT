@@ -1,7 +1,7 @@
 
 ControllerStarted: {
   System.out.println("JAPE1 Controller started");
-  //System.out.println("JAPE1 Controller is "+controller);
+  //System.out.println("JAPE1 Controller is "+spring.mvc.controller);
   //System.out.println("JAPE1 Corpus is "+corpus);
   //System.out.println("JAPE1 ActionContext is "+ctx);
   //System.out.println("JAPE1 Ontology is "+ontology);
@@ -11,12 +11,12 @@ ControllerStarted: {
 
 ControllerFinished: {
   System.out.println("JAPE1 Controller finished");
-  //System.out.println("JAPE1 Controller is "+controller);
+  //System.out.println("JAPE1 Controller is "+spring.mvc.controller);
   //System.out.println("JAPE1 Corpus is "+corpus);
   //System.out.println("JAPE1 ActionContext is "+ctx);
   //System.out.println("JAPE1 Ontology is "+ontology);
   //System.out.println("JAPE1: toString():");
-  //System.out.println(controller.toString());
+  //System.out.println(spring.mvc.controller.toString());
 }
 
 ControllerAborted: {

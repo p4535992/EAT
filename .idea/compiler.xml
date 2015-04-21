@@ -53,6 +53,7 @@
         <module name="karma-typer" />
         <module name="karma-util" />
         <module name="karma-web" />
+        <module name="utility" />
         <module name="web-services-rdf" />
       </profile>
     </annotationProcessing>
@@ -96,6 +97,7 @@
       <module name="karma-web" target="1.7" />
       <module name="karma-web-services" target="1.7" />
       <module name="simpleGraphTest" target="1.7" />
+      <module name="utility" target="1.7" />
       <module name="web-services-rdf" target="1.7" />
       <module name="webkarma" target="1.7" />
     </bytecodeTargetLevel>

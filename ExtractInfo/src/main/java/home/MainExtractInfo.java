@@ -72,6 +72,7 @@ public class MainExtractInfo {
                                 m.Extraction();
                             }else if(params.getValue("PARAM_TYPE_EXTRACTION").equals("SPRING")){
                                 ExtractInfoSpring m = new ExtractInfoSpring(params);
+                                SystemLog.message("START EXTRACT");
                                 m.Extraction();
                             }
                             /*} else if (params.getValue("PARAM_TYPE_EXTRACTION").equals("HIBERNATE_POJO")) {

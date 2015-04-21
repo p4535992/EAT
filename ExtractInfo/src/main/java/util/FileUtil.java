@@ -7,6 +7,8 @@ package util;
 import util.cmd.SimpleParameters;
 
 import java.io.*;
+import java.net.MalformedURLException;
+import java.net.URI;
 import java.util.*;
 
 /**
@@ -15,6 +17,7 @@ import java.util.*;
  * @author 4535992
  */
 public class FileUtil {
+    private static org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger(FileUtil.class);
     private static String fullPath;
     private static char pathSeparator = '\\';
     private static char extensionSeparator = '.';
@@ -74,7 +77,7 @@ public class FileUtil {
     }
 
     public static String localPath(String localPath){
-        return localPath("",localPath);
+        return localPath("", localPath);
     }
 
     public static String localPath(String basePath,String localPath){
@@ -156,31 +159,45 @@ public class FileUtil {
         d.mkdirs();
     }
 
-    public static void readDirectory(String fullPathDir) {
+    public static List<String> readDirectory(String fullPathDir) {
         File file = null;
+        //File[] listOfFiles = new File(fullPathDir).listFiles();
         String[] paths;
-
+        List<String> files = new ArrayList<>();
         try {
             // insert new file object
             file = new File(fullPathDir);
-
             // array of files and directory
             paths = file.list();
-
             // for each name in the path array
             for (String path : paths) {
                 // prints filename and directory name
-                System.out.println(path);
+                //System.out.println(path);
+                files.add(path);
             }
         } catch (Exception e) {
             // if any error occurs
             e.printStackTrace();
         }
+        return files;
     }
 
+    public static URI convertFileToUri(File file){
+        return file.toURI();
+    }
 
+    public static URI convertFileToUri(String filePath){
+        return convertFileToUri(new File(filePath));
+    }
 
+    public static File convertURIToFile(URI uri) throws MalformedURLException {
+        return new File(uri.toURL().getFile());
+    }
 
+    public static InputStream convertURIToStream(URI uri) throws IOException {
+        return uri.toURL().openStream();
+        //is.close();
+    }
 
     /**
      * Utility for a depth first traversal of a file-system starting from a

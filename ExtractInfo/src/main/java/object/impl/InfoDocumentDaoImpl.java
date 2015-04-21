@@ -5,12 +5,8 @@ import object.model.GeoDocument;
 import object.model.InfoDocument;
 import org.hibernate.SessionFactory;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.datasource.DriverManagerDataSource;
-import org.springframework.orm.hibernate4.HibernateTemplate;
 import util.SystemLog;
 
-import javax.sql.DataSource;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,14 +25,14 @@ public class InfoDocumentDaoImpl extends GenericDaoImpl<InfoDocument> implements
 
     @Override
     public void loadSpringConfig(String filePathXml) {
-        contextClassPath = new ClassPathXmlApplicationContext(filePathXml);
-        InfoDocumentDaoImpl g = contextClassPath.getBean(InfoDocumentDaoImpl.class);
+        context = new ClassPathXmlApplicationContext(filePathXml);
+        InfoDocumentDaoImpl g = context.getBean(InfoDocumentDaoImpl.class);
     }
 
     @Override
     public void loadHibernateConfig(String filePathXml) {
-        contextClassPath = new ClassPathXmlApplicationContext(filePathXml);
-        InfoDocumentDaoImpl g = contextClassPath.getBean(InfoDocumentDaoImpl.class);
+        context = new ClassPathXmlApplicationContext(filePathXml);
+        InfoDocumentDaoImpl g = context.getBean(InfoDocumentDaoImpl.class);
     }
 
     @Override

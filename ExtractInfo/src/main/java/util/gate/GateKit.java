@@ -53,7 +53,7 @@ public class GateKit {
     public static void setUpGateEmbedded(String directoryFolderHome,String directoryFolderPlugin,
                             String configFileGate,String configFileUser,String configFileSession) throws Exception {
         //SETTIAMO GATE PER IL PROGRAMMA
-        SystemLog.message("Inizializzazione GATE...");
+        SystemLog.message("Initializing GATE...");
         directoryFolderHome = System.getProperty("user.dir")+File.separator+directoryFolderHome;
         if(!new File(directoryFolderHome).exists())throw new Exception("WARNING: The folder directoryFolderHome of GATE not exists!");
         Gate.setGateHome(new File(directoryFolderHome));
@@ -80,7 +80,7 @@ public class GateKit {
             FileUtil.createFile(configFileSession);
             Gate.init();
         }
-        SystemLog.message("...GATE initialised");
+        SystemLog.message("...GATE initialized");
         if(showGate) {
             //Work with graphic GATE interface
             MainFrame.getInstance().setVisible(true);

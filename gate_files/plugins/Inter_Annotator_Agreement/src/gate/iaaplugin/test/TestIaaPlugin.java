@@ -124,7 +124,7 @@ public class TestIaaPlugin extends TestCase {
       iaaM.setAnnSetsForIaa("ann1;ann2;ann3");
       iaaM.setAnnTypesAndFeats("Os;sent->Op");
       iaaM.setVerbosity("0");
-      /** The controller include the ML Api as one PR. */
+      /** The spring.mvc.controller include the ML Api as one PR. */
       gate.creole.SerialAnalyserController
       controller = (gate.creole.SerialAnalyserController)Factory
       .createResource("gate.creole.SerialAnalyserController");
@@ -221,7 +221,7 @@ public class TestIaaPlugin extends TestCase {
       iaaM.setAnnTypesAndFeats("Mention->class");
       iaaM.setVerbosity("0");
       iaaM.setBdmScoreFile(new File(testDir, "protonU-bdm.txt").toURI().toURL());
-      /** The controller include the ML Api as one PR. */
+      /** The spring.mvc.controller include the ML Api as one PR. */
       gate.creole.SerialAnalyserController
       controller = (gate.creole.SerialAnalyserController)Factory
       .createResource("gate.creole.SerialAnalyserController");

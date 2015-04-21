@@ -19,10 +19,11 @@ import java.net.*;
 import gate.creole.ResourceInstantiationException;
 import gate.persist.PersistenceException;
 import gate.util.*;
+import util.FileUtil;
 import util.SystemLog;
 
 public class GateCorpusKit {
-
+    private static org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger(GateCorpusKit.class);
     private static Document doc;
   
   public GateCorpusKit(){}
@@ -64,7 +65,8 @@ public class GateCorpusKit {
     * @param  nomeCorpus il nome assegnato al Corpus in esame
     * @return il corpus "riempito" di GATE
     */  
-  public static Corpus createCorpusByListOfUrls(ArrayList<URL> listUrl,String nomeCorpus,Integer indice,GateDataStoreKit datastore) throws IOException, ResourceInstantiationException, PersistenceException, SecurityException{
+  public static Corpus createCorpusByListOfUrls(ArrayList<URL> listUrl,String nomeCorpus,Integer indice,GateDataStoreKit datastore)
+          throws IOException, ResourceInstantiationException, PersistenceException, SecurityException{
     Corpus corpus = Factory.newCorpus(nomeCorpus);
     for(int i = 0; i < listUrl.size(); i++) {
         URL url = listUrl.get(i);
@@ -77,6 +79,16 @@ public class GateCorpusKit {
     SystemLog.message("Contenuto del Corpus costituito da:" + indice + " indirizzi url.");
     return corpus;
   } // createCorpus
+
+
+    public static Corpus createCoprusByFile(String nomeCorpus,String filePath) throws ResourceInstantiationException, IOException {
+            Corpus corpus = Factory.newCorpus(nomeCorpus);
+            doc = createDocByUrl(FileUtil.convertFileToUri(filePath).toURL());
+            if(doc != null) {
+                corpus.add(doc);//add a document to the corpus
+            }
+            return corpus;
+    }
   
   /**
      * Metodo che salva un Corpus nel datastore 

@@ -1355,7 +1355,7 @@ public abstract class SPTBase extends AbstractLanguageAnalyser {
     }
     // shouldn't happen...
     throw new ExecutionException(
-      "Couldn't run controller started action", e);
+      "Couldn't run spring.mvc.controller started action", e);
     }
   }
 
@@ -1378,7 +1378,7 @@ public abstract class SPTBase extends AbstractLanguageAnalyser {
     }
     // shouldn't happen...
     throw new ExecutionException(
-      "Couldn't run controller finished action", e);
+      "Couldn't run spring.mvc.controller finished action", e);
     }
   }
 
@@ -1402,7 +1402,7 @@ public abstract class SPTBase extends AbstractLanguageAnalyser {
     }
     // shouldn't happen...
     throw new ExecutionException(
-      "Couldn't run controller aborted action", e);
+      "Couldn't run spring.mvc.controller aborted action", e);
     }
   }
 }

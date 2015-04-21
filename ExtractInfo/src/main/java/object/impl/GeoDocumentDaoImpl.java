@@ -4,6 +4,7 @@ import object.dao.IGeoDocumentDao;
 import object.model.GeoDocument;
 import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.transaction.annotation.Transactional;
 import util.ResourcesKit;
@@ -22,6 +23,10 @@ public class GeoDocumentDaoImpl extends GenericDaoImpl<GeoDocument> implements I
 
     public GeoDocumentDaoImpl(){}
 
+    public GeoDocumentDaoImpl(SessionFactory sessionFactory){
+        this.sessionFactory = sessionFactory;
+    }
+
     @Override
     public void setDriverManager(String driver, String typeDb, String host,String port, String user, String pass, String database) {
         super.setDriverManager(driver,typeDb, host, port,user,  pass, database);
@@ -37,26 +42,26 @@ public class GeoDocumentDaoImpl extends GenericDaoImpl<GeoDocument> implements I
         File file = ResourcesKit.getResourceAsFile(filePathXml);
         if(file.exists()){
             try {
-                contextClassPath = new ClassPathXmlApplicationContext(filePathXml);
+                context = new ClassPathXmlApplicationContext(filePathXml);
             }catch(Exception e) {
                 e.printStackTrace();
             }
         }
-        GeoDocumentDaoImpl g = contextClassPath.getBean(GeoDocumentDaoImpl.class);
+        GeoDocumentDaoImpl g = context.getBean(GeoDocumentDaoImpl.class);
     }
 
     @Override
     public void loadHibernateConfig(String filePathXml) {
-        //ApplicationContext contextClassPath = new ClassPathXmlApplicationContext(filePathXml);
+        //ApplicationContext context = new ClassPathXmlApplicationContext(filePathXml);
         File file = ResourcesKit.getResourceAsFile(filePathXml);
         if(file.exists()){
             try {
-                contextClassPath = new ClassPathXmlApplicationContext(filePathXml);
+                context = new ClassPathXmlApplicationContext(filePathXml);
             }catch(Exception e) {
                 e.printStackTrace();
             }
         }
-        GeoDocumentDaoImpl g = (GeoDocumentDaoImpl) contextClassPath.getBean("GeoDocumentDao");
+        GeoDocumentDaoImpl g = (GeoDocumentDaoImpl) context.getBean("GeoDocumentDao");
     }
 
     @Override
@@ -80,6 +85,7 @@ public class GeoDocumentDaoImpl extends GenericDaoImpl<GeoDocument> implements I
         this.sessionFactory = sessionBuilder.buildSessionFactory();
     }
     */
+    @Autowired
     public void setSessionFactory(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }

@@ -155,7 +155,7 @@ public class AnnotationInfo {
         + email + ", telefono=" + telefono + ", edificio=" + edificio
         + ", nazione=" + nazione + "]" +
                 "******************************************************************************************************";
-        SystemLog.message(0,s);
+        //SystemLog.message(0,s);
         return s;
 	}
     

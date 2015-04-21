@@ -74,11 +74,11 @@ public class MyGateHandler implements HttpRequestHandler {
        corpus = Factory.newCorpus("MainPipeline corpus");
        corpus = create.createCorpusByListOfUrls(listaUrl, corpus.getName(), handlerId, null);
        System.err.println("Fine caricamento della PIPELINE");
-       //controller.setCorpus(corpus2);
+       //spring.mvc.controller.setCorpus(corpus2);
        application.setCorpus(corpus);//set corpus
        System.err.println("...START");
        application.execute();
-       //controller.execute();//execute the corpus fatto da spring
+       //spring.mvc.controller.execute();//execute the corpus fatto da spring
      }catch (Exception e){
        e.printStackTrace();
      }

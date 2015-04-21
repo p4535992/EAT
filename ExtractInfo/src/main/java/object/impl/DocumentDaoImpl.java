@@ -4,9 +4,6 @@ import object.model.Document;
 import object.dao.IDocumentDao;
 import org.hibernate.SessionFactory;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.datasource.DriverManagerDataSource;
-import org.springframework.orm.hibernate4.HibernateTemplate;
 
 import javax.sql.DataSource;
 
@@ -37,14 +34,14 @@ public class DocumentDaoImpl extends GenericDaoImpl<Document> implements IDocume
 
     @Override
     public void loadSpringConfig(String filePathXml) {
-        contextClassPath = new ClassPathXmlApplicationContext(filePathXml);
-        DocumentDaoImpl g = contextClassPath.getBean(DocumentDaoImpl.class);
+        context = new ClassPathXmlApplicationContext(filePathXml);
+        DocumentDaoImpl g = context.getBean(DocumentDaoImpl.class);
     }
 
     @Override
     public void loadHibernateConfig(String filePathXml) {
-        contextClassPath = new ClassPathXmlApplicationContext(filePathXml);
-        DocumentDaoImpl g = contextClassPath.getBean(DocumentDaoImpl.class);
+        context = new ClassPathXmlApplicationContext(filePathXml);
+        DocumentDaoImpl g = context.getBean(DocumentDaoImpl.class);
     }
 
     @Override

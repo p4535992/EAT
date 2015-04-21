@@ -27,8 +27,8 @@ public class Test_Jena {
                  "\\karma_files\\output\\triple_karma_output_20150226_164851.n3";
          File file = new File(path);
          //EncodingUtil.rewriteTheFiLeToUtf8(file);
-         
-         JenaKit.readQueryAndCleanTripleInfoDocument(
+         JenaInfoDocument jInfo = new JenaInfoDocument();
+         jInfo.readQueryAndCleanTripleInfoDocument(
                  FileUtil.filenameNoExt(file),
                  FileUtil.path(file),
                  "output",

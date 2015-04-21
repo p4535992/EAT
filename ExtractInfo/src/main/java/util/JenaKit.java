@@ -1,5 +1,6 @@
 package util;
 
+import util.string.StringOutputStreamKit;
 import util.xml.XMLKit_Extends;
 import java.io.*;
 import java.net.URI;
@@ -16,11 +17,19 @@ import java.util.*;
  * Class utility for Jena 2015-03-31
  */
 public class JenaKit {
-
+    private static org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger(JenaKit.class);
     //PRIVATE
     private static String SPARQL_QUERY;
+    private static String INFORMAT;
+    private static String OUTFORMAT;
+
     private static Hashtable namespaces = new Hashtable();
     private static com.hp.hpl.jena.rdf.model.Model model;
+    private static org.apache.jena.riot.Lang OUTLANGFORMAT;
+    private static org.apache.jena.riot.RDFFormat OUTRDFFORMAT;
+
+    private static org.apache.jena.riot.Lang INLANGFORMAT;
+    private static org.apache.jena.riot.RDFFormat INRDFFORMAT;
 
     //PUBLIC
     public static final String RDF_FORMAT ="RDF/XML-ABBREV";
@@ -32,63 +41,82 @@ public class JenaKit {
         return model;
     }
 
-
-
     /**
      * Method  to Write large model jena to file of text
      * @param fullPath
      * @param model
      * @param outputFormat
-     * @deprecated  use {@link //com.hp.hpl.jena.rdf.model.Model.write(...)} instead.
      * @throws IOException
      */
-    @Deprecated
-	public static void writeLargerModelJenaToFile(String fullPath, com.hp.hpl.jena.rdf.model.Model model, String outputFormat) throws IOException {
-            Charset ENCODING = StandardCharsets.UTF_8;
-            FileUtil.createFile(fullPath);
-            Path path = Paths.get(FileUtil.path(fullPath)
-                    +"\\"+FileUtil.filenameNoExt(fullPath)+"."+outputFormat.toLowerCase());
-            
-	    try (BufferedWriter writer = Files.newBufferedWriter(path, ENCODING)){
-                SystemLog.ticket("Scrittura del nuovo file di triple:" + path, "OUT");
-	    	//org.apache.jena.riot.RDFDataMgr.write(writer, model, stringToRiotLang(outputFormat));
-            model.write(writer,null,outputFormat);
-	    }
-	  }
-
-    public static void writeLargerModelJenaToFile2(String fullPath, com.hp.hpl.jena.rdf.model.Model model, String outputFormat){
+    public static void writeModelToFile(String fullPath, com.hp.hpl.jena.rdf.model.Model model, String outputFormat) throws IOException {
+        fullPath =  FileUtil.path(fullPath) + "\\" + FileUtil.filenameNoExt(fullPath)+"."+outputFormat.toLowerCase();
+        SystemLog.message("Try to write the new file of triple Infodoument to:" + fullPath + "...");
+        OUTLANGFORMAT = stringToRiotLang(outputFormat);
+        OUTRDFFORMAT = stringToRDFFormat(outputFormat);
+        OUTFORMAT = outputFormat.toUpperCase();
         try {
-            FileWriter out = new FileWriter(fullPath);
+            writeModel2File(fullPath, model);
+        }catch(Exception e1){
             try {
-                model.write( out, outputFormat.toUpperCase() );
-            }
-            finally {
-                try {
-                    out.close();
-                }
-                catch (IOException closeException) {
-                    // ignore
+                writeModel2File2(fullPath, model);
+            }catch(Exception e2){
+                try{
+                    writeModel2File3(fullPath, model);
+                }catch (Exception e3){
+                    SystemLog.error("Exception during the writing of the file of triples:"+ fullPath+ ", Cause:" + e3.getCause());
                 }
             }
-        }catch(Exception e){SystemLog.error("Exception during the writing:"+ fullpath)}
+        }
+        SystemLog.message("... the file of triple Infodoument to:" + fullPath +" is beenn wrote!");
     }
 
     /**
-     * Method  to Write little model jena to file of text
-     * @param aFileName
+     * Method  to Write large model jena to file of text
+     * @param fullPath
      * @param model
-     * @param outputFormat
      * @deprecated  use {@link //com.hp.hpl.jena.rdf.model.Model.write(...)} instead.
      * @throws IOException
      */
     @Deprecated
-	public static void writeSmallerModelJenaToFile(String aFileName, com.hp.hpl.jena.rdf.model.Model model, String outputFormat) throws IOException {
-            Charset ENCODING = StandardCharsets.UTF_8;
-	    Path path = Paths.get(aFileName+"."+outputFormat.toLowerCase());
-	    try (BufferedWriter writer = Files.newBufferedWriter(path, ENCODING)){
-	    	model.write(writer,outputFormat.toUpperCase());
-	    }
+	private static void writeModel2File(String fullPath, com.hp.hpl.jena.rdf.model.Model model) throws IOException {
+        Charset ENCODING = StandardCharsets.ISO_8859_1;
+        FileUtil.createFile(fullPath);
+        Path path = Paths.get(fullPath);
+	    try (BufferedWriter writer = Files.newBufferedWriter(path,ENCODING)) {
+            //org.apache.jena.riot.RDFDataMgr.write(writer, model, OUTLANGFORMAT);
+            model.write(writer, null, OUTFORMAT);
+        }
 	  }
+
+    /**
+     * Method  to Write large model jena to file of text
+     * @param fullPath
+     * @param model
+     */
+    private static void writeModel2File2(String fullPath, com.hp.hpl.jena.rdf.model.Model model) throws IOException {
+        FileWriter out = new FileWriter(fullPath);
+        try {
+            model.write(out, OUTLANGFORMAT.getName());
+        }
+        finally {
+            try {
+                out.close();
+            }
+            catch (IOException closeException) {
+                // ignore
+            }
+        }
+    }
+
+    /**
+     * Method  to Write large model jena to file of text
+     * @param fullPath
+     * @param model
+     */
+    private static void writeModel2File3 (String fullPath, com.hp.hpl.jena.rdf.model.Model model) throws FileNotFoundException {
+        FileOutputStream outputStream = new FileOutputStream(fullPath);
+        model.write(outputStream, OUTLANGFORMAT.getName());
+    }
 
     /**
      * Method for Exec a SPARQL query to a Jena Model
@@ -181,6 +209,9 @@ public class JenaKit {
      */
     public static com.hp.hpl.jena.rdf.model.Model loadFileTriple(String filename,String filepath,String inputFormat){
         com.hp.hpl.jena.rdf.model.Model model = com.hp.hpl.jena.rdf.model.ModelFactory.createDefaultModel();
+        INLANGFORMAT = stringToRiotLang(inputFormat);
+        INRDFFORMAT = stringToRDFFormat(inputFormat);
+        INFORMAT = INLANGFORMAT.getLabel().toUpperCase();
         //1)
         //FileManager.get().addLocatorClassLoader(ExampleAPI_01.class.getClassLoader());
         //Model model = FileManager.get().loadModel("data/data.ttl", null, "TURTLE");
@@ -209,7 +240,22 @@ public class JenaKit {
         //org.apache.jena.riot.RDFDataMgr.read(model,in,stringToRiotLang("N3"));
         //org.apache.jena.riot.RDFDataMgr.read(model,in,stringToRiotLang(inputFormat.toUpperCase()));
         SystemLog.message("Read file of triples from the path:" + new File(filepath+"\\"+filename+"."+inputFormat).getAbsolutePath());
-        model.read(in, null, "N-TRIPLES") ;
+        try{
+            model.read(in, null,INFORMAT) ;
+        }
+        catch(Exception e1){
+            try{
+                //e1.printStackTrace();
+                org.apache.jena.riot.RDFDataMgr.read(model, in, INLANGFORMAT);
+            }catch(Exception e2){
+                try{
+                    org.apache.jena.riot.RDFDataMgr.read(model,
+                            new File(filepath + "\\" + filename + "." + inputFormat).toURI().toString());
+                }catch(Exception e3){
+                    e3.printStackTrace();
+                }
+            }
+        }
         return model;
     }
     /**
@@ -221,14 +267,16 @@ public class JenaKit {
         // insert an empty model
          String filename = FileUtil.filenameNoExt(file);
          String filepath = FileUtil.path(file);
-         String inputFormat = FileUtil.extension(file).toLowerCase();
+         INFORMAT = FileUtil.extension(file).toUpperCase();
+         INLANGFORMAT = stringToRiotLang(INFORMAT);
+         INFORMAT = INLANGFORMAT.getLabel().toUpperCase();
          com.hp.hpl.jena.rdf.model.Model model = com.hp.hpl.jena.rdf.model.ModelFactory.createDefaultModel();
          //model.read(filepath+"\\"+filename+"."+inputFormat);
-         InputStream in = com.hp.hpl.jena.util.FileManager.get().open( filepath+"\\"+filename+"."+inputFormat);
+         InputStream in = com.hp.hpl.jena.util.FileManager.get().open( filepath+"\\"+filename+"."+INFORMAT);
          if (in == null) {
             throw new IllegalArgumentException( "File: " + filepath+"\\"+filename + " not found");
          }
-         org.apache.jena.riot.RDFDataMgr.read(model,in,stringToRiotLang(inputFormat.toUpperCase()));
+         org.apache.jena.riot.RDFDataMgr.read(model,in,INLANGFORMAT);
          //org.apache.jena.riot.RDFDataMgr.read(model,in,org.apache.jena.riot.Lang.NT);
          return model;
     }
@@ -306,7 +354,14 @@ public class JenaKit {
      * @param strFormat
      * @return rdfformat
      */
- 	public static org.apache.jena.riot.RDFFormat stringToRDFFormat(String strFormat) {	
+ 	public static org.apache.jena.riot.RDFFormat stringToRDFFormat(String strFormat) {
+        if(strFormat.toUpperCase().contains("NT") ||
+                strFormat.toUpperCase().contains("NTRIPLES")|| strFormat.toUpperCase().contains("N3")){
+            strFormat="N-Triples";
+        }
+        if(strFormat.toUpperCase().contains("TTL") || strFormat.toUpperCase().contains("TURTLE")){
+            strFormat="Turtle";
+        }
  		for (org.apache.jena.riot.RDFFormat rdfFormat : allFormatsOfRDFFormat) {
  			if (rdfFormat.getLang().getName().equalsIgnoreCase(strFormat))
  				return rdfFormat;
@@ -320,7 +375,8 @@ public class JenaKit {
      * @return lang
      */
  	public static org.apache.jena.riot.Lang stringToRiotLang(String strFormat) {	
-            if(strFormat.toUpperCase().contains("NT") || strFormat.toUpperCase().contains("NTRIPLES")|| strFormat.toUpperCase().contains("N3")){
+            if(strFormat.toUpperCase().contains("NT") ||
+                    strFormat.toUpperCase().contains("NTRIPLES")|| strFormat.toUpperCase().contains("N3")){
                  strFormat="N-Triples";
              }
             if(strFormat.toUpperCase().contains("TTL") || strFormat.toUpperCase().contains("TURTLE")){
@@ -405,7 +461,7 @@ public class JenaKit {
                 resultModel = qexec.execConstruct() ;
                 qexec.close() ;
 
-                //writeLargerModelJenaToFile(fullPathOutputFile, model, outputFormat);
+                //writeModel2File(fullPathOutputFile, model, outputFormat);
                 //FileOutputStream out = new FileOutputStream("Jena_test.n3");
                 Writer writer = new FileWriter(new File(fullPathOutputFile));
                 model.write(writer, outputFormat);
@@ -435,26 +491,16 @@ public class JenaKit {
     }
 
 	/*
-	 *
-		There are
-
-		    Resource.asNode() -> Node
-		    Literal.asNode() -> Node
-		    Statement.asTriple() -> Triple
+		There are                               To go in the reverse direction:
+		    Resource.asNode() -> Node               Model.asRDFNode(Node)
+		    Literal.asNode() -> Node                Model.asStatement(Triple)
+        Statement.asTriple() -> Triple              ModelFactory.createModelForGraph(Graph)
 		    Model.getGraph() -> Graph
 
-		To go in the reverse direction:
-
-		    Model.asRDFNode(Node)
-		    Model.asStatement(Triple)
-		    ModelFactory.createModelForGraph(Graph)
-
-		If you do an ARQ query, you can get the Node-level result ResultSet.nextBinding() which maps Var to Node. Var is ARQ's extension of Node_Variable. Create with Var.alloc(...)
-
-		You don't need to cast to Node_URI (it's an implementation class really) - at the SPI, there are "Nodes" as generic items (and you can insert Triples that aren't RDF like ones with variables).
-
-	 */
-        
+		If you do an ARQ query, you can get the Node-level result ResultSet.nextBinding()
+		which maps Var to Node. Var is ARQ's extension of Node_Variable. Create with Var.alloc(...)
+		You don't need to cast to Node_URI (it's an implementation class really) - at the SPI, there
+		are "Nodes" as generic items (and you can insert Triples that aren't RDF like ones with variables).*/
    /**
     * Get the dc:relation property
     * @return dc:relation property

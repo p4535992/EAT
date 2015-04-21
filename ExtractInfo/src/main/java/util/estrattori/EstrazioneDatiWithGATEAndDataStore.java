@@ -24,7 +24,7 @@ public class EstrazioneDatiWithGATEAndDataStore {
 
         private static GateAnnotationKit maac=new GateAnnotationKit();
 
-      /** Tell GATE's controller about the corpus you want to run on.
+      /** Tell GATE's spring.mvc.controller about the corpus you want to run on.
        *  @param corpus il corpus da settare
        */
       public void setCorpus(Corpus corpus,CorpusController controller) {controller.setCorpus(corpus);} // setCorpus
@@ -135,7 +135,7 @@ public class EstrazioneDatiWithGATEAndDataStore {
             //andiamo a trasformare il contenuto matchato dalle nostre annotazioni
             //in keyword che andremo a inserire nel nostro apposito GeoDocument.  
             //for(Document doc: corpus){System.out.println(doc.getName());}
-            listAnnInfo = maac.getMultipleAnnotationInfo(corpus,null);
+            listAnnInfo = GateAnnotationKit.getMultipleAnnotationInfo(corpus,null);
             //*************************************************************************
             for(AnnotationInfo annInfo:listAnnInfo){
                 annInfo = pulisciAnnotionInfo(annInfo);           

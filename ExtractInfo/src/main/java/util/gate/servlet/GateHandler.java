@@ -77,7 +77,7 @@ public class GateHandler implements HttpRequestHandler {
   public void init() throws Exception {
     handlerId = nextId.getAndIncrement();
     log.info("init() for GateHandler " + handlerId);
-    // insert a corpus and give it to the controller
+    // insert a corpus and give it to the spring.mvc.controller
     corpus = Factory.newCorpus("webapp corpus");
     application.setCorpus(corpus);
   }

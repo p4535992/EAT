@@ -87,11 +87,11 @@ public class TestBDMCompPlugin extends TestCase {
       bdmM.setOutputBDMFile(bdmFile.toURI().toURL());
       //bdmM.setAnnTypesAndFeats("Os;sent->Op");
       //bdmM.setVerbosity("0");
-      /** The controller include the ML Api as one PR. */
+      /** The spring.mvc.controller include the ML Api as one PR. */
       gate.creole.SerialController
       controller = (gate.creole.SerialController)Factory
       .createResource("gate.creole.SerialController");
-      //controller.setCorpus(data);
+      //spring.mvc.controller.setCorpus(data);
       controller.add(bdmM);
       
       System.out.println("starting executing...");

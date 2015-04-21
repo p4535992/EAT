@@ -3,21 +3,17 @@ package object.impl;
 import object.dao.IGeoDomainDocumentDao;
 import object.model.GeoDocument;
 import object.model.GeoDomainDocument;
-import object.model.Website;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.dao.DataAccessException;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.RowMapper;
-import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate4.HibernateCallback;
-import org.springframework.orm.hibernate4.HibernateTemplate;
-import util.StringKit;
 import util.SystemLog;
+import util.string.StringKit;
 
 import javax.sql.DataSource;
 import java.net.URL;
@@ -45,14 +41,14 @@ public class GeoDomainDocumentDaoImpl extends GenericDaoImpl<GeoDomainDocument> 
 
     @Override
     public void loadSpringConfig(String filePathXml) {
-        contextClassPath = new ClassPathXmlApplicationContext(filePathXml);
-        GeoDomainDocumentDaoImpl g = contextClassPath.getBean(GeoDomainDocumentDaoImpl.class);
+        context = new ClassPathXmlApplicationContext(filePathXml);
+        GeoDomainDocumentDaoImpl g = context.getBean(GeoDomainDocumentDaoImpl.class);
     }
 
     @Override
     public void loadHibernateConfig(String filePathXml) {
-        contextClassPath = new ClassPathXmlApplicationContext(filePathXml);
-        GeoDomainDocumentDaoImpl g = contextClassPath.getBean(GeoDomainDocumentDaoImpl.class);
+        context = new ClassPathXmlApplicationContext(filePathXml);
+        GeoDomainDocumentDaoImpl g = context.getBean(GeoDomainDocumentDaoImpl.class);
     }
 
     @Override

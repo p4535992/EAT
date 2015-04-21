@@ -9,9 +9,7 @@ import java.io.IOException;
  * Created by 4535992 on 28/03/2015.
  */
 public class XMLKitJDOM {
-
     private static org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger(XMLKitJDOM.class);
-
     /**
      * Method for update the value of a attribute of a specific tag in a XML document
      * @param xmlPath xml file of input

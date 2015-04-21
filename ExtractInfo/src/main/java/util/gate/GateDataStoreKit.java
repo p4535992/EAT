@@ -1,8 +1,8 @@
 /**
  * DatastoreApplication.java 
- * @author Tenti Marco Elaborato Sistemi Distribuiti
- * Classe opzionale da usare solo se vi sono problemi di memoria RAM.
- * (sono 6.000.00 di documenti web),prevede il salvataggio del Corpus di GATE
+ * @author 4535992
+ * @description
+ * Class prevede il salvataggio del Corpus di GATE
  * in un Serial Lucene Datastore e tutti i metodi necessari per svolgere le
  * operazioni di CRUD sia per il corpus che per i singoli documenti direttamente 
  * dal DataStore.
@@ -26,7 +26,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class GateDataStoreKit {
-    
+    private static org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger(GateDataStoreKit.class);
   //the directory must EXIST and be EMPTY
   //private static final String dsDir = "/var/tmp/gate001";
   private static String DS_DIR = null;
@@ -294,21 +294,15 @@ public class GateDataStoreKit {
    }
    
    public static void saveACorpusOnTheDataStore(Corpus corp,String pathToDataStore) throws PersistenceException, SecurityException{
-      //sds.open();
-       //insert test corpus
-      //Corpus corp = dsApp.createTestCorpus();
-      //openDataStore(pathToDataStore);     
+      //insert test corpus
       Corpus persistCorp = null;
-      //save corpus in datastore
-      // SecurityInfo is ingored for SerialDataStore - just pass null
+      //save corpus in datastore,SecurityInfo is ingored for SerialDataStore - just pass null
       // a new persisent corpus is returned
       persistCorp = (Corpus)sds.adopt(corp,null);
       sds.sync(persistCorp);    
       SystemLog.ticket("corpus saved in datastore...", "OUT");
       Object corpusID  = persistCorp.getLRPersistenceId();
       SystemLog.ticket("ID del Corpus salvato nel datastore:" + corpusID.toString(), "OUT");
-      //closeDataStore();
-      //sds.close();
    }
 
     //SETTER AND GETTER

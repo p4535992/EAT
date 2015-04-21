@@ -59,10 +59,9 @@ public class ExtractInfoSpring {
      private ManageJsonWithGoogleMaps j = new ManageJsonWithGoogleMaps();
      private EstrazioneGeoDomainDocument egd = new EstrazioneGeoDomainDocument();
      //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-     private EstrazioneDatiWithGATE egate = new EstrazioneDatiWithGATE();
+     //private ExtractorInfoGATE egate = new ExtractorInfoGATE();
      private EstrazioneDatiWithGATEAndDataStore egateDataStore = new EstrazioneDatiWithGATEAndDataStore();
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-     public ExtractInfoSpring(){}
 
     //OBJECTS
     IDocumentDao Docdao = new DocumentDaoImpl();
@@ -175,7 +174,7 @@ public class ExtractInfoSpring {
                      //Estraiamo dal database la nostra lista di url
                      listUrl = (ArrayList<URL>) websiteDao.selectAllUrl(COLUMN_TABLE_INPUT, LIMIT.toString(), OFFSET.toString());
 
-                     SystemLog.message("Lista di URL con " + listUrl.size() + " elements");
+                     SystemLog.message("Loaded list of URL's with " + listUrl.size() + " elements");
                      //SETTIAMO GATE PER IL PROGRAMMA
                      GateKit.setUpGateEmbedded("gate_files","plugins","gate.xml","user-gate.xml","gate.session");
                      GateKit.loadGapp("custom/gapp", "geoLocationPipeline06102014v7_fastMode.xgapp");
@@ -302,7 +301,7 @@ public class ExtractInfoSpring {
              GeoDocument geo = new GeoDocument(null,null,null, null, null, null, null,null, null, null,null,null,null,null,null,null,null);
              GeoDocument geo2 = new GeoDocument(null, null, null, null, null, null, null, null, null, null, null, null,null,null,null,null,null);
               try{
-                SystemLog.ticket("(" + indGDoc + ")URL:" + url, "OUT");
+                SystemLog.message("(" + indGDoc + ")URL:" + url);
                 indGDoc++;
 
                 SystemLog.message("*********************************************");
@@ -313,6 +312,7 @@ public class ExtractInfoSpring {
 
                 SystemLog.message("*********************************************");
                 SystemLog.message("Run GATE");
+                  ExtractorInfoGATE egate = new ExtractorInfoGATE();
                 geo = egate.extractMicrodataWithGATESingleUrl(url,null,controller,indGDoc);
 
                 if(geo!=null){
@@ -344,6 +344,7 @@ public class ExtractInfoSpring {
         try{                                                                                        
           SystemLog.message("*********************************************");
           SystemLog.message("Run GATE");
+            ExtractorInfoGATE egate = new ExtractorInfoGATE();
           listGeo = egate.extractMicrodataWithGATEMultipleUrls(listUrl,null,controller,indGDoc);                        
           listUrl.clear();          
           for(GeoDocument geo: listGeo){

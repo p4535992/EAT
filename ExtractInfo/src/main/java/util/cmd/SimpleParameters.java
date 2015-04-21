@@ -5,6 +5,8 @@ package util.cmd;
  * Created by 4535992
  */
 
+import util.SystemLog;
+
 import java.util.*;
 
 /**
@@ -72,6 +74,7 @@ public class SimpleParameters {
             result.append(key).append('=').append(mParameters.get(key))
                     .append(System.getProperties().get("line.separator"));
         }
+        //SystemLog.message(result.toString());
         return result.toString();
     }
 

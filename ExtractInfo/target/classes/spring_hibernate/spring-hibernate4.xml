@@ -9,8 +9,8 @@
 	<!-- if you are in a web project with jsp-->
     <!-- As usual, add the following declarations for Spring MVC annotation driven approach:-->
 	<!--
-	<mvc:annotation-driven />
-	<mvc:resources mapping="/resources/**" location="/resources/" />
+	<spring.mvc:annotation-driven />
+	<spring.mvc:resources mapping="/resources/**" location="/resources/" />
 	<context:component-scan base-package="net.codejava.spring" />
 	-->
 	<!-- The following declaration for a common view resolver that converts logical view names to actual JSP pages:-->

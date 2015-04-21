@@ -27,7 +27,7 @@ import java.net.MalformedURLException;
 
 
 public class ResourcesKit {
-
+  private static org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger(ResourcesKit.class);
   public static String readResource( String name ) throws IOException {
     InputStream inputStream = getResourceAsStream( name );
     if( inputStream == null ) {

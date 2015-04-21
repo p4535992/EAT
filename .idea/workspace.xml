@@ -1,158 +1,181 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/ExtractInfo/src/main/java/util/karma/GenerationOfTriple.java" line="262" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="ddc8be51-6c6f-4bbd-b463-02aa428f706b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/util/JenaInfoDocument.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/util/setInfoParameterIta/SetProvinciaECity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/resources/logback.xml" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\java\util\gate\ManageAnnotationAndContent.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\hibernate_files\cfg.rar" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\hibernate_files\cfg\POJO\geodocument.hbm.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\hibernate_files\cfg\POJO\geodomaindocument.hbm.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\hibernate_files\cfg\POJO\infodocument.hbm.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\hibernate_files\cfg\POJO\website.hbm.OLD.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\hibernate_files\cfg\POJO\website.hbm.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\hibernate_files\cfg\geolocationdb\geodocument.hbm.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\hibernate_files\cfg\geolocationdb\geodomaindocument.hbm.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\hibernate_files\cfg\geolocationdb\hibernate.cfg.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\hibernate_files\cfg\geolocationdb\infodocument.hbm.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\hibernate_files\cfg\geolocationdb\website.hbm.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\hibernate_files\cfg\keyworddb\document.hbm.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\hibernate_files\cfg\keyworddb\hibernate.cfg.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\hibernate_files\cfg\urldb\hibernate.cfg.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\hibernate_files\cfg\urldb\website.hbm.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\hibernate_files\hibernate.cfg.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\hibernate_files\website.hbm.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\spring_hibernate_files\database.properties" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\spring_hibernate_files\hibernate.cfg.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\spring_hibernate_files\servlet-context--testHibernate4.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\spring_hibernate_files\spring-hibernate3.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\spring_hibernate_files\spring-hibernate4.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\spring_hibernate_files\spring-hibernate4v2.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\util\Resources.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\util\gate\CreateCorpus.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\util\gate\DataStoreApplication.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\util\gate\GATEProcessor.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\util\gate\GateApp.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\util\gate\ManageAnnotationAndContent.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\karma_files\output\triple_karma_output_20150302_202202.UTF8-c-noString.ttl" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\karma_files\output\triple_karma_output_20150302_202202.UTF8-c.ttl" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\karma_files\output\xxxx.ttl" afterPath="" />
-      <change type="MOVED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__ch_qos_logback_logback_classic_1_1_3.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_classic_1_0_13.xml" />
-      <change type="MOVED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__ch_qos_logback_logback_core_1_1_3.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_core_1_0_13.xml" />
-      <change type="MOVED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_slf4j_jcl_over_slf4j_1_7_11.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_jcl_over_slf4j_1_7_12.xml" />
-      <change type="MOVED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\java\util\gate\GATEProcessor.java" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/util/gate/servlet/GATEProcessor.java" />
-      <change type="MOVED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\java\util\gate\GateApp.java" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/util/gate/servlet/GateApp.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/target/classes/util/estrattori/EstrazioneDatiWithGATE.class" afterPath="$PROJECT_DIR$/ExtractInfo/target/classes/util/estrattori/EstrazioneDatiWithGATE.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/target/classes/util/estrattori/EstrazioneDatiWithGATEAndDataStore.class" afterPath="$PROJECT_DIR$/ExtractInfo/target/classes/util/estrattori/EstrazioneDatiWithGATEAndDataStore.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/target/classes/util/estrattori/EstrazioneGeoDomainDocument.class" afterPath="$PROJECT_DIR$/ExtractInfo/target/classes/util/estrattori/EstrazioneGeoDomainDocument.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/target/classes/util/estrattori/ExtractInfoMySQL.class" afterPath="$PROJECT_DIR$/ExtractInfo/target/classes/util/estrattori/ExtractInfoMySQL.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/target/classes/util/estrattori/ExtractInfoSpring.class" afterPath="$PROJECT_DIR$/ExtractInfo/target/classes/util/estrattori/ExtractInfoSpring.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/target/classes/util/gate/servlet/GateHandler.class" afterPath="$PROJECT_DIR$/ExtractInfo/target/classes/util/gate/servlet/GateHandler.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/target/classes/util/gate/GateKit$SortedAnnotationList.class" afterPath="$PROJECT_DIR$/ExtractInfo/target/classes/util/gate/GateKit$SortedAnnotationList.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/target/classes/util/gate/GateKit.class" afterPath="$PROJECT_DIR$/ExtractInfo/target/classes/util/gate/GateKit.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/spring/mvc/config/ApplicationContextConfig.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/spring/bean/BeansKit.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/utility/src/main/java/util/object/model/Document.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/util/estrattori/ExtractorInfoGATE.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/utility/src/main/java/util/object/model/GeoDocument.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/utility/src/main/java/util/object/model/GeoDomainDocument.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/spring/mvc/controller/HomeController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/utility/src/main/java/util/object/model/InfoDocument.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/spring/bean/InitBean.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_4_0.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_codec_commons_codec_1_6.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_codec_commons_codec_1_9.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_2.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpclient_4_4_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpcore_4_4_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_6_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/spring/mvc/config/SpringWebAppInitializer.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/utility/src/main/java/util/SystemLog.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/utility/src/main/java/util/object/model/Website.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/utility/utility.iml" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__ch_qos_logback_logback_classic_1_1_3.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__ch_qos_logback_logback_core_1_1_3.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_slf4j_jcl_over_slf4j_1_7_11.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\java\object\support\DBKit.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\java\util\gate\GATEProcessor.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\java\util\gate\GateApp.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\util\StringKit$ParseState.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\util\StringKit.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\util\StringOutputStreamKit.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\util\hibernate\GeoDocumentDAO.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\util\hibernate\HibernateUtil.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\LOG_20150418_212117.txt" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\LOG_20150419_214859.txt" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\LOG_20150419_215300.txt" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\LOG_20150419_215602.txt" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\LOG_20150419_215735.txt" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\LOG_20150419_220816.txt" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\LOG_20150419_221657.txt" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\LOG_20150419_221906.txt" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\LOG_20150419_223530.txt" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\LOG_20150419_223742.txt" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\LOG_20150419_224300.txt" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\LOG_20150419_224542.txt" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\LOG_20150419_230321.txt" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\LOG_20150419_230553.txt" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\LOG_20150419_230910.txt" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\LOG_20150419_231216.txt" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\LOG_20150419_232112.txt" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\LOG_20150420_064710.txt" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\LOG_20150420_065338.txt" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\LOG_20150420_070247.txt" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\LOG_20150420_070429.txt" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\LOG_20150420_071923.txt" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\LOG_20150420_072243.txt" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\LOG_20150420_072430.txt" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\LOG_20150420_072807.txt" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\LOG_20150420_072937.txt" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\LOG_20150420_073405.txt" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\LOG_20150420_073645.txt" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\LOG_20150420_074359.txt" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\LOG_20150420_082310.txt" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\LOG_20150420_082501.txt" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\LOG_20150420_082805.txt" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\LOG_20150420_083109.txt" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\LOG_20150420_083533.txt" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\LOG_20150420_084105.txt" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\LOG_20150420_084529.txt" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\LOG_20150420_085042.txt" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\LOG_20150420_085447.txt" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\LOG_20150420_090544.txt" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\LOG_20150420_090743.txt" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\LOG_20150420_091359.txt" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\LOG_20150420_091712.txt" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\LOG_20150420_092336.txt" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\LOG_20150420_093056.txt" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\LOG_20150420_093631.txt" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\LOG_20150420_094223.txt" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\LOG_20150420_095043.txt" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\LOG_20150420_100131.txt" afterPath="" />
+      <change type="MOVED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\java\util\StringKit.java" afterPath="$PROJECT_DIR$/utility/src/main/java/util/string/StringKit.java" />
+      <change type="MOVED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\java\util\StringOutputStreamKit.java" afterPath="$PROJECT_DIR$/utility/src/main/java/util/string/StringOutputStreamKit.java" />
+      <change type="MOVED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\java\util\hibernate\GeoDocumentDAO.java" afterPath="$PROJECT_DIR$/utility/src/main/java/util/hibernate/GeoDocumentDAO.java" />
+      <change type="MOVED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\java\util\hibernate\HibernateUtil.java" afterPath="$PROJECT_DIR$/utility/src/main/java/util/hibernate/HibernateUtil.java" />
+      <change type="MOVED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\java\util\hibernate\cfg.rar" afterPath="$PROJECT_DIR$/utility/src/main/java/util/hibernate/cfg.rar" />
+      <change type="MOVED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\java\util\hibernate\hibernate_geolocationdb.cfg.xml" afterPath="$PROJECT_DIR$/utility/src/main/java/util/hibernate/hibernate_geolocationdb.cfg.xml" />
+      <change type="MOVED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\java\util\hibernate\hibernate_keyworddb.cfg.xml" afterPath="$PROJECT_DIR$/utility/src/main/java/util/hibernate/hibernate_keyworddb.cfg.xml" />
+      <change type="MOVED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\java\util\hibernate\hibernate_urldb.cfg.xml" afterPath="$PROJECT_DIR$/utility/src/main/java/util/hibernate/hibernate_urldb.cfg.xml" />
+      <change type="MODIFICATION" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\object\support\AnnotationInfo.class" afterPath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\object\support\AnnotationInfo.class" />
+      <change type="MODIFICATION" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\util\EncodingUtil$ParseState.class" afterPath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\util\EncodingUtil$ParseState.class" />
+      <change type="MODIFICATION" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\util\EncodingUtil.class" afterPath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\util\EncodingUtil.class" />
+      <change type="MODIFICATION" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\util\estrattori\EstrazioneDatiWithGATE.class" afterPath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\util\estrattori\EstrazioneDatiWithGATE.class" />
+      <change type="MODIFICATION" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\util\estrattori\EstrazioneDatiWithGATEAndDataStore.class" afterPath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\util\estrattori\EstrazioneDatiWithGATEAndDataStore.class" />
+      <change type="MODIFICATION" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\util\estrattori\EstrazioneDatiWithJSOUP.class" afterPath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\util\estrattori\EstrazioneDatiWithJSOUP.class" />
+      <change type="MODIFICATION" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\util\estrattori\EstrazioneGeoDomainDocument.class" afterPath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\util\estrattori\EstrazioneGeoDomainDocument.class" />
+      <change type="MODIFICATION" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\util\estrattori\ExtractInfoSpring.class" afterPath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\util\estrattori\ExtractInfoSpring.class" />
+      <change type="MODIFICATION" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\util\FileUtil$FileWalker$1.class" afterPath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\util\FileUtil$FileWalker$1.class" />
+      <change type="MODIFICATION" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\util\FileUtil$FileWalker.class" afterPath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\util\FileUtil$FileWalker.class" />
+      <change type="MODIFICATION" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\util\FileUtil.class" afterPath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\util\FileUtil.class" />
+      <change type="MODIFICATION" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\util\gate\GateAnnotationKit.class" afterPath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\util\gate\GateAnnotationKit.class" />
+      <change type="MODIFICATION" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\util\gate\GateCorpusKit.class" afterPath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\util\gate\GateCorpusKit.class" />
+      <change type="MODIFICATION" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\util\gate\GateDataStoreKit.class" afterPath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\util\gate\GateDataStoreKit.class" />
+      <change type="MODIFICATION" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\util\gate\GateKit.class" afterPath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\util\gate\GateKit.class" />
       <change type="MODIFICATION" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\util\karma\GenerationOfTriple.class" afterPath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\util\karma\GenerationOfTriple.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/target/classes/object/impl/GenericDaoImpl$1$1.class" afterPath="$PROJECT_DIR$/ExtractInfo/target/classes/object/impl/GenericDaoImpl$1$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/target/classes/object/impl/GenericDaoImpl$1.class" afterPath="$PROJECT_DIR$/ExtractInfo/target/classes/object/impl/GenericDaoImpl$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/target/classes/object/impl/GenericDaoImpl$2.class" afterPath="$PROJECT_DIR$/ExtractInfo/target/classes/object/impl/GenericDaoImpl$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/target/classes/object/impl/GenericDaoImpl$3.class" afterPath="$PROJECT_DIR$/ExtractInfo/target/classes/object/impl/GenericDaoImpl$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/target/classes/object/impl/GenericDaoImpl$4.class" afterPath="$PROJECT_DIR$/ExtractInfo/target/classes/object/impl/GenericDaoImpl$4.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/target/classes/object/impl/GenericDaoImpl.class" afterPath="$PROJECT_DIR$/ExtractInfo/target/classes/object/impl/GenericDaoImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/target/classes/object/impl/GeoDocumentDaoImpl.class" afterPath="$PROJECT_DIR$/ExtractInfo/target/classes/object/impl/GeoDocumentDaoImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/target/classes/object/impl/GeoDomainDocumentDaoImpl$1.class" afterPath="$PROJECT_DIR$/ExtractInfo/target/classes/object/impl/GeoDomainDocumentDaoImpl$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/target/classes/object/impl/GeoDomainDocumentDaoImpl$2.class" afterPath="$PROJECT_DIR$/ExtractInfo/target/classes/object/impl/GeoDomainDocumentDaoImpl$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/target/classes/object/impl/GeoDomainDocumentDaoImpl.class" afterPath="$PROJECT_DIR$/ExtractInfo/target/classes/object/impl/GeoDomainDocumentDaoImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/target/classes/object/dao/IGenericDao.class" afterPath="$PROJECT_DIR$/ExtractInfo/target/classes/object/dao/IGenericDao.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/target/classes/object/dao/IGeoDomainDocumentDao.class" afterPath="$PROJECT_DIR$/ExtractInfo/target/classes/object/dao/IGeoDomainDocumentDao.class" />
+      <change type="MODIFICATION" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\object\model\GeoDocument.class" afterPath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\object\model\GeoDocument.class" />
+      <change type="MODIFICATION" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\object\impl\GeoDomainDocumentDaoImpl$1$1.class" afterPath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\object\impl\GeoDomainDocumentDaoImpl$1$1.class" />
+      <change type="MODIFICATION" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\object\impl\GeoDomainDocumentDaoImpl$1.class" afterPath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\object\impl\GeoDomainDocumentDaoImpl$1.class" />
+      <change type="MODIFICATION" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\object\impl\GeoDomainDocumentDaoImpl$2.class" afterPath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\object\impl\GeoDomainDocumentDaoImpl$2.class" />
+      <change type="MODIFICATION" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\object\impl\GeoDomainDocumentDaoImpl.class" afterPath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\object\impl\GeoDomainDocumentDaoImpl.class" />
       <change type="MODIFICATION" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\util\JenaKit.class" afterPath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\util\JenaKit.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/target/classes/home/MainExtractInfo$1.class" afterPath="$PROJECT_DIR$/ExtractInfo/target/classes/home/MainExtractInfo$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/target/classes/home/MainExtractInfo.class" afterPath="$PROJECT_DIR$/ExtractInfo/target/classes/home/MainExtractInfo.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/target/classes/util/ManageJsonWithGoogleMaps.class" afterPath="$PROJECT_DIR$/ExtractInfo/target/classes/util/ManageJsonWithGoogleMaps.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/target/classes/util/gate/servlet/MyGateHandler.class" afterPath="$PROJECT_DIR$/ExtractInfo/target/classes/util/gate/servlet/MyGateHandler.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/target/classes/util/SystemLog.class" afterPath="$PROJECT_DIR$/ExtractInfo/target/classes/util/SystemLog.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/target/classes/object/impl/WebsiteDaoImpl$1.class" afterPath="$PROJECT_DIR$/ExtractInfo/target/classes/object/impl/WebsiteDaoImpl$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/target/classes/object/impl/WebsiteDaoImpl$2$1.class" afterPath="$PROJECT_DIR$/ExtractInfo/target/classes/object/impl/WebsiteDaoImpl$2$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/target/classes/object/impl/WebsiteDaoImpl$2.class" afterPath="$PROJECT_DIR$/ExtractInfo/target/classes/object/impl/WebsiteDaoImpl$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/target/classes/object/impl/WebsiteDaoImpl$3.class" afterPath="$PROJECT_DIR$/ExtractInfo/target/classes/object/impl/WebsiteDaoImpl$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/target/classes/object/impl/WebsiteDaoImpl.class" afterPath="$PROJECT_DIR$/ExtractInfo/target/classes/object/impl/WebsiteDaoImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gate_files/plugins/Gazetteer_LKB/src/com/ontotext/kim/model/AliasCacheImpl.java" afterPath="$PROJECT_DIR$/gate_files/plugins/Gazetteer_LKB/src/com/ontotext/kim/model/AliasCacheImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gate_files/plugins/Gazetteer_LKB/src/com/ontotext/kim/model/AliasTextTransformer.java" afterPath="$PROJECT_DIR$/gate_files/plugins/Gazetteer_LKB/src/com/ontotext/kim/model/AliasTextTransformer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gate_files/plugins/Ontology_Tools/src/gate/creole/ontology/ocat/AnnotationAction.java" afterPath="$PROJECT_DIR$/gate_files/plugins/Ontology_Tools/src/gate/creole/ontology/ocat/AnnotationAction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gate_files/plugins/Ontology_Tools/src/gate/creole/ontology/ocat/AnnotationEditor.java" afterPath="$PROJECT_DIR$/gate_files/plugins/Ontology_Tools/src/gate/creole/ontology/ocat/AnnotationEditor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gate_files/plugins/Ontology_Tools/src/com/ontotext/gate/vr/ClassNode.java" afterPath="$PROJECT_DIR$/gate_files/plugins/Ontology_Tools/src/com/ontotext/gate/vr/ClassNode.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gate_files/plugins/Tools/src/gate/configurableexporter/ConfigurableExporter.java" afterPath="$PROJECT_DIR$/gate_files/plugins/Tools/src/gate/configurableexporter/ConfigurableExporter.java" />
+      <change type="MODIFICATION" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\home\MainExtractInfo$1.class" afterPath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\home\MainExtractInfo$1.class" />
+      <change type="MODIFICATION" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\home\MainExtractInfo.class" afterPath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\home\MainExtractInfo.class" />
+      <change type="MODIFICATION" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\util\ResourcesKit.class" afterPath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\util\ResourcesKit.class" />
+      <change type="MODIFICATION" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\util\cmd\SimpleParameters.class" afterPath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\util\cmd\SimpleParameters.class" />
+      <change type="MODIFICATION" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\util\SystemLog.class" afterPath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\util\SystemLog.class" />
+      <change type="MODIFICATION" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\test-classes\util\Test_Jena.class" afterPath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\test-classes\util\Test_Jena.class" />
+      <change type="MODIFICATION" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\test-classes\util\Test_Karma.class" afterPath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\test-classes\util\Test_Karma.class" />
+      <change type="MODIFICATION" beforePath="C:\Users\Marco\Documents\GitHub\EAT\target\test-classes\Test_Karma_EAT.class" afterPath="C:\Users\Marco\Documents\GitHub\EAT\target\test-classes\Test_Karma_EAT.class" />
+      <change type="MODIFICATION" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\util\xml\XMLHibernate.class" afterPath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\util\xml\XMLHibernate.class" />
+      <change type="MODIFICATION" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\util\xml\XMLKitJDOM.class" afterPath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\util\xml\XMLKitJDOM.class" />
+      <change type="MODIFICATION" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\util\xml\XMLKit_Extends.class" afterPath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\util\xml\XMLKit_Extends.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/java/object/support/AnnotationInfo.java" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/object/support/AnnotationInfo.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/java/object/impl/DocumentDaoImpl.java" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/object/impl/DocumentDaoImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/EAT.iml" afterPath="$PROJECT_DIR$/EAT.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/java/util/EncodingUtil.java" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/util/EncodingUtil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/java/util/estrattori/EstrazioneGeoDomainDocument.java" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/util/estrattori/EstrazioneGeoDomainDocument.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/java/util/cmd/ExecuteCmdAndPrintOnOutput.java" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/util/cmd/ExecuteCmdAndPrintOnOutput.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/java/util/estrattori/EstrazioneDatiWithGATE.java" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/util/estrattori/EstrazioneDatiWithGATE.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/java/util/estrattori/EstrazioneDatiWithGATEAndDataStore.java" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/util/estrattori/EstrazioneDatiWithGATEAndDataStore.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/java/util/estrattori/EstrazioneDatiWithJSOUP.java" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/util/estrattori/EstrazioneDatiWithJSOUP.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/ExtractInfo.iml" afterPath="$PROJECT_DIR$/ExtractInfo/ExtractInfo.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/java/util/estrattori/ExtractInfoSpring.java" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/util/estrattori/ExtractInfoSpring.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gate_files/plugins/JAPE_Plus/src/com/ontotext/jape/pda/FSMPDA.java" afterPath="$PROJECT_DIR$/gate_files/plugins/JAPE_Plus/src/com/ontotext/jape/pda/FSMPDA.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/java/util/FileUtil.java" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/util/FileUtil.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/java/util/gate/GateAnnotationKit.java" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/util/gate/GateAnnotationKit.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/java/util/gate/GateCorpusKit.java" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/util/gate/GateCorpusKit.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/java/util/gate/GateDataStoreKit.java" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/util/gate/GateDataStoreKit.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/java/util/gate/servlet/GateHandler.java" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/util/gate/servlet/GateHandler.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/java/util/gate/GateKit.java" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/util/gate/GateKit.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gate_files/plugins/Ontology_Tools/src/com/ontotext/gate/vr/Gaze.java" afterPath="$PROJECT_DIR$/gate_files/plugins/Ontology_Tools/src/com/ontotext/gate/vr/Gaze.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/java/util/karma/GenerationOfTriple.java" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/util/karma/GenerationOfTriple.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/java/object/impl/GenericDaoImpl.java" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/object/impl/GenericDaoImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gate_files/plugins/Tagger_Framework/src/gate/taggerframework/GenericTagger.java" afterPath="$PROJECT_DIR$/gate_files/plugins/Tagger_Framework/src/gate/taggerframework/GenericTagger.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/java/object/model/GeoDocument.java" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/object/model/GeoDocument.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/java/object/impl/GeoDocumentDaoImpl.java" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/object/impl/GeoDocumentDaoImpl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/java/object/impl/GeoDomainDocumentDaoImpl.java" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/object/impl/GeoDomainDocumentDaoImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gate_files/plugins/Gazetteer_LKB/src/com/ontotext/kim/model/HashedAlias.java" afterPath="$PROJECT_DIR$/gate_files/plugins/Gazetteer_LKB/src/com/ontotext/kim/model/HashedAlias.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/java/util/hibernate/HibernateKit.java" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/util/hibernate/HibernateKit.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/java/util/hibernate/HibernateUtil.java" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/util/hibernate/HibernateUtil.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/java/object/dao/IGenericDao.java" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/object/dao/IGenericDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/java/object/dao/IGeoDomainDocumentDao.java" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/object/dao/IGeoDomainDocumentDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gate_files/plugins/Inter_Annotator_Agreement/src/gate/iaaplugin/IaaCalculation.java" afterPath="$PROJECT_DIR$/gate_files/plugins/Inter_Annotator_Agreement/src/gate/iaaplugin/IaaCalculation.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/java/object/impl/InfoDocumentDaoImpl.java" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/object/impl/InfoDocumentDaoImpl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/java/util/JenaKit.java" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/util/JenaKit.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/java/home/MainExtractInfo.java" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/home/MainExtractInfo.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/java/util/ManageJsonWithGoogleMaps.java" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/util/ManageJsonWithGoogleMaps.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/java/util/gate/servlet/MyGateHandler.java" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/util/gate/servlet/MyGateHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gate_files/plugins/LingPipe/src/gate/lingpipe/NamedEntityRecognizerPR.java" afterPath="$PROJECT_DIR$/gate_files/plugins/LingPipe/src/gate/lingpipe/NamedEntityRecognizerPR.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gate_files/plugins/Gazetteer_Ontology_Based/src/gate/clone/ql/OntoRootGaz.java" afterPath="$PROJECT_DIR$/gate_files/plugins/Gazetteer_Ontology_Based/src/gate/clone/ql/OntoRootGaz.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gate_files/plugins/Ontology_Tools/src/gate/creole/ontology/ocat/OntologyTreeListener.java" afterPath="$PROJECT_DIR$/gate_files/plugins/Ontology_Tools/src/gate/creole/ontology/ocat/OntologyTreeListener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gate_files/plugins/Ontology_Tools/src/gate/creole/ontology/ocat/OntologyTreePanel.java" afterPath="$PROJECT_DIR$/gate_files/plugins/Ontology_Tools/src/gate/creole/ontology/ocat/OntologyTreePanel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gate_files/plugins/Ontology_Tools/src/gate/creole/ontology/ocat/OntologyViewer.java" afterPath="$PROJECT_DIR$/gate_files/plugins/Ontology_Tools/src/gate/creole/ontology/ocat/OntologyViewer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gate_files/plugins/Ontology_Tools/src/gate/creole/ontology/ocat/OntologyViewerOptions.java" afterPath="$PROJECT_DIR$/gate_files/plugins/Ontology_Tools/src/gate/creole/ontology/ocat/OntologyViewerOptions.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gate_files/plugins/Gazetteer_LKB/src/com/ontotext/kim/util/datastore/PopulateDictionary.java" afterPath="$PROJECT_DIR$/gate_files/plugins/Gazetteer_LKB/src/com/ontotext/kim/util/datastore/PopulateDictionary.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gate_files/plugins/Tools/src/gate/qa/QualityAssurancePR.java" afterPath="$PROJECT_DIR$/gate_files/plugins/Tools/src/gate/qa/QualityAssurancePR.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gate_files/plugins/LingPipe/src/gate/lingpipe/SentenceSplitterPR.java" afterPath="$PROJECT_DIR$/gate_files/plugins/LingPipe/src/gate/lingpipe/SentenceSplitterPR.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/java/util/sesame/SesameUtil.java" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/util/sesame/SesameUtil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/java/util/sesame/SesameUtil2.java" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/util/sesame/SesameUtil2.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/java/util/ResourcesKit.java" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/util/ResourcesKit.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gate_files/plugins/JAPE_Plus/src/gate/jape/plus/SPTBase.java" afterPath="$PROJECT_DIR$/gate_files/plugins/JAPE_Plus/src/gate/jape/plus/SPTBase.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/java/util/cmd/SimpleParameters.java" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/util/cmd/SimpleParameters.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/java/util/SystemLog.java" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/util/SystemLog.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/test/java/util/Test_GraphDB6.java" afterPath="$PROJECT_DIR$/ExtractInfo/src/test/java/util/Test_GraphDB6.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gate_files/plugins/Ontology_BDM_Computation/src/gate/bdmComp/TestBDMCompPlugin.java" afterPath="$PROJECT_DIR$/gate_files/plugins/Ontology_BDM_Computation/src/gate/bdmComp/TestBDMCompPlugin.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gate_files/plugins/Inter_Annotator_Agreement/src/gate/iaaplugin/test/TestIaaPlugin.java" afterPath="$PROJECT_DIR$/gate_files/plugins/Inter_Annotator_Agreement/src/gate/iaaplugin/test/TestIaaPlugin.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/test/java/util/Test_Jena.java" afterPath="$PROJECT_DIR$/ExtractInfo/src/test/java/util/Test_Jena.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/test/java/util/Test_Karma.java" afterPath="$PROJECT_DIR$/ExtractInfo/src/test/java/util/Test_Karma.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/Test_Karma_EAT.java" afterPath="$PROJECT_DIR$/src/test/java/Test_Karma_EAT.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/test/java/spring/Test_Spring_Hibernate.java" afterPath="$PROJECT_DIR$/ExtractInfo/src/test/java/spring/Test_Spring_Hibernate.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/java/object/impl/WebsiteDaoImpl.java" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/object/impl/WebsiteDaoImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/java/util/xml/XMLKit.java" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/util/xml/XMLKit.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/java/util/xml/XMLHibernate.java" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/util/xml/XMLHibernate.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/java/util/xml/XMLKitJDOM.java" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/util/xml/XMLKitJDOM.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gate_files/plugins/Gazetteer_LKB/build.xml" afterPath="$PROJECT_DIR$/gate_files/plugins/Gazetteer_LKB/build.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gate_files/plugins/Inter_Annotator_Agreement/build.xml" afterPath="$PROJECT_DIR$/gate_files/plugins/Inter_Annotator_Agreement/build.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gate_files/plugins/JAPE_Plus/build.xml" afterPath="$PROJECT_DIR$/gate_files/plugins/JAPE_Plus/build.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gate_files/plugins/Ontology_BDM_Computation/build.xml" afterPath="$PROJECT_DIR$/gate_files/plugins/Ontology_BDM_Computation/build.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gate_files/plugins/OwlExporter/gate/plugins/OwlExporter/build.xml" afterPath="$PROJECT_DIR$/gate_files/plugins/OwlExporter/gate/plugins/OwlExporter/build.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gate_files/plugins/Tagger_Framework/build.xml" afterPath="$PROJECT_DIR$/gate_files/plugins/Tagger_Framework/build.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gate_files/plugins/Gazetteer_LKB/creole.xml" afterPath="$PROJECT_DIR$/gate_files/plugins/Gazetteer_LKB/creole.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/resources/hibernate/hibernate.cfg.xml" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/resources/hibernate/hibernate.cfg.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/resources/hibernate/cfg/geolocationdb/hibernate.cfg.xml" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/resources/hibernate/cfg/geolocationdb/hibernate.cfg.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/resources/hibernate/cfg/keyworddb/hibernate.cfg.xml" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/resources/hibernate/cfg/keyworddb/hibernate.cfg.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/resources/hibernate/cfg/urldb/hibernate.cfg.xml" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/resources/hibernate/cfg/urldb/hibernate.cfg.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/resources/spring_hibernate/hibernate.cfg.xml" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/resources/spring_hibernate/hibernate.cfg.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/target/classes/hibernate/hibernate.cfg.xml" afterPath="$PROJECT_DIR$/ExtractInfo/target/classes/hibernate/hibernate.cfg.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/target/classes/hibernate/cfg/geolocationdb/hibernate.cfg.xml" afterPath="$PROJECT_DIR$/ExtractInfo/target/classes/hibernate/cfg/geolocationdb/hibernate.cfg.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/target/classes/hibernate/cfg/keyworddb/hibernate.cfg.xml" afterPath="$PROJECT_DIR$/ExtractInfo/target/classes/hibernate/cfg/keyworddb/hibernate.cfg.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/target/classes/hibernate/cfg/urldb/hibernate.cfg.xml" afterPath="$PROJECT_DIR$/ExtractInfo/target/classes/hibernate/cfg/urldb/hibernate.cfg.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/target/classes/spring_hibernate/hibernate.cfg.xml" afterPath="$PROJECT_DIR$/ExtractInfo/target/classes/spring_hibernate/hibernate.cfg.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/test/java/util/hibernate.xml" afterPath="$PROJECT_DIR$/ExtractInfo/src/test/java/util/hibernate.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/java/util/hibernate/hibernate_geolocationdb.cfg.xml" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/util/hibernate/hibernate_geolocationdb.cfg.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/java/util/hibernate/hibernate_keyworddb.cfg.xml" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/util/hibernate/hibernate_keyworddb.cfg.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/java/util/hibernate/hibernate_urldb.cfg.xml" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/util/hibernate/hibernate_urldb.cfg.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/java/util/xml/XMLKit_Extends.java" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/util/xml/XMLKit_Extends.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/resources/input.properties" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/resources/input.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/target/classes/input.properties" afterPath="$PROJECT_DIR$/ExtractInfo/target/classes/input.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/resources/log4j.properties" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/resources/log4j.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/target/classes/log4j.properties" afterPath="$PROJECT_DIR$/ExtractInfo/target/classes/log4j.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/resources/log4j.xml" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/resources/log4j.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/target/classes/log4j.xml" afterPath="$PROJECT_DIR$/ExtractInfo/target/classes/log4j.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gate_files/custom/japes/myMain.jape" afterPath="$PROJECT_DIR$/gate_files/custom/japes/myMain.jape" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/pom.xml" afterPath="$PROJECT_DIR$/ExtractInfo/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/resources/spring_hibernate/spring-hibernate4.xml" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/resources/spring_hibernate/spring-hibernate4.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/resources/spring_hibernate/spring-hibernate4v2.xml" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/resources/spring_hibernate/spring-hibernate4v2.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gate_files/plugins/JAPE_Plus/test/test_controllerblocks.jape" afterPath="$PROJECT_DIR$/gate_files/plugins/JAPE_Plus/test/test_controllerblocks.jape" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gate_files/plugins/ANNIE/resources/gazetteer/title_lower.lst" afterPath="$PROJECT_DIR$/gate_files/plugins/ANNIE/resources/gazetteer/title_lower.lst" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gate_files/plugins/ANNIE/resources/gazetteer/title_lowercase.lst" afterPath="$PROJECT_DIR$/gate_files/plugins/ANNIE/resources/gazetteer/title_lowercase.lst" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="EAT.iws" />
@@ -199,6 +222,7 @@
     <ignored path="$PROJECT_DIR$/web-karma-master/karma-commands/commands-alignment/target/" />
     <ignored path=".idea/dataSources.local.xml" />
     <ignored path="$PROJECT_DIR$/simpleGraphTest/target/" />
+    <ignored path="$PROJECT_DIR$/utility/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -251,90 +275,140 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ExtractInfoSpring.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/util/estrattori/ExtractInfoSpring.java">
+      <file leaf-file-name="GenericDaoImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/object/impl/GenericDaoImpl.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="290" column="0" selection-start-line="290" selection-start-column="0" selection-end-line="290" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="logback.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/resources/logback.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MainExtractInfo.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/home/MainExtractInfo.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="123" column="36" selection-start-line="123" selection-start-column="36" selection-end-line="123" selection-end-column="36" />
+              <caret line="95" column="32" selection-start-line="95" selection-start-column="32" selection-end-line="95" selection-end-column="32" />
               <folding>
-                <element signature="e#1305#5785#0" expanded="true" />
-                <element signature="e#5784#5785#0" expanded="true" />
+                <element signature="e#4093#4094#0" expanded="true" />
+                <element signature="e#4126#4127#0" expanded="true" />
+                <element signature="e#4189#4190#0" expanded="true" />
+                <element signature="e#4226#4227#0" expanded="true" />
+                <element signature="e#4294#4295#0" expanded="true" />
+                <element signature="e#4342#4343#0" expanded="true" />
+                <element signature="e#4410#4411#0" expanded="true" />
+                <element signature="e#4458#4459#0" expanded="true" />
+                <element signature="e#5790#5791#0" expanded="true" />
+                <element signature="e#5850#5851#0" expanded="true" />
+                <element signature="e#5902#5903#0" expanded="true" />
+                <element signature="e#5949#5950#0" expanded="true" />
+                <element signature="e#5997#5998#0" expanded="true" />
+                <element signature="e#6036#6037#0" expanded="true" />
+                <element signature="e#6520#6521#0" expanded="true" />
+                <element signature="e#6592#6593#0" expanded="true" />
+                <element signature="e#6712#6713#0" expanded="true" />
+                <element signature="e#6739#6740#0" expanded="true" />
+                <element signature="e#10814#10815#0" expanded="true" />
+                <element signature="e#10841#10842#0" expanded="true" />
+                <element signature="e#10901#10902#0" expanded="true" />
+                <element signature="e#10947#10948#0" expanded="true" />
+                <element signature="e#11009#11010#0" expanded="true" />
+                <element signature="e#11057#11058#0" expanded="true" />
+                <element signature="e#11119#11120#0" expanded="true" />
+                <element signature="e#11167#11168#0" expanded="true" />
+                <element signature="e#12709#12710#0" expanded="true" />
+                <element signature="e#12736#12737#0" expanded="true" />
+                <marker date="1429600088050" expanded="true" signature="5215:5300" placeholder="select count..missingValue..." />
+                <marker date="1429600088050" expanded="true" signature="5586:5607" placeholder="select count..missingValue..." />
+                <marker date="1429600088050" expanded="true" signature="6555:6567" placeholder="DELETE from ..." />
+                <marker date="1429600088050" expanded="true" signature="6835:6867" placeholder="INSERT INTO ..." />
+                <marker date="1429600088050" expanded="true" signature="8295:8343" placeholder="SELECT * FRO..missingValue..." />
+                <marker date="1429600088050" expanded="true" signature="9352:9390" placeholder="select FIRST..PERSON..." />
+                <marker date="1429600088050" expanded="true" signature="10354:10426" placeholder="select missi..missingValue..." />
+                <marker date="1429600088050" expanded="true" signature="13139:13194" placeholder="insert into ..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GenerationOfTriple.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/util/karma/GenerationOfTriple.java">
+      <file leaf-file-name="input.properties" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/resources/input.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="271" column="39" selection-start-line="271" selection-start-column="39" selection-end-line="271" selection-end-column="39" />
+            <state vertical-scroll-proportion="-3.3685637">
+              <caret line="18" column="17" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FileUtil.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/util/FileUtil.java">
+      <file leaf-file-name="IGenericDao.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/object/dao/IGenericDao.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
-              <folding>
-                <element signature="e#1247#1248#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="JenaKit.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/util/JenaKit.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8401084">
-              <caret line="72" column="73" selection-start-line="72" selection-start-column="73" selection-end-line="72" selection-end-column="73" />
-              <folding>
-                <element signature="e#22183#22254#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EncodingUtil.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/util/EncodingUtil.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="323" column="45" selection-start-line="323" selection-start-column="45" selection-end-line="323" selection-end-column="45" />
+              <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JenaInfoDocument.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/util/JenaInfoDocument.java">
+      <file leaf-file-name="InitBean.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/spring/bean/InitBean.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="127" column="27" selection-start-line="127" selection-start-column="27" selection-end-line="127" selection-end-column="27" />
+              <caret line="20" column="50" selection-start-line="20" selection-start-column="50" selection-end-line="20" selection-end-column="50" />
               <folding>
                 <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BeansKit.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/spring/bean/BeansKit.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="78" column="43" selection-start-line="78" selection-start-column="43" selection-end-line="78" selection-end-column="43" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ExtractInfo/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="151" column="20" selection-start-line="151" selection-start-column="20" selection-end-line="151" selection-end-column="20" />
+              <folding>
+                <element signature="n#plugin#4;n#plugins#0;n#build#0;n#project#0;n#!!top" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HomeController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/spring/mvc/controller/HomeController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="17" column="11" selection-start-line="17" selection-start-column="11" selection-end-line="17" selection-end-column="11" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SpringWebAppInitializer.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/spring/mvc/config/SpringWebAppInitializer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ApplicationContextConfig.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/spring/mvc/config/ApplicationContextConfig.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+              <folding>
+                <element signature="e#2663#2664#0" expanded="false" />
+                <element signature="e#2721#2722#0" expanded="false" />
+                <marker date="1429593320191" expanded="true" signature="35:811" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -344,23 +418,15 @@
         <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/object/impl/GeoDocumentDaoImpl.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="157" column="24" selection-start-line="157" selection-start-column="24" selection-end-line="157" selection-end-column="24" />
+              <caret line="88" column="63" selection-start-line="88" selection-start-column="63" selection-end-line="88" selection-end-column="63" />
               <folding>
-                <marker date="1429511679757" expanded="true" signature="3341:4981" placeholder="CREATE TABLE..IF..." />
-                <marker date="1429511679757" expanded="true" signature="5170:5191" placeholder="DROP TABLE I..." />
-                <marker date="1429511679757" expanded="true" signature="5565:5889" placeholder="INSERT INTO ..." />
-                <marker date="1429511679757" expanded="true" signature="6885:6924" placeholder="SELECT * FRO..missingValue..." />
+                <element signature="e#3030#3031#0" expanded="true" />
+                <element signature="e#3082#3083#0" expanded="true" />
+                <marker date="1429593472448" expanded="true" signature="3489:5129" placeholder="CREATE TABLE..IF..." />
+                <marker date="1429593472448" expanded="true" signature="5318:5339" placeholder="DROP TABLE I..." />
+                <marker date="1429593472448" expanded="true" signature="5713:6037" placeholder="INSERT INTO ..." />
+                <marker date="1429593472448" expanded="true" signature="7033:7072" placeholder="SELECT * FRO..missingValue..." />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="input.properties" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/resources/input.properties">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="90" column="51" selection-start-line="90" selection-start-column="51" selection-end-line="90" selection-end-column="51" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -387,57 +453,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/ExtractInfo/src/main/java/util/http/HttpUtil.java" />
-        <option value="$PROJECT_DIR$/ExtractInfo/src/main/java/util/StringKit.java" />
-        <option value="$PROJECT_DIR$/ExtractInfo/src/main/java/util/gate/GateApp.java" />
-        <option value="$PROJECT_DIR$/ExtractInfo/src/main/resources/spring_hibernate/spring-hibernate4v2.xml" />
-        <option value="$PROJECT_DIR$/ExtractInfo/src/main/resources/gate/gate-beans.xml" />
-        <option value="$PROJECT_DIR$/ExtractInfo/src/main/java/object/impl/DocumentDaoImpl.java" />
-        <option value="$PROJECT_DIR$/ExtractInfo/src/main/java/util/hibernate/HibernateUtil.java" />
-        <option value="$PROJECT_DIR$/ExtractInfo/src/main/java/object/impl/InfoDocumentDaoImpl.java" />
-        <option value="$PROJECT_DIR$/ExtractInfo/src/main/java/object/model/GeoDocument.java" />
-        <option value="$PROJECT_DIR$/ExtractInfo/src/main/java/object/model/GeoDomainDocument.java" />
-        <option value="$PROJECT_DIR$/ExtractInfo/src/main/java/object/model/InfoDocument.java" />
-        <option value="$PROJECT_DIR$/ExtractInfo/src/main/java/object/support/AnnotationInfo.java" />
-        <option value="$PROJECT_DIR$/ExtractInfo/src/main/java/object/support/DepositFrequencyInfo.java" />
-        <option value="$PROJECT_DIR$/ExtractInfo/src/main/java/util/gate/CreateCorpus.java" />
-        <option value="$PROJECT_DIR$/ExtractInfo/src/main/java/util/estrattori/EstrazioneDatiWithJSOUP.java" />
-        <option value="$PROJECT_DIR$/ExtractInfo/src/main/java/object/model/Document.java" />
-        <option value="$PROJECT_DIR$/ExtractInfo/src/main/java/object/model/Website.java" />
-        <option value="$PROJECT_DIR$/ExtractInfo/src/main/java/util/cmd/ExecuteCmdAndPrintOnOutput.java" />
-        <option value="$PROJECT_DIR$/ExtractInfo/src/main/java/util/estrattori/EstrazioneDatiWithGATE.java" />
-        <option value="$PROJECT_DIR$/ExtractInfo/src/main/java/util/estrattori/ExtractInfoMySQL.java" />
-        <option value="$PROJECT_DIR$/ExtractInfo/src/main/java/util/hibernate/GeoDocumentDAO.java" />
-        <option value="$PROJECT_DIR$/ExtractInfo/src/main/java/util/gate/DataStoreApplication.java" />
-        <option value="$PROJECT_DIR$/ExtractInfo/src/main/java/util/gate/GateDataStoreKIt.java" />
-        <option value="$PROJECT_DIR$/ExtractInfo/src/main/java/util/estrattori/EstrazioneDatiWithGATEAndDataStore.java" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/ExtractInfo/src/main/java/home/MainExtractInfo.java" />
+        <option value="$PROJECT_DIR$/ExtractInfo/src/main/java/util/estrattori/ExtractInfoSpring.java" />
         <option value="$PROJECT_DIR$/ExtractInfo/src/main/java/util/gate/GateKit.java" />
+        <option value="$PROJECT_DIR$/ExtractInfo/src/main/java/object/model/GeoDocument.java" />
+        <option value="$PROJECT_DIR$/utility/src/main/java/util/mysql/ConnectToDatabaseMySQL.java" />
+        <option value="$PROJECT_DIR$/utility/src/main/java/util/cmd/ExecuteCmdAndPrintOnOutput.java" />
+        <option value="$PROJECT_DIR$/utility/src/main/java/util/archive/ZipStreamer.java" />
+        <option value="$PROJECT_DIR$/utility/src/main/java/util/reflection/ReflectionKit.java" />
+        <option value="$PROJECT_DIR$/utility/src/main/java/util/hibernate.java" />
+        <option value="$PROJECT_DIR$/ExtractInfo/src/main/java/util/estrattori/EstrazioneDatiWithJSOUP.java" />
+        <option value="$PROJECT_DIR$/ExtractInfo/src/main/java/util/SystemLog.java" />
+        <option value="$PROJECT_DIR$/ExtractInfo/src/main/java/util/ResourcesKit.java" />
+        <option value="$PROJECT_DIR$/ExtractInfo/src/main/java/util/JenaInfoDocument.java" />
+        <option value="$PROJECT_DIR$/ExtractInfo/src/main/java/util/FileUtil.java" />
+        <option value="$PROJECT_DIR$/ExtractInfo/src/main/java/util/EncodingUtil.java" />
+        <option value="$PROJECT_DIR$/ExtractInfo/src/main/java/util/xml/XMLKit_Extends.java" />
+        <option value="$PROJECT_DIR$/ExtractInfo/src/main/java/util/xml/XMLKitJDOM.java" />
+        <option value="$PROJECT_DIR$/ExtractInfo/src/main/java/util/xml/XMLHibernate.java" />
         <option value="$PROJECT_DIR$/ExtractInfo/src/main/java/util/gate/GateDataStoreKit.java" />
         <option value="$PROJECT_DIR$/ExtractInfo/src/main/java/util/gate/GateCorpusKit.java" />
-        <option value="$PROJECT_DIR$/ExtractInfo/src/main/java/util/ManageJsonWithGoogleMaps.java" />
-        <option value="$PROJECT_DIR$/ExtractInfo/src/main/java/util/setInfoParameterIta/SetProvinciaECity.java" />
-        <option value="$PROJECT_DIR$/ExtractInfo/src/main/resources/log4j.xml" />
-        <option value="$PROJECT_DIR$/gate_files/custom/japes/myMain.jape" />
-        <option value="$PROJECT_DIR$/ExtractInfo/src/main/resources/log4j.properties" />
-        <option value="$PROJECT_DIR$/ExtractInfo/src/main/java/object/impl/WebsiteDaoImpl.java" />
-        <option value="$PROJECT_DIR$/ExtractInfo/pom.xml" />
-        <option value="$PROJECT_DIR$/ExtractInfo/src/main/java/util/SystemLog.java" />
-        <option value="$PROJECT_DIR$/ExtractInfo/src/main/java/util/estrattori/ExtractInfoSpring.java" />
-        <option value="$PROJECT_DIR$/ExtractInfo/src/main/java/object/dao/IGeoDomainDocumentDao.java" />
-        <option value="$PROJECT_DIR$/ExtractInfo/src/main/java/object/dao/IGenericDao.java" />
-        <option value="$PROJECT_DIR$/ExtractInfo/src/main/java/object/impl/GenericDaoImpl.java" />
-        <option value="$PROJECT_DIR$/ExtractInfo/src/main/java/util/estrattori/EstrazioneGeoDomainDocument.java" />
-        <option value="$PROJECT_DIR$/ExtractInfo/src/main/java/object/impl/GeoDomainDocumentDaoImpl.java" />
-        <option value="$PROJECT_DIR$/ExtractInfo/src/main/java/object/impl/GeoDocumentDaoImpl.java" />
-        <option value="$PROJECT_DIR$/ExtractInfo/src/main/resources/logback.xml" />
-        <option value="$PROJECT_DIR$/ExtractInfo/src/main/resources/input.properties" />
+        <option value="$PROJECT_DIR$/ExtractInfo/src/main/java/util/gate/GateAnnotationKit.java" />
+        <option value="$PROJECT_DIR$/utility/src/main/java/util/string/StringKit.java" />
+        <option value="$PROJECT_DIR$/utility/src/main/java/util/object/GeoDocument.java" />
+        <option value="$PROJECT_DIR$/utility/src/main/java/util/object/Website.java" />
         <option value="$PROJECT_DIR$/ExtractInfo/src/main/java/util/karma/GenerationOfTriple.java" />
-        <option value="$PROJECT_DIR$/ExtractInfo/src/main/java/util/EncodingUtil.java" />
-        <option value="$PROJECT_DIR$/ExtractInfo/src/main/java/util/xml/JenaInfoDocument.java" />
-        <option value="$PROJECT_DIR$/ExtractInfo/src/main/java/util/JenaInfoDocument.java" />
+        <option value="$PROJECT_DIR$/utility/src/main/java/util/object/InfoDocument.java" />
+        <option value="$PROJECT_DIR$/utility/pom.xml" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/utility/src/main/java/util/SystemLog.java" />
+        <option value="$PROJECT_DIR$/utility/src/main/java/util/hibernate/HibernateUtil.java" />
+        <option value="$PROJECT_DIR$/utility/src/main/java/util/hibernate/GeoDocumentDAO.java" />
         <option value="$PROJECT_DIR$/ExtractInfo/src/main/java/util/JenaKit.java" />
+        <option value="$PROJECT_DIR$/ExtractInfo/src/test/java/util/Test_Karma.java" />
+        <option value="$PROJECT_DIR$/src/test/java/Test_Karma_EAT.java" />
+        <option value="$PROJECT_DIR$/ExtractInfo/src/main/java/object/support/AnnotationInfo.java" />
+        <option value="$PROJECT_DIR$/ExtractInfo/src/main/java/util/estrattori/ExtractorInfoGATE.java" />
+        <option value="$PROJECT_DIR$/ExtractInfo/src/main/java/object/impl/WebsiteDaoImpl.java" />
+        <option value="$PROJECT_DIR$/utility/src/main/java/util/object/constructor/DBKit.java" />
+        <option value="$PROJECT_DIR$/ExtractInfo/src/main/java/object/impl/GeoDomainDocumentDaoImpl.java" />
+        <option value="$PROJECT_DIR$/ExtractInfo/src/main/java/controller/HomeController.java" />
+        <option value="$PROJECT_DIR$/ExtractInfo/src/main/java/mvc/config/SpringWebAppInitializer.java" />
+        <option value="$PROJECT_DIR$/ExtractInfo/src/main/java/mvc/controller/HomeController.java" />
+        <option value="$PROJECT_DIR$/ExtractInfo/src/main/java/mvc/config/ApplicationContextConfig.java" />
+        <option value="$PROJECT_DIR$/ExtractInfo/src/main/java/spring/bean/InitBean.java" />
+        <option value="$PROJECT_DIR$/ExtractInfo/src/main/java/object/impl/GeoDocumentDaoImpl.java" />
+        <option value="$PROJECT_DIR$/ExtractInfo/src/main/resources/spring_hibernate/spring-hibernate4v2.xml" />
+        <option value="$PROJECT_DIR$/ExtractInfo/pom.xml" />
+        <option value="$PROJECT_DIR$/ExtractInfo/src/main/java/object/dao/IGenericDao.java" />
+        <option value="$PROJECT_DIR$/ExtractInfo/src/main/java/spring/bean/BeansKit.java" />
+        <option value="$PROJECT_DIR$/ExtractInfo/src/main/java/object/impl/GenericDaoImpl.java" />
+        <option value="$PROJECT_DIR$/ExtractInfo/src/main/resources/input.properties" />
       </list>
     </option>
   </component>
@@ -526,9 +592,8 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="Scope" />
-      <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -557,17 +622,79 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="utility" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EAT" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EAT" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="utility" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EAT" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EAT" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="utility" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EAT" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EAT" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="utility" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="java" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="util" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -576,12 +703,36 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="EAT" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="utility" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="util" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="object" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="model" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -593,25 +744,27 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="karma_files" />
+              <option name="myItemId" value="utility" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="output" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EAT" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EAT" />
+              <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="karma_files" />
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="util" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="object" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -751,11 +904,15 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="util" />
+              <option name="myItemId" value="spring" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="xml" />
+              <option name="myItemId" value="mvc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controller" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -785,11 +942,49 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="util" />
+              <option name="myItemId" value="spring" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="karma" />
+              <option name="myItemId" value="mvc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EAT" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EAT" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ExtractInfo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spring" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bean" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -851,6 +1046,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -880,21 +1076,24 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="util" />
+      <recent name="util.object" />
       <recent name="util.estrattori" />
       <recent name="home" />
       <recent name="object.dao" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\java\mvc\" />
+      <recent name="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\java\controller" />
+      <recent name="C:\Users\Marco\Documents\GitHub\EAT\utility\src\main\java\util\object" />
       <recent name="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\resources" />
       <recent name="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\resources\META-INF\spring" />
-      <recent name="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\m2" />
-      <recent name="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\java\util" />
-      <recent name="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\resources\spring_hibernate_files" />
     </key>
     <key name="CreateClassDialog.RecentsKey">
       <recent name="util.db" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Marco\Documents\GitHub\EAT\utility\src\main\java\util\hibernate" />
       <recent name="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\m2\repository" />
       <recent name="C:\Users\Marco\Documents\GitHub\EAT\simpleGraphTest\src\main\resources" />
       <recent name="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\test\java\util" />
@@ -1325,15 +1524,29 @@
       <workItem from="1429361227904" duration="2268000" />
       <workItem from="1429365571228" duration="6437000" />
       <workItem from="1429467039654" duration="11680000" />
-      <workItem from="1429501956205" duration="10851000" />
+      <workItem from="1429501956205" duration="21896000" />
+      <workItem from="1429531404872" duration="1251000" />
+      <workItem from="1429532967707" duration="8959000" />
+      <workItem from="1429545777583" duration="2759000" />
+      <workItem from="1429552336076" duration="11195000" />
+      <workItem from="1429590767337" duration="7114000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="305115000" />
+    <option name="totallyTimeSpent" value="347438000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1366" height="728" extended-state="0" />
+    <frame x="0" y="0" width="1366" height="728" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1343,19 +1556,20 @@
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32924962" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3263158" sideWeight="0.48774886" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32105264" sideWeight="0.4969325" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3284839" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4280702" sideWeight="0.4742814" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.41638225" sideWeight="0.5257186" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4280702" sideWeight="0.47166923" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4280702" sideWeight="0.5283308" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3225256" sideWeight="0.46630934" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32105264" sideWeight="0.46630934" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32982457" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24961714" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24432677" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24425727" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2871363" sideWeight="0.4883041" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30350876" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1363,16 +1577,16 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3225256" sideWeight="0.4969325" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Module Dependencies" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32924962" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3284839" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.322807" sideWeight="0.53369063" order="8" side_tool="true" content_ui="tabs" />
@@ -1393,8 +1607,8 @@
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.322807" sideWeight="0.46630934" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24961714" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24432677" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
@@ -1460,28 +1674,10 @@
           <option name="timeStamp" value="30" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/ExtractInfo/src/main/java/util/karma/GenerationOfTriple.java</url>
-          <line>264</line>
-          <properties />
-          <option name="timeStamp" value="32" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/ExtractInfo/src/main/java/util/estrattori/ExtractInfoMySQL.java</url>
           <line>218</line>
           <properties />
           <option name="timeStamp" value="34" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/ExtractInfo/src/main/java/util/karma/GenerationOfTriple.java</url>
-          <line>222</line>
-          <properties />
-          <option name="timeStamp" value="38" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/ExtractInfo/src/main/java/util/karma/GenerationOfTriple.java</url>
-          <line>289</line>
-          <properties />
-          <option name="timeStamp" value="42" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/simpleGraphTest/src/main/java/performancetestcom/BufferedStringWriterBenchmark.java</url>
@@ -1497,7 +1693,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/ExtractInfo/src/main/java/util/JenaKit.java</url>
-          <line>905</line>
+          <line>951</line>
           <properties />
           <option name="timeStamp" value="56" />
         </line-breakpoint>
@@ -1509,13 +1705,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/ExtractInfo/src/test/java/util/Test_Karma.java</url>
-          <line>89</line>
+          <line>91</line>
           <properties />
           <option name="timeStamp" value="68" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/ExtractInfo/src/test/java/util/Test_Karma.java</url>
-          <line>109</line>
+          <line>111</line>
           <properties />
           <option name="timeStamp" value="69" />
         </line-breakpoint>
@@ -1563,19 +1759,19 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/ExtractInfo/src/main/java/object/impl/GeoDocumentDaoImpl.java</url>
-          <line>53</line>
+          <line>58</line>
           <properties />
           <option name="timeStamp" value="84" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/ExtractInfo/src/main/java/object/impl/GenericDaoImpl.java</url>
-          <line>209</line>
+          <line>218</line>
           <properties />
           <option name="timeStamp" value="85" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/ExtractInfo/src/main/java/home/MainExtractInfo.java</url>
-          <line>74</line>
+          <line>75</line>
           <properties />
           <option name="timeStamp" value="90" />
         </line-breakpoint>
@@ -1605,25 +1801,19 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/ExtractInfo/src/main/java/util/estrattori/ExtractInfoSpring.java</url>
-          <line>573</line>
+          <line>574</line>
           <properties />
           <option name="timeStamp" value="109" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/ExtractInfo/src/main/java/util/estrattori/ExtractInfoSpring.java</url>
-          <line>435</line>
+          <line>436</line>
           <properties />
           <option name="timeStamp" value="110" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/ExtractInfo/src/main/java/util/estrattori/ExtractInfoSpring.java</url>
-          <line>179</line>
-          <properties />
-          <option name="timeStamp" value="114" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/ExtractInfo/src/main/java/util/estrattori/ExtractInfoSpring.java</url>
-          <line>191</line>
+          <line>190</line>
           <properties />
           <option name="timeStamp" value="115" />
         </line-breakpoint>
@@ -1640,20 +1830,14 @@
           <option name="timeStamp" value="118" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/ExtractInfo/src/main/java/object/impl/WebsiteDaoImpl.java</url>
-          <line>161</line>
-          <properties />
-          <option name="timeStamp" value="119" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/ExtractInfo/src/main/java/util/estrattori/ExtractInfoSpring.java</url>
-          <line>238</line>
+          <line>237</line>
           <properties />
           <option name="timeStamp" value="120" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/ExtractInfo/src/main/java/util/estrattori/ExtractInfoSpring.java</url>
-          <line>241</line>
+          <line>240</line>
           <properties />
           <option name="timeStamp" value="121" />
         </line-breakpoint>
@@ -1665,43 +1849,43 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/ExtractInfo/src/main/java/util/estrattori/ExtractInfoSpring.java</url>
-          <line>246</line>
+          <line>245</line>
           <properties />
           <option name="timeStamp" value="125" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/ExtractInfo/src/main/java/object/impl/GenericDaoImpl.java</url>
-          <line>245</line>
+          <line>254</line>
           <properties />
           <option name="timeStamp" value="126" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/ExtractInfo/src/main/java/object/impl/GenericDaoImpl.java</url>
-          <line>264</line>
+          <line>273</line>
           <properties />
           <option name="timeStamp" value="129" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/ExtractInfo/src/main/java/object/impl/GeoDomainDocumentDaoImpl.java</url>
-          <line>162</line>
+          <line>158</line>
           <properties />
           <option name="timeStamp" value="134" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/ExtractInfo/src/main/java/object/impl/GeoDomainDocumentDaoImpl.java</url>
-          <line>154</line>
+          <line>150</line>
           <properties />
           <option name="timeStamp" value="135" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/ExtractInfo/src/main/java/object/impl/GeoDomainDocumentDaoImpl.java</url>
-          <line>179</line>
+          <line>175</line>
           <properties />
           <option name="timeStamp" value="136" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/ExtractInfo/src/main/java/object/impl/GeoDomainDocumentDaoImpl.java</url>
-          <line>251</line>
+          <line>247</line>
           <properties />
           <option name="timeStamp" value="139" />
         </line-breakpoint>
@@ -1713,27 +1897,123 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/ExtractInfo/src/main/java/object/impl/GeoDomainDocumentDaoImpl.java</url>
-          <line>209</line>
+          <line>205</line>
           <properties />
           <option name="timeStamp" value="144" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/ExtractInfo/src/main/java/util/estrattori/ExtractInfoSpring.java</url>
-          <line>251</line>
+          <line>250</line>
           <properties />
           <option name="timeStamp" value="149" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/ExtractInfo/src/main/java/util/karma/GenerationOfTriple.java</url>
-          <line>280</line>
+          <line>264</line>
           <properties />
           <option name="timeStamp" value="150" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/ExtractInfo/src/main/java/util/JenaInfoDocument.java</url>
+          <line>126</line>
+          <properties />
+          <option name="timeStamp" value="168" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/ExtractInfo/src/main/java/util/JenaKit.java</url>
+          <line>57</line>
+          <properties />
+          <option name="timeStamp" value="169" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/ExtractInfo/src/main/java/util/gate/GateCorpusKit.java</url>
+          <line>85</line>
+          <properties />
+          <option name="timeStamp" value="170" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/ExtractInfo/src/main/java/util/estrattori/ExtractInfoSpring.java</url>
+          <line>162</line>
+          <properties />
+          <option name="timeStamp" value="174" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/ExtractInfo/src/main/java/util/JenaKit.java</url>
+          <line>241</line>
+          <properties />
+          <option name="timeStamp" value="175" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/ExtractInfo/src/main/java/util/JenaInfoDocument.java</url>
+          <line>34</line>
+          <properties />
+          <option name="timeStamp" value="178" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/ExtractInfo/src/main/java/util/JenaKit.java</url>
+          <line>243</line>
+          <properties />
+          <option name="timeStamp" value="182" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/ExtractInfo/src/main/java/util/JenaKit.java</url>
+          <line>248</line>
+          <properties />
+          <option name="timeStamp" value="183" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/ExtractInfo/src/main/java/util/JenaKit.java</url>
+          <line>251</line>
+          <properties />
+          <option name="timeStamp" value="184" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/utility/src/main/java/util/http/UrlLib.java</url>
+          <line>18</line>
+          <properties />
+          <option name="timeStamp" value="188" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/ExtractInfo/src/main/java/util/estrattori/ExtractorInfoGATE.java</url>
+          <line>150</line>
+          <properties />
+          <option name="timeStamp" value="192" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/ExtractInfo/src/main/java/util/estrattori/ExtractInfoSpring.java</url>
+          <line>180</line>
+          <properties />
+          <option name="timeStamp" value="194" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/ExtractInfo/src/main/java/util/estrattori/ExtractorInfoGATE.java</url>
+          <line>101</line>
+          <properties />
+          <option name="timeStamp" value="195" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/ExtractInfo/src/main/java/util/estrattori/ExtractorInfoGATE.java</url>
+          <line>106</line>
+          <properties />
+          <option name="timeStamp" value="197" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/ExtractInfo/src/main/java/util/estrattori/ExtractInfoSpring.java</url>
+          <line>315</line>
+          <properties />
+          <option name="timeStamp" value="198" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/ExtractInfo/src/main/java/util/estrattori/ExtractorInfoGATE.java</url>
+          <line>50</line>
+          <properties class="util.estrattori.ExtractorInfoGATE" method="executeWithTentatives" />
+          <option name="timeStamp" value="173" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="167" />
+      <option name="time" value="199" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1742,427 +2022,26 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/object/support/DepositFrequencyInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="65" column="0" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/util/estrattori/EstrazioneDatiWithJSOUP.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="159" column="28" selection-start-line="159" selection-start-column="28" selection-end-line="159" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/object/model/Document.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="94" column="19" selection-start-line="94" selection-start-column="19" selection-end-line="94" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/object/model/Website.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="95" column="1" selection-start-line="95" selection-start-column="1" selection-end-line="95" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/util/estrattori/EstrazioneDatiWithGATE.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="254" column="30" selection-start-line="254" selection-start-column="30" selection-end-line="254" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/util/cmd/ExecuteCmdAndPrintOnOutput.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="78" column="40" selection-start-line="78" selection-start-column="40" selection-end-line="78" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/util/hibernate/GeoDocumentDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="458" column="10" selection-start-line="458" selection-start-column="10" selection-end-line="458" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ExtractInfo/.project">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ExtractInfo/.classpath">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="46" column="19" selection-start-line="46" selection-start-column="19" selection-end-line="46" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/util/gate/GateKit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="55" column="0" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/object/impl/DocumentDaoImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="59" column="0" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/util/estrattori/EstrazioneDatiWithGATEAndDataStore.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="66" column="36" selection-start-line="66" selection-start-column="36" selection-end-line="66" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/util/gate/GateDataStoreKit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="59" column="52" selection-start-line="59" selection-start-column="35" selection-end-line="59" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/util/gate/GateCorpusKit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="91" column="47" selection-start-line="91" selection-start-column="47" selection-end-line="91" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/util/ManageJsonWithGoogleMaps.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="144" column="26" selection-start-line="144" selection-start-column="26" selection-end-line="144" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/util/setInfoParameterIta/SetCodicePostale.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="384" column="13" selection-start-line="369" selection-start-column="5" selection-end-line="384" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/util/setInfoParameterIta/SetNazioneELanguage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="17" column="92" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="92" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/util/setInfoParameterIta/SetRegioneEProvincia.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="346" column="35" selection-start-line="346" selection-start-column="35" selection-end-line="346" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/resources/log4j.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+          <caret line="154" column="44" selection-start-line="154" selection-start-column="44" selection-end-line="154" selection-end-column="44" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gate_files/custom/gazetter/main.def">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gate_files/custom/japes/myMain.jape">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="3" column="14" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/util/setInfoParameterIta/SetProvinciaECity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="70" column="22" selection-start-line="70" selection-start-column="22" selection-end-line="70" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/resources/log4j.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="9" column="25" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-Karma-master/karma-cleaning/src/main/java/edu/isi/karma/cleaning/features/RecordClassifier2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="26" column="39" selection-start-line="26" selection-start-column="39" selection-end-line="26" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-Karma-master/karma-web-services/web-services-rdf/src/test/java/edu/isi/karma/web/services/rdf/TestRDFGeneratorServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="16" column="32" selection-start-line="16" selection-start-column="32" selection-end-line="16" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-Karma-master/karma-mr/src/main/java/edu/isi/karma/mapreduce/driver/BaseRDFMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="6" column="34" selection-start-line="6" selection-start-column="34" selection-end-line="6" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-Karma-master/karma-mr/src/main/java/edu/isi/karma/mapreduce/function/CollectJSONObject.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="13" column="8" selection-start-line="13" selection-start-column="8" selection-end-line="13" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-Karma-master/karma-storm/src/main/java/edu/isi/karma/storm/JSONToMerge.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="27" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/Test_Karma_EAT.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="105" column="9" selection-start-line="105" selection-start-column="9" selection-end-line="105" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ExtractInfo/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="382" column="20" selection-start-line="382" selection-start-column="20" selection-end-line="382" selection-end-column="20" />
-          <folding>
-            <element signature="n#build#0;n#project#0;n#!!top" expanded="false" />
-            <element signature="n#plugin#4;n#plugins#0;n#build#0;n#project#0;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/util/SystemLog.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="127" column="18" selection-start-line="127" selection-start-column="18" selection-end-line="127" selection-end-column="18" />
-          <folding>
-            <element signature="e#4074#4075#0" expanded="true" />
-            <element signature="e#4115#4116#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/util/estrattori/ExtractInfoMySQL.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="655" column="36" selection-start-line="655" selection-start-column="36" selection-end-line="655" selection-end-column="36" />
+          <caret line="28" column="88" selection-start-line="28" selection-start-column="88" selection-end-line="28" selection-end-column="88" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/object/dao/IGeoDomainDocumentDao.java">
+    <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/util/ResourcesKit.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/object/dao/IGenericDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="52" column="12" selection-start-line="52" selection-start-column="12" selection-end-line="52" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/object/impl/GenericDaoImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="297" column="12" selection-start-line="294" selection-start-column="15" selection-end-line="299" selection-end-column="17" />
-          <folding>
-            <element signature="e#4016#4017#0" expanded="true" />
-            <element signature="e#4064#4065#0" expanded="true" />
-            <element signature="e#4132#4133#0" expanded="true" />
-            <element signature="e#4180#4181#0" expanded="true" />
-            <element signature="e#5719#5720#0" expanded="true" />
-            <element signature="e#5758#5759#0" expanded="true" />
-            <element signature="e#6434#6435#0" expanded="true" />
-            <element signature="e#6461#6462#0" expanded="true" />
-            <element signature="e#10536#10537#0" expanded="true" />
-            <element signature="e#10563#10564#0" expanded="true" />
-            <element signature="e#10623#10624#0" expanded="true" />
-            <element signature="e#10669#10670#0" expanded="true" />
-            <element signature="e#10731#10732#0" expanded="true" />
-            <element signature="e#10779#10780#0" expanded="true" />
-            <element signature="e#10841#10842#0" expanded="true" />
-            <element signature="e#10889#10890#0" expanded="true" />
-            <element signature="e#12431#12432#0" expanded="true" />
-            <element signature="e#12458#12459#0" expanded="true" />
-            <marker date="1429478390848" expanded="true" signature="-1:-1" placeholder="select count..missingValue..." />
-            <marker date="1429478390848" expanded="true" signature="-1:-1" placeholder="select count..missingValue..." />
-            <marker date="1429478390848" expanded="true" signature="-1:-1" placeholder="DELETE from ..." />
-            <marker date="1429478390848" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1429478390848" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..missingValue..." />
-            <marker date="1429478390848" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..missingValue..." />
-            <marker date="1429478390848" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..missingValue..." />
-            <marker date="1429478390848" expanded="true" signature="-1:-1" placeholder="select FIRST..PERSON..." />
-            <marker date="1429478390848" expanded="true" signature="-1:-1" placeholder="select missi..missingValue..." />
-            <marker date="1429478390848" expanded="true" signature="-1:-1" placeholder="insert into ..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/object/impl/InfoDocumentDaoImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
-          <folding>
-            <marker date="1429303160694" expanded="true" signature="-1:-1" placeholder="CREATE TABLE..missingValue..." />
-            <marker date="1429303160694" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..missingValue..." />
-            <marker date="1429303160694" expanded="true" signature="-1:-1" placeholder="ALTER TABLE missingValue..." />
-            <marker date="1429303160694" expanded="true" signature="-1:-1" placeholder="UPDATE missi..." />
-            <marker date="1429303160694" expanded="true" signature="-1:-1" placeholder="ALTER TABLE missingValue..." />
-            <marker date="1429303160694" expanded="true" signature="-1:-1" placeholder="SELECT ident..missingValue..." />
-            <marker date="1429303160694" expanded="true" signature="-1:-1" placeholder="UPDATE missi..." />
-            <marker date="1429303160694" expanded="true" signature="-1:-1" placeholder="UPDATE missi..." />
-            <marker date="1429303160694" expanded="true" signature="-1:-1" placeholder="DROP TABLE I..." />
-            <marker date="1429303160694" expanded="true" signature="-1:-1" placeholder="select count..missingValue..." />
-            <marker date="1429303160694" expanded="true" signature="-1:-1" placeholder="select count..missingValue..." />
-            <marker date="1429303160694" expanded="true" signature="-1:-1" placeholder="DELETE from ..." />
-            <marker date="1429303160694" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1429303160694" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..missingValue..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/object/impl/WebsiteDaoImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="125" column="17" selection-start-line="109" selection-start-column="16" selection-end-line="125" selection-end-column="17" />
-          <folding>
-            <element signature="e#3608#4405#0" expanded="true" />
-            <element signature="e#4404#4405#0" expanded="true" />
-            <marker date="1429363509405" expanded="true" signature="-1:-1" placeholder="select count..missingValue..." />
-            <marker date="1429363509405" expanded="true" signature="-1:-1" placeholder="select * fro..missingValue..." />
-            <marker date="1429363509405" expanded="true" signature="-1:-1" placeholder="insert into ..." />
-            <marker date="1429363509405" expanded="true" signature="-1:-1" placeholder="select FIRST..PERSON..." />
-            <marker date="1429363509405" expanded="true" signature="-1:-1" placeholder="select missi..missingValue..." />
-            <marker date="1429363509405" expanded="true" signature="-1:-1" placeholder="select count..missingValue..." />
-            <marker date="1429363509405" expanded="true" signature="-1:-1" placeholder="DELETE from ..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/object/model/GeoDocument.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="156" column="0" selection-start-line="156" selection-start-column="0" selection-end-line="156" selection-end-column="0" />
-          <folding>
-            <element signature="e#4127#4128#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/object/impl/GeoDomainDocumentDaoImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="256" column="16" selection-start-line="256" selection-start-column="16" selection-end-line="256" selection-end-column="16" />
-          <folding>
-            <element signature="e#6175#8018#0" expanded="true" />
-            <element signature="e#6450#7943#0" expanded="true" />
-            <element signature="e#7942#7943#0" expanded="true" />
-            <element signature="e#8017#8018#0" expanded="true" />
-            <element signature="e#14266#14267#0" expanded="true" />
-            <element signature="e#14307#14308#0" expanded="true" />
-            <element signature="e#14390#14391#0" expanded="true" />
-            <element signature="e#14433#14434#0" expanded="true" />
-            <element signature="e#14516#14517#0" expanded="true" />
-            <element signature="e#14559#14560#0" expanded="true" />
-            <marker date="1429511413673" expanded="true" signature="-1:-1" placeholder="CREATE TABLE..IF..." />
-            <marker date="1429511413673" expanded="true" signature="-1:-1" placeholder="DROP TABLE I..." />
-            <marker date="1429511413673" expanded="true" signature="-1:-1" placeholder="select count..missingValue..." />
-            <marker date="1429511413673" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..missingValue..." />
-            <marker date="1429511413673" expanded="true" signature="-1:-1" placeholder="select missi..missingValue..." />
-            <marker date="1429511413673" expanded="true" signature="-1:-1" placeholder="select missi..missingValue..." />
-            <marker date="1429511413673" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1429511413673" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..missingValue..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/util/estrattori/EstrazioneGeoDomainDocument.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.793103">
-          <caret line="111" column="28" selection-start-line="111" selection-start-column="28" selection-end-line="111" selection-end-column="28" />
-          <folding>
-            <element signature="e#6479#6492#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/object/impl/GeoDocumentDaoImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="157" column="24" selection-start-line="157" selection-start-column="24" selection-end-line="157" selection-end-column="24" />
-          <folding>
-            <marker date="1429511679757" expanded="true" signature="3341:4981" placeholder="CREATE TABLE..IF..." />
-            <marker date="1429511679757" expanded="true" signature="5170:5191" placeholder="DROP TABLE I..." />
-            <marker date="1429511679757" expanded="true" signature="5565:5889" placeholder="INSERT INTO ..." />
-            <marker date="1429511679757" expanded="true" signature="6885:6924" placeholder="SELECT * FRO..missingValue..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/resources/logback.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/util/estrattori/ExtractInfoSpring.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="290" column="0" selection-start-line="290" selection-start-column="0" selection-end-line="290" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/resources/input.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="90" column="51" selection-start-line="90" selection-start-column="51" selection-end-line="90" selection-end-column="51" />
+          <caret line="29" column="86" selection-start-line="29" selection-start-column="86" selection-end-line="29" selection-end-column="86" />
           <folding />
         </state>
       </provider>
@@ -2170,28 +2049,7 @@
     <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/util/FileUtil.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
-          <folding>
-            <element signature="e#1247#1248#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/home/MainExtractInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="123" column="36" selection-start-line="123" selection-start-column="36" selection-end-line="123" selection-end-column="36" />
-          <folding>
-            <element signature="e#1305#5785#0" expanded="true" />
-            <element signature="e#5784#5785#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/util/karma/GenerationOfTriple.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="271" column="39" selection-start-line="271" selection-start-column="39" selection-end-line="271" selection-end-column="39" />
+          <caret line="25" column="44" selection-start-line="25" selection-start-column="44" selection-end-line="25" selection-end-column="44" />
           <folding />
         </state>
       </provider>
@@ -2199,28 +2057,455 @@
     <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/util/EncodingUtil.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="323" column="45" selection-start-line="323" selection-start-column="45" selection-end-line="323" selection-end-column="45" />
+          <caret line="28" column="99" selection-start-line="28" selection-start-column="4" selection-end-line="28" selection-end-column="99" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/util/xml/XMLKit_Extends.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="15" column="101" selection-start-line="15" selection-start-column="3" selection-end-line="15" selection-end-column="101" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/util/xml/XMLKitJDOM.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="11" column="97" selection-start-line="11" selection-start-column="97" selection-end-line="11" selection-end-column="97" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/util/xml/XMLHibernate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="82" column="10" selection-start-line="82" selection-start-column="10" selection-end-line="82" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/util/gate/GateKit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="20" column="94" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="94" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/util/gate/GateDataStoreKit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="28" column="95" selection-start-line="28" selection-start-column="95" selection-end-line="28" selection-end-column="95" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/util/gate/GateAnnotationKit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="96" selection-start-line="16" selection-start-column="96" selection-end-line="16" selection-end-column="96" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utility/src/main/java/util/string/StringKit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="99" column="22" selection-start-line="99" selection-start-column="22" selection-end-line="99" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#16460#0" expanded="false" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#10936#10953#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utility/src/main/java/util/object/model/GeoDocument.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utility/src/main/java/util/object/model/Website.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/util/xml/XMLKit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="32" column="93" selection-start-line="32" selection-start-column="4" selection-end-line="32" selection-end-column="93" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/util/karma/GenerationOfTriple.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="35" column="31" selection-start-line="35" selection-start-column="31" selection-end-line="35" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utility/src/main/java/util/object/model/InfoDocument.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utility/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="36" column="20" selection-start-line="36" selection-start-column="20" selection-end-line="36" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="29" column="36" selection-start-line="29" selection-start-column="36" selection-end-line="29" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utility/src/main/java/util/jena/jena_vocabulary/GoodRelations.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="53" column="95" selection-start-line="53" selection-start-column="95" selection-end-line="53" selection-end-column="95" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utility/src/main/java/util/cmd/ExecuteCmdAndPrintOnOutput.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="42" column="21" selection-start-line="42" selection-start-column="21" selection-end-line="42" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utility/src/main/java/util/SystemLog.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utility/src/main/java/util/hibernate/HibernateUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="20" column="22" selection-start-line="20" selection-start-column="22" selection-end-line="20" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utility/src/main/java/util/hibernate/GeoDocumentDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="13" column="32" selection-start-line="13" selection-start-column="32" selection-end-line="13" selection-end-column="32" />
+          <folding>
+            <element signature="e#7231#7244#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ExtractInfo/src/test/java/util/Test_Karma.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/Test_Karma_EAT.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="89" column="20" selection-start-line="89" selection-start-column="20" selection-end-line="89" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/object/support/AnnotationInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="157" column="10" selection-start-line="157" selection-start-column="10" selection-end-line="157" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/home/MainExtractInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="75" column="0" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/util/gate/GateCorpusKit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="36" column="12" selection-start-line="36" selection-start-column="12" selection-end-line="36" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utility/src/main/java/util/http/UrlLib.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.05704698">
+          <caret line="78" column="13" selection-start-line="78" selection-start-column="13" selection-end-line="78" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/util/estrattori/ExtractorInfoGATE.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="150" column="0" selection-start-line="150" selection-start-column="0" selection-end-line="150" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/util/estrattori/ExtractInfoSpring.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="568" column="0" selection-start-line="568" selection-start-column="0" selection-end-line="568" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/util/JenaKit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="859" column="29" selection-start-line="859" selection-start-column="29" selection-end-line="859" selection-end-column="29" />
+          <folding>
+            <element signature="e#39902#39973#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/util/JenaInfoDocument.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="127" column="27" selection-start-line="127" selection-start-column="27" selection-end-line="127" selection-end-column="27" />
+          <caret line="8" column="103" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="103" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/util/hibernate/SpringHibernateJpaPersistenceProvider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="43" column="6" selection-start-line="43" selection-start-column="6" selection-end-line="43" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/object/impl/WebsiteDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="284" column="0" selection-start-line="284" selection-start-column="0" selection-end-line="284" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utility/src/main/java/util/object/constructor/DBKit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="130" column="6" selection-start-line="130" selection-start-column="6" selection-end-line="130" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/object/impl/GeoDomainDocumentDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="65" column="19" selection-start-line="65" selection-start-column="19" selection-end-line="65" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2093#2094#0" expanded="true" />
+            <element signature="e#2145#2146#0" expanded="true" />
+            <marker date="1429591056466" expanded="true" signature="-1:-1" placeholder="CREATE TABLE..IF..." />
+            <marker date="1429591056466" expanded="true" signature="-1:-1" placeholder="DROP TABLE I..." />
+            <marker date="1429591056466" expanded="true" signature="-1:-1" placeholder="select count..missingValue..." />
+            <marker date="1429591056466" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..missingValue..." />
+            <marker date="1429591056466" expanded="true" signature="-1:-1" placeholder="select missi..missingValue..." />
+            <marker date="1429591056466" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1429591056466" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..missingValue..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/resources/log4j.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/object/dao/IGeoDocumentDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="20" column="35" selection-start-line="20" selection-start-column="35" selection-end-line="20" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/resources/spring_hibernate/spring-hibernate4v2.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="88" column="37" selection-start-line="88" selection-start-column="37" selection-end-line="88" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/object/impl/GeoDocumentDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="88" column="63" selection-start-line="88" selection-start-column="63" selection-end-line="88" selection-end-column="63" />
+          <folding>
+            <element signature="e#3030#3031#0" expanded="true" />
+            <element signature="e#3082#3083#0" expanded="true" />
+            <marker date="1429593472448" expanded="true" signature="3489:5129" placeholder="CREATE TABLE..IF..." />
+            <marker date="1429593472448" expanded="true" signature="5318:5339" placeholder="DROP TABLE I..." />
+            <marker date="1429593472448" expanded="true" signature="5713:6037" placeholder="INSERT INTO ..." />
+            <marker date="1429593472448" expanded="true" signature="7033:7072" placeholder="SELECT * FRO..missingValue..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ExtractInfo/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="151" column="20" selection-start-line="151" selection-start-column="20" selection-end-line="151" selection-end-column="20" />
+          <folding>
+            <element signature="n#plugin#4;n#plugins#0;n#build#0;n#project#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/spring/bean/InitBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="20" column="50" selection-start-line="20" selection-start-column="50" selection-end-line="20" selection-end-column="50" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/util/JenaKit.java">
+    <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/spring/mvc/config/ApplicationContextConfig.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8401084">
-          <caret line="72" column="73" selection-start-line="72" selection-start-column="73" selection-end-line="72" selection-end-column="73" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
           <folding>
-            <element signature="e#22183#22254#0" expanded="true" />
+            <element signature="e#2663#2664#0" expanded="false" />
+            <element signature="e#2721#2722#0" expanded="false" />
+            <marker date="1429593320191" expanded="true" signature="35:811" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/spring/mvc/config/SpringWebAppInitializer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/spring/mvc/controller/HomeController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="17" column="11" selection-start-line="17" selection-start-column="11" selection-end-line="17" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/object/dao/IGenericDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/spring/bean/BeansKit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="78" column="43" selection-start-line="78" selection-start-column="43" selection-end-line="78" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/object/impl/GenericDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="95" column="32" selection-start-line="95" selection-start-column="32" selection-end-line="95" selection-end-column="32" />
+          <folding>
+            <element signature="e#4093#4094#0" expanded="true" />
+            <element signature="e#4126#4127#0" expanded="true" />
+            <element signature="e#4189#4190#0" expanded="true" />
+            <element signature="e#4226#4227#0" expanded="true" />
+            <element signature="e#4294#4295#0" expanded="true" />
+            <element signature="e#4342#4343#0" expanded="true" />
+            <element signature="e#4410#4411#0" expanded="true" />
+            <element signature="e#4458#4459#0" expanded="true" />
+            <element signature="e#5790#5791#0" expanded="true" />
+            <element signature="e#5850#5851#0" expanded="true" />
+            <element signature="e#5902#5903#0" expanded="true" />
+            <element signature="e#5949#5950#0" expanded="true" />
+            <element signature="e#5997#5998#0" expanded="true" />
+            <element signature="e#6036#6037#0" expanded="true" />
+            <element signature="e#6520#6521#0" expanded="true" />
+            <element signature="e#6592#6593#0" expanded="true" />
+            <element signature="e#6712#6713#0" expanded="true" />
+            <element signature="e#6739#6740#0" expanded="true" />
+            <element signature="e#10814#10815#0" expanded="true" />
+            <element signature="e#10841#10842#0" expanded="true" />
+            <element signature="e#10901#10902#0" expanded="true" />
+            <element signature="e#10947#10948#0" expanded="true" />
+            <element signature="e#11009#11010#0" expanded="true" />
+            <element signature="e#11057#11058#0" expanded="true" />
+            <element signature="e#11119#11120#0" expanded="true" />
+            <element signature="e#11167#11168#0" expanded="true" />
+            <element signature="e#12709#12710#0" expanded="true" />
+            <element signature="e#12736#12737#0" expanded="true" />
+            <marker date="1429600088050" expanded="true" signature="5215:5300" placeholder="select count..missingValue..." />
+            <marker date="1429600088050" expanded="true" signature="5586:5607" placeholder="select count..missingValue..." />
+            <marker date="1429600088050" expanded="true" signature="6555:6567" placeholder="DELETE from ..." />
+            <marker date="1429600088050" expanded="true" signature="6835:6867" placeholder="INSERT INTO ..." />
+            <marker date="1429600088050" expanded="true" signature="8295:8343" placeholder="SELECT * FRO..missingValue..." />
+            <marker date="1429600088050" expanded="true" signature="9352:9390" placeholder="select FIRST..PERSON..." />
+            <marker date="1429600088050" expanded="true" signature="10354:10426" placeholder="select missi..missingValue..." />
+            <marker date="1429600088050" expanded="true" signature="13139:13194" placeholder="insert into ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/resources/input.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.3685637">
+          <caret line="18" column="17" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2284,6 +2569,7 @@
             <option name="proportions">
               <list>
                 <option value="0.30348837" />
+                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>

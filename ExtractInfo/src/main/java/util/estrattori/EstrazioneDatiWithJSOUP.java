@@ -40,42 +40,35 @@ public class EstrazioneDatiWithJSOUP {
             if(tentativi < 3){
                 //doc = Jsoup.connect(url).get();
                 //doc = Jsoup.parse(Jsoup.connect(url).ignoreContentType(true).execute().contentType());
-                
                 doc = Jsoup.connect(url).timeout(10*1000).get();
-                SystemLog.ticket("JSOUP GET HA AVUTO SUCCESSO", "OUT");
             }else{
                 //util.log.write("JSOUP GET HA FALLITO","WARNING");
                 tentativi = 0;
-                SystemLog.ticket("JSOUP GET HA FALLITO PROVIAMO CON HTTP GET...", "WAR");
             }
         }catch(SocketTimeoutException e){           
             tentativi++;
-            SystemLog.ticket("JSOUP GET HA FALLITO:" + e.getMessage(), "ERR");
             HttpUtil.waiter();
             GetTitleAndHeadingTags(url,geo);              
         }catch(Exception en){        
             tentativi++;
-            SystemLog.ticket("JSOUP GET HA FALLITO:" + en.getMessage(), "ERR");
             HttpUtil.waiter();
             GetTitleAndHeadingTags(url,geo);  
         }finally{
             if(doc==null){
-                
                 try{
                     String html = HttpUtil.get(url);
                     doc = Jsoup.parse(html);
                     if(html!=null || html !=""){
-                         SystemLog.ticket("HTTP GET HA AVUTO SUCCESSO", "OUT");
+                         SystemLog.message("HTTP GET HA AVUTO SUCCESSO");
                     }else{
-                        //return null;                               
+                        //return null;
+                        SystemLog.error("HTTP GET HA FALLITO");
                     }
                 }catch(Exception en){                 
-                    SystemLog.ticket("HTTP GET HA FALLITO:" + en.getMessage(), "ERR");
+                    SystemLog.error("HTTP GET HA FALLITO:" + en.getMessage());
                 }
             }           
         }
-        
-       
         
         if(doc !=null){
             //Elements titleTags = doc.select("h1,h2");
@@ -111,7 +104,6 @@ public class EstrazioneDatiWithJSOUP {
 
             //SETTTIAMO DESCRIPTION
             result ="";
-            
             tagList = Arrays.asList("description","meta[name=description]","meta[property=og:description]");
             for(String s: tagList){
                 Elements Tags = doc.select(s);
@@ -121,16 +113,13 @@ public class EstrazioneDatiWithJSOUP {
                 if(setNullForEmptyString(result)==null && doc.select(s).size()>0){   
                        result = doc.select(s).first().attr("content");               
                 }
-                
                 if(setNullForEmptyString(result)!=null){break;}
             }
-            
             if(setNullForEmptyString(result)==null){
                 result=null;
             }
             geo.setDescription(result);
             //SETTIAMO LANGUAGE
-            
             result="";
             tagList = Arrays.asList(
                     "html","meta[name=lang]","meta[name=dc.language]","meta[name=language]","http-equiv[content-language]");
@@ -160,7 +149,6 @@ public class EstrazioneDatiWithJSOUP {
             SystemLog.ticket("FALLITO IL GET PER LA PAGINA:" + url + " ANDIAMO ALLA SUCESSIVA", "WAR");
             geo.setEdificio(null);
         }
-        
         geo.setUrl(new URL(url));
         /*
         try{

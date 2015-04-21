@@ -22,7 +22,7 @@ import org.xml.sax.SAXException;
  * Created by 4535992 on 27/03/2015.
  */
 public class XMLHibernate {
-
+    private static org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger(XMLHibernate.class);
     public static void setNewTableOnXMLCfg(File xmlFile,String newNameTable){
         //XMLUtil.updateValueOfAttribute(xmlFile, "class", "table", newNameTable);
         //SystemLog.write("Settata una nuova tabella " + newNameTable + " nel file " + xmlFile.getAbsolutePath() + "", "OUT");

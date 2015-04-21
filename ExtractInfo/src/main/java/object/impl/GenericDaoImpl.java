@@ -7,7 +7,9 @@ import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -19,11 +21,13 @@ import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.orm.hibernate4.HibernateCallback;
 import org.springframework.orm.hibernate4.HibernateTemplate;
+import spring.bean.BeansKit;
 import util.SystemLog;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.sql.DataSource;
+import java.io.File;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -41,8 +45,9 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
     protected String mySelectTable;
     protected DataSource dataSource;
     protected HibernateTemplate hibernateTemplate;
+
     protected SessionFactory sessionFactory;
-    protected ApplicationContext contextClassPath;
+    protected ApplicationContext context;
 
     @PersistenceContext
     protected EntityManager em;
@@ -82,9 +87,13 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
     }
 
     @Override
-    public void loadSpringConfig(String filePathXml) {
-        contextClassPath = new ClassPathXmlApplicationContext(filePathXml);
-        Object classObject = contextClassPath.getBean(cl);
+    public void loadSpringConfig(String filePathXml) throws Exception {
+        context = BeansKit.tryGetContextSpring(filePathXml);
+    }
+
+    @Override
+    public void loadSpringConfig(String[] filesPathsXml) throws Exception {
+       context = BeansKit.tryGetContextSpring(filesPathsXml);
     }
 
     @Override
@@ -384,3 +393,24 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
         return keyHolder.getKey();
     }
 }
+
+//    class GenericResultSetExtractor<T> implements ResultSetExtractor {
+//
+//        @Override
+//        public Object extractData(ResultSet rs) throws SQLException, DataAccessException {
+//            T t =null;
+//            //SETTTER OF T
+//            return t;
+//        }
+//    }
+//
+//
+//    class GenericRowMapper implements RowMapper {
+//        @Override
+//        public Object mapRow(ResultSet rs, int line) throws SQLException {
+//            GenericResultSetExtractor extractor = new GenericResultSetExtractor();
+//            return extractor.extractData(rs);
+//        }
+//    }
+
+

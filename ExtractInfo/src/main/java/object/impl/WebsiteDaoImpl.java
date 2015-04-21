@@ -1,16 +1,12 @@
 package object.impl;
-import home.MainExtractInfo;
-import object.dao.IGeoDocumentDao;
 import object.dao.IWebsiteDao;
 import object.model.Website;
 import org.hibernate.SessionFactory;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.dao.DataAccessException;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.RowMapper;
-import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.orm.hibernate4.HibernateTemplate;
@@ -63,8 +59,8 @@ public class WebsiteDaoImpl extends GenericDaoImpl<Website> implements IWebsiteD
 
     @Override
     public void loadHibernateConfig(String filePathXml) {
-        contextClassPath = new ClassPathXmlApplicationContext(filePathXml);
-        Website w = contextClassPath.getBean(Website.class);
+        context = new ClassPathXmlApplicationContext(filePathXml);
+        Website w = context.getBean(Website.class);
     }
 
 
@@ -282,27 +278,7 @@ public class WebsiteDaoImpl extends GenericDaoImpl<Website> implements IWebsiteD
     }
     */
 
-    /*
-    public class WebsiteResultSetExtractor implements ResultSetExtractor {
 
-        @Override
-        public Object extractData(ResultSet rs) throws SQLException, DataAccessException {
-            Website w = new Website();
-            w.setCity(rs.getString(1));
-            return w;
-        }
-    }
-
-
-    public class PersonRowMapper implements RowMapper {
-        @Override
-        public Object mapRow(ResultSet rs, int line) throws SQLException {
-            WebsiteResultSetExtractor extractor = new WebsiteResultSetExtractor();
-            return extractor.extractData(rs);
-        }
-    }
-
-     */
 
 
     /*

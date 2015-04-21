@@ -19,7 +19,8 @@ public interface IGenericDao<T> {
     void setDriverManager(String driver, String typeDb, String host, String port, String user, String pass, String database);
     void setNewJdbcTemplate();
     void setDataSource(DataSource ds);
-    void loadSpringConfig(String filePathXml);
+    void loadSpringConfig(String filePathXml) throws Exception;
+    void loadSpringConfig(String[] filesPathsXml) throws Exception;
 
     ///////////////////
     //BASE -HIBERNATE//

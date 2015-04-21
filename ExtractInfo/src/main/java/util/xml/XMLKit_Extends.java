@@ -13,7 +13,7 @@ import java.util.Map;
  * @version $Revision: 1.1 $
  */
 public class XMLKit_Extends{
-
+    private static org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger(XMLKit_Extends.class);
     public static Map<String,String> namespaces = new Hashtable<String,String>();
 
     public static void checkPrefix(String qname)throws Exception{

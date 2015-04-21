@@ -6,11 +6,10 @@
 
 package util.karma;
 
-import util.EncodingUtil;
-import util.StringKit;
-import util.SystemLog;
-import util.FileUtil;
+import util.*;
 import util.cmd.ExecuteCmdAndPrintOnOutput;
+import util.string.StringKit;
+
 import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -18,18 +17,17 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
-import static util.JenaKit.readQueryAndCleanTripleInfoDocument;
-
 /**
  *
  * @author Marco
  */
 public class GenerationOfTriple {
-
+    private static org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger(GenerationOfTriple.class);
     private String MODEL_TURTLE_KARMA,SOURCETYPE_KARMA,TRIPLE_OUTPUT_KARMA,
             DBTYPE_KARMA,HOSTNAME_KARMA,USERNAME_KARMA,PASSWORD_KARMA,
             PORTNUMBER_KARMA,DBNAME_KARMA,TABLENAME_KARMA,OUTPUT_FORMAT_KARMA,KARMA_HOME;
+
+    private JenaInfoDocument jInfo = new JenaInfoDocument();
     
     private ExecuteCmdAndPrintOnOutput rte = new ExecuteCmdAndPrintOnOutput();
     public GenerationOfTriple(
@@ -119,19 +117,6 @@ public class GenerationOfTriple {
             List<String> lines = new ArrayList<>();		           
             //treat as a large file - use some buffering
             SystemLog.ticket("Codifica Unicode per il file di triple...", "OUT");
-            //**************************************************************************
-            /*
-            util.encoding.ConvertASCIIToUnicode text =
-                    new util.encoding.ConvertASCIIToUnicode(
-                            pathTriple,pathTriple+".UTF8",StandardCharsets.UTF_8);
-            util.log.write("Lettura del file di triple "+pathTriple+"...","OUT");
-            lines = text.readLargerTextFileWithReturn(pathTriple);
-            
-            String output = System.getProperty("user.dir")+"\\karma_files\\output\\"+TRIPLE_OUTPUT_KARMA.replace(".n3","-UTF8.n3");
-            util.log.write("Scrittura del file di triple "+output+"...","OUT");
-            text.writeLargerTextFileWithReplace2(output, lines); 
-            */
-            //******************************************************************
             String output =FileUtil.path(pathTriple)+"\\"+ FileUtil.filenameNoExt(pathTriple)+".UTF8."+FileUtil.extension(pathTriple);
             EncodingUtil text = new EncodingUtil();
             lines = text.UnicodeEscape2UTF8(new File(pathTriple));
@@ -147,7 +132,7 @@ public class GenerationOfTriple {
             //RIPULIAMO LETRIPLE DALLE LOCATION SENZA COORDINATE CON JENA
             SystemLog.ticket("Ripuliamo le triple infodocument dalle Location senza coordinate nel file:" + output, "OUT");
 
-            readQueryAndCleanTripleInfoDocument(
+            jInfo.readQueryAndCleanTripleInfoDocument(
                     FileUtil.filenameNoExt(f), //filenameInput
                     FileUtil.path(f), //filepath
                     FileUtil.filenameNoExt(f) + "-c", //fileNameOutput
@@ -270,15 +255,14 @@ public class GenerationOfTriple {
 
         List<String> lines = EncodingUtil.UnicodeEscape2UTF8(new File(pathOut));
         EncodingUtil.writeLargerTextFileWithReplace2(output, lines);
-        //File filePathTriple = new File(pathOut);
-        //filePathTriple.delete();
+        File filePathTriple = new File(pathOut);
+        filePathTriple.delete();
 
-        // filePathTriple.delete();
         File f = new File(output);
         //RIPULIAMO LETRIPLE DALLE LOCATION SENZA COORDINATE CON JENA
         SystemLog.message("Ripuliamo le triple infodocument dalle Location senza coordinate nel file:" + output);
 
-        readQueryAndCleanTripleInfoDocument(
+        jInfo.readQueryAndCleanTripleInfoDocument(
                 FileUtil.filenameNoExt(f), //filenameInput
                 FileUtil.path(f), //filepath
                 FileUtil.filenameNoExt(f) + "-c", //fileNameOutput

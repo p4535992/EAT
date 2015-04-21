@@ -26,7 +26,7 @@ public class SystemLog {
     private static File LOGFILE;
     public static int VERBOSE = 1;
     /** {@code org.slf4j.Logger} */
-    private static org.slf4j.Logger logger;
+    private static org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger(SystemLog.class);
     /** Flag to provide basic support for debug information (not used within class). */
     public static boolean DEBUG = false;
     private static boolean OUT = false;
@@ -139,7 +139,7 @@ public class SystemLog {
         if(OUT) {System.out.println(content);}
         else if(ERROR) {System.err.println(content);}
         else {}
-        logWriter.print(content + System.getProperty("line.separator"));
+        logWriter.print(content +System.getProperty("line.separator"));
         logWriter.flush();
         logWriter.close();
     }
@@ -149,8 +149,8 @@ public class SystemLog {
      * @param logEntry message to write as a log entry
      */
     protected static void write(String logEntry) {
-        if (!logging)
-            return;
+//        if (!logging)
+//            return;
         StringBuilder sb = new StringBuilder();
         if (logTimestamp != null)
             //logTimestamp.format(new Date())
@@ -161,7 +161,8 @@ public class SystemLog {
                 df = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG);
             sb.append(df.format(logTimestamp));
         }
-        if (separator != null)sb.append(separator);
+        if(ERROR) sb.append("[ERROR] -> ");
+        //if (separator != null)sb.append(separator);
         sb.append(logEntry);
         //logWriter.println(sb.toString()); //???
         print2File(sb.toString());
@@ -178,8 +179,8 @@ public class SystemLog {
      * Writes a message to the log.
      * @param logEntry message to write as a log entry
      */
-    public static void message(String logEntry) {write(logEntry);}
-    public static  void error(String logEntry) {VERBOSE = 10; write(logEntry);}
+    public static void message(String logEntry) {OUT=true; ERROR=false; write(logEntry);}
+    public static  void error(String logEntry) {ERROR = true; OUT=false;write(logEntry);}
 
     /**
      * Writes a message to the log with an optional prefix.

@@ -35,7 +35,7 @@ public class EstrazioneDatiWithGATE {
         //private static ManageJsonWithGoogleMaps j = new ManageJsonWithGoogleMaps(API_KEY_GM);
 
       /** The Corpus Pipeline application to contain ANNE,Lingpipe,Tools,ecc. */
-      //private static CorpusController controller;
+      //private static CorpusController spring.mvc.controller;
 
       /**
        * Initialise the GATE system. This creates a "corpus pipeline"
@@ -50,11 +50,11 @@ public class EstrazioneDatiWithGATE {
 //        File gapp = new File(home, "custom/gapp/geoLocationPipeline19092014.xgapp");
 //        //Senza il controllo della lingua
 //        //File gapp = new File(home, "custom/gapp/geoLocationPipelineFast.xgapp");
-//        controller = (CorpusController) PersistenceManager.loadObjectFromFile(gapp);
+//        spring.mvc.controller = (CorpusController) PersistenceManager.loadObjectFromFile(gapp);
 //        //Out.prln("...file .gapp loaded ");
 //      } // initAnnie()
 
-      /** Tell GATE's controller about the corpus you want to run on.
+      /** Tell GATE's spring.mvc.controller about the corpus you want to run on.
        *  @param corpus il corpus da settare
        */
       public void setCorpus(Corpus corpus,CorpusController controller) {controller.setCorpus(corpus);} // setCorpus

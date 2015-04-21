@@ -14,8 +14,8 @@ import java.util.logging.Logger;
  */
 public class GateAnnotationKit {
 
-    //private ArrayList<AnnotationInfo> annInfo = new ArrayList<AnnotationInfo>();
-    private AnnotationInfo annInfo = new AnnotationInfo(null,null, null, null, null, null, null, null, null, null, null);
+    private static org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger(GateAnnotationKit.class);
+    private static AnnotationInfo annInfo = new AnnotationInfo(null,null, null, null, null, null, null, null, null, null, null);
 
     public GateAnnotationKit() {}
     
@@ -29,7 +29,7 @@ public class GateAnnotationKit {
      * @return una lista di AnnotationInfo cioè il contenuto delle informazioni
      * semantiche strutturato
      */
-     public AnnotationInfo getSingleAnnotationInfo(Corpus corpus, String language) {
+     public static AnnotationInfo getSingleAnnotationInfo(Corpus corpus, String language) {
          //prendiamo ogni documento del corpus su cui sono stati fatte
         //passare le nostre regole JAPE con le nostre annotazioni (Annotation)
         Iterator iter = corpus.iterator();
@@ -98,7 +98,7 @@ public class GateAnnotationKit {
      * @return una lista di AnnotationInfo cioè il contenuto delle informazioni
      * semantiche strutturato
      */
-     public ArrayList<AnnotationInfo> getMultipleAnnotationInfo(Corpus corpus, String language) {
+     public static ArrayList<AnnotationInfo> getMultipleAnnotationInfo(Corpus corpus, String language) {
          //prendiamo ogni documento del corpus su cui sono stati fatte
         //passare le nostre regole JAPE con le nostre annotazioni (Annotation)
         ArrayList<AnnotationInfo> listAnnInfo = new ArrayList<AnnotationInfo>();
@@ -165,7 +165,7 @@ public class GateAnnotationKit {
      * @param nameAnnotation il nome dell'annotazione su cui lavoariamo
      * @return il contenuto dell'annotazione voluta.
      */
-    private String takeTheContentOfTheAnnotation(Document doc, String nameAnnotation) {
+    private static String takeTheContentOfTheAnnotation(Document doc, String nameAnnotation) {
         ArrayList<String> listAnnSet = new ArrayList<String>();
         boolean flag = false;
         String content = "";
@@ -209,7 +209,7 @@ public class GateAnnotationKit {
      * @return in forma di stringa il contenuto dell'annotazione
      * stringNameAnnotation all'interno del set di annotazioni dateSet
      */
-    private String customAnn(Document doc, AnnotationSet dateSet, String stringNameAnnotation) {
+    private static String customAnn(Document doc, AnnotationSet dateSet, String stringNameAnnotation) {
         String content = "";
         List annList = new ArrayList<Annotation>();
         ArrayList<String> stringList = new ArrayList<String>();
@@ -299,7 +299,7 @@ public class GateAnnotationKit {
      * @return il GATE Document preso in esame ma solo la parte coperta dal set
      * di annotazioni
      */
-    private AnnotationSet setAnnotationSetWithDoc(String nameAnnotationSet, Document doc) {
+    private static AnnotationSet setAnnotationSetWithDoc(String nameAnnotationSet, Document doc) {
         String nameAnnSet = nameAnnotationSet;
         AnnotationSet annSet = doc.getAnnotations(nameAnnSet);
         return annSet;
@@ -310,7 +310,7 @@ public class GateAnnotationKit {
      * @param address il contenuto dell'annotazione sottoforma di stringa
      * @return il contenuto struttturato
      */
-    private String manageArrayString(String address, String symbol) {
+    private static String manageArrayString(String address, String symbol) {
         String sgm = address;
         sgm = sgm.replaceAll("\\W", symbol);
         sgm = sgm.replaceAll("(\\" + symbol + ")\\1+", symbol);
@@ -325,7 +325,7 @@ public class GateAnnotationKit {
      * contenuto
      * @return ritorna il contenuto "filtrato" dell'anotazione
      */
-    private String reduceStringv2(String fua, String symbol) {
+    private static String reduceStringv2(String fua, String symbol) {
         String reduce = "";
         ArrayList<String> list = new ArrayList<String>();
         StringTokenizer st = new StringTokenizer(fua, symbol);
@@ -356,7 +356,7 @@ public class GateAnnotationKit {
      * @return la stringa del contenuto senza simboli separatori all'inizio e
      * alla fine
      */
-    private String removeFirstAndLast(String fua, String symbol) {
+    private static String removeFirstAndLast(String fua, String symbol) {
         if (fua != "") {
             //fua= fua.substring(0,fua.length()-1);
             //fua = fua.replaceAll("(\\+)\\1+","+");
@@ -377,7 +377,7 @@ public class GateAnnotationKit {
      * @param s stringa di input
      * @return il valore della stringa se null o come è arrivata
      */
-    private String setNullForEmptyString(String s) {
+    private static String setNullForEmptyString(String s) {
         if (s != null && !s.isEmpty() && !s.trim().isEmpty()) {
             return s;
         } else {
@@ -396,7 +396,7 @@ public class GateAnnotationKit {
      * @param stringNameAnnotation il tipo dell'annotazione in formato stringa
      * @return l'ultima annotazione di quel tipo per quell'AnnotationSet per il dato documento
      */
-    private String getLastAnnotationOnTheAnnotionSetWithSpecificType(Document doc, AnnotationSet dateSet, String stringNameAnnotation){
+    private static String getLastAnnotationOnTheAnnotionSetWithSpecificType(Document doc, AnnotationSet dateSet, String stringNameAnnotation){
       Integer i = 0;
       Integer j = 0;
       String content="";
@@ -422,7 +422,7 @@ public class GateAnnotationKit {
      * @param s la stringa di input
      * @return la stringa di output
      */
-    private String manageString3(String s){
+    private static String manageString3(String s){
         try{
             if(s!=null){          
               String[] su = s.split(";");
@@ -439,7 +439,7 @@ public class GateAnnotationKit {
      * @param content la stringa di input
      * @return la stringa di output
      */
-    private String manageString23(String content){   
+    private static String manageString23(String content){
         try{
             if(content.contains(";")){content = manageString3(content); return content;}
             if(content.equals(null)){return null;}

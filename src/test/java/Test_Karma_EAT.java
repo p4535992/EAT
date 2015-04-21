@@ -1,4 +1,4 @@
-import util.StringKit;
+import util.string.StringKit;
 
 import java.io.IOException;
 

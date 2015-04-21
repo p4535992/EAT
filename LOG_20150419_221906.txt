@@ -1,5 +1,0 @@
-[22:19:06]: ===== START THE PROGRAMM =========
-[22:20:09]Run the extraction method.
-[22:20:12]RUN PROCESS 4
-[22:20:17]RUN GEODOMAIN PROGRAMM
-[22:21:02][ERROR]StatementCallback; uncategorized SQLException for SQL [select * from geodocument LIMIT 90 OFFSET 10]; SQL state [S0022]; error code [0]; Column '*' not found.; nested exception is java.sql.SQLException: Column '*' not found.

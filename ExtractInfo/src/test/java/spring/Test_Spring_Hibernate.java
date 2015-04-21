@@ -71,12 +71,12 @@ public class Test_Spring_Hibernate {
 ////              CustomerService cust = (CustomerService)appContext.getBean("dataSource");
 ////              Resource resource = cust.getResource(file.getAbsolutePath());
 //
-//                //ApplicationContext contextClassPath = new ClassPathXmlApplicationContext(file.getAbsolutePath());
+//                //ApplicationContext context = new ClassPathXmlApplicationContext(file.getAbsolutePath());
 //
 //                ApplicationContext contextClassPath2 =
 //                 new ClassPathXmlApplicationContext("spring_hibernate_files/spring-hibernate4v2.xml");
 //
-//                //ApplicationContext contextClassPath = new FileSystemXmlApplicationContext("spring_hibernate_files/spring-hibernate4v2.xml");
+//                //ApplicationContext context = new FileSystemXmlApplicationContext("spring_hibernate_files/spring-hibernate4v2.xml");
 //
 //
 //                //PRINT
