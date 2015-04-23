@@ -5,7 +5,7 @@ import object.model.GeoDocument;
 import object.model.InfoDocument;
 import org.hibernate.SessionFactory;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import util.SystemLog;
+import extractor.SystemLog;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -30,19 +30,13 @@ public class InfoDocumentDaoImpl extends GenericDaoImpl<InfoDocument> implements
     }
 
     @Override
-    public void loadHibernateConfig(String filePathXml) {
-        context = new ClassPathXmlApplicationContext(filePathXml);
-        InfoDocumentDaoImpl g = context.getBean(InfoDocumentDaoImpl.class);
-    }
-
-    @Override
     public void setTableSelect(String nameOfTable){
-        this.mySelectTable = nameOfTable;
+        super.mySelectTable = nameOfTable;
     }
 
 
     public void setSessionFactory(SessionFactory sessionFactory) {
-        this.sessionFactory = sessionFactory;
+        super.sessionFactory = sessionFactory;
     }
 
 
@@ -177,32 +171,5 @@ public class InfoDocumentDaoImpl extends GenericDaoImpl<InfoDocument> implements
     //HIBERNATE
     //////////////////////
 
-    //method to save
-    @Override
-    public void saveH(InfoDocument g ){
-        hibernateTemplate.save(g);
-    }
-    //method to update
-    @Override
-    public void updateH(InfoDocument g){
-        hibernateTemplate.update(g);
-    }
-    //method to delete
-    @Override
-    public void deleteH(InfoDocument g){
-        hibernateTemplate.delete(g);
-    }
-    //method to return one of given id
-    @Override
-    public InfoDocument  getHByColumn(String column){
-        InfoDocument g = hibernateTemplate.get(InfoDocument.class,column);
-        return g;
-    }
-    //method to return all
-    @Override
-    public List<InfoDocument> getAllH(){
-        List<InfoDocument> list = new ArrayList<InfoDocument>();
-        list = hibernateTemplate.loadAll(InfoDocument.class);
-        return list;
-    }
+
 }

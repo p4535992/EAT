@@ -10,7 +10,6 @@ package util.object.model;
  *
  * @author Marco
  */
-import util.SystemLog;
 
 import javax.persistence.*;
 
@@ -90,7 +89,6 @@ public class Website {
                 + System.getProperties().get("line.separator") 
                 + "******************************************************************************************************" 
                 + System.getProperties().get("line.separator");
-        SystemLog.message(0,s);
         return s;
     }  
     

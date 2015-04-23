@@ -1,4 +1,4 @@
-package util.jena_vocabulary;
+package util.jena.jena_vocabulary;
 
 /* CVS $Id: $ */
  

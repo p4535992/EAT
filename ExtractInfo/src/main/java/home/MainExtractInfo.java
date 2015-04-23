@@ -1,12 +1,11 @@
 package home;
 
 import org.xml.sax.SAXException;
-import util.FileUtil;
-import util.SystemLog;
-import util.cmd.SimpleParameters;
-import util.estrattori.ExtractInfoMySQL;
-import util.estrattori.ExtractInfoSpring;
-import util.gate.GateDataStoreKit;
+import extractor.FileUtil;
+import extractor.SystemLog;
+import extractor.cmd.SimpleParameters;
+import extractor.estrattori.ExtractInfoSpring;
+import extractor.gate.GateDataStoreKit;
 
 import java.awt.EventQueue;
 import java.io.FileNotFoundException;
@@ -63,49 +62,32 @@ public class MainExtractInfo {
                         SystemLog.message(params.toString());
 
                         String test = params.getValue("PARAM_PATH_FILE_CFG_DB_INPUT_KEYWORD");
-//                        try {
-                            if ( params.getValue("PARAM_TYPE_EXTRACTION").equals("MYSQL")) {
-                                SystemLog.message("Selezionato Estrazione MySQL", "OUT");
-                                SystemLog.message("Caricamento costruttore...");
-                                ExtractInfoMySQL m = new ExtractInfoMySQL(params);
-                                SystemLog.message("... construttore pronto.");
-                                m.Extraction();
-                            }else if(params.getValue("PARAM_TYPE_EXTRACTION").equals("SPRING")){
-                                ExtractInfoSpring m = new ExtractInfoSpring(params);
-                                SystemLog.message("START EXTRACT");
-                                m.Extraction();
-                            }
-                            /*} else if (params.getValue("PARAM_TYPE_EXTRACTION").equals("HIBERNATE_POJO")) {
-                                SystemLog.write("Selezionato Estrazione Hibernate POJO", "OUT");
-                                SystemLog.write("Caricamento costruttore...", "OUT");
-                                ExtractInfoHibernatePOJO m = new ExtractInfoHibernatePOJO(params);
-                                SystemLog.write("... construttore pronto.", "OUT");
-                                m.Extraction();
-                            } else if (params.getValue("PARAM_TYPE_EXTRACTION").equals("HIBERNATE_JIRA")) {
-                                SystemLog.write("Selezionato Estrazione Hibernate JIRA", "OUT");
-                                SystemLog.write("Caricamento costruttore...", "OUT");
-                                ExtractInfoHibernateJIRA m = new ExtractInfoHibernateJIRA(params);
-                                SystemLog.write("... construttore pronto.", "OUT");
-                                m.Extraction();
-                            }*/
-//                        }catch(Exception e){
-//
-//                        }
+//                        if ( params.getValue("PARAM_TYPE_EXTRACTION").equals("MYSQL")) {
+//                            SystemLog.message("Selezionato Estrazione MySQL", "OUT");
+//                            SystemLog.message("Caricamento costruttore...");
+//                            ExtractInfoMySQL m = new ExtractInfoMySQL(params);
+//                            SystemLog.message("... construttore pronto.");
+//                            m.Extraction();
+//                        }else
+                       if(params.getValue("PARAM_TYPE_EXTRACTION").equals("SPRING")){
+                            ExtractInfoSpring m = new ExtractInfoSpring(params);
+                            SystemLog.message("START EXTRACT");
+                            m.Extraction();
+                       }
                     }
                     //Ouput del tempo di elaborazione del progamma
                          /*System.out.println(String.format(
                                "------------ Processing took %s millis\n\n",
-                         System.currentTimeMillis() - start));*/   
-                }catch(InterruptedException ie){
-                    ie.printStackTrace();
-                       SystemLog.error("ERROR:" + ie.getMessage());
-                    Logger.getLogger(MainExtractInfo.class.getName()).log(Level.SEVERE, null, ie);
-                    //log(Logger.getLogger(home.MainExtractInfo.class.getName()).log(Level.SEVERE, null, ie));
-                }catch(InvocationTargetException iie){
-                    iie.printStackTrace();
-                    SystemLog.error("ERROR:" + iie.getMessage());
-                    Logger.getLogger(MainExtractInfo.class.getName()).log(Level.SEVERE, null, iie);
-                } catch (IOException e) {
+                         System.currentTimeMillis() - start));*/
+                   }catch(InterruptedException ie){
+                           ie.printStackTrace();
+                           SystemLog.error("ERROR:" + ie.getMessage());
+                           Logger.getLogger(MainExtractInfo.class.getName()).log(Level.SEVERE, null, ie);
+                   }catch(InvocationTargetException iie){
+                        iie.printStackTrace();
+                        SystemLog.error("ERROR:" + iie.getMessage());
+                        Logger.getLogger(MainExtractInfo.class.getName()).log(Level.SEVERE, null, iie);
+                   } catch (IOException e) {
                        e.printStackTrace();
                    } catch (SAXException e) {
                        e.printStackTrace();
@@ -117,18 +99,6 @@ public class MainExtractInfo {
     }catch(java.lang.OutOfMemoryError e){
         //ricarica il programma 
         SystemLog.error("java.lang.OutOfMemoryError, Ricarica il programma modificando LIMIT e OFFSET.\n GATE execute in timeout");
-        /*
-        if(tentativiOutMemory ==2){OFFSET = OFFSET + i + 1;System.exit(0);}
-        else{ 
-            OFFSET = OFFSET + i;
-            //LIMIT = LIMIT - OFFSET;
-            Integer numero = Math.abs(LIMIT - OFFSET);
-            System.err.println("NUOVO OFFSET:"+OFFSET+",NUOVO LIMIT:"+LIMIT);
-            tentativiOutMemory++;
-            if(numero < RANGE){mei.main(args);}
-            else{System.exit(0);}           
-        }   
-        */
     }
 }//main	  
 

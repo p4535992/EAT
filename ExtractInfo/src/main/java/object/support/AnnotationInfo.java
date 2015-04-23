@@ -6,7 +6,6 @@
  * L'annotazione di regione contiene ad esempio il testo tracciato coem informazioni della regione 
  */
 package object.support;
-import util.SystemLog;
 
 import java.net.URL;
 

@@ -40,7 +40,7 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 
-import util.SystemLog;
+import util.SystemLogUtility;
 
 /**
  *
@@ -76,11 +76,11 @@ public class ExecuteCmdAndPrintOnOutput {
                 while ( (line = br.readLine()) != null) {
                     buffer.append(line);//.append("\n");
                     if(!line.isEmpty()){
-                        SystemLog.ticket("CMD:" + line, "OUT");}
+                        SystemLogUtility.ticket("CMD:" + line, "OUT");}
                 }
                 message = buffer.toString();
             } catch (IOException ioe) {
-                SystemLog.ticket(ioe.getMessage(), "ERROR");
+                SystemLogUtility.ticket(ioe.getMessage(), "ERROR");
                 ioe.printStackTrace(); 
             }
         }
@@ -115,13 +115,13 @@ public class ExecuteCmdAndPrintOnOutput {
             error.join(3000);
             output.join(3000);
             exitVal = proc.waitFor();
-            SystemLog.ticket("Output: " + output.message, "OUT");
-            SystemLog.ticket("Error: " + error.message, "WARNING");
+            SystemLogUtility.ticket("Output: " + output.message, "OUT");
+            SystemLogUtility.ticket("Error: " + error.message, "WARNING");
             
             //file.delete();
             //file.deleteOnExit();
         }catch(Exception e){
-             SystemLog.ticket(e.getMessage(), "ERROR");
+            SystemLogUtility.ticket(e.getMessage(), "ERROR");
              e.printStackTrace();
         }finally{
             file.delete();
@@ -164,7 +164,7 @@ public class ExecuteCmdAndPrintOnOutput {
             System.out.println("Error: "+error.message);
             */
         }catch(Exception e){
-            SystemLog.ticket(e.getMessage(), "ERROR");
+            SystemLogUtility.ticket(e.getMessage(), "ERROR");
             e.printStackTrace();
         }
     }

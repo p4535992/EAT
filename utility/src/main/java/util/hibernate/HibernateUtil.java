@@ -6,7 +6,6 @@
 
 package util.hibernate;
 import java.io.File;
-import java.io.IOException;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.net.URL;
@@ -15,12 +14,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.cfg.Configuration;
-import org.hibernate.engine.spi.SessionFactoryImplementor;
-import org.hibernate.internal.SessionFactoryImpl;
-import org.xml.sax.SAXException;
-import util.SystemLog;
-
-import javax.xml.transform.TransformerException;
+import util.SystemLogUtility;
 
 /**
  *
@@ -39,7 +33,7 @@ public class HibernateUtil {
             sessionFactory = new Configuration().configure().buildSessionFactory();
         } catch (Throwable ex) {
             // Make sure you SystemLog the exception, as it might be swallowed
-            SystemLog.message("Initial SessionFactory creation failed." + ex);
+            SystemLogUtility.message("Initial SessionFactory creation failed." + ex);
             throw new ExceptionInInitializerError(ex);
         }
     }
@@ -66,7 +60,7 @@ public class HibernateUtil {
  
 		} catch (Throwable ex) {
 			// Make sure you SystemLog the exception, as it might be swallowed
-			SystemLog.error("ERROR: Initial SessionFactory creation failed." + ex);
+            SystemLogUtility.error("ERROR: Initial SessionFactory creation failed." + ex);
 			throw new ExceptionInInitializerError(ex);
 		}
 	}
@@ -86,7 +80,7 @@ public class HibernateUtil {
                }                  
            } catch (Throwable ex) {
                    // Make sure you SystemLog the exception, as it might be swallowed
-                   SystemLog.error("ERROR: Initial SessionFactory creation failed." + ex);
+                   SystemLogUtility.error("ERROR: Initial SessionFactory creation failed." + ex);
                    throw new ExceptionInInitializerError(ex);
            }
     }
@@ -102,7 +96,7 @@ public class HibernateUtil {
                }                    
            } catch (Throwable ex) {
                    // Make sure you SystemLog the exception, as it might be swallowed
-                   SystemLog.error("ERROR: Initial SessionFactory creation failed." + ex);
+                   SystemLogUtility.error("ERROR: Initial SessionFactory creation failed." + ex);
                    throw new ExceptionInInitializerError(ex);
            }
     }
@@ -117,7 +111,7 @@ public class HibernateUtil {
                }                    
            } catch (Throwable ex) {
                    // Make sure you SystemLog the exception, as it might be swallowed
-                   SystemLog.error("ERROR: Initial SessionFactory creation failed." + ex);
+                   SystemLogUtility.error("ERROR: Initial SessionFactory creation failed." + ex);
                    throw new ExceptionInInitializerError(ex);
            }
     }
@@ -184,7 +178,7 @@ public class HibernateUtil {
 
             sessionFactory=configuration.buildSessionFactory();
           }catch (Throwable ex) {
-            SystemLog.error("ERROR: Initial SessionFactory creation failed." + ex);
+              SystemLogUtility.error("ERROR: Initial SessionFactory creation failed." + ex);
             throw new ExceptionInInitializerError(ex);
           }
     }
@@ -250,7 +244,7 @@ public class HibernateUtil {
         Object instanceOfMyClass = constructor.newInstance(new Double(0), this);
         */
         //You can use reflection : Class.forName(className).getConstructor(String.class).newInstance(arg);
-        SystemLog.message("Create new Class Object con Name: " + cls.getName());
+        SystemLogUtility.message("Create new Class Object con Name: " + cls.getName());
        return cls;
   }
     
@@ -258,7 +252,7 @@ public class HibernateUtil {
         //e.g. oracle.jdbc.driver.OracleDriver#sthash.4rtwgiWJ.dpuf
         Class cls = Class.forName(pathPackageToAnnotatedClass).getConstructor().newInstance().getClass();       
         //You can use reflection : Class.forName(className).getConstructor(String.class).newInstance(arg);
-       SystemLog.message("Create new Class Object con Name: " + cls.getName());
+       SystemLogUtility.message("Create new Class Object con Name: " + cls.getName());
        //System.out.println(cls.getName());
        //System.out.println(cls.getSimpleName());
        return cls;

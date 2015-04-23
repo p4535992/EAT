@@ -3,19 +3,16 @@ package object.impl;
 import object.dao.IGeoDomainDocumentDao;
 import object.model.GeoDocument;
 import object.model.GeoDomainDocument;
-import org.hibernate.HibernateException;
-import org.hibernate.Query;
-import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.RowMapper;
-import org.springframework.orm.hibernate4.HibernateCallback;
-import util.SystemLog;
+import extractor.SystemLog;
+import spring.bean.BeansKit;
 import util.string.StringKit;
-
 import javax.sql.DataSource;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
 import java.util.ArrayList;
@@ -35,18 +32,10 @@ public class GeoDomainDocumentDaoImpl extends GenericDaoImpl<GeoDomainDocument> 
     }
 
     @Override
-    public void setDataSource(DataSource ds) {
-        this.dataSource = ds;
-    }
+    public void setDataSource(DataSource ds) { super.dataSource = ds;}
 
     @Override
     public void loadSpringConfig(String filePathXml) {
-        context = new ClassPathXmlApplicationContext(filePathXml);
-        GeoDomainDocumentDaoImpl g = context.getBean(GeoDomainDocumentDaoImpl.class);
-    }
-
-    @Override
-    public void loadHibernateConfig(String filePathXml) {
         context = new ClassPathXmlApplicationContext(filePathXml);
         GeoDomainDocumentDaoImpl g = context.getBean(GeoDomainDocumentDaoImpl.class);
     }
@@ -198,7 +187,7 @@ public class GeoDomainDocumentDaoImpl extends GenericDaoImpl<GeoDomainDocument> 
 //        }
     }
 
-    public List<GeoDocument> selectGeoDocuments(String column,String limit,String offset){
+    public List<GeoDocument> selectGeoDocuments(String column,int limit,int offset){
         List<GeoDocument> ges = new ArrayList<>();
 
         query = "select "+column+" from " + mySelectTable + " LIMIT " + limit + " OFFSET " + offset + "";
@@ -289,86 +278,9 @@ public class GeoDomainDocumentDaoImpl extends GenericDaoImpl<GeoDomainDocument> 
         }catch(Exception e){}
     }
 
-    ///////////////////////
-    //HIBERNATE
-    //////////////////////
-
-    //method to save
-    @Override
-    public void saveH(GeoDomainDocument g ){
-        hibernateTemplate.save(g);
-    }
-    //method to update
-    @Override
-    public void updateH(GeoDomainDocument g){
-        hibernateTemplate.update(g);
-    }
-    //method to delete
-    @Override
-    public void deleteH(GeoDomainDocument g){
-        hibernateTemplate.delete(g);
-    }
-    //method to return one of given id
-    @Override
-    public GeoDomainDocument  getHByColumn(String column){
-        GeoDomainDocument g = hibernateTemplate.get(GeoDomainDocument.class,column);
-        return g;
-    }
-    //method to return all
-    @Override
-    public List<GeoDomainDocument> getAllH(){
-        List<GeoDomainDocument> list = new ArrayList<GeoDomainDocument>();
-        list = hibernateTemplate.loadAll(GeoDomainDocument.class);
-        return list;
-    }
-
-    @Override
-    public List<GeoDocument> getAllH(final String limit, final String offset){
-        List<GeoDocument> docs = new ArrayList<GeoDocument>();
-        //METHOD 1 (Boring)
-        /*
-        Query q = getHibernateTemplate().getSession().createQuery("from User");
-        q.setFirstResult(0); // modify this to adjust paging
-        q.setMaxResults(limit);
-        return (List<User>) q.list();
-        */
-        if(limit != null && offset != null) {
-            //METHOD 2 (Probably the best)
-            docs =
-             (List<GeoDocument>) hibernateTemplate.execute(new HibernateCallback() {
-                public Object doInHibernate(Session session) throws HibernateException {
-                    Query query = session.createQuery("from " + mySelectTable + "");
-                    query.setFirstResult(Integer.parseInt(offset));
-                    query.setMaxResults(Integer.parseInt(limit));
-                    return (List<GeoDocument>) query.list();
-                }
-            });
-        }
-        return docs;
-    }
 
 
 
-   // If you'd like to use HibernateTemplate you can do something like this:
-/*
-    @SuppressWarnings("unchecked")
-    public List<User> getUsers(final int limit) {
-        return getHibernateTemplate().executeFind(new HibernateCallback<List<User>>() {
-            @Override
-            public List<User> doInHibernate(Session session) throws HibernateException, SQLException {
-                return session.createCriteria(User.class).setMaxResults(limit).list();
-            }
-        });
-    }
 
-    @SuppressWarnings("unchecked")
-    public List<User> getUsers(final int limit) {
-        return getHibernateTemplate().executeFind(new HibernateCallback<List<User>>() {
-            @Override
-            public List<User> doInHibernate(Session session) throws HibernateException, SQLException {
-                return session.createQuery("from User u").setMaxResults(limit).list();
-            }
-        });
-    }
-    */
+
 }

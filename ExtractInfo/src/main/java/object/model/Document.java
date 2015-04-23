@@ -9,7 +9,7 @@ package object.model;
  *
  * @author Marco
  */
-import util.SystemLog;
+import extractor.SystemLog;
 
 import javax.persistence.*;
 @Entity
@@ -93,7 +93,6 @@ public class Document {
     @Override
     public String toString() {
         String s = "Document{" + "doc_id=" + doc_id + ", url=" + url + ", city=" + city + ", latitude=" + latitude + ", longitude=" + longitude + ", crawling_date=" + crawling_date + ", crawling_time=" + crawling_time + '}';
-        SystemLog.message(0,s);
         return s;
     }
     

@@ -7,7 +7,7 @@
 package object.support;
 
 import object.model.GeoDocument;
-import util.SystemLog;
+import extractor.SystemLog;
 
 import java.util.ArrayList;
 
@@ -60,7 +60,6 @@ public class DepositFrequencyInfo {
                 "DepositFrequencyInfo{" + "domain=" + domain + ", listGeoDoc=" + listGeoDoc + ", frequency=" + frequency + '}' +
                 "******************************************************************************************************" 
                 + System.getProperties().get("line.separator");
-        SystemLog.message(0,s);
         return s;
     }
 

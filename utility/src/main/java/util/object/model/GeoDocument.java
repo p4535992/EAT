@@ -285,7 +285,6 @@ public class GeoDocument {
                 + "}" 
                 + System.getProperties().get("line.separator")
                 + "******************************************************************************************************"  + System.getProperties().get("line.separator");
-        //SystemLog.message(0,s);
         return s;
     }
     

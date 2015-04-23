@@ -38,11 +38,11 @@ public class DocumentDaoImpl extends GenericDaoImpl<Document> implements IDocume
         DocumentDaoImpl g = context.getBean(DocumentDaoImpl.class);
     }
 
-    @Override
-    public void loadHibernateConfig(String filePathXml) {
-        context = new ClassPathXmlApplicationContext(filePathXml);
-        DocumentDaoImpl g = context.getBean(DocumentDaoImpl.class);
-    }
+//    @Override
+//    public void loadHibernateConfig(String filePathXml) {
+//        context = new ClassPathXmlApplicationContext(filePathXml);
+//        DocumentDaoImpl g = context.getBean(DocumentDaoImpl.class);
+//    }
 
     @Override
     public void setTableSelect(String nameOfTable){
@@ -52,32 +52,17 @@ public class DocumentDaoImpl extends GenericDaoImpl<Document> implements IDocume
 
     @Override
     public String selectValueForSpecificColumn(String column, String column_where, String value_where){
-        String city ="";
+        String city;
         try {
             String query = "SELECT " + column + " from " + mySelectTable + " WHERE " + column_where + " = ?";
             city = (String) jdbcTemplate.queryForObject(query, new Object[]{value_where}, String.class);
         }catch(org.springframework.dao.EmptyResultDataAccessException e){
             city = "";
+        }catch(java.lang.NullPointerException ex){
+            city = "";
         }
         //String name = (String)getJdbcTemplate().queryForObject(query, new Object[] { custId }, String.class);
         return city;
-    }
-
-
-    ///////////////////////
-    //HIBERNATE
-    //////////////////////
-
-    @Override
-    public void updateH(Document g){
-        hibernateTemplate.update(g);
-    }
-
-    //method to return one of given id
-    @Override
-    public Document  getHByColumn(String column){
-        Document g = hibernateTemplate.get(Document.class,column);
-        return g;
     }
 
 

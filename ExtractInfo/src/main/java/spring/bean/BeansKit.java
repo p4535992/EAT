@@ -11,6 +11,7 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.web.context.support.XmlWebApplicationContext;
 
 import java.io.File;
+import java.io.IOException;
 
 /**
  * Created by Marco on 21/04/2015.
@@ -37,7 +38,7 @@ public class BeansKit<T> {
     }
 
 
-    public static ApplicationContext tryGetContextSpring(String filePathXml) throws Exception {
+    public static ApplicationContext tryGetContextSpring(String filePathXml) throws IOException {
         if(new File(filePathXml).exists()) {
             try {
                 //This container loads the definitions of the beans from an XML file.
@@ -67,13 +68,13 @@ public class BeansKit<T> {
                 }
             }
         }else{
-            throw new Exception("Not found the comnfiguration spring file!");
+            throw new IOException("Not found the comnfiguration spring file!");
         }
         return context;
     }
 
 
-    public static ApplicationContext tryGetContextSpring(String[] filesPathsXml) throws Exception {
+    public static ApplicationContext tryGetContextSpring(String[] filesPathsXml) throws IOException {
         boolean check =true;
         for(String spath : filesPathsXml){
             if(new File(spath).exists()) {}
@@ -97,7 +98,7 @@ public class BeansKit<T> {
             }
 
         }else{
-            throw new Exception("Not found the one or more comnfiguration spring file!");
+            throw new IOException("Not found the one or more comnfiguration spring file!");
         }
         return context;
     }

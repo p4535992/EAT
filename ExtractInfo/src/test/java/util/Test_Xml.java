@@ -6,9 +6,6 @@
 
 package util;
 
-import util.karma.*;
-import util.cmd.ExecuteCmdAndPrintOnOutput;
-import static util.karma.GenerationOfTriple.GetTimeAndDate;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;

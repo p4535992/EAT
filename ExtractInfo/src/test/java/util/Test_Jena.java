@@ -10,6 +10,9 @@ import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import javax.xml.transform.TransformerConfigurationException;
+
+import extractor.FileUtil;
+import extractor.JenaInfoDocument;
 import org.xml.sax.SAXException;
 
 /**

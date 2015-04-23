@@ -7,8 +7,8 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.transaction.annotation.Transactional;
-import util.ResourcesKit;
-import util.SystemLog;
+import extractor.ResourcesKit;
+import extractor.SystemLog;
 
 import javax.sql.DataSource;
 import java.io.File;
@@ -50,42 +50,16 @@ public class GeoDocumentDaoImpl extends GenericDaoImpl<GeoDocument> implements I
         GeoDocumentDaoImpl g = context.getBean(GeoDocumentDaoImpl.class);
     }
 
-    @Override
-    public void loadHibernateConfig(String filePathXml) {
-        //ApplicationContext context = new ClassPathXmlApplicationContext(filePathXml);
-        File file = ResourcesKit.getResourceAsFile(filePathXml);
-        if(file.exists()){
-            try {
-                context = new ClassPathXmlApplicationContext(filePathXml);
-            }catch(Exception e) {
-                e.printStackTrace();
-            }
-        }
-        GeoDocumentDaoImpl g = (GeoDocumentDaoImpl) context.getBean("GeoDocumentDao");
-    }
 
     @Override
-    public void setTableSelect(String nameOfTable){this.mySelectTable = nameOfTable;}
+    public void setTableSelect(String nameOfTable){super.mySelectTable = nameOfTable;}
 
     @Override
     public void setTableInsert(String nameOfTable){
-        this.myInsertTable = nameOfTable;
+        super.myInsertTable = nameOfTable;
     }
-/*
-    public void setSessionFactory(DataSource dataSource) {
-        LocalSessionFactoryBuilder sessionBuilder = new LocalSessionFactoryBuilder(dataSource);
-        sessionBuilder.addAnnotatedClasses(GeoDocument.class);
-        this.sessionFactory = sessionBuilder.buildSessionFactory();
-    }
-*/
-    /*
-    public void setSessionFactory() {
-        LocalSessionFactoryBuilder sessionBuilder = new LocalSessionFactoryBuilder(dataSource);
-        sessionBuilder.addAnnotatedClasses(GeoDocument.class);
-        this.sessionFactory = sessionBuilder.buildSessionFactory();
-    }
-    */
-    @Autowired
+
+
     public void setSessionFactory(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }
@@ -157,24 +131,24 @@ public class GeoDocumentDaoImpl extends GenericDaoImpl<GeoDocument> implements I
                         " edificio, latitude,longitude,nazione,description,postalCode,indirizzoNoCAP," +
                         "indirizzoHasNumber) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
 
-        SystemLog.message(query);
+        SystemLog.query(query);
         // define query arguments
         Object[] params = new Object[] {
                 g.getUrl(), g.getRegione(), g.getProvincia(), g.getCity(),
         g.getIndirizzo(),g.getIva(),g.getEmail(),g.getTelefono(),g.getFax(),g.getEdificio(),g.getLat(),g.getLng(),
         g.getNazione(),g.getDescription(),g.getPostalCode(),g.getIndirizzoNoCAP(),g.getIndirizzoHasNumber()};
+
+
         // define SQL types of the arguments
         int[] types = new int[] { Types.VARCHAR, Types.VARCHAR, Types.VARCHAR, Types.VARCHAR,Types.VARCHAR,
                 Types.VARCHAR, Types.VARCHAR, Types.VARCHAR, Types.VARCHAR,Types.VARCHAR, Types.VARCHAR,
                 Types.VARCHAR, Types.VARCHAR, Types.VARCHAR, Types.VARCHAR,Types.VARCHAR, Types.VARCHAR,};
         // execute insert query to insert the data
         // return number of row / rows processed by the executed query
-        jdbcTemplate.update(query, params, types);
-
-        //Method 1 ROWMAP
-        query = "SELECT * FROM "+myInsertTable+" LIMIT 1";
-
         try {
+            jdbcTemplate.update(query, params, types);
+            //Method 1 ROWMAP
+            query = "SELECT * FROM "+myInsertTable+" LIMIT 1";
             Connection connection = dataSource.getConnection();
             PreparedStatement p = connection.prepareStatement(query);
             ResultSet rs = p.executeQuery();
@@ -186,7 +160,11 @@ public class GeoDocumentDaoImpl extends GenericDaoImpl<GeoDocument> implements I
                 query = "UPDATE `" + myInsertTable + "` SET `" + rsMetaData.getColumnName(i) + "` = LTRIM(RTRIM(`" + rsMetaData.getColumnName(i) + "`));";
                 jdbcTemplate.execute(query);
             }
-        }catch(Exception e){}
+        }catch(NullPointerException e){
+            SystemLog.throwException(new Throwable("Null pointer on the query:"+query+"",e.getCause()));
+        }catch(SQLException sqle){
+            SystemLog.throwException(new Throwable("the SQL query:"+query+" is wrong",sqle.getCause()));
+        }
     }
     /*
     private List<String> getListColumnSDAO(String builder) {
@@ -217,50 +195,6 @@ public class GeoDocumentDaoImpl extends GenericDaoImpl<GeoDocument> implements I
         return columns;
     }
     */
-
-
-    ///////////////////////
-    //HIBERNATE
-    //////////////////////
-
-    //method to save
-    @Override
-    public void saveH(GeoDocument g ){
-        hibernateTemplate.save(g);
-    }
-    //method to update
-    @Override
-    public void updateH(GeoDocument g){
-        hibernateTemplate.update(g);
-    }
-    //method to delete
-    @Override
-    public void deleteH(GeoDocument g){
-        hibernateTemplate.delete(g);
-    }
-    //method to return one of given id
-    @Override
-    public GeoDocument  getHByColumn(String column){
-        GeoDocument g = hibernateTemplate.get(GeoDocument.class,column);
-        return g;
-    }
-    //method to return all
-    @Override
-    @Transactional
-    public List<GeoDocument> getAllH(){
-        @SuppressWarnings("unchecked")
-        /*
-        List<GeoDocument> list = new ArrayList<GeoDocument>();
-        list = hibernateTemplate.loadAll(GeoDocument.class);
-        */
-        List<GeoDocument> list = (List<GeoDocument>) sessionFactory.getCurrentSession()
-        .createCriteria(GeoDocument.class)
-        .setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
-
-        return list;
-    }
-
-
         /*
         List columns = new ArrayList();
         jdbcTemplate.query(builder.toString(),new ResultSetExtractor<Object>() {

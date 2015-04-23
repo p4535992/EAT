@@ -6,11 +6,13 @@
 
 package util;
 
+import extractor.EncodingUtil;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
-import static util.EncodingUtil.writeLargerTextFileWithReplace2;
+import static extractor.EncodingUtil.writeLargerTextFileWithReplace2;
 
 /**
  *

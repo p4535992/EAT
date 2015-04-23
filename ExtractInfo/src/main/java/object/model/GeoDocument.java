@@ -7,8 +7,6 @@
  */
 package object.model;
 
-import util.SystemLog;
-
 import java.net.URL;
 import javax.persistence.*;
 @Entity

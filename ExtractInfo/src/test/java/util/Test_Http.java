@@ -1,6 +1,6 @@
 package util;
 
-import util.http.HttpUtil;
+import extractor.http.HttpUtil;
 
 import java.net.URISyntaxException;
 

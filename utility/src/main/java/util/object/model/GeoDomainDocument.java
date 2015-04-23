@@ -7,7 +7,6 @@
  */
 package util.object.model;
 
-import util.SystemLog;
 
 import javax.persistence.*;
 import java.net.URL;
@@ -292,7 +291,6 @@ public class GeoDomainDocument {
                 + "}" 
                 + System.getProperties().get("line.separator") 
                 + "******************************************************************************************************" + System.getProperties().get("line.separator");
-        SystemLog.message(0,s);
         return s;
     }
     
