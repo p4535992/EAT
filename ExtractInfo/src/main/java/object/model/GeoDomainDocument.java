@@ -1,18 +1,16 @@
 /**
  * GeoDomainDocument.java.
  * @author Tenti Marco Elaborato Sistemi Distribuiti.
- * La classe che costruisce l'oggeto JAVA geoDomainDocument su cui andiamo a 
+ * La classe che costruisce lt'oggeto JAVA geoDomainDocument su cui andiamo a
  * inserire i risultati del'elaborazione di GATE nella tabella geodocument
  * e inserirli successivamente come record della tabella geodomaindocument del database geolocationdb
  */
 package object.model;
 
-import extractor.SystemLog;
-
 import java.net.URL;
 
 /**
- * Oggetto utilizzato per l'immagazinnamento dei GeoDomainDocument
+ * Oggetto utilizzato per lt'immagazinnamento dei GeoDomainDocument
  * @author Marco Tenti
  */
 import javax.persistence.*;

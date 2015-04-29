@@ -9,7 +9,7 @@ import java.util.logging.Logger;
  * ManageAnnotationAndContent.java. Estrai il contenuto dell annotazioni
  * semantiche da ogni documento del Corpus Struttura il contenuto in un oggetto
  * Java Keyword Per ogni documento da cui è estratta una Keyword inseriamo la
- * Keyword in una lista da utilizzare successivamente per l'inserimento nel
+ * Keyword in una lista da utilizzare successivamente per lt'inserimento nel
  * database
  */
 public class GateAnnotationKit {
@@ -203,8 +203,8 @@ public class GateAnnotationKit {
     /**
      * Meccanismo di estrazione del contenuto delle Annotazioni Semantiche.
      * @param doc il GATE Document preso in esame
-     * @param dateSet l'AnnotationSet (set di annotazioni)di GATE preso in esame
-     * @param stringNameAnnotation l'Annotation (annotazione) di GATE preso in
+     * @param dateSet lt'AnnotationSet (set di annotazioni)di GATE preso in esame
+     * @param stringNameAnnotation lt'Annotation (annotazione) di GATE preso in
      * esame
      * @return in forma di stringa il contenuto dell'annotazione
      * stringNameAnnotation all'interno del set di annotazioni dateSet
@@ -221,7 +221,7 @@ public class GateAnnotationKit {
             //Prendi tutte le annotazioni di tipo stringNameAnnotation all'interno del 
             //set di annotazioni date.set 
             AnnotationSet commentTokensAs = dateSet.get(stringNameAnnotation);
-            //prendi il testo del documento ma viene chiamato solo per l'HEAD e il FOOTER
+            //prendi il testo del documento ma viene chiamato solo per lt'HEAD e il FOOTER
             //quindi non pesa troppo, per il body si va a prendere dirattamente il risultato delle regole JAPE
             //il perchè è che voglio essere sicuro di non mancare niente nell'HEAD e il FOOTER
             String myDoc = doc.getContent().toString();
@@ -249,7 +249,7 @@ public class GateAnnotationKit {
                             if (!(s.contains(content2))) {   
                                 continue;
                             } else {
-                               //Ho deciso di mettere i numeri di telefono uno dietro l'altro in un unica
+                               //Ho deciso di mettere i numeri di telefono uno dietro lt'altro in un unica
                                 //stringa concatenata separati d separati da ";" poi volendo con uno split 
                                 //possiamo ricavarci la lista dei numeri ( a noi non interessa)
                                 /*Modificato il 19-09-2014*/
@@ -321,7 +321,7 @@ public class GateAnnotationKit {
      * Metodo evita di ripetere due volte la stessa informazione all'interno
      * dello stesso contenuto della medesima annotazione.
      * @param fua il contentuo dell'annotazione sottoforma di stringa
-     * @param symbol il simbolo separatore imposto durante l'estrazione del
+     * @param symbol il simbolo separatore imposto durante lt'estrazione del
      * contenuto
      * @return ritorna il contenuto "filtrato" dell'anotazione
      */
@@ -386,15 +386,15 @@ public class GateAnnotationKit {
     }
     /**
      * Metodo che prende una lista di annotazioni dello stesso tipo
-     * e poi decide di prendere l'ultimo tracciato semplicemente per un ragionamento
+     * e poi decide di prendere lt'ultimo tracciato semplicemente per un ragionamento
      * logico , questo metodo viene attivato solo dal set di annotazioni MyAnnSet e
-     * MySpecialID in entrambi i casi in mancanza di FOOTER e HEADER l'ultima annotazione
+     * MySpecialID in entrambi i casi in mancanza di FOOTER e HEADER lt'ultima annotazione
      * di quel tipo riscontrata è probabilemnte la più esatta a rappresentare la pagina
      * web.
      * @param doc il GATE Document che si sta studiando
-     * @param dateSet l'AnnotationSet di riferimento (MyAnnSet o MySpecialID)
+     * @param dateSet lt'AnnotationSet di riferimento (MyAnnSet o MySpecialID)
      * @param stringNameAnnotation il tipo dell'annotazione in formato stringa
-     * @return l'ultima annotazione di quel tipo per quell'AnnotationSet per il dato documento
+     * @return lt'ultima annotazione di quel tipo per quell'AnnotationSet per il dato documento
      */
     private static String getLastAnnotationOnTheAnnotionSetWithSpecificType(Document doc, AnnotationSet dateSet, String stringNameAnnotation){
       Integer i = 0;
@@ -426,7 +426,7 @@ public class GateAnnotationKit {
         try{
             if(s!=null){          
               String[] su = s.split(";");
-              //l'ultimo elemento della array splittato:
+              //lt'ultimo elemento della array splittato:
               return su[su.length -1];
               //return su[1];
             }else{         

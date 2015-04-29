@@ -15,6 +15,7 @@
 
     <modules>
         <module>../utility</module>
+        <module>../web-karma-master/karma-offline</module>
     </modules>
 
     <!-- Inherit defaults from Spring Boot -->
@@ -23,10 +24,6 @@
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>1.2.3.RELEASE</version>
     </parent>
-
-    <!--<modules>-->
-        <!--<module>../web-karma-master/karma-offline</module>-->
-    <!--</modules>-->
 
     <repositories>
         <!-- Portable repository of the project -->
@@ -49,8 +46,8 @@
         <!-- Generic properties -->
         <downloadSources>true</downloadSources>
         <downloadJavadocs>true</downloadJavadocs>
-        <!--<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>-->
-        <!--<project.build.outputEncoding>UTF-8</project.build.outputEncoding>-->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.build.outputEncoding>UTF-8</project.build.outputEncoding>
         <java-version>1.7</java-version>
 
         <!-- Version of the libray we used on the project-->
@@ -61,10 +58,8 @@
         <gate.version>8.0</gate.version>
         <javax-servlet-api.version>3.1.0</javax-servlet-api.version>
         <javax-servlet-jsp-api.version>2.3.1</javax-servlet-jsp-api.version>
-        <commons-dbcp2.version>2.0</commons-dbcp2.version>
         <jstl.version>1.2</jstl.version>
         <webkarma.version>0.0.1-SNAPSHOT</webkarma.version>
-        <org-json.version>20140107</org-json.version>
         <logback.version>1.0.13</logback.version>
         <sl4j.version>1.7.12</sl4j.version>
         <jsoup.version>1.8.2</jsoup.version>
@@ -87,10 +82,32 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+
+            <!-- Module utility -->
+            <dependency>
+                <groupId>4535992.utility</groupId>
+                <artifactId>utility</artifactId>
+                <version>1.0-SNAPSHOT</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.json</groupId>
+                        <artifactId>json</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.apache.httpcomponents</groupId>
+                        <artifactId>httpclient</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
     <dependencies>
+        <dependency>
+            <groupId>4535992.utility</groupId>
+            <artifactId>utility</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
 
         <!-- GATE -->
         <!--
@@ -145,60 +162,6 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- Hibernate -->
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-core</artifactId>
-            <version>${hibernate.version}</version>
-        </dependency>
-
-        <!-- for JPA, use hibernate-entitymanager instead of hibernate-core -->
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-entitymanager</artifactId>
-            <version>${hibernate.version}</version>
-        </dependency>
-
-        <!-- optional hibernate library -->
-
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-osgi</artifactId>
-            <version>${hibernate.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-envers</artifactId>
-            <version>${hibernate.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-c3p0</artifactId>
-            <version>${hibernate.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-proxool</artifactId>
-            <version>${hibernate.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-infinispan</artifactId>
-            <version>${hibernate.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-ehcache</artifactId>
-            <version>${hibernate.version}</version>
-        </dependency>
-
-        <!-- MySQL -->
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>${mysql.version}</version>
-        </dependency>
-
         <!-- Joda-Time -->
         <dependency>
             <groupId>joda-time</groupId>
@@ -234,12 +197,7 @@
             <version>${jstl.version}</version>
         </dependency>
 
-        <!-- Apache Commons DBCP dependency (for database connection pooling): -->
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-dbcp2</artifactId>
-            <version>${commons-dbcp2.version}</version>
-        </dependency>
+
 
         <!-- SLF4J -->
         <dependency>
@@ -275,14 +233,6 @@
             <scope>provided</scope>
         </dependency>
 
-        <!-- JSOUP 1.8 -->
-        <dependency>
-            <groupId>org.jsoup</groupId>
-            <artifactId>jsoup</artifactId>
-            <version>${jsoup.version}</version>
-        </dependency>
-
-
 
         <!-- JUNIT -->
         <!--
@@ -292,21 +242,6 @@
             <version>3.8.1</version>
         </dependency>
         -->
-
-        <!--SILK -->
-        <!--
-        <dependency>
-            <groupId>de.fuberlin.wiwiss.silk</groupId>
-            <artifactId>silk-core</artifactId>
-            <version>2.5</version>
-        </dependency>-->
-
-        <!-- Module utility -->
-        <dependency>
-            <groupId>4535992.utility</groupId>
-            <artifactId>utility</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
 
         <!-- Module  WEB-KARMA -->
         <dependency>
@@ -321,13 +256,6 @@
             <artifactId>webkarma</artifactId>
             <version>${webkarma.version}</version>
             <scope>compile</scope>
-        </dependency>
-
-        <!-- JSON -->
-        <dependency>
-            <groupId>org.json</groupId>
-            <artifactId>json</artifactId>
-            <version>${org-json.version}</version>
         </dependency>
 
         <!-- SPRING-BOOT FRAMEWORK -->
@@ -357,19 +285,6 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-        <!--&lt;!&ndash; JENA FRAMEWORK &ndash;&gt;-->
-        <!--<dependency>-->
-            <!--<groupId>org.apache.jena</groupId>-->
-            <!--<artifactId>apache-jena-libs</artifactId>-->
-            <!--<type>pom</type>-->
-            <!--<version>2.13.0</version>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-            <!--<groupId>org.apache.jena</groupId>-->
-            <!--<artifactId>jena-querybuilder</artifactId>-->
-            <!--<type>jar</type>-->
-            <!--<version>2.13.0</version>-->
-        <!--</dependency>-->
     </dependencies>
 
     <build>

@@ -1,0 +1,58 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+package util;
+
+import java.io.File;
+import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
+import java.util.List;
+import javax.xml.transform.TransformerConfigurationException;
+
+import org.xml.sax.SAXException;
+import p4535992.util.encoding.EncodingUtil;
+import p4535992.util.jena.JenaKit;
+
+/**
+ *
+ * @author 4535992
+ */
+public class Test_Jena {
+    
+    
+     public static void main(String args[]) throws NullPointerException, InterruptedException, InvocationTargetException, SAXException, IOException,TransformerConfigurationException{  
+         //GeoDocumentDAO dao = new GeoDocumentDAO();
+         
+         //home.utils.log log = new home.utils.log("xxx",".txt");
+         String outputN3Knime= "C:\\Users\\Marco\\Desktop\\File SQL Supporto Programma Tesi\\2015-04-29\\test_2\\result_km4c-InfoDoc_M-wgs84_COORD_A.nt";
+         File file = new File(outputN3Knime);
+         //EncodingUtil.rewriteTheFiLeToUtf8(file);
+         if(file.exists()) {
+             List<String> lines = EncodingUtil.UnicodeEscape2UTF8(new File(outputN3Knime));
+             EncodingUtil.writeLargerTextFileWithReplace2(outputN3Knime, lines);
+             JenaKit.ConvertRDFTo(new File(outputN3Knime), "csv");
+             //JenaKit.ConvertRDFTo(file, "turtle");
+         }
+
+
+//         JenaInfoDocument jInfo = new JenaInfoDocument();
+//
+//
+//         jInfo.readQueryAndCleanTripleInfoDocument(
+//                 FileUtil.filenameNoExt(file),
+//                 FileUtil.path(file),
+//                 "output",
+//                 FileUtil.extension(file),
+//                 "ttl"
+//         );
+            
+         //JENAUtil.ConvertRDFTo(file,"csv");
+         //JENAUtil.ConvertRDFTo(file,"xml");
+         
+         //JENAUtil6.test();
+        
+     }
+}

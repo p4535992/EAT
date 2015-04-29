@@ -1,15 +1,64 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:tx="http://www.springframework.org/schema/tx"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd
-        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
-    <context:component-scan base-package="home"/>
 
+    <!-- Configuring Spring MVC View Resolvers -->
+    <!-- As usual, add the following declarations for Spring MVC annotation driven approach: -->
+    <mvc:annotation-driven />
+    <mvc:resources mapping="/resources/**" location="WEB-INF" />
+    <context:component-scan base-package="home" />
+
+    <!-- The following declaration for a common view resolver that converts logical view names to actual JSP pages: -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/pages/"/>
         <property name="suffix" value=".jsp"/>
+    </bean>
+
+    <!-- Configuring DataSource Bean -->
+    <!-- We use Apache Commons DBCP for a data source with connection pooling capability: -->
+    <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource"
+          destroy-method="close">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/geodb"/>
+        <property name="username" value="siimobility"/>
+        <property name="password" value="siimobility"/>
+    </bean>
+
+    <!-- Configuring SessionFactory Bean -->
+    <bean id="sessionFactory"
+          class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource" />
+        <property name="configLocation" value="classpath:hibernate" />
+    </bean>
+
+    <!-- Configuring TransactionManager Bean -->
+    <!-- The following declaration is for automatic transaction support for the SessionFactory: -->
+    <tx:annotation-driven />
+    <bean id="transactionManager"
+          class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+
+    <!-- Configuring DAO Bean -->
+    <bean id="WebsiteDao" class="object.impl.jdbc.WebsiteDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    <bean id="GeoDocumentDao" class="object.impl.jdbc.GeoDocumentDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    <bean id="GeoDomainDocumentDao" class="object.impl.hibernate.GeoDomainDocumentDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    <bean id="InfoDocumentDao" class="object.impl.jdbc.InfoDocumentDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    <bean id="DocumentDao" class="object.impl.jdbc.DocumentDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory" />
     </bean>
 
 </beans>

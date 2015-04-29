@@ -5,20 +5,15 @@
  */
 
 package extractor.karma;
-
-import extractor.EncodingUtil;
-import extractor.FileUtil;
+import p4535992.util.encoding.EncodingUtil;
+import p4535992.util.file.FileUtil;
 import extractor.JenaInfoDocument;
-import extractor.SystemLog;
-import util.string.StringKit;
+import p4535992.util.log.SystemLog;
+import p4535992.util.cmd.PrepareCommand;
+import p4535992.util.string.StringKit;
 
 import java.io.*;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 /**
  *
  * @author Marco
@@ -31,7 +26,7 @@ public class GenerationOfTriple {
 
     private JenaInfoDocument jInfo = new JenaInfoDocument();
     
-    private extractor.cmd.ExecuteCmdAndPrintOnOutput rte = new extractor.cmd.ExecuteCmdAndPrintOnOutput();
+    private PrepareCommand rte = new PrepareCommand();
     public GenerationOfTriple(
             String SOURCETYPE_KARMA,
             String MODEL_TURTLE_KARMA,
@@ -83,145 +78,17 @@ public class GenerationOfTriple {
                 + "--dbname "+DBNAME_KARMA+" "
                 + "--tablename "+TABLENAME_KARMA+""
                 + "\"";  
-        SystemLog.ticket("KARMA:" + cmdKarma + "", "OUT");
+        SystemLog.message("KARMA:" + cmdKarma + "");
         return cmdKarma;
     }
-    
-    public String[] CreateFileOfTriple(String cmdKarma){
-        extractor.cmd.ExecuteCmdAndPrintOnOutput eca = new extractor.cmd.ExecuteCmdAndPrintOnOutput();
-        String CD="";
-        if(KARMA_HOME == null || KARMA_HOME.toString()=="null"){
-            CD="cd %~dp0\\Web-Karma-master v2.031";
-        }else{
-            CD="cd %"+KARMA_HOME+"%";
-        }
-         String[] listString = new String[]{
-                FileUtil.GetCurrentDisk(), //c:
-                CD,
-                //"cd "+System.getProperty("user.dir")+"\\Web-Karma-master v2.031",
-                "PUSHD \".\\karma-offline\"",
-                cmdKarma
-         };
-        //eca.RunBatchWithProcessAndRuntime("Generator_Triple_Karma.bat", listString);
-        return listString;
-    }
-    
-    
-    public void GenerationOfTripleWithKarma(){     
-        String cmdKarma = setCommandKarma();
-        String[] listStringCmd = CreateFileOfTriple(cmdKarma);
-        try {           
-            rte.RunBatchWithProcessAndRuntime("karma"+GetTimeAndDate()+".bat", listStringCmd );
-            
-            String pathTriple = System.getProperty("user.dir")+"\\karma_files\\output\\"+TRIPLE_OUTPUT_KARMA+"";
-            
-            //CODIFICHIAMO IL FILE DI TRIPLE DA ASCII A UNICODE (UTF8)
-            List<String> lines = new ArrayList<>();		           
-            //treat as a large file - use some buffering
-            SystemLog.ticket("Codifica Unicode per il file di triple...", "OUT");
-            String output =FileUtil.path(pathTriple)+"\\"+ FileUtil.filenameNoExt(pathTriple)+".UTF8."+FileUtil.extension(pathTriple);
-            EncodingUtil text = new EncodingUtil();
-            lines = text.UnicodeEscape2UTF8(new File(pathTriple));
-            text.writeLargerTextFileWithReplace2(output,lines);
-            //******************************************************************
-            
-            SystemLog.ticket("...File di triple " + output + " codificato", "OUT");
-            File filePathTriple = new File(pathTriple);
-            filePathTriple.delete();
-            
-            // filePathTriple.delete();
-            File f = new File(output);
-            //RIPULIAMO LETRIPLE DALLE LOCATION SENZA COORDINATE CON JENA
-            SystemLog.ticket("Ripuliamo le triple infodocument dalle Location senza coordinate nel file:" + output, "OUT");
 
-            jInfo.readQueryAndCleanTripleInfoDocument(
-                    FileUtil.filenameNoExt(f), //filenameInput
-                    FileUtil.path(f), //filepath
-                    FileUtil.filenameNoExt(f) + "-c", //fileNameOutput
-                    FileUtil.extension(f), //inputFormat
-                    OUTPUT_FORMAT_KARMA //outputFormat "ttl"
-            );
-            f.delete();
-            
-        } catch (FileNotFoundException ex) {
-            SystemLog.ticket("KARMA:" + ex.getMessage() + "", "ERRROR");
-            Logger.getLogger(GenerationOfTriple.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (UnsupportedEncodingException ex) {
-            SystemLog.ticket("KARMA:" + ex.getMessage() + "", "ERRROR");
-            Logger.getLogger(GenerationOfTriple.class.getName()).log(Level.SEVERE, null, ex);
-        }catch(IOException ioe){
-            SystemLog.ticket("KARMA:" + ioe.getMessage() + "", "ERRROR");
-            Logger.getLogger(GenerationOfTriple.class.getName()).log(Level.SEVERE, null,ioe);
-        }
-    }
-
-    /*
-    public void GenerationOfTripleWithKarmaAPIFromFile(String nameModel,String nameOutput) throws IOException, edu.isi.karma.webserver.KarmaException {
-        edu.isi.karma.rdf.GenericRDFGenerator rdfGenerator = new  edu.isi.karma.rdf.GenericRDFGenerator();
-
-        String pathTriple = System.getProperty("user.dir")+"\\karma_files\\model\\"+nameModel+"";
-        String pathOut = System.getProperty("user.dir")+"\\karma_files\\"+nameOutput+"";
-        //Construct a R2RMLMappingIdentifier that provides the location of
-        //the model and a name for the model and add the model to the
-        //JSONRDFGenerator. You can add multiple models using this API.
-        edu.isi.karma.kr2rml.mapping.R2RMLMappingIdentifier modelIdentifier =
-                new edu.isi.karma.kr2rml.mapping.R2RMLMappingIdentifier("model", new File(pathTriple).toURI().toURL());
-        rdfGenerator.addModel(modelIdentifier);
-
-        String filename = "files/data/people.json";
-        StringWriter sw = new StringWriter();
-        PrintWriter pw = new PrintWriter(sw);
-
-        edu.isi.karma.kr2rml.writer.N3KR2RMLRDFWriter writer = new edu.isi.karma.kr2rml.writer.N3KR2RMLRDFWriter(new edu.isi.karma.kr2rml.URIFormatter(),pw);
-        edu.isi.karma.rdf.RDFGeneratorRequest request = new edu.isi.karma.rdf.RDFGeneratorRequest("model",filename);
-
-        request.setInputFile(new File(filename));
-        request.setAddProvenance(true);
-        request.setDataType(GenericRDFGenerator.InputType.JSON);
-        request.addWriter(writer);
-
-        rdfGenerator.generateRDF(request);
-        String rdf = sw.toString();
-        System.out.println("Generated RDF: " + rdf);
-
-        SystemLog.write("...File di triple " + output + " codificato", "OUT");
-        File filePathTriple = new File(pathTriple);
-        filePathTriple.delete();
-
-        // filePathTriple.delete();
-        File f = new File(output);
-        //RIPULIAMO LETRIPLE DALLE LOCATION SENZA COORDINATE CON JENA
-        SystemLog.write("Ripuliamo le triple infodocument dalle Location senza coordinate nel file:" + output, "OUT");
-
-        readQueryAndCleanTripleInfoDocument(
-                FileUtil.filenameNoExt(f), //filenameInput
-                FileUtil.path(f), //filepath
-                FileUtil.filenameNoExt(f) + "-c", //fileNameOutput
-                FileUtil.extension(f), //inputFormat
-                OUTPUT_FORMAT_KARMA //outputFormat "ttl"
-        );
-        f.delete();
-
-    }
-    */
-
-    public void GenerationOfTripleWithKarmaAPIFromDataBase() throws IOException, edu.isi.karma.webserver.KarmaException {
+    public void GenerationOfTripleWithKarmaAPIFromDataBase() throws IOException {
 
         String pathModel = MODEL_TURTLE_KARMA+"";
         String pathOut = TRIPLE_OUTPUT_KARMA+"";
         String[] value = new String[]{
-                SOURCETYPE_KARMA,
-                pathModel,
-                //"C:\\Users\\Marco\\IdeaProjects\\ExtractInfo\\karma_files\\model\\R2RML_infodocument_nadia_10_h-model_2015-03-02.ttl",
-                pathOut,
-                //"C:\\Users\\Marco\\Desktop\\tripla-model-2015-03-30.n3",
-                DBTYPE_KARMA,
-                HOSTNAME_KARMA,
-                USERNAME_KARMA,
-                PASSWORD_KARMA,
-                PORTNUMBER_KARMA,
-                DBNAME_KARMA,
-                TABLENAME_KARMA,
+                SOURCETYPE_KARMA,pathModel,pathOut,DBTYPE_KARMA,HOSTNAME_KARMA,USERNAME_KARMA,PASSWORD_KARMA,
+                PORTNUMBER_KARMA,DBNAME_KARMA,TABLENAME_KARMA
                 //"UTF-8"
 
         };
@@ -235,7 +102,7 @@ public class GenerationOfTriple {
                 "--password",
                 "--portnumber",
                 "--dbname",
-                "--tablename",
+                "--tablename"
                 //"--encoding"
         };
 
@@ -248,12 +115,18 @@ public class GenerationOfTriple {
 
         String[] args2 = new String[22];
         try {
-            args2 = StringKit.mergeArraysString(param, value);
+            args2 = StringKit.mergeArrays(param, value);
+            String msg ="";
+            for(int i = 0; i < args2.length; i++){ msg+=args2[i]+" ";}
+            SystemLog.message("PARAM KARMA:"+ msg);
+            SystemLog.message("try to create a file of triples from a relational table with karma...");
             edu.isi.karma.rdf.OfflineRdfGenerator.main(args2);
-        }catch(Exception ex ){ex.printStackTrace();}
-        String output = System.getProperty("user.dir")+"\\karma_files\\output\\"+FileUtil.filename(TRIPLE_OUTPUT_KARMA)
+        }catch(Exception ex){
+            SystemLog.exception(ex);
+        }
+        String output = System.getProperty("user.dir")+File.separator+"karma_files"+File.separator+"output"+File.separator+FileUtil.filename(TRIPLE_OUTPUT_KARMA)
                 .replace("."+FileUtil.extension(TRIPLE_OUTPUT_KARMA), "-UTF8."+FileUtil.extension(TRIPLE_OUTPUT_KARMA));
-        SystemLog.message("...File of triples create in the path:" + pathOut);
+        SystemLog.message("...file of triples created in the path:" + pathOut);
 
         List<String> lines = EncodingUtil.UnicodeEscape2UTF8(new File(pathOut));
         EncodingUtil.writeLargerTextFileWithReplace2(output, lines);
@@ -262,7 +135,7 @@ public class GenerationOfTriple {
 
         File f = new File(output);
         //RIPULIAMO LETRIPLE DALLE LOCATION SENZA COORDINATE CON JENA
-        SystemLog.message("Ripuliamo le triple infodocument dalle Location senza coordinate nel file:" + output);
+        SystemLog.message("Re-clean infodocument triples from the Location information  without coordinates from the file:" + output);
 
         jInfo.readQueryAndCleanTripleInfoDocument(
                 FileUtil.filenameNoExt(f), //filenameInput
@@ -274,14 +147,4 @@ public class GenerationOfTriple {
         f.delete();
 
     }
-
-
-        /**
-       * Meto che scriva data e ora come un'unico numero yyyyMMdd_HHmmss
-       * @return formato stringa della data e ora attuali
-       */
-   public static String GetTimeAndDate(){
-       String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
-       return timeStamp;
-   }
 }

@@ -7,8 +7,8 @@
 package extractor.estrattori;
 
 import object.model.GeoDocument;
-import extractor.SystemLog;
-import extractor.http.HttpUtil;
+import p4535992.util.log.SystemLog;
+import p4535992.util.http.HttpUtil;
 import java.io.IOException;
 import java.net.SocketTimeoutException;
 import java.net.URISyntaxException;

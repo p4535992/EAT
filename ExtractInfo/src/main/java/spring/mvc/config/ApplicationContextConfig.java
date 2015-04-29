@@ -4,8 +4,8 @@ import java.util.Properties;
 
 import javax.sql.DataSource;
 
-import object.dao.IGeoDocumentDao;
-import object.impl.GeoDocumentDaoImpl;
+import object.dao.jdbc.IGeoDocumentDao;
+import object.impl.jdbc.GeoDocumentDaoImpl;
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,8 +34,8 @@ public class ApplicationContextConfig {
     @Bean(name = "dataSource")
     public DataSource getDataSource() {
     	BasicDataSource dataSource = new BasicDataSource();
-    	dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-    	dataSource.setUrl("jdbc:mysql://localhost:3306/geodb");
+    	dataSource.setDriverClassName("com.sql.jdbc.Driver");
+    	dataSource.setUrl("jdbc:sql://localhost:3306/geodb");
     	dataSource.setUsername("siimobility");
     	dataSource.setPassword("siimobility");
     	return dataSource;
@@ -68,6 +68,6 @@ public class ApplicationContextConfig {
     @Autowired
     @Bean(name = "geoDocumentDao")
     public IGeoDocumentDao get(SessionFactory sessionFactory) {
-    	return new GeoDocumentDaoImpl(sessionFactory);
+    	return new GeoDocumentDaoImpl();
     }
 }

@@ -4,7 +4,7 @@
   <session-factory>
     <!-- Database connection settings -->
     <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
-    <property name="connection.url">jdbc:mysql://localhost:3306/urldb_2015</property>
+    <property name="connection.url">jdbc:mysql://localhost:3306/geodb</property>
     <property name="connection.username">siimobility</property>
     <property name="connection.password">siimobility</property>
     <!-- JDBC connection pool (use the built-in) -->
@@ -20,7 +20,11 @@
     <!-- Drop and re-insert the database schema on startup -->
     <property name="hbm2ddl.auto">update</property>
     <!-- Mapping files -->
-    <mapping class="object.model.Website" resource="website.hbm.xml"/>
+    <mapping class="object.model.Website" resource="object/model/Website.hbm.xml"/>
+    <mapping class="object.model.Document" resource="object/model/Document.hbm.xml"/>
+    <mapping class="object.model.GeoDocument" resource="object/model/GeoDocument.hbm.xml"/>
+    <mapping class="object.model.GeoDomainDocument" resource="object/model/GeoDomainDocument.hbm.xml"/>
+    <mapping class="object.model.InfoDocument" resource="object/model/InfoDocument.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>
 

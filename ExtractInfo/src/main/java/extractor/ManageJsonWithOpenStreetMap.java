@@ -26,21 +26,21 @@ public class ManageJsonWithOpenStreetMap {
     public LatLng parseInputStream(final InputStream jsonStream){
         LatLng coordinate = null;
         final ObjectMapper mapper = new ObjectMapper();
-        try {
-            final List<Object> dealData = mapper.readValue(jsonStream, List.class);           
-            if (dealData != null && dealData.size() == 1) {
-                final Map< String, Object > locationMap = (Map< String, Object >) dealData.get(0);
-                if (locationMap != null && locationMap.containsKey(LATITUDE) && locationMap.containsKey(LONGITUDE)) {
-                    final double lat = Double.parseDouble(locationMap.get(LATITUDE).toString());
-                    final double lng = Double.parseDouble(locationMap.get(LONGITUDE).toString());
-                    coordinate = new LatLng(lat, lng);
-                 }
-             } else {
-                 Logger.getLogger(ManageJsonWithOpenStreetMap.class.getName()).log(Level.SEVERE, "NO RESULTS", "NO RESULTS");
-             }
-         } catch (Exception ex) {
-             Logger.getLogger(ManageJsonWithOpenStreetMap.class.getName()).log(Level.SEVERE, ex.getMessage(), ex);
-         } 
+//        try {
+//            final List<Object> dealData = mapper.readValue(jsonStream, List.class);
+//            if (dealData != null && dealData.size() == 1) {
+//                final Map< String, Object > locationMap = (Map< String, Object >) dealData.get(0);
+//                if (locationMap != null && locationMap.containsKey(LATITUDE) && locationMap.containsKey(LONGITUDE)) {
+//                    final double lat = Double.parseDouble(locationMap.get(LATITUDE).toString());
+//                    final double lng = Double.parseDouble(locationMap.get(LONGITUDE).toString());
+//                    coordinate = new LatLng(lat, lng);
+//                 }
+//             } else {
+//                 Logger.getLogger(ManageJsonWithOpenStreetMap.class.getName()).log(Level.SEVERE, "NO RESULTS", "NO RESULTS");
+//             }
+//         } catch (Exception ex) {
+//             Logger.getLogger(ManageJsonWithOpenStreetMap.class.getName()).log(Level.SEVERE, ex.getMessage(), ex);
+//         }
     return coordinate;
     }
  

@@ -1,17 +1,14 @@
 package home;
 
 import org.xml.sax.SAXException;
-import extractor.FileUtil;
-import extractor.SystemLog;
-import extractor.cmd.SimpleParameters;
+import p4535992.util.file.FileUtil;
+import p4535992.util.log.SystemLog;
+import p4535992.util.cmd.SimpleParameters;
 import extractor.estrattori.ExtractInfoSpring;
 import extractor.gate.GateDataStoreKit;
 
 import java.awt.EventQueue;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.PrintStream;
+import java.io.*;
 import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.Map;
@@ -55,7 +52,10 @@ public class MainExtractInfo {
                         SystemLog.message(params.toString());
                     }else{
                         //C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\resources\input.properties
-                        mParameters = FileUtil.ReadStringFromFileLineByLine(System.getProperty("user.dir")+"//ExtractInfo//src//main//resources//input.properties",'=',params);
+                        mParameters = FileUtil.ReadStringFromFileLineByLine(
+                                System.getProperty("user.dir")+ File.separator+"ExtractInfo" + File.separator+
+                                        "src"+ File.separator+"main"+ File.separator+"resources"+ File.separator+
+                                        "input.properties",'=',params);
                         //VARIABILI ALTRE
                         //PRINT SULLA CONSOLE
                         SystemLog.message("Using parameters:");

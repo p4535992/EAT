@@ -8,6 +8,8 @@
     </appender>
 
     <logger name="org.springframework" level="WARN" />
+    <logger name="org.apache.commons.httpclient" level="WARN" />
+    <logger name="org.apache.http.client" leve ="WARN"/>
     <!--<logger name = "e.i.karma.metadata.KarmaUserMetadata" leve="WARN"></logger>-->
     <root level="INFO">
         <appender-ref ref="STDOUT" />

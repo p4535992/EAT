@@ -8,9 +8,9 @@ import gate.creole.ExecutionException;
 import gate.util.GateException;
 import object.model.GeoDocument;
 import object.support.AnnotationInfo;
-import extractor.FileUtil;
-import extractor.SystemLog;
-import util.string.StringKit;
+import p4535992.util.file.FileUtil;
+import p4535992.util.log.SystemLog;
+import p4535992.util.string.StringKit;
 
 import java.io.File;
 import java.io.IOException;
@@ -23,7 +23,7 @@ import java.util.List;
 
 /**
  * EstrazioneDatiWithGATE.java
- * Classe che utilizza GATE per l'estrazione di informazione da und eterminato testo
+ * Classe che utilizza GATE per lt'estrazione di informazione da und eterminato testo
  * @author Utente
  */
 public class ExtractorInfoGATE {
@@ -49,14 +49,14 @@ public class ExtractorInfoGATE {
                 exeTentative ++;
                 execute(controller);
             }else{
-                SystemLog.ticket("No sentences or tokens to process in some gate documents", "OUT");
+                SystemLog.warning("No sentences or tokens to process in some gate documents");
             }
         }catch(java.lang.OutOfMemoryError e){
             if(exeTentative < 3){
                 exeTentative ++;
                 execute(controller);
             }else{
-                SystemLog.ticket("Exception in thread \"AWT-EventQueue-0\" ava.lang.OutOfMemoryError: Java heap space", "WARNING");
+                SystemLog.warning("Exception in thread \"AWT-EventQueue-0\" ava.lang.OutOfMemoryError: Java heap space");
             }
         }
     }
@@ -65,7 +65,7 @@ public class ExtractorInfoGATE {
     /**
      * Metodo che estrae le informazioni dal singolo documento web
      * @param url indirizzo web del documento
-     * contenuto come capita con l'estrazione con SearhMonkey
+     * contenuto come capita con lt'estrazione con SearhMonkey
      * @param controller il CorpusController di GATE settato precedentemente
      * @return un GeoDocument con i campi riempiti dalle annotazioni di GATE
      * @throws InterruptedException
@@ -90,14 +90,11 @@ public class ExtractorInfoGATE {
             }//else
         }//try
         catch(GateException ex){
-              SystemLog.ticket(ex.getMessage(), "ERROR");
-              ex.printStackTrace();
+              SystemLog.exception(ex);
       } catch (RuntimeException ex) {
-              SystemLog.ticket(ex.getMessage(), "ERROR");
-              ex.printStackTrace();
+              SystemLog.exception(ex);
       } catch (IOException ex) {
-              SystemLog.ticket(ex.getMessage(), "ERROR");
-              ex.printStackTrace();
+              SystemLog.exception(ex);
       }
        finally{
              //ripuliamo (opzionale)
@@ -113,7 +110,7 @@ public class ExtractorInfoGATE {
      /**
       * Metodo che estrae le informazioni da una lista di documenti web
       * @param listUrl lista degli indirizzi web del documento
-      * contenuto come capita con l'estrazione con SearhMonkey
+      * contenuto come capita con lt'estrazione con SearhMonkey
       * @param controller il CorpusController di GATE settato precedentemente
       * @return un GeoDocument con i campi riempiti dalle annotazioni di GATE
       */
@@ -144,7 +141,7 @@ public class ExtractorInfoGATE {
         List<GeoDocument> listGeo = new ArrayList<GeoDocument>();
         for(File file : listFile){
             GeoDocument g = new GeoDocument();
-            g = extractorGATE(file.toURL(), controller);
+            g = extractorGATE(file.toURI().toURL(), controller);
             listGeo.add(g);
         }
         return listGeo;

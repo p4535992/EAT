@@ -53,6 +53,8 @@
         <module name="karma-typer" />
         <module name="karma-util" />
         <module name="karma-web" />
+        <module name="silk-server" />
+        <module name="silk-singlemachine" />
         <module name="utility" />
         <module name="web-services-rdf" />
       </profile>
@@ -73,7 +75,6 @@
       <module name="commands-worksheet" target="1.7" />
       <module name="EAT" target="1.7" />
       <module name="ExtractInfo" target="1.7" />
-      <module name="Extractnfo" target="1.7" />
       <module name="import-avro" target="1.7" />
       <module name="import-common" target="1.7" />
       <module name="import-csv" target="1.7" />
@@ -96,7 +97,10 @@
       <module name="karma-util" target="1.7" />
       <module name="karma-web" target="1.7" />
       <module name="karma-web-services" target="1.7" />
-      <module name="simpleGraphTest" target="1.7" />
+      <module name="linking" target="1.7" />
+      <module name="silk-mapreduce" target="1.5" />
+      <module name="silk-server" target="1.5" />
+      <module name="silk-singlemachine" target="1.5" />
       <module name="utility" target="1.7" />
       <module name="web-services-rdf" target="1.7" />
       <module name="webkarma" target="1.7" />

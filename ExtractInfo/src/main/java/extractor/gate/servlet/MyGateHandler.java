@@ -20,8 +20,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import object.dao.IWebsiteDao;
-import object.impl.WebsiteDaoImpl;
+import object.dao.jdbc.IWebsiteDao;
+import object.impl.jdbc.WebsiteDaoImpl;
 import org.apache.log4j.Logger;
 import org.springframework.web.HttpRequestHandler;
 
@@ -58,8 +58,8 @@ public class MyGateHandler implements HttpRequestHandler {
     IWebsiteDao websiteDao = new WebsiteDaoImpl();
     websiteDao.setTableSelect("website");
     websiteDao.setDriverManager(
-            "com.mysql.jdbc.Driver",
-            "jdbc:mysql",
+            "com.sql.jdbc.Driver",
+            "jdbc:sql",
             "localhost",
             "3306",
             "siimobility",

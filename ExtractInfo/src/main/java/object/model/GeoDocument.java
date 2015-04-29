@@ -1,7 +1,7 @@
 /**
  * GeoDocument.java.
  * @author Tenti Marco Elaborato Sistemi Distribuiti
- * La classe che costruisce l'oggeto JAVA geoDocument su cui andiamo a 
+ * La classe che costruisce lt'oggeto JAVA geoDocument su cui andiamo a
  * inserire i risultati del'elaborazione di GATE e inserirli successivamente
  * come record della tabella geodocument del database geolocationdb
  */

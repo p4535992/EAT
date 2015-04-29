@@ -1,4 +1,4 @@
-import util.string.StringKit;
+import p4535992.util.string.StringKit;
 
 import java.io.IOException;
 
@@ -87,7 +87,7 @@ public class Test_Karma_EAT {
 
         String[] args2 = new String[20];
         try {
-            args2 = StringKit.mergeArraysString(param,value);
+            args2 = StringKit.mergeArrays(param, value);
             /*
             int j = 0;
 

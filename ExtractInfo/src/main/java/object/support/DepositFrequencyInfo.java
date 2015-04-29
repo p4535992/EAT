@@ -7,7 +7,6 @@
 package object.support;
 
 import object.model.GeoDocument;
-import extractor.SystemLog;
 
 import java.util.ArrayList;
 

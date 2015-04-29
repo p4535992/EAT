@@ -1,0 +1,133 @@
+<Silk>
+    <Prefixes>
+        <Prefix id="xsd" namespace="http://www.w3.org/2001/XMLSchema"/>
+        <Prefix id="skos" namespace="http://www.w3.org/2004/02/skos/core#"/>      
+        <Prefix id="dc" namespace="http://purl.org/dc/elements/1.1/"/>
+        <Prefix id="SiiMobility" namespace="http://www.disit.dinfo.unifi.it/SiiMobility#"/>            
+        <Prefix id="schema" namespace="http://schema.org/"/>     
+        <Prefix id="rdf" namespace="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>        
+        <Prefix id="foaf" namespace="http://xmlns.com/foaf/0.1/"/>
+        <Prefix id="gr" namespace="http://purl.org/goodrelations/v1#"/>            
+        <Prefix id="dcterms" namespace="http://purl.org/dc/terms/"/>       
+        <Prefix id="rdfs" namespace="http://www.w3.org/2000/01/rdf-schema#"/>
+        <Prefix id="xml" namespace="http://www.w3.org/XML/1998/namespace"/>
+        <Prefix id="geo" namespace="http://www.w3.org/2003/01/geo/wgs84_pos#"/>        
+        <Prefix id="vcard" namespace="http://www.w3.org/2006/vcard/ns#"/>	     	
+        <Prefix id="km4c" namespace="http://www.disit.org/km4city/schema#"/>
+        <Prefix id="km4cr" namespace="http://www.disit.org/km4city/resource#"/>	
+        <Prefix id="org" namespace="http://www.w3.org/ns/org#"/>	
+        <Prefix id="owl" namespace="http://www.w3.org/2002/07/owl#"/>	
+        <Prefix id="otn" namespace="http://www.pms.ifi.uni-muenchen.de/OTN#"/>	
+	    <Prefix id="time" namespace="http://www.w3.org/2006/time#"/>
+        <Prefix id="cc" namespace="http://creativecommons.org/ns#"/>
+	    <Prefix id="vann" namespace="http://purl.org/vocab/vann/#"/>	 
+    </Prefixes>
+    <DataSources>  
+         
+		 <DataSource type="file" id="km4c">
+            <Param name="pageSize" value="1000"></Param>
+            <Param name="pauseTime" value="0"></Param>
+            <Param name="retryCount" value="3"></Param>         
+            <Param name="file" value="C:\Users\Marco\Documents\GitHub\EAT\linking\src\main\resources\km4c-InfoDoc_M-wgs84_COORD_A\GraphTest_triples.n3"/>
+            <Param name="format" value="N3" />
+            <Param name="retryPause" value="1000"></Param>
+            <Param name="graph" value=""></Param>
+            <Param name="login" value=""></Param>
+            <Param name="entityList" value=""></Param>
+            <Param name="password" value=""></Param>
+            <Param name="additionalParameters" value=""></Param>
+        </DataSource>
+		
+		<!--
+		 <DataSource type="sparqlEndpoint" id="km4c">
+            <Param name="pageSize" value="1000"></Param>
+            <Param name="pauseTime" value="0"></Param>
+            <Param name="retryCount" value="3"></Param>
+            <Param name="endpointURI" value="http://localhost:8080/openrdf-workbench/repositories/km4c_test4/query"></Param>
+            <Param name="retryPause" value="1000"></Param>
+            <Param name="graph" value=""></Param>
+            <Param name="login" value=""></Param>
+            <Param name="entityList" value=""></Param>
+            <Param name="password" value=""></Param>
+            <Param name="additionalParameters" value=""></Param>
+        </DataSource>
+		-->      
+		<!--tripla-model-12-12-2014_10M.n3 works-->
+        <DataSource type="file" id="gr">
+            <Param name="pageSize" value="1000"></Param>
+            <Param name="pauseTime" value="0"></Param>
+            <Param name="retryCount" value="3"></Param>         
+            <Param name="file" value="C:\Users\Marco\Documents\GitHub\EAT\linking\src\main\resources\km4c-InfoDoc_M-wgs84_COORD_A\triple_karma_output_20150215_181757-UTF8-c.ttl"/>
+            <Param name="format" value="TURTLE" />
+            <Param name="retryPause" value="1000"></Param>
+            <Param name="graph" value=""></Param>
+            <Param name="login" value=""></Param>
+            <Param name="entityList" value=""></Param>
+            <Param name="password" value=""></Param>
+            <Param name="additionalParameters" value=""></Param>
+        </DataSource>
+        	
+    </DataSources>
+    <!--<Blocking blocks="100"/>-->
+   <Interlinks>
+        <Interlink id="interlink_location">     
+            <LinkType>gr:hasGRLocation</LinkType>
+            <SourceDataset dataSource="km4c" var="service">
+                <RestrictTo>				                   	
+                    ?service &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://www.disit.org/km4city/schema#Service&gt; .						
+                </RestrictTo>
+            </SourceDataset>
+			
+			<TargetDataset dataSource="gr" var="businessEntity">
+                <RestrictTo>			    
+					?businessEntity &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; gr:BusinessEntity .				
+                </RestrictTo>
+            </TargetDataset>
+           
+            <LinkageRule>
+                <!--AGGREGATOR -> type="min","max","average","quadraticMean","geometricMean"-->
+				<!--COMPARATOR -> metric="jaro","jaroWinkler","levenshtein","levenshteinDistance","equality","inequality"-->
+				<!--COMPARATOR -> metric="jaccard","dice","softjaccard"-->
+				<!--TRANSFORM  -> function="removeBlanks","removeSpecialChars","lowerCase","upperCase","capitalize(true)","capitalize(false)",
+                                  "stem","alphaReduce","numReduce","replace(string search, string replace)","regexReplace(string regex, string replace)",
+								  "stripPrefix","stripPostfix","stripUriPrefix","concat","logarithm([base])","convert(string sourceCharset, string targetCharset)",
+								  "tokenize([regex])","emoveValues(blacklist)","removeParentheses"
+				-->
+                 <Aggregate type="average" id="averageAgg">    			
+                                 
+					<!-- COMPARATORE DELLE COORDINATE -->					 
+                    <!-- 
+					Computes the geographical distance between two points. Parameters: 
+					1)"unit" -> The unit in which the distance is measured. Allowed values: “meter” or “m”(default) , “kilometer” or “km”
+					Author: Konrad Höffner
+					(MOLE subgroup of Research Group AKSW, University of Leipzig)
+					-->
+                    <Compare  metric="wgs84" threshold="1" id="wgs84MatchCoordLat">
+						<Input path="?service/geo:lat" id="serviceCoordLat" />
+						<Input path="?businessEntity/schema:latitude" id="grCoordLat" />	
+                        <Param name="unit" value="kilometer"/>						                     
+                    </Compare>		
+
+                    <Compare  metric="wgs84" threshold="1" id="wgs84MatchCoordLong">
+						<Input path="?service/geo:long" id="serviceCoordLong" />
+						<Input path="?businessEntity/schema:longitude" id="grCoordLong" />
+                        <Param name="unit" value="kilometer"/>						                       
+                    </Compare>	
+							
+                </Aggregate> 
+                
+            </LinkageRule>
+            
+          
+            <Filter limit="10" />
+            <Outputs>           
+                <Output type="file" minConfidence="0.5">
+                    <Param name="file" value="result_km4c-InfoDoc_M-wgs84_COORD_A.nt"/>
+                    <Param name="format" value="ntriples"/>
+                </Output>              
+            </Outputs>          
+        </Interlink>
+    </Interlinks>
+    
+   
+</Silk>

@@ -10,7 +10,6 @@ package object.model;
  *
  * @author Marco
  */
-import extractor.SystemLog;
 
 import javax.persistence.*;
 @Entity

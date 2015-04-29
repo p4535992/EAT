@@ -1374,7 +1374,7 @@ public class SesameUtil {
                                         System.out.print(" " + beautifyRDFValueMarco(context) + " ");
                                 System.out.println();
                             }
-                            //convertStringToOutputStreamAndSaveIntoAFile(sss,OUTPUTFILE);
+                            //copyString2File(sss,OUTPUTFILE);
                     }
                     if (showResults)
                             System.out.println();
@@ -1483,7 +1483,7 @@ public class SesameUtil {
                         System.out.println();
                     }
                     //saveStringToAFile(sb.toString());
-                    //convertStringToOutputStreamAndSaveIntoAFile(sss);
+                    //copyString2File(sss);
                     }catch(Exception e){	
                             continue;
                     }
@@ -1538,7 +1538,7 @@ public class SesameUtil {
         }
     }
 	/*
-	public void convertStringToOutputStreamAndSaveIntoAFile(String content,String outputPathFileName) {					
+	public void copyString2File(String content,String outputPathFileName) {
 		//String fileName = parameters.get(PARAM_EXPORT_FILE)+"."+parameters.get(PARAM_QUERYFILE);
 		try(PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(outputPathFileName, true)))) {
 		    out.print(content);		    	    	    
@@ -1655,7 +1655,35 @@ public class SesameUtil {
 				}
 			}
 		}
+        /**
+         * Method to write more pretty your model
+         * @see //JenaKit.getPrettyWriter().write( model, new FileWriter(filename), uri);
+         * @return
+         */
+        public static org.openrdf.rio.RDFWriter getPrettyWriter() {
+                org.openrdf.rio.RDFWriter rdfWriter = null;
+                com.hp.hpl.jena.rdf.model.RDFWriterF rdfWriterF = new com.hp.hpl.jena.rdf.model.impl.RDFWriterFImpl();
+                try { //
+                        rdfWriter = (org.openrdf.rio.RDFWriter) rdfWriterF.getWriter("RDF/XML-ABBREV"); //
+                        rdfWriter.handleNamespace("rdf", com.hp.hpl.jena.vocabulary.RDF.getURI());
+                        rdfWriter.handleNamespace("dc", com.hp.hpl.jena.vocabulary.DC_10.getURI()); //
+                        rdfWriter.handleNamespace("rss", com.hp.hpl.jena.vocabulary.RSS.getURI()); //
+                        //rdfWriter.handleNamespacex("idea", IDEA.getURI()); //
+                        //rdfWriter.handleNamespace("graphic", GRAPHIC.getURI()); //
+                        //rdfWriter.handleNamespace("fs", FILESYSTEM.getURI()); //
+                        //rdfWriter.handleNamespace("prj", PROJECT.getURI()); //
+                        rdfWriter.handleNamespace("foaf", "http://xmlns.com/foaf/0.1/"); //
+                        rdfWriter.handleNamespace("owl", "http://www.w3.org/2002/07/owl#"); //
+                        rdfWriter.handleNamespace("ibis", "http://purl.org/ibis#"); //
+                        rdfWriter.handleNamespace("fs","http://ideagraph.org/xmlns/idea/filesystem#");
+                        // the encoding was screwing up, so declaration removed
+                        //rdfWriter.setProperty("showXmlDeclaration", Boolean.FALSE);
+                } catch (Exception exception) {
+                        exception.printStackTrace();
+                }
 
+                return rdfWriter;
+        }
 	 private static Query prepareQuery(String query) throws Exception {
 
 		for (QueryLanguage language : queryLanguages) {

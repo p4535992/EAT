@@ -82,19 +82,19 @@
    </bean>
    -->
 
-   <bean id="websiteDao" class="object.impl.WebsiteDaoImpl">
+   <bean id="websiteDao" class="object.impl.jdbc.WebsiteDaoImpl">
           <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
    </bean>
-   <bean id="geoDocumentDao" class="object.impl.GeoDocumentDaoImpl">
+   <bean id="geoDocumentDao" class="object.impl.jdbc.GeoDocumentDaoImpl">
           <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
    </bean>
-   <bean id="geoDomainDocumentDao" class="object.impl.GeoDomainDocumentDaoImpl">
+   <bean id="geoDomainDocumentDao" class="object.impl.hibernate.GeoDomainDocumentDaoImpl">
           <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
    </bean>
-   <bean id="infoDocumentDao" class="object.impl.InfoDocumentDaoImpl">
+   <bean id="infoDocumentDao" class="object.impl.jdbc.InfoDocumentDaoImpl">
           <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
    </bean>
-   <bean id="documentDao" class="object.impl.DocumentDaoImpl">
+   <bean id="documentDao" class="object.impl.jdbc.DocumentDaoImpl">
           <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
    </bean>
 </beans>

@@ -19,24 +19,35 @@ import java.net.*;
 import gate.creole.ResourceInstantiationException;
 import gate.persist.PersistenceException;
 import gate.util.*;
-import extractor.FileUtil;
-import extractor.SystemLog;
+import p4535992.util.file.FileUtil;
+import p4535992.util.log.SystemLog;
 
 public class GateCorpusKit {
     private static org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger(GateCorpusKit.class);
     private static Document doc;
-  
+
+    public static Corpus getCorpus() {
+        return corpus;
+    }
+
+    public static void setCorpus(Corpus corpus) {
+        GateCorpusKit.corpus = corpus;
+    }
+
+    public static Corpus corpus;
+
+
   public GateCorpusKit(){}
 
     /**
      * Crea un Corpus di Documenti Gate
-     * @param  url l'url relativo alla singola pagina web da convertire in GATE Document
+     * @param  url lt'url relativo alla singola pagina web da convertire in GATE Document
      * @param  nomeCorpus il nome assegnato al Corpus in esame
      * @return il corpus "riempito" di GATE
      */
     public static Corpus createCorpusByUrl(URL url,String nomeCorpus)
             throws IOException, ResourceInstantiationException{
-        Corpus corpus = Factory.newCorpus(nomeCorpus);
+        corpus = Factory.newCorpus(nomeCorpus);
         doc = createDocByUrl(url);
         if(doc != null) {
             corpus.add(doc);//add a document to the corpus
@@ -53,7 +64,7 @@ public class GateCorpusKit {
     */  
   public static Corpus createCorpusByListOfUrls(List<URL> listUrl,String nomeCorpus)
           throws IOException, ResourceInstantiationException, PersistenceException, SecurityException{
-        Corpus corpus = Factory.newCorpus(nomeCorpus);
+        corpus = Factory.newCorpus(nomeCorpus);
         Integer indice = 0;
         for(int i = 0; i < listUrl.size(); i++) {
             URL url = listUrl.get(i);
@@ -71,7 +82,7 @@ public class GateCorpusKit {
 
     public static Corpus createCorpusByFile(File file,String nomeCorpus)
             throws ResourceInstantiationException, IOException {
-            Corpus corpus = Factory.newCorpus(nomeCorpus);
+            corpus = Factory.newCorpus(nomeCorpus);
             doc = createDocByUrl(FileUtil.convertFileToUri(file.getAbsolutePath()).toURL());
             if(doc != null) {
                 corpus.add(doc);//add a document to the corpus
@@ -81,7 +92,7 @@ public class GateCorpusKit {
 
     public static Corpus createCorpusByFile(List<File> files,String nomeCorpus)
             throws ResourceInstantiationException, IOException {
-        Corpus corpus = Factory.newCorpus(nomeCorpus);
+        corpus = Factory.newCorpus(nomeCorpus);
         Integer indice = 0;
         for(File file : files) {
             doc = createDocByUrl(FileUtil.convertFileToUri(file.getAbsolutePath()).toURL(),indice);
@@ -111,13 +122,11 @@ public class GateCorpusKit {
     public static void loadCorpusOnADataStore(Corpus corpus)
             throws SecurityException, PersistenceException, ResourceInstantiationException {
         try {
-            //System.out.println("1");
             GateDataStoreKit.openDataStore();
             GateDataStoreKit.setDataStoreWithACorpus(corpus);
             GateDataStoreKit.saveACorpusOnTheDataStore(corpus, GateDataStoreKit.getDS_DIR());
             //datastore.closeDataStore();
         } catch (Exception e) {
-            //System.out.println("2");
             GateDataStoreKit.openDataStore();
             GateDataStoreKit.saveACorpusOnTheDataStore(corpus, GateDataStoreKit.getDS_DIR());
             //MERGE DEI CORPUS
@@ -143,7 +152,7 @@ public class GateCorpusKit {
 
     public static Document createDocByUrl(URL url,Integer i)
             throws IOException, ResourceInstantiationException {
-        Document doc = new DocumentImpl();
+        doc = new DocumentImpl();
         try {
             //document features insert with GATE
             FeatureMap params = Factory.newFeatureMap();
@@ -161,12 +170,12 @@ public class GateCorpusKit {
             //doc = Factory.newDocument(url, "utf-8");
 
         } catch (GateException gex) {
-            SystemLog.ticket("Documento " + url + " non più disponibile o raggiungibile.", "ERROR");
+            SystemLog.warning("Documento " + url + " non più disponibile o raggiungibile.");
         } catch (ArrayIndexOutOfBoundsException ax) {
-            SystemLog.ticket("Documento " + url + " non più disponibile o raggiungibile.", "ERROR");
+            SystemLog.warning("Documento " + url + " non più disponibile o raggiungibile.");
         }
         catch (NullPointerException ne){
-            SystemLog.ticket("ERROR:" + ne.getMessage(), "ERROR");
+            SystemLog.exception(ne);
             doc = null;
         }
         return doc;
@@ -174,7 +183,7 @@ public class GateCorpusKit {
 
     public static Document createDocByUrl(URL url)
             throws IOException, ResourceInstantiationException {
-        Document doc = new DocumentImpl();
+        doc = new DocumentImpl();
         try {
             //document features insert with GATE
             FeatureMap params = Factory.newFeatureMap();
@@ -189,12 +198,12 @@ public class GateCorpusKit {
             doc = (Document) Factory.createResource("gate.corpora.DocumentImpl",
                     params, feats, "doc_" + url);
         } catch (GateException gex) {
-            SystemLog.ticket("Documento " + url + " non più disponibile o raggiungibile.", "ERROR");
+            SystemLog.warning("Documento " + url + " non più disponibile o raggiungibile.");
         } catch (ArrayIndexOutOfBoundsException ax) {
-            SystemLog.ticket("Documento " + url + " non più disponibile o raggiungibile.", "ERROR");
+            SystemLog.warning("Documento " + url + " non più disponibile o raggiungibile.");
         }
         catch (NullPointerException ne){
-            SystemLog.ticket("ERROR:" + ne.getMessage(), "ERROR");
+            SystemLog.exception(ne);
             doc = null;
         }
         return doc;
@@ -224,7 +233,6 @@ public class GateCorpusKit {
 
     public static void printXML(File docFile,Document doc)
             throws IOException,FileNotFoundException,UnsupportedEncodingException{
-
         String docXMLString = null;
         docXMLString = doc.toXml();
         String outputFileName = doc.getName() + ".out.xml";
@@ -234,7 +242,6 @@ public class GateCorpusKit {
         OutputStreamWriter out;
         out = new OutputStreamWriter(bos, "utf-8");
         out.write(docXMLString);
-
         out.close();
     }
   

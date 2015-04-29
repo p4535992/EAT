@@ -3,7 +3,7 @@ package spring.mvc.controller;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
-import object.dao.IGeoDocumentDao;
+import object.dao.jdbc.IGeoDocumentDao;
 import object.model.GeoDocument;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -58,5 +58,18 @@ public class HomeController {
 		geoDocumentDao.saveH(g);
 		return new ModelAndView("redirect:/");
 	}
+
+	/**
+	 * Handles requests for the application home page.
+	 */
+
+	@RequestMapping(value="/")
+	public ModelAndView home() {
+		List<GeoDocument> list = geoDocumentDao.getAllH();
+		ModelAndView model = new ModelAndView("home");
+		model.addObject("List", list);
+		return model;
+	}
+
 	
 }

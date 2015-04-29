@@ -5,8 +5,8 @@ import gate.corpora.RepositioningInfo;
 import gate.gui.MainFrame;
 import gate.util.GateException;
 import gate.util.persistence.PersistenceManager;
-import extractor.FileUtil;
-import extractor.SystemLog;
+import p4535992.util.file.FileUtil;
+import p4535992.util.log.SystemLog;
 
 import java.io.File;
 import java.io.FileWriter;

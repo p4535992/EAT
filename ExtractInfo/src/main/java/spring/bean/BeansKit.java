@@ -9,6 +9,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.web.context.support.XmlWebApplicationContext;
+import p4535992.util.log.SystemLog;
 
 import java.io.File;
 import java.io.IOException;
@@ -54,7 +55,7 @@ public class BeansKit<T> {
                     AbstractApplicationContext abstractContext = new ClassPathXmlApplicationContext(filePathXml);
                     context = abstractContext;
                 }catch(Exception e2){
-                    try{
+                   /* try{
                         XmlBeanFactory factory = new XmlBeanFactory (new ClassPathResource(filePathXml));
                     }catch(Exception e3){
 //                        //This container loads the XML file with definitions of all beans from within a web application.
@@ -64,7 +65,8 @@ public class BeansKit<T> {
 //                            e1.printStackTrace();
 //                        }
                         e3.printStackTrace();
-                    }
+                    }*/
+                    SystemLog.exception(e2);
                 }
             }
         }else{

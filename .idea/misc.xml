@@ -4,6 +4,7 @@
     <entry_points version="2.0" />
   </component>
   <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/silk-master/silk-tools/silk-server" />
     <file type="web" url="file://$PROJECT_DIR$/web-Karma-master/karma-web" />
     <file type="web" url="file://$PROJECT_DIR$/web-Karma-master/karma-web-services/web-services-rdf" />
   </component>
@@ -12,6 +13,11 @@
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
       </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/silk-singlemachine/pom.xml" />
+      </set>
     </option>
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">

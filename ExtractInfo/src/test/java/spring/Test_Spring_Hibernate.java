@@ -1,7 +1,7 @@
 package spring;
 
-import object.dao.IGeoDocumentDao;
-import object.impl.GeoDocumentDaoImpl;
+import object.dao.jdbc.IGeoDocumentDao;
+import object.impl.jdbc.GeoDocumentDaoImpl;
 import object.model.GeoDocument;
 import org.springframework.context.ResourceLoaderAware;
 import org.springframework.core.io.Resource;
@@ -53,8 +53,8 @@ public class Test_Spring_Hibernate {
 //        }
         IGeoDocumentDao dao = new GeoDocumentDaoImpl();
         dao.setTableInsert("test_34");
-        //dao.setDriverManager("com.mysql.jdbc.Driver","jdbc:mysql","localhost","3306","siimobility","siimobility","geolocationddb")
-        dao.loadHibernateConfig(filePathXml);
+        //dao.setDriverManager("com.sql.jdbc.Driver","jdbc:sql","localhost","3306","siimobility","siimobility","geolocationddb")
+        dao.loadSpringConfig(filePathXml);
         dao.saveH(geo);
         List<GeoDocument> list = dao.getAllH();
     }

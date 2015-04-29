@@ -6,12 +6,10 @@
 
 package object.model;
 
-import extractor.SystemLog;
-
 import java.net.URL;
 
 /**
- * Classe che costruisce l'ogeeto GeoDocument  per essere utilizzato con una specifica ontologia
+ * Classe che costruisce lt'ogeeto GeoDocument  per essere utilizzato con una specifica ontologia
  * @author Marco
  */
 import javax.persistence.*;

@@ -61,7 +61,7 @@ public class SesameUtil2 {
     private static String VERIFY = "true";
     private static String STOP_ON_ERROR = "true";
     private static String PRESERVE_BNODES = "true";
-    private static String DATATYPE_HANDLING = RDFParser.DatatypeHandling.VERIFY.name();
+    //private static String DATATYPE_HANDLING = RDFParser.DatatypeHandling.VERIFY.name();
     private static String CHUNK_SIZE ="500000";
 
     private static String SHOWSTATS = "false";
@@ -398,13 +398,12 @@ public class SesameUtil2 {
      }
      
     
-  
-    
-    
-    
-    //////////////////////////////////////////////////////////////////////////////////////////////
-    //method of support
-    // A list of RDF file formats used in loadFile().
+
+
+
+    /**
+     * Field a list of RDF file formats used in loadFile().
+     */
     private static final org.openrdf.rio.RDFFormat allFormats[] = 
             new org.openrdf.rio.RDFFormat[] {
         org.openrdf.rio.RDFFormat.NTRIPLES, org.openrdf.rio.RDFFormat.N3,
@@ -412,6 +411,11 @@ public class SesameUtil2 {
         org.openrdf.rio.RDFFormat.TRIG, org.openrdf.rio.RDFFormat.TRIX, 
         org.openrdf.rio.RDFFormat.NQUADS };
 
+    /**
+     * Method to convert a string to a or.openrdf.rio.RDFFormat
+     * @param strFormat
+     * @return
+     */
     private static org.openrdf.rio.RDFFormat stringToRDFFormat(String strFormat) {
         if(strFormat.equalsIgnoreCase("NT")){
             strFormat = "N-Triples";
@@ -423,25 +427,33 @@ public class SesameUtil2 {
         throw new IllegalArgumentException("The RDF format '" + strFormat + "' is not recognised");
     }
 
-    // A list of datatype handling strategies
-    private static final org.openrdf.rio.RDFParser.DatatypeHandling allDatatypeHandling[] = 
-            new org.openrdf.rio.RDFParser.DatatypeHandling[] {
-        org.openrdf.rio.RDFParser.DatatypeHandling.IGNORE, 
-        org.openrdf.rio.RDFParser.DatatypeHandling.NORMALIZE, 
-        org.openrdf.rio.RDFParser.DatatypeHandling.VERIFY
-    };
 
-    private static org.openrdf.rio.RDFParser.DatatypeHandling stringToDatatypeHandling(String strHandling) {
-        for (org.openrdf.rio.RDFParser.DatatypeHandling handling : allDatatypeHandling) {
-                if (handling.name().equalsIgnoreCase(strHandling))
-                        return handling;
-        }
-        throw new IllegalArgumentException("Datatype handling strategy for parsing '" + strHandling + "' is not recognised");
-    }
+    /**
+     * Field a list of datatype handling strategies
+     * @deprecated
+     */
+//    private static final org.openrdf.rio.RDFParser.DatatypeHandling allDatatypeHandling[] =
+//            new org.openrdf.rio.RDFParser.DatatypeHandling[] {
+//        org.openrdf.rio.RDFParser.DatatypeHandling.IGNORE,
+//        org.openrdf.rio.RDFParser.DatatypeHandling.NORMALIZE,
+//        org.openrdf.rio.RDFParser.DatatypeHandling.VERIFY
+//    };
+
+    /**
+     * Method to convert a string to a or.openrdf.rio.RDFFormat
+     * @param strHandling
+     * @return
+     * @deprecated
+     */
+//    private static org.openrdf.rio.RDFParser.DatatypeHandling stringToDatatypeHandling(String strHandling) {
+//        for (org.openrdf.rio.RDFParser.DatatypeHandling handling : allDatatypeHandling) {
+//                if (handling.name().equalsIgnoreCase(strHandling))
+//                        return handling;
+//        }
+//        throw new IllegalArgumentException("Datatype handling strategy for parsing '" + strHandling + "' is not recognised");
+//    }
     
-    
-    /////////////////////////////////////////////////////////////////////////////////////////////////
-    //forgotten method
+
     /*
     private void querySelectOntoTextSchema(SesameDataset dataset,String querySelectString){
         //and can also be used to evaluate queries through the ARQ engine:

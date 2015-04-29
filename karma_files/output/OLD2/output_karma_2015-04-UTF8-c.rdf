@@ -1,0 +1,1667 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:j.0="http://www.disit.org/km4city/schema#"
+    xmlns:j.1="http://purl.org/goodrelations/v1#"
+    xmlns:j.2="http://schema.org/"
+    xmlns:j.3="http://www.w3.org/2003/01/geo/wgs84_pos#" > 
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_369">
+    <j.3:geometry>43.776274859398896 11.299128866318377</j.3:geometry>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">43.776274859398896^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">11.299128866318377^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#252">
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+    <j.2:addressLocality>Merano</j.2:addressLocality>
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_252"/>
+    <j.0:houseNumber>33</j.0:houseNumber>
+    <j.2:url>fattoriadipiazzano.it</j.2:url>
+    <j.2:streetAddress>Corso Libertà</j.2:streetAddress>
+    <j.1:legalName>"SOCIETA' AGRICOLA FATTORIA DI PIAZZANO S.A.S. DI BETTARINI ROLAN DO E ILARIA E C." ED IN FORMA ABBREVIATA "SOCIETA' AGRICOLA F.D.P. S.A.S. DI BE TTARINI R. E I. &amp; C."</j.1:legalName>
+    <j.2:postalCode>39012</j.2:postalCode>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#267">
+    <j.2:postalCode>52100</j.2:postalCode>
+    <j.2:streetAddress>strada statale</j.2:streetAddress>
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_267"/>
+    <j.2:url>poggioalleville.it</j.2:url>
+    <j.1:legalName>IL POGGIO ALLE VILLE DI EDLMANN RAFFAELE</j.1:legalName>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+    <j.2:addressLocality>Arezzo</j.2:addressLocality>
+    <j.0:houseNumber>302</j.0:houseNumber>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_359">
+    <j.3:geometry>43.51667941460044 11.130322993965201</j.3:geometry>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">11.130322993965201^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">43.51667941460044^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#320">
+    <j.1:vatID>06170740481</j.1:vatID>
+    <j.0:houseNumber>65</j.0:houseNumber>
+    <j.1:legalName>OSPEDALE VETERINARIO MASACCIO - SOCIETA' A RESPONSABILITA' LIMITA TA</j.1:legalName>
+    <j.2:postalCode>50100</j.2:postalCode>
+    <j.2:email>lavinia.fortigrazzini@fastwebnet.it</j.2:email>
+    <j.2:streetAddress>Viale Gramsci</j.2:streetAddress>
+    <j.2:url>www.ambulatorioveterinariomasaccio.com</j.2:url>
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_320"/>
+    <j.2:addressLocality>Firenze</j.2:addressLocality>
+    <j.2:telephone>055 2347577</j.2:telephone>
+    <j.2:addressRegion>Firenze</j.2:addressRegion>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_371">
+    <j.3:geometry>43.767542185910926 11.249344488865376</j.3:geometry>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">11.249344488865376^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">43.767542185910926^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#347">
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_347"/>
+    <j.2:url>www.baldaccigiardini.com</j.2:url>
+    <j.2:email>Email ilgiardinieretenace@fastwebnet.it</j.2:email>
+    <j.2:faxNumber>+39 0558724091</j.2:faxNumber>
+    <j.1:vatID>04816010484</j.1:vatID>
+    <j.0:houseNumber>647/649</j.0:houseNumber>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+    <j.2:addressLocality>Lastra a Signa</j.2:addressLocality>
+    <j.2:streetAddress>Via Livornese</j.2:streetAddress>
+    <j.1:legalName>"IL GIARDINIERE" DI BALDACCI ROBERTO</j.1:legalName>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_437">
+    <j.3:geometry>43.779602998906334 11.252047463622215</j.3:geometry>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">43.779602998906334^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">11.252047463622215^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#300">
+    <j.2:url>www.agricolapoderino.it</j.2:url>
+    <j.2:streetAddress>Via Vicinale di Poggio Secco</j.2:streetAddress>
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_300"/>
+    <j.2:addressLocality>Firenze</j.2:addressLocality>
+    <j.2:postalCode>50100</j.2:postalCode>
+    <j.0:houseNumber>6</j.0:houseNumber>
+    <j.1:legalName>AZIENDA AGRARIA PODERINO DI CIAPPI ANDREA</j.1:legalName>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#310">
+    <j.2:email>info@agriturismopratinovi.it</j.2:email>
+    <j.1:legalName>AZ. AGRICOLA PRATINOVI DI NASCIMENTO MARIA EDUARDA</j.1:legalName>
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_310"/>
+    <j.2:url>www.agriturismopratinovi.it</j.2:url>
+    <j.2:streetAddress>Via Palagio di Colognole</j.2:streetAddress>
+    <j.2:postalCode>50100</j.2:postalCode>
+    <j.1:vatID>04647930488</j.1:vatID>
+    <j.2:faxNumber>055 8319666</j.2:faxNumber>
+    <j.2:addressLocality>Pontassieve</j.2:addressLocality>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+    <j.0:houseNumber>75</j.0:houseNumber>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_361">
+    <j.3:geometry>43.71919086313378 10.928067783268505</j.3:geometry>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">43.71919086313378^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">10.928067783268505^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_236">
+    <j.3:geometry>43.66351815796001 11.168140358159267</j.3:geometry>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">43.66351815796001^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">11.168140358159267^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_379">
+    <j.3:geometry>43.78254202261926 11.288549969378346</j.3:geometry>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">43.78254202261926^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">11.288549969378346^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_304">
+    <j.3:geometry>44.066093643927935 11.538618070431053</j.3:geometry>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">11.538618070431053^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">44.066093643927935^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#330">
+    <j.2:url>www.arcipelago.net</j.2:url>
+    <j.1:legalName>ARCIPELAGO CLOUD S.R.L.</j.1:legalName>
+    <j.2:streetAddress>Via del Pino</j.2:streetAddress>
+    <j.0:houseNumber>1</j.0:houseNumber>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+    <j.2:postalCode>50053</j.2:postalCode>
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_330"/>
+    <j.2:addressLocality>Empoli</j.2:addressLocality>
+    <j.2:email>crm@arcipelago.net</j.2:email>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_381">
+    <j.3:geometry>43.74155238154951 11.288634403770205</j.3:geometry>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">43.74155238154951^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">11.288634403770205^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_256">
+    <j.3:geometry>43.77460891448147 11.439165785526427</j.3:geometry>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">43.77460891448147^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">11.439165785526427^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#317">
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+    <j.2:addressLocality>Greve in Chianti</j.2:addressLocality>
+    <j.2:url>www.albergoverrazzano.it</j.2:url>
+    <j.2:email>info@albergoverrazzano.it</j.2:email>
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_317"/>
+    <j.1:legalName>LA LOCANDA DI GREVE - ALBERGO RISTORANTE DA VERRAZZANO - S.R.L.</j.1:legalName>
+    <j.2:streetAddress>p.zza Matteotti</j.2:streetAddress>
+    <j.2:faxNumber>0039 055</j.2:faxNumber>
+    <j.2:telephone>0039 055</j.2:telephone>
+    <j.0:houseNumber>28</j.0:houseNumber>
+    <j.1:vatID>00968650481</j.1:vatID>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_339">
+    <j.3:geometry>43.76875234152667 11.316743593831234</j.3:geometry>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">43.76875234152667^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">11.316743593831234^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_289">
+    <j.3:geometry>43.73365135782963 10.804406715069748</j.3:geometry>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">10.804406715069748^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">43.73365135782963^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_266">
+    <j.3:geometry>0 0</j.3:geometry>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_442">
+    <j.3:geometry>43.79036421674959 11.22667177271448</j.3:geometry>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">43.79036421674959^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">11.22667177271448^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#354">
+    <j.2:url>www.bilance.it</j.2:url>
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_354"/>
+    <j.0:houseNumber>36</j.0:houseNumber>
+    <j.1:vatID>04721330480</j.1:vatID>
+    <j.2:addressRegion>Firenze</j.2:addressRegion>
+    <j.2:postalCode>50100</j.2:postalCode>
+    <j.2:addressLocality>Firenze</j.2:addressLocality>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+    <j.2:faxNumber>+39.055.4293143</j.2:faxNumber>
+    <j.2:email>info@bilance.it </j.2:email>
+    <j.1:legalName>BILANCE SERVICE S.N.C. DI PIERI MASSIMO E PERUZZI STEFANO</j.1:legalName>
+    <j.2:telephone>+39.055.4224010</j.2:telephone>
+    <j.2:streetAddress>Via Caduti di Cefalonia</j.2:streetAddress>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_329">
+    <j.3:geometry>43.775069628745406 11.24209923764585</j.3:geometry>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">11.24209923764585^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">43.775069628745406^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_292">
+    <j.3:geometry>43.777357930542365 11.257685260605719</j.3:geometry>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">11.257685260605719^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">43.777357930542365^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_389">
+    <j.3:geometry>43.8024258792573 11.278868655300414</j.3:geometry>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">11.278868655300414^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">43.8024258792573^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_295">
+    <j.3:geometry>43.79718525757729 11.239978131631148</j.3:geometry>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">11.239978131631148^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">43.79718525757729^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#454">
+    <j.1:legalName>S.V.F. INFORMATICA GLOBALE SOCIETA' IN NOME COLLETTIVO DI PINELLI VASSILI &amp; PILLONI STEFANO</j.1:legalName>
+    <j.2:postalCode>50031</j.2:postalCode>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+    <j.0:houseNumber>86</j.0:houseNumber>
+    <j.2:streetAddress>Viale Antonio Gramsci</j.2:streetAddress>
+    <j.1:vatID>05443330484</j.1:vatID>
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_454"/>
+    <j.2:url>www.essevueffe.it</j.2:url>
+    <j.2:addressLocality>Firenze</j.2:addressLocality>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#415">
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+    <j.2:addressLocality>Firenze</j.2:addressLocality>
+    <j.1:legalName>CONFIDI IMPRESE TOSCANE SOCIETA' COOPERATIVA DI GARANZIA COLLETTI VA DEI FIDI</j.1:legalName>
+    <j.2:streetAddress>Via Valfonda</j.2:streetAddress>
+    <j.2:postalCode>50100</j.2:postalCode>
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_415"/>
+    <j.2:url>www.confidimpresetoscane.it</j.2:url>
+    <j.0:houseNumber>9</j.0:houseNumber>
+    <j.2:email>confidi@confidimpresetoscane.it</j.2:email>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#266">
+    <j.1:legalName>PAR.CO.  S.P.A.</j.1:legalName>
+    <j.2:addressLocality>Firenze</j.2:addressLocality>
+    <j.1:vatID>07787660633</j.1:vatID>
+    <j.2:url>parcospa.eu</j.2:url>
+    <j.2:streetAddress>Via della Resistenza</j.2:streetAddress>
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_266"/>
+    <j.0:houseNumber>30</j.0:houseNumber>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#409">
+    <j.2:addressLocality>firenze</j.2:addressLocality>
+    <j.0:houseNumber>5</j.0:houseNumber>
+    <j.2:postalCode>50125</j.2:postalCode>
+    <j.1:legalName>COMMUNICART.IT  S.A.S. DI VERONICA FICCARELLI &amp; C.</j.1:legalName>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+    <j.2:url>www.communicart.it</j.2:url>
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_409"/>
+    <j.2:streetAddress>Viale machiavelli</j.2:streetAddress>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#253">
+    <j.1:legalName>FLORINFO S.N.C. DI TANINI MARIA PAOLA &amp; C.</j.1:legalName>
+    <j.2:postalCode>50065</j.2:postalCode>
+    <j.2:url>florinfo.it</j.2:url>
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_253"/>
+    <j.2:addressLocality>Pontassieve</j.2:addressLocality>
+    <j.0:houseNumber>22</j.0:houseNumber>
+    <j.2:streetAddress>Via Reni</j.2:streetAddress>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+    <j.2:email>info@florinfo.it</j.2:email>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_247">
+    <j.3:geometry>43.77806021482656 11.240762675752139</j.3:geometry>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">43.77806021482656^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">11.240762675752139^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_372">
+    <j.3:geometry>43.7701646203087 11.257209560408647</j.3:geometry>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">43.7701646203087^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">11.257209560408647^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#348">
+    <j.2:addressRegion>Firenze</j.2:addressRegion>
+    <j.2:url>www.ballettodifirenze.it</j.2:url>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+    <j.1:vatID>05638360486</j.1:vatID>
+    <j.2:postalCode>50100</j.2:postalCode>
+    <j.2:streetAddress>via Gaetano Milanesi</j.2:streetAddress>
+    <j.2:addressLocality>Firenze</j.2:addressLocality>
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_348"/>
+    <j.2:email>info@ballettodifirenze.it</j.2:email>
+    <j.1:legalName>BALLETTO DI FIRENZE ASSOCIAZIONE CULTURALE</j.1:legalName>
+    <j.0:houseNumber>63</j.0:houseNumber>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#290">
+    <j.2:faxNumber>+39 055 578989</j.2:faxNumber>
+    <j.2:addressRegion>Firenze</j.2:addressRegion>
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_290"/>
+    <j.2:addressLocality>Firenze</j.2:addressLocality>
+    <j.1:vatID>00522370485</j.1:vatID>
+    <j.1:legalName>ACCIOLI &amp; PUCCINI LABORATORIO ODONTOTECNICO DI ACCIOLI MASSIMILIA NO E PUCCINI RICCARDO S.N.C.</j.1:legalName>
+    <j.2:url>www.accioliepuccini.com</j.2:url>
+    <j.2:postalCode>50131</j.2:postalCode>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_362">
+    <j.3:geometry>43.77416640586722 11.191082728053443</j.3:geometry>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">11.191082728053443^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">43.77416640586722^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#286">
+    <j.2:addressLocality>Firenze</j.2:addressLocality>
+    <j.1:legalName>121 DECIBEL RECORDING STUDIO DI BALLERINI FRANCESCO</j.1:legalName>
+    <j.2:postalCode>50100</j.2:postalCode>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+    <j.2:url>www.121decibel.com</j.2:url>
+    <j.2:streetAddress>Via di Picille</j.2:streetAddress>
+    <j.2:addressRegion>Firenze</j.2:addressRegion>
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_286"/>
+    <j.0:houseNumber>34</j.0:houseNumber>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_303">
+    <j.3:geometry>43.778343481728285 11.278111899858763</j.3:geometry>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">11.278111899858763^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">43.778343481728285^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#338">
+    <j.2:addressRegion>FIRENZE</j.2:addressRegion>
+    <j.1:legalName>AUTOSCUOLA RIFREDI DI VENTURINI GIANNA E C. SOCIETA' IN ACCOMANDITA SEMPLICE</j.1:legalName>
+    <j.2:url>www.autoscuolarifredi.it</j.2:url>
+    <j.2:email>autoscuolarifredi@hotmail.it</j.2:email>
+    <j.2:streetAddress>VIA GIULIANI REGINALDO /B</j.2:streetAddress>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+    <j.2:postalCode>50141</j.2:postalCode>
+    <j.0:houseNumber>53</j.0:houseNumber>
+    <j.2:addressLocality>FIRENZE</j.2:addressLocality>
+    <j.1:vatID>00392810487</j.1:vatID>
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_338"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_317">
+    <j.3:geometry>43.58235540133806 11.31720960979312</j.3:geometry>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">11.31720960979312^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">43.58235540133806^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_310">
+    <j.3:geometry>43.87184406010995 11.454945063796233</j.3:geometry>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">11.454945063796233^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">43.87184406010995^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_288">
+    <j.3:geometry>0 0</j.3:geometry>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#373">
+    <j.0:houseNumber>12</j.0:houseNumber>
+    <j.2:postalCode>50025</j.2:postalCode>
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_373"/>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+    <j.2:addressLocality>Montespertoli</j.2:addressLocality>
+    <j.2:url>www.cantiereikrea.it</j.2:url>
+    <j.1:legalName>CANTIERE IKREA</j.1:legalName>
+    <j.2:streetAddress>via dell'Olivo</j.2:streetAddress>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#247">
+    <j.2:streetAddress>Piazzale Porta al Prato</j.2:streetAddress>
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_247"/>
+    <j.0:houseNumber>34</j.0:houseNumber>
+    <j.2:addressLocality>Firenze</j.2:addressLocality>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+    <j.2:url>crofirenze.simplybook.me</j.2:url>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#328">
+    <j.1:legalName>A.P. SOFTWARE*INFORMATICA DI PAPADOPOULOS HELENA SOCIETA' IN AC- COMANDITA SEMPLICE</j.1:legalName>
+    <j.2:url>www.apsoftware.it</j.2:url>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+    <j.2:addressLocality>Firenze</j.2:addressLocality>
+    <j.1:vatID>04273620486</j.1:vatID>
+    <j.2:telephone>+39 055 244444</j.2:telephone>
+    <j.2:addressRegion>Firenze</j.2:addressRegion>
+    <j.0:houseNumber>105</j.0:houseNumber>
+    <j.2:postalCode>50121</j.2:postalCode>
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_328"/>
+    <j.2:streetAddress>Via Gioberti</j.2:streetAddress>
+    <j.2:faxNumber>+39 055 244442</j.2:faxNumber>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_267">
+    <j.3:geometry>0 0</j.3:geometry>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#353">
+    <j.2:addressLocality>Fiesole</j.2:addressLocality>
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_353"/>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+    <j.2:streetAddress>Via di Vincigliata</j.2:streetAddress>
+    <j.0:houseNumber>19</j.0:houseNumber>
+    <j.2:url>www.bibigraetz.com</j.2:url>
+    <j.1:legalName>TESTAMATTA DI  BIBI GRAETZ</j.1:legalName>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#272">
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_272"/>
+    <j.2:url>shop.ortogiardino.it</j.2:url>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_454">
+    <j.3:geometry>43.77615438880261 11.268900631239196</j.3:geometry>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">43.77615438880261^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">11.268900631239196^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_293">
+    <j.3:geometry>43.86114874584071 11.178232510852133</j.3:geometry>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">11.178232510852133^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">43.86114874584071^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_294">
+    <j.3:geometry>43.77934085349414 11.282046955811222</j.3:geometry>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">43.77934085349414^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">11.282046955811222^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#435">
+    <j.2:telephone>+39 055 822.84.61</j.2:telephone>
+    <j.2:postalCode>50061</j.2:postalCode>
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_435"/>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+    <j.2:streetAddress>Via Romena</j.2:streetAddress>
+    <j.2:addressLocality>Fiesole</j.2:addressLocality>
+    <j.2:faxNumber>+39 055 822.84.62</j.2:faxNumber>
+    <j.2:url>www.depaoli.eu</j.2:url>
+    <j.0:houseNumber>21</j.0:houseNumber>
+    <j.1:legalName>DE PAOLI EDIZIONI D'ARTE S.R.L.</j.1:legalName>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_248">
+    <j.3:geometry>43.79709069444816 11.234231974599759</j.3:geometry>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">11.234231974599759^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">43.79709069444816^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_320">
+    <j.3:geometry>43.775486507639286 11.269436066639825</j.3:geometry>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">43.775486507639286^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">11.269436066639825^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#270">
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+    <j.1:legalName>RISTORANTE PIZZERIA MARI E MONTI S.R.L.</j.1:legalName>
+    <j.2:streetAddress>Via Maestro da Figline  </j.2:streetAddress>
+    <j.2:url>ristorantepizzeriamariemonti.jimdo.com</j.2:url>
+    <j.2:addressLocality>Figline Valdarno</j.2:addressLocality>
+    <j.2:postalCode>41120</j.2:postalCode>
+    <j.0:houseNumber>2</j.0:houseNumber>
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_270"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#291">
+    <j.2:faxNumber>+39 050.843260</j.2:faxNumber>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+    <j.1:legalName>ACQUE S.P.A.</j.1:legalName>
+    <j.2:url>www.acque.net</j.2:url>
+    <j.2:telephone>+39 050.843111</j.2:telephone>
+    <j.2:addressLocality>Empoli</j.2:addressLocality>
+    <j.1:vatID>05175700482</j.1:vatID>
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_291"/>
+    <j.2:email>info@pec.acque.net</j.2:email>
+    <j.2:postalCode>56121</j.2:postalCode>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_373">
+    <j.3:geometry>43.6597926196347 11.122504694928368</j.3:geometry>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">11.122504694928368^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">43.6597926196347^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_419">
+    <j.3:geometry>43.763389742966694 11.2737738025423</j.3:geometry>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">11.2737738025423^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">43.763389742966694^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_367">
+    <j.3:geometry>43.79199122886255 11.331827814204946</j.3:geometry>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">43.79199122886255^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">11.331827814204946^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#279">
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_279"/>
+    <j.0:houseNumber>11</j.0:houseNumber>
+    <j.2:url>tuttosposifirenze.it</j.2:url>
+    <j.2:telephone>+39 055 461521</j.2:telephone>
+    <j.2:postalCode>50100</j.2:postalCode>
+    <j.2:faxNumber>+39 055 486458</j.2:faxNumber>
+    <j.1:legalName>TUTTO SPOSI S.R.L.</j.1:legalName>
+    <j.2:addressRegion>Firenze</j.2:addressRegion>
+    <j.2:email>info@tuttosposifirenze.it</j.2:email>
+    <j.2:addressLocality>Firenze</j.2:addressLocality>
+    <j.2:streetAddress>Via Crispi</j.2:streetAddress>
+    <j.1:vatID>06223370484</j.1:vatID>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#359">
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_359"/>
+    <j.1:legalName>FATTORIA PONETA DI FILIPPO MARIA DAIDONE</j.1:legalName>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+    <j.2:addressLocality>Barberino Val d'Elsa</j.2:addressLocality>
+    <j.2:streetAddress>Strada di Poneta</j.2:streetAddress>
+    <j.0:houseNumber>64</j.0:houseNumber>
+    <j.2:postalCode>50021</j.2:postalCode>
+    <j.2:url>www.borgoponeta.it</j.2:url>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#250">
+    <j.2:addressLocality>Firenze</j.2:addressLocality>
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_250"/>
+    <j.2:streetAddress>via mail almeno</j.2:streetAddress>
+    <j.2:url>enotecapinchiorri.it</j.2:url>
+    <j.0:houseNumber>24</j.0:houseNumber>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+    <j.1:legalName>ENOTECA PINCHIORRI SAS DI GIORGIO PINCHIORRI, ANNIE FEOLDE E C.</j.1:legalName>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_334">
+    <j.3:geometry>43.761890320757075 11.170798387915298</j.3:geometry>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">43.761890320757075^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">11.170798387915298^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_347">
+    <j.3:geometry>43.778226890796766 11.080582399958912</j.3:geometry>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">43.778226890796766^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">11.080582399958912^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#269">
+    <j.0:houseNumber>3</j.0:houseNumber>
+    <j.2:streetAddress>via email! Where are you based? Best regards Claudia and Costanza</j.2:streetAddress>
+    <j.2:url>restaurotessile.blogspot.it</j.2:url>
+    <j.2:email>villa.lapietra@nyu.edu</j.2:email>
+    <j.2:addressLocality>Florence</j.2:addressLocality>
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_269"/>
+    <j.1:legalName>RESTAURO TESSILE S.N.C. DI BEYER E PERRONE DA ZARA</j.1:legalName>
+    <j.2:postalCode>50100</j.2:postalCode>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#289">
+    <j.1:legalName>ABRACARIBE DI VALTER GORI</j.1:legalName>
+    <j.1:vatID>06186480486</j.1:vatID>
+    <j.2:url>www.abracaribe.it</j.2:url>
+    <j.2:postalCode>50054</j.2:postalCode>
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_289"/>
+    <j.2:email>ottimizzazione_siti@abracaribe.it</j.2:email>
+    <j.2:addressLocality>Fucecchio</j.2:addressLocality>
+    <j.2:streetAddress>Via N. Bonaparte</j.2:streetAddress>
+    <j.0:houseNumber>19</j.0:houseNumber>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_439">
+    <j.3:geometry>43.78909713126007 11.251586877940325</j.3:geometry>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">43.78909713126007^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">11.251586877940325^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#490">
+    <j.1:vatID>06056330480</j.1:vatID>
+    <j.1:legalName>CONSORZIO GLOBALNET ITALIA</j.1:legalName>
+    <j.2:addressRegion>FIRENZE</j.2:addressRegion>
+    <j.2:streetAddress>Via Benedetto Dei</j.2:streetAddress>
+    <j.2:postalCode>50127</j.2:postalCode>
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_490"/>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+    <j.0:houseNumber>64</j.0:houseNumber>
+    <j.2:addressLocality>FIRENZE</j.2:addressLocality>
+    <j.2:url>www.globalnetitalia.it</j.2:url>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_260">
+    <j.3:geometry>43.772171480552664 11.115419369042586</j.3:geometry>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">43.772171480552664^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">11.115419369042586^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#372">
+    <j.2:streetAddress>via della Condotta</j.2:streetAddress>
+    <j.0:houseNumber>7/9r</j.0:houseNumber>
+    <j.2:addressLocality>Firenze </j.2:addressLocality>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_372"/>
+    <j.2:url>www.cantastorie.net</j.2:url>
+    <j.2:postalCode>50100</j.2:postalCode>
+    <j.1:legalName>IL CANTASTORIE DI FIRENZE S.R.L.</j.1:legalName>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#248">
+    <j.2:addressLocality>FIRENZE</j.2:addressLocality>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+    <j.1:legalName>ECOFIRENZE.COM S.R.L.</j.1:legalName>
+    <j.2:url>ecofirenze.com</j.2:url>
+    <j.1:vatID>06476490484</j.1:vatID>
+    <j.2:streetAddress>Via Benedetto Dei</j.2:streetAddress>
+    <j.2:postalCode>50100</j.2:postalCode>
+    <j.0:houseNumber>64</j.0:houseNumber>
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_248"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#366">
+    <j.0:houseNumber>1</j.0:houseNumber>
+    <j.2:addressLocality>Scandicci</j.2:addressLocality>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_366"/>
+    <j.2:url>www.bunkerfilm.com</j.2:url>
+    <j.2:postalCode>50100</j.2:postalCode>
+    <j.1:legalName>BUNKER FILM DI CACCHIANI FRANCESCO</j.1:legalName>
+    <j.2:streetAddress>via Ilio Barontini</j.2:streetAddress>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#432">
+    <j.2:postalCode>50100</j.2:postalCode>
+    <j.2:url>www.delfofirenze.it</j.2:url>
+    <j.1:legalName>DELFO DI TRAVELLI FABRIZIO E C. S.N.C.</j.1:legalName>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+    <j.2:addressLocality>firenze</j.2:addressLocality>
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_432"/>
+    <j.2:streetAddress>Via L. Michelazzi</j.2:streetAddress>
+    <j.0:houseNumber>27</j.0:houseNumber>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#315">
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+    <j.0:houseNumber>1</j.0:houseNumber>
+    <j.2:addressLocality>Firenze</j.2:addressLocality>
+    <j.2:url>www.aidastudio.it</j.2:url>
+    <j.2:streetAddress>Piazzale Vittorio Gui</j.2:streetAddress>
+    <j.2:postalCode>50100</j.2:postalCode>
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_315"/>
+    <j.1:legalName>A.I.D.A. STUDIO ASSOCIAZIONE CULTURALE</j.1:legalName>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_354">
+    <j.3:geometry>43.792163978074534 11.219778430362847</j.3:geometry>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">43.792163978074534^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">11.219778430362847^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#442">
+    <j.2:addressLocality>Firenze</j.2:addressLocality>
+    <j.2:postalCode>50021</j.2:postalCode>
+    <j.2:addressRegion>Firenze</j.2:addressRegion>
+    <j.2:streetAddress>Via di Novoli n.</j.2:streetAddress>
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_442"/>
+    <j.2:telephone>39 055 8075388</j.2:telephone>
+    <j.1:vatID>06258110482</j.1:vatID>
+    <j.0:houseNumber>27</j.0:houseNumber>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+    <j.2:url>www.duepiani.it</j.2:url>
+    <j.1:legalName>AZIENDA*AGRICOLA*DUE PIANI S.A.S. DI MORI BRUNELLA E C.</j.1:legalName>
+    <j.2:faxNumber>39 055 8075388</j.2:faxNumber>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_387">
+    <j.3:geometry>43.596451761106096 11.021131982037172</j.3:geometry>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">43.596451761106096^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">11.021131982037172^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_453">
+    <j.3:geometry>43.693108016578506 10.903998471499667</j.3:geometry>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">43.693108016578506^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">10.903998471499667^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_290">
+    <j.3:geometry>43.77932501296798 11.27900658968122</j.3:geometry>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">11.27900658968122^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">43.77932501296798^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_277">
+    <j.3:geometry>43.707211904997095 10.907130143877842</j.3:geometry>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">10.907130143877842^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">43.707211904997095^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#329">
+    <j.2:addressLocality>Firenze</j.2:addressLocality>
+    <j.2:postalCode>50100</j.2:postalCode>
+    <j.2:streetAddress>Via Palestro</j.2:streetAddress>
+    <j.2:url>www.arcieriugoditoscana.it</j.2:url>
+    <j.0:houseNumber>18</j.0:houseNumber>
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_329"/>
+    <j.1:legalName>PRIMA COMPAGNIA DEGLI ARCIERI DELLA CITTA' DI FIRENZE UGO DI TOSC ANA - ASSOCIAZIONE SPORTIVA DILETTANTISTICA - SOCIETA' COOPERATIVA</j.1:legalName>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#292">
+    <j.1:legalName>A &amp; A COSTRUZIONI EDILI S.R.L.</j.1:legalName>
+    <j.0:houseNumber>41</j.0:houseNumber>
+    <j.2:addressRegion>Florence</j.2:addressRegion>
+    <j.2:url>www.aeacostruzioni.com</j.2:url>
+    <j.2:streetAddress>Via Cavour</j.2:streetAddress>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+    <j.2:postalCode>50100</j.2:postalCode>
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_292"/>
+    <j.2:addressLocality>Firenze</j.2:addressLocality>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#301">
+    <j.2:postalCode>50034</j.2:postalCode>
+    <j.0:houseNumber>8</j.0:houseNumber>
+    <j.2:telephone>0558042137</j.2:telephone>
+    <j.2:addressLocality>Marradi</j.2:addressLocality>
+    <j.2:faxNumber>0558042051</j.2:faxNumber>
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_301"/>
+    <j.2:url>www.agricomes.marradi.it</j.2:url>
+    <j.1:legalName>AGRI.COMES - SOCIETA' COOPERATIVA SOCIALE AGRICOLA O.N.L.U.S.</j.1:legalName>
+    <j.1:vatID>06159140489</j.1:vatID>
+    <j.2:streetAddress>Piazza Scalelle n.</j.2:streetAddress>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#298">
+    <j.1:legalName>AZIENDA AGRICOLA BRUNELLI - SOCIETA' AGRICOLA S.R.L.</j.1:legalName>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+    <j.2:streetAddress>Via di Marciola</j.2:streetAddress>
+    <j.2:url>www.agricolabrunelli.it</j.2:url>
+    <j.1:vatID>06361790485</j.1:vatID>
+    <j.2:postalCode>50018</j.2:postalCode>
+    <j.2:addressLocality>Scandicci</j.2:addressLocality>
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_298"/>
+    <j.0:houseNumber>17</j.0:houseNumber>
+    <j.2:telephone>+39 055769022</j.2:telephone>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_249">
+    <j.3:geometry>43.76963933860854 11.275068242788839</j.3:geometry>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">43.76963933860854^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">11.275068242788839^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_315">
+    <j.3:geometry>43.78108910147407 11.233904513929199</j.3:geometry>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">11.233904513929199^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">43.78108910147407^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_418">
+    <j.3:geometry>43.77429797711692 11.22977267538755</j.3:geometry>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">43.77429797711692^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">11.22977267538755^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#251">
+    <j.1:legalName>FONDAZIONE FABBRICA EUROPA PER LE ARTI CONTEMPORANEE</j.1:legalName>
+    <j.0:houseNumber>1</j.0:houseNumber>
+    <j.2:postalCode>50100</j.2:postalCode>
+    <j.2:addressLocality>Firenze</j.2:addressLocality>
+    <j.2:streetAddress>Via delle Vecchie Carceri</j.2:streetAddress>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+    <j.2:url>fabbricaeuropa.net</j.2:url>
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_251"/>
+    <j.2:addressRegion>Firenze</j.2:addressRegion>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_241">
+    <j.3:geometry>43.96486876038428 11.295244004740853</j.3:geometry>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">11.295244004740853^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">43.96486876038428^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_348">
+    <j.3:geometry>43.78883494402329 11.245695385329961</j.3:geometry>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">43.78883494402329^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">11.245695385329961^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#309">
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_309"/>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+    <j.2:email>sgrossi@libero.it</j.2:email>
+    <j.2:addressLocality>Borgo San Lorenzo</j.2:addressLocality>
+    <j.0:houseNumber>41</j.0:houseNumber>
+    <j.1:legalName>AZIENDA AGRICOLA PALAZZO VECCHIO DI GROSSI SIMONE</j.1:legalName>
+    <j.2:postalCode>50032</j.2:postalCode>
+    <j.2:url>www.agriturismopalazzovecchio.it</j.2:url>
+    <j.2:streetAddress>Via Piazzano</j.2:streetAddress>
+    <j.2:addressRegion>Firenze</j.2:addressRegion>
+    <j.1:vatID>04172250484</j.1:vatID>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#379">
+    <j.0:houseNumber>24B</j.0:houseNumber>
+    <j.2:addressRegion>Firenze</j.2:addressRegion>
+    <j.1:legalName>CASA DELLA CARTA DALLAI S.N.C. DI DALLAI GIAMPAOLO E DALLAI MARIA NGELA</j.1:legalName>
+    <j.1:vatID>05960320488</j.1:vatID>
+    <j.2:postalCode>50137</j.2:postalCode>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+    <j.2:url>www.casadellacartadallai.it</j.2:url>
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_379"/>
+    <j.2:faxNumber>055 604406</j.2:faxNumber>
+    <j.2:addressLocality>Firenze</j.2:addressLocality>
+    <j.2:email>casadellacartadallai@gmail.com</j.2:email>
+    <j.2:streetAddress>Via Cento Stelle</j.2:streetAddress>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#241">
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_241"/>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+    <j.2:streetAddress>Via Nazionale</j.2:streetAddress>
+    <j.2:addressLocality>Barberino di Mugello</j.2:addressLocality>
+    <j.2:url>castellodicafaggiolo.com</j.2:url>
+    <j.1:legalName>CAFAGGIOLO SRL</j.1:legalName>
+    <j.0:houseNumber>16</j.0:houseNumber>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_333">
+    <j.3:geometry>43.766535218115415 11.3037219632782</j.3:geometry>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">43.766535218115415^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">11.3037219632782^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#288">
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_288"/>
+    <j.2:url>www.69groove.it</j.2:url>
+    <j.1:legalName>69 GROOVE S.N.C. DI CALTABIANO DIEGO E MONCADA LUCA</j.1:legalName>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_360">
+    <j.3:geometry>43.72735324306286 11.223464827461845</j.3:geometry>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">11.223464827461845^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">43.72735324306286^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#238">
+    <j.2:telephone>+39  055 461428</j.2:telephone>
+    <j.2:postalCode>50100</j.2:postalCode>
+    <j.1:legalName>ASSOCIAZIONE CULTURALE AKROPOLIS</j.1:legalName>
+    <j.2:url>akropoliscultura.oneminutesite.it</j.2:url>
+    <j.2:streetAddress>via San Zanobi</j.2:streetAddress>
+    <j.2:email>akropolis.cultura@libero.it</j.2:email>
+    <j.2:addressRegion>Firenze</j.2:addressRegion>
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_238"/>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+    <j.2:addressLocality>Firenze</j.2:addressLocality>
+    <j.0:houseNumber>84</j.0:houseNumber>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#371">
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+    <j.2:addressLocality>FIRENZE</j.2:addressLocality>
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_371"/>
+    <j.2:postalCode>50125</j.2:postalCode>
+    <j.2:url>www.camillamancini-restauri.it</j.2:url>
+    <j.0:houseNumber>14</j.0:houseNumber>
+    <j.2:addressRegion>FIRENZE</j.2:addressRegion>
+    <j.2:streetAddress>Maggio</j.2:streetAddress>
+    <j.1:legalName>CAMILLA MANCINI RESTAURI</j.1:legalName>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#249">
+    <j.2:url>edimediafirenze.it</j.2:url>
+    <j.1:legalName>EDIMEDIA DI FABIO FILIPPI E C. S.A.S.</j.1:legalName>
+    <j.2:postalCode>50121</j.2:postalCode>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+    <j.2:streetAddress>Via Orcagna  Firenze</j.2:streetAddress>
+    <j.2:email>info@edimediafirenze.it</j.2:email>
+    <j.2:addressRegion>Firenze</j.2:addressRegion>
+    <j.2:addressLocality>Firenze</j.2:addressLocality>
+    <j.2:telephone>39 055 6236018</j.2:telephone>
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_249"/>
+    <j.0:houseNumber>66</j.0:houseNumber>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_380">
+    <j.3:geometry>43.66407597920065 11.319677116495116</j.3:geometry>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">11.319677116495116^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">43.66407597920065^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#260">
+    <j.2:url>mftarghe.it</j.2:url>
+    <j.1:legalName>MF TARGHE DI CAPINERI MASSIMO E FILIPPONI STEFANO E C.  S.N.C.</j.1:legalName>
+    <j.2:streetAddress>Via Emilio Rondinelli   </j.2:streetAddress>
+    <j.2:email>info@mftarghe.it</j.2:email>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+    <j.0:houseNumber>5</j.0:houseNumber>
+    <j.2:addressLocality>Lastra a Signa</j.2:addressLocality>
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_260"/>
+    <j.1:vatID>04192150482</j.1:vatID>
+    <j.2:faxNumber>(+39) 0558720652    </j.2:faxNumber>
+    <j.2:telephone>(+39) 0558723424    </j.2:telephone>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_286">
+    <j.3:geometry>0 0</j.3:geometry>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_409">
+    <j.3:geometry>43.75751300201706 11.251370670846148</j.3:geometry>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">43.75751300201706^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">11.251370670846148^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_353">
+    <j.3:geometry>43.794642334363104 11.315228127860065</j.3:geometry>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">43.794642334363104^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">11.315228127860065^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_269">
+    <j.3:geometry>0 0</j.3:geometry>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#453">
+    <j.0:houseNumber>79</j.0:houseNumber>
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_453"/>
+    <j.2:streetAddress>Via Osteria Bianca</j.2:streetAddress>
+    <j.2:url>www.esseclubempoli.it</j.2:url>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+    <j.1:legalName>ESSECLUB SPORT - SOCIETA' SPORTIVA DILETTANTISTICA A R.L.</j.1:legalName>
+    <j.2:addressLocality>Empoli</j.2:addressLocality>
+    <j.2:addressRegion>Firenze</j.2:addressRegion>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_291">
+    <j.3:geometry>0 0</j.3:geometry>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_328">
+    <j.3:geometry>43.77045837387549 11.272367489599088</j.3:geometry>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">43.77045837387549^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">11.272367489599088^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#293">
+    <j.2:postalCode>56120</j.2:postalCode>
+    <j.2:addressLocality>Calenzano</j.2:addressLocality>
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_293"/>
+    <j.1:legalName>AEROTECNICA S.P.A.</j.1:legalName>
+    <j.2:url>www.aerotecnica.it</j.2:url>
+    <j.2:streetAddress>Via del Colle</j.2:streetAddress>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+    <j.1:vatID>01039850480</j.1:vatID>
+    <j.0:houseNumber>66</j.0:houseNumber>
+    <j.2:addressRegion>Firenze</j.2:addressRegion>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_300">
+    <j.3:geometry>43.723511696296185 11.276271536752796</j.3:geometry>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">11.276271536752796^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">43.723511696296185^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_375">
+    <j.3:geometry>43.932526863381526 11.295011660209003</j.3:geometry>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">11.295011660209003^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">43.932526863381526^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_279">
+    <j.3:geometry>43.78563241345943 11.253561694130818</j.3:geometry>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">43.78563241345943^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">11.253561694130818^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#236">
+    <j.2:addressLocality>San Casciano in Val di Pesa</j.2:addressLocality>
+    <j.0:houseNumber>10</j.0:houseNumber>
+    <j.2:streetAddress>Via Sorripa</j.2:streetAddress>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+    <j.2:postalCode>50026</j.2:postalCode>
+    <j.2:url>4bid.it</j.2:url>
+    <j.2:email>info@4bid.it</j.2:email>
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_236"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#360">
+    <j.1:legalName>BOTTEGACINEMA - SRL</j.1:legalName>
+    <j.0:houseNumber>11</j.0:houseNumber>
+    <j.2:url>www.bottegacinema.com</j.2:url>
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_360"/>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+    <j.2:addressLocality>Impruneta</j.2:addressLocality>
+    <j.2:postalCode>50100</j.2:postalCode>
+    <j.2:streetAddress>Via di Colle Ramole</j.2:streetAddress>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#304">
+    <j.1:legalName>SOCIETA' AGRICOLA FANTINO DI LEONI GINO E GUERRINO S.S.</j.1:legalName>
+    <j.2:url>www.agriturismofantino.it</j.2:url>
+    <j.2:streetAddress>Loc.Fantino</j.2:streetAddress>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_304"/>
+    <j.2:addressLocality>Palazzuolo sul Senio</j.2:addressLocality>
+    <j.1:vatID>01286550395</j.1:vatID>
+    <j.0:houseNumber>29</j.0:houseNumber>
+    <j.2:telephone>+39 335 662 2295</j.2:telephone>
+    <j.2:postalCode>50035</j.2:postalCode>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_346">
+    <j.3:geometry>43.75478233900068 11.298529110228618</j.3:geometry>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">43.75478233900068^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">11.298529110228618^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_252">
+    <j.3:geometry>0 0</j.3:geometry>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#323">
+    <j.2:addressLocality>Borgo San Lorenzo</j.2:addressLocality>
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_323"/>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+    <j.1:vatID>06105220484</j.1:vatID>
+    <j.2:url>www.apefull.com</j.2:url>
+    <j.2:streetAddress>Viale Giovanni XXIII</j.2:streetAddress>
+    <j.0:houseNumber>34</j.0:houseNumber>
+    <j.1:legalName>AP&amp; FULL CENTER AND CREATIONS DI AUTERA PAOLA E GENTILINI AGNESE E C. S.A.S.</j.1:legalName>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_427">
+    <j.3:geometry>43.777899145050014 11.23289414638159</j.3:geometry>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">43.777899145050014^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">11.23289414638159^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#334">
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_334"/>
+    <j.0:houseNumber>48</j.0:houseNumber>
+    <j.2:streetAddress>Via di Casellina</j.2:streetAddress>
+    <j.2:url>www.astrasrl.it</j.2:url>
+    <j.2:addressLocality>Scandicci</j.2:addressLocality>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_451">
+    <j.3:geometry>43.781870497252186 11.260095051383926</j.3:geometry>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">11.260095051383926^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">43.781870497252186^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_395">
+    <j.3:geometry>43.84688531055166 11.125997350945312</j.3:geometry>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">11.125997350945312^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">43.84688531055166^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#277">
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_277"/>
+    <j.1:legalName>TIME-NET S.R.L.</j.1:legalName>
+    <j.2:url>timenet.it</j.2:url>
+    <j.2:addressLocality>Empoli</j.2:addressLocality>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+    <j.2:postalCode>50100</j.2:postalCode>
+    <j.0:houseNumber>8</j.0:houseNumber>
+    <j.2:streetAddress>via g. di vittorio</j.2:streetAddress>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#418">
+    <j.0:houseNumber>2</j.0:houseNumber>
+    <j.2:postalCode>50100</j.2:postalCode>
+    <j.1:vatID>03353190485</j.1:vatID>
+    <j.2:telephone>055.73.99910</j.2:telephone>
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_418"/>
+    <j.1:legalName>CONTRORADIO S.R.L.</j.1:legalName>
+    <j.2:addressRegion>Firenze</j.2:addressRegion>
+    <j.2:addressLocality>Firenze</j.2:addressLocality>
+    <j.2:url>www.controradio.it</j.2:url>
+    <j.2:streetAddress>via del Rosso Fiorentino</j.2:streetAddress>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_356">
+    <j.3:geometry>43.76594855631247 11.14354701126828</j.3:geometry>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">11.14354701126828^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">43.76594855631247^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_406">
+    <j.3:geometry>43.64903491530536 11.094574287894845</j.3:geometry>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">43.64903491530536^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">11.094574287894845^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_490">
+    <j.3:geometry>43.79709069444816 11.234231974599759</j.3:geometry>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">11.234231974599759^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">43.79709069444816^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#370">
+    <j.2:telephone>3774167202</j.2:telephone>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+    <j.1:legalName>CALENZANO VOLLEY. SOCIETA' SPORTIVA DILETTANTISTICA A R.L.</j.1:legalName>
+    <j.2:addressLocality>Calenzano</j.2:addressLocality>
+    <j.2:streetAddress>Via del Saccardo</j.2:streetAddress>
+    <j.0:houseNumber>28</j.0:houseNumber>
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_370"/>
+    <j.2:url>www.calenzanovolley.it</j.2:url>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#256">
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+    <j.2:telephone>055.9560005</j.2:telephone>
+    <j.1:legalName>RISTORANTE GIRARROSTO S.R.L.</j.1:legalName>
+    <j.0:houseNumber>29</j.0:houseNumber>
+    <j.2:url>girarrosto.it</j.2:url>
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_256"/>
+    <j.1:vatID>05854980488</j.1:vatID>
+    <j.2:addressLocality>Pontassieve</j.2:addressLocality>
+    <j.2:streetAddress>Via Garibaldi</j.2:streetAddress>
+    <j.2:postalCode>50065</j.2:postalCode>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#358">
+    <j.1:vatID>00956630487</j.1:vatID>
+    <j.2:postalCode>50100</j.2:postalCode>
+    <j.0:houseNumber>24</j.0:houseNumber>
+    <j.2:streetAddress>Via Bezzuoli</j.2:streetAddress>
+    <j.2:url>www.borgodeigreci3.it</j.2:url>
+    <j.2:addressLocality>Firenze</j.2:addressLocality>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+    <j.1:legalName>CENTRO SERVIZI BORGO DEI GRECI - S.R.L.</j.1:legalName>
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_358"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_770">
+    <j.3:geometry>43.64903491530536 11.094574287894845</j.3:geometry>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">43.64903491530536^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">11.094574287894845^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_376">
+    <j.3:geometry>43.92217401432247 11.204929502378803</j.3:geometry>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">43.92217401432247^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">11.204929502378803^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#387">
+    <j.2:postalCode>50051</j.2:postalCode>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+    <j.0:houseNumber>6</j.0:houseNumber>
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_387"/>
+    <j.2:faxNumber>+39 0571.61508</j.2:faxNumber>
+    <j.2:telephone>+39 0571.629722</j.2:telephone>
+    <j.2:url>www.castellooliveto.it</j.2:url>
+    <j.2:addressLocality>Castelfiorentino</j.2:addressLocality>
+    <j.2:streetAddress>Via di Monte Olivo</j.2:streetAddress>
+    <j.1:legalName>FATTORIA*OLIVETO - S.P.A.</j.1:legalName>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#419">
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_419"/>
+    <j.2:faxNumber>055/2469242</j.2:faxNumber>
+    <j.2:streetAddress>Via G. Orsini</j.2:streetAddress>
+    <j.2:addressLocality>Firenze</j.2:addressLocality>
+    <j.2:url>www.coopmatrix.it</j.2:url>
+    <j.0:houseNumber>110</j.0:houseNumber>
+    <j.2:telephone>055-2008238</j.2:telephone>
+    <j.2:email>www.at21.it</j.2:email>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+    <j.2:postalCode>50126</j.2:postalCode>
+    <j.2:addressRegion>Firenze</j.2:addressRegion>
+    <j.1:legalName>MATRIX SOCIETA' COOPERATIVA SOCIALE ONLUS</j.1:legalName>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_432">
+    <j.3:geometry>43.80374519368962 11.238644172265701</j.3:geometry>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">11.238644172265701^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">43.80374519368962^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_243">
+    <j.3:geometry>43.79994335303821 11.23844348750884</j.3:geometry>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">43.79994335303821^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">11.23844348750884^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_270">
+    <j.3:geometry>43.622924641205515 11.464685191815889</j.3:geometry>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">43.622924641205515^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">11.464685191815889^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#377">
+    <j.2:streetAddress>Viale Togliatti</j.2:streetAddress>
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_377"/>
+    <j.2:telephone>0571/902080</j.2:telephone>
+    <j.2:url>www.cartotecnicamaestrelli.it</j.2:url>
+    <j.2:addressLocality>Sovigliana-Vinci Empoli</j.2:addressLocality>
+    <j.1:legalName>CARTOTECNICA MAESTRELLI S.R.L.</j.1:legalName>
+    <j.0:houseNumber>92</j.0:houseNumber>
+    <j.2:postalCode>50059</j.2:postalCode>
+    <j.2:email>MAIL info@cartotecnicamaestrelli.it</j.2:email>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_298">
+    <j.3:geometry>43.71012006679274 11.103744686404555</j.3:geometry>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">43.71012006679274^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">11.103744686404555^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_253">
+    <j.3:geometry>43.77536846232814 11.434443484973912</j.3:geometry>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">11.434443484973912^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">43.77536846232814^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_366">
+    <j.3:geometry>43.7685082111017 11.133178192478644</j.3:geometry>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">43.7685082111017^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">11.133178192478644^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#303">
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_303"/>
+    <j.2:email>info@agristudiosrl.it</j.2:email>
+    <j.2:url>www.agristudiosrl.it</j.2:url>
+    <j.1:legalName>AGRISTUDIO - S.R.L.</j.1:legalName>
+    <j.2:addressRegion>Firenze</j.2:addressRegion>
+    <j.2:addressLocality>Firenze</j.2:addressLocality>
+    <j.2:streetAddress>Via Frusa</j.2:streetAddress>
+    <j.2:postalCode>50131</j.2:postalCode>
+    <j.0:houseNumber>3</j.0:houseNumber>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#243">
+    <j.0:houseNumber>75</j.0:houseNumber>
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_243"/>
+    <j.2:telephone>055-210977</j.2:telephone>
+    <j.2:email>ciclat.serviziverde@tuttopmi.it   </j.2:email>
+    <j.2:url>ciclat-firenze.it</j.2:url>
+    <j.1:vatID>04543730487</j.1:vatID>
+    <j.2:streetAddress>Via Reginaldo Giuliani</j.2:streetAddress>
+    <j.2:addressLocality>Firenze</j.2:addressLocality>
+    <j.2:faxNumber>055-218138</j.2:faxNumber>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#439">
+    <j.2:streetAddress>Via Lambruschini</j.2:streetAddress>
+    <j.2:telephone>339 2471440</j.2:telephone>
+    <j.1:legalName>DIREMARE TEATRO</j.1:legalName>
+    <j.2:url>www.diremare.altervista.org</j.2:url>
+    <j.0:houseNumber>28</j.0:houseNumber>
+    <j.2:addressRegion>Firenze</j.2:addressRegion>
+    <j.2:postalCode>50134</j.2:postalCode>
+    <j.2:addressLocality>Firenze</j.2:addressLocality>
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_439"/>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+    <j.1:vatID>06375760482</j.1:vatID>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#367">
+    <j.1:legalName>SOCIETA' AGRICOLA BUONAMICI S.R.L.</j.1:legalName>
+    <j.2:addressLocality>Fiesole</j.2:addressLocality>
+    <j.2:postalCode>50100</j.2:postalCode>
+    <j.2:streetAddress>Via di Montebeni</j.2:streetAddress>
+    <j.0:houseNumber>11</j.0:houseNumber>
+    <j.2:url>www.buonamici.it</j.2:url>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_367"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#343">
+    <j.2:url>www.azzurravolleysancasciano.it</j.2:url>
+    <j.2:streetAddress>Via Empolese</j.2:streetAddress>
+    <j.2:addressLocality>San Casciano in Val di Pesa</j.2:addressLocality>
+    <j.2:postalCode>50026</j.2:postalCode>
+    <j.1:legalName>AZZURRA VOLLEY SAN CASCIANO SOCIETA' SPORTIVA DILETTANTISTICA ARE SPONSABILITA' L</j.1:legalName>
+    <j.0:houseNumber>3</j.0:houseNumber>
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_343"/>
+    <j.1:vatID>04266810482</j.1:vatID>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#451">
+    <j.2:telephone>+39 055.48.30.91</j.2:telephone>
+    <j.1:vatID>04415250481</j.1:vatID>
+    <j.0:houseNumber>161</j.0:houseNumber>
+    <j.2:email>Email info@enotecabussotti.it</j.2:email>
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_451"/>
+    <j.1:legalName>BOTTIGLIERIA BUSSOTTI ROMANO S.N.C. DI BUSSOTTI MARCO E MARCELLO</j.1:legalName>
+    <j.2:postalCode>50100</j.2:postalCode>
+    <j.2:streetAddress>Via S. Gallo</j.2:streetAddress>
+    <j.2:addressRegion>Firenze</j.2:addressRegion>
+    <j.2:addressLocality>Firenze</j.2:addressLocality>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+    <j.2:url>www.enotecabussotti.it</j.2:url>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#405">
+    <j.1:legalName>CLINICA VETERINARIA CHIRONE S.R.L.</j.1:legalName>
+    <j.2:streetAddress>via Vespucci</j.2:streetAddress>
+    <j.2:url>www.clinicachirone24h.com</j.2:url>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+    <j.0:houseNumber>7</j.0:houseNumber>
+    <j.2:addressLocality>Scandicci</j.2:addressLocality>
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_405"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#333">
+    <j.2:postalCode>50100</j.2:postalCode>
+    <j.0:houseNumber>14</j.0:houseNumber>
+    <j.1:legalName>ARTIGRAF DI M. MARTINI E C.- S.N.C.</j.1:legalName>
+    <j.2:streetAddress>Via C. Cattaneo</j.2:streetAddress>
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_333"/>
+    <j.2:addressLocality>Firenze</j.2:addressLocality>
+    <j.2:url>www.artigraf.it</j.2:url>
+    <j.1:vatID>02259450480</j.1:vatID>
+    <j.2:addressRegion>Firenze</j.2:addressRegion>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#425">
+    <j.1:legalName>CREAZIONI LORENZA DI GIULIANA BRUNI, FABIO BACCI E SAVERIO SIMONI S.N.C.</j.1:legalName>
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_425"/>
+    <j.2:addressLocality>Pontassieve</j.2:addressLocality>
+    <j.2:email>info@creazionilorenza.it</j.2:email>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+    <j.2:url>www.creazionilorenza.it/</j.2:url>
+    <j.2:streetAddress>Via Colognolese</j.2:streetAddress>
+    <j.0:houseNumber>1</j.0:houseNumber>
+    <j.2:telephone>0558367336</j.2:telephone>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#605">
+    <j.2:addressRegion>Firenze</j.2:addressRegion>
+    <j.2:addressLocality>Firenze</j.2:addressLocality>
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_605"/>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+    <j.1:vatID>00427750484</j.1:vatID>
+    <j.1:legalName>FONDAZIONE TEATRO DEL MAGGIO MUSICALE FIORENTINO</j.1:legalName>
+    <j.0:houseNumber>1</j.0:houseNumber>
+    <j.2:streetAddress>Piazzale Vittorio Gui</j.2:streetAddress>
+    <j.2:url>www.operadifirenze.it</j.2:url>
+    <j.2:postalCode>50100</j.2:postalCode>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#770">
+    <j.2:url>www.viddler.com</j.2:url>
+    <j.2:addressLocality>Montespertoli</j.2:addressLocality>
+    <j.2:streetAddress>Via Nuova del Virginio</j.2:streetAddress>
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_770"/>
+    <j.0:houseNumber>13</j.0:houseNumber>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+    <j.2:postalCode>50025</j.2:postalCode>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#339">
+    <j.2:streetAddress>V. Rocca Tedalda</j.2:streetAddress>
+    <j.2:postalCode>50136</j.2:postalCode>
+    <j.2:addressLocality>Firenze</j.2:addressLocality>
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_339"/>
+    <j.1:legalName>AUTOSPURGO*90 S.R.L.</j.1:legalName>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+    <j.2:email>autospurgo90@neotekonline.it</j.2:email>
+    <j.2:url>www.autospurgo90firenze.com</j.2:url>
+    <j.2:faxNumber>055 662318</j.2:faxNumber>
+    <j.2:addressRegion>Firenze</j.2:addressRegion>
+    <j.1:vatID>04221880489</j.1:vatID>
+    <j.0:houseNumber>453</j.0:houseNumber>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#395">
+    <j.2:streetAddress>Via dei Confini</j.2:streetAddress>
+    <j.2:addressLocality>Campi Bisenzio</j.2:addressLocality>
+    <j.0:houseNumber>236</j.0:houseNumber>
+    <j.2:url>www.cghv.it</j.2:url>
+    <j.1:legalName>CG HOME VIDEO SOCIETA' A RESPONSABILITA' LIMITATA - - CHE POTRA' ESSERE CHIAMATA ANCHE "CG EDITORIA ELETTRONICA HOME VIDEO S.R.L."</j.1:legalName>
+    <j.2:postalCode>50013</j.2:postalCode>
+    <j.1:vatID>04559460482</j.1:vatID>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_395"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_264">
+    <j.3:geometry>0 0</j.3:geometry>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_377">
+    <j.3:geometry>43.72834735273003 10.936171428129823</j.3:geometry>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">10.936171428129823^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">43.72834735273003^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_330">
+    <j.3:geometry>43.705353857145326 10.975947446295676</j.3:geometry>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">43.705353857145326^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">10.975947446295676^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_435">
+    <j.3:geometry>43.78498625564255 11.358582751027757</j.3:geometry>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">43.78498625564255^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">11.358582751027757^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#362">
+    <j.2:postalCode>50100</j.2:postalCode>
+    <j.2:url>www.bowlingfirenze.it</j.2:url>
+    <j.2:streetAddress>Via Del Cavallaccio</j.2:streetAddress>
+    <j.2:addressRegion>Firenze</j.2:addressRegion>
+    <j.2:addressLocality>Firenze</j.2:addressLocality>
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_362"/>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+    <j.2:email>info@crazybowling.it</j.2:email>
+    <j.0:houseNumber>3</j.0:houseNumber>
+    <j.2:telephone>055 7879622</j.2:telephone>
+    <j.1:legalName>CRAZY BOWLING S.R.L.</j.1:legalName>
+    <j.1:vatID>06958371004</j.1:vatID>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_244">
+    <j.3:geometry>43.56086206729113 11.17297424671844</j.3:geometry>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">11.17297424671844^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">43.56086206729113^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#295">
+    <j.2:postalCode>50100</j.2:postalCode>
+    <j.1:legalName>AGENZIA DALMAZIA DI TAFANI ORNELLA</j.1:legalName>
+    <j.2:faxNumber>055/4360812</j.2:faxNumber>
+    <j.2:streetAddress>Via Reginaldo Giuliani</j.2:streetAddress>
+    <j.0:houseNumber>2/4</j.0:houseNumber>
+    <j.2:email>ag.dalmazia@virglio.it</j.2:email>
+    <j.2:url>www.agenziadalmazia.it</j.2:url>
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_295"/>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+    <j.2:telephone>055/4360812</j.2:telephone>
+    <j.2:addressLocality>firenze</j.2:addressLocality>
+    <j.1:vatID>057001260480</j.1:vatID>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#376">
+    <j.2:url>www.carmagninidel500.it</j.2:url>
+    <j.1:legalName>RISTORANTE CARMAGNINI DEL '500 DI SAVERIO CARMAGNINI &amp; C. S.A.S.</j.1:legalName>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+    <j.2:postalCode>50041</j.2:postalCode>
+    <j.0:houseNumber>242</j.0:houseNumber>
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_376"/>
+    <j.2:streetAddress>Via di Barberino</j.2:streetAddress>
+    <j.2:addressLocality>Calenzano</j.2:addressLocality>
+    <j.1:vatID>06201100481</j.1:vatID>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#406">
+    <j.0:houseNumber>13</j.0:houseNumber>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+    <j.2:addressLocality>Montespertoli</j.2:addressLocality>
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_406"/>
+    <j.2:streetAddress>Via Nuova del Virginio</j.2:streetAddress>
+    <j.2:email>info@collifiorentini.it</j.2:email>
+    <j.2:url>www.collifiorentini.it</j.2:url>
+    <j.2:telephone>39 0571 659127</j.2:telephone>
+    <j.2:postalCode>50025</j.2:postalCode>
+    <j.2:faxNumber>39 0571 659996</j.2:faxNumber>
+    <j.1:legalName>CANTINA SOCIALE COLLI FIORENTINI SOCIETA' AGRICOLA COOPERATIVA IN ALTERNATIVA "VALVIRGINIO SOC. COOP."</j.1:legalName>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_250">
+    <j.3:geometry>0 0</j.3:geometry>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_605">
+    <j.3:geometry>43.78108910147407 11.233904513929199</j.3:geometry>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">11.233904513929199^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">43.78108910147407^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#244">
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_244"/>
+    <j.1:legalName>ASSOCIAZIONE CINEMA OLIMPIA</j.1:legalName>
+    <j.1:vatID>1</j.1:vatID>
+    <j.0:houseNumber>202</j.0:houseNumber>
+    <j.2:url>cinemaolimpia.altervista.org</j.2:url>
+    <j.2:postalCode>00100</j.2:postalCode>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+    <j.2:addressLocality>Tavarnelle Val di Pesa</j.2:addressLocality>
+    <j.2:streetAddress>via Roma</j.2:streetAddress>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_323">
+    <j.3:geometry>43.95759863118089 11.370920207645083</j.3:geometry>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">43.95759863118089^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">11.370920207645083^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#356">
+    <j.0:houseNumber>8</j.0:houseNumber>
+    <j.2:addressLocality>Scandicci</j.2:addressLocality>
+    <j.2:streetAddress>Via Vittorio Michelassi</j.2:streetAddress>
+    <j.2:postalCode>50100</j.2:postalCode>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+    <j.1:legalName>BM VISIONDESIGN S.R.L.</j.1:legalName>
+    <j.2:url>www.bmvision.it</j.2:url>
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_356"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_358">
+    <j.3:geometry>43.7732924441772 11.20632112964581</j.3:geometry>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">11.20632112964581^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">43.7732924441772^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#346">
+    <j.2:addressLocality>Firenze</j.2:addressLocality>
+    <j.1:legalName>LA BOTTEGA DELL'ACQUAFORTE, DI BAICCHI MASSIMO</j.1:legalName>
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_346"/>
+    <j.0:houseNumber>3</j.0:houseNumber>
+    <j.2:streetAddress>Via Chiantigiana</j.2:streetAddress>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+    <j.2:url>www.baicchi-arte.it</j.2:url>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_415">
+    <j.3:geometry>43.77841662320029 11.24874263678806</j.3:geometry>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">43.77841662320029^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">11.24874263678806^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_425">
+    <j.3:geometry>43.7878319804158 11.455540171091053</j.3:geometry>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">11.455540171091053^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">43.7878319804158^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_301">
+    <j.3:geometry>44.07604887792889 11.612844716640756</j.3:geometry>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">44.07604887792889^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">11.612844716640756^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#380">
+    <j.2:addressLocality>Greve in Chianti</j.2:addressLocality>
+    <j.2:streetAddress>Via di Meleto</j.2:streetAddress>
+    <j.2:telephone>377 9927208</j.2:telephone>
+    <j.1:vatID>06423130480</j.1:vatID>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+    <j.2:url>www.casadocrestauri.com</j.2:url>
+    <j.2:email>casadocrestauri@gmail.com</j.2:email>
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_380"/>
+    <j.2:postalCode>50022</j.2:postalCode>
+    <j.1:legalName>CASADOC RESTAURI DI CARNEVALE FABIO E C. S.N.C.</j.1:legalName>
+    <j.0:houseNumber>2</j.0:houseNumber>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_272">
+    <j.3:geometry>0 0</j.3:geometry>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_370">
+    <j.3:geometry>43.86488595247132 11.169633911687976</j.3:geometry>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">11.169633911687976^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">43.86488595247132^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#389">
+    <j.0:houseNumber>412</j.0:houseNumber>
+    <j.2:postalCode>50100</j.2:postalCode>
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_389"/>
+    <j.2:addressLocality>Firenze</j.2:addressLocality>
+    <j.2:email>info@caterinadeco.it</j.2:email>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+    <j.1:legalName>CATERINA DECO' DI GOGGIOLI CATERINA</j.1:legalName>
+    <j.2:addressRegion>Firenze</j.2:addressRegion>
+    <j.2:url>www.caterinadeco.it</j.2:url>
+    <j.2:streetAddress>via Faentina</j.2:streetAddress>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#294">
+    <j.1:legalName>AFFRICO BASKET FIRENZE SOCIETA' SPORTIVA DILETTANTISTICA A RESPONSABILITA' LIMITATA</j.1:legalName>
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_294"/>
+    <j.2:addressRegion>Firenze</j.2:addressRegion>
+    <j.2:addressLocality>Firenze</j.2:addressLocality>
+    <j.2:url>www.affricobasketfirenze.com</j.2:url>
+    <j.0:houseNumber>20</j.0:houseNumber>
+    <j.2:streetAddress>VIALE PAOLI</j.2:streetAddress>
+    <j.2:postalCode>50100</j.2:postalCode>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#375">
+    <j.0:houseNumber>1</j.0:houseNumber>
+    <j.2:streetAddress>Località Tagliaferro Poderuzzo</j.2:streetAddress>
+    <j.2:url>www.carlinidelpoderuzzo.it</j.2:url>
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_375"/>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+    <j.2:addressLocality>Scarperia</j.2:addressLocality>
+    <j.2:postalCode>50037</j.2:postalCode>
+    <j.1:legalName>CERLIANI RINALDA ALLEVAMENTO DEL PODERUZZO NELLA TERRA DI MEZZO</j.1:legalName>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#361">
+    <j.2:email>info@bottonificiolaperla.it</j.2:email>
+    <j.2:streetAddress>Via Livornese</j.2:streetAddress>
+    <j.1:legalName>BOTTONIFICIO LA PERLA S.R.L.</j.1:legalName>
+    <j.2:url>www.bottonificiolaperla.com</j.2:url>
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_361"/>
+    <j.2:postalCode>50053</j.2:postalCode>
+    <j.1:vatID>00382090488</j.1:vatID>
+    <j.0:houseNumber>7173</j.0:houseNumber>
+    <j.2:faxNumber>0571 80643</j.2:faxNumber>
+    <j.2:addressLocality>Empoli</j.2:addressLocality>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_343">
+    <j.3:geometry>43.66357322710034 11.178172801925946</j.3:geometry>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">43.66357322710034^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">11.178172801925946^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_238">
+    <j.3:geometry>43.77986908507717 11.256015964893027</j.3:geometry>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">11.256015964893027^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">43.77986908507717^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#381">
+    <j.0:houseNumber>124</j.0:houseNumber>
+    <j.2:url>www.casaeditriceilfiore.it</j.2:url>
+    <j.2:addressLocality>Firenze</j.2:addressLocality>
+    <j.2:postalCode>50100</j.2:postalCode>
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_381"/>
+    <j.1:legalName>CASA EDITRICE IL FIORE DI NICOLA CAPOBIANCO</j.1:legalName>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+    <j.2:streetAddress>via Benedetto Fortini</j.2:streetAddress>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#437">
+    <j.2:url>www.digitelitalia.com</j.2:url>
+    <j.2:postalCode>50129</j.2:postalCode>
+    <j.2:streetAddress>Via della Fortezza</j.2:streetAddress>
+    <j.0:houseNumber>6</j.0:houseNumber>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+    <j.2:addressLocality>Firenze</j.2:addressLocality>
+    <j.1:legalName>DIGITEL ITALIA S.P.A.</j.1:legalName>
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_437"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_251">
+    <j.3:geometry>43.769016118369784 11.268149245386727</j.3:geometry>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">43.769016118369784^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">11.268149245386727^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#369">
+    <j.2:streetAddress>Via Domenico Maria Manni n  b</j.2:streetAddress>
+    <j.2:addressRegion>Firenze</j.2:addressRegion>
+    <j.0:houseNumber>51</j.0:houseNumber>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_369"/>
+    <j.2:postalCode>50100</j.2:postalCode>
+    <j.1:vatID>1</j.1:vatID>
+    <j.1:legalName>CALCIO TOSCANA S.R.L. SOCIETA' SPORTIVA DILETTANTISTICA A RESPONS ABILITA' LIMITATA</j.1:legalName>
+    <j.2:url>www.calciotoscana.it</j.2:url>
+    <j.2:addressLocality>Firenze</j.2:addressLocality>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#427">
+    <j.1:legalName>CIRCOLO DEL TENNIS FIRENZE 1898</j.1:legalName>
+    <j.2:postalCode>50144</j.2:postalCode>
+    <j.2:faxNumber>055 354326</j.2:faxNumber>
+    <j.2:addressLocality>Firenze</j.2:addressLocality>
+    <j.2:addressRegion>Firenze</j.2:addressRegion>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_427"/>
+    <j.0:houseNumber>1</j.0:houseNumber>
+    <j.2:url>www.ctfirenze.it</j.2:url>
+    <j.2:email>direzione@ctfirenze.org</j.2:email>
+    <j.2:telephone>055 332651</j.2:telephone>
+    <j.2:streetAddress>Viale del Visarno</j.2:streetAddress>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_309">
+    <j.3:geometry>43.96307953775914 11.417382705553972</j.3:geometry>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">43.96307953775914^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">11.417382705553972^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_338">
+    <j.3:geometry>43.79988408306012 11.238481673056668</j.3:geometry>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">11.238481673056668^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">43.79988408306012^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Location_405">
+    <j.3:geometry>43.75196083191272 11.18306474745268</j.3:geometry>
+    <j.2:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">43.75196083191272^^http://www.w3.org/2001/XMLSchema#float</j.2:latitude>
+    <j.2:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">11.18306474745268^^http://www.w3.org/2001/XMLSchema#float</j.2:longitude>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#Location"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/goodrelations/v1#264">
+    <j.0:houseNumber>1</j.0:houseNumber>
+    <j.2:streetAddress>via the A</j.2:streetAddress>
+    <j.2:url>osteriailcampanellino.it</j.2:url>
+    <j.2:addressLocality>Firenze   </j.2:addressLocality>
+    <j.1:legalName>OSTERIA IL CAMPANELLINO DI FALOSSI MARCO</j.1:legalName>
+    <j.1:hasPOS rdf:resource="http://purl.org/goodrelations/v1#Location_264"/>
+    <rdf:type rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+  </rdf:Description>
+</rdf:RDF>
