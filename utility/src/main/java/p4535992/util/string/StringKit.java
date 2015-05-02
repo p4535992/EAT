@@ -285,18 +285,18 @@ public class StringKit<T> {
     * @param al lista dei valori per il determianto parametro del GeoDocument
     * @return  il valore più diffuso per tale parametro
     */
-    private String getMoreCommonParameter(ArrayList<String> al){
-       Map<String,Integer> map = new HashMap<String, Integer>();
+    public static <T> T getMoreCommonParameter(ArrayList<T> al){
+       Map<T,Integer> map = new HashMap<T, Integer>();
        for(int i=0;i<al.size();i++){
            Integer count = map.get(al.get(i));
            map.put(al.get(i), count==null?1:count+1);   //auto boxing and count
        }
-       String keyParameter=null;
+       T keyParameter=null;
        Integer keyValue =0;
-       for ( Map.Entry<String, Integer> entry : map.entrySet()) {
-           String key = entry.getKey();
+       for ( Map.Entry<T, Integer> entry : map.entrySet()) {
+           T key = entry.getKey();
            Integer value = entry.getValue();
-           if(value >= keyValue && setNullForEmptyString(key)!=null && !key.equalsIgnoreCase("null")){
+           if(value >= keyValue && setNullForEmptyString(key.toString())!=null && !key.toString().equalsIgnoreCase("null")){
                keyValue = value;
                keyParameter = key;
            }

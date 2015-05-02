@@ -6,7 +6,7 @@
  * GeoDocument.
  */
 package extractor;
-import p4535992.util.http.HttpUtil;
+import p4535992.util.http.HttpUtilApache;
 import extractor.setInfoParameterIta.SetNazioneELanguage;
 import object.model.GeoDocument;
 import object.support.LatLng;
@@ -18,8 +18,6 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import org.json.JSONObject;
 import p4535992.util.log.SystemLog;
@@ -352,14 +350,14 @@ public class ManageJsonWithGoogleMaps {
          String jsonText = null;    
          try{
             try{
-               HttpUtil.waiter();
+               HttpUtilApache.waiter();
                //FUNZIONA
-               jsonText = HttpUtil.get(url.toString());
+               jsonText = HttpUtilApache.get(url.toString());
             }catch(Exception e){
             }finally{
                 //UN SECONDO TENTATIVO IN CASO DI FALLIMENTO (TIMEOUT,ECC.)
                 if(jsonText ==null || jsonText==""){
-                    jsonText = HttpUtil.GETWithRetry(url.toString());
+                    jsonText = HttpUtilApache.GETWithRetry(url.toString());
                 }
             }
            //NON FUNZIONA (versiona sbagliata slfj4 ma ci server per far lavorare jena)

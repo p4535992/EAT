@@ -15,8 +15,8 @@ import p4535992.util.string.StringKit;
 import java.io.*;
 import java.util.List;
 /**
- *
- * @author Marco
+ * Class for calll the Karma method from the module maven
+ * @author 4535992
  */
 public class GenerationOfTriple {
     private static org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger(GenerationOfTriple.class);
@@ -55,32 +55,6 @@ public class GenerationOfTriple {
         this.KARMA_HOME = KARMA_HOME;
     }  
     public GenerationOfTriple(){}
-    
-    public String setCommandKarma(){
-        //mvn exec:java -Dexec.mainClass=\"edu.isi.karma.rdf.OfflineRdfGenerator\" -Dexec.args=\" --sourcetype DB --modelfilepath \\\"%~dp0/karma_files/model/R2RML_infodocument_nadia3_ontology-model_2014-12-22.ttl\\\" --outputfile \\\"%~dp0/karma_files/output/tripla-model-java-2015-01-13.n3\\\" --dbtype MySQL --hostname localhost --username siimobility --password siimobility --portnumber 3306 --dbname geolocationdb --tablename infodocument_u4_link_test_ontology\""                     
-        String cmdKarma = 
-                
-                "mvn exec:java -Dexec.mainClass=\"edu.isi.karma.rdf.OfflineRdfGenerator\" "
-                
-                + "-Dexec.args=\" "
-                + "--sourcetype "+SOURCETYPE_KARMA+" " //DB
-                //+ "--modelfilepath \\\"%~dp0/karma_files/model/"+MODEL_TURTLE_KARMA+"\\\" "
-                //+ "--outputfile \\\"%~dp0/karma_files/output/"+TRIPLE_OUTPUT_KARMA+"\\\" "
-                + "--modelfilepath \\\"%~dp0/karma_files/model/"+MODEL_TURTLE_KARMA+"\\\" "
-                + "--outputfile \\\"%~dp0/karma_files/output/"+TRIPLE_OUTPUT_KARMA+"\\\" "
-                //+ "--modelfilepath \\\""+System.getProperty("user.dir")+"\\karma_files\\model\\"+MODEL_TURTLE_KARMA+"\\\" "
-                //+ "--outputfile \\\""+System.getProperty("user.dir")+"\\karma_files\\output\\"+TRIPLE_OUTPUT_KARMA+"\\\" "
-                + "--dbtype "+DBTYPE_KARMA+" "
-                + "--hostname "+HOSTNAME_KARMA+" "
-                + "--username "+USERNAME_KARMA+" "
-                + "--password "+PASSWORD_KARMA+" "
-                + "--portnumber "+PORTNUMBER_KARMA+" "
-                + "--dbname "+DBNAME_KARMA+" "
-                + "--tablename "+TABLENAME_KARMA+""
-                + "\"";  
-        SystemLog.message("KARMA:" + cmdKarma + "");
-        return cmdKarma;
-    }
 
     public void GenerationOfTripleWithKarmaAPIFromDataBase() throws IOException {
 
@@ -93,16 +67,8 @@ public class GenerationOfTriple {
 
         };
         String[] param = new String[]{
-                "--sourcetype",
-                "--modelfilepath",
-                "--outputfile",
-                "--dbtype",
-                "--hostname",
-                "--username",
-                "--password",
-                "--portnumber",
-                "--dbname",
-                "--tablename"
+                "--sourcetype", "--modelfilepath","--outputfile", "--dbtype","--hostname",
+                "--username","--password","--portnumber","--dbname","--tablename"
                 //"--encoding"
         };
 

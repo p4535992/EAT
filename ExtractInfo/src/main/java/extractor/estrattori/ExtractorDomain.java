@@ -19,6 +19,8 @@ import java.util.logging.Logger;
 
 import object.support.LatLng;
 import org.hibernate.SessionFactory;
+import p4535992.util.string.StringKit;
+
 /**
  * MainEstrazioneGeoDomainDocumentPerElaborato.java
  * Classe per lt'estrazione dei GeoDocument o InfoDocument relativi ai singoli domni web
@@ -90,18 +92,6 @@ public class ExtractorDomain {
         if(tipo == "sql"){
             //listGeoDoc = geoDomainDocDao.selectAllGeoDocument("*", LIMIT.toString(), OFFSET.toString());
             listGeoDoc = geoDomainDocDao.selectGeoDocuments("*",LIMIT,OFFSET);
-//        }else if(tipo == "hibernate_pojo"){
-//
-//            List<GeoDocument> listGeoDoc2 = geoDomainDocDao.getAllH(LIMIT.toString(), OFFSET.toString());
-//            for(GeoDocument geo: listGeoDoc2){listGeoDoc.add(geo);}
-//            listGeoDoc2.clear();
-//
-//         }else if(tipo == "hibernate_jira"){
-//            List<GeoDocument> listGeoDoc2 = geoDomainDocDao.getAllH(LIMIT.toString(), OFFSET.toString());
-//            for(GeoDocument geo: listGeoDoc2){listGeoDoc.add(geo);}
-//            listGeoDoc2.clear();
-//        }else{
-//            new Exception("ERRORE IN FASE DI CREAZIONE DEI GEODOMAINDOCUMENT");
         }
         Integer i = 0;
         for (GeoDocument geoDoc : listGeoDoc) {
@@ -130,7 +120,6 @@ public class ExtractorDomain {
             }
             listDomains = null;
             listFinalDomains = null;
-            //listFrequencyInfo = null;
             listDepositFrequency = null;
       }
     }
@@ -187,22 +176,6 @@ public class ExtractorDomain {
                     SystemLog.message("INSERIMENTO GEODOMAINDOCUMENT NELLA TABELLA");
                     if(tipo == "sql"){
                         geoDomainDocDao.insertAndTrim(geo);
-//                    }else if(tipo == "hibernate_pojo"){
-//
-//                        geoDomainDocDao.saveH(new GeoDomainDocument(
-//                                geo.getUrl(), geo.getRegione(), geo.getProvincia(), geo.getCity(), geo.getIndirizzo(), geo.getIva(),
-//                                geo.getEmail(), geo.getTelefono(), geo.getFax(), geo.getEdificio(),
-//                                geo.getLat(), geo.getLng(), geo.getNazione(), geo.getDescription(), geo.getIndirizzoNoCAP(),
-//                                geo.getPostalCode(), geo.getIndirizzoHasNumber()
-//                        ));
-//                    }else if(tipo == "hibernate_jira"){
-//
-//                        geoDomainDocDao.saveH(new GeoDomainDocument(
-//                                geo.getUrl(), geo.getRegione(), geo.getProvincia(), geo.getCity(), geo.getIndirizzo(), geo.getIva(),
-//                                geo.getEmail(), geo.getTelefono(), geo.getFax(), geo.getEdificio(),
-//                                geo.getLat(), geo.getLng(), geo.getNazione(), geo.getDescription(), geo.getIndirizzoNoCAP(),
-//                                geo.getPostalCode(), geo.getIndirizzoHasNumber()
-//                        ));
                     }
                     
                 } catch (MalformedURLException ex) {
@@ -228,142 +201,98 @@ public class ExtractorDomain {
      * @throws MalformedURLException 
      */
     private GeoDocument prepareTheDomainWebGeoDocumentWithMoreCommonParameter(DepositFrequencyInfo dfi) throws MalformedURLException {
-        //URL webDomain = new URL("http://www."+dfi.getDomain());
-        //IDENTIFICHIAMO IL DOMINIO WEB SU CUI LAVORARE
         String domain = dfi.getDomain();
         URL webDomain = null;
         if(domain.contains("www")){webDomain = new URL("http://"+domain);
         }else{webDomain = new URL("http://www."+domain);}
         GeoDocument geo2 = new GeoDocument(webDomain, null,null, null, null, null, null, null, null, null, null, null,null,null,null,null,null);
-        //PER OGNI PARAMETRO DI OGNI GEODOCUMENT DELLA LISTA PRESENTE NEL RELATIVO
-        //DepositFrequencyInfo PRENDIAMO IL VALORE PIU' FREQUENTE O DIFFUSO ENTRO IL LIMITE
-        //PRESTABILITO DI URL DA ANALIZZARE PER TALE DOMINIO WEB
+        //for each GeoDocument contains ont he relative DepositFrequencyInfo get the more common parameter for eahc field
         ArrayList<String> al = new ArrayList<String>();
-        //A seconda di quello che vogliamo nel campo dominio si può specificare il protocollo http o no        
         geo2.setUrl(webDomain);       
         for (GeoDocument geoDoc : dfi.getListGeoDoc()) {al.add(geoDoc.getRegione());}
-        geo2.setRegione(getMoreCommonParameter(al)); 
+        geo2.setRegione(StringKit.getMoreCommonParameter(al));
         al.clear();
         for (GeoDocument geoDoc : dfi.getListGeoDoc()) {al.add(geoDoc.getProvincia());}
-        geo2.setProvincia(getMoreCommonParameter(al)); 
+        geo2.setProvincia(StringKit.getMoreCommonParameter(al));
         al.clear();
         for (GeoDocument geoDoc : dfi.getListGeoDoc()) {al.add(geoDoc.getCity());}
-        geo2.setCity(getMoreCommonParameter(al)); 
+        geo2.setCity(StringKit.getMoreCommonParameter(al));
         al.clear();
         for (GeoDocument geoDoc : dfi.getListGeoDoc()) {al.add(geoDoc.getIndirizzo());}
-        geo2.setIndirizzo(getMoreCommonParameter(al)); 
+        geo2.setIndirizzo(StringKit.getMoreCommonParameter(al));
         al.clear();
         for (GeoDocument geoDoc : dfi.getListGeoDoc()) {al.add(geoDoc.getIva());}
-        geo2.setIva(getMoreCommonParameter(al)); 
+        geo2.setIva(StringKit.getMoreCommonParameter(al));
         al.clear();
         for (GeoDocument geoDoc : dfi.getListGeoDoc()) {al.add(geoDoc.getEmail());}
-        geo2.setEmail(getMoreCommonParameter(al)); 
+        geo2.setEmail(StringKit.getMoreCommonParameter(al));
         al.clear();
         for (GeoDocument geoDoc : dfi.getListGeoDoc()) {al.add(geoDoc.getTelefono());}
-        geo2.setTelefono(getMoreCommonParameter(al)); 
+        geo2.setTelefono(StringKit.getMoreCommonParameter(al));
         al.clear();
         for (GeoDocument geoDoc : dfi.getListGeoDoc()) {al.add(geoDoc.getFax());}
-        geo2.setFax(getMoreCommonParameter(al)); 
+        geo2.setFax(StringKit.getMoreCommonParameter(al));
         al.clear();
         for (GeoDocument geoDoc : dfi.getListGeoDoc()) {al.add(geoDoc.getEdificio());}
-        geo2.setEdificio(getMoreCommonParameter(al)); 
+        geo2.setEdificio(StringKit.getMoreCommonParameter(al));
         al.clear();
         
-        //LATITUDE E LONGITUDE NECESSITANO DI UN CONTROLLO PER LA CONVERSIONE STRING-DOUBLE
+        //latitude and longitude neeed a conversion STRING-DOUBLE
         for (GeoDocument geoDoc : dfi.getListGeoDoc()) {
             String lat = String.valueOf(geoDoc.getLat());      
                 
-            if(setNullForEmptyString(lat)==null || lat.contains("null") || lat.contains("NULL")){
+            if(setNullForEmptyString(lat)==null || lat.contains("null") || lat.contains("NULL") || lat.equals("0")){
                    geoDoc.setLat(null);                        
             } else{
                    geoDoc.setLat(Double.parseDouble(lat));                  
                    al.add(geoDoc.getLat().toString());     
             }
         }//for
-        String lat2 = getMoreCommonParameter(al);
+        String lat2 = StringKit.getMoreCommonParameter(al);
          if(setNullForEmptyString(lat2)==null || lat2.contains("null") || lat2.contains("NULL")|| al.isEmpty()){
                geo2.setLat(null); 
          } else{
               geo2.setLat(Double.parseDouble(lat2)); 
          }
-         //System.out.println("LATITUDE:"+geo2.getLat());
          al.clear();
            
          for (GeoDocument geoDoc : dfi.getListGeoDoc()) {
             String lng = String.valueOf(geoDoc.getLng());      
                      
-            if(setNullForEmptyString(lng)==null || lng.contains("null") || lng.contains("NULL")){
+            if(setNullForEmptyString(lng)==null || lng.contains("null") || lng.contains("NULL")|| lng.equals("0")){
                    geoDoc.setLng(null);                        
             } else{
                    geoDoc.setLng(Double.parseDouble(lng));                  
                    al.add(geoDoc.getLng().toString());     
             }
         }//for
-        String lng2 = getMoreCommonParameter(al);
+        String lng2 = StringKit.getMoreCommonParameter(al);
          if(setNullForEmptyString(lng2)==null || lng2.contains("null") || lng2.contains("NULL")|| al.isEmpty()){
                geo2.setLng(null); 
          } else{
               geo2.setLng(Double.parseDouble(lng2)); 
          }
-         //System.out.println("LONGITUDE:"+geo2.getLng());
          al.clear();
-        
-        //CONTROLLI PER CAMPI MENO IMPORTANTI
+
         for (GeoDocument geoDoc : dfi.getListGeoDoc()) {al.add(geoDoc.getNazione());}
-        geo2.setNazione(getMoreCommonParameter(al)); 
+        geo2.setNazione(StringKit.getMoreCommonParameter(al));
         al.clear();
         
         for (GeoDocument geoDoc : dfi.getListGeoDoc()) {al.add(geoDoc.getPostalCode());}
-        geo2.setPostalCode(getMoreCommonParameter(al)); 
+        geo2.setPostalCode(StringKit.getMoreCommonParameter(al));
         al.clear();
         
         for (GeoDocument geoDoc : dfi.getListGeoDoc()) {al.add(geoDoc.getIndirizzoNoCAP());}
-        geo2.setIndirizzoNoCAP(getMoreCommonParameter(al)); 
+        geo2.setIndirizzoNoCAP(StringKit.getMoreCommonParameter(al));
         al.clear();
         
         for (GeoDocument geoDoc : dfi.getListGeoDoc()) {al.add(geoDoc.getIndirizzoHasNumber());}
-        geo2.setIndirizzoHasNumber(getMoreCommonParameter(al)); 
+        geo2.setIndirizzoHasNumber(StringKit.getMoreCommonParameter(al));
         al.clear();
-        
-//        for (GeoDocument geoDoc : dfi.getListGeoDoc()) {al.add(geoDoc.getDescription());}
-//        geo2.setDescription(getMoreCommonParameter(al)); 
-//        al.clear();
+
         return geo2;
-//          geo2.setRegione(setMoreCommonParameter(al, dfi,"regione"));
     }
-    
-    //METODI DI SUPPORTO
-    
-    /**
-     * Metodo che assegna attraverso un meccanismo di "mapping" ad ogni valore 
-     * disitno del parametro in questione un numero (la frequenza) prendeno il 
-     * valore con la massima frequenza abbiamo ricavato il valore più diffuso 
-     * per tale parametro
-     * @param al lista dei valori per il determianto parametro del GeoDocument
-     * @return  il valore più diffuso per tale parametro
-     */
-    private String getMoreCommonParameter(ArrayList<String> al){       
-        Map<String,Integer> map = new HashMap<String, Integer>();  
-        for(int i=0;i<al.size();i++){              
-            Integer count = map.get(al.get(i));         
-            map.put(al.get(i), count==null?1:count+1);   //auto boxing and count  
-        }  
-        //System.out.println(map);  
-        //ADESSO PER OGNI VALORE POSSIBILE DEL PARAMETRO ABBIAMO INSERITO IL 
-        //NUMERO DI VOLTE IN CUI SONO STATI "TROVATI" NEI VARI RECORD ANALIZZATI
-        String keyParameter=null;
-        Integer keyValue =0;
-        for ( Map.Entry<String, Integer> entry : map.entrySet()) {
-            String key = entry.getKey();
-            //System.out.println(key);
-            Integer value = entry.getValue();
-            if(value >= keyValue && setNullForEmptyString(key)!=null && !key.equals("null") && !key.equals("NULL")){
-                keyValue = value;
-                keyParameter = key;
-            }
-        }
-        return keyParameter;
-    }
+
     
     /**
     * Setta a null se verifica che la stringa non è
@@ -393,7 +322,6 @@ public class ExtractorDomain {
 
 
     public void reloadNullCoordinates(){
-
         ManageJsonWithGoogleMaps j = new ManageJsonWithGoogleMaps();
         String[] columns = new String[]{"latitude","longitude"};
         Object[] values = new Object[]{null,null};
@@ -445,71 +373,4 @@ public class ExtractorDomain {
         }
 
     }
-
-   
-   /*
-     public static void main(String args[]){
-      EventQueue.invokeLater(new Runnable() {
-         public void run() {       
-                try{   
-                   MainEstrazioneGeoDomainDocumentPerElaborato m = new MainEstrazioneGeoDomainDocumentPerElaborato();
-                   ArrayList<GeoDocument> listGeoDoc = new ArrayList<GeoDocument>();
-                   c.openConnection(DB_INPUT_GEODOMAIN,USER,PASS);               
-                   listGeoDoc = c.getInfoDocumentByGeolocationDB(TABLE_INPUT_GEODOMAIN,LIMIT,OFFSET);
-                   c.closeConnection();   
-                   Integer i = 0;
-                   for (GeoDocument geoDoc : listGeoDoc) {
-                        System.out.println("("+i+")"+geoDoc.getUrl().toString());
-                        i++;
-                        //TENTA DI ESTRARRE IL DOMINIO HOST DELL'INDIRIZZO URL
-                     
-                        try{                                                  
-                            String domain = m.getDomainName(geoDoc.getUrl().toString());                          
-                            System.out.println("DOMAIN:"+domain);
-                            
-                            //MODALITA 1:TRACCIAMENTO DELLA FREQUENZA CHE SI BASA UNICAMENTE SULL'UGUAGLIANZA 
-                            //DELLE COORDINATE GEOGRAFICHE RICAVATE ATTRAVERSO L'API GOOGLE MAPS DA 
-                            //URL RELATIVI AL MEDESIMO DOMINIO. (CREA I GEODOCUMENT PER IL DATABASE)
-                            //********************************************************************************
-                            //FrequencyInfo frequencyInfo = new FrequencyInfo(null,null,null,null,null); 
-                            //m.applyTheFrequencyCoordinatesRules(geoDoc,domain,frequencyInfo);  
-                            //******************************************************************************++
-                            
-                            //MODALITA 2:TRACCIAMENTO DELLA FREQUENZA CHE SI BASA SU UNA SOGLIA MOLTO AMPIA
-                            //PER POTER FARE UN'ANALISI STATISTICA E PRENDERE I SINGOLI VALORI PIU' DIFFUSI
-                            //(INDIRIZZO,EDIFICIO,ECC.) NEL GRUPPO DEGLI URL (CON SOGLIA DA DEFINIRE) RELATIVI
-                            //AL MEDESIMO DOMINIO WEB A CUI VENGONO ASSEGNATI TALI VALORI COME PARAMETRI 
-                            //DEL GEODOCUMENT RELATIVO AL DOMINIO WEB STESSO. (CREA GLI INFODOCUMENT PER IL DATABASE)
-                            //*********************************************************************************   
-                            if(listFinalDomains.contains(domain)==false){                                 
-                              m.applyTheMemorizeRecordCordinatesRules(domain,geoDoc);  
-                            }
-                            //*********************************************************************************       
-                      } catch (URISyntaxException ex) {
-                           //Logger.getLogger(MainEstrazioneGeoDomainDocumentPerElaborato.class.getName()).log(Level.SEVERE, null, ex);
-                           continue;
-                      }
-                    }//for
-                 } catch (RuntimeException e2) {
-                         System.out.println("ECCEZIONE DI QUALCHE TIPO CAUSATA IN FASE DI RUN");
-                         e2.printStackTrace();                                      
-                 } finally{
-                    //c.closeConnection(); 
-                    //MOSTRIAMO I NOSTRI DepositFrequencyInfo CON SUFFICIENTE VALORE DI SOGLIA DA INSERIRE NEL DATABASE
-                    for (DepositFrequencyInfo dfi2 : listDepositFrequency) {
-                        if(dfi2.getFrequency()>=FREQUENZA_INTERVALLO_URL){
-                         System.out.println("CONTROL:"+dfi2.toString());
-                        }
-                        //System.out.println("CONTROL:"+dfi2.toString());
-                    }
-                    listDomains = null;
-                    listFinalDomains = null;
-                    //listFrequencyInfo = null;
-                    listDepositFrequency = null;
-                 }
-                
-          }//run                 
-        });//runnable     
-      }//main  
-   */
 }

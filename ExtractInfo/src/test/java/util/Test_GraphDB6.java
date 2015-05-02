@@ -1,6 +1,6 @@
 package util;
 
-import extractor.sesame.SesameUtil;
+import p4535992.util.sesame.SesameUtil;
 
 public class Test_GraphDB6 {
 

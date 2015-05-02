@@ -5,14 +5,16 @@
 package p4535992.util.file;
 
 import p4535992.util.cmd.SimpleParameters;
+import p4535992.util.log.SystemLog;
 
 import java.io.*;
 import java.net.MalformedURLException;
 import java.net.URI;
 import java.util.*;
+import java.util.zip.GZIPInputStream;
 
 /**
- * 2015-04-10
+ * 2015-005-01
  * @author 4535992
  */
 public class FileUtil {
@@ -198,6 +200,182 @@ public class FileUtil {
     }
 
     /**
+     * Convert filename string to a URI.
+     * Map '\' characters to '/' (this might break if '\' is used in
+     * a Unix filename, but this is assumed to be a very rare occurrence
+     * as '\' is often used with special meaning on Unix.)
+     * For unix-like systems, the absolute filename begins with a '/'
+     * and is preceded by "file://".
+     * For other systems an extra '/' must be supplied.
+     */
+    public static String convertFileToUri2(String filename){
+        StringBuffer mapfilename = new StringBuffer( filename ) ;
+        for ( int i = 0 ; i < mapfilename.length() ; i++ )
+        {
+            if ( mapfilename.charAt(i) == '\\' )
+                mapfilename.setCharAt(i, '/') ;
+        }
+        if (filename.charAt(0) == '/')
+        {
+            return "file://"+mapfilename.toString() ;
+        }
+        else
+        {
+            return "file:///"+mapfilename.toString() ;
+        }
+    }
+
+    public static String convertFileToUri2(File file){
+        return convertFileToUri2(file.getAbsolutePath());
+    }
+
+
+    /**
+     * Method for get in more dinamica way the currentdirectory of the projct
+     * equivalent to : dir = System.getProperty("user.dir");
+     *
+     * @return
+     */
+    public static String getUserDir() {
+        String dir;
+        try {
+            //1 Method
+            //File currentDirFile = new File("");
+            //dir = currentDirFile.getAbsolutePath();
+
+            //2 Method
+            dir = System.getProperty("user.dir");
+            dir = convertFileToUri2(dir)+"/";
+            //dir = helper.substring(0, helper.length() - currentDirFile.getCanonicalPath().length());
+        } catch (Exception e) {
+            dir = null;
+        }
+        return dir;
+    }
+
+    public static String getCurrentDisk() {
+        String dir="";
+        try {
+            dir = getUserDir();
+            String[] split = dir.split(":");
+            dir = split[0];
+        } catch (Exception e) {
+            SystemLog.exception(e);
+        }
+        return dir + ":".toLowerCase();
+    }
+
+
+    public static String readStringFromFileLineByLine(String pathToFile) {
+        StringBuilder stringBuffer = new StringBuilder();
+        try
+        {
+            File file = new File(pathToFile);
+            FileReader fileReader = new FileReader(file);
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+            String line;
+            while ((line = bufferedReader.readLine()) != null) {
+                stringBuffer.append(line);
+                stringBuffer.append("\r\n");
+            }
+            fileReader.close();
+            System.out.println("Contents of file:");
+            System.out.println(stringBuffer.toString());
+        }
+        catch( IOException e)
+        {
+            e.printStackTrace();
+        }
+        return stringBuffer.toString();
+    }
+
+    public static Map<String,String> readStringFromFileLineByLine(String pathToFile, char separator, SimpleParameters params) {
+        Map<String,String> map = new HashMap<>();
+        try
+        {
+            File file = new File(pathToFile);
+            FileReader fileReader = new FileReader(file);
+            BufferedReader br = new BufferedReader(fileReader);
+            String line;
+            String[] lines;
+            List<String> linesSupport= new ArrayList<>();
+            while ((line = br.readLine()) != null) {
+                if(line.trim().length() == 0 || line.contains("#")){
+                    continue;
+                }
+                linesSupport.add(line.trim());
+            }
+            fileReader.close();
+            lines = new String[ linesSupport.size()];
+            linesSupport.toArray(lines);
+            params.parseNameValuePairs(lines, separator, true);
+            map = params.getParameters();
+        }
+        catch(IOException e)
+        {
+            e.printStackTrace();
+        }
+        return map;
+    }
+
+    public static  InputStream convertFileToStream(String pathToFile) throws IOException{
+        // JDK7 try-with-resources ensures to close stream automatically
+        //try (InputStream is = getClass().getResourceAsStream(pathToFile)) {
+        try (InputStream is = FileUtil.class.getResourceAsStream(pathToFile)) {
+            int Byte;       // Byte because byte is keyword!
+            while ((Byte = is.read()) != -1 ) {
+                System.out.print((char) Byte);
+            }
+            return is;
+        }
+        //Alternative
+//        URL resourceUrl = getClass().getResource("/sample.txt");
+//        Path resourcePath = Paths.get(resourceUrl.toURI());
+//        File f = new File("/spring-hibernate4v2.xml");
+    }
+
+    public static String getStringFromResourceFile(String fileName) {
+        StringBuilder result = new StringBuilder("");
+        //Get file from resources folder
+        //ClassLoader classLoader = getClass().getClassLoader();
+        //File file = new File(classLoader.getResource(fileName).getFile());
+        File file = new File(FileUtil.class.getResource(fileName).getFile());
+        try (Scanner scanner = new Scanner(file)) {
+
+            while (scanner.hasNextLine()) {
+                String line = scanner.nextLine();
+                result.append(line).append("\n");
+            }
+            scanner.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return result.toString();
+    }
+
+
+    /**
+     * Method for compress file of triple before upload to thte repository make the upload more faster
+     * @param file
+     * @return
+     * @throws IOException
+     */
+    public static InputStream compressFileForUpload(File file) throws IOException{
+        return  new GZIPInputStream(new FileInputStream(file));
+    }
+
+    /**
+     * Method for compress file of triple before upload to thte repository make the upload more faster
+     * @param filePathToFile
+     * @return
+     * @throws IOException
+     */
+    public static InputStream compressFileForUpload(String filePathToFile) throws IOException{
+        File file = new File(filePathToFile);
+        return compressFileForUpload(file);
+    }
+
+    /**
      * Utility for a depth first traversal of a file-system starting from a
      * given node (file or directory).
      * e.g.
@@ -270,124 +448,6 @@ public class FileUtil {
         private Handler handler;
     } //end of class FileWalker
 
-    /**
-     * equivalent to : dir = System.getProperty("user.dir");
-     *
-     * @return
-     */
-    public static String GetUserDir() {
-        String dir = "";
-        //dir = System.getProperty("user.dir");
-        try {
-            File currentDirFile = new File("");
-            dir = currentDirFile.getAbsolutePath();
-
-            //dir = helper.substring(0, helper.length() - currentDirFile.getCanonicalPath().length());
-        } catch (Exception e) {
-            dir = "";
-        }
-        return dir;
-    }
-
-    public static String GetCurrentDisk() {
-        String dir;
-        try {
-            dir = GetUserDir();
-            String[] split = dir.split(":");
-            dir = split[0];
-        } catch (Exception e) {
-            dir = "";
-        }
-        return dir + ":".toLowerCase();
-    }
-
-    public static String ReadStringFromFileLineByLine(String pathToFile) {
-        StringBuilder stringBuffer = new StringBuilder();
-        try
-        {
-            File file = new File(pathToFile);
-            FileReader fileReader = new FileReader(file);
-            BufferedReader bufferedReader = new BufferedReader(fileReader);
-            String line;
-            while ((line = bufferedReader.readLine()) != null) {
-                stringBuffer.append(line);
-                stringBuffer.append("\r\n");
-            }
-            fileReader.close();
-            System.out.println("Contents of file:");
-            System.out.println(stringBuffer.toString());
-        }
-        catch( IOException e)
-        {
-            e.printStackTrace();
-        }
-        return stringBuffer.toString();
-    }
-
-    public static Map<String,String> ReadStringFromFileLineByLine(String pathToFile, char separator, SimpleParameters params) {
-        Map<String,String> map = new HashMap<String,String>();
-        try
-        {
-            File file = new File(pathToFile);
-            FileReader fileReader = new FileReader(file);
-            BufferedReader br = new BufferedReader(fileReader);
-            String line;
-            String[] lines;
-            List<String> linesSupport= new ArrayList<String>();
-            while ((line = br.readLine()) != null) {
-                if(line.trim().length() == 0 || line.contains("#")){
-                    continue;
-                }
-                linesSupport.add(line.trim());
-            }
-            fileReader.close();
-            lines = new String[ linesSupport.size()];
-            linesSupport.toArray(lines);
-            params.parseNameValuePairs(lines, separator, true);
-            map = params.getParameters();
-        }
-        catch(IOException e)
-        {
-            e.printStackTrace();
-        }
-        return map;
-    }
-
-    public static  InputStream file2Stream(String pathToFile) throws IOException{
-        // JDK7 try-with-resources ensures to close stream automatically
-        //try (InputStream is = getClass().getResourceAsStream(pathToFile)) {
-        try (InputStream is = FileUtil.class.getResourceAsStream(pathToFile)) {
-            int Byte;       // Byte because byte is keyword!
-            while ((Byte = is.read()) != -1 ) {
-                System.out.print((char) Byte);
-            }
-            return is;
-        }
-        //OPPURE
-//        URL resourceUrl = getClass().getResource("/sample.txt");
-//        Path resourcePath = Paths.get(resourceUrl.toURI());
-//        File f = new File("/spring-hibernate4v2.xml");
-    }
-
-    public static String getStringFromResourceFile(String fileName) {
-        StringBuilder result = new StringBuilder("");
-        //Get file from resources folder
-        //ClassLoader classLoader = getClass().getClassLoader();
-        //File file = new File(classLoader.getResource(fileName).getFile());
-        File file = new File(FileUtil.class.getResource(fileName).getFile());
-        try (Scanner scanner = new Scanner(file)) {
-
-            while (scanner.hasNextLine()) {
-                String line = scanner.nextLine();
-                result.append(line).append("\n");
-            }
-            scanner.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return result.toString();
-    }
-
 
     /////////////////////////////////////////
     //OTHER METHODS WITH COMMONS UTIL APACHE
@@ -414,6 +474,53 @@ public class FileUtil {
             e.printStackTrace();
         }
         return result;
+    }*/
+
+
+    /////////////////////////////////
+    //OTHER EMTHODS DERPECATED
+    ///////////////////////////////
+
+    /**
+     * Get current working directory as a URI.
+     */
+
+    /*public static String uriFromCwd() {
+        String cwd = System.getProperty("user.dir");
+        return uriFromFilename( cwd ) + "/" ;
+    }*/
+
+    /**
+     * Convert File descriptor string to a URI.
+     */
+   /* public static String uriFromFile(File filespec){
+        return uriFromFilename( filespec.getAbsolutePath() ) ;
+    }*/
+
+    /**
+     * Convert filename string to a URI.
+     * Map '\' characters to '/' (this might break if '\' is used in
+     * a Unix filename, but this is assumed to be a very rare occurrence
+     * as '\' is often used with special meaning on Unix.)
+     * For unix-like systems, the absolute filename begins with a '/'
+     * and is preceded by "file://".
+     * For other systems an extra '/' must be supplied.
+     */
+    /*public static String uriFromFilename(String filename){
+        StringBuffer mapfilename = new StringBuffer( filename ) ;
+        for ( int i = 0 ; i < mapfilename.length() ; i++ )
+        {
+            if ( mapfilename.charAt(i) == '\\' )
+                mapfilename.setCharAt(i, '/') ;
+        }
+        if (filename.charAt(0) == '/')
+        {
+            return "file://"+mapfilename.toString() ;
+        }
+        else
+        {
+            return "file:///"+mapfilename.toString() ;
+        }
     }*/
 
 

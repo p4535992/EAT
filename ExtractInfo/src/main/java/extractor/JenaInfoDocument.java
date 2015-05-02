@@ -1,7 +1,7 @@
 package extractor;
 
 import p4535992.util.encoding.EncodingUtil;
-import p4535992.util.jena.JenaKit;
+import p4535992.util.jena.Jena2Kit;
 import p4535992.util.log.SystemLog;
 
 import java.io.File;
@@ -27,12 +27,12 @@ public class JenaInfoDocument {
             + "}";
 
     //Get all the triples on the model without the predicate geo:lat and geo:long
-    private static String SPARQL_NO_WSG84COORDS =
+    private static String SPARQL_NO_WGS84COORDS =
               "CONSTRUCT {?s <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/goodrelations/v1#Location>  }"
             + " WHERE { "
             + " ?s <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/goodrelations/v1#Location> ."
-            + " OPTIONAL{?s <http://schema.org/latitude> ?o .}"
-            + " OPTIONAL{?s <http://schema.org/longitude> ?o .}"
+            + " OPTIONAL{?s <http://www.w3.org/2003/01/geo/wgs84_pos#lat> ?o .}"
+            + " OPTIONAL{?s <http://www.w3.org/2003/01/geo/wgs84_pos#long> ?o .}"
             + " FILTER (!bound(?o))"
             + "}";
 
@@ -42,6 +42,14 @@ public class JenaInfoDocument {
             + " ?location <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/goodrelations/v1#Location> ;"
             + "  <http://schema.org/latitude> ?lat ;"
             + "  <http://schema.org/longitude> ?long ."
+            + "}";
+
+    private static String SPARQL_WGS84COORDS =
+            "SELECT ?location ?lat ?long "
+            + " WHERE { "
+            + " ?location <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/goodrelations/v1#Location> ;"
+            + "  <http://www.w3.org/2003/01/geo/wgs84_pos#lat> ?lat ;"
+            + "  <http://www.w3.org/2003/01/geo/wgs84_pos#long> ?long ."
             + "}";
 
     public JenaInfoDocument(){}
@@ -63,11 +71,11 @@ public class JenaInfoDocument {
         SystemLog.sparql(SPARQL_NO_SCHEMACOORDS);
         //CREA IL TUO MODELLO DI JENA A PARTIRE DA UN FILE
         com.hp.hpl.jena.rdf.model.Model model = com.hp.hpl.jena.rdf.model.ModelFactory.createDefaultModel();
-        model = JenaKit.loadFileTriple(filenameInput, filepath, inputFormat);
+        model = Jena2Kit.loadFileTriple(filenameInput, filepath, inputFormat);
 
         //ESEGUI LA QUERY SPARQL
         com.hp.hpl.jena.rdf.model.Model myGraph = model;
-        myGraph = JenaKit.execQuerySparqlOnModel(SPARQL_NO_SCHEMACOORDS, model, "CONSTRUCT");
+        myGraph = Jena2Kit.execSparqlConstructorOnModel(SPARQL_NO_WGS84COORDS, model);
 
         com.hp.hpl.jena.rdf.model.StmtIterator iter = myGraph.listStatements();
 
@@ -149,25 +157,21 @@ public class JenaInfoDocument {
         }
         */
         //****************************************************************************
-        //TEST HELPER FOR SILK
+        //TEST HELPER FOR SILK GENERATE ADDITIONAL FILE
         String outputN3Knime = filepath + File.separator + "fileN3Knimem.n3";
-        JenaKit.writeModelToFile(outputN3Knime, model2, "n3");
+        Jena2Kit.writeModelToFile(outputN3Knime, model2, "n3");
         //String outputTurtleKnime = filepath + File.separator + "fileTurtleKnimem.ttl";
         //JenaKit.writeModelToFile(outputTurtleKnime, model2, "ttl");
         List<String> lines = EncodingUtil.UnicodeEscape2UTF8(new File(outputN3Knime));
         EncodingUtil.writeLargerTextFileWithReplace2(outputN3Knime, lines);
-        JenaKit.ConvertRDFTo(new File(outputN3Knime),"csv");
+        Jena2Kit.convertTo(new File(outputN3Knime),"csv");
         //*************************************************************************************
 
         //Execute the SPARQL_WSG84COORDS and add the geometry statement
-        com.hp.hpl.jena.query.ResultSet result = JenaKit.execSparqlSelectOnModel(SPARQL_SCHEMACOORDS, model2);
+        com.hp.hpl.jena.query.ResultSet result = Jena2Kit.execSparqlSelectOnModel(SPARQL_WGS84COORDS, model2);
         Map<com.hp.hpl.jena.rdf.model.Resource, String[]> map = new HashMap<>();
         while (result.hasNext()){
             com.hp.hpl.jena.query.QuerySolution row = result.next();
-            //float f1 = row.getLiteral("lat").getFloat();
-            //System.out.println("Lat: " + row.getLiteral("lat").getString()); //43.7891042^^http://www.w3.org/2001/XMLSchema#float
-            //System.out.println("Lat: " + row.getLiteral("lat").getLexicalForm());//43.7891042^^http://www.w3.org/2001/XMLSchema#float
-            //System.out.println("Lat: " + row.getLiteral("lat").getDatatype());//Lat: Datatype[http://www.w3.org/2001/XMLSchema#float -> class java.lang.Float]
             String[] array = new String[2];
             array[0] = row.getLiteral("lat").getLexicalForm().replace("^^http://www.w3.org/2001/XMLSchema#float","");
             array[1] =  row.getLiteral("long").getLexicalForm().replace("^^http://www.w3.org/2001/XMLSchema#float","");
@@ -177,20 +181,10 @@ public class JenaInfoDocument {
         for(Map.Entry<com.hp.hpl.jena.rdf.model.Resource, String[]> entry : map.entrySet()) {
             com.hp.hpl.jena.rdf.model.Resource subject = entry.getKey(); //...gr:Location
             com.hp.hpl.jena.rdf.model.Property predicate = new com.hp.hpl.jena.rdf.model.impl.PropertyImpl("http://www.w3.org/2003/01/geo/wgs84_pos#geometry");
-            //com.hp.hpl.jena.rdf.model.Literal literal1 = entry.getValue()[0];
-            //com.hp.hpl.jena.rdf.model.Literal literal2 = entry.getValue()[1];
             String value =entry.getValue()[0] + " " +  entry.getValue()[1];
-            //com.hp.hpl.jena.rdf.model.Resource instance1 = model.createResource(subject.getURI())
-            model2.addLiteral(subject, predicate,JenaKit.lt(value,com.hp.hpl.jena.datatypes.xsd.XSDDatatype.XSDstring));
-            // Create statements
-            //instance1.addProperty(predicate, literal1).addProperty(predicate, literal2); // Classification of instance1
-            //instance2.addProperty("http://www.w3.org/2003/01/geo/wgs84_pos#long", class2); // Classification of instance2
-            //instance1.addProperty(hasName, instance2); // Edge between instance1 and instance2
-
-           // model.addLiteral(subject,predicate,literal1.getString());
+            model2.addLiteral(subject, predicate,Jena2Kit.lt(value,com.hp.hpl.jena.datatypes.xsd.XSDDatatype.XSDstring));
         }
         String output = filepath + File.separator + fileNameOutput + "." + outputFormat;
-        JenaKit.writeModelToFile(output, model2, outputFormat);
-        //model.write(new FileWriter(output), "Turtle");
+        Jena2Kit.writeModelToFile(output, model2, outputFormat);
     }
 }

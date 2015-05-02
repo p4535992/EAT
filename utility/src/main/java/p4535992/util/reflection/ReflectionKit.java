@@ -16,8 +16,8 @@ import java.net.URL;
 import java.util.*;
 
 /**
- * Class for help me with the frist impact with java reflection library
- * To foolow all the url help me to create this class:
+ * Class for help me with the first impact with java reflection library
+ * To follow all the url help me to create this class:
  * @href: http://my.safaribooksonline.com/video/-/9780133038118?cid=2012-3-blog-video-java-socialmedia
  * @href: http://www.asgteach.com/blog/?p=559
  * @href: http://stackoverflow.com/questions/709961/determining-if-an-object-is-of-primitive-type
@@ -32,10 +32,19 @@ public class ReflectionKit<T>{
     private String clName;
     private static final Set<Class<?>> WRAPPER_TYPES = getWrapperTypes();
 
+    /**
+     * Method to check if a specific class is a primitve class
+     * @param aClass
+     * @return
+     */
     public static boolean isWrapperType(Class<?> aClass) {
         return WRAPPER_TYPES.contains(aClass);
     }
 
+    /**
+     * List of all primitve class
+     * @return
+     */
     private static Set<Class<?>> getWrapperTypes(){
         Set<Class<?>> ret = new HashSet<>();
         ret.add(Boolean.class);
@@ -64,7 +73,7 @@ public class ReflectionKit<T>{
       
     public static List<String[]> inspectFieldClass(Class<?> aClass) {
         Field[] fields = aClass.getDeclaredFields();
-        List<String[]> oField = new ArrayList<String[]>();
+        List<String[]> oField = new ArrayList<>();
         for (Field field : fields) {
             field.setAccessible(true); // if you want to modify private fields
             String modify = Modifier.toString(field.getModifiers());
@@ -78,8 +87,6 @@ public class ReflectionKit<T>{
     public static Map<Field,Annotation[]> inspectFieldAndAnnotationClass(Class<?> aClass){
         Map<Field,Annotation[]> map = new HashMap<>();
         for(Field field : aClass.getDeclaredFields()){
-            //Class type = field.getType();
-            //String name = field.getName();
             Annotation[] annotations = field.getDeclaredAnnotations();
             map.put(field, annotations);
         }
@@ -95,7 +102,6 @@ public class ReflectionKit<T>{
             Type[] typeArguments = type.getActualTypeArguments();
             for(Type typeArgument : typeArguments){
                 Class typeArgClass = (Class) typeArgument;
-                //System.out.println("typeArgClass = " + typeArgClass);
                 list.add(new String[]{typeArgClass.getName(),getClassReference(typeArgClass)});
             }
         }
@@ -132,7 +138,7 @@ public class ReflectionKit<T>{
     
     public static Map<String,Class> inspectAndLoadGetterObject(Object obj) throws NoSuchMethodException{
         List<Method> getter = getGettersClass(obj.getClass());
-        Map<String,Class> map = new HashMap<String,Class>();
+        Map<String,Class> map = new HashMap<>();
         for(Method met : getter){
             Class cl = met.getReturnType();
             String name = met.getName();
@@ -180,7 +186,7 @@ public class ReflectionKit<T>{
     
     public static List<String[]> inspectConstructor(Class<?> aClass){
         Constructor[] constructors = aClass.getConstructors();
-        List<String[]> oConst = new ArrayList<String[]>();
+        List<String[]> oConst = new ArrayList<>();
         for (Constructor cons : constructors) {
             String modify = Modifier.toString(cons.getModifiers());
             String type = cons.getTypeParameters().toString();
@@ -191,7 +197,7 @@ public class ReflectionKit<T>{
     } 
     
     public static List<Method> getGettersSettersClass(Class<?> aClass) {
-        List<Method> list = new ArrayList<Method>();
+        List<Method> list = new ArrayList<>();
         Method[] methods = aClass.getDeclaredMethods();
         for (Method method : methods)
             if (isGetter(method) || isSetter(method))
@@ -200,7 +206,7 @@ public class ReflectionKit<T>{
     }
     
     public static List<Method> getGettersClass(Class aClass){
-        List<Method> list = new ArrayList<Method>();
+        List<Method> list = new ArrayList<>();
         Method[] methods = aClass.getDeclaredMethods();
         for (Method method : methods)
             if (isGetter(method))
@@ -209,7 +215,7 @@ public class ReflectionKit<T>{
     }
     
      public static List<Method> getSettersClass(Class aClass){
-        List<Method> list = new ArrayList<Method>();
+        List<Method> list = new ArrayList<>();
         Method[] methods = aClass.getDeclaredMethods();
         for (Method method : methods)
             if (isSetter(method))
@@ -264,7 +270,6 @@ public class ReflectionKit<T>{
      */
     public static Method getMethodByName(Class<?> aClass,String nameOfMethod,Class[] param) throws NoSuchMethodException{
         Method method = null;
-        //Class[] cArg = new Class[param.length];  
         //If the method you are trying to access takes no parameters, pass null as the parameter type array, like this:   
         if(param==null || param.length==0 )method = aClass.getMethod(nameOfMethod, null);
         else method = aClass.getMethod(nameOfMethod,param);// String.class        
@@ -306,7 +311,7 @@ public class ReflectionKit<T>{
     }
 
     public static List<String> getFieldsNameClass(Class<?> aClass){
-        List<String> names = new ArrayList<String>();
+        List<String> names = new ArrayList<>();
         for(Field field : getFieldsClass(aClass)){
             names.add(field.getName());
         }
@@ -383,10 +388,10 @@ public class ReflectionKit<T>{
      * mappedName: 
      * shareable: true
      */
-    public static <T> List<Object[]> inspectAllAnnotationClass(Class<?> aClass) 
+    public static List<Object[]> inspectAllAnnotationClass(Class<?> aClass)
             throws IllegalAccessException, IllegalArgumentException, InvocationTargetException{
         Annotation[] annotations = aClass.getAnnotations();
-        List<Object[]> list = new ArrayList<Object[]>();
+        List<Object[]> list = new ArrayList<>();
 //        MyAnnotation myAnnotation = method.getAnnotation(Annotation.class); //specific class      
 //        aClass.getDeclaredAnnotations(); // get all annotation
 //        (aClass.getDeclaredMethods()[0]).getAnnotations(); //get annotation of a method
@@ -411,11 +416,11 @@ public class ReflectionKit<T>{
         return list;
     }
     
-    public static <T> List<String[]> inspectAnnotationClass(Class<T> aClass,String methodName) 
+    public static List<String[]> inspectAnnotationClass(Class<?> aClass,String methodName)
             throws IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException{
         Method method = aClass.getMethod(methodName, null);
         Annotation[] annotations = aClass.getAnnotations();       
-        List<String[]> list = new ArrayList<String[]>();
+        List<String[]> list = new ArrayList<>();
         String[] array = new String[3];
         for (Annotation annotation : aClass.getAnnotations()){            
             Class<? extends Annotation> type = annotation.annotationType();
@@ -481,8 +486,7 @@ public class ReflectionKit<T>{
         List<List<Object[]>> listOfAnnotation = new ArrayList<>();
           Field[] fields = aClass.getDeclaredFields();
           for(Field field  : fields ){
-              List<Object[]> list = new ArrayList<>();
-              list = getAnnotationsField(aClass, field);
+              List<Object[]> list = getAnnotationsField(aClass, field);
               if(list!=null) {
                   listOfAnnotation.add(list);
               }
@@ -636,34 +640,6 @@ public class ReflectionKit<T>{
     }
 
 
-
-
-        /**
-         * Method for check if exists a annotation a a filed of the specific class
-         * Usage: System.out.println(isRequired(Employee.class, "email"));
-         * @required hibernate
-         * @param aClass
-         * @return
-         * @throws NoSuchFieldException
-         */
-    @SuppressWarnings("rawtypes")
-    public static String[] getAnnotationHibernateClass(Class<?> aClass) throws SecurityException {
-        String[] array = new String[3];
-        boolean b = false;
-        //Annotation ann = aClass.getAnnotation(Entity.class);
-        //String[] array = new String[3];
-        final javax.persistence.Entity entity = aClass.getAnnotation(javax.persistence.Entity.class);
-        if (null != entity) {
-            array[0] = entity.name();
-        }
-        final javax.persistence.Table table = aClass.getAnnotation(javax.persistence.Table.class);
-        if (null != table) {
-            array[1] = table.schema();
-            array[2] = table.name();
-        }
-        return array;
-    }
-
     /**
     * Changes the annotation value for the given key of the given annotation to newValue and returns
     * the previous value.
@@ -764,12 +740,12 @@ public class ReflectionKit<T>{
     public static Object copyFieldToClass(Object sourceObject, Class targetClass) {
         Object targetValue = null;
         try {
-            targetValue = (Object) targetClass.newInstance();
+            targetValue = targetClass.newInstance();
             for (Field field : sourceObject.getClass().getDeclaredFields()) {
                 try {
                     setField(targetValue, field.getName(), getFieldValue(sourceObject, field.getName()));
                 } catch (NoSuchFieldException e) {
-                    //IgnoreLogging.logInfo(ReflectionUtil.class, "Ignored Field " + field.getName());
+                    throw new Exception("Ignored Field " + field.getName());
                 }
             }
         } catch (Exception e) {

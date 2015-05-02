@@ -14,7 +14,7 @@ import javax.xml.transform.TransformerConfigurationException;
 
 import org.xml.sax.SAXException;
 import p4535992.util.encoding.EncodingUtil;
-import p4535992.util.jena.JenaKit;
+import p4535992.util.jena.Jena2Kit;
 
 /**
  *
@@ -33,8 +33,8 @@ public class Test_Jena {
          if(file.exists()) {
              List<String> lines = EncodingUtil.UnicodeEscape2UTF8(new File(outputN3Knime));
              EncodingUtil.writeLargerTextFileWithReplace2(outputN3Knime, lines);
-             JenaKit.ConvertRDFTo(new File(outputN3Knime), "csv");
-             //JenaKit.ConvertRDFTo(file, "turtle");
+             Jena2Kit.convertTo(new File(outputN3Knime), "csv");
+             //JenaKit.convertTo(file, "turtle");
          }
 
 
@@ -49,8 +49,8 @@ public class Test_Jena {
 //                 "ttl"
 //         );
             
-         //JENAUtil.ConvertRDFTo(file,"csv");
-         //JENAUtil.ConvertRDFTo(file,"xml");
+         //JENAUtil.convertTo(file,"csv");
+         //JENAUtil.convertTo(file,"xml");
          
          //JENAUtil6.test();
         

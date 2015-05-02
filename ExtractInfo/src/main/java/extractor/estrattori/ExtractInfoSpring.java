@@ -3,7 +3,7 @@ package extractor.estrattori;
 import extractor.ManageJsonWithGoogleMaps;
 import p4535992.util.cmd.SimpleParameters;
 import extractor.gate.GateKit;
-import p4535992.util.http.HttpUtil;
+import p4535992.util.http.HttpUtilApache;
 import extractor.setInfoParameterIta.SetNazioneELanguage;
 import extractor.setInfoParameterIta.SetProvinciaECity;
 import extractor.setInfoParameterIta.SetRegioneEProvincia;
@@ -403,7 +403,7 @@ public class ExtractInfoSpring {
            //INTEGRAZIONE DEL CAMPO LANGUAGE -> NAZIONE
            SetNazioneELanguage set = new SetNazioneELanguage();
            String language = geo.getNazione();
-           String domain = HttpUtil.getDomainName(geo.getUrl().toString());
+           String domain = HttpUtilApache.getDomainName(geo.getUrl().toString());
            String nazione = set.checkNazioneByDomain(domain);
            geo.setNazione(nazione);
            //con il linguaggio identificato da Tika se fallisce il controllo del
@@ -464,7 +464,7 @@ public class ExtractInfoSpring {
                 //set = geo.getEdificio().replaceAll("[^a-zA-Z\\d\\s:]","");
                 //Accetta le lettere accentuate
                 if(set.toLowerCase().contains("http://")==true){
-                    set = HttpUtil.getAuthorityName(set);
+                    set = HttpUtilApache.getAuthorityName(set);
                     set = set.replaceAll("(https?|ftp)://", "");
                     set = set.replaceAll("(www(\\d)?)", "");
                     set = set.replace("."," ");

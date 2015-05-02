@@ -52,10 +52,10 @@ public class MainExtractInfo {
                         SystemLog.message(params.toString());
                     }else{
                         //C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\resources\input.properties
-                        mParameters = FileUtil.ReadStringFromFileLineByLine(
-                                System.getProperty("user.dir")+ File.separator+"ExtractInfo" + File.separator+
-                                        "src"+ File.separator+"main"+ File.separator+"resources"+ File.separator+
-                                        "input.properties",'=',params);
+                        mParameters = FileUtil.readStringFromFileLineByLine(
+                                System.getProperty("user.dir") + File.separator + "ExtractInfo" + File.separator +
+                                        "src" + File.separator + "main" + File.separator + "resources" + File.separator +
+                                        "input.properties", '=', params);
                         //VARIABILI ALTRE
                         //PRINT SULLA CONSOLE
                         SystemLog.message("Using parameters:");

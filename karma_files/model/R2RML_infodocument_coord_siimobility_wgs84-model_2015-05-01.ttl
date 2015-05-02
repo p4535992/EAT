@@ -1,0 +1,2357 @@
+@prefix protege: <http://protege.stanford.edu/plugins/owl/protege#> .
+@prefix km4cr: <http://www.disit.org/km4city/resource#> .
+@prefix km4c: <http://www.disit.org/km4city/schema#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix schema: <http://schema.org/> .
+@prefix daml: <http://www.daml.org/2001/03/daml+oil#> .
+@prefix gis: <http://www.opengis.net/ont/geosparql#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix otn: <http://www.pms.ifi.uni-muenchen.de/OTN#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix vann: <http://purl.org/vocab/vann/#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix wot: <http://xmlns.com/wot/0.1/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix grddl: <http://www.w3.org/2003/g/data-view#> .
+@prefix tzont: <http://www.w3.org/2006/timezone#> .
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix gr: <http://purl.org/goodrelations/v1#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dcam: <http://purl.org/dc/dcam/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix p1: <http://www.pms.ifi.uni-muenchen.de/OTN#Traditional_Woodland/> .
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix km-dev: <http://isi.edu/integration/karma/dev#> .
+
+_:node19k6l6hi6x1 a km-dev:R2RMLMapping ;
+	km-dev:sourceName "infodocument_coord_siimobility_120" ;
+	km-dev:modelPublicationTime "1430447670859"^^xsd:long ;
+	km-dev:modelVersion "1.7" ;
+	km-dev:hasInputColumns "[[{\"columnName\":\"fax\"}],[{\"columnName\":\"provincia\"}],[{\"columnName\":\"edificio\"}],[{\"columnName\":\"latitude\"}],[{\"columnName\":\"city\"}],[{\"columnName\":\"longitude\"}],[{\"columnName\":\"indirizzo\"}],[{\"columnName\":\"nazione\"}],[{\"columnName\":\"description\"}],[{\"columnName\":\"indirizzoNoCAP\"}],[{\"columnName\":\"identifier\"}],[{\"columnName\":\"name_location\"}],[{\"columnName\":\"postalCode\"}],[{\"columnName\":\"indirizzoHasNumber\"}],[{\"columnName\":\"iva\"}],[{\"columnName\":\"url\"}],[{\"columnName\":\"email\"}],[{\"columnName\":\"telefono\"}]]" ;
+	km-dev:hasOutputColumns "[[{\"columnName\":\"fax\"}],[{\"columnName\":\"edificio\"}],[{\"columnName\":\"latitude\"}],[{\"columnName\":\"longitude\"}],[{\"columnName\":\"nazione\"}],[{\"columnName\":\"description\"}],[{\"columnName\":\"indirizzoNoCAP\"}],[{\"columnName\":\"identifier\"}],[{\"columnName\":\"name_location\"}],[{\"columnName\":\"postalCode\"}],[{\"columnName\":\"indirizzoHasNumber\"}],[{\"columnName\":\"iva\"}],[{\"columnName\":\"email\"}],[{\"columnName\":\"url\"}],[{\"columnName\":\"telefono\"}],[{\"columnName\":\"provincia\"}],[{\"columnName\":\"city\"}],[{\"columnName\":\"indirizzo\"}]]" ;
+	km-dev:hasModelLabel "infodocument_coord_siimobility_120" ;
+	km-dev:hasBaseURI "http://purl.org/goodrelations/v1#" ;
+	km-dev:hasWorksheetHistory """[
+    {
+        \"tags\": [\"Modeling\"],
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"nazione\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://schema.org/addressCountry\",
+                    \"DomainLabel\": \"gr:BusinessEntity1 (add)\",
+                    \"DomainId\": \"http://purl.org/goodrelations/v1#BusinessEntity1 (add)\",
+                    \"DomainUri\": \"http://purl.org/goodrelations/v1#BusinessEntity\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"isKey\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"xsd:string\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"nazione\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"nazione\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetSemanticTypeCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"identifier\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://purl.org/goodrelations/v1#legalName\",
+                    \"DomainLabel\": \"gr:BusinessEntity1\",
+                    \"DomainId\": \"http://purl.org/goodrelations/v1#BusinessEntity1\",
+                    \"DomainUri\": \"http://purl.org/goodrelations/v1#BusinessEntity\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"isKey\",
+                \"value\": true,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"xsd:string\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"identifier\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"identifier\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetSemanticTypeCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"edificio\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://purl.org/goodrelations/v1#name\",
+                    \"DomainLabel\": \"gr:BusinessEntity1\",
+                    \"DomainId\": \"http://purl.org/goodrelations/v1#BusinessEntity1\",
+                    \"DomainUri\": \"http://purl.org/goodrelations/v1#BusinessEntity\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"isKey\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"xsd:string\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"edificio\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"edificio\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetSemanticTypeCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"telefono\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://schema.org/telephone\",
+                    \"DomainLabel\": \"gr:BusinessEntity1\",
+                    \"DomainId\": \"http://purl.org/goodrelations/v1#BusinessEntity1\",
+                    \"DomainUri\": \"http://purl.org/goodrelations/v1#BusinessEntity\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"isKey\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"xsd:string\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"telefono\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"telefono\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetSemanticTypeCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"email\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://schema.org/email\",
+                    \"DomainLabel\": \"gr:BusinessEntity1\",
+                    \"DomainId\": \"http://purl.org/goodrelations/v1#BusinessEntity1\",
+                    \"DomainUri\": \"http://purl.org/goodrelations/v1#BusinessEntity\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"isKey\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"xsd:string\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"email\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"email\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetSemanticTypeCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"iva\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://purl.org/goodrelations/v1#vatID\",
+                    \"DomainLabel\": \"gr:BusinessEntity1\",
+                    \"DomainId\": \"http://purl.org/goodrelations/v1#BusinessEntity1\",
+                    \"DomainUri\": \"http://purl.org/goodrelations/v1#BusinessEntity\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"isKey\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"xsd:string\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"iva\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"iva\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetSemanticTypeCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"indirizzo\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://schema.org/address\",
+                    \"DomainLabel\": \"gr:BusinessEntity1\",
+                    \"DomainId\": \"http://purl.org/goodrelations/v1#BusinessEntity1\",
+                    \"DomainUri\": \"http://purl.org/goodrelations/v1#BusinessEntity\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"isKey\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"xsd:string\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"indirizzo\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetSemanticTypeCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"city\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://schema.org/addressLocality\",
+                    \"DomainLabel\": \"gr:BusinessEntity1\",
+                    \"DomainId\": \"http://purl.org/goodrelations/v1#BusinessEntity1\",
+                    \"DomainUri\": \"http://purl.org/goodrelations/v1#BusinessEntity\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"isKey\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"xsd:string\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"city\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"city\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetSemanticTypeCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"provincia\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://schema.org/addressRegion\",
+                    \"DomainLabel\": \"gr:BusinessEntity1\",
+                    \"DomainId\": \"http://purl.org/goodrelations/v1#BusinessEntity1\",
+                    \"DomainUri\": \"http://purl.org/goodrelations/v1#BusinessEntity\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"isKey\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"xsd:string\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"provincia\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"provincia\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetSemanticTypeCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"url\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://schema.org/email\",
+                    \"DomainLabel\": \"gr:BusinessEntity1\",
+                    \"DomainId\": \"http://purl.org/goodrelations/v1#BusinessEntity1\",
+                    \"DomainUri\": \"http://purl.org/goodrelations/v1#BusinessEntity\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"isKey\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"xsd:string\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"url\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"url\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetSemanticTypeCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"url\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://schema.org/url\",
+                    \"DomainLabel\": \"gr:BusinessEntity1\",
+                    \"DomainId\": \"http://purl.org/goodrelations/v1#BusinessEntity1\",
+                    \"DomainUri\": \"http://purl.org/goodrelations/v1#BusinessEntity\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"isKey\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"xsd:string\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"url\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"url\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetSemanticTypeCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"latitude\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://schema.org/latitude\",
+                    \"DomainLabel\": \"gr:Location1 (add)\",
+                    \"DomainId\": \"http://purl.org/goodrelations/v1#Location1 (add)\",
+                    \"DomainUri\": \"http://purl.org/goodrelations/v1#Location\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"isKey\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"xsd:string\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"latitude\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"latitude\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetSemanticTypeCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"longitude\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://schema.org/longitude\",
+                    \"DomainLabel\": \"gr:Location1\",
+                    \"DomainId\": \"http://purl.org/goodrelations/v1#Location1\",
+                    \"DomainUri\": \"http://purl.org/goodrelations/v1#Location\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"isKey\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"xsd:string\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"longitude\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"longitude\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetSemanticTypeCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"inputParameters\": [
+            {
+                \"name\": \"metaPropertyName\",
+                \"value\": \"isUriOfClass\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"metaPropertyValue\",
+                \"value\": \"http://purl.org/goodrelations/v1#Location1\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"name_location\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://isi.edu/integration/karma/dev#classLink\",
+                    \"DomainLabel\": \"gr:Location1\",
+                    \"DomainId\": \"http://purl.org/goodrelations/v1#Location1\",
+                    \"DomainUri\": \"http://purl.org/goodrelations/v1#Location\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"isKey\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"xsd:string\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"name_location\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"name_location\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetMetaPropertyCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"inputParameters\": [
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"properties\",
+                \"value\": {
+                    \"hasServiceProperties\": false,
+                    \"hasPrefix\": true,
+                    \"prefix\": \"gr\",
+                    \"graphLabel\": \"\",
+                    \"hasBaseURI\": false
+                },
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetWorksheetPropertiesCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"inputParameters\": [
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"properties\",
+                \"value\": {
+                    \"hasServiceProperties\": false,
+                    \"hasPrefix\": false,
+                    \"graphLabel\": \"\",
+                    \"hasBaseURI\": true,
+                    \"baseURI\": \"http://purl.org/goodrelations/v1#\"
+                },
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetWorksheetPropertiesCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"inputParameters\": [
+            {
+                \"name\": \"metaPropertyName\",
+                \"value\": \"isUriOfClass\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"metaPropertyValue\",
+                \"value\": \"http://purl.org/goodrelations/v1#Location1\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"name_location\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://isi.edu/integration/karma/dev#classLink\",
+                    \"DomainLabel\": \"gr:Location1\",
+                    \"DomainId\": \"http://purl.org/goodrelations/v1#Location1\",
+                    \"DomainUri\": \"http://purl.org/goodrelations/v1#Location\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"isKey\",
+                \"value\": true,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"name_location\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"name_location\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetMetaPropertyCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"inputParameters\": [
+            {
+                \"name\": \"metaPropertyName\",
+                \"value\": \"isUriOfClass\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"metaPropertyValue\",
+                \"value\": \"http://purl.org/goodrelations/v1#Location1\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"name_location\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://isi.edu/integration/karma/dev#classLink\",
+                    \"DomainLabel\": \"gr:Location1\",
+                    \"DomainId\": \"http://purl.org/goodrelations/v1#Location1\",
+                    \"DomainUri\": \"http://purl.org/goodrelations/v1#Location\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"isKey\",
+                \"value\": true,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"xsd:string\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"name_location\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"name_location\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetMetaPropertyCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"inputParameters\": [
+            {
+                \"name\": \"metaPropertyName\",
+                \"value\": \"isUriOfClass\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"metaPropertyValue\",
+                \"value\": \"http://purl.org/goodrelations/v1#Location1\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"name_location\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://isi.edu/integration/karma/dev#classLink\",
+                    \"DomainLabel\": \"gr:Location1\",
+                    \"DomainId\": \"http://purl.org/goodrelations/v1#Location1\",
+                    \"DomainUri\": \"http://purl.org/goodrelations/v1#Location\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"isKey\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"xsd:string\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"name_location\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"name_location\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetMetaPropertyCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"inputParameters\": [
+            {
+                \"name\": \"metaPropertyName\",
+                \"value\": \"isUriOfClass\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"metaPropertyValue\",
+                \"value\": \"http://purl.org/goodrelations/v1#BusinessEntity1\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"identifier\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://isi.edu/integration/karma/dev#classLink\",
+                    \"DomainLabel\": \"gr:BusinessEntity1\",
+                    \"DomainId\": \"http://purl.org/goodrelations/v1#BusinessEntity1\",
+                    \"DomainUri\": \"http://purl.org/goodrelations/v1#BusinessEntity\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"isKey\",
+                \"value\": true,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"xsd:string\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"identifier\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"identifier\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetMetaPropertyCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"edificio\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://purl.org/goodrelations/v1#legalName\",
+                    \"DomainLabel\": \"gr:BusinessEntity1\",
+                    \"DomainId\": \"http://purl.org/goodrelations/v1#BusinessEntity1\",
+                    \"DomainUri\": \"http://purl.org/goodrelations/v1#BusinessEntity\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"isKey\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"xsd:string\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"edificio\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"edificio\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetSemanticTypeCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"inputParameters\": [
+            {
+                \"name\": \"metaPropertyName\",
+                \"value\": \"isUriOfClass\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"metaPropertyValue\",
+                \"value\": \"http://purl.org/goodrelations/v1#BusinessEntity1\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"identifier\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://isi.edu/integration/karma/dev#classLink\",
+                    \"DomainLabel\": \"gr:BusinessEntity1\",
+                    \"DomainId\": \"http://purl.org/goodrelations/v1#BusinessEntity1\",
+                    \"DomainUri\": \"http://purl.org/goodrelations/v1#BusinessEntity\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"isKey\",
+                \"value\": true,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"xsd:string\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"identifier\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"identifier\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetMetaPropertyCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"inputParameters\": [
+            {
+                \"name\": \"metaPropertyName\",
+                \"value\": \"isUriOfClass\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"metaPropertyValue\",
+                \"value\": \"http://purl.org/goodrelations/v1#Location1\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"name_location\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://isi.edu/integration/karma/dev#classLink\",
+                    \"DomainLabel\": \"gr:Location1\",
+                    \"DomainId\": \"http://purl.org/goodrelations/v1#Location1\",
+                    \"DomainUri\": \"http://purl.org/goodrelations/v1#Location\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"isKey\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"xsd:string\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"name_location\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"name_location\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetMetaPropertyCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"indirizzo\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://schema.org/streetAddress\",
+                    \"DomainLabel\": \"gr:BusinessEntity1\",
+                    \"DomainId\": \"http://purl.org/goodrelations/v1#BusinessEntity1\",
+                    \"DomainUri\": \"http://purl.org/goodrelations/v1#BusinessEntity\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"isKey\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"xsd:string\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"indirizzo\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"indirizzo\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetSemanticTypeCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"indirizzo\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"isKey\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": true,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"xsd:string\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"indirizzo\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"UnassignSemanticTypeCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"indirizzoNoCAP\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://schema.org/streetAddress\",
+                    \"DomainLabel\": \"gr:BusinessEntity1\",
+                    \"DomainId\": \"http://purl.org/goodrelations/v1#BusinessEntity1\",
+                    \"DomainUri\": \"http://purl.org/goodrelations/v1#BusinessEntity\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"isKey\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"xsd:string\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"indirizzoNoCAP\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"indirizzoNoCAP\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetSemanticTypeCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"postalCode\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://schema.org/postalCode\",
+                    \"DomainLabel\": \"gr:BusinessEntity1\",
+                    \"DomainId\": \"http://purl.org/goodrelations/v1#BusinessEntity1\",
+                    \"DomainUri\": \"http://purl.org/goodrelations/v1#BusinessEntity\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"isKey\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"xsd:string\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"postalCode\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"postalCode\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetSemanticTypeCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"fax\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://schema.org/faxNumber\",
+                    \"DomainLabel\": \"gr:BusinessEntity1\",
+                    \"DomainId\": \"http://purl.org/goodrelations/v1#BusinessEntity1\",
+                    \"DomainUri\": \"http://purl.org/goodrelations/v1#BusinessEntity\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"isKey\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"xsd:string\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"fax\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"fax\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetSemanticTypeCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"description\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://www.w3.org/2004/02/skos/core#note\",
+                    \"DomainLabel\": \"gr:BusinessEntity1\",
+                    \"DomainId\": \"http://purl.org/goodrelations/v1#BusinessEntity1\",
+                    \"DomainUri\": \"http://purl.org/goodrelations/v1#BusinessEntity\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"isKey\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"xsd:string\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"description\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"description\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetSemanticTypeCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"indirizzoHasNumber\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://schema.org/serialNumber\",
+                    \"DomainLabel\": \"gr:BusinessEntity1\",
+                    \"DomainId\": \"http://purl.org/goodrelations/v1#BusinessEntity1\",
+                    \"DomainUri\": \"http://purl.org/goodrelations/v1#BusinessEntity\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"isKey\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"xsd:string\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"indirizzoHasNumber\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"indirizzoHasNumber\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetSemanticTypeCommand\"
+    },
+    {
+        \"tags\": [\"Transformation\"],
+        \"inputParameters\": [
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"RefreshSuperSelectionCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"indirizzoHasNumber\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://schema.org/postOfficeBoxNumber\",
+                    \"DomainLabel\": \"gr:BusinessEntity1\",
+                    \"DomainId\": \"http://purl.org/goodrelations/v1#BusinessEntity1\",
+                    \"DomainUri\": \"http://purl.org/goodrelations/v1#BusinessEntity\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"isKey\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"xsd:string\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"indirizzoHasNumber\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"indirizzoHasNumber\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetSemanticTypeCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"indirizzoHasNumber\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://www.disit.org/km4city/schema#houseNumber\",
+                    \"DomainLabel\": \"gr:BusinessEntity1\",
+                    \"DomainId\": \"http://purl.org/goodrelations/v1#BusinessEntity1\",
+                    \"DomainUri\": \"http://purl.org/goodrelations/v1#BusinessEntity\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"isKey\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"xsd:string\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"indirizzoHasNumber\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"indirizzoHasNumber\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetSemanticTypeCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"latitude\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://schema.org/latitude\",
+                    \"DomainLabel\": \"gr:Location1\",
+                    \"DomainId\": \"http://purl.org/goodrelations/v1#Location1\",
+                    \"DomainUri\": \"http://purl.org/goodrelations/v1#Location\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"isKey\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"xsd:float\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"latitude\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"latitude\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetSemanticTypeCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"longitude\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://schema.org/longitude\",
+                    \"DomainLabel\": \"gr:Location1\",
+                    \"DomainId\": \"http://purl.org/goodrelations/v1#Location1\",
+                    \"DomainUri\": \"http://purl.org/goodrelations/v1#Location\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"isKey\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"xsd:float\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"longitude\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"longitude\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetSemanticTypeCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"latitude\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://www.w3.org/2003/01/geo/wgs84_pos#lat\",
+                    \"DomainLabel\": \"gr:Location1\",
+                    \"DomainId\": \"http://purl.org/goodrelations/v1#Location1\",
+                    \"DomainUri\": \"http://purl.org/goodrelations/v1#Location\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"isKey\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"xsd:float\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"latitude\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"latitude\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetSemanticTypeCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"longitude\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://www.w3.org/2003/01/geo/wgs84_pos#long\",
+                    \"DomainLabel\": \"gr:Location1\",
+                    \"DomainId\": \"http://purl.org/goodrelations/v1#Location1\",
+                    \"DomainUri\": \"http://purl.org/goodrelations/v1#Location\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"isKey\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"xsd:float\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"longitude\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"longitude\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetSemanticTypeCommand\"
+    }
+]""" .
+
+km-dev:TriplesMap_e5354451-d818-4686-b90e-3f87230c8a0d a rr:TriplesMap .
+
+_:node19k6l6hi6x1 km-dev:hasTriplesMap km-dev:TriplesMap_e5354451-d818-4686-b90e-3f87230c8a0d .
+
+km-dev:TriplesMap_e5354451-d818-4686-b90e-3f87230c8a0d km-dev:isPartOfMapping _:node19k6l6hi6x1 .
+
+_:node19k6l6hi6x2 rr:tableName "infodocument_coord_siimobility_120" ;
+	a rr:LogicalTable ;
+	km-dev:isPartOfMapping _:node19k6l6hi6x1 .
+
+_:node19k6l6hi6x1 km-dev:hasLogicalTable _:node19k6l6hi6x2 .
+
+km-dev:TriplesMap_e5354451-d818-4686-b90e-3f87230c8a0d rr:logicalTable _:node19k6l6hi6x2 ;
+	rr:subjectMap _:node19k6l6hi6x3 .
+
+_:node19k6l6hi6x1 km-dev:hasSubjectMap _:node19k6l6hi6x3 .
+
+_:node19k6l6hi6x3 km-dev:isPartOfMapping _:node19k6l6hi6x1 ;
+	a rr:SubjectMap ;
+	km-dev:alignmentNodeId "http://purl.org/goodrelations/v1#BusinessEntity1" ;
+	rr:class gr:BusinessEntity ;
+	rr:template "{identifier}" ;
+	a km-dev:steinerTreeRootNode .
+
+km-dev:PredicateObjectMap_607751a0-6b62-4ad5-a677-6c3f9f9a2cd4 rr:predicate gr:hasPOS .
+
+km-dev:RefObjectMap_640b44be-3e1f-4a9c-a06a-080b6757aa53 a rr:RefObjectMap , rr:ObjectMap ;
+	rr:parentTriplesMap km-dev:TriplesMap_ff9a9be7-04d2-4349-aa6e-5d93896ed9c4 ;
+	km-dev:isPartOfMapping _:node19k6l6hi6x1 .
+
+_:node19k6l6hi6x1 km-dev:hasObjectMap km-dev:RefObjectMap_640b44be-3e1f-4a9c-a06a-080b6757aa53 .
+
+km-dev:PredicateObjectMap_607751a0-6b62-4ad5-a677-6c3f9f9a2cd4 rr:objectMap km-dev:RefObjectMap_640b44be-3e1f-4a9c-a06a-080b6757aa53 .
+
+km-dev:TriplesMap_e5354451-d818-4686-b90e-3f87230c8a0d rr:predicateObjectMap km-dev:PredicateObjectMap_607751a0-6b62-4ad5-a677-6c3f9f9a2cd4 .
+
+km-dev:PredicateObjectMap_607751a0-6b62-4ad5-a677-6c3f9f9a2cd4 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node19k6l6hi6x1 .
+
+_:node19k6l6hi6x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_607751a0-6b62-4ad5-a677-6c3f9f9a2cd4 .
+
+km-dev:PredicateObjectMap_5b185b66-2626-46bc-8468-47b64b0a0579 rr:predicate gr:legalName .
+
+_:node19k6l6hi6x4 rr:column "edificio" ;
+	a rr:ObjectMap ;
+	rr:datatype "http://www.w3.org/2001/XMLSchema#string" ;
+	km-dev:isPartOfMapping _:node19k6l6hi6x1 .
+
+_:node19k6l6hi6x1 km-dev:hasObjectMap _:node19k6l6hi6x4 .
+
+km-dev:PredicateObjectMap_5b185b66-2626-46bc-8468-47b64b0a0579 rr:objectMap _:node19k6l6hi6x4 .
+
+km-dev:TriplesMap_e5354451-d818-4686-b90e-3f87230c8a0d rr:predicateObjectMap km-dev:PredicateObjectMap_5b185b66-2626-46bc-8468-47b64b0a0579 .
+
+km-dev:PredicateObjectMap_5b185b66-2626-46bc-8468-47b64b0a0579 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node19k6l6hi6x1 .
+
+_:node19k6l6hi6x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_5b185b66-2626-46bc-8468-47b64b0a0579 .
+
+km-dev:PredicateObjectMap_e9031647-28b2-4396-b3ab-3ec7f1dd129c rr:predicate gr:vatID .
+
+_:node19k6l6hi6x5 rr:column "iva" ;
+	a rr:ObjectMap ;
+	rr:datatype "http://www.w3.org/2001/XMLSchema#string" ;
+	km-dev:isPartOfMapping _:node19k6l6hi6x1 .
+
+_:node19k6l6hi6x1 km-dev:hasObjectMap _:node19k6l6hi6x5 .
+
+km-dev:PredicateObjectMap_e9031647-28b2-4396-b3ab-3ec7f1dd129c rr:objectMap _:node19k6l6hi6x5 .
+
+km-dev:TriplesMap_e5354451-d818-4686-b90e-3f87230c8a0d rr:predicateObjectMap km-dev:PredicateObjectMap_e9031647-28b2-4396-b3ab-3ec7f1dd129c .
+
+km-dev:PredicateObjectMap_e9031647-28b2-4396-b3ab-3ec7f1dd129c a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node19k6l6hi6x1 .
+
+_:node19k6l6hi6x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_e9031647-28b2-4396-b3ab-3ec7f1dd129c .
+
+km-dev:PredicateObjectMap_e0c4ef7b-ab97-462b-8f83-78ef04f34a76 rr:predicate schema:addressCountry .
+
+_:node19k6l6hi6x6 rr:column "nazione" ;
+	a rr:ObjectMap ;
+	rr:datatype "http://www.w3.org/2001/XMLSchema#string" ;
+	km-dev:isPartOfMapping _:node19k6l6hi6x1 .
+
+_:node19k6l6hi6x1 km-dev:hasObjectMap _:node19k6l6hi6x6 .
+
+km-dev:PredicateObjectMap_e0c4ef7b-ab97-462b-8f83-78ef04f34a76 rr:objectMap _:node19k6l6hi6x6 .
+
+km-dev:TriplesMap_e5354451-d818-4686-b90e-3f87230c8a0d rr:predicateObjectMap km-dev:PredicateObjectMap_e0c4ef7b-ab97-462b-8f83-78ef04f34a76 .
+
+km-dev:PredicateObjectMap_e0c4ef7b-ab97-462b-8f83-78ef04f34a76 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node19k6l6hi6x1 .
+
+_:node19k6l6hi6x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_e0c4ef7b-ab97-462b-8f83-78ef04f34a76 .
+
+km-dev:PredicateObjectMap_2778e197-1ad3-4744-b644-08d879c88e36 rr:predicate schema:addressLocality .
+
+_:node19k6l6hi6x7 rr:column "city" ;
+	a rr:ObjectMap ;
+	rr:datatype "http://www.w3.org/2001/XMLSchema#string" ;
+	km-dev:isPartOfMapping _:node19k6l6hi6x1 .
+
+_:node19k6l6hi6x1 km-dev:hasObjectMap _:node19k6l6hi6x7 .
+
+km-dev:PredicateObjectMap_2778e197-1ad3-4744-b644-08d879c88e36 rr:objectMap _:node19k6l6hi6x7 .
+
+km-dev:TriplesMap_e5354451-d818-4686-b90e-3f87230c8a0d rr:predicateObjectMap km-dev:PredicateObjectMap_2778e197-1ad3-4744-b644-08d879c88e36 .
+
+km-dev:PredicateObjectMap_2778e197-1ad3-4744-b644-08d879c88e36 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node19k6l6hi6x1 .
+
+_:node19k6l6hi6x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_2778e197-1ad3-4744-b644-08d879c88e36 .
+
+km-dev:PredicateObjectMap_18e21b6a-9438-42d4-9f4d-6a6beb27174e rr:predicate schema:addressRegion .
+
+_:node19k6l6hi6x8 rr:column "provincia" ;
+	a rr:ObjectMap ;
+	rr:datatype "http://www.w3.org/2001/XMLSchema#string" ;
+	km-dev:isPartOfMapping _:node19k6l6hi6x1 .
+
+_:node19k6l6hi6x1 km-dev:hasObjectMap _:node19k6l6hi6x8 .
+
+km-dev:PredicateObjectMap_18e21b6a-9438-42d4-9f4d-6a6beb27174e rr:objectMap _:node19k6l6hi6x8 .
+
+km-dev:TriplesMap_e5354451-d818-4686-b90e-3f87230c8a0d rr:predicateObjectMap km-dev:PredicateObjectMap_18e21b6a-9438-42d4-9f4d-6a6beb27174e .
+
+km-dev:PredicateObjectMap_18e21b6a-9438-42d4-9f4d-6a6beb27174e a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node19k6l6hi6x1 .
+
+_:node19k6l6hi6x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_18e21b6a-9438-42d4-9f4d-6a6beb27174e .
+
+km-dev:PredicateObjectMap_c38f4f01-8e23-4c55-907d-8537fc1fd39a rr:predicate schema:email .
+
+_:node19k6l6hi6x9 rr:column "email" ;
+	a rr:ObjectMap ;
+	rr:datatype "http://www.w3.org/2001/XMLSchema#string" ;
+	km-dev:isPartOfMapping _:node19k6l6hi6x1 .
+
+_:node19k6l6hi6x1 km-dev:hasObjectMap _:node19k6l6hi6x9 .
+
+km-dev:PredicateObjectMap_c38f4f01-8e23-4c55-907d-8537fc1fd39a rr:objectMap _:node19k6l6hi6x9 .
+
+km-dev:TriplesMap_e5354451-d818-4686-b90e-3f87230c8a0d rr:predicateObjectMap km-dev:PredicateObjectMap_c38f4f01-8e23-4c55-907d-8537fc1fd39a .
+
+km-dev:PredicateObjectMap_c38f4f01-8e23-4c55-907d-8537fc1fd39a a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node19k6l6hi6x1 .
+
+_:node19k6l6hi6x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_c38f4f01-8e23-4c55-907d-8537fc1fd39a .
+
+km-dev:PredicateObjectMap_05dd6ead-1482-476f-bb84-f4bdd997379d rr:predicate schema:faxNumber .
+
+_:node19k6l6hi6x10 rr:column "fax" ;
+	a rr:ObjectMap ;
+	rr:datatype "http://www.w3.org/2001/XMLSchema#string" ;
+	km-dev:isPartOfMapping _:node19k6l6hi6x1 .
+
+_:node19k6l6hi6x1 km-dev:hasObjectMap _:node19k6l6hi6x10 .
+
+km-dev:PredicateObjectMap_05dd6ead-1482-476f-bb84-f4bdd997379d rr:objectMap _:node19k6l6hi6x10 .
+
+km-dev:TriplesMap_e5354451-d818-4686-b90e-3f87230c8a0d rr:predicateObjectMap km-dev:PredicateObjectMap_05dd6ead-1482-476f-bb84-f4bdd997379d .
+
+km-dev:PredicateObjectMap_05dd6ead-1482-476f-bb84-f4bdd997379d a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node19k6l6hi6x1 .
+
+_:node19k6l6hi6x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_05dd6ead-1482-476f-bb84-f4bdd997379d .
+
+km-dev:PredicateObjectMap_bd123c04-6608-4495-ba3a-22ef664db5a6 rr:predicate schema:postalCode .
+
+_:node19k6l6hi6x11 rr:column "postalCode" ;
+	a rr:ObjectMap ;
+	rr:datatype "http://www.w3.org/2001/XMLSchema#string" ;
+	km-dev:isPartOfMapping _:node19k6l6hi6x1 .
+
+_:node19k6l6hi6x1 km-dev:hasObjectMap _:node19k6l6hi6x11 .
+
+km-dev:PredicateObjectMap_bd123c04-6608-4495-ba3a-22ef664db5a6 rr:objectMap _:node19k6l6hi6x11 .
+
+km-dev:TriplesMap_e5354451-d818-4686-b90e-3f87230c8a0d rr:predicateObjectMap km-dev:PredicateObjectMap_bd123c04-6608-4495-ba3a-22ef664db5a6 .
+
+km-dev:PredicateObjectMap_bd123c04-6608-4495-ba3a-22ef664db5a6 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node19k6l6hi6x1 .
+
+_:node19k6l6hi6x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_bd123c04-6608-4495-ba3a-22ef664db5a6 .
+
+km-dev:PredicateObjectMap_9bbecb76-13d9-45cf-aa31-3915cd18565f rr:predicate schema:streetAddress .
+
+_:node19k6l6hi6x12 rr:column "indirizzoNoCAP" ;
+	a rr:ObjectMap ;
+	rr:datatype "http://www.w3.org/2001/XMLSchema#string" ;
+	km-dev:isPartOfMapping _:node19k6l6hi6x1 .
+
+_:node19k6l6hi6x1 km-dev:hasObjectMap _:node19k6l6hi6x12 .
+
+km-dev:PredicateObjectMap_9bbecb76-13d9-45cf-aa31-3915cd18565f rr:objectMap _:node19k6l6hi6x12 .
+
+km-dev:TriplesMap_e5354451-d818-4686-b90e-3f87230c8a0d rr:predicateObjectMap km-dev:PredicateObjectMap_9bbecb76-13d9-45cf-aa31-3915cd18565f .
+
+km-dev:PredicateObjectMap_9bbecb76-13d9-45cf-aa31-3915cd18565f a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node19k6l6hi6x1 .
+
+_:node19k6l6hi6x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_9bbecb76-13d9-45cf-aa31-3915cd18565f .
+
+km-dev:PredicateObjectMap_4be32978-a122-475f-a053-ec749cbd57c3 rr:predicate schema:telephone .
+
+_:node19k6l6hi6x13 rr:column "telefono" ;
+	a rr:ObjectMap ;
+	rr:datatype "http://www.w3.org/2001/XMLSchema#string" ;
+	km-dev:isPartOfMapping _:node19k6l6hi6x1 .
+
+_:node19k6l6hi6x1 km-dev:hasObjectMap _:node19k6l6hi6x13 .
+
+km-dev:PredicateObjectMap_4be32978-a122-475f-a053-ec749cbd57c3 rr:objectMap _:node19k6l6hi6x13 .
+
+km-dev:TriplesMap_e5354451-d818-4686-b90e-3f87230c8a0d rr:predicateObjectMap km-dev:PredicateObjectMap_4be32978-a122-475f-a053-ec749cbd57c3 .
+
+km-dev:PredicateObjectMap_4be32978-a122-475f-a053-ec749cbd57c3 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node19k6l6hi6x1 .
+
+_:node19k6l6hi6x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_4be32978-a122-475f-a053-ec749cbd57c3 .
+
+km-dev:PredicateObjectMap_f8620da5-4d0b-49c5-881f-956fc11a5828 rr:predicate schema:url .
+
+_:node19k6l6hi6x14 rr:column "url" ;
+	a rr:ObjectMap ;
+	rr:datatype "http://www.w3.org/2001/XMLSchema#string" ;
+	km-dev:isPartOfMapping _:node19k6l6hi6x1 .
+
+_:node19k6l6hi6x1 km-dev:hasObjectMap _:node19k6l6hi6x14 .
+
+km-dev:PredicateObjectMap_f8620da5-4d0b-49c5-881f-956fc11a5828 rr:objectMap _:node19k6l6hi6x14 .
+
+km-dev:TriplesMap_e5354451-d818-4686-b90e-3f87230c8a0d rr:predicateObjectMap km-dev:PredicateObjectMap_f8620da5-4d0b-49c5-881f-956fc11a5828 .
+
+km-dev:PredicateObjectMap_f8620da5-4d0b-49c5-881f-956fc11a5828 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node19k6l6hi6x1 .
+
+_:node19k6l6hi6x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_f8620da5-4d0b-49c5-881f-956fc11a5828 .
+
+km-dev:PredicateObjectMap_a41e3a7d-11ce-40ef-b947-2a5857e2499a rr:predicate km4c:houseNumber .
+
+_:node19k6l6hi6x15 rr:column "indirizzoHasNumber" ;
+	a rr:ObjectMap ;
+	rr:datatype "http://www.w3.org/2001/XMLSchema#string" ;
+	km-dev:isPartOfMapping _:node19k6l6hi6x1 .
+
+_:node19k6l6hi6x1 km-dev:hasObjectMap _:node19k6l6hi6x15 .
+
+km-dev:PredicateObjectMap_a41e3a7d-11ce-40ef-b947-2a5857e2499a rr:objectMap _:node19k6l6hi6x15 .
+
+km-dev:TriplesMap_e5354451-d818-4686-b90e-3f87230c8a0d rr:predicateObjectMap km-dev:PredicateObjectMap_a41e3a7d-11ce-40ef-b947-2a5857e2499a .
+
+km-dev:PredicateObjectMap_a41e3a7d-11ce-40ef-b947-2a5857e2499a a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node19k6l6hi6x1 .
+
+_:node19k6l6hi6x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_a41e3a7d-11ce-40ef-b947-2a5857e2499a .
+
+km-dev:PredicateObjectMap_13b5d4e7-bd70-40de-a9f0-9a001dadf073 rr:predicate skos:note .
+
+_:node19k6l6hi6x16 rr:column "description" ;
+	a rr:ObjectMap ;
+	rr:datatype "http://www.w3.org/2001/XMLSchema#string" ;
+	km-dev:isPartOfMapping _:node19k6l6hi6x1 .
+
+_:node19k6l6hi6x1 km-dev:hasObjectMap _:node19k6l6hi6x16 .
+
+km-dev:PredicateObjectMap_13b5d4e7-bd70-40de-a9f0-9a001dadf073 rr:objectMap _:node19k6l6hi6x16 .
+
+km-dev:TriplesMap_e5354451-d818-4686-b90e-3f87230c8a0d rr:predicateObjectMap km-dev:PredicateObjectMap_13b5d4e7-bd70-40de-a9f0-9a001dadf073 .
+
+km-dev:PredicateObjectMap_13b5d4e7-bd70-40de-a9f0-9a001dadf073 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node19k6l6hi6x1 .
+
+_:node19k6l6hi6x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_13b5d4e7-bd70-40de-a9f0-9a001dadf073 .
+
+km-dev:TriplesMap_ff9a9be7-04d2-4349-aa6e-5d93896ed9c4 a rr:TriplesMap .
+
+_:node19k6l6hi6x1 km-dev:hasTriplesMap km-dev:TriplesMap_ff9a9be7-04d2-4349-aa6e-5d93896ed9c4 .
+
+km-dev:TriplesMap_ff9a9be7-04d2-4349-aa6e-5d93896ed9c4 km-dev:isPartOfMapping _:node19k6l6hi6x1 .
+
+_:node19k6l6hi6x17 rr:tableName "infodocument_coord_siimobility_120" ;
+	a rr:LogicalTable ;
+	km-dev:isPartOfMapping _:node19k6l6hi6x1 .
+
+_:node19k6l6hi6x1 km-dev:hasLogicalTable _:node19k6l6hi6x17 .
+
+km-dev:TriplesMap_ff9a9be7-04d2-4349-aa6e-5d93896ed9c4 rr:logicalTable _:node19k6l6hi6x17 ;
+	rr:subjectMap _:node19k6l6hi6x18 .
+
+_:node19k6l6hi6x1 km-dev:hasSubjectMap _:node19k6l6hi6x18 .
+
+_:node19k6l6hi6x18 km-dev:isPartOfMapping _:node19k6l6hi6x1 ;
+	a rr:SubjectMap ;
+	km-dev:alignmentNodeId "http://purl.org/goodrelations/v1#Location1" ;
+	rr:class gr:Location ;
+	rr:template "{name_location}" .
+
+km-dev:PredicateObjectMap_c8ebb75c-4ad5-4dc3-9849-ddae25d2923e rr:predicate geo:lat .
+
+_:node19k6l6hi6x19 rr:column "latitude" ;
+	a rr:ObjectMap ;
+	rr:datatype "http://www.w3.org/2001/XMLSchema#float" ;
+	km-dev:isPartOfMapping _:node19k6l6hi6x1 .
+
+_:node19k6l6hi6x1 km-dev:hasObjectMap _:node19k6l6hi6x19 .
+
+km-dev:PredicateObjectMap_c8ebb75c-4ad5-4dc3-9849-ddae25d2923e rr:objectMap _:node19k6l6hi6x19 .
+
+km-dev:TriplesMap_ff9a9be7-04d2-4349-aa6e-5d93896ed9c4 rr:predicateObjectMap km-dev:PredicateObjectMap_c8ebb75c-4ad5-4dc3-9849-ddae25d2923e .
+
+km-dev:PredicateObjectMap_c8ebb75c-4ad5-4dc3-9849-ddae25d2923e a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node19k6l6hi6x1 .
+
+_:node19k6l6hi6x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_c8ebb75c-4ad5-4dc3-9849-ddae25d2923e .
+
+km-dev:PredicateObjectMap_933c8ec4-b249-4eb3-bdc8-5374eebf74ce rr:predicate geo:long .
+
+_:node19k6l6hi6x20 rr:column "longitude" ;
+	a rr:ObjectMap ;
+	rr:datatype "http://www.w3.org/2001/XMLSchema#float" ;
+	km-dev:isPartOfMapping _:node19k6l6hi6x1 .
+
+_:node19k6l6hi6x1 km-dev:hasObjectMap _:node19k6l6hi6x20 .
+
+km-dev:PredicateObjectMap_933c8ec4-b249-4eb3-bdc8-5374eebf74ce rr:objectMap _:node19k6l6hi6x20 .
+
+km-dev:TriplesMap_ff9a9be7-04d2-4349-aa6e-5d93896ed9c4 rr:predicateObjectMap km-dev:PredicateObjectMap_933c8ec4-b249-4eb3-bdc8-5374eebf74ce .
+
+km-dev:PredicateObjectMap_933c8ec4-b249-4eb3-bdc8-5374eebf74ce a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node19k6l6hi6x1 .
+
+_:node19k6l6hi6x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_933c8ec4-b249-4eb3-bdc8-5374eebf74ce .
