@@ -2,20 +2,7 @@ package p4535992.util.encoding;
 
 import p4535992.util.log.SystemLog;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
-import java.io.Writer;
+import java.io.*;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -329,64 +316,67 @@ public class EncodingUtil {
 	  Note: the javadoc of Files.readAllLines says it's intended for small
 	  files. But its implementation uses buffering, so it's likely good 
 	  even for fairly large files.
-	 */ 	 
-	 public static List<String> readSmallTextFile(String aFileName) throws IOException {
+	 */
+    public static List<String> readSmallTextFile(String aFileName) throws IOException {
 	    Path path = Paths.get(aFileName);
 	    return Files.readAllLines(path, ENCODING);
-	  }
+    }
 	  
 	  
-	 public static void writeSmallTextFile(List<String> aLines, String aFileName) throws IOException {
+    public static void writeSmallTextFile(List<String> aLines, String aFileName) throws IOException {
 	    Path path = Paths.get(aFileName);
 	    Files.write(path, aLines, ENCODING);
-	  }
+    }
       
 	
-         //For larger files	  
-	 public static void readLargerTextFile(String aFileName) throws IOException {
+     //For larger files
+	/* public static List<String> readLargerTextFile(String aFileName) throws IOException {
+        List<String> list = new ArrayList<>();
 	    Path path = Paths.get(aFileName);
 	    try (Scanner scanner =  new Scanner(path, ENCODING.name())){
 	      while (scanner.hasNextLine()){
 	        //process each line in some way
-	        //log(scanner.nextLine());
+	        //SystemLog.console(scanner.nextLine());
+            list.add(scanner.nextLine())
 	      }      
 	    }
-	  }
+         return list;
+     }*/
 	  
-	  public static List<String> readLargerTextFileWithReturn(String aFileName) throws IOException {
-		    List<String> list = new ArrayList<String>();
-		    Path path = Paths.get(aFileName);
-		    try (Scanner scanner =  new Scanner(path, ENCODING.name())){
-		      while (scanner.hasNextLine()){
-		        //process each line in some way
-		    	  try{
-			        //log(scanner.nextLine());
-			        list.add(scanner.nextLine().toString());
-			        //+System.getProperty("line.separator")
-		    	  }catch( java.util.NoSuchElementException e){
-		    		  if(scanner.hasNextLine()){
-		    			 continue; 
-		    		  }else{
-		    			  break;
-		    		  }
-		          }	        
-		      }      
-		    }
-		    return list;
-		  }
+     public static List<String> readLargerTextFile(String aFileName) throws IOException {
+        List<String> list = new ArrayList<>();
+        Path path = Paths.get(aFileName);
+        try (Scanner scanner =  new Scanner(path, ENCODING.name())){
+          while (scanner.hasNextLine()){
+            //process each line in some way
+            try{
+              list.add(scanner.nextLine().toString());
+            }catch( java.util.NoSuchElementException e){
+              if(scanner.hasNextLine()){
+                 continue;
+              }else{
+                  break;
+              }
+            }
+          }
+        }
+        return list;
+     }
 	  
-	  public static void readLargerTextFileAlternate(String aFileName) throws IOException {
+     public static List<String> readLargerTextFileAlternate(String aFileName) throws IOException {
+        List<String> list = new ArrayList<>();
 	    Path path = Paths.get(aFileName);
-	    try (BufferedReader reader = Files.newBufferedReader(path, ENCODING)){
-	      String line = null;
-	      while ((line = reader.readLine()) != null) {
-	        //process each line in some way
-	        //log(line);
-	      }      
-	    }
-	  }
+	    try (BufferedReader reader = Files.newBufferedReader(path, ENCODING)) {
+            String line = null;
+            while ((line = reader.readLine()) != null) {
+                //process each line in some way
+                list.add(line);
+            }
+        }
+	    return list;
+     }
 	  
-	  public static void writeLargerTextFile(String aFileName, List<String> aLines) throws IOException {
+     public static void writeLargerTextFile(String aFileName, List<String> aLines) throws IOException {
 	    Path path = Paths.get(aFileName);
 	    try (BufferedWriter writer = Files.newBufferedWriter(path, ENCODING)){
 	      for(String line : aLines){
@@ -395,35 +385,33 @@ public class EncodingUtil {
 	      }
 	    }catch(java.lang.NullPointerException e){
                 //------DO NOTHING
-            }
-	  }
+        }
+     }
           
-           public static void writeLargerTextFileWithReplace(String aFileName, List<String> aLines) throws IOException {
+     public static void writeLargerTextFileWithReplace(String aFileName, List<String> aLines) throws IOException {
 	    Path path = Paths.get(aFileName);
 	    try(PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(path.toString(), true)))) {                        
 	      for(String line : aLines){  
-                  try{
-                        for (Map.Entry<String, String> entry : map.entrySet())
-                        {
-                            try{
-                                //\u00E0
-                                //System.out.println(entry.getKey() + "/" + entry.getValue());
-                                String s = entry.getKey().replace("U+","\\u");
-                                if(line.contains(s)){
-                                    line = line.toString().replace(s,entry.getValue());
-                                }
-                            }catch(java.lang.NullPointerException ne){break;}
-                        }                      
-	        out.print(line.toString()+System.getProperty("line.separator"));
-	        out.flush();
-                 }catch(java.lang.NullPointerException ne){break;}
+              try{
+                for (Map.Entry<String, String> entry : map.entrySet())
+                {
+                    try{
+                        String s = entry.getKey().replace("U+","\\u");
+                        if(line.contains(s)){
+                            line = line.toString().replace(s,entry.getValue());
+                        }
+                    }catch(java.lang.NullPointerException ne){break;}
+                }
+                out.print(line.toString() + System.getProperty("line.separator"));
+	            out.flush();
+              }catch(java.lang.NullPointerException ne){break;}
 	      }                
-               out.close();
+          out.close();
 	    }
-            catch(java.lang.NullPointerException ne){return;}
-	  }
+        catch(java.lang.NullPointerException ne){return;}
+     }
            
-        public static void writeLargerTextFileWithReplace2(String aFileName, List<String> aLines) throws IOException {
+     public static void writeLargerTextFileWithReplace2(String aFileName, List<String> aLines) throws IOException {
 	    Path path = Paths.get(aFileName);
 	    try (BufferedWriter writer = Files.newBufferedWriter(path, ENCODING)){
 	      for(String line : aLines){
@@ -447,8 +435,8 @@ public class EncodingUtil {
 	      }//FOREACH LINE
 	    }catch(java.lang.NullPointerException ne){
                 return;
-            }         	   
-	  }
+        }
+     }
 	  
 	  /** Template method that calls {@link #processLine(String)}.  */
 	  public final void processLineByLine(String aFileName) throws IOException {
@@ -477,28 +465,23 @@ public class EncodingUtil {
 	    scanner.useDelimiter("=");
 	    if (scanner.hasNext()){
 	      //assumes the line has a certain structure
-	      String name = scanner.next();
-	      String value = scanner.next();
-	      //log("Name is : " + quote(name.trim()) + ", and Value is : " + quote(value.trim()));
+	      SystemLog.console("Name:"+scanner.next()+",Value:"+scanner.next());
 	    }
 	    else {
-	      //log("Empty or invalid line. Unable to process.");
+          SystemLog.console("Empty or invalid line. Unable to process.");
 	    }
 	  }
 	  
 	  /** Write fixed content to the given file. */
-	  void write() throws IOException  {
-	    //log("Writing to file named " + FILE_NAME + ". Encoding: " + ENCODING);
-	    Writer out = new OutputStreamWriter(new FileOutputStream(FILE_NAME), ENCODING);
-	    /*
-            try {
-	      out.write(FIXED_TEXT);
-	    }
+      void write() throws IOException  {
+	    SystemLog.message("Try to writing to file named " + FILE_NAME + " with Encoding: " + ENCODING);
+	    Writer out = null;
+	    try{
+            out = new OutputStreamWriter(new FileOutputStream(FILE_NAME), ENCODING);
+        }
 	    finally {
 	      out.close();
 	    }
-            */
-            out.close();
 	  }
 	  
 	  /** Read the contents of the given file. */
@@ -529,7 +512,6 @@ public class EncodingUtil {
 	   static public String getContents(File aFile) {
 	     //...checks on aFile are elided
 	     StringBuilder contents = new StringBuilder();
-	     
 	     try {
 	       //use buffering, reading one line at a time
 	       //FileReader always assumes default encoding is OK!
@@ -568,7 +550,7 @@ public class EncodingUtil {
          * @throws FileNotFoundException
          * @throws IOException 
          */
-        public static List<String> UTF82UnicodeEscape(File UTF8) throws UnsupportedEncodingException, FileNotFoundException, IOException{
+        public static List<String> convertUTF8ToUnicodeEscape(File UTF8) throws UnsupportedEncodingException, FileNotFoundException, IOException{
             List<String> list = new ArrayList<>();
             if (UTF8==null) {
                  System.out.println("Usage: java UTF8ToAscii <filename>");
@@ -616,7 +598,7 @@ public class EncodingUtil {
         * @throws FileNotFoundException
         * @throws IOException 
         */
-        public static List<String> UnicodeEscape2UTF8(File ASCII) throws FileNotFoundException, IOException { 
+        public static List<String> convertUnicodeEscapeToUTF8(File ASCII) throws FileNotFoundException, IOException {
             List<String> list = new ArrayList<>();
             if (ASCII == null) {
                 System.out.println("Usage: java UnicodeEscape2UTF8 <filename>");
@@ -691,33 +673,47 @@ public class EncodingUtil {
         }
 
     /**
-     * Method to rewrite a file in the UTF-8 enncoding
+     * Method to rewrite a file in the UTF-8 encoding
      * @param fileASCII
      * @throws IOException
      */
-    public static void rewriteTheFiLeToUtf8(File fileASCII) throws IOException{
-        List<String> list = new ArrayList<>();
-        list = UnicodeEscape2UTF8(fileASCII);
+    public static void rewriteTheFileToUTF8(File fileASCII) throws IOException{
+        List<String> list = convertUnicodeEscapeToUTF8(fileASCII);
         String filePathASCII = fileASCII.getAbsolutePath();
         fileASCII.delete();
-        fileASCII = new File(filePathASCII);
+        //fileASCII = new File(filePathASCII);
         writeLargerTextFile(filePathASCII, list);
-
     }
 
     /**
-     * Method to write a file to ASCII encoding
+     * Method to rewrite a file in the ASCII encoding
+     * @param fileUTF8
+     * @throws IOException
+     */
+    public static void rewriteTheFileToASCII(File fileUTF8) throws IOException{
+        List<String> list = convertUTF8ToUnicodeEscape(fileUTF8);
+        String filePathUTF8 = fileUTF8.getAbsolutePath();
+        fileUTF8.delete();
+        //fileASCII = new File(filePathASCII);
+        writeLargerTextFile(filePathUTF8, list);
+    }
+
+    /**
+     * Method to rewrite a file in the ASCII encoding
+     * @param filePathUTF8
+     * @throws IOException
+     */
+    public static void rewriteTheFileToASCII(String filePathUTF8) throws IOException{
+        rewriteTheFileToASCII(new File(filePathUTF8));
+    }
+
+    /**
+     * Method to rewrite a file in the UTF-8 encoding
      * @param filePathASCII
      * @throws IOException
      */
-    public static void rewriteTheFiLeToUtf8(String filePathASCII) throws IOException{
-        File ascii = new File(filePathASCII);
-        List<String> list = new ArrayList<>();
-        list = UnicodeEscape2UTF8(ascii);
-        ascii.delete();
-        ascii = new File(filePathASCII);
-        writeLargerTextFile(filePathASCII, list);
-
+    public static void rewriteTheFileToUTF8(String filePathASCII) throws IOException{
+        rewriteTheFileToUTF8(new File(filePathASCII));
     }
 
     /**
@@ -725,7 +721,7 @@ public class EncodingUtil {
      * @param b array of byte
      * @return Hex String
      */
-    private static String byteArrayToHexString(byte[] b) {
+    private static String convertByteArrayToHexString(byte[] b) {
         int len = b.length;
         String data = new String();
 
@@ -734,6 +730,39 @@ public class EncodingUtil {
             data += Integer.toHexString(b[i] & 0xf);
         }
         return data;
+    }
+
+    //OTHER
+
+
+    public static void rewriteTheFileToUTF8(String filePathInput,String filePathOutput) {
+        try {
+            FileOutputStream fos = new FileOutputStream(filePathInput);
+            Writer out = new OutputStreamWriter(fos, ENCODING);
+            out.write(filePathOutput);
+            out.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static String readLargeTextFileUTF8(String filePathInput) {
+        //List<String> list = new ArrayList<>();
+        StringBuffer buffer = new StringBuffer();
+        try {
+            FileInputStream fis = new FileInputStream(filePathInput);
+            InputStreamReader isr = new InputStreamReader(fis, ENCODING);
+            Reader in = new BufferedReader(isr);
+            int ch;
+            while ((ch = in.read()) > -1) {
+                buffer.append((char) ch);
+            }
+            in.close();
+            return buffer.toString();
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
   /*

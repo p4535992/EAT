@@ -20,6 +20,7 @@ import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
+import javax.xml.transform.stream.StreamSource;
 import javax.xml.xpath.XPath;
 import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathExpressionException;
@@ -554,8 +555,7 @@ public class XMLKit {
             fragment.appendChild(childNodes.item(i).cloneNode(true));
         }
         try {
-            TransformerFactory transformerFactory = TransformerFactory
-                    .newInstance();
+            TransformerFactory transformerFactory = TransformerFactory.newInstance();
             Transformer transformer = transformerFactory.newTransformer();
             transformer.setOutputProperty("omit-xml-declaration", "yes");
             StringWriter out = new StringWriter();
@@ -577,6 +577,23 @@ public class XMLKit {
             throw new Exception("Error evaluate xpath",e);
         }
         return serializeNodes(childNodes);
+    }
+
+    /**
+     * Simple transformation method using Saxon XSLT 2.0 processor.
+     * @param sourcePath - Absolute path to source GML file.
+     * @param xsltPath - Absolute path to XSLT file.
+     * @param resultPath - Absolute path to the resulting RDF file.
+     */
+    public static void saxonTransform(String sourcePath, String xsltPath, String resultPath) {
+        TransformerFactory tFactory = TransformerFactory.newInstance();
+        try
+        {
+            Transformer transformer = tFactory.newTransformer(new StreamSource(new File(xsltPath)));
+            transformer.transform(new StreamSource(new File(sourcePath)), new StreamResult(new File(resultPath)));
+            SystemLog.message("XSLT transformation completed successfully.\nOutput writen into file: " + resultPath );
+        }
+        catch (Exception e) {  SystemLog.exception(e);  }
     }
 }
 

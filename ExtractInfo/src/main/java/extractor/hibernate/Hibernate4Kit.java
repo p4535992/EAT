@@ -1,14 +1,6 @@
 package extractor.hibernate;
 import p4535992.util.log.SystemLog;
-import org.hibernate.*;
-import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
-import org.hibernate.criterion.Projections;
-import org.hibernate.criterion.Restrictions;
-import org.hibernate.service.ServiceRegistry;
 import java.io.File;
-import java.lang.InstantiationException;
-import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,22 +11,23 @@ import p4535992.util.reflection.ReflectionKit;
  * LIttle Class for help with first steps to Hibernate
  * @author 4535992
  */
-public abstract class Hibernate4Kit<T> implements IHibernate<T> {
+public abstract class Hibernate4Kit<T> implements IHibernateKit<T> {
 
     private static org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger(Hibernate4Kit.class);
     protected  String myInsertTable,mySelectTable,myUpdateTable;
-    protected  SessionFactory sessionFactory;
-    protected  Session session;
-    protected  ServiceRegistry serviceRegistry;
+    protected  org.hibernate.SessionFactory sessionFactory;
+    protected  org.hibernate.Session session;
+    protected  org.hibernate.service.ServiceRegistry serviceRegistry;
     protected  Configuration configuration;
     protected  File PATH_CFG_HIBERNATE;
     protected  boolean cfgXML;
-    protected  Criteria criteria;
-    protected  Transaction trns;
-    protected  SQLQuery SQLQuery;
-    protected  Query query;
-    protected  Class cl;
+    protected  org.hibernate.Criteria criteria;
+    protected  org.hibernate.Transaction trns;
+    protected  org.hibernate.SQLQuery SQLQuery;
+    protected  org.hibernate.Query query;
+    protected  Class<T> cl;
     protected  String clName,sql;
+
     public Hibernate4Kit(){
         java.lang.reflect.Type t = getClass().getGenericSuperclass();
         java.lang.reflect.ParameterizedType pt = (java.lang.reflect.ParameterizedType) t;
@@ -42,7 +35,11 @@ public abstract class Hibernate4Kit<T> implements IHibernate<T> {
         this.clName = cl.getSimpleName();
     }
 
-    @Override
+    public Hibernate4Kit(Class<T> cl){
+        this.cl = cl;
+    }
+
+
     public void setNewConfiguration(){
         //configuration = new Configuration();
         //URL urlStatic = Thread.currentThread().getContextClassLoader().getResource(PATH_CFG_HIBERNATE.getAbsolutePath());
@@ -85,19 +82,17 @@ public abstract class Hibernate4Kit<T> implements IHibernate<T> {
      * Get the configuration parameter
      * @return configuration
      */
-    @Override
     public Configuration getConfiguration(){
         return configuration;
     }
 
     /**Set the Service Registry*/
-    @Override
     public void setNewServiceRegistry() {
         /**deprecated in Hibernate 4.3*/
         //serviceRegistry = new ServiceRegistryBuilder().applySettings(
         //        configuration.getProperties()). buildServiceRegistry();
         if(configuration != null) {
-            serviceRegistry = new StandardServiceRegistryBuilder().applySettings(
+            serviceRegistry = new org.hibernate.boot.registry.StandardServiceRegistryBuilder().applySettings(
                     configuration.getProperties()).build();
         }else{
             throw new ExceptionInInitializerError("Try to set a ServiceRegistry without have configurate the Configuration");
@@ -108,8 +103,7 @@ public abstract class Hibernate4Kit<T> implements IHibernate<T> {
      * Get the ServiceRegistry
      * @return serviceRegistry
      */
-    @Override
-    public ServiceRegistry getServiceRegistry(){
+    public org.hibernate.service.ServiceRegistry getServiceRegistry(){
         return serviceRegistry;
     }
 
@@ -118,8 +112,13 @@ public abstract class Hibernate4Kit<T> implements IHibernate<T> {
      * @return sessionFactory
      */
     @Override
-    public SessionFactory getSessionFactory() {
+    public org.hibernate.SessionFactory getSessionFactory() {
         return sessionFactory;
+    }
+
+    public void setSessionFactory(org.hibernate.SessionFactory sessionFactory)
+    {
+        this.sessionFactory = sessionFactory;
     }
 
     /**
@@ -127,7 +126,7 @@ public abstract class Hibernate4Kit<T> implements IHibernate<T> {
      * @return session
      */
     @Override
-    public Session getSession(){
+    public org.hibernate.Session getSession(){
         return session;
     }
 
@@ -149,21 +148,24 @@ public abstract class Hibernate4Kit<T> implements IHibernate<T> {
         session = sessionFactory.openSession();
     }
 
+    @Override
+    public void closeSession() {
+        session.close();
+    }
     /**
      * Returns a session from the session context. If there is no session in the context it opens a session,
      * stores it in the context and returns it.
-     * This factory is intended to be used with a hibernate.cfg.xml including the following property
+     * This context is intended to be used with a hibernate.cfg.xml including the following property
      * <property name="current_session_context_class">thread</property>
      * This would return the current open session or if this does not exist, will insert a new session
      * @return the session
      */
     @Override
-    public Session getCurrentSession() {
+    public org.hibernate.Session getCurrentSession() {
         return sessionFactory.getCurrentSession();
     }
 
 
-    @Override
     public void buildSessionFactory() {
         try {
             if(PATH_CFG_HIBERNATE !=null) {
@@ -188,7 +190,6 @@ public abstract class Hibernate4Kit<T> implements IHibernate<T> {
      * @param uri
      * @note NOT WORK NEED UPDATE
      */
-    @Override
     public void buildSessionFactory(URL uri) {
         try {
             if(uri != null){
@@ -205,7 +206,6 @@ public abstract class Hibernate4Kit<T> implements IHibernate<T> {
      * Method to build a Session Factory on a local configuration file XML
      * @param filePath
      */
-     @Override
      public void buildSessionFactory(String filePath) {
            try {
                File cfgFile = new File(filePath);                   
@@ -222,7 +222,6 @@ public abstract class Hibernate4Kit<T> implements IHibernate<T> {
      * Method to build a Session Factory on a local configuration file XML
      * @param cfgFile
      */
-    @Override
     public void buildSessionFactory(File cfgFile) {
         try {
             if(cfgFile != null && cfgFile.exists()){
@@ -246,7 +245,6 @@ public abstract class Hibernate4Kit<T> implements IHibernate<T> {
      * @param PORT_DATABASE port database
      * @param LIST_ANNOTATED_CLASS list of all annotated classes
      */
-    @Override
     public void buildSessionFactory(
             String DB_OUTPUT_HIBERNATE,String USER_HIBERNATE,String PASS_HIBERNATE,String DRIVER_DATABASE,
             String DIALECT_DATABASE,String DIALECT_DATABASE_HIBERNATE,String HOST_DATABASE,String PORT_DATABASE,
@@ -309,7 +307,6 @@ public abstract class Hibernate4Kit<T> implements IHibernate<T> {
      * @param LIST_ANNOTATED_CLASS list of all annotated classes
      * @param LIST_RESOURCE_XML list of the XML file resource
      */
-    @Override
     public void buildSessionFactory(
             String DB_OUTPUT_HIBERNATE,String USER_HIBERNATE,String PASS_HIBERNATE,String DRIVER_DATABASE,
             String DIALECT_DATABASE,String DIALECT_DATABASE_HIBERNATE, String HOST_DATABASE,String PORT_DATABASE,
@@ -363,14 +360,14 @@ public abstract class Hibernate4Kit<T> implements IHibernate<T> {
     }//buildSessionFactory
 
     @Override
-    public <T> void insert(T object) {
+    public void insert(T object) {
         try {
             openSession();
             trns = session.beginTransaction();
             session.beginTransaction();
             session.save(object);
             session.getTransaction().commit();
-            SystemLog.message("[HIBERNATE] Isert the item:" + object);
+            SystemLog.message("[HIBERNATE] Insert the item:" + object);
         } catch (RuntimeException e) {
             if (trns != null) { trns.rollback();}
             SystemLog.exception(e);
@@ -429,7 +426,7 @@ public abstract class Hibernate4Kit<T> implements IHibernate<T> {
             openSession();
             trns = session.beginTransaction();
             criteria = session.createCriteria(cl);
-            criteria.setProjection(Projections.rowCount());
+            criteria.setProjection(org.hibernate.criterion.Projections.rowCount());
             result = criteria.uniqueResult();
             SystemLog.message("[HIBERNATE] The count of employees is :" + result);
         } catch (RuntimeException e) {
@@ -449,7 +446,7 @@ public abstract class Hibernate4Kit<T> implements IHibernate<T> {
             trns = session.beginTransaction();
             session.beginTransaction();
             criteria = session.createCriteria(cl);
-            criteria.add(Restrictions.eq(whereColumn, whereValue));
+            criteria.add(org.hibernate.criterion.Restrictions.eq(whereColumn, whereValue));
             T t = (T)criteria.uniqueResult();
             //t.setName("Abigale");
             t = object;
@@ -471,7 +468,7 @@ public abstract class Hibernate4Kit<T> implements IHibernate<T> {
             trns = session.beginTransaction();
             session.beginTransaction();
             criteria = session.createCriteria(cl);
-            criteria.add(Restrictions.eq(whereColumn, whereValue));
+            criteria.add(org.hibernate.criterion.Restrictions.eq(whereColumn, whereValue));
             T t = (T)criteria.uniqueResult();
             session.delete(t);
             session.getTransaction().commit();
@@ -501,8 +498,10 @@ public abstract class Hibernate4Kit<T> implements IHibernate<T> {
 
 
 
+
+
     //OTHER METHODS
-    public static Class createNewClass(String annotatedClassName,String pathPackageToAnnotatedClass)
+    /*public static Class createNewClass(String annotatedClassName,String pathPackageToAnnotatedClass)
             throws ClassNotFoundException, InstantiationException, IllegalAccessException, NoSuchMethodException, IllegalArgumentException, InvocationTargetException {
         Class cls = Class.forName(pathPackageToAnnotatedClass+"."+annotatedClassName).getConstructor().newInstance().getClass();
         //You can use reflection : Class.forName(className).getConstructor(String.class).newInstance(arg);
@@ -541,7 +540,7 @@ public abstract class Hibernate4Kit<T> implements IHibernate<T> {
         Constructor cons = castObjectToSpecificConstructor(clsObjectAnnotated);
         obj = (Object)cons.newInstance();
         return obj;
-    }
+    }*/
 }//end of the class
 
 

@@ -29,7 +29,7 @@ public class SystemLog {
     private static boolean DEBUG,ERROR;
     /** {@code org.slf4j.Logger} */
     private static org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger(SystemLog.class);
-
+    private static Level level;
     /** {@code DateFormat} instance for formatting log entries. */
     private static SimpleDateFormat logTimestamp = new SimpleDateFormat("[HH:mm:ss]");
    // private static SimpleDateFormat logTimesAndDateStamp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss,SSS");
@@ -105,7 +105,6 @@ public class SystemLog {
         if(!logging){ log = new SystemLog();}
         StringBuilder sb = new StringBuilder();
         if (logTimestamp != null)
-            //logTimestamp.format(new Date())
             sb.append(logTimestamp.format(new Date()));
         else
         {
@@ -113,48 +112,37 @@ public class SystemLog {
                 df = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG);
             sb.append(df.format(logTimestamp));
         }
-        //LEVEL 1 -> nothing
-        if(LEVEL == 3) sb.append("[ERROR] -> ");
-        if(LEVEL == 2) sb.append("[WARNING] -> ");
-        if(LEVEL == 4) sb.append("[EXIT] -> ");
-        if(LEVEL == 6) sb.append("[SPARQL] -> ");
-        if(LEVEL == 7) sb.append("[QUERY] -> ");
-        if(LEVEL == 10) sb.append("**[ATTENTION]** -> ");
-        if(LEVEL == 9) sb.append("[EXCEPTION] ->");
-        //if (separator != null)sb.append(separator);
+        sb.append(level.toString());
         sb.append(logEntry);
         if(ERROR)System.err.println(sb.toString());
         else System.out.println(sb.toString());
-        //logWriter.println(sb.toString()); //???
-        //print2File(sb.toString());
-        try(PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(LOGFILE.getAbsolutePath(), true)))) {
-            out.print(sb.toString()+System.getProperty("line.separator"));
-            out.flush();
-            out.close();
-        }catch (IOException e) {
-            //exception handling left as an exercise for the reader
+        try(PrintWriter logWriter = new PrintWriter(new BufferedWriter(new FileWriter(LOGFILE.getAbsolutePath(), true)))) {
+            //try{
+            logWriter.print(sb.toString() + System.getProperty("line.separator"));
+            logWriter.flush();
+            logWriter.close();
+        }catch (IOException e){
         }finally{
             ERROR=false;
-            logEntry = "";
         }
     }
     /**
      * Writes a message to the log.
      * @param logEntry message to write as a log entry
      */
-    public static void message(String logEntry){LEVEL = 1; write(logEntry);}
-    public static void error(String logEntry){ LEVEL = 3; ERROR=true; write(logEntry);}
-    public static void warning(String logEntry){LEVEL = 2; ERROR=true; write(logEntry);}
-    public static void ticket(String message){ LEVEL = 1;printString2File(message);}
-    public static void sparql(String logEntry) { LEVEL = 6; write(logEntry);}
-    public static void query(String logEntry) { LEVEL = 7; write(logEntry);}
-    public static void attention(String logEntry) {LEVEL = 10; write(logEntry);}
-    public static void abort(int rc, String logEntry) {LEVEL = 4;  ERROR=true;write(logEntry); System.exit(rc);}
-    public static void throwException(Throwable throwable) {LEVEL = 8;  ERROR=true; write(throwable.getMessage());}
-    public static void exception(Exception e) {LEVEL = 9;  ERROR=true;
-        //write(e.getMessage() + "->" + e.getCause() + "->" + e.getStackTrace());
-        e.printStackTrace();
-    }
+    public static void console(String logEntry){level = Level.VOID; System.out.println(logEntry);}
+    public static void message(String logEntry){level = Level.OUT; write(logEntry);}
+    public static void error(String logEntry){level = Level.ERR; ERROR=true;
+        write(logEntry);}
+    public static void warning(String logEntry){level = Level.WARN; ERROR=true; write(logEntry);}
+    public static void warning(Exception e){level = Level.WARN; ERROR=true; write(e.getMessage()+","+e.getCause());}
+    //public static void ticket(String message){ LEVEL = 1;printString2File(message);}
+    public static void sparql(String logEntry) { level = Level.SPARQL; write(logEntry);}
+    public static void query(String logEntry) { level = Level.QUERY; write(logEntry);}
+    public static void attention(String logEntry) {level = Level.ATTENTION; write(logEntry);}
+    public static void abort(int rc, String logEntry) {level = Level.ABORT;  ERROR=true;write(logEntry); System.exit(rc);}
+    public static void throwException(Throwable throwable){ level = Level.THROW;  ERROR=true; write(throwable.getMessage());}
+    public static void exception(Exception e){ level = Level.EXCEP; ERROR=true;e.printStackTrace();}
 
 
     /**
@@ -227,7 +215,6 @@ public class SystemLog {
             logWriter = new PrintWriter(new BufferedWriter(new FileWriter(LOGFILE.getAbsolutePath(), true)));
         } catch (IOException e) {
             SystemLog.logStackTrace(e, logger);
-            e.printStackTrace();
         }
     }
 
@@ -269,5 +256,30 @@ public class SystemLog {
      */
     public static  boolean isDebug() {return DEBUG;}
 
+
+    public enum Level {
+        VOID(0), OUT(1), WARN(2),ERR(3),ABORT(4),SPARQL(6),QUERY(7),THROW(8),EXCEP(9),ATTENTION(10);
+        private Integer value;
+        Level(Integer value) {
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            String value="";
+            switch (this) {
+                case ERR: value = "[ERROR] -> "; break;
+                case WARN: value ="[WARNING] -> "; break;
+                case ABORT: value ="[EXIT] -> "; break;
+                case SPARQL: value ="[SPARQL] -> "; break;
+                case QUERY: value ="[QUERY] -> "; break;
+                case ATTENTION: value ="=====[ATTENTION]===== -> "; break;
+                case EXCEP: value ="[EXCEPTION] ->"; break;
+            }
+            return value;
+        }
+    };
         
 }
+
+

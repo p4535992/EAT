@@ -28,7 +28,6 @@
     <modules>
         <module>web-karma-master</module>
         <module>ExtractInfo</module>
-        <module>linking</module>
     </modules>
 
     <properties>

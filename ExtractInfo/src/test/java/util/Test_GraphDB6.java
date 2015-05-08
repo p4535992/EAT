@@ -1,6 +1,6 @@
 package util;
 
-import p4535992.util.sesame.SesameUtil;
+import p4535992.util.sesame.SesameUtil2;
 
 public class Test_GraphDB6 {
 
@@ -59,7 +59,7 @@ public class Test_GraphDB6 {
 				+ "WHERE {?service a <http://www.disit.org/km4city/schema#Service>;"
 				+ "       ?p ?o . } LIMIT 600000 OFFSET 0 ";	
 		
-		SesameUtil s = null;
+		SesameUtil2 s = null;
 		try {
 			long initializationStart = System.currentTimeMillis();
 			// The ontologies and datasets specified in the 'import' parameter
@@ -76,15 +76,14 @@ public class Test_GraphDB6 {
                                 null //pass
                         );
                         */
-                        s.setOutput("outputxxx", "nt", true);
-                        //s.printModelToFileByMarco(null, queryString, queryString);
-                        s.connect(
-                                "http://localhost:8080/openrdf-sesame/",
-                                "km4city04",
-                                null,
-                                null);
-                        //s.evaluateQueries("queryFile");
-                        s.executeSingleQuery(queryString);
+		/*	s.setOutput("outputxxx", "nt", true);
+			s.connect(
+					"http://localhost:8080/openrdf-sesame/",
+					"km4city04",
+					null,
+					null);*/
+			//s.evaluateQueries("queryFile");
+			s.executeSingleQuery(queryString);
 			// Demonstrate the basic operations on a repository
 			/*
 			gettingStartedApplication.loadFiles();

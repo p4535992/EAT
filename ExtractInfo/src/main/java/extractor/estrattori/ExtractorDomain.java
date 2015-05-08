@@ -26,7 +26,7 @@ import p4535992.util.string.StringKit;
  * Classe per lt'estrazione dei GeoDocument o InfoDocument relativi ai singoli domni web
  * attraverso un'analisi dei singoli GeoDocument e InfoDocument dei singoli URL segunedo
  * opportuni criteri di scelta e confronto.
- * @author Tenti Marco
+ * @author 4535992
  */
 public class ExtractorDomain {
     
@@ -363,7 +363,8 @@ public class ExtractorDomain {
                 geo.setDoc_id(Integer.parseInt(entry.getKey()));
                 finalList.add(geo);
             }
-            geoDomainDocDao.setTableInsert("geodomaindocument_coord_omogeneo_120"); //120
+            //geodomaindocument_coord_omogeneo_05052014,geodomaindocument_coord_omogeneo_120
+            geoDomainDocDao.setTableInsert("geodomaindocument_coord_omogeneo_05052014"); //120
             for (GeoDocument geoDoc : finalList) {
                 //geoDoc.setUrl(new URL(geoDoc.getUrl().toString().replace("http://","")));
                 geoDomainDocDao.insertAndTrim(geoDoc);

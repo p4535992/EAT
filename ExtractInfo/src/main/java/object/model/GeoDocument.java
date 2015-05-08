@@ -7,11 +7,12 @@
  */
 package object.model;
 
+import java.io.Serializable;
 import java.net.URL;
 import javax.persistence.*;
 @Entity
 @Table(name = "geodocument_ann")
-public class GeoDocument {
+public class GeoDocument implements Serializable{
     @Id @GeneratedValue
     @Column(name = "doc_id")
     private Integer doc_id;

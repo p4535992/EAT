@@ -29,6 +29,8 @@
         <mysql.version>5.1.6</mysql.version>
         <jdom2.version>2.0.6</jdom2.version>
         <jsoup.version>1.8.2</jsoup.version>
+        <joda-time.version>2.3</joda-time.version>
+        <org-jadira-usertype.version>3.0.0.CR1</org-jadira-usertype.version>
         <jena.version>2.13.0</jena.version>
         <org-json.version>20140107</org-json.version>
         <commons-dbcp2.version>2.0</commons-dbcp2.version>
@@ -89,6 +91,23 @@
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-ehcache</artifactId>
             <version>${hibernate.version}</version>
+        </dependency>
+
+        <!-- SUPPORT HIBERNATE -->
+        <!-- Joda-Time -->
+        <dependency>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time</artifactId>
+            <version>${joda-time.version}</version>
+            <optional>true</optional>
+        </dependency>
+
+        <!-- To map JodaTime with database type -->
+        <dependency>
+            <groupId>org.jadira.usertype</groupId>
+            <artifactId>usertype.core</artifactId>
+            <version>${org-jadira-usertype.version}</version>
+            <optional>true</optional>
         </dependency>
 
         <!-- MySQL -->
@@ -168,6 +187,7 @@
             <version>${jena.version}</version>
             <optional>true</optional>
         </dependency>
+
         <dependency>
             <groupId>com.github.jsonld-java</groupId>
             <artifactId>jsonld-java-jena</artifactId>

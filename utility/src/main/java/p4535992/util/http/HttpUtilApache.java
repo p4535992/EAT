@@ -71,13 +71,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 import java.util.StringTokenizer;
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.methods.CloseableHttpResponse;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.DefaultHttpRequestRetryHandler;
-import org.apache.http.impl.client.HttpClients;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -384,15 +377,15 @@ public class HttpUtilApache {
             String content ="";
             
            // HttpClient httpclient;
-            CloseableHttpClient httpclient = HttpClients.createDefault();
+			org.apache.http.impl.client.CloseableHttpClient httpclient = org.apache.http.impl.client.HttpClients.createDefault();
             DefaultHttpRequestRetryHandler def = new DefaultHttpRequestRetryHandler();
-            HttpGet httpget = new HttpGet(URL);
+			org.apache.http.client.methods.HttpGet httpget = new org.apache.http.client.methods.HttpGet(URL);
             //httpget.getParams().setParameter("RETRY_HANDLER", def);
             try {
                 //CloseableHttpResponse response = httpclient.execute(httpget);
-                HttpResponse response = httpclient.execute(httpget);
-                System.out.println(response);             
-                HttpEntity entity = response.getEntity();
+				org.apache.http.HttpResponse response = httpclient.execute(httpget);
+                System.out.println(response);
+				org.apache.http.HttpEntity entity = response.getEntity();
                 if (entity != null) {
                     InputStream instream = entity.getContent();
                     try {
@@ -411,15 +404,15 @@ public class HttpUtilApache {
         public static String GET4(String url) throws IOException{
              String content ="";          
             //HttpClient httpclient = new DefaultHttpClient();
-            CloseableHttpClient httpclient = HttpClients.createDefault();
+			org.apache.http.impl.client.CloseableHttpClient httpclient = org.apache.http.impl.client.HttpClients.createDefault();
             DefaultHttpRequestRetryHandler def = new DefaultHttpRequestRetryHandler();
-            HttpGet httpget = new HttpGet(url);
+			org.apache.http.client.methods.HttpGet httpget = new org.apache.http.client.methods.HttpGet(url);
             //httpget.getParams().setParameter("RETRY_HANDLER", def);
             try {
-                CloseableHttpResponse response = httpclient.execute(httpget);
+				org.apache.http.client.methods.CloseableHttpResponse response = httpclient.execute(httpget);
                 //HttpResponse response = httpclient.execute(httpget);
                 System.out.println(response);
-                HttpEntity entity = response.getEntity();
+				org.apache.http.HttpEntity entity = response.getEntity();
                 if (entity != null) {
                     InputStream instream = entity.getContent();
                     try {

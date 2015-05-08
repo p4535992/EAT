@@ -1,5 +1,6 @@
 package object.impl.jdbc;
 
+import object.impl.jdbc.generic.GenericDaoImpl;
 import p4535992.util.log.SystemLog;
 import object.dao.jdbc.IGeoDomainDocumentDao;
 import object.model.GeoDocument;
@@ -280,6 +281,7 @@ public class GeoDomainDocumentDaoImpl extends GenericDaoImpl<GeoDomainDocument> 
         }
         // execute insert query to insert the data
         // return number of row / rows processed by the executed query
+        SystemLog.query(query);
         jdbcTemplate.update(query, params, types);
 
         //Method 1 ROWMAP
@@ -295,7 +297,7 @@ public class GeoDomainDocumentDaoImpl extends GenericDaoImpl<GeoDomainDocument> 
             // get the column names; column indexes start from 1
             for (int i = 1; i < numberOfColumns + 1; i++) {
                 query = "UPDATE `" + myInsertTable + "` SET `" + rsMetaData.getColumnName(i) + "` = LTRIM(RTRIM(`" + rsMetaData.getColumnName(i) + "`));";
-                SystemLog.message(query);
+                SystemLog.query(query);
                 jdbcTemplate.execute(query);
             }
         }catch(Exception e){}

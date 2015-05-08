@@ -33,7 +33,7 @@ public class Test_Encoding {
                 //text.writeSmallTextFile(lines, FILE_NAME);
                 
                 //treat as a large file - use some buffering
-                lines = EncodingUtil.UnicodeEscape2UTF8(f);
+                lines = EncodingUtil.convertUnicodeEscapeToUTF8(f);
                 //lines = readLargerTextFileWithReturn(FileUtil.filename(f));                     
                 EncodingUtil.writeLargerTextFileWithReplace2("output", lines);
             }

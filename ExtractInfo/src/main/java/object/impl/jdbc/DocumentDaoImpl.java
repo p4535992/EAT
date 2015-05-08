@@ -1,5 +1,6 @@
 package object.impl.jdbc;
 
+import object.impl.jdbc.generic.GenericDaoImpl;
 import object.model.Document;
 import object.dao.jdbc.IDocumentDao;
 import org.hibernate.SessionFactory;

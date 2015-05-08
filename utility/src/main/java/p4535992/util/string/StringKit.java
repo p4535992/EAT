@@ -8,28 +8,14 @@ package p4535992.util.string;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import p4535992.util.log.SystemLog;
 import p4535992.util.reflection.ReflectionKit;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
+import java.io.*;
 import java.lang.reflect.Array;
 import java.nio.charset.Charset;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.StringTokenizer;
+import java.text.SimpleDateFormat;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -54,7 +40,7 @@ public class StringKit<T> {
     /*
      * Read String from InputStream and closes it
      */
-    public static String InputStreamToString(InputStream is, Charset encoding) {
+    public static String convertInputStreamToStringNoEncoding(InputStream is, Charset encoding) {
         BufferedReader br = new BufferedReader(new InputStreamReader(is, encoding));
         StringBuilder sb = new StringBuilder(1024);
         try {
@@ -76,25 +62,75 @@ public class StringKit<T> {
         }
         return sb.toString();
     }
-     /**
-     * Convert a String to a InputStream
-     * @param input string to convert
-     * @return inputstream
+    /**
+     * Returns true if the parameter is null or empty. false otherwise.
+     *
+     * @param text
+     * @return true if the parameter is null or empty.
      */
-     public static InputStream StringToInputStream(String input,Charset encoding) {
-         //encoding = StandardCharsets.UTF_8
-         InputStream stream = new ByteArrayInputStream(input.getBytes(encoding));
-         // read it with BufferedReader
-         /*
-         BufferedReader br = new BufferedReader(new InputStreamReader(is));
-         String line;
-         while ((line = br.readLine()) != null) {
-                  System.out.println(line);
-          }
-          br.close();
-          */
-         return stream;
-     }
+    public static boolean isNullOrEmpty(String text) {
+        if (text == null || text.equals("") || text.isEmpty() || text.trim().isEmpty()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * Returns a String with the content of the InputStream
+     * @param is with the InputStream
+     * @return string with the content of the InputStream
+     * @throws IOException
+     */
+    public static String convertInputStreamToString(InputStream is)
+            throws IOException {
+        if (is != null) {
+            StringBuilder sb = new StringBuilder();
+            String line;
+            try {
+                BufferedReader reader = new BufferedReader(
+                        new InputStreamReader(is, "UTF-8"));
+                while ((line = reader.readLine()) != null) {
+                    sb.append(line).append("\n");
+                }
+            } finally {
+                is.close();
+            }
+            return sb.toString();
+        } else {
+            return "";
+        }
+    }
+
+    /**
+     * Returns am InputStream with the parameter.
+     *
+     * @param string
+     * @return InputStream with the string value.
+     */
+    public static InputStream convertStringToInputStream(String string) {
+        InputStream is = null;
+        try {
+            is = new ByteArrayInputStream(string.getBytes("UTF-8"));
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        return is;
+    }
+
+
+    /**
+     * Get the current GMT time for user notification.
+     *
+     * @return timestamp value as string.
+     */
+    public static String getGMTime()
+    {
+        SimpleDateFormat gmtDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        gmtDateFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
+        //Current Date Time in GMT
+        return gmtDateFormat.format(new java.util.Date());
+    }
     
      /**
         * Reads file in UTF-8 encoding and output to STDOUT in ASCII with unicode
@@ -162,7 +198,7 @@ public class StringKit<T> {
         BufferedReader r = new BufferedReader(new FileReader(ASCII));
         String line = r.readLine();
         while (line != null) {
-            line = convertUnicodeEscape(line);
+            line = convertUnicodeEscapeToASCII(line);
             byte[] bytes = line.getBytes("UTF-8");
             System.out.write(bytes, 0, bytes.length);
             System.out.println();
@@ -181,7 +217,7 @@ public class StringKit<T> {
      * @param s
      * @return
      */
-    private static String convertUnicodeEscape(String s) {
+    private static String convertUnicodeEscapeToASCII(String s) {
         char[] out = new char[s.length()];
         ParseState state = ParseState.NORMAL;
         int j = 0, k = 0, unicode = 0;
@@ -241,7 +277,7 @@ public class StringKit<T> {
     * @param uuid
     * @return java.util.UUID
     */
-    public static java.util.UUID convertString2UUID(String uuid){return java.util.UUID.fromString(uuid); }
+    public static java.util.UUID convertStringToUUID(String uuid){return java.util.UUID.fromString(uuid); }
        
     /**
     * Metodo che matcha e sostituisce determinati parti di una stringa attraverso le regular expression
@@ -273,8 +309,8 @@ public class StringKit<T> {
     * @return  il valore della stringa se null o come è arrivata
     */
     public static String setNullForEmptyString(String s){
-        if(s!=null && !s.isEmpty() && !s.trim().isEmpty()){return s;}
-        else{return null;}
+        if(isNullOrEmpty(s)){return null;}
+        else{return s;}
     } //setNullforEmptyString
 
     /**
@@ -325,7 +361,7 @@ public class StringKit<T> {
      * @param content, string to print on the file
      * @param outputPathFileName, file where i put the stream
      */
-    public void copyString2File(String content, File outputPathFileName) {
+    public void copyStringToFile(String content, File outputPathFileName) {
         try(PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(outputPathFileName, true)))) {
             out.print(content);
             out.flush();
@@ -418,7 +454,7 @@ public class StringKit<T> {
      * @param list
      * @return
      */
-    public static <T> T[] convertList2Array(List<T> list){
+    public static <T> T[] convertListToArray(List<T> list){
         //return list.toArray(new Object[ list.size()]);
         T[] array = (T[]) Array.newInstance(list.get(0).getClass(), list.size());
         //T[] items=(T[]) new Object[size]
@@ -452,6 +488,54 @@ public class StringKit<T> {
     }
 
 
+    /**
+     * Method to Serializing an Object
+     * @param object
+     * @param nameTempSer
+     * @param <T>
+     */
+    public static <T> void convertObjectToSerializable(T object,String nameTempSer){
+        try
+        {
+            FileOutputStream fileOut = new FileOutputStream("/tmp/"+nameTempSer+".ser");
+            ObjectOutputStream out = new ObjectOutputStream(fileOut);
+            out.writeObject(object);
+            out.close();
+            fileOut.close();
+            SystemLog.console("Serialized data is saved in /tmp/"+nameTempSer+".ser");
+        }catch(IOException i)
+        {
+           SystemLog.exception(i);
+        }
+    }
+
+    /**
+     * Method to Deserializing an Object
+     * @param object
+     * @param nameTempSer
+     * @param <T>
+     * @return
+     */
+    public static <T> T convertSerializableToObject(T object,String nameTempSer){
+        try
+        {
+            FileInputStream fileIn = new FileInputStream("/tmp/"+nameTempSer+".ser");
+            ObjectInputStream in = new ObjectInputStream(fileIn);
+            object = (T) in.readObject();
+            in.close();
+            fileIn.close();
+        }catch(IOException i)
+        {
+            SystemLog.exception(i);
+            return null;
+        }catch(ClassNotFoundException c)
+        {
+            SystemLog.error(""+object.getClass().getName()+" class not found!!!");
+            SystemLog.exception(c);
+            return null;
+        }
+        return object;
+    }
 
 
 

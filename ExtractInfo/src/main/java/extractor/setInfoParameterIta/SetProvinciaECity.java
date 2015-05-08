@@ -60,7 +60,7 @@ public class SetProvinciaECity {
         simpleMap.put("vinci","Firenze");
     }
 
-    public static String checkProvincia(String city){
+    public String checkProvincia(String city){
         SetProvinciaECity spc = new  SetProvinciaECity();
         String provincia = "";
         for(Map.Entry<String, String>  entry : simpleMap.entrySet()){
@@ -72,30 +72,10 @@ public class SetProvinciaECity {
         return provincia;
     }
 
-    public static void  main(String args[]){
-        String provincia = checkProvincia("Figline Valdarno");
-    }
-
 //    public static void  main(String args[]){
-//        try {
-//            String baseURI = "http://www.comuni-italiani.it/";
-//            org.jsoup.nodes.Document doc = org.jsoup.Jsoup.connect(baseURI).get();
-//            //<table cellspacing="0" cellpadding="4" bordercolor="#E9E9E9" border="1" width="100%">
-//
-//            for (org.jsoup.nodes.Element table : doc.select("table")) {
-//                for (org.jsoup.nodes.Element row : table.select("tr")) {
-//                    org.jsoup.select.Elements tds = row.select("td");
-//                    if (tds.size() > 6) {
-//                        //System.out.println(tds.get(0).text() + ":" + tds.get(1).text());
-//                        //map.put(tds.get(0).text(),tds.get(1).text());
-//                    }
-//                }
-//            }
-//        } catch (IOException ex) {
-//            //Logger.getLogger(SetCodicePostale.class.getName()).log(Level.SEVERE, null, ex);
-//            ex.printStackTrace();
-//        }
-//    }//main
+//        String provincia = checkProvincia("Figline Valdarno");
+//    }
+
 }
 
 

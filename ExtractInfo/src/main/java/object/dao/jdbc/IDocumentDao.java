@@ -1,5 +1,5 @@
 package object.dao.jdbc;
-import object.dao.generic.IGenericDao;
+import object.dao.jdbc.generic.IGenericDao;
 import object.model.Document;
 
 import javax.sql.DataSource;

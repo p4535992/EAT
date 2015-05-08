@@ -1,11 +1,13 @@
 package object.dao.hibernate;
 
-import object.dao.generic.IGenericDao;
-import object.dao.generic.IGenericHibernateDao;
+import object.dao.hibernate.generic.IGenericHibernateDao;
 import object.model.GeoDocument;
+import org.springframework.context.ApplicationContext;
 
 import javax.sql.DataSource;
-import java.io.IOException;
+import java.io.File;
+import java.io.Serializable;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -20,12 +22,15 @@ public interface IGeoDocumentHibernateDao extends IGenericHibernateDao<GeoDocume
     //void setNewHibernateTemplate(SessionFactory sessionFactory);
     void setDataSource(DataSource ds);
 
-
+    void setContext(ApplicationContext context);
+    ApplicationContext getContext();
+    void setBeanIdSessionFactory(String beanIdSessionFactory);
+    String getBeanIdSessionFactory();
     //method to save
-    void saveH(GeoDocument g);
+    //void saveH(GeoDocument g);
 
     //method to update
-    //void updateH(GeoDocument g);
+    void update(GeoDocument g);
 
     //method to delete
     //void deleteH(GeoDocument g);
@@ -34,5 +39,9 @@ public interface IGeoDocumentHibernateDao extends IGenericHibernateDao<GeoDocume
     //GeoDocument  getHByColumn(String column);
 
     //method to return all
-    List<GeoDocument> getAllH();
+    List<GeoDocument> selectAll(Serializable serial);
+    GeoDocument select(Serializable serial);
+    List<GeoDocument> findByName(String name);
+    Iterator<GeoDocument> iterateByWeight(int weight);
+    IGeoDocumentHibernateDao getDao(String beanIdName);
 }

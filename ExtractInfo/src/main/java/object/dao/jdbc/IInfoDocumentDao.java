@@ -1,6 +1,6 @@
 package object.dao.jdbc;
 
-import object.dao.generic.IGenericDao;
+import object.dao.jdbc.generic.IGenericDao;
 import object.model.GeoDocument;
 import object.model.InfoDocument;
 

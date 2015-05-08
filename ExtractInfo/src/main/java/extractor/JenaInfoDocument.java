@@ -68,7 +68,7 @@ public class JenaInfoDocument {
             throws IOException{
         //Crea la tua query SPARQL
 
-        SystemLog.sparql(SPARQL_NO_SCHEMACOORDS);
+        SystemLog.sparql(SPARQL_NO_WGS84COORDS);
         //CREA IL TUO MODELLO DI JENA A PARTIRE DA UN FILE
         com.hp.hpl.jena.rdf.model.Model model = com.hp.hpl.jena.rdf.model.ModelFactory.createDefaultModel();
         model = Jena2Kit.loadFileTriple(filenameInput, filepath, inputFormat);
@@ -158,16 +158,17 @@ public class JenaInfoDocument {
         */
         //****************************************************************************
         //TEST HELPER FOR SILK GENERATE ADDITIONAL FILE
-        String outputN3Knime = filepath + File.separator + "fileN3Knimem.n3";
+        String outputN3Knime = filepath + File.separator + "fileN3Knime.n3";
         Jena2Kit.writeModelToFile(outputN3Knime, model2, "n3");
         //String outputTurtleKnime = filepath + File.separator + "fileTurtleKnimem.ttl";
         //JenaKit.writeModelToFile(outputTurtleKnime, model2, "ttl");
-        List<String> lines = EncodingUtil.UnicodeEscape2UTF8(new File(outputN3Knime));
+        List<String> lines = EncodingUtil.convertUnicodeEscapeToUTF8(new File(outputN3Knime));
         EncodingUtil.writeLargerTextFileWithReplace2(outputN3Knime, lines);
         Jena2Kit.convertTo(new File(outputN3Knime),"csv");
         //*************************************************************************************
 
         //Execute the SPARQL_WSG84COORDS and add the geometry statement
+        /*
         com.hp.hpl.jena.query.ResultSet result = Jena2Kit.execSparqlSelectOnModel(SPARQL_WGS84COORDS, model2);
         Map<com.hp.hpl.jena.rdf.model.Resource, String[]> map = new HashMap<>();
         while (result.hasNext()){
@@ -184,6 +185,7 @@ public class JenaInfoDocument {
             String value =entry.getValue()[0] + " " +  entry.getValue()[1];
             model2.addLiteral(subject, predicate,Jena2Kit.lt(value,com.hp.hpl.jena.datatypes.xsd.XSDDatatype.XSDstring));
         }
+        */
         String output = filepath + File.separator + fileNameOutput + "." + outputFormat;
         Jena2Kit.writeModelToFile(output, model2, outputFormat);
     }

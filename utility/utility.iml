@@ -22,7 +22,7 @@
       <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
-    <orderEntry type="inheritedJdk" />
+    <orderEntry type="jdk" jdkName="1.7" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module-library">
       <library>
@@ -90,6 +90,10 @@
     <orderEntry type="library" name="Maven: org.rhq.helpers:rhq-pluginAnnotations:3.0.4" level="project" />
     <orderEntry type="library" name="Maven: org.hibernate:hibernate-ehcache:4.3.8.Final" level="project" />
     <orderEntry type="library" name="Maven: net.sf.ehcache:ehcache-core:2.4.3" level="project" />
+    <orderEntry type="library" name="Maven: joda-time:joda-time:2.3" level="project" />
+    <orderEntry type="library" name="Maven: org.jadira.usertype:usertype.core:3.0.0.CR1" level="project" />
+    <orderEntry type="library" name="Maven: org.joda:joda-money:0.6" level="project" />
+    <orderEntry type="library" name="Maven: org.jadira.usertype:usertype.spi:3.0.0.CR1" level="project" />
     <orderEntry type="library" name="Maven: mysql:mysql-connector-java:5.1.6" level="project" />
     <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpclient:4.4.1" level="project" />
     <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpcore:4.4.1" level="project" />

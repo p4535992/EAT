@@ -7,6 +7,9 @@
           <file>file://$MODULE_DIR$/src/main/java/spring-config.xml</file>
           <file>file://$MODULE_DIR$/ExtractInfo/src/main/resources/gate/gate-beans.xml</file>
           <file>file://$MODULE_DIR$/ExtractInfo/src/main/servlet_gate/WEB-INF/applicationContext.xml</file>
+          <file>file://$MODULE_DIR$/ExtractInfo/src/main/resources/spring_hibernate/test-applicationContext.xml</file>
+          <file>file://$MODULE_DIR$/ExtractInfo/src/main/resources/spring_hibernate/sample-applicationContext.xml</file>
+          <file>file://$MODULE_DIR$/ExtractInfo/src/main/resources/spring_hibernate/spring-hibernate4v3.xml</file>
         </fileset>
       </configuration>
     </facet>
@@ -114,10 +117,6 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-jdbc:4.1.6.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-web:4.1.6.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-webmvc:4.1.6.RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: joda-time:joda-time:2.3" level="project" />
-    <orderEntry type="library" name="Maven: org.jadira.usertype:usertype.core:3.0.0.CR1" level="project" />
-    <orderEntry type="library" name="Maven: org.joda:joda-money:0.6" level="project" />
-    <orderEntry type="library" name="Maven: org.jadira.usertype:usertype.spi:3.0.0.CR1" level="project" />
     <orderEntry type="library" name="Maven: jstl:jstl:1.2" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:jcl-over-slf4j:1.7.11" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.11" level="project" />

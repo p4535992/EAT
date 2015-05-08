@@ -27,12 +27,12 @@ public class Test_Jena {
          //GeoDocumentDAO dao = new GeoDocumentDAO();
          
          //home.utils.log log = new home.utils.log("xxx",".txt");
-         String outputN3Knime= "C:\\Users\\Marco\\Desktop\\File SQL Supporto Programma Tesi\\2015-04-29\\test_2\\result_km4c-InfoDoc_M-wgs84_COORD_A.nt";
+         String outputN3Knime= "C:\\Users\\Marco\\Desktop\\File SQL Supporto Programma Tesi\\2015-05-05\\result_silk_km4c-InfoDoc_M-wgs84_COORD_B1.nt";
          File file = new File(outputN3Knime);
-         //EncodingUtil.rewriteTheFiLeToUtf8(file);
+         //EncodingUtil.rewriteTheFileToUTF8(file);
          if(file.exists()) {
-             List<String> lines = EncodingUtil.UnicodeEscape2UTF8(new File(outputN3Knime));
-             EncodingUtil.writeLargerTextFileWithReplace2(outputN3Knime, lines);
+             //List<String> lines = EncodingUtil.convertUnicodeEscapeToUTF8(new File(outputN3Knime));
+             //EncodingUtil.writeLargerTextFileWithReplace2(outputN3Knime, lines);
              Jena2Kit.convertTo(new File(outputN3Knime), "csv");
              //JenaKit.convertTo(file, "turtle");
          }

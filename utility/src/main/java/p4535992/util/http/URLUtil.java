@@ -79,8 +79,7 @@ public class URLUtil {
     return new URL(base, target);
   }
 
-  private static Pattern IP_PATTERN = Pattern
-      .compile("(\\d{1,3}\\.){3}(\\d{1,3})");
+  private static Pattern IP_PATTERN = Pattern.compile("(\\d{1,3}\\.){3}(\\d{1,3})");
 
   /**
    * Returns the domain name of the url. The domain name of a url is the
@@ -91,9 +90,11 @@ public class URLUtil {
    * will return <br>
    * <code> apache.org</code>
    * */
-  /*
+
   public static String getDomainName(URL url) {
-    DomainSuffixes tlds = DomainSuffixes.getInstance();
+    //org.apache.nutch.util.domain.DomainSuffixes tlds =
+    //        org.apache.nutch.util.domain.DomainSuffixes.getInstance();
+
     String host = url.getHost();
     // it seems that java returns hostnames ending with .
     if (host.endsWith("."))
@@ -106,14 +107,17 @@ public class URLUtil {
     for (; index >= 0;) {
       index = candidate.indexOf('.');
       String subCandidate = candidate.substring(index + 1);
-      if (tlds.isDomainSuffix(subCandidate)) {
+      if (
+              //tlds.isDomainSuffix(subCandidate)
+              url.getHost().equalsIgnoreCase(subCandidate)
+          ) {
        return candidate;
       }
       candidate = subCandidate;
     }
     return candidate;
   }
- */
+
   /**
    * Returns the domain name of the url. The domain name of a url is the
    * substring of the url's hostname, w/o subdomain names. As an example <br>
@@ -125,11 +129,8 @@ public class URLUtil {
    * 
    * @throws MalformedURLException
    */
-  /*
-  public static String getDomainName(String url) throws MalformedURLException {
-    return getDomainName(new URL(url));
-  }
- */
+  public static String getDomainName(String url) throws MalformedURLException {return getDomainName(new URL(url));}
+
   /**
    * Returns the top level domain name of the url. The top level domain name of
    * a url is the substring of the url's hostname, w/o subdomain names. As an
@@ -142,10 +143,10 @@ public class URLUtil {
    * 
    * @throws MalformedURLException
    */
-  /*
   public static String getTopLevelDomainName(URL url)
       throws MalformedURLException {
-    String suffix = getDomainSuffix(url).toString();
+    //String suffix = getDomainSuffix(url).toString();
+    String suffix = url.getAuthority();//??????
     int idx = suffix.lastIndexOf(".");
     if (idx != -1) {
       return suffix.substring(idx + 1);
@@ -153,7 +154,7 @@ public class URLUtil {
       return suffix;
     }
   }
-*/
+
   /**
    * Returns the top level domain name of the url. The top level domain name of
    * a url is the substring of the url's hostname, w/o subdomain names. As an
@@ -180,26 +181,15 @@ public class URLUtil {
    * 
    * @return true if the domain names are equal
    */
-  /*
   public static boolean isSameDomainName(URL url1, URL url2) {
     return getDomainName(url1).equalsIgnoreCase(getDomainName(url2));
   }
- */
-  /**
-   * Returns whether the given urls have the same domain name. As an example, <br>
-   * <code> isSameDomain("http://lucene.apache.org"
-   * ,"http://people.apache.org/")
-   * <br> will return true. </code>
-   * 
-   * @return true if the domain names are equal
-   * @throws MalformedURLException
-   */
-  /*
+
   public static boolean isSameDomainName(String url1, String url2)
       throws MalformedURLException {
     return isSameDomainName(new URL(url1), new URL(url2));
   }
- */
+
   /**
    * Returns the {@link DomainSuffix} corresponding to the last public part of
    * the hostname
@@ -247,7 +237,6 @@ public class URLUtil {
 
   /**
    * Partitions of the hostname of the url by "."
-   * 
    * @throws MalformedURLException
    */
   public static String[] getHostSegments(String url)
@@ -330,7 +319,6 @@ public class URLUtil {
    * 
    * @return String The representative url.
    */
-  /*
   public static String chooseRepr(String src, String dst, boolean temp) {
 
     // validate both are well formed urls
@@ -424,7 +412,7 @@ public class URLUtil {
       }
     }
   }
- */
+
   /**
    * Returns the lowercased hostname for the url or null if the url is not well
    * formed.

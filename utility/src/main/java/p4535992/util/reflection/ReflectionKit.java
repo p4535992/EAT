@@ -27,7 +27,7 @@ import java.util.*;
  */
 public class ReflectionKit<T>{
 
-   
+
     private Class<T> cl;
     private String clName;
     private static final Set<Class<?>> WRAPPER_TYPES = getWrapperTypes();
@@ -58,7 +58,7 @@ public class ReflectionKit<T>{
         ret.add(Void.class);
         return ret;
     }
-    
+
     public ReflectionKit(){
         java.lang.reflect.Type t = getClass().getGenericSuperclass();
         java.lang.reflect.ParameterizedType pt = (java.lang.reflect.ParameterizedType) t;
@@ -67,10 +67,10 @@ public class ReflectionKit<T>{
     }
 
     /** Method to get all basic information on a method */
-    public static List<String[]> inspectFieldClass(Object obj) {       
+    public static List<String[]> inspectFieldClass(Object obj) {
         return inspectFieldClass(obj.getClass());
     }
-      
+
     public static List<String[]> inspectFieldClass(Class<?> aClass) {
         Field[] fields = aClass.getDeclaredFields();
         List<String[]> oField = new ArrayList<>();
@@ -83,7 +83,7 @@ public class ReflectionKit<T>{
         }
         return oField;
     }
-    
+
     public static Map<Field,Annotation[]> inspectFieldAndAnnotationClass(Class<?> aClass){
         Map<Field,Annotation[]> map = new HashMap<>();
         for(Field field : aClass.getDeclaredFields()){
@@ -92,10 +92,10 @@ public class ReflectionKit<T>{
         }
         return map;
     }
-    
+
     public static List<String[]> inspectTypesMethod(Class<?> aClass,String nameOfMethhod) throws NoSuchMethodException{
         List<String[]> list = null;
-        Method method = aClass.getMethod(nameOfMethhod, null);
+        Method method = aClass.getMethod(nameOfMethhod);//nameOfMethhod, null
         Type returnType = method.getGenericReturnType();
         if(returnType instanceof ParameterizedType){
             ParameterizedType type = (ParameterizedType) returnType;
@@ -107,9 +107,9 @@ public class ReflectionKit<T>{
         }
         return list;
     }
-    
+
     public static List<String[]> inspectTypesMethod(Class<?> aClass,Method method) throws NoSuchMethodException{
-        List<String[]> list = null;      
+        List<String[]> list = null;
         Type returnType = method.getGenericReturnType();
         if(returnType instanceof ParameterizedType){
             ParameterizedType type = (ParameterizedType) returnType;
@@ -122,20 +122,20 @@ public class ReflectionKit<T>{
         }
         return list;
     }
-    
+
     public static Class inspectSimpleTypesMethod(Class<?> aClass,Method method) throws NoSuchMethodException{
-        List<String[]> list = null;      
-        Type returnType = method.getGenericReturnType();      
+        List<String[]> list = null;
+        Type returnType = method.getGenericReturnType();
             ParameterizedType type = (ParameterizedType) returnType;
             Type[] typeArguments = type.getActualTypeArguments();
             for(Type typeArgument : typeArguments){
                 Class typeArgClass = (Class) typeArgument;
                 System.out.println("typeArgClass = " + typeArgClass);
                 list.add(new String[]{typeArgClass.getName(),getClassReference(typeArgClass)});
-            }      
+            }
         return returnType.getClass();
     }
-    
+
     public static Map<String,Class> inspectAndLoadGetterObject(Object obj) throws NoSuchMethodException{
         List<Method> getter = getGettersClass(obj.getClass());
         Map<String,Class> map = new HashMap<>();
@@ -146,10 +146,10 @@ public class ReflectionKit<T>{
         }
         return map;
     }
-    
+
     public static Map<String,Class> inspectAndLoadSetterObject(Object obj) throws NoSuchMethodException{
         List<Method> setter = getSettersClass(obj.getClass());
-        Map<String,Class> map = new HashMap<String,Class>();
+        Map<String,Class> map = new HashMap<>();
         for(Method met : setter){
             Class cl = met.getReturnType();
             String name = met.getName();
@@ -157,11 +157,11 @@ public class ReflectionKit<T>{
         }
         return map;
     }
-    
+
     public static Integer countGetterAndsetter(Class<?> aClass){
         return getGettersSettersClass(aClass).size()/2;
     }
-    
+
 //    public static List<String[]> inspectMethods(Class<?> aClass){
 //        Method[] methods = aClass.getMethods();
 //        List<String[]> oMethod = new ArrayList<String[]>();
@@ -183,19 +183,19 @@ public class ReflectionKit<T>{
 //        }
 //        return oAnn;
 //    }
-    
+
     public static List<String[]> inspectConstructor(Class<?> aClass){
         Constructor[] constructors = aClass.getConstructors();
         List<String[]> oConst = new ArrayList<>();
         for (Constructor cons : constructors) {
             String modify = Modifier.toString(cons.getModifiers());
             String type = cons.getTypeParameters().toString();
-            String name = cons.getName();         
+            String name = cons.getName();
             oConst.add(new String[]{modify,type,name});
         }
         return oConst;
-    } 
-    
+    }
+
     public static List<Method> getGettersSettersClass(Class<?> aClass) {
         List<Method> list = new ArrayList<>();
         Method[] methods = aClass.getDeclaredMethods();
@@ -204,23 +204,23 @@ public class ReflectionKit<T>{
                 list.add(method);
         return list;
     }
-    
+
     public static List<Method> getGettersClass(Class aClass){
         List<Method> list = new ArrayList<>();
         Method[] methods = aClass.getDeclaredMethods();
         for (Method method : methods)
             if (isGetter(method))
                 list.add(method);
-        return list;     
+        return list;
     }
-    
+
      public static List<Method> getSettersClass(Class aClass){
         List<Method> list = new ArrayList<>();
         Method[] methods = aClass.getDeclaredMethods();
         for (Method method : methods)
             if (isSetter(method))
                 list.add(method);
-        return list;     
+        return list;
     }
 
     public static boolean isGetter(Method method) {
@@ -271,8 +271,8 @@ public class ReflectionKit<T>{
     public static Method getMethodByName(Class<?> aClass,String nameOfMethod,Class[] param) throws NoSuchMethodException{
         Method method = null;
         //If the method you are trying to access takes no parameters, pass null as the parameter type array, like this:   
-        if(param==null || param.length==0 )method = aClass.getMethod(nameOfMethod, null);
-        else method = aClass.getMethod(nameOfMethod,param);// String.class        
+        if(param==null || param.length==0 )method = aClass.getMethod(nameOfMethod);//nameOfMethod, null
+        else method = aClass.getMethod(nameOfMethod,param);// String.class
         return method;
     }
 
@@ -329,19 +329,21 @@ public class ReflectionKit<T>{
      * @param MyObject
      * @param nameOfMethod
      * @param param
-     * @return 
+     * @return
      */
     public static <T> T invokeObjectMethod(Object MyObject, String nameOfMethod, Class[] param, Class<T> aClass)
             throws IllegalAccessException,InvocationTargetException,NoSuchMethodException{
-        Object obj =null;     
+        Object obj =null;
         Method method;
         if(param==null || param.length==0 )method = getMethodByName(MyObject,nameOfMethod,null);
-        else method = getMethodByName(MyObject,nameOfMethod, param); //String.class       
+        else method = getMethodByName(MyObject,nameOfMethod, param); //String.class
         try{
-            obj = method.invoke(null, param); //if the method you try to invoke is static...    
+            //obj = method.invoke(null, param); //if the method you try to invoke is static...
+            obj = method.invoke(param);
         }catch(java.lang.NullPointerException ne){
-            obj = method.invoke(MyObject, param); //...if the methos is non-static
-        }      
+            //obj = method.invoke(MyObject, param); //...if the methos is non-static
+            obj = method.invoke(MyObject);
+        }
         return (T)obj;
     }
 
@@ -363,29 +365,29 @@ public class ReflectionKit<T>{
         T myObject = (T)constructor.newInstance("constructor-arg1");
         return myObject;
     }
-    
+
     public static URL getCodeSourceLocation(Class aClass) {return aClass.getProtectionDomain().getCodeSource().getLocation(); }
     public static String getClassReference(Class aClass){ return aClass.getName();}
-    
+
     /**Method for get all the class in a package with library reflections */
 //    public Set<Class<? extends Object>> getClassesByPackage(String pathToPackage){
 //        Reflections reflections = new Reflections(pathToPackage);
 //        Set<Class<? extends Object>> allClasses = reflections.getSubTypesOf(Object.class);
 //    }
-    
+
     /**
-     * 
+     *
      * @param aClass
-     * @return 
+     * @return
      * @href: http://tutorials.jenkov.com/java-reflection/annotations.html
      * @href: http://stackoverflow.com/questions/20362493/how-to-get-annotation-class-name-attribute-values-using-reflection
      * @Usage: @Resource(name = "foo", description = "bar")
      * name: foo
      * type: class java.lang.Object
-     * lookup: 
+     * lookup:
      * description: bar
      * authenticationType: CONTAINER
-     * mappedName: 
+     * mappedName:
      * shareable: true
      */
     public static List<Object[]> inspectAllAnnotationClass(Class<?> aClass)
@@ -409,22 +411,22 @@ public class ReflectionKit<T>{
             array[0] = type.getName();
             for (Method method : type.getDeclaredMethods()){
                 array[1] = method.getName();
-                array[2] = method.invoke(annotation, null);
+                array[2] = method.invoke(annotation);//annotation,null deprecated
                 list.add(array);
             }
         }
         return list;
     }
-    
+
     public static List<String[]> inspectAnnotationClass(Class<?> aClass,String methodName)
             throws IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException{
-        Method method = aClass.getMethod(methodName, null);
-        Annotation[] annotations = aClass.getAnnotations();       
+        Method method = aClass.getMethod(methodName);//methodName,null deprecated
+        Annotation[] annotations = aClass.getAnnotations();
         List<String[]> list = new ArrayList<>();
         String[] array = new String[3];
-        for (Annotation annotation : aClass.getAnnotations()){            
+        for (Annotation annotation : aClass.getAnnotations()){
             Class<? extends Annotation> type = annotation.annotationType();
-            array[0] = type.getName();    
+            array[0] = type.getName();
             array[1] = type.getFields().toString();
             array[2] = method.getName();
             list.add(array);
@@ -497,11 +499,11 @@ public class ReflectionKit<T>{
     /**
      * Method for check if exists a annotation a a filed of the specific class
      * Usage: System.out.println(isRequired(Employee.class, "email"));
-     * @required hibernate 
+     * @required hibernate
      * @param aClass
      * @param field
      * @return
-     * @throws NoSuchFieldException 
+     * @throws NoSuchFieldException
      */
     @SuppressWarnings("rawtypes")
     public static List<Object[]> getAnnotationsField(Class<?> aClass, Field field)
@@ -675,11 +677,17 @@ public class ReflectionKit<T>{
    }
 
     public static void updateAnnotationFieldValue(
-            Class<?> aClass,Class<? extends Annotation> annotationClass,String fieldName,String attributeName,String attributeValue) throws NoSuchFieldException {
-        Field fieldColumn = getFieldByName(aClass, fieldName);
-        Annotation annColumn = fieldColumn.getAnnotation(annotationClass);
-        if(annColumn!=null) {
-            ReflectionKit.updateAnnotationValue(annColumn, attributeName, attributeValue);
+        Class<?> aClass,Class<? extends Annotation> annotationClass,String fieldName,String attributeName,String attributeValue){
+        try {
+            Field fieldColumn = getFieldByName(aClass, fieldName);
+            Annotation annColumn = fieldColumn.getAnnotation(annotationClass);
+            if (annColumn != null) {
+                ReflectionKit.updateAnnotationValue(annColumn, attributeName, attributeValue);
+            }else{
+                SystemLog.warning("No annotation "+annColumn+"for the class whit attribute:"+attributeName);
+            }
+        }catch(NoSuchFieldException e){
+            SystemLog.exception(e);
         }
     }
 
@@ -755,5 +763,68 @@ public class ReflectionKit<T>{
     }
 
 
+    /**
+     * Retrieves all fields (all access levels) from all classes up the class
+     * hierarchy starting with {@code startClass} stopping with and not
+     * including {@code exclusiveParent}.
+     *
+     * Generally {@code Object.class} should be passed as
+     * {@code exclusiveParent}.
+     *
+     * @param startClass
+     *            the class whose fields should be retrieved
+     * @param exclusiveParent
+     *            if not null, the base class of startClass whose fields should
+     *            not be retrieved.
+     * @return
+     */
+    public static Iterable<Field> getFieldsUpTo(Class<?> startClass,  Class<?> exclusiveParent) {
+        List<Field> currentClassFields = new ArrayList<>();
+        currentClassFields.addAll(Arrays.asList(startClass.getDeclaredFields()));
+        Class<?> parentClass = startClass.getSuperclass();
+
+        if (parentClass != null && (exclusiveParent == null || !(parentClass.equals(exclusiveParent)))) {
+            List<Field> parentClassFields = (List<Field>) getFieldsUpTo(parentClass, exclusiveParent);
+            currentClassFields.addAll(parentClassFields);
+        }
+        return currentClassFields;
+    }
+
+
+    public static Field getFieldInClassUpTo(String fieldName,Class<?> startClass, Class<?> exclusiveParent) {
+        Field resultField = null;
+        try {
+            resultField = startClass.getDeclaredField(fieldName);
+        } catch (Exception e) {
+            // no op
+        }
+        if (resultField == null) {
+            Class<?> parentClass = startClass.getSuperclass();
+            if (parentClass != null && (exclusiveParent == null || !(parentClass.equals(exclusiveParent)))) {
+                resultField = getFieldInClassUpTo(fieldName, parentClass, exclusiveParent);
+            }
+        }
+        return resultField;
+    }
+
+    public static Object runGetter(Field field, Class<?> o) {
+        // MZ: Find the correct method
+        for (Method method : o.getMethods()) {
+            if (isGetter(method)) {
+                if (method.getName().toLowerCase().endsWith(field.getName().toLowerCase())) {
+                    // MZ: Method found, run it
+                    try {
+                        return method.invoke(o);
+                    } catch (IllegalAccessException | InvocationTargetException e) {
+                        SystemLog.exception(e);
+                    }
+
+                } else {
+                    return null;
+                }
+            }
+        }
+        return null;
+    }
 
 }

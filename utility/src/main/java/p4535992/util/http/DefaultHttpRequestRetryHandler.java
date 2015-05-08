@@ -10,7 +10,6 @@ import javax.net.ssl.SSLHandshakeException;
 import org.apache.http.NoHttpResponseException;
 import org.apache.http.client.HttpRequestRetryHandler;
 import org.apache.http.protocol.HttpContext;
-import org.apache.http.protocol.ExecutionContext;
 
 /**
  * The default {@link HttpRequestRetryHandler} used by request executors.
@@ -72,8 +71,7 @@ public class DefaultHttpRequestRetryHandler implements HttpRequestRetryHandler {
             // SSL handshake exception
             return false;
         }
-        Boolean b = (Boolean)
-            context.getAttribute(ExecutionContext.HTTP_REQ_SENT);
+        Boolean b = (Boolean)context.getAttribute("http.request_sent");//ExecutionContext.HTTP_REQ_SENT
         boolean sent = (b != null && b.booleanValue());
         if (!sent || this.requestSentRetryEnabled) {
             // Retry if the request has not been sent fully or
@@ -98,29 +96,5 @@ public class DefaultHttpRequestRetryHandler implements HttpRequestRetryHandler {
     public int getRetryCount() {
         return retryCount;
     }
-    
-    /*
-    static HttpMethodRetryHandler myretryhandler = new HttpMethodRetryHandler() {
-            public boolean retryMethod(
-                final HttpMethod method, 
-                final IOException exception, 
-                int executionCount) {
-                if (executionCount >= 5) {
-                    // Do not retry if over max retry count
-                    return false;
-                }
-                if (exception instanceof NoHttpResponseException) {
-                    // Retry if the server dropped connection on us
-                    return true;
-                }
-                if (!method.isRequestSent()) {
-                    // Retry if the request has not been sent fully or
-                    // if it's OK to retry methods that have been sent
-                    return true;
-                }
-                // otherwise do not retry
-                return false;
-            }
-        };
-    */
+
 }

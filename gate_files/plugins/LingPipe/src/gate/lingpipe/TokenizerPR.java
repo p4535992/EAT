@@ -27,7 +27,7 @@ public class TokenizerPR extends AbstractLanguageAnalyser implements
   private String outputASName;
 
   /**
-   * tokeniser factory used for tokenizing text
+   * tokeniser context used for tokenizing text
    */
   private com.aliasi.tokenizer.TokenizerFactory tf;
 

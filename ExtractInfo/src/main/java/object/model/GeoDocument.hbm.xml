@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping package="object.model">
-  <class name="object.model.GeoDocument" table="geodocument_nadia_10_h">
+  <class name="object.model.GeoDocument" table="geodocument">
     <id column="doc_id" name="doc_id" type="int">
       <generator class="increment"/>
     </id>
-    <property name="url" type="url">
+    <property name="url" type="string">
       <column name="url"/>
     </property>
     <property name="regione" type="string">
@@ -57,4 +57,12 @@
       <column name="indirizzoHasNumber"/>
     </property>
   </class>
+
+  <query name="GeoDocument.findByName">
+    <![CDATA[select g from geodocument as g where g.doc_id > 400 ]]>
+  </query>
+
+  <query name="GeoDocument.findByWeight">
+     <![CDATA[select g from geodocument as g where g.doc_id = :weight ]]>
+  </query>
 </hibernate-mapping>

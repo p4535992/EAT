@@ -111,7 +111,7 @@ public class GateDataStoreKit {
       FeatureMap corpFeatures = Factory.newFeatureMap();
       corpFeatures.put(DataStore.LR_ID_FEATURE_NAME, corpusID);
       corpFeatures.put(DataStore.DATASTORE_FEATURE_NAME, sds);
-      //tell the factory to load the Serial Corpus with the specified ID from the specified  datastore
+      //tell the context to load the Serial Corpus with the specified ID from the specified  datastore
       persistCorp = (Corpus)Factory.createResource("gate.corpora.SerialCorpusImpl", corpFeatures);
       SystemLog.message("Corpus " + persistCorp.getName() + " loaded on the datastore...");
       return persistCorp;

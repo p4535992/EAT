@@ -79,7 +79,7 @@ public class GenerationOfTriple {
         //Other param file options
         //--filepath --maxNumLines --sourcename
 
-        String[] args2 = new String[22];
+        String[] args2;
         try {
             args2 = StringKit.mergeArrays(param, value);
             String msg ="";
@@ -94,22 +94,25 @@ public class GenerationOfTriple {
                 .replace("."+FileUtil.extension(TRIPLE_OUTPUT_KARMA), "-UTF8."+FileUtil.extension(TRIPLE_OUTPUT_KARMA));
         SystemLog.message("...file of triples created in the path:" + pathOut);
 
-        List<String> lines = EncodingUtil.UnicodeEscape2UTF8(new File(pathOut));
+        List<String> lines = EncodingUtil.convertUnicodeEscapeToUTF8(new File(pathOut));
         EncodingUtil.writeLargerTextFileWithReplace2(output, lines);
         File filePathTriple = new File(pathOut);
         filePathTriple.delete();
 
+        //TEST
+        //String output = "C:\\Users\\Marco\\Documents\\GitHub\\EAT\\karma_files\\output\\\\output_karma_2015-04-UTF8.n3";
+
         File f = new File(output);
         //RIPULIAMO LETRIPLE DALLE LOCATION SENZA COORDINATE CON JENA
         SystemLog.message("Re-clean infodocument triples from the Location information  without coordinates from the file:" + output);
-
+        SystemLog.message(FileUtil.filenameNoExt(f)+","+FileUtil.path(f)+","+FileUtil.filenameNoExt(f) + "-c" + "," + FileUtil.extension(f));
         jInfo.readQueryAndCleanTripleInfoDocument(
                 FileUtil.filenameNoExt(f), //filenameInput
                 FileUtil.path(f), //filepath
                 FileUtil.filenameNoExt(f) + "-c", //fileNameOutput
                 FileUtil.extension(f), //inputFormat n3
-                OUTPUT_FORMAT_KARMA //outputFormat "ttl"
-        );
+                 OUTPUT_FORMAT_KARMA //outputFormat "ttl"
+         );
         f.delete();
 
     }

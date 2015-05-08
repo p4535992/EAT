@@ -5,10 +5,9 @@
  */
 package p4535992.util.string;
 
-import java.io.FileOutputStream;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.io.Serializable;
+import p4535992.util.log.SystemLog;
+
+import java.io.*;
 import java.util.Vector;
 
 /**
@@ -17,6 +16,7 @@ import java.util.Vector;
  * storing them in an internal StringBuffer.
  * Converts the bytes to chars, each char having 
  * as its lower 8 bits the value of each byte.
+ * Created from 4535992 2015-05-05
  */
 public class StringOutputStreamKit extends OutputStream implements Serializable {
 	
@@ -287,6 +287,61 @@ public class StringOutputStreamKit extends OutputStream implements Serializable 
 		if (j < Text.length())
 			buf.append(Text.substring(j));
 		return buf.toString();
+	}
+
+	//OTHER METHODS
+	/**
+	 * Returns a String with the content of the InputStream
+	 * @param is with the InputStream
+	 * @return string with the content of the InputStream
+	 * @throws IOException
+	 */
+	public static String convertInputStreamToString(InputStream is)
+			throws IOException {
+		if (is != null) {
+			StringBuilder sb = new StringBuilder();
+			String line;
+			try {
+				BufferedReader reader = new BufferedReader(
+						new InputStreamReader(is,"UTF-8"));
+				while ((line = reader.readLine()) != null) {
+					sb.append(line).append("\n");
+				}
+			} finally {
+				is.close();
+			}
+			return sb.toString();
+		} else {
+			return "";
+		}
+	}
+
+	/**
+	 * Returns am InputStream with the parameter.
+	 *
+	 * @param string
+	 * @return InputStream with the string value.
+	 */
+	public static InputStream convertStringToInputStream(String string) {
+		InputStream is = null;
+		try {
+			is = new ByteArrayInputStream(string.getBytes("UTF-8"));
+		} catch (UnsupportedEncodingException e) {
+			SystemLog.exception(e);
+		}
+		return is;
+	}
+
+	public static byte[] convertInputStreamToBytes(InputStream is){
+		try {
+			return new byte[is.available()];
+		}catch (IOException e){
+			return null;
+		}
+	}
+
+	public static InputStream convertBytesToInputStream(byte[] bbuf){
+		return  new ByteArrayInputStream(bbuf);
 	}
 }
 

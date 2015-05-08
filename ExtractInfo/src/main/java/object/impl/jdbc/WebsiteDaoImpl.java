@@ -1,5 +1,6 @@
 package object.impl.jdbc;
 import object.dao.jdbc.IWebsiteDao;
+import object.impl.jdbc.generic.GenericDaoImpl;
 import object.model.Website;
 import org.hibernate.SessionFactory;
 import extractor.estrattori.ExtractInfoSpring;

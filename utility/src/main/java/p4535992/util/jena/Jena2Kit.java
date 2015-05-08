@@ -54,27 +54,32 @@ public class Jena2Kit {
      */
     public static void writeModelToFile(String fullPath, com.hp.hpl.jena.rdf.model.Model model, String outputFormat) throws IOException {
         fullPath =  FileUtil.path(fullPath) + File.separator + FileUtil.filenameNoExt(fullPath)+"."+outputFormat.toLowerCase();
-        SystemLog.message("Try to write the new file of triple of infodocument to:" + fullPath + "...");
+        SystemLog.message("Try to write the new file of triple from:" + fullPath + "...");
         OUTLANGFORMAT = stringToRiotLang(outputFormat);
         OUTRDFFORMAT = stringToRDFFormat(outputFormat);
         OUTFORMAT = outputFormat.toUpperCase();
         try {
-            writeModel2File2(fullPath, model);
+            writeModelToFile2(fullPath, model);
         }catch(Exception e1){
-            SystemLog.warning("...there is was a prblem to try the write the triple file at the first tentative...");
+            SystemLog.warning("...there is was a problem to try the write the triple file at the first tentative...");
             try {
-                writeModel2File3(fullPath, model);
+                writeModelToFile3(fullPath, model);
             }catch(Exception e2){
-                SystemLog.warning("...there is was a prblem to try the write the triple file at the second tentative...");
-                try{
-                    writeModel2File(fullPath, model);//unmappable character exception
-                }catch (Exception e3){
-                    SystemLog.error("... exception during the writing of the file of triples:" + fullPath);
-                    SystemLog.exception(e3);
+                SystemLog.warning("...there is was a problem to try the write the triple file at the second tentative...");
+                try {
+                    writeModelToFile4(fullPath, model);
+                } catch (Exception e3) {
+                    SystemLog.warning("...there is was a problem to try the write the triple file at the third tentative...");
+                    try {
+                        writeModelToFile1(fullPath, model);//unmappable character exception
+                    } catch(Exception e4) {
+                        SystemLog.error("... exception during the writing of the file of triples:" + fullPath);
+                        SystemLog.exception(e4);
+                    }
                 }
             }
         }
-        SystemLog.message("... the file of triple Infodoument to:" + fullPath + " is been wrote!");
+        SystemLog.message("... the file of triple to:" + fullPath + " is been wrote!");
     }
 
     /**
@@ -84,7 +89,7 @@ public class Jena2Kit {
      * @deprecated  use {@link //com.hp.hpl.jena.rdf.model.Model.write(...)} instead.
      * @throws IOException
      */
-	private static void writeModel2File(String fullPath, com.hp.hpl.jena.rdf.model.Model model) throws IOException {
+	private static void writeModelToFile1(String fullPath, com.hp.hpl.jena.rdf.model.Model model) throws IOException {
         Charset ENCODING = StandardCharsets.UTF_8;
         FileUtil.createFile(fullPath);
         Path path = Paths.get(fullPath);
@@ -99,7 +104,7 @@ public class Jena2Kit {
      * @param fullPath
      * @param model
      */
-    private static void writeModel2File2(String fullPath, com.hp.hpl.jena.rdf.model.Model model) throws IOException {
+    private static void writeModelToFile2(String fullPath, com.hp.hpl.jena.rdf.model.Model model) throws IOException {
         FileWriter out = new FileWriter(fullPath);
         try {
             model.write(out, OUTLANGFORMAT.getName());
@@ -119,9 +124,18 @@ public class Jena2Kit {
      * @param fullPath
      * @param model
      */
-    private static void writeModel2File3 (String fullPath, com.hp.hpl.jena.rdf.model.Model model) throws FileNotFoundException {
+    private static void writeModelToFile3(String fullPath, com.hp.hpl.jena.rdf.model.Model model) throws FileNotFoundException {
         FileOutputStream outputStream = new FileOutputStream(fullPath);
         model.write(outputStream, OUTLANGFORMAT.getName());
+    }
+    /**
+     * Method  to Write large model jena to file of text
+     * @param fullPath
+     * @param model
+     */
+    private static void writeModelToFile4(String fullPath, com.hp.hpl.jena.rdf.model.Model model)throws IOException{
+        Writer writer = new FileWriter(new File(fullPath));
+        model.write(writer, OUTFORMAT);
     }
 
     public static com.hp.hpl.jena.rdf.model.Model execSparqlConstructorOnModel(String sparql,com.hp.hpl.jena.rdf.model.Model model) {
@@ -184,23 +198,10 @@ public class Jena2Kit {
         if (in == null || ! fileInput.exists()) {
             throw new IllegalArgumentException( "File: " +  fileInput + " not found");
         }
-        /*
-         model.read(inputStream, null, "N-TRIPLES") ;
-        RDFDataMgr.read(model, inputStream, LANG.NTRIPLES) ;
-        If you are just opening the stream from a file (or URL) then Apache Jena
-        will sort out the details. E.g.,
-        RDFDataMgr.read(model, "file:///myfile.nt") ;
-         */
-
-        // read the RDF/XML file
-        //org.apache.jena.riot.RDFDataMgr.read(model,filepath+"\\"+filename+"."+inputFormat);
-        //org.apache.jena.riot.RDFDataMgr.read(model, in,Lang.N3);
-        //org.apache.jena.riot.RDFDataMgr.read(model,in,stringToRiotLang("N3"));
-        //org.apache.jena.riot.RDFDataMgr.read(model,in,stringToRiotLang(inputFormat.toUpperCase()));
         SystemLog.message("Try to read file of triples from the path:" + fileInput.getAbsolutePath()+"...");
         try {
             com.hp.hpl.jena.util.FileManager.get().addLocatorClassLoader(Jena2Kit.class.getClassLoader());
-            model = com.hp.hpl.jena.util.FileManager.get().loadModel(fileInput.toURI().toString(),null,OUTFORMAT);
+            model = com.hp.hpl.jena.util.FileManager.get().loadModel(fileInput.toURI().toString(),null,INFORMAT);
         }catch(Exception e){
             try {
                 model.read(in, null, INFORMAT);
@@ -209,6 +210,7 @@ public class Jena2Kit {
                     org.apache.jena.riot.RDFDataMgr.read(model, in, INLANGFORMAT);
                 } catch (Exception e2) {
                     try {
+                        //If you are just opening the stream from a file (or URL) then Apache Jena
                         org.apache.jena.riot.RDFDataMgr.read(model,fileInput.toURI().toString());
                     } catch (Exception e3) {
                         SystemLog.exception(e3);
@@ -221,7 +223,7 @@ public class Jena2Kit {
         return model;
     }
     /**
-     * Method per il caricamento di un file di triple in un'oggetto model di JENA.
+     * Method for load a file of tuples to a jena model
      * @param file a input file
      * @return the jena model of the file
      */
@@ -235,6 +237,7 @@ public class Jena2Kit {
 
     /**
      * A list of org.apache.jena.riot.Lang file formats.
+     * @exception : "AWT-EventQueue-0" java.lang.NoSuchFieldError: RDFTHRIFT  or CSV
      */
  	private static final org.apache.jena.riot.Lang allFormatsOfRiotLang[] = new org.apache.jena.riot.Lang[] { 
             org.apache.jena.riot.Lang.NTRIPLES, org.apache.jena.riot.Lang.N3,org.apache.jena.riot.Lang.RDFXML,
@@ -360,45 +363,55 @@ public class Jena2Kit {
      * @throws IOException
      */
     private static void formatTheResultSetAndPrint(
-            String sparql,com.hp.hpl.jena.rdf.model.Model model,String fullPathOutputFile,String outputFormat)throws IOException{
+            String sparql,com.hp.hpl.jena.rdf.model.Model model,String fullPathOutputFile,String outputFormat){
+        try {
             //JSON,CSV,TSV,,RDF,SSE,XML
             com.hp.hpl.jena.rdf.model.Model resultModel;
             com.hp.hpl.jena.query.ResultSet results;
-            if(outputFormat.toLowerCase().contains("csv")||outputFormat.toLowerCase().contains("xml")
-                ||outputFormat.toLowerCase().contains("json")||outputFormat.toLowerCase().contains("tsv")
-                ||outputFormat.toLowerCase().contains("sse")||outputFormat.toLowerCase().contains("bio")
-                ||outputFormat.toLowerCase().contains("rdf")||outputFormat.toLowerCase().contains("bio")
-                    ){
+            if (outputFormat.toLowerCase().contains("csv") || outputFormat.toLowerCase().contains("xml")
+                    || outputFormat.toLowerCase().contains("json") || outputFormat.toLowerCase().contains("tsv")
+                    || outputFormat.toLowerCase().contains("sse") || outputFormat.toLowerCase().contains("bio")
+                    || outputFormat.toLowerCase().contains("rdf") || outputFormat.toLowerCase().contains("bio")
+                    ) {
 //               try (com.hp.hpl.jena.query.QueryExecution qexec2 =
 //                          com.hp.hpl.jena.query.QueryExecutionFactory.insert(sparql, model)) {
 //                      results = qexec2.execSelect() ;
 //               }
-                results = execSparqlSelectOnModel(sparql,model);
+                results = execSparqlSelectOnModel(sparql, model);
                 //PRINT THE RESULT
+                SystemLog.message("Try to write the new file of triple of infodocument to:" + fullPathOutputFile + "...");
                 FileOutputStream fos = new FileOutputStream(new File(fullPathOutputFile));
-                if(outputFormat.toLowerCase().contains("csv")){
-                    com.hp.hpl.jena.query.ResultSetFormatter.outputAsCSV(fos,results);
-                }else if(outputFormat.toLowerCase().contains("xml")){
-                    com.hp.hpl.jena.query.ResultSetFormatter.outputAsXML(fos,results);
-                }else if(outputFormat.toLowerCase().contains("json")){
-                    com.hp.hpl.jena.query.ResultSetFormatter.outputAsJSON(fos,results);
-                }else if(outputFormat.toLowerCase().contains("tsv")){
-                    com.hp.hpl.jena.query.ResultSetFormatter.outputAsTSV(fos,results);
-                }else if(outputFormat.toLowerCase().contains("sse")){
+                if (outputFormat.toLowerCase().contains("csv")) {
+                    com.hp.hpl.jena.query.ResultSetFormatter.outputAsCSV(fos, results);
+                } else if (outputFormat.toLowerCase().contains("xml")) {
+                    com.hp.hpl.jena.query.ResultSetFormatter.outputAsXML(fos, results);
+                } else if (outputFormat.toLowerCase().contains("json")) {
+                    com.hp.hpl.jena.query.ResultSetFormatter.outputAsJSON(fos, results);
+                } else if (outputFormat.toLowerCase().contains("tsv")) {
+                    com.hp.hpl.jena.query.ResultSetFormatter.outputAsTSV(fos, results);
+                } else if (outputFormat.toLowerCase().contains("sse")) {
                     com.hp.hpl.jena.query.ResultSetFormatter.outputAsSSE(fos, results);
-                }else if(outputFormat.toLowerCase().contains("bio")){
-                    com.hp.hpl.jena.query.ResultSetFormatter.outputAsBIO(fos,results);
+                } else if (outputFormat.toLowerCase().contains("bio")) {
+                    com.hp.hpl.jena.query.ResultSetFormatter.outputAsBIO(fos, results);
 //                }else if(outputFormat.toLowerCase().contains("rdf")){
 //                    com.hp.hpl.jena.query.ResultSetFormatter.outputAsRDF(fos, "RDF/XML", results);
                 }
+                SystemLog.message("... the file of triple Infodoument to:" + fullPathOutputFile + " is been wrote!");
+            } else if (outputFormat.toLowerCase().contains("ttl")) {
+                resultModel = execSparqlConstructorOnModel(sparql, model);
+                OUTLANGFORMAT = stringToRiotLang(outputFormat);
+                OUTRDFFORMAT = stringToRDFFormat(outputFormat);
+                OUTFORMAT = outputFormat.toUpperCase();
+                //Writer writer = new FileWriter(new File(fullPathOutputFile));
+                //model.write(writer, outputFormat);
+                writeModelToFile(fullPathOutputFile, model, OUTFORMAT);
+                SystemLog.message("... the file of triple Infodoument to:" + fullPathOutputFile + " is been wrote!");
             }
+        }catch(Exception e){
+            SystemLog.error("... exception during the writing of the file of triples:" + fullPathOutputFile);
+            SystemLog.exception(e);
+        }
 
-            else if(outputFormat.toLowerCase().contains("ttl")){
-                resultModel = execSparqlConstructorOnModel(sparql,model);
-                //FileOutputStream out = new FileOutputStream("Jena_test.n3");
-                Writer writer = new FileWriter(new File(fullPathOutputFile));
-                model.write(writer, outputFormat);
-            }
     }
 
     /**

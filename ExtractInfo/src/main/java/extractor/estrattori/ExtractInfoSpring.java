@@ -37,7 +37,8 @@ public class ExtractInfoSpring {
      private Integer PROCESS_PROGAMM,indGDoc ;
      private boolean CreaNuovaTabellaGeoDocumenti,ERASE;
      private Integer LIMIT,OFFSET;
-     private boolean ONTOLOGY_PROGRAMM,GENERATION_TRIPLE_KARMA_PROGRAMM,GEODOMAIN_PROGRAMM,FILTER;
+     private boolean ONTOLOGY_PROGRAMM,GENERATION_TRIPLE_KARMA_PROGRAMM,GEODOMAIN_PROGRAMM,
+             SILK_LINKING_TRIPLE_PROGRAMM,FILTER;
      private String API_KEY_GM,USER,PASS,DB_INPUT, DB_OUTPUT, TABLE_INPUT,TABLE_OUTPUT,COLUMN_TABLE_INPUT,
              TABLE_KEYWORD_DOCUMENT,DB_KEYWORD,DRIVER_DATABASE,DIALECT_DATABASE,HOST_DATABASE;
      private Integer PORT_DATABASE;
@@ -70,77 +71,82 @@ public class ExtractInfoSpring {
     public static IGeoDocumentDao geoDocumentDao = new GeoDocumentDaoImpl();
 
      public ExtractInfoSpring(SimpleParameters par){
+    try {
+        this.TYPE_EXTRACTION = par.getValue("PARAM_TYPE_EXTRACTION");
+        this.PROCESS_PROGAMM = Integer.parseInt(par.getValue("PARAM_PROCESS_PROGAMM"));
 
-            this.TYPE_EXTRACTION = par.getValue("PARAM_TYPE_EXTRACTION");
-            this.PROCESS_PROGAMM = Integer.parseInt(par.getValue("PARAM_PROCESS_PROGAMM"));
+        this.CreaNuovaTabellaGeoDocumenti = Boolean.parseBoolean(par.getValue("PARAM_CREA_NUOVA_TABELLA_GEODOCUMENT").toLowerCase());
+        this.ERASE = Boolean.parseBoolean(par.getValue("PARAM_ERASE").toLowerCase());
+        this.LIMIT = Integer.parseInt(par.getValue("PARAM_LIMIT"));
+        this.OFFSET = Integer.parseInt(par.getValue("PARAM_OFFSET"));
 
-            this.CreaNuovaTabellaGeoDocumenti = Boolean.parseBoolean(par.getValue("PARAM_CREA_NUOVA_TABELLA_GEODOCUMENT").toLowerCase());
-            this.ERASE = Boolean.parseBoolean(par.getValue("PARAM_ERASE").toLowerCase());
-            this.LIMIT = Integer.parseInt(par.getValue("PARAM_LIMIT"));
-            this.OFFSET = Integer.parseInt(par.getValue("PARAM_OFFSET"));
+        this.ONTOLOGY_PROGRAMM = Boolean.parseBoolean(par.getValue("PARAM_ONTOLOGY_PROGRAMM").toLowerCase());
+        this.GENERATION_TRIPLE_KARMA_PROGRAMM = Boolean.parseBoolean(par.getValue("PARAM_GENERATION_TRIPLE_KARMA_PROGRAMM").toLowerCase());
+        this.GEODOMAIN_PROGRAMM = Boolean.parseBoolean(par.getValue("PARAM_GEODOMAIN_PROGRAMM").toLowerCase());
 
-            this.ONTOLOGY_PROGRAMM = Boolean.parseBoolean(par.getValue("PARAM_ONTOLOGY_PROGRAMM").toLowerCase());
-            this.GENERATION_TRIPLE_KARMA_PROGRAMM = Boolean.parseBoolean(par.getValue("PARAM_GENERATION_TRIPLE_KARMA_PROGRAMM").toLowerCase());
-            this.GEODOMAIN_PROGRAMM = Boolean.parseBoolean(par.getValue("PARAM_GEODOMAIN_PROGRAMM").toLowerCase());
+        this.FILTER = Boolean.parseBoolean(par.getValue("PARAM_FILTER").toLowerCase());
+        this.API_KEY_GM = par.getValue("PARAM_API_KEY_GM");
 
-            this.FILTER = Boolean.parseBoolean(par.getValue("PARAM_FILTER").toLowerCase());
-            this.API_KEY_GM = par.getValue("PARAM_API_KEY_GM");
+        this.USER = par.getValue("PARAM_USER");
+        this.PASS = par.getValue("PARAM_PASS");
+        this.DB_INPUT = par.getValue("PARAM_DB_INPUT");
+        this.DB_OUTPUT = par.getValue("PARAM_DB_OUTPUT");
+        this.TABLE_INPUT = par.getValue("PARAM_TABLE_INPUT");
+        this.TABLE_OUTPUT = par.getValue("PARAM_TABLE_OUTPUT");
+        this.COLUMN_TABLE_INPUT = par.getValue("PARAM_COLUMN_TABLE_INPUT");
 
-            this.USER = par.getValue("PARAM_USER");
-            this.PASS = par.getValue("PARAM_PASS");
-            this.DB_INPUT = par.getValue("PARAM_DB_INPUT");
-            this.DB_OUTPUT = par.getValue("PARAM_DB_OUTPUT");
-            this.TABLE_INPUT = par.getValue("PARAM_TABLE_INPUT");
-            this.TABLE_OUTPUT = par.getValue("PARAM_TABLE_OUTPUT");
-            this.COLUMN_TABLE_INPUT = par.getValue("PARAM_COLUMN_TABLE_INPUT");
+        this.TABLE_KEYWORD_DOCUMENT = par.getValue("PARAM_TABLE_KEYWORD_DOCUMENT");
+        this.DB_KEYWORD = par.getValue("PARAM_DB_KEYWORD");
 
-            this.TABLE_KEYWORD_DOCUMENT =par.getValue("PARAM_TABLE_KEYWORD_DOCUMENT");
-            this.DB_KEYWORD =par.getValue("PARAM_DB_KEYWORD");
+        this.DRIVER_DATABASE = par.getValue("PARAM_DRIVER_DATABASE");
+        this.DIALECT_DATABASE = par.getValue("PARAM_DIALECT_DATABASE");
+        this.HOST_DATABASE = par.getValue("PARAM_HOST_DATABASE");
+        this.PORT_DATABASE = Integer.parseInt(par.getValue("PARAM_PORT_DATABASE"));
 
-            this.DRIVER_DATABASE = par.getValue("PARAM_DRIVER_DATABASE");
-            this.DIALECT_DATABASE = par.getValue("PARAM_DIALECT_DATABASE");
-            this.HOST_DATABASE = par.getValue("PARAM_HOST_DATABASE");
-            this.PORT_DATABASE = Integer.parseInt(par.getValue("PARAM_PORT_DATABASE"));
+        this.SAVE_DATASTORE = Boolean.parseBoolean(par.getValue("PARAM_SAVE_DATASTORE").toLowerCase());
 
-            this.SAVE_DATASTORE = Boolean.parseBoolean(par.getValue("PARAM_SAVE_DATASTORE").toLowerCase());
+        if (SAVE_DATASTORE) {
+            this.NOME_DATASTORE = par.getValue("PARAM_NOME_DATASTORE");
+            this.DS_DIR = par.getValue("PARAM_DS_DIR");
+            //this.RANGE = Integer.parseInt(par.getValue("PARAM_RANGE"));
+            //this.tentativiOutMemory = Integer.parseInt(par.getValue("PARAM_TENTATIVI_OUT_OF_MEMORY"));
+            GateDataStoreKit.setDataStore(DS_DIR, NOME_DATASTORE);
+        }
 
-            if(SAVE_DATASTORE){
-                this.NOME_DATASTORE = par.getValue("PARAM_NOME_DATASTORE");
-                this.DS_DIR = par.getValue("PARAM_DS_DIR");
-                //this.RANGE = Integer.parseInt(par.getValue("PARAM_RANGE"));
-                //this.tentativiOutMemory = Integer.parseInt(par.getValue("PARAM_TENTATIVI_OUT_OF_MEMORY"));
-                GateDataStoreKit.setDataStore(DS_DIR,NOME_DATASTORE);
-            }
-
-            if(GENERATION_TRIPLE_KARMA_PROGRAMM) {
-                this.TYPE_DATABASE_KARMA = par.getValue("PARAM_TYPE_DATABASE_KARMA");//MySQL
-                this.FILE_MAP_TURTLE_KARMA = par.getValue("PARAM_FILE_MAP_TURTLE_KARMA"); //PATH: karma_files/model/
-                this.FILE_OUTPUT_TRIPLE_KARMA = par.getValue("PARAM_FILE_OUTPUT_TRIPLE_KARMA");//PATH: karma_files/output/
-                this.ID_DATABASE_KARMA = par.getValue("PARAM_ID_DATABASE_KARMA");//DB
-                this.TABLE_INPUT_KARMA = par.getValue("PARAM_TABLE_INPUT_KARMA");
-                this.OUTPUT_FORMAT_KARMA = par.getValue("PARAM_OUTPUT_FORMAT_KARMA");
-                this.KARMA_HOME = par.getValue("PARAM_KARMA_HOME");
-            }
-
-
-            this.CREA_NUOVA_TABELLA_INFODOCUMENT_ONTOLOGY = Boolean.parseBoolean(par.getValue("PARAM_CREA_NUOVA_TABELLA_INFODOCUMENT_ONTOLOGY").toLowerCase());
-            this.ERASE_ONTOLOGY = Boolean.parseBoolean(par.getValue("PARAM_ERASE_ONTOLOGY").toLowerCase());
-            this.TABLE_OUTPUT_ONTOLOGY = par.getValue("PARAM_TABLE_OUTPUT_ONTOLOGY");
-            this.TABLE_INPUT_ONTOLOGY = par.getValue("PARAM_TABLE_INPUT_ONTOLOGY");
+        if (GENERATION_TRIPLE_KARMA_PROGRAMM) {
+            this.TYPE_DATABASE_KARMA = par.getValue("PARAM_TYPE_DATABASE_KARMA");//MySQL
+            this.FILE_MAP_TURTLE_KARMA = par.getValue("PARAM_FILE_MAP_TURTLE_KARMA"); //PATH: karma_files/model/
+            this.FILE_OUTPUT_TRIPLE_KARMA = par.getValue("PARAM_FILE_OUTPUT_TRIPLE_KARMA");//PATH: karma_files/output/
+            this.ID_DATABASE_KARMA = par.getValue("PARAM_ID_DATABASE_KARMA");//DB
+            this.TABLE_INPUT_KARMA = par.getValue("PARAM_TABLE_INPUT_KARMA");
+            this.OUTPUT_FORMAT_KARMA = par.getValue("PARAM_OUTPUT_FORMAT_KARMA");
+            this.KARMA_HOME = par.getValue("PARAM_KARMA_HOME");
+        }
 
 
-            this.LIMIT_GEODOMAIN = Integer.parseInt(par.getValue("PARAM_LIMIT_GEODOMAIN"));
-            this.OFFSET_GEODOMAIN = Integer.parseInt(par.getValue("PARAM_OFFSET_GEODOMAIN"));
-            this.FREQUENZA_URL_GEODOMAIN = Integer.parseInt(par.getValue("PARAM_FREQUENZA_URL_GEODOMAIN"));
-            this.TABLE_INPUT_GEODOMAIN = par.getValue("PARAM_TABLE_INPUT_GEODOMAIN");
-            this.TABLE_OUTPUT_GEODOMAIN = par.getValue("PARAM_TABLE_OUTPUT_GEODOMAIN");
-            this.DB_INPUT_GEODOMAIN = par.getValue("PARAM_DB_OUTPUT");
-            this.DB_OUTPUT_GEODOMAIN = par.getValue("PARAM_DB_OUTPUT");
-            this.CREA_NUOVA_TABELLA_GEODOMAIN = Boolean.parseBoolean(par.getValue("PARAM_CREA_NUOVA_TABELLA_GEODOMAIN").toLowerCase());
-            this.ERASE_GEODOMAIN = Boolean.parseBoolean(par.getValue("PARAM_ERASE_GEODOMAIN").toLowerCase());
+        this.CREA_NUOVA_TABELLA_INFODOCUMENT_ONTOLOGY = Boolean.parseBoolean(par.getValue("PARAM_CREA_NUOVA_TABELLA_INFODOCUMENT_ONTOLOGY").toLowerCase());
+        this.ERASE_ONTOLOGY = Boolean.parseBoolean(par.getValue("PARAM_ERASE_ONTOLOGY").toLowerCase());
+        this.TABLE_OUTPUT_ONTOLOGY = par.getValue("PARAM_TABLE_OUTPUT_ONTOLOGY");
+        this.TABLE_INPUT_ONTOLOGY = par.getValue("PARAM_TABLE_INPUT_ONTOLOGY");
 
 
-            j = new ManageJsonWithGoogleMaps(API_KEY_GM);
+        this.LIMIT_GEODOMAIN = Integer.parseInt(par.getValue("PARAM_LIMIT_GEODOMAIN"));
+        this.OFFSET_GEODOMAIN = Integer.parseInt(par.getValue("PARAM_OFFSET_GEODOMAIN"));
+        this.FREQUENZA_URL_GEODOMAIN = Integer.parseInt(par.getValue("PARAM_FREQUENZA_URL_GEODOMAIN"));
+        this.TABLE_INPUT_GEODOMAIN = par.getValue("PARAM_TABLE_INPUT_GEODOMAIN");
+        this.TABLE_OUTPUT_GEODOMAIN = par.getValue("PARAM_TABLE_OUTPUT_GEODOMAIN");
+        this.DB_INPUT_GEODOMAIN = par.getValue("PARAM_DB_OUTPUT");
+        this.DB_OUTPUT_GEODOMAIN = par.getValue("PARAM_DB_OUTPUT");
+        this.CREA_NUOVA_TABELLA_GEODOMAIN = Boolean.parseBoolean(par.getValue("PARAM_CREA_NUOVA_TABELLA_GEODOMAIN").toLowerCase());
+        this.ERASE_GEODOMAIN = Boolean.parseBoolean(par.getValue("PARAM_ERASE_GEODOMAIN").toLowerCase());
+
+        this.SILK_LINKING_TRIPLE_PROGRAMM = Boolean.parseBoolean(par.getValue("PARAM_SILK_LINKING_TRIPLE_PROGRAMM").toLowerCase());
+    }catch(java.lang.NullPointerException ne){
+        SystemLog.warning("Attention: make sure all the parameter on the input.properties file are setted correctly");
+        SystemLog.exception(ne);
+        SystemLog.abort(0,"EXIT PROGRAMM");
+    }
+    j = new ManageJsonWithGoogleMaps(API_KEY_GM);
 
             //Set the onbjects so we not call them again after each url
              Docdao.setTableSelect(TABLE_KEYWORD_DOCUMENT);
@@ -338,6 +344,9 @@ public class ExtractInfoSpring {
                         );
                         got.GenerationOfTripleWithKarmaAPIFromDataBase();
                     }
+                    if(SILK_LINKING_TRIPLE_PROGRAMM){
+                        //...in progress
+                    }
                 }
             }
             if(PROCESS_PROGAMM == 5){
@@ -347,7 +356,7 @@ public class ExtractInfoSpring {
                 geoDomainDocumentDao.setTableSelect(TABLE_OUTPUT_GEODOMAIN);
                 geoDomainDocumentDao.setTableUpdate(TABLE_OUTPUT_GEODOMAIN);
                 geoDomainDocumentDao.setDriverManager(DRIVER_DATABASE, DIALECT_DATABASE, HOST_DATABASE, PORT_DATABASE.toString(), USER, PASS, DB_OUTPUT_GEODOMAIN);
-                if (CREA_NUOVA_TABELLA_GEODOMAIN == true) {
+                if (CREA_NUOVA_TABELLA_GEODOMAIN) {
                     geoDomainDocumentDao.create(ERASE_GEODOMAIN);
                 }
                 egd = new ExtractorDomain((GeoDomainDocumentDaoImpl) geoDomainDocumentDao, LIMIT_GEODOMAIN, OFFSET_GEODOMAIN, FREQUENZA_URL_GEODOMAIN);
@@ -356,11 +365,11 @@ public class ExtractInfoSpring {
             if(PROCESS_PROGAMM == 6){
                 SystemLog.message("RUN PROCESS PROGRAMM 6:DELETE OVERRRIDE RECORD GEODOMAINDOCUMENT TABLE WITH SIIMOBILITY COORDINATES");
                 IGeoDomainDocumentDao geoDomainDocumentDao = new GeoDomainDocumentDaoImpl();
-                //geoDomainDocumentDao.setTableInsert(TABLE_OUTPUT_GEODOMAIN);
+                geoDomainDocumentDao.setTableInsert(TABLE_OUTPUT_GEODOMAIN);
                 geoDomainDocumentDao.setTableSelect(TABLE_INPUT_GEODOMAIN);
-                //geoDomainDocumentDao.setTableUpdate(TABLE_OUTPUT_GEODOMAIN);
+                geoDomainDocumentDao.setTableUpdate(TABLE_OUTPUT_GEODOMAIN);
                 geoDomainDocumentDao.setDriverManager(DRIVER_DATABASE, DIALECT_DATABASE, HOST_DATABASE, PORT_DATABASE.toString(), USER, PASS, DB_OUTPUT_GEODOMAIN);
-                if (CREA_NUOVA_TABELLA_GEODOMAIN == true) {
+                if (CREA_NUOVA_TABELLA_GEODOMAIN) {
                     geoDomainDocumentDao.create(ERASE_GEODOMAIN);
                 }
                 egd = new ExtractorDomain((GeoDomainDocumentDaoImpl) geoDomainDocumentDao, LIMIT_GEODOMAIN, OFFSET_GEODOMAIN, FREQUENZA_URL_GEODOMAIN);
@@ -391,7 +400,8 @@ public class ExtractInfoSpring {
             }
             //SET PROVINCIA
             if(StringKit.setNullForEmptyString(geo.getCity())!=null){
-               geo.setProvincia(SetProvinciaECity.checkProvincia(geo.getCity()));
+                SetProvinciaECity set = new SetProvinciaECity();
+                geo.setProvincia(set.checkProvincia(geo.getCity()));
             }
             //INTEGRAZIONE DEI CAMPI CITY-PROVINCIA-REGIONE DEI GEDOCUMENT
             if(StringKit.setNullForEmptyString(geo.getCity())!=null){
@@ -532,15 +542,7 @@ public class ExtractInfoSpring {
       
         return geo;
     }
-    
 
-    /**
-     * Return the value of FILTER
-     * @return value
-     */
-    public boolean isFILTER() {
-        return FILTER;
-    }  
        
     /**
      * Metodo di comparazione dei risultati attraverso GATE e Apache Tika per la modalità 1

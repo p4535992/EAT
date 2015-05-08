@@ -3,7 +3,6 @@ import com.ontotext.trree.OwlimSchemaRepository;
 import com.ontotext.jena.SesameDataset;
 import org.openrdf.OpenRDFException;
 import org.openrdf.model.*;
-import org.openrdf.model.impl.GraphImpl;
 import org.openrdf.model.impl.URIImpl;
 import org.openrdf.query.*;
 import org.openrdf.repository.Repository;
@@ -14,6 +13,7 @@ import org.openrdf.repository.config.RepositoryConfigException;
 import org.openrdf.repository.sail.SailRepository;
 import org.openrdf.repository.util.RDFInserter;
 import org.openrdf.rio.*;
+import org.openrdf.rio.helpers.BasicParserSettings;
 import org.openrdf.sail.memory.MemoryStore;
 import p4535992.util.file.FileUtil;
 import p4535992.util.log.SystemLog;
@@ -200,7 +200,7 @@ public class SesameUtil2 {
 
             // Open a connection to this repository
             repositoryConnection = repository.getConnection();
-            repositoryConnection.setAutoCommit(false);
+            //repositoryConnection.setAutoCommit(false);//deprecated
         } catch (OpenRDFException e) {
             SystemLog.warning("Unable to establish a connection to the repository '" + ID_REPOSITORY + "': "
                     + e.getMessage());
@@ -222,7 +222,8 @@ public class SesameUtil2 {
             throws RDFParseException, RDFHandlerException, IOException {
         Reader reader = new FileReader(configurationFile);
 
-        final Graph graph = new GraphImpl();
+        //final Graph graph = new GraphImpl();//GrapgImpl is deprecated
+        final Graph graph = null;
         RDFParser parser = Rio.createParser(format);
         RDFHandler handler = new RDFHandler() {
             @Override
@@ -1216,7 +1217,8 @@ public class SesameUtil2 {
         File[] files = directoryOfFiles.listFiles();
         try {
             for (File file: files)  {
-                repositoryConnection.add(file, "file://" + file.getAbsolutePath(), RDFFormat.forFileName(file.getAbsolutePath()));
+                //repositoryConnection.add(file, "file://" + file.getAbsolutePath(), RDFFormat.forFileName(file.getAbsolutePath()));//deprecated
+                repositoryConnection.add(file, "file://" + file.getAbsolutePath(),Rio.getParserFormatForFileName(file.getAbsolutePath()));
             }
         }
         finally {
@@ -1229,7 +1231,8 @@ public class SesameUtil2 {
 
         SystemLog.message("Loading " + file.getName() + " ");
         //Creating the right parser for the right format
-        RDFFormat format = RDFFormat.forFileName(file.getName());
+        //RDFFormat format = RDFFormat.forFileName(file.getName());
+        RDFFormat format = Rio.getParserFormatForFileName(file.getName());
         if(format == null) {
             System.out.println();
             SystemLog.warning("Unknown RDF format for file: " + file);
@@ -1258,17 +1261,32 @@ public class SesameUtil2 {
                 reader = new BufferedInputStream(new FileInputStream(file), 256 * 1024);
             }
             // create a parser config with preferred settings
-            boolean verifyData = VERIFY;
+           /* boolean verifyData = VERIFY;
             boolean stopAtFirstError = STOP_ON_ERROR;
-            boolean preserveBnodeIds = PRESERVE_BNODES;
-            ParserConfig config = new ParserConfig(verifyData, stopAtFirstError, preserveBnodeIds, RDFParser.DatatypeHandling.VERIFY);
+            boolean preserveBnodeIds = PRESERVE_BNODES;*/
+            //NEW MTHOD
+            //RioSetting settings = new RioS
+            RioSetting verifyDataSet = BasicParserSettings.VERIFY_DATATYPE_VALUES;
+            RioSetting stopAtFirstErrorSet = BasicParserSettings.FAIL_ON_UNKNOWN_DATATYPES;
+            RioSetting preserveBnodeIdsSet = BasicParserSettings.PRESERVE_BNODE_IDS;
+
+           /* RioConfig configs = new RioConfig();
+            configs.set(verifyDataSet,VERIFY);
+            configs.set(stopAtFirstErrorSet,STOP_ON_ERROR);
+            configs.set(preserveBnodeIdsSet,PRESERVE_BNODES);*/
+
+            //ParserConfig config = new ParserConfig(verifyData, stopAtFirstError, preserveBnodeIds, RDFParser.DatatypeHandling.VERIFY);
+            ParserConfig config = new ParserConfig();
+            config.set(verifyDataSet,VERIFY);
+            config.set(stopAtFirstErrorSet,STOP_ON_ERROR);
+            config.set(preserveBnodeIdsSet,PRESERVE_BNODES);
             /*RDFParser.DatatypeHandling datatypeHandling =  org.openrdf.rio.RDFParser.DatatypeHandling.NORMALIZE;*/
             long chunkSize = Long.parseLong(CHUNK_SIZE);
             long start = System.currentTimeMillis();
             // set the parser configuration for our connection
             /*ParserConfig config = new ParserConfig(verifyData, stopAtFirstError, preserveBnodeIds, datatypeHandling);*/
-            repositoryConnection.setParserConfig(config);
 
+            repositoryConnection.setParserConfig(config);
             RDFParser parser = Rio.createParser(format);
             parser.setParserConfig(config);
 

@@ -1,6 +1,7 @@
 package object.impl.jdbc;
 
 import object.dao.jdbc.IGeoDocumentDao;
+import object.impl.jdbc.generic.GenericDaoImpl;
 import object.model.GeoDocument;
 import org.hibernate.SessionFactory;
 import p4535992.util.log.SystemLog;

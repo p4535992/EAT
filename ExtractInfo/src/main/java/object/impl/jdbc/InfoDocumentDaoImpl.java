@@ -1,6 +1,7 @@
 package object.impl.jdbc;
 
 import object.dao.jdbc.IInfoDocumentDao;
+import object.impl.jdbc.generic.GenericDaoImpl;
 import object.model.GeoDocument;
 import object.model.InfoDocument;
 import org.hibernate.SessionFactory;

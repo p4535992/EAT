@@ -5,6 +5,7 @@ import p4535992.util.reflection.ReflectionKit;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.sql.*;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -102,7 +103,7 @@ public class SQLKit {
     public static Map<String,Integer> getColumns(String database,String table,String column) throws SQLException {
         DatabaseMetaData metaData = conn.getMetaData();
         ResultSet result = metaData.getColumns( null, database, table, column );
-        Map<String,Integer> map = new HashMap<String,Integer>();
+        Map<String,Integer> map = new HashMap<>();
         while(result.next()){
             String columnName = result.getString(4);
             Integer columnType = result.getInt(5);
@@ -138,6 +139,29 @@ public class SQLKit {
         System.out.println(map);
     }
 
+    private static Connection getHSQLConnection(String database,String username,String password) throws Exception {
+        Class.forName("org.hsqldb.jdbcDriver");
+        System.out.println("Driver Loaded.");
+        String url = "jdbc:hsqldb:data/"+database;
+        return DriverManager.getConnection(url, username,password);
+    }
+
+    public static Connection getMySqlConnection(String database,String username,String password) throws Exception {
+        String driver = "org.gjt.mm.mysql.Driver";
+        String url = "jdbc:mysql://localhost/"+database;
+        Class.forName(driver);
+        Connection conn = DriverManager.getConnection(url, username, password);
+        return conn;
+    }
+
+    public static Connection getOracleConnection(String database,String username,String password) throws Exception {
+        String driver = "oracle.jdbc.driver.OracleDriver";
+        String url = "jdbc:oracle:thin:@localhost:1521:"+database;
+        Class.forName(driver); // load Oracle driver
+        Connection conn = DriverManager.getConnection(url, username, password);
+        return conn;
+    }
+
 
 //    public String getJavaType( String schema, String object, String column )throws Exception {
 //        Connection con = null;
@@ -154,7 +178,20 @@ public class SQLKit {
 //    return javaType;
 //  }
 
-    public static SQLSupport generateHibernateSupport(Object object)
+    /**
+     * Method for get from a java class all the information you need for insert
+     * a data in a database a homemade very very very base similar hibernate usage
+     * @ATTENTION: you need to be sure all the getter have reference to a field with a hibernate annotation and the attribute name.
+     * @ATTENTION: you need all field of the object class have a hibernate annotation and the attribute name, or at least
+     * a personal annotation with the attribute name and a value who is the name of the column.
+     * @param object
+     * @return
+     * @throws IllegalAccessException
+     * @throws NoSuchMethodException
+     * @throws InvocationTargetException
+     * @throws NoSuchFieldException
+     */
+    public static SQLSupport generateSupport(Object object)
             throws IllegalAccessException, NoSuchMethodException, InvocationTargetException, NoSuchFieldException {
         Map<String,Class> l = ReflectionKit.inspectAndLoadGetterObject(object);
         Object[] values = new Object[l.size()];
@@ -191,30 +228,3 @@ public class SQLKit {
     }
 }
 
-class SQLSupport{
-
-    private String[] COLUMNS;
-    private Object[] VALUES;
-    private int[] TYPES;
-
-    SQLSupport(String[] columns,Object[] values,int[] types){
-        this.COLUMNS=columns;
-        this.VALUES = values;
-        this.TYPES = types;
-    }
-
-    SQLSupport(List<String> columns,List<Object> values,List<Integer> types){
-        String[] acolumns = new String[columns.size()];
-        Object[] avalues = new Object[values.size()];
-        int[] atypes = new int[types.size()];
-        for(int i = 0; i < columns.size(); i++) {
-            acolumns[i] = columns.get(i);
-            avalues[i] = values.get(i);
-            atypes[i] = types.get(i);
-        }
-        this.COLUMNS=acolumns;
-        this.VALUES = avalues;
-        this.TYPES = atypes;
-    }
-
-}

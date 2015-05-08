@@ -6,7 +6,7 @@
         <datasource-map>
           <unit-entry name="hibernate3AnnotatedSessionFactory" value="dataSource" />
           <unit-entry name="hibernate4AnnotatedSessionFactory" value="dataSource" />
-          <unit-entry name="hibernate:hibernate.cfg.xml" />
+          <unit-entry name="hibernate:hibernate.cfg.xml" value="f1f7db70-0ad9-43ae-886c-37ffdd6a154c" />
           <unit-entry name="sessionFactory" value="dataSource" />
           <unit-entry name="util:hibernate.xml" />
         </datasource-map>
@@ -55,7 +55,6 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="lib_sesame" level="application" />
     <orderEntry type="library" name="gate_8_nospring" level="project" />
     <orderEntry type="module" module-name="utility" />
     <orderEntry type="library" name="Maven: org.hibernate:hibernate-core:4.3.8.Final" level="project" />
@@ -115,17 +114,11 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-web:4.1.6.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-webmvc:4.1.6.RELEASE" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.springframework:spring-test:4.1.6.RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: joda-time:joda-time:2.3" level="project" />
-    <orderEntry type="library" name="Maven: org.jadira.usertype:usertype.core:3.0.0.CR1" level="project" />
-    <orderEntry type="library" name="Maven: org.joda:joda-money:0.6" level="project" />
-    <orderEntry type="library" name="Maven: org.jadira.usertype:usertype.spi:3.0.0.CR1" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: javax.servlet:javax.servlet-api:3.1.0" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: javax.servlet.jsp:javax.servlet.jsp-api:2.3.1" level="project" />
     <orderEntry type="library" name="Maven: jstl:jstl:1.2" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: org.slf4j:slf4j-log4j12:1.7.11" level="project" />
-    <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.11" level="project" />
-    <orderEntry type="library" name="Maven: log4j:log4j:1.2.17" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:jcl-over-slf4j:1.7.11" level="project" />
+    <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.11" level="project" />
     <orderEntry type="library" name="Maven: ch.qos.logback:logback-classic:1.0.13" level="project" />
     <orderEntry type="library" name="Maven: ch.qos.logback:logback-core:1.0.13" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: commons-logging:commons-logging:1.1.1" level="project" />
@@ -279,6 +272,8 @@
     <orderEntry type="library" name="Maven: javax.activation:activation:1.1" level="project" />
     <orderEntry type="library" name="Maven: com.sun.xml.bind:jaxb-xjc:2.2" level="project" />
     <orderEntry type="library" name="Maven: xmlunit:xmlunit:1.2" level="project" />
+    <orderEntry type="library" name="Maven: log4j:log4j:1.2.17" level="project" />
+    <orderEntry type="library" name="Maven: org.slf4j:slf4j-log4j12:1.7.11" level="project" />
     <orderEntry type="library" name="Maven: org.apache.mahout.commons:commons-cli:2.0-mahout" level="project" />
     <orderEntry type="library" name="Maven: org.apache.tika:tika-core:1.5" level="project" />
     <orderEntry type="library" name="Maven: org.apache.tika:tika-parsers:1.5" level="project" />

@@ -160,7 +160,7 @@ public class ExtractorJSOUP {
             }
             geo.setNazione(result);    
             //SystemLog.message("DESCRIPTION:" + geo.getDescription());
-            SystemLog.ticket("EDIFICIO:" + geo.getEdificio());
+            SystemLog.message("EDIFICIO:" + geo.getEdificio());
             //SystemLog.message("LANGUAGE:" + geo.getNazione());
         }else{        
             SystemLog.error("FALLITO IL GET PER LA PAGINA:" + url + " ANDIAMO ALLA SUCESSIVA");

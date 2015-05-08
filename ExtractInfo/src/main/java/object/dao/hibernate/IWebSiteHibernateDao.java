@@ -1,6 +1,6 @@
 package object.dao.hibernate;
 
-import object.dao.generic.IGenericHibernateDao;
+import object.dao.hibernate.generic.IGenericHibernateDao;
 import object.model.Website;
 
 /**

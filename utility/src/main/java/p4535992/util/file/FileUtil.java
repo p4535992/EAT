@@ -10,6 +10,8 @@ import p4535992.util.log.SystemLog;
 import java.io.*;
 import java.net.MalformedURLException;
 import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.util.*;
 import java.util.zip.GZIPInputStream;
 
@@ -182,6 +184,21 @@ public class FileUtil {
         return files;
     }
 
+    /**
+     * Removes all files from a given folder
+     */
+    public static void removeDirectory(String path)
+    {
+        File filePath = new File(path);
+        if (filePath.exists()) {
+            for (String fileInDirectory : filePath.list()) {
+                File tmpFile = new File(path + "/" + fileInDirectory);
+                tmpFile.delete();
+            }
+            filePath.delete();
+        }
+    }
+
     public static URI convertFileToUri(File file){
         return file.toURI();
     }
@@ -197,6 +214,10 @@ public class FileUtil {
     public static InputStream convertURIToStream(URI uri) throws IOException {
         return uri.toURL().openStream();
         //is.close();
+    }
+
+    public static File convertResourceToFile(String referenceResourcePath) throws URISyntaxException{
+        return new File(FileUtil.class.getClassLoader().getResource(referenceResourcePath).getFile());
     }
 
     /**
@@ -242,10 +263,9 @@ public class FileUtil {
             //1 Method
             //File currentDirFile = new File("");
             //dir = currentDirFile.getAbsolutePath();
-
             //2 Method
-            dir = System.getProperty("user.dir");
-            dir = convertFileToUri2(dir)+"/";
+            dir = System.getProperty("user.dir")+File.separator;
+            //dir = convertFileToUri2(dir)+"/";
             //dir = helper.substring(0, helper.length() - currentDirFile.getCanonicalPath().length());
         } catch (Exception e) {
             dir = null;
@@ -334,14 +354,14 @@ public class FileUtil {
 //        File f = new File("/spring-hibernate4v2.xml");
     }
 
-    public static String getStringFromResourceFile(String fileName) {
+    public static String getResourceAsString(String fileName) {
         StringBuilder result = new StringBuilder("");
         //Get file from resources folder
-        //ClassLoader classLoader = getClass().getClassLoader();
-        //File file = new File(classLoader.getResource(fileName).getFile());
-        File file = new File(FileUtil.class.getResource(fileName).getFile());
+        //getClass().getResource("")
+        ClassLoader classLoader = FileUtil.class.getClassLoader();
+        File file = new File(classLoader.getResource(fileName).getFile());
+        //File file = new File(FileUtil.class.getResource(fileName).getFile());
         try (Scanner scanner = new Scanner(file)) {
-
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine();
                 result.append(line).append("\n");
@@ -351,6 +371,43 @@ public class FileUtil {
             e.printStackTrace();
         }
         return result.toString();
+    }
+
+    public static InputStream getResourceAsStream(Class<?> clazz,String name) {
+
+        name = resolveName(name);
+        ClassLoader cl = clazz.getClassLoader();
+        if (cl==null) {
+            // A system class.
+            return ClassLoader.getSystemResourceAsStream(name);
+        }
+        return cl.getResourceAsStream(name);
+    }
+
+    /**
+
+     * Add a package name prefix if the name is not absolute Remove leading "/"
+     * if name is absolute
+     */
+    public static String resolveName(String name) {
+        if (name == null) {
+            return name;
+        }
+        if (!name.startsWith("/")) {
+            Class c = FileUtil.class;
+            while (c.isArray()) {
+                c = c.getComponentType();
+            }
+            String baseName = c.getName();
+            int index = baseName.lastIndexOf('.');
+            if (index != -1) {
+                name = baseName.substring(0, index).replace('.', '/')
+                        +"/"+name;
+            }
+        } else {
+            name = name.substring(1);
+        }
+        return name;
     }
 
 
@@ -453,6 +510,7 @@ public class FileUtil {
     //OTHER METHODS WITH COMMONS UTIL APACHE
     /////////////////////////////////////////
 
+
     /*public static File stream2fileWithUtil (InputStream in,String filename,String extension) throws IOException {
         String PREFIX = filename;
         String SUFFIX = "."+extension;
@@ -478,13 +536,12 @@ public class FileUtil {
 
 
     /////////////////////////////////
-    //OTHER EMTHODS DERPECATED
+    //OTHER METHODS DERPECATED
     ///////////////////////////////
 
     /**
      * Get current working directory as a URI.
      */
-
     /*public static String uriFromCwd() {
         String cwd = System.getProperty("user.dir");
         return uriFromFilename( cwd ) + "/" ;

@@ -55,7 +55,7 @@ import com.ontotext.kim.util.StringTransformations;
  * normalization and hash-codes calculation.<br>
  * <br>
  * An instance of the <code>AliasCacheImpl</code> class is obtained through
- * a synchronized factory method.
+ * a synchronized context method.
  * 
  * @author danko
  *
