@@ -11,7 +11,7 @@ import java.util.List;
  * Created by Marco on 02/04/2015.
  */
 public interface IGeoDocumentDao extends IGenericDao<GeoDocument> {
-    void setDriverManager(String driver, String typeDb, String host, String port, String user, String pass, String database);
+    void setDriverManager(String driver, String dialectDB, String host, String port, String user, String pass, String database);
     void setTableInsert(String nameOfTable);
     void setTableSelect(String nameOfTable);
     void setNewJdbcTemplate();

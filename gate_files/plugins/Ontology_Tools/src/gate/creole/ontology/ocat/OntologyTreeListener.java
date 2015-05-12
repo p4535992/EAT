@@ -463,7 +463,7 @@ public class OntologyTreeListener extends MouseAdapter {
     return null;
   }
 
-  /** Method to select the children node as well */
+  /** Method to trySelect the children node as well */
   void setChildrenSelection(IFolder node, boolean value) {
     ontologyTreePanel.setSelected(node.toString(), value);
     if(node.getChildCount() > 0) {

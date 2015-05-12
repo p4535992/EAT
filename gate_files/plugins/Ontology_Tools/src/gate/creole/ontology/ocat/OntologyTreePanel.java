@@ -561,7 +561,7 @@ public class OntologyTreePanel extends JPanel {
   }
 
   /**
-   * This method select/deselect the classes in the classSelectionMap
+   * This method trySelect/deselect the classes in the classSelectionMap
    * 
    * @param className
    * @param value

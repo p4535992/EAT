@@ -1,32 +1,62 @@
 package extractor.hibernate;
+import extractor.hibernate.finder.FinderArgumentTypeFactory;
+import extractor.hibernate.finder.FinderExecutor;
+import extractor.hibernate.finder.FinderNamingStrategy;
+import extractor.hibernate.finder.impl.SimpleFinderArgumentTypeFactory;
+import extractor.hibernate.finder.impl.SimpleFinderNamingStrategy;
+import object.dao.hibernate.generic.IGenericHibernateDao;
+import object.model.GeoDocument;
+import org.hibernate.criterion.Criterion;
 import p4535992.util.log.SystemLog;
 import java.io.File;
+import java.io.Serializable;
+import java.lang.annotation.Annotation;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
-import org.hibernate.cfg.Configuration;
 import p4535992.util.reflection.ReflectionKit;
 
 /**
  * LIttle Class for help with first steps to Hibernate
  * @author 4535992
  */
-public abstract class Hibernate4Kit<T> implements IHibernateKit<T> {
+public class Hibernate4Kit<T> implements IGenericHibernateDao<T>{
 
+    private static Hibernate4Kit instance;
     private static org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger(Hibernate4Kit.class);
     protected  String myInsertTable,mySelectTable,myUpdateTable;
     protected  org.hibernate.SessionFactory sessionFactory;
     protected  org.hibernate.Session session;
     protected  org.hibernate.service.ServiceRegistry serviceRegistry;
-    protected  Configuration configuration;
+    protected  org.hibernate.cfg.Configuration configuration;
     protected  File PATH_CFG_HIBERNATE;
     protected  boolean cfgXML;
-    protected  org.hibernate.Criteria criteria;
+    protected  org.hibernate.Criteria criteria,specificCriteria;
     protected  org.hibernate.Transaction trns;
     protected  org.hibernate.SQLQuery SQLQuery;
     protected  org.hibernate.Query query;
     protected  Class<T> cl;
     protected  String clName,sql;
+
+
+    //CONSTRUCTOR
+
+    public static Hibernate4Kit newInstance() {
+        if (instance == null) {
+            instance = new Hibernate4Kit();
+        }
+        return instance;
+    }
+
+    public static Hibernate4Kit newInstance(
+            org.hibernate.Session session,org.hibernate.SessionFactory sessionFactory) {
+        if (instance == null) {
+            instance = new Hibernate4Kit(session,sessionFactory);
+        }
+        return instance;
+    }
 
     public Hibernate4Kit(){
         java.lang.reflect.Type t = getClass().getGenericSuperclass();
@@ -37,13 +67,28 @@ public abstract class Hibernate4Kit<T> implements IHibernateKit<T> {
 
     public Hibernate4Kit(Class<T> cl){
         this.cl = cl;
+        this.clName = cl.getSimpleName();
     }
 
+    public Hibernate4Kit(
+            org.hibernate.Session session,org.hibernate.SessionFactory sessionFactory){
+        this.session = session;
+        this.sessionFactory = sessionFactory;
+        java.lang.reflect.Type t = getClass().getGenericSuperclass();
+        java.lang.reflect.ParameterizedType pt = (java.lang.reflect.ParameterizedType) t;
+        this.cl = (Class) pt.getActualTypeArguments()[0];
+        this.clName = cl.getSimpleName();
+    }
 
-    public void setNewConfiguration(){
+    /***
+     * Method for try into o many ways to set a configuration objct from a file
+     */
+    private void setNewConfiguration(){
+
         //configuration = new Configuration();
         //URL urlStatic = Thread.currentThread().getContextClassLoader().getResource(PATH_CFG_HIBERNATE.getAbsolutePath());
         //configuration.configure(urlStatic);
+        SystemLog.hibernate("Try to set a new configuration...");
         if(cfgXML) {
             try {
                 //You can put the configuration file where you want but you must pay attention
@@ -51,51 +96,49 @@ public abstract class Hibernate4Kit<T> implements IHibernateKit<T> {
                 //Web-project -> WEB-INF/pojo.hbm.xml
                 //Maven-project -> resources/pojo.hbm.xml ->
                 //THis piece of code can be better
-                configuration=  new Configuration().configure(PATH_CFG_HIBERNATE);
+                configuration=  new org.hibernate.cfg.Configuration().configure(PATH_CFG_HIBERNATE);
             }catch(Exception ex6){
                 try {
-                    configuration = new Configuration().configure(PATH_CFG_HIBERNATE.getAbsolutePath()); //work on Netbeans
+                    configuration = new org.hibernate.cfg.Configuration().configure(PATH_CFG_HIBERNATE.getAbsolutePath()); //work on Netbeans
                 } catch (Exception ex) {
                     try {
-                        configuration = new Configuration().configure(PATH_CFG_HIBERNATE.getCanonicalPath());
+                        configuration = new org.hibernate.cfg.Configuration().configure(PATH_CFG_HIBERNATE.getCanonicalPath());
                     } catch (Exception ex3) {
                         try {
-                            configuration = new Configuration().configure(PATH_CFG_HIBERNATE.getPath());
+                            configuration = new org.hibernate.cfg.Configuration().configure(PATH_CFG_HIBERNATE.getPath());
                         } catch (Exception ex4) {
                             try {
-                                configuration = new Configuration().configure(PATH_CFG_HIBERNATE.getAbsoluteFile());
+                                configuration = new org.hibernate.cfg.Configuration().configure(PATH_CFG_HIBERNATE.getAbsoluteFile());
                             }catch(Exception ex9){
-                                throw new ExceptionInInitializerError("Failed to load the configurationfile");
+                                SystemLog.warning("...failed to load the configuration file to the path:"+PATH_CFG_HIBERNATE.getAbsolutePath());
+                                SystemLog.exception(ex9);
                             }
                         }
                     }
                 }
             }
         }else{
-            /**deprecated in Hibernate 4.3*/
-            //configuration = new AnnotationConfiguration();
-            configuration = new Configuration().configure();
+            try {
+                /**deprecated in Hibernate 4.3*/
+                //configuration = new AnnotationConfiguration();
+                configuration = new org.hibernate.cfg.Configuration().configure();
+            }catch(org.hibernate.HibernateException e){
+                SystemLog.exception(e);
+            }
         }
     }
 
-    /**
-     * Get the configuration parameter
-     * @return configuration
-     */
-    public Configuration getConfiguration(){
-        return configuration;
-    }
-
     /**Set the Service Registry*/
+    @Override
     public void setNewServiceRegistry() {
         /**deprecated in Hibernate 4.3*/
         //serviceRegistry = new ServiceRegistryBuilder().applySettings(
         //        configuration.getProperties()). buildServiceRegistry();
         if(configuration != null) {
-            serviceRegistry = new org.hibernate.boot.registry.StandardServiceRegistryBuilder().applySettings(
-                    configuration.getProperties()).build();
+            serviceRegistry = new org.hibernate.boot.registry.StandardServiceRegistryBuilder()
+                    .applySettings(configuration.getProperties()).build();
         }else{
-            throw new ExceptionInInitializerError("Try to set a ServiceRegistry without have configurate the Configuration");
+           SystemLog.warning("Try to set a ServiceRegistry without have configurate the Configuration");
         }
     }
 
@@ -108,6 +151,15 @@ public abstract class Hibernate4Kit<T> implements IHibernateKit<T> {
     }
 
     /**
+     * Get the mapping of the selected class
+     * @param entityClass
+     * @return
+     */
+    public org.hibernate.mapping.PersistentClass getClassMapping(Class entityClass){
+        return configuration.getClassMapping(entityClass.getName());
+    }
+
+    /**
      * Get the  SessionFactory
      * @return sessionFactory
      */
@@ -116,6 +168,7 @@ public abstract class Hibernate4Kit<T> implements IHibernateKit<T> {
         return sessionFactory;
     }
 
+    @Override
     public void setSessionFactory(org.hibernate.SessionFactory sessionFactory)
     {
         this.sessionFactory = sessionFactory;
@@ -130,13 +183,55 @@ public abstract class Hibernate4Kit<T> implements IHibernateKit<T> {
         return session;
     }
 
+    /**
+     * Set the Session
+     * @param session
+     */
+    @Override
+    public void setSession(org.hibernate.Session session){
+        this.session = session;
+    }
+
     /**Close caches and connection pool*/
     @Override
     public void shutdown() {
-        session.close();
-        sessionFactory.close();
-        sessionFactory = null;
-        session = null;
+        SystemLog.hibernate("try to closing session ... ");
+        if (getCurrentSession() != null) {
+            getCurrentSession().flush();
+            session.flush();
+            if (session.isOpen()) {
+                session.close();
+                getCurrentSession().close();
+            }
+        }
+        SystemLog.hibernate("...session is closed! try to close the SessionFactory ... ");
+        if (sessionFactory != null) {
+            sessionFactory.close();
+        }
+        SystemLog.hibernate("... the SessionFactory is closed!");
+        this.configuration = null;
+        this.sessionFactory = null;
+        this.session = null;
+    }
+
+    /**
+     * Method for suppor the reset of specific parameter of the class
+     */
+    private void reset(){
+       /* if (getCurrentSession() != null) {
+            getCurrentSession().flush();
+            if (getCurrentSession().isOpen()) {
+                getCurrentSession().close();
+            }
+        }*/
+        if (session != null) {
+            session.flush();
+            if(session.isOpen()) {
+                session.close();
+            }
+        }
+        criteria = null;
+        specificCriteria = null;
     }
 
     /**
@@ -148,10 +243,23 @@ public abstract class Hibernate4Kit<T> implements IHibernateKit<T> {
         session = sessionFactory.openSession();
     }
 
+    /**
+     * Close a Session
+     */
     @Override
     public void closeSession() {
         session.close();
     }
+
+    /**
+     * Close and Open a Session
+     */
+    @Override
+    public void restartSession() {
+        openSession();
+        closeSession();
+    }
+
     /**
      * Returns a session from the session context. If there is no session in the context it opens a session,
      * stores it in the context and returns it.
@@ -165,8 +273,11 @@ public abstract class Hibernate4Kit<T> implements IHibernateKit<T> {
         return sessionFactory.getCurrentSession();
     }
 
-
-    public void buildSessionFactory() {
+    /**
+     * Method to build the sessionFactory for Hibernate froma configuration file or from
+     * a java code.
+     */
+    private void buildSessionFactory() {
         try {
             if(PATH_CFG_HIBERNATE !=null) {
                 cfgXML = true;
@@ -181,7 +292,8 @@ public abstract class Hibernate4Kit<T> implements IHibernateKit<T> {
                 sessionFactory = configuration.buildSessionFactory(serviceRegistry);
             }
         } catch (Throwable ex) {
-            throw new ExceptionInInitializerError("Initial SessionFactory creation failed." + ex);
+            SystemLog.warning("Initial SessionFactory creation failed.");
+            SystemLog.throwException(ex);
         }
     }
 
@@ -198,7 +310,7 @@ public abstract class Hibernate4Kit<T> implements IHibernateKit<T> {
                 buildSessionFactory();
             }
         } catch (Throwable ex) {
-            throw new ExceptionInInitializerError(ex);
+           SystemLog.throwException(ex);
         }
     }
 
@@ -214,7 +326,7 @@ public abstract class Hibernate4Kit<T> implements IHibernateKit<T> {
                    buildSessionFactory();
                }                    
            } catch (Throwable ex) {
-                   throw new ExceptionInInitializerError(ex);
+                   SystemLog.throwException(ex);
            }
     }
 
@@ -229,7 +341,7 @@ public abstract class Hibernate4Kit<T> implements IHibernateKit<T> {
                 buildSessionFactory();
             }
         } catch (Throwable ex) {
-            throw new ExceptionInInitializerError(ex);
+            SystemLog.throwException(ex);
         }
     }
 
@@ -289,7 +401,7 @@ public abstract class Hibernate4Kit<T> implements IHibernateKit<T> {
             }
             buildSessionFactory();
         } catch (Throwable ex) {
-            throw new ExceptionInInitializerError(ex);
+            SystemLog.throwException(ex);
         }
     }//buildSessionFactory
 
@@ -355,12 +467,17 @@ public abstract class Hibernate4Kit<T> implements IHibernateKit<T> {
             }
             buildSessionFactory();
         }catch (Throwable ex) {
-            throw new ExceptionInInitializerError(ex);
+            SystemLog.throwException(ex);
         }
     }//buildSessionFactory
 
+
+    //CRUD OPERATION HIBERNATE
+
     @Override
-    public void insert(T object) {
+    @javax.transaction.Transactional
+    public Serializable insertRow(T object) {
+        Serializable id = null;
         try {
             openSession();
             trns = session.beginTransaction();
@@ -368,36 +485,70 @@ public abstract class Hibernate4Kit<T> implements IHibernateKit<T> {
             session.save(object);
             session.getTransaction().commit();
             SystemLog.message("[HIBERNATE] Insert the item:" + object);
+            id = session.getIdentifier(object);
+            SystemLog.message("[HIBERNATE] Get the identifier:" + id);
         } catch (RuntimeException e) {
             if (trns != null) { trns.rollback();}
             SystemLog.exception(e);
         } finally {
-            session.flush();
-            session.close();
+            reset();
         }
+        return id;
     }
 
     @Override
-    public List<T> select() {
-        List<T> listT = new ArrayList<>();
+    public T selectRow(Serializable id){
+        T object = null;
         try {
             openSession();
             trns = session.beginTransaction();
             criteria = session.createCriteria(cl);
-            listT = criteria.list();
-            if(listT.size() == 0){SystemLog.warning("[HIBERNATE] The returned list is empty!1");}
+            //WORK
+            criteria.add(org.hibernate.criterion.Restrictions.eq("doc_id",id));
+            List<T> results = criteria.list();
+            SystemLog.message("[HIBERNATE] Select the item:" + results.get(0));
+            //NOT WORK
+            //object = (T) criteria.setFirstResult((Integer) id);
+            //SystemLog.message("[HIBERNATE] Select the item:" + object.toString());
+            object = (T) session.load(cl, id);
+            SystemLog.message("[HIBERNATE] Select the item:" + object.toString());
         } catch (RuntimeException e) {
             if (trns != null) { trns.rollback();}
             SystemLog.exception(e);
         } finally {
-            session.flush();
-            session.close();
+            reset();
+        }
+        return object;
+    }
+
+    @Override
+    @javax.transaction.Transactional
+    public List<T> selectRows() {
+        List<T> listT = new ArrayList<>();
+        try {
+            openSession();
+            trns = session.beginTransaction();
+            if(specificCriteria==null){
+                criteria = session.createCriteria(cl);
+            }else{
+                criteria =specificCriteria;
+            }
+            listT = criteria.list();
+            if(listT.size() == 0){
+                SystemLog.warning("[HIBERNATE] The returned list is empty!1");
+            }
+        } catch (RuntimeException e) {
+            if (trns != null) { trns.rollback();}
+            SystemLog.exception(e);
+        } finally {
+            reset();
         }
         return listT;
     }
 
     @Override
-    public List<T> select(String nameColumn,int limit,int offset) {
+    @javax.transaction.Transactional
+    public List<T> selectRows(String nameColumn,int limit,int offset) {
         List<T> listT = new ArrayList<>();
         try {
             openSession();
@@ -408,23 +559,26 @@ public abstract class Hibernate4Kit<T> implements IHibernateKit<T> {
             trns = session.beginTransaction();
             criteria = session.createCriteria(cl);
             listT = query.list();
-            if(listT.size() == 0){SystemLog.warning("[HIBERNATE] The returned list is empty!1");}
+            if(listT.size() == 0){
+                SystemLog.warning("[HIBERNATE] The returned list is empty!1");
+            }
         } catch (RuntimeException e) {
             if (trns != null) { trns.rollback();}
             SystemLog.exception(e);
         } finally {
-            session.flush();
-            session.close();
+            reset();
         }
         return listT;
     }
 
     @Override
+    @javax.transaction.Transactional
     public int getCount() {
         Object result = null;
         try {
             openSession();
             trns = session.beginTransaction();
+            //session.beginTransaction();
             criteria = session.createCriteria(cl);
             criteria.setProjection(org.hibernate.criterion.Projections.rowCount());
             result = criteria.uniqueResult();
@@ -433,66 +587,139 @@ public abstract class Hibernate4Kit<T> implements IHibernateKit<T> {
             if (trns != null) { trns.rollback();}
             SystemLog.exception(e);
         } finally {
-            session.flush();
-            session.close();
+            reset();
         }
         return (int)result;
     }
 
     @Override
-    public void update(T object, String whereColumn, Object whereValue) {
+    @javax.transaction.Transactional
+    public Serializable updateRow(String whereColumn, Object whereValue) {
+        Serializable id = null;
         try{
             openSession();
             trns = session.beginTransaction();
-            session.beginTransaction();
+            //session.beginTransaction();
             criteria = session.createCriteria(cl);
             criteria.add(org.hibernate.criterion.Restrictions.eq(whereColumn, whereValue));
             T t = (T)criteria.uniqueResult();
             //t.setName("Abigale");
-            t = object;
+            //t = object;
+            session.saveOrUpdate(t);
             session.getTransaction().commit();
-            SystemLog.message("[HIBERNATE] Update the item:"+ object);
+            SystemLog.message("[HIBERNATE] Update the item:" + t.toString());
+            id = session.getIdentifier(t);
+            SystemLog.message("[HIBERNATE] Get the identifier:" + id);
         } catch (RuntimeException e) {
             if (trns != null) { trns.rollback();}
             SystemLog.exception(e);
         } finally {
-            session.flush();
-            session.close();
+            reset();
         }
+        return id;
     }
 
+
     @Override
-    public void delete(String whereColumn, Object whereValue) {
+    @javax.transaction.Transactional
+    public Serializable updateRow(T object) {
+        Serializable id = null;
         try{
             openSession();
             trns = session.beginTransaction();
-            session.beginTransaction();
+            //session.beginTransaction();
+            session.saveOrUpdate(object);
+            session.getTransaction().commit();
+            SystemLog.message("[HIBERNATE] Update the item:" + object.toString());
+            id = session.getIdentifier(object);
+            SystemLog.message("[HIBERNATE] Get the identifier:" + id);
+        } catch (RuntimeException e) {
+            if (trns != null) { trns.rollback();}
+            SystemLog.exception(e);
+        } finally {
+            reset();
+        }
+        return id;
+    }
+
+    @Override
+    @javax.transaction.Transactional
+    public Serializable deleteRow(String whereColumn, Object whereValue) {
+        Serializable id = null;
+        try{
+            openSession();
+            trns = session.beginTransaction();
+            //session.beginTransaction();
             criteria = session.createCriteria(cl);
             criteria.add(org.hibernate.criterion.Restrictions.eq(whereColumn, whereValue));
             T t = (T)criteria.uniqueResult();
             session.delete(t);
             session.getTransaction().commit();
-            SystemLog.message("[HIBERNATE] Delete the item:"+t);
+            SystemLog.message("[HIBERNATE] Delete the item:" + t);
+            id = session.getIdentifier(t);
+            SystemLog.message("[HIBERNATE] Get the identifier:" + id);
         } catch (RuntimeException e) {
             if (trns != null) { trns.rollback();}
             SystemLog.exception(e);
         } finally {
-            session.flush();
-            session.close();
+            reset();
         }
+        return id;
+    }
+
+    @Override
+    @javax.transaction.Transactional
+    public Serializable deleteRow(T object) {
+        Serializable id = null;
+        try{
+            openSession();
+            trns = session.beginTransaction();
+            //session.beginTransaction();
+            session.delete(object);
+            session.getTransaction().commit();
+            SystemLog.message("[HIBERNATE] Delete the item:" + object);
+            id = session.getIdentifier(object);
+            SystemLog.message("[HIBERNATE] Get the identifier:" + id);
+        } catch (RuntimeException e) {
+            if (trns != null) { trns.rollback();}
+            SystemLog.exception(e);
+        } finally {
+            reset();
+        }
+        return id;
+    }
+
+    //METHOD FOR MODIFY THE ANNOTATION OF HIBERNATE IN RUNTIME
+
+    @Override
+    public void updateAnnotationEntity(String nameOfAttribute, String newValueAttribute) {
+        ReflectionKit.updateAnnotationClassValue(cl, javax.persistence.Entity.class, nameOfAttribute, newValueAttribute);
     }
 
     @Override
     public void updateAnnotationTable(String nameOfAttribute, String newValueAttribute){
-        ReflectionKit.updateAnnotationClassValue(cl,javax.persistence.Entity.class,nameOfAttribute,newValueAttribute);
+        ReflectionKit.updateAnnotationClassValue(cl, javax.persistence.Table.class, nameOfAttribute, newValueAttribute);
     }
     @Override
     public void updateAnnotationColumn(String nameField, String nameOfAttribute, String newValueAttribute) throws NoSuchFieldException {
-        ReflectionKit.updateAnnotationFieldValue(cl, javax.persistence.Column.class,nameField, nameOfAttribute, newValueAttribute);
+        ReflectionKit.updateAnnotationFieldValue(cl, javax.persistence.Column.class, nameField, nameOfAttribute, newValueAttribute);
     }
     @Override
     public void updateAnnotationJoinColumn(String nameField, String nameOfAttribute, String newValueAttribute) throws NoSuchFieldException {
-        ReflectionKit.updateAnnotationFieldValue(cl, javax.persistence.JoinColumn.class,nameField, nameOfAttribute, newValueAttribute);
+        ReflectionKit.updateAnnotationFieldValue(cl, javax.persistence.JoinColumn.class, nameField, nameOfAttribute, newValueAttribute);
+    }
+
+    @Override
+    public List<Object[]> getAnnotationTable() {
+        Annotation ann = GeoDocument.class.getAnnotation(javax.persistence.Table.class);
+        return ReflectionKit.getAnnotationClass(ann);
+    }
+
+    //SUPPORT METHOD FOR THE CRITERIA
+    @Override
+    public void setNewCriteria(Criterion criterion){
+        specificCriteria = session.createCriteria(cl);
+        this.specificCriteria.add(criterion);
     }
 
 
@@ -500,48 +727,6 @@ public abstract class Hibernate4Kit<T> implements IHibernateKit<T> {
 
 
 
-    //OTHER METHODS
-    /*public static Class createNewClass(String annotatedClassName,String pathPackageToAnnotatedClass)
-            throws ClassNotFoundException, InstantiationException, IllegalAccessException, NoSuchMethodException, IllegalArgumentException, InvocationTargetException {
-        Class cls = Class.forName(pathPackageToAnnotatedClass+"."+annotatedClassName).getConstructor().newInstance().getClass();
-        //You can use reflection : Class.forName(className).getConstructor(String.class).newInstance(arg);
-        SystemLog.message("Create new Class Object con Name: " + cls.getName());
-        return cls;
-    }
 
-    public static Class createNewClass(String pathPackageToAnnotatedClass) throws ClassNotFoundException, InstantiationException, IllegalAccessException, NoSuchMethodException, IllegalArgumentException, InvocationTargetException{
-        //e.g. oracle.jdbc.driver.OracleDriver#sthash.4rtwgiWJ.dpuf
-        Class cls = Class.forName(pathPackageToAnnotatedClass).getConstructor().newInstance().getClass();
-        SystemLog.message("Create new Class Object con Name: " + cls.getName());
-        return cls;
-    }
-
-    public static Constructor castObjectToSpecificConstructor(Class newClass){
-        Constructor constructor = null;
-        try{
-            constructor = newClass.getConstructor(new Class[]{});
-        }catch(Exception e){
-        }
-        return constructor;
-    }
-
-    public static Object castObjectToSpecificClass(Class newClass,Object obj){
-        Object obj2 = new Object();
-        try{
-            obj2 = newClass.cast(obj);
-        }catch(Exception e){
-        }
-        return obj2;
-    }
-
-    public static Object castObjectToSpecificObject(Object obj,String pathPackageToObjectAnnotated)
-            throws ClassNotFoundException, InstantiationException, IllegalAccessException, NoSuchMethodException, IllegalArgumentException, InvocationTargetException{
-        Class clsObjectAnnotated = createNewClass(pathPackageToObjectAnnotated);
-        Constructor cons = castObjectToSpecificConstructor(clsObjectAnnotated);
-        obj = (Object)cons.newInstance();
-        return obj;
-    }*/
 }//end of the class
-
-
 

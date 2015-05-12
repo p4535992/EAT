@@ -41,7 +41,7 @@ public class OntologyViewerOptions implements DocumentListener {
   private JPanel optionPanel;
 
   /**
-   * Indicates whether to select all subclasses when a super class is selected
+   * Indicates whether to trySelect all subclasses when a super class is selected
    * or not.
    */
   private JCheckBox childFeatureCB;

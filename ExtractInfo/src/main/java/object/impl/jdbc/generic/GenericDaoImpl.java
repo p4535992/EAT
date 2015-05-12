@@ -8,17 +8,21 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import p4535992.util.reflection.ReflectionKit;
 import p4535992.util.sql.SQLKit;
 import p4535992.util.sql.SQLSupport;
 import p4535992.util.string.StringKit;
-import spring.bean.BeansKit;
+import bean.BeansKit;
 import p4535992.util.log.SystemLog;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.sql.DataSource;
 import java.io.IOException;
+import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.net.URL;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -51,10 +55,10 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
     }
 
     @Override
-    public void setDriverManager(String driver, String typeDb, String host, String port, String user, String pass, String database) {
+    public void setDriverManager(String driver, String dialectDB, String host, String port, String user, String pass, String database) {
         driverManag = new DriverManagerDataSource();
         driverManag.setDriverClassName(driver);//"com.sql.jdbc.Driver"
-        driverManag.setUrl("" + typeDb + "://" + host + ":" + port + "/" + database); //"jdbc:sql://localhost:3306/jdbctest"
+        driverManag.setUrl("" + dialectDB + "://" + host + ":" + port + "/" + database); //"jdbc:sql://localhost:3306/jdbctest"
         driverManag.setUsername(user);
         driverManag.setPassword(pass);
         this.dataSource = driverManag;
@@ -303,7 +307,7 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
     @Override
     public void tryInsert(T object) {
         try {
-            SQLSupport support = SQLKit.generateSupport(object);
+            SQLSupport support = SQLKit.insertSupport(object);
             String[] columns = support.getCOLUMNS();
             Object[] params = support.getVALUES();
             int[] types = support.getTYPES();
@@ -350,8 +354,8 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
     }
 
     @Override
-    public List trySelect(String[] columns_where,Object[] values_where,int limit,int offset,String condition) {
-        List<T> list = new ArrayList<>();
+    public String prepareSelectQuery(String[] columns_where,Object[] values_where,Integer limit,Integer offset,String condition){
+        //PREPARE THE QUERY STRING
         query = "SELECT * FROM "+mySelectTable+" WHERE ";
         for(int k=0; k < columns_where.length; k++ ){
             query+= columns_where[k] +" ";
@@ -360,112 +364,146 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
             if(condition!=null && k < columns_where.length -1){ query += " "+condition.toUpperCase()+" ";}
             else{query += " ";}
         }
-        if(new Integer(limit) != null && new Integer(offset)!= null) {
+        if(limit != null && offset!= null) {
             query += " LIMIT " + limit + " OFFSET " + offset + "";
         }
+        return query;
+    }
+
+    @Override
+    public List trySelect(String[] columns_where,Object[] values_where,Integer limit,Integer offset,String condition) {
+        List<T> list = new ArrayList<>();
+        //PREPARE THE QUERY STRING
+        query = prepareSelectQuery(columns_where,values_where,limit,offset,condition);
         List<Map<String, Object>> map = jdbcTemplate.queryForList(query);
         SystemLog.query(query);
-        for (Map<String, Object> geoDoc : map) {
-            T object = null;
-            for (Iterator<Map.Entry<String, Object>> it = geoDoc.entrySet().iterator(); it.hasNext(); ) {
-                Map.Entry<String, Object> entry = it.next();
-                String value;
-                if (entry.getValue() == null) value = "";
-                else value = entry.getValue().toString();
-                value = StringKit.setNullForEmptyString(value);
-
-                /*
-                switch (entry.getKey()) {
-                    case "url":
-                        value = StringKit.setNullForEmptyString(value);
-                        if(!(value.contains("http://"))){
-                            value = "http://"+value;
+        try {
+            int i = 0;
+            Class[] classes = ReflectionKit.getClassesByFieldsByAnnotation(cl,javax.persistence.Column.class);
+            for (Map<String, Object> geoDoc : map) {
+                //INVOKE NEW DEFAULT CONSTRUCTOR
+                T iClass =  ReflectionKit.invokeConstructor(cl);
+                for (Iterator<Map.Entry<String, Object>> it = geoDoc.entrySet().iterator(); it.hasNext(); ) {
+                    Map.Entry<String, Object> entry = it.next();
+                    Object value = entry.getValue();
+                    if (value == null ||value.toString()==""){ value = null;}
+                    else {
+                        if (classes[i].getName() == String.class.getName()) {
+                            value = value.toString();
+                        } else if (classes[i].getName() == URL.class.getName()) {
+                            if (value.toString().contains("://")) {
+                                value = new URL(value.toString());
+                            } else {
+                                value = new URL("http://" + value.toString());
+                            }
+                        } else if (classes[i].getName() == Double.class.getName()) {
+                            value = Double.parseDouble(value.toString());
+                        } else if (classes[i].getName() == Integer.class.getName()) {
+                            value = Integer.parseInt(value.toString());
+                        } else if (classes[i].getName() == Float.class.getName()){
+                            value = Float.parseFloat(value.toString());
                         }
-                        g.setUrl(new URL(value));
-                        break;
-                    case "doc_id":
-                        if (StringKit.setNullForEmptyString(value) == null) g.setDoc_id(null);
-                        else g.setDoc_id(Integer.parseInt(value));
-                        break;
-                    case "city":
-                        g.setCity(StringKit.setNullForEmptyString(value));
-                        break;
-                    case "description":
-                        g.setDescription(StringKit.setNullForEmptyString(value));
-                        break;
-                    case "edificio":
-                        g.setEdificio(StringKit.setNullForEmptyString(value));
-                        break;
-                    case "email":
-                        g.setEmail(StringKit.setNullForEmptyString(value));
-                        break;
-                    case "fax":
-                        g.setFax(StringKit.setNullForEmptyString(value));
-                        break;
-                    case "indirizzo":
-                        g.setIndirizzo(StringKit.setNullForEmptyString(value));
-                        break;
-                    case "indirizzoHasNumber":
-                        g.setIndirizzoHasNumber(StringKit.setNullForEmptyString(value));
-                        break;
-                    case "indirizzoNoCAP":
-                        g.setIndirizzoNoCAP(StringKit.setNullForEmptyString(value));
-                        break;
-                    case "iva":
-                        g.setIva(StringKit.setNullForEmptyString(value));
-                        break;
-                    case "latitude":
-                        if (StringKit.setNullForEmptyString(value) == null) g.setLat(null);
-                        else g.setLat(Double.parseDouble(value));
-                        break;
-                    case "longitude":
-                        if (StringKit.setNullForEmptyString(value) == null) g.setLng(null);
-                        else g.setLng(Double.parseDouble(value));
-                        break;
-                    case "nazione":
-                        g.setNazione(StringKit.setNullForEmptyString(value));
-                        break;
-                    case "postalCode":
-                        g.setPostalCode(StringKit.setNullForEmptyString(value));
-                        break;
-                    case "regione":
-                        g.setRegione(StringKit.setNullForEmptyString(value));
-                        break;
-                    case "provincia":
-                        g.setProvincia(StringKit.setNullForEmptyString(value));
-                        break;
-                }*/
+                        iClass = (T) SQLKit.invokeSetterSupport(iClass, entry.getKey(), value);
+                    }
+                    i++;
+                }
+                list.add(iClass);
             }
-            list.add(object);
+        }catch(Exception e){
+            SystemLog.exception(e);
         }
         return list;
     }
 
-
+    private T supportObject2;
     @Override
-    public List select(String query) {
-        return this.jdbcTemplate.query(query,
-            new RowMapper<T>() {
-                @Override
-                public T mapRow(ResultSet rs, int rowNum) throws SQLException {
-                    final T w = null;
-                    ResultSetExtractor extractor = new ResultSetExtractor() {
+    public List trySelect(String query, final T MyObject) {
+        List<T> list = new ArrayList<>();
+        try {
+            //T MyObject = ReflectionKit.invokeConstructor(cl);
+            list = this.jdbcTemplate.query(query,
+                    new RowMapper<T>() {
                         @Override
-                        public Object extractData(ResultSet rs) throws SQLException, DataAccessException {
-//                                w.setId(rs.getString("id"));
-//                                w.setCity(rs.getString("city"));
-//                                w.setUrl(rs.getString("url"));
-                            return w;
+                        public T mapRow(ResultSet rs, int rowNum) throws SQLException {
+                            T MyObject =ReflectionKit.invokeConstructor(cl);
+                            ResultSetExtractor extractor = new ResultSetExtractor() {
+                                @Override
+                                public Object extractData(ResultSet rs) throws SQLException, DataAccessException {
+                                    //supportObject2 = ReflectionKit.invokeConstructor(cl);
+                                    //supportObject2 = ReflectionKit.invokeSetterMethod(supportObject2, rs);
+                                    //list.add(supportObject2);
+                                    T MyObject2 = ReflectionKit.invokeConstructor(cl);
+                                    while (rs.next()) {
+                                        int size = rs.getFetchSize();
+                                        for (Field field : cl.getDeclaredFields()){
+                                            for (Method method : ReflectionKit.getSettersClass(cl)){
+                                                //for (Method method : MyObject.getClass().getMethods())
+                                                //if (ReflectionKit.isSetter(method)) {
+//                                                    if (method.getName().toLowerCase().endsWith(field.getName().toLowerCase())
+//                                                            && method.getName().toLowerCase().startsWith("set"))
+//                                                    {
+
+                                                // MZ: Method found, run it
+                                                try
+                                                {
+                                                    method.setAccessible(true);
+                                                    if(field.getType().getSimpleName().toLowerCase().endsWith("integer"))
+                                                        method.invoke(MyObject2,rs.getInt(field.getName().toLowerCase()));
+                                                    else if(field.getType().getSimpleName().toLowerCase().endsWith("long"))
+                                                        method.invoke(MyObject2,rs.getLong(field.getName().toLowerCase()));
+                                                    else if(field.getType().getSimpleName().toLowerCase().endsWith("string"))
+                                                        method.invoke(MyObject2,rs.getString(field.getName().toLowerCase()));
+                                                    else if(field.getType().getSimpleName().toLowerCase().endsWith("boolean"))
+                                                        method.invoke(MyObject2,rs.getBoolean(field.getName().toLowerCase()));
+                                                    else if(field.getType().getSimpleName().toLowerCase().endsWith("timestamp"))
+                                                        method.invoke(MyObject2,rs.getTimestamp(field.getName().toLowerCase()));
+                                                    else if(field.getType().getSimpleName().toLowerCase().endsWith("date"))
+                                                        method.invoke(MyObject2,rs.getDate(field.getName().toLowerCase()));
+                                                    else if(field.getType().getSimpleName().toLowerCase().endsWith("double"))
+                                                        method.invoke(MyObject2,rs.getDouble(field.getName().toLowerCase()));
+                                                    else if(field.getType().getSimpleName().toLowerCase().endsWith("float"))
+                                                        method.invoke(MyObject2,rs.getFloat(field.getName().toLowerCase()));
+                                                    else if(field.getType().getSimpleName().toLowerCase().endsWith("time"))
+                                                        method.invoke(MyObject2,rs.getTime(field.getName().toLowerCase()));
+                                                    else if(field.getType().getSimpleName().toLowerCase().endsWith("url"))
+                                                        method.invoke(MyObject2,rs.getURL(field.getName().toLowerCase()));
+                                                    else
+                                                        method.invoke(MyObject2,rs.getObject(field.getName().toLowerCase()));
+                                                }
+                                                catch (IllegalAccessException | InvocationTargetException | SQLException e)
+                                                {
+                                                    System.err.println(e.getMessage());
+                                                }
+                                                    //}
+                                                //}
+                                            }
+                                        }
+                                    }
+                                    return MyObject2;
+                                }
+                            };
+                            return MyObject;
                         }
-                    };
-                    return w;
-                }
-            }
-        );
+
+                    }
+            );
+//            T MyObject = ReflectionKit.invokeConstructor(cl);
+//            GenericRowMapper<T> rowMapper = new GenericRowMapper(MyObject);
+//            this.jdbcTemplate.query(query,rowMapper);
+
+
+
+        }catch (Exception e){
+            SystemLog.exception(e);
+        }finally{
+            if(list.isEmpty()){SystemLog.warning("The result list of:"+query+" is empty!!");}
+            else{SystemLog.query(query + " -> return a list with size:"+list.size());}
+        }
+        return list;
     }
 
     @Override
-    public List select(final String column, int limit,int offset) {
+    public List trySelect(final String column, int limit, int offset) {
         List <Object> list = new ArrayList<>();
         query = "select " + column + " from " + mySelectTable + " LIMIT " + limit + " OFFSET " + offset + "";
         try {
@@ -477,8 +515,7 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
                         }
                     }
             );
-            if(list.isEmpty()){SystemLog.warning("The result list of:"+query+" is empty!!");}
-            else{SystemLog.query(query + " -> retur a list with size:"+list.size());}
+
         }catch(Exception e){
            SystemLog.exception(e);
         }
@@ -518,24 +555,33 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
 
 }
 
-//    class GenericResultSetExtractor<T> implements ResultSetExtractor {
-//
-//        @Override
-//        public Object extractData(ResultSet rs) throws SQLException, DataAccessException {
-//            T t =null;
-//            //SETTTER OF T
-//            return t;
-//        }
-//    }
-//
-//
-//    class GenericRowMapper implements RowMapper {
-//        @Override
-//        public Object mapRow(ResultSet rs, int line) throws SQLException {
-//            GenericResultSetExtractor extractor = new GenericResultSetExtractor();
-//            return extractor.extractData(rs);
-//        }
-//    }
+    class GenericResultSetExtractor<T> implements ResultSetExtractor {
+
+        public T MyObject;
+        GenericResultSetExtractor(T MyObject){
+            this.MyObject=MyObject;
+        }
+
+        @Override
+        public T extractData(ResultSet rs) throws SQLException, DataAccessException {
+            //SETTTER OF T
+            return ReflectionKit.invokeSetterMethod(MyObject, rs);
+        }
+    }
+
+    class GenericRowMapper<T> implements RowMapper {
+
+        public T MyObject;
+        GenericRowMapper(T MyObject){
+            this.MyObject = MyObject;
+        }
+
+        @Override
+        public Object mapRow(ResultSet rs, int line) throws SQLException {
+            GenericResultSetExtractor extractor = new GenericResultSetExtractor(MyObject);
+            return extractor.extractData(rs);
+        }
+    }
 
 //    public void insertBatchNamedParameter2(final List<Customer> customers){
 //

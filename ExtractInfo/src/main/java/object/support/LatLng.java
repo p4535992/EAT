@@ -2,9 +2,7 @@ package object.support;
 import java.io.Serializable;
 /**
  * LatLng.java.
- * @author Tenti Marco Elaborato Sistemi Distribuiti.
- * Semplice oggetto Java per raccogliere vla coppia latitudine e longitudine
- * relative alle coordinate GPS di una locazione.
+ * @author 4535992
  */
 public class LatLng implements Serializable{
  

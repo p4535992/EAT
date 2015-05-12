@@ -8,6 +8,7 @@ import org.hibernate.service.ServiceRegistry;
 import java.io.File;
 import java.io.Serializable;
 import java.net.URL;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -17,20 +18,29 @@ public interface IHibernateKit<T> {
 
 
     SessionFactory getSessionFactory();
+    void setSessionFactory(SessionFactory sessionFactory);
     Session getSession();
     void shutdown();
     void openSession();
     void closeSession();
+    void restartSession();
     Session getCurrentSession();
-    void insert(T newInstance);
-    Object insertAndReturn(T newInstance);
-    T Select(Object id);
-    List<T> select();
-    List<T> select(String nameColumn, int limit, int offset);
+
+    Serializable insertRow(T newInstance);
+    T selectRow(Serializable id);
+    List<T> selectRows(String nameColumn, int limit, int offset);
+    List<T> selectRows();
     int getCount();
-    void update(T object, String whereColumn, Object whereValue);
-    void delete(String whereColumn, Object whereValue);
+    Serializable updateRow(String whereColumn, Object whereValue);
+    Serializable updateRow(T object);
+    Serializable deleteRow(String whereColumn, Object whereValue);
+    Serializable deleteRow(T object);
+
     void updateAnnotationTable(String nameOfAttribute, String newValueAttribute);
     void updateAnnotationColumn(String nameField, String nameOfAttribute, String newValueAttribute) throws NoSuchFieldException;
     void updateAnnotationJoinColumn(String nameField, String nameOfAttribute, String newValueAttribute) throws NoSuchFieldException;
+
+    //FINDER IN PROGRESS...
+    List<T> executeFinder(java.lang.reflect.Method method, final Object[] queryArgs);
+    Iterator<T> iterateFinder(java.lang.reflect.Method method, final Object[] queryArgs);
 }

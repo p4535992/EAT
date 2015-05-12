@@ -15,8 +15,8 @@ import javax.sql.DataSource;
 public class DocumentDaoImpl extends GenericDaoImpl<Document> implements IDocumentDao {
 
     @Override
-    public void setDriverManager(String driver, String typeDb, String host,String port, String user, String pass, String database) {
-        super.setDriverManager(driver,typeDb, host, port,user,  pass, database);
+    public void setDriverManager(String driver, String dialectDB, String host,String port, String user, String pass, String database) {
+        super.setDriverManager(driver, dialectDB, host, port,user,  pass, database);
     }
 
     public void setSessionFactory(SessionFactory sessionFactory) {

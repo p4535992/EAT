@@ -1,5 +1,5 @@
 #########################
-##Last Update: 2015-04-16
+##Last Update: 2015-05-11
 #########################
 
 EAT (Extraction and Triplify)
@@ -7,8 +7,11 @@ EAT (Extraction and Triplify)
 - Triplify MySQL/SQL Table to file of triple with the software Web-Karma: http://www.isi.edu/integration/karma/
 - Support the management of the database with the software Hibernate version 4: http://hibernate.org/
 
-FOr the future:
-_ Integration with Jena API
+- Integration with Hibernate 4 (almost done just finish the last test)
 - Integration with spring framework
-- Integration with Hibernate
-- Integration with Sesame OpenrRdf API
+- Integration with Jena API
+
+For the future:
+
+- Integration Spring MVC
+- Integration with Sesame OpenrRdf API (in progress...)

@@ -88,10 +88,10 @@ public class ExtractorJSOUP {
         }
 
         if(doc !=null && EXIST_WEBPAGE){
-            //Elements titleTags = doc.select("h1,h2");
+            //Elements titleTags = doc.trySelect("h1,h2");
             //SETTIAMO TITLE
-            //Elements titleTags = doc.select("title");
-            //Elements h1Tags = doc.select("h1");
+            //Elements titleTags = doc.trySelect("title");
+            //Elements h1Tags = doc.trySelect("h1");
             List<String> tagList = Arrays.asList(                  
                     "title","meta[name=dc:title]","meta[name=DC.Title]","meta[name=og:title]","h1" );
             //"title","dc:title","DC.Title","twitter:title","og:title","h1"

@@ -20,8 +20,8 @@ public class GeoDocumentDaoImpl extends GenericDaoImpl<GeoDocument> implements I
     public GeoDocumentDaoImpl(){}
 
     @Override
-    public void setDriverManager(String driver, String typeDb, String host,String port, String user, String pass, String database) {
-        super.setDriverManager(driver,typeDb, host, port,user,  pass, database);
+    public void setDriverManager(String driver, String dialectDB, String host,String port, String user, String pass, String database) {
+        super.setDriverManager(driver, dialectDB, host, port,user,  pass, database);
     }
 
     @Override

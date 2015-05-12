@@ -30,12 +30,12 @@ public class StringKit<T> {
     private String clName;
     private static final Logger logger = LoggerFactory.getLogger(StringKit.class);
 
-    public StringKit(){
-        java.lang.reflect.Type t = getClass().getGenericSuperclass();
-        java.lang.reflect.ParameterizedType pt = (java.lang.reflect.ParameterizedType) t;
-        this.cl = (Class) pt.getActualTypeArguments()[0];
-        this.clName = cl.getSimpleName();
-    }
+//    public StringKit(){
+//        java.lang.reflect.Type t = getClass().getGenericSuperclass();
+//        java.lang.reflect.ParameterizedType pt = (java.lang.reflect.ParameterizedType) t;
+//        this.cl = (Class) pt.getActualTypeArguments()[0];
+//        this.clName = cl.getSimpleName();
+//    }
 
     /*
      * Read String from InputStream and closes it
@@ -535,6 +535,32 @@ public class StringKit<T> {
             return null;
         }
         return object;
+    }
+
+    /**
+     * Method to cconvert a object by the clazz is equivalent to public T cast(Object o)
+     * but more powerful
+     * @param objectToCast
+     * @param clazz
+     * @return
+     */
+    public static <T> T convertInstanceOfObject(Object objectToCast,Class<T> clazz) {
+        try {
+            if (clazz.isInstance(objectToCast)) {
+                return clazz.cast(objectToCast);
+            } else {
+                return (T) objectToCast;
+            }
+        } catch (ClassCastException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public static boolean isNumeric(String str) {
+        //match a number with optional '-' and decimal.
+        str = str.replace(",",".").replace(" ",".");
+        return str.matches("(\\-|\\+)?\\d+(\\.\\d+)?");
     }
 
 

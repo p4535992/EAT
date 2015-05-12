@@ -277,7 +277,7 @@ public class ExtractInfoSpring {
                      for(File file : subFiles){
                          //SystemLog.debug("File:"+file.getAbsolutePath());
                          GeoDocument g = egate.extractMicrodataWithGATESingleFile(file,controller);
-                         //g.setUrl(new URL(websiteDao.select("url","file_path",file.getName(),String.class).toString()));
+                         //g.setUrl(new URL(websiteDao.trySelect("url","file_path",file.getName(),String.class).toString()));
                          g.setUrl(new URL(mapFile.get(file)));
                          geoDocs.add(g);
                      }
@@ -373,7 +373,7 @@ public class ExtractInfoSpring {
                     geoDomainDocumentDao.create(ERASE_GEODOMAIN);
                 }
                 egd = new ExtractorDomain((GeoDomainDocumentDaoImpl) geoDomainDocumentDao, LIMIT_GEODOMAIN, OFFSET_GEODOMAIN, FREQUENZA_URL_GEODOMAIN);
-                List<String> listUrlGM = geoDomainDocumentDao.select("url", 500, 0);
+                List<String> listUrlGM = geoDomainDocumentDao.trySelect("url", 500, 0);
                 Map<String,String> map = new HashMap<>();
                 for(String url: listUrlGM){
                     String ids = (String)geoDomainDocumentDao.select("doc_id","url",url,String.class);

@@ -41,9 +41,9 @@ public class GeoDomainDocument {
     @Column(name = "nazione")
     private String nazione;
     @Column(name = "latitude")
-    private Double lat;
+    private Double latitude;
     @Column(name = "longitude")
-    private Double lng;
+    private Double longitude;
     /////////////////////////
     @Column(name = "description")
     private String description;
@@ -72,15 +72,15 @@ public class GeoDomainDocument {
      * @param doc_id
      * @param url
      * @param city
-     * @param lat
-     * @param lng
+     * @param latitude
+     * @param longitude
      */
-    public GeoDomainDocument(Integer doc_id, URL url, String city, Double lat, Double lng) {
+    public GeoDomainDocument(Integer doc_id, URL url, String city, Double latitude, Double longitude) {
         this.doc_id = doc_id;
         this.url = url;
         this.city = city;
-        this.lat = lat;
-        this.lng = lng;
+        this.latitude = latitude;
+        this.longitude = longitude;
     }
     
     
@@ -96,8 +96,8 @@ public class GeoDomainDocument {
      * @param telefono
      * @param fax
      * @param edificio
-     * @param lat
-     * @param lng
+     * @param latitude
+     * @param longitude
      * @param nazione
      * @param description
      * @param postalCode
@@ -105,11 +105,11 @@ public class GeoDomainDocument {
      */
     public GeoDomainDocument(URL url, String regione, String provincia, String city,
 			String indirizzo,String iva, String email, String telefono,String fax,
-			String edificio,Double lat, Double lng,String nazione,String description,
+			String edificio,Double latitude, Double longitude,String nazione,String description,
                         String postalCode,String indirizzoNoCAP,String indirizzoHasNumber) {
 		this.url = url;
 		this.regione = regione;
-                this.provincia = provincia;
+        this.provincia = provincia;
 		this.city = city;		
 		this.indirizzo = indirizzo;
                 this.iva = iva;
@@ -117,14 +117,38 @@ public class GeoDomainDocument {
 		this.telefono = telefono;
                 this.fax = fax;
 		this.edificio = edificio;
-		this.lat = lat;
-		this.lng = lng;
+		this.latitude = latitude;
+		this.longitude = longitude;
                 this.nazione = nazione;
                 this.description = description;
                 this.indirizzoNoCAP = indirizzoNoCAP;
                 this.postalCode = postalCode;
                 this.indirizzoHasNumber = indirizzoHasNumber;
 	}
+
+    public GeoDomainDocument(Integer doc_id,URL url, String regione, String provincia, String city,
+                             String indirizzo,String iva, String email, String telefono,String fax,
+                             String edificio,Double latitude, Double longitude,String nazione,String description,
+                             String postalCode,String indirizzoNoCAP,String indirizzoHasNumber) {
+        this.doc_id = doc_id;
+        this.url = url;
+        this.regione = regione;
+        this.provincia = provincia;
+        this.city = city;
+        this.indirizzo = indirizzo;
+        this.iva = iva;
+        this.email = email;
+        this.telefono = telefono;
+        this.fax = fax;
+        this.edificio = edificio;
+        this.latitude = latitude;
+        this.longitude = longitude;
+        this.nazione = nazione;
+        this.description = description;
+        this.indirizzoNoCAP = indirizzoNoCAP;
+        this.postalCode = postalCode;
+        this.indirizzoHasNumber = indirizzoHasNumber;
+    }
 
     public String getIndirizzoNoCAP() {
         return indirizzoNoCAP;
@@ -230,20 +254,20 @@ public class GeoDomainDocument {
         this.nazione = nazione;
     }
 
-    public Double getLat() {
-        return lat;
+    public Double getLatitude() {
+        return latitude;
     }
 
-    public void setLat(Double lat) {
-        this.lat = lat;
+    public void setLatitude(Double lat) {
+        this.latitude = lat;
     }
 
-    public Double getLng() {
-        return lng;
+    public Double getLongitude() {
+        return longitude;
     }
 
-    public void setLng(Double lng) {
-        this.lng = lng;
+    public void setLongitude(Double lng) {
+        this.longitude = lng;
     }
     
     public String getDescription() {
@@ -278,8 +302,8 @@ public class GeoDomainDocument {
                 + ", telefono = " + telefono 
                 + ", edificio = " + edificio 
                 + ", nazione = " + nazione 
-                + ", lat = " + lat 
-                + ", lng = " + lng 
+                + ", lat = " + latitude
+                + ", lng = " + longitude
                 + ", description = " + description 
                 + ", indirizzoNoCAP = " + indirizzoNoCAP 
                 + ", postalCode=" + postalCode 

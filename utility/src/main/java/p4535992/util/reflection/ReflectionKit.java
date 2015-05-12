@@ -2,7 +2,10 @@ package p4535992.util.reflection;
 
 
 import p4535992.util.log.SystemLog;
+import p4535992.util.string.StringKit;
 
+import java.io.File;
+import java.io.IOException;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
@@ -13,6 +16,8 @@ import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Proxy;
 import java.lang.reflect.Type;
 import java.net.URL;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.*;
 
 /**
@@ -27,9 +32,11 @@ import java.util.*;
  */
 public class ReflectionKit<T>{
 
-
+    private static final String GET = "get";
+    private static final String IS = "is";
+    private static final String SET = "set";
     private Class<T> cl;
-    private String clName;
+    private static String clName;
     private static final Set<Class<?>> WRAPPER_TYPES = getWrapperTypes();
 
     /**
@@ -268,10 +275,10 @@ public class ReflectionKit<T>{
      * you can do so rather than obtain the array all methods. This example returns
      * the public method named "nameOfMethod", in the given class which takes a String as parameter:
      */
-    public static Method getMethodByName(Class<?> aClass,String nameOfMethod,Class[] param) throws NoSuchMethodException{
-        Method method = null;
+    public static Method getMethodByNameAndParam(Class<?> aClass, String nameOfMethod, Class[] param) throws NoSuchMethodException{
+        Method method;
         //If the method you are trying to access takes no parameters, pass null as the parameter type array, like this:   
-        if(param==null || param.length==0 )method = aClass.getMethod(nameOfMethod);//nameOfMethod, null
+        if(param==null || param.length==0 )method = aClass.getMethod(nameOfMethod,new Class[0]);//nameOfMethod, null
         else method = aClass.getMethod(nameOfMethod,param);// String.class
         return method;
     }
@@ -285,8 +292,8 @@ public class ReflectionKit<T>{
      * @return
      * @throws NoSuchMethodException
      */
-    public static <T> Method getMethodByName(T MyObject,String nameOfMethod,Class[] param) throws NoSuchMethodException{
-            return getMethodByName(MyObject.getClass(), nameOfMethod, param); //String.class
+    public static <T> Method getMethodByNameAndParam(T MyObject, String nameOfMethod, Class[] param) throws NoSuchMethodException{
+            return getMethodByNameAndParam(MyObject.getClass(), nameOfMethod, param); //String.class
     }
 
     /** Method Parameters : Method where you can read what parameters a given method takes like this: */
@@ -310,12 +317,32 @@ public class ReflectionKit<T>{
         }
     }
 
-    public static List<String> getFieldsNameClass(Class<?> aClass){
+    public static List<String> getFieldsNameByClass(Class<?> aClass){
         List<String> names = new ArrayList<>();
         for(Field field : getFieldsClass(aClass)){
             names.add(field.getName());
         }
         return names;
+    }
+
+    public static Field[] getFieldsByAnnotation(Class<?> clazz,Class<? extends Annotation> aClass){
+        Field[] fields = clazz.getDeclaredFields();
+        List<Field> types = new ArrayList<>();
+        for(Field field : fields){
+            if(field.isAnnotationPresent(aClass)) {
+                types.add(field);
+            }
+        }
+        return StringKit.convertListToArray(types);
+    }
+
+    public static Class[] getClassesByFieldsByAnnotation(Class<?> clazz,Class<? extends Annotation> aClass){
+        Field[] fields = getFieldsByAnnotation(clazz, aClass);
+        List<Class> classes = new ArrayList<>();
+        for(Field field : fields) {
+            classes.add(field.getType());
+        }
+        return StringKit.convertListToArray(classes);
     }
 
     /**
@@ -331,20 +358,45 @@ public class ReflectionKit<T>{
      * @param param
      * @return
      */
-    public static <T> T invokeObjectMethod(Object MyObject, String nameOfMethod, Class[] param, Class<T> aClass)
+    public static <T> T invokeObjectMethod(T MyObject, String nameOfMethod, Class[] param)//4th parameter , Class<T> aClass
             throws IllegalAccessException,InvocationTargetException,NoSuchMethodException{
-        Object obj =null;
         Method method;
-        if(param==null || param.length==0 )method = getMethodByName(MyObject,nameOfMethod,null);
-        else method = getMethodByName(MyObject,nameOfMethod, param); //String.class
+        if(param==null || param.length==0 )method = getMethodByNameAndParam(MyObject, nameOfMethod, null);
+        else method = getMethodByNameAndParam(MyObject, nameOfMethod, param); //String.class
         try{
-            //obj = method.invoke(null, param); //if the method you try to invoke is static...
-            obj = method.invoke(param);
+            //MyObject = method.invoke(null, param); //if the method you try to invoke is static...
+            MyObject = (T) method.invoke(param);
         }catch(java.lang.NullPointerException ne){
-            //obj = method.invoke(MyObject, param); //...if the methos is non-static
-            obj = method.invoke(MyObject);
+            //MyObject = method.invoke(MyObject, param); //...if the methos is non-static
+            MyObject = (T) method.invoke(MyObject);
         }
-        return (T)obj;
+        return MyObject;
+    }
+
+    public static <T> T invokeObjectMethod(T MyObject,Method method,Class[] param)
+            throws IllegalAccessException,InvocationTargetException,NoSuchMethodException{
+        try{
+            //MyObject = method.invoke(null, param); //if the method you try to invoke is static...
+            MyObject = (T) method.invoke(param);
+        }catch(java.lang.NullPointerException ne){
+            //MyObject = method.invoke(MyObject, param); //...if the methos is non-static
+            MyObject = (T) method.invoke(MyObject);
+        }
+        return MyObject;
+    }
+
+    public static <T> T invokeSetterMethod(T MyObject,Method method,Object[] values)
+            throws IllegalAccessException,InvocationTargetException,NoSuchMethodException{
+        int i = 0;
+        try{
+            //if the method you try to invoke is static...
+            //result = StringKit.convertInstanceOfObject(values[i],f);
+            method.invoke(null, values[i]);
+        }catch(NullPointerException ne) {
+            //...The method is not static
+            method.invoke(MyObject, values[i]);
+        }
+        return MyObject;
     }
 
     /**
@@ -359,12 +411,28 @@ public class ReflectionKit<T>{
      * @throws IllegalArgumentException
      * @throws InvocationTargetException
      */
-    public static <T> T invokeConstructorMethod(T MyObject, Class[] param)
+    public static <T> T invokeConstructor(T MyObject, Class[] param, Object[] defaultValues)
             throws NoSuchMethodException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException{
-        Constructor constructor = MyObject.getClass().getConstructor(param);
-        T myObject = (T)constructor.newInstance("constructor-arg1");
+        T myObject = (T) invokeConstructor(MyObject.getClass(), param, defaultValues);
         return myObject;
     }
+
+    public static <T> T invokeConstructor(Class<T> clazz, Class[] param, Object[] defaultValues)
+            throws NoSuchMethodException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException{
+        Constructor constructor = clazz.getConstructor(param);
+        T myObject = (T)constructor.newInstance(defaultValues);
+        return myObject;
+    }
+
+    public static <T> T invokeConstructor(Class<T> clazz) {
+        try {
+            return clazz.newInstance();
+        }catch(IllegalAccessException|InstantiationException e){
+            SystemLog.exception(e);
+        }
+        return null;
+    }
+
 
     public static URL getCodeSourceLocation(Class aClass) {return aClass.getProtectionDomain().getCodeSource().getLocation(); }
     public static String getClassReference(Class aClass){ return aClass.getName();}
@@ -394,17 +462,6 @@ public class ReflectionKit<T>{
             throws IllegalAccessException, IllegalArgumentException, InvocationTargetException{
         Annotation[] annotations = aClass.getAnnotations();
         List<Object[]> list = new ArrayList<>();
-//        MyAnnotation myAnnotation = method.getAnnotation(Annotation.class); //specific class      
-//        aClass.getDeclaredAnnotations(); // get all annotation
-//        (aClass.getDeclaredMethods()[0]).getAnnotations(); //get annotation of a method
-//        Annotation ety = aClass.getAnnotation(Annotation.class); // get annotation of particular annotation class
-//        for(Annotation annotation : annotations){
-//            if(annotation instanceof Annotation){
-//                Annotation myAnnotation = (Annotation) annotation;
-//                System.out.println("name: " + myAnnotation.annotationType().getName());
-//                System.out.println("value: " + myAnnotation.annotationType().);
-//            }
-//        }
         for (Annotation annotation : aClass.getAnnotations()) {
             Object[] array = new Object[3];
             Class<? extends Annotation> type = annotation.annotationType();
@@ -556,13 +613,27 @@ public class ReflectionKit<T>{
 
     public static List<Object[]> getAnnotationField(Class<?> aClass, Annotation annotation,String fieldName )
             throws SecurityException, NoSuchFieldException {
+        Field field = getFieldByName(aClass,fieldName);
+        annotation = field.getAnnotation(annotation.getClass());
         return getAnnotationField(annotation);
+    }
+
+    public static  List<List<Object[]>> getAnnotationsFields(Class<?> aClass,Class<? extends Annotation> clazz)
+            throws SecurityException, NoSuchFieldException {
+        List<List<Object[]>> result = new ArrayList<>();
+        Field[] fields = aClass.getDeclaredFields();
+        for(Field field : fields){
+            Annotation annotation = field.getAnnotation(clazz);
+            List<Object[]> list = getAnnotationField(annotation);
+            result.add(list);
+        }
+        return result;
     }
 
     @SuppressWarnings("rawtypes")
     public static List<Object[]> getAnnotationField(Class<? extends Annotation> annotationClass,Field field)
             throws SecurityException, NoSuchFieldException {
-        List<Object[]> list = new ArrayList<Object[]>();
+        List<Object[]> list = new ArrayList<>();
         Object[] array = new Object[3];
         final Annotation annotation = field.getAnnotation(annotationClass);
         if(annotation!=null) {
@@ -717,13 +788,13 @@ public class ReflectionKit<T>{
         field.setAccessible(false);
     }
 
-    public static Object getFieldValue(Object object, String fieldName)
+    public static Object getFieldValueByName(Object object, String fieldName)
             throws SecurityException, NoSuchFieldException, IllegalArgumentException, IllegalAccessException
     {
-        return getFieldValue(object.getClass(),fieldName);
+        return getFieldValueByName(object.getClass(), fieldName);
     }
 
-    public static Object getFieldValue(Class<?> aClass, String fieldName)
+    public static Object getFieldValueByName(Class<?> aClass, String fieldName)
             throws SecurityException, NoSuchFieldException, IllegalArgumentException, IllegalAccessException
     {
         Field field = aClass.getDeclaredField(fieldName);
@@ -733,13 +804,13 @@ public class ReflectionKit<T>{
         return returnValue;
     }
 
-    public static List<Object> getFieldsValue(Class<?> aClass) throws NoSuchFieldException, IllegalAccessException {
+    public static List<Object> getFieldsValueByClass(Class<?> aClass) throws NoSuchFieldException, IllegalAccessException {
         List<Object> list = new ArrayList<>();
         while(aClass.getSuperclass() != null){
             aClass = aClass.getSuperclass() ;
             //Fetch all fields ..
             for(Field field : aClass.getDeclaredFields()){
-                list.add(getFieldValue(aClass,field.getName()));
+                list.add(getFieldValueByName(aClass, field.getName()));
             }
         }
         return list;
@@ -751,7 +822,7 @@ public class ReflectionKit<T>{
             targetValue = targetClass.newInstance();
             for (Field field : sourceObject.getClass().getDeclaredFields()) {
                 try {
-                    setField(targetValue, field.getName(), getFieldValue(sourceObject, field.getName()));
+                    setField(targetValue, field.getName(), getFieldValueByName(sourceObject, field.getName()));
                 } catch (NoSuchFieldException e) {
                     throw new Exception("Ignored Field " + field.getName());
                 }
@@ -826,5 +897,229 @@ public class ReflectionKit<T>{
         }
         return null;
     }
+
+    public static <T> T invokeSetterMethod(T MyObject, ResultSet rs) throws SQLException{
+        // MZ: Find the correct method
+        MyObject = (T) ReflectionKit.invokeConstructor(MyObject.getClass());
+        while (rs.next()) {
+            int size = rs.getFetchSize();
+            for (Field field : MyObject.getClass().getDeclaredFields()){
+                for (Method method : MyObject.getClass().getMethods())
+                {
+                    if (isSetter(method))
+                    {
+                        if (method.getName().toLowerCase().endsWith(field.getName().toLowerCase()))
+                        {
+                            // MZ: Method found, run it
+                            try
+                            {
+                                method.setAccessible(true);
+                                if(field.getType().getSimpleName().toLowerCase().endsWith("integer"))
+                                    method.invoke(MyObject,rs.getInt(field.getName().toLowerCase()));
+                                else if(field.getType().getSimpleName().toLowerCase().endsWith("long"))
+                                    method.invoke(MyObject,rs.getLong(field.getName().toLowerCase()));
+                                else if(field.getType().getSimpleName().toLowerCase().endsWith("string"))
+                                    method.invoke(MyObject,rs.getString(field.getName().toLowerCase()));
+                                else if(field.getType().getSimpleName().toLowerCase().endsWith("boolean"))
+                                    method.invoke(MyObject,rs.getBoolean(field.getName().toLowerCase()));
+                                else if(field.getType().getSimpleName().toLowerCase().endsWith("timestamp"))
+                                    method.invoke(MyObject,rs.getTimestamp(field.getName().toLowerCase()));
+                                else if(field.getType().getSimpleName().toLowerCase().endsWith("date"))
+                                    method.invoke(MyObject,rs.getDate(field.getName().toLowerCase()));
+                                else if(field.getType().getSimpleName().toLowerCase().endsWith("double"))
+                                    method.invoke(MyObject,rs.getDouble(field.getName().toLowerCase()));
+                                else if(field.getType().getSimpleName().toLowerCase().endsWith("float"))
+                                    method.invoke(MyObject,rs.getFloat(field.getName().toLowerCase()));
+                                else if(field.getType().getSimpleName().toLowerCase().endsWith("time"))
+                                    method.invoke(MyObject,rs.getTime(field.getName().toLowerCase()));
+                                else
+                                    method.invoke(MyObject,rs.getObject(field.getName().toLowerCase()));
+                            }
+                            catch (IllegalAccessException | InvocationTargetException | SQLException e)
+                            {
+                                System.err.println(e.getMessage());
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return MyObject;
+    }
+
+    /**
+     * To speed up find setter methods, this map will be used.
+     * The Key String will be of the format objectClass.property(valueclass)
+     * Where:
+     * objectClass = MyObject.getClass().getName
+     * property = property (as passed in to callSetter), before set is appended
+     * valueCLass = value.getClass().getName()
+     * The Method will be either the method, or null if a search was not and no
+     * method is found.
+     */
+    private static HashMap<String, Method> SETTERS_MAP = new HashMap<String, Method>();
+
+    /**
+     * Find a setter method for the give object's property and try to call it.
+     * No exceptions are thrown. You typically call this method because either
+     * you are sure no exceptions will be thrown, or to silently ignore
+     * any that may be thrown.
+     * This will also find a setter that accepts an interface that the value
+     * implements.
+     * <b>This is still not very effcient and should only be called if
+     * performance is not of an issue.</b>
+     * You can check the return value to see if the call was seuccessful or
+     * not.
+     * @param obj Object to receive the call
+     * @param property property name (without set. First letter will be
+     * capitalized)
+     * @param value Value of the property.
+     * @return
+     */
+    public static boolean callSetter(Object obj, String property, Object value) {
+        String key = String.format("%s.%s(%s)", obj.getClass().getName(),
+                property, value.getClass().getName());
+        Method m = null;
+        boolean result = false;
+        if(!SETTERS_MAP.containsKey(key)) {
+            m = findSetterMethod(obj, property, value);
+            SETTERS_MAP.put(key, m);
+        } else {
+            m = SETTERS_MAP.get(key);
+        }
+        if(m != null) {
+            try {
+                m.invoke(obj, value);
+                result = true;
+            } catch (IllegalAccessException|IllegalArgumentException|
+                    InvocationTargetException ex) {
+                SystemLog.exception(ex);
+            }
+        }
+        return result;
+    }
+
+
+
+    /**
+     * Scans all classes accessible from the context class loader which belong to the given package and subpackages.
+     *
+     * @param packageName The base package
+     * @return The classes
+     * @throws ClassNotFoundException
+     * @throws IOException
+     */
+    public static Class[] getClasses(String packageName)
+            throws ClassNotFoundException, IOException {
+//        ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
+        ClassLoader classLoader = ClassLoader.getSystemClassLoader();
+        assert classLoader != null;
+        String path = packageName.replace('.', '/');
+        Enumeration<URL> resources = classLoader.getResources(path);
+        List<File> dirs = new ArrayList<File>();
+        while (resources.hasMoreElements()) {
+            URL resource = resources.nextElement();
+            dirs.add(new File(resource.getFile()));
+        }
+        ArrayList<Class> classes = new ArrayList<Class>();
+        for (File directory : dirs) {
+            classes.addAll(findClasses(directory, packageName));
+        }
+        return classes.toArray(new Class[classes.size()]);
+    }
+
+    /**
+     * Recursive method used to find all classes in a given directory and subdirs.
+     *
+     * @param directory   The base directory
+     * @param packageName The package name for classes found inside the base directory
+     * @return The classes
+     * @throws ClassNotFoundException
+     */
+    public static List<Class> findClasses(File directory, String packageName) throws ClassNotFoundException {
+        List<Class> classes = new ArrayList<Class>();
+        if (!directory.exists()) {
+            return classes;
+        }
+        File[] files = directory.listFiles();
+        for (File file : files) {
+            if (file.isDirectory()) {
+                assert !file.getName().contains(".");
+                classes.addAll(findClasses(file, packageName + "." + file.getName()));
+            } else if (file.getName().endsWith(".class")) {
+                classes.add(Class.forName(packageName + '.' + file.getName().substring(0, file.getName().length() - 6)));
+            }
+        }
+        return classes;
+    }
+
+
+    public static Method findSetterMethod(
+            Object obj,String property, Object value) {
+        Method m = null;
+        Class<?> theClass = obj.getClass();
+        String setter = String.format("set%C%s",
+                property.charAt(0), property.substring(1));
+        Class paramType = value.getClass();
+        while (paramType != null) {
+            try {
+                m = theClass.getMethod(setter, paramType);
+                return m;
+            } catch (NoSuchMethodException ex) {
+                // try on the interfaces of this class
+                for (Class iface : paramType.getInterfaces()) {
+                    try {
+                        m = theClass.getMethod(setter, iface);
+                        return m;
+                    } catch (NoSuchMethodException ex1) {
+                    }
+                }
+                paramType = paramType.getSuperclass();
+            }
+        }
+        return m;
+    }
+
+    //OTHER METHODS
+    /*public static Class createNewClass(String annotatedClassName,String pathPackageToAnnotatedClass)
+            throws ClassNotFoundException, InstantiationException, IllegalAccessException, NoSuchMethodException, IllegalArgumentException, InvocationTargetException {
+        Class cls = Class.forName(pathPackageToAnnotatedClass+"."+annotatedClassName).getConstructor().newInstance().getClass();
+        //You can use reflection : Class.forName(className).getConstructor(String.class).newInstance(arg);
+        SystemLog.message("Create new Class Object con Name: " + cls.getName());
+        return cls;
+    }
+
+    public static Class createNewClass(String pathPackageToAnnotatedClass) throws ClassNotFoundException, InstantiationException, IllegalAccessException, NoSuchMethodException, IllegalArgumentException, InvocationTargetException{
+        //e.g. oracle.jdbc.driver.OracleDriver#sthash.4rtwgiWJ.dpuf
+        Class cls = Class.forName(pathPackageToAnnotatedClass).getConstructor().newInstance().getClass();
+        SystemLog.message("Create new Class Object con Name: " + cls.getName());
+        return cls;
+    }
+
+    public static Constructor castObjectToSpecificConstructor(Class newClass){
+        Constructor constructor = null;
+        try{
+            constructor = newClass.getConstructor(new Class[]{});
+        }catch(Exception e){
+        }
+        return constructor;
+    }
+
+    public static Object castObjectToSpecificClass(Class newClass,Object MyObject){
+        Object obj2 = new Object();
+        try{
+            obj2 = newClass.cast(MyObject);
+        }catch(Exception e){
+        }
+        return obj2;
+    }
+
+    public static Object castObjectToSpecificObject(Object MyObject,String pathPackageToObjectAnnotated)
+            throws ClassNotFoundException, InstantiationException, IllegalAccessException, NoSuchMethodException, IllegalArgumentException, InvocationTargetException{
+        Class clsObjectAnnotated = createNewClass(pathPackageToObjectAnnotated);
+        Constructor cons = castObjectToSpecificConstructor(clsObjectAnnotated);
+        MyObject = (Object)cons.newInstance();
+        return MyObject;
+    }*/
 
 }

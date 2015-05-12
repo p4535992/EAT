@@ -8,10 +8,11 @@
 package object.model;
 
 import java.io.Serializable;
+import java.net.MalformedURLException;
 import java.net.URL;
 import javax.persistence.*;
 @Entity
-@Table(name = "geodocument_ann")
+@Table(name = "geodocument")
 public class GeoDocument implements Serializable{
     @Id @GeneratedValue
     @Column(name = "doc_id")
@@ -151,8 +152,22 @@ public class GeoDocument implements Serializable{
         return url;
     }
 
+
+
+
+    @PostRemove
+    @PreUpdate
+    @PrePersist
     public void setUrl(URL url) {
-        this.url = url;
+        if(url.toString().contains("://")) {
+            this.url = url;
+        }else{
+            try {
+                this.url = new URL("http://"+url.toString());
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     public String getRegione() {

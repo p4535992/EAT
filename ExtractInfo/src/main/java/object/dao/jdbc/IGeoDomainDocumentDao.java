@@ -10,7 +10,7 @@ import javax.sql.DataSource;
  * Created by Marco on 02/04/2015.
  */
 public interface IGeoDomainDocumentDao extends IGenericDao<GeoDomainDocument> {
-    void setDriverManager(String driver, String typeDb, String host, String port, String user, String pass, String database);
+    void setDriverManager(String driver, String dialectDB, String host, String port, String user, String pass, String database);
     void setTableInsert(String nameOfTable);
     void setTableSelect(String nameOfTable);
     void setTableUpdate(String nameOfTable);
@@ -33,4 +33,6 @@ public interface IGeoDomainDocumentDao extends IGenericDao<GeoDomainDocument> {
     //method to return one of given id
     //GeoDomainDocument getHByColumn(String column);
     //List<GeoDocument> getAllH(final String limit, final String offset);
+
+    String prepareSelectQuery(String[] columns_where,Object[] values_where,Integer limit,Integer offset,String condition);
 }

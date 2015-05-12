@@ -28,8 +28,8 @@ import java.util.Map;
 public class GeoDomainDocumentDaoImpl extends GenericDaoImpl<GeoDomainDocument> implements IGeoDomainDocumentDao {
 
     @Override
-    public void setDriverManager(String driver, String typeDb, String host,String port, String user, String pass, String database) {
-        super.setDriverManager(driver,typeDb, host, port,user,  pass, database);
+    public void setDriverManager(String driver, String dialectDB, String host,String port, String user, String pass, String database) {
+        super.setDriverManager(driver, dialectDB, host, port,user,  pass, database);
     }
 
     @Override
@@ -179,7 +179,7 @@ public class GeoDomainDocumentDaoImpl extends GenericDaoImpl<GeoDomainDocument> 
         //Class aClass = GeoDocument.class;
         //return super.selectAll(aClass,column, limit, offset);
 
-//        query = "select "+column+" from " + mySelectTable + " LIMIT " + limit + " OFFSET " + offset + "";
+//        query = "trySelect "+column+" from " + mySelectTable + " LIMIT " + limit + " OFFSET " + offset + "";
 //        List<Map<String, Object>> map = jdbcTemplate.queryForList(query);
 //        for (Map<String, Object> geoDoc : map) {
 //            for (Iterator<Map.Entry<String, Object>> it = geoDoc.entrySet().iterator(); it.hasNext();) {
@@ -437,6 +437,10 @@ public class GeoDomainDocumentDaoImpl extends GenericDaoImpl<GeoDomainDocument> 
         }
     }
 
+
+    public String prepareSelectQuery(String[] columns_where,Object[] values_where,Integer limit,Integer offset,String condition){
+        return super.prepareSelectQuery(columns_where,values_where,limit,offset,condition);
+    }
 
 
 

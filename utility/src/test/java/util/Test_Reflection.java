@@ -9,7 +9,6 @@ package util;
 import p4535992.util.object.model.GeoDocument;
 import p4535992.util.reflection.ReflectionKit;
 
-import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.net.URL;
 import java.util.List;
@@ -32,16 +31,9 @@ public class Test_Reflection {
                 "postalCode", "indirizzoNoCAP", "indirizzoHasNumber"
         );
 
-        //GET ALL SETTER METHOD
-        List<Method> setters = ReflectionKit.getSettersClass(GeoDocument.class);
-        //GET ALL FIELD FOR REFERENCE OF SETTER
-        for(Method met: setters){
-          //  Field field = ReflectionKit.
-        }
-
         //CHECK IF FIELD HAS A SPECIFIC ANNOTATION (additional for hibernate)
 
-
+        List<String> ddd = ReflectionKit.getFieldsNameByClass(GeoDocument.class);
         //List<String[]> test1  = ReflectionKit.getAnnotationsFields(GeoDocument.class);
         //String[] test2 = ReflectionKit.getAnnotationHibernateClass(GeoDocument.class);
 
@@ -125,9 +117,9 @@ public class Test_Reflection {
         
         Class[] param = new Class[]{String.class};
         
-        Method met1 = ReflectionKit.getMethodByName(GeoDocument.class, "setCity", param);
+        Method met1 = ReflectionKit.getMethodByNameAndParam(GeoDocument.class, "setCity", param);
         
-        Method met2 =ReflectionKit.getMethodByName(GeoDocument.class, "getCity",null);
+        Method met2 =ReflectionKit.getMethodByNameAndParam(GeoDocument.class, "getCity", null);
         
         Class[] param2 = ReflectionKit.getParametersTypeMethod(met1);
         

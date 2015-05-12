@@ -5,13 +5,13 @@ import object.impl.hibernate.generic.GenericHibernateDaoImpl;
 import object.model.GeoDocument;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Criterion;
 import org.springframework.context.ApplicationContext;
 
 import javax.sql.DataSource;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.Serializable;
-import java.lang.reflect.Method;
 import java.util.Iterator;
 import java.util.List;
 
@@ -21,7 +21,6 @@ import java.util.List;
 @org.springframework.stereotype.Repository
 @org.springframework.stereotype.Component("GeoDocumentHibernateDao")
 public class GeoDocumentHibernateDaoImpl extends GenericHibernateDaoImpl<GeoDocument> implements IGeoDocumentHibernateDao {
-
 
     public GeoDocumentHibernateDaoImpl(){}
     public GeoDocumentHibernateDaoImpl(String s) throws FileNotFoundException {
@@ -61,9 +60,9 @@ public class GeoDocumentHibernateDaoImpl extends GenericHibernateDaoImpl<GeoDocu
     }*/
 
     @Override
-    public IGeoDocumentHibernateDao getDao(String beanIdName) {
+    public GeoDocument getDao(String beanIdName) {
         if(context!=null){
-            return super.getDao(beanIdName);
+            return (GeoDocument)context.getBean(beanIdName);
         }else{
             return null;
         }
@@ -128,29 +127,34 @@ public class GeoDocumentHibernateDaoImpl extends GenericHibernateDaoImpl<GeoDocu
     }
 
     @Override
-    public void insert(GeoDocument newInstance) {
-        super.insert(newInstance);
+    public void setNewCriteria(Criterion criterion) {
+        super.setNewCriteria(criterion);
     }
 
     @Override
-    public Object insertAndReturn(GeoDocument newInstance) {
-        return super.insertAndReturn(newInstance);
+    public void setNewServiceRegistry() {
+        super.setNewServiceRegistry();
     }
 
     @Override
-    public  GeoDocument select(Serializable serial){
-        return super.select(serial);
+    public Serializable insertRow(GeoDocument newInstance) {
+        return super.insertRow(newInstance);
     }
 
     @Override
-    public List<GeoDocument> selectAll(Serializable serial) {
-        return super.selectAll(serial);
+    public  GeoDocument selectRow(Serializable serial){
+        return super.selectRow(serial);
+    }
+
+    @Override
+    public List<GeoDocument> selectRows() {
+        return super.selectRows();
     }
 
 
     @Override
-    public List<GeoDocument> select(String nameColumn, int limit, int offset) {
-        return super.select(nameColumn,limit,offset);
+    public List<GeoDocument> selectRows(String nameColumn, int limit, int offset) {
+        return super.selectRows(nameColumn, limit, offset);
     }
 
     @Override
@@ -159,24 +163,25 @@ public class GeoDocumentHibernateDaoImpl extends GenericHibernateDaoImpl<GeoDocu
     }
 
     @Override
-    public void delete(GeoDocument geo) {
-        super.delete(geo);
+    public Serializable deleteRow(GeoDocument geo) {
+        return super.deleteRow(geo);
     }
 
     @Override
     public void updateAnnotationTable(String nameOfAttribute, String newValueAttribute) {
-        super.updateAnnotationTable(nameOfAttribute,newValueAttribute);
+        super.updateAnnotationTable(nameOfAttribute, newValueAttribute);
     }
 
     @Override
     public void updateAnnotationColumn(String nameField, String nameOfAttribute, String newValueAttribute){
-        super.updateAnnotationColumn( nameField,nameOfAttribute,newValueAttribute);
+        super.updateAnnotationColumn(nameField, nameOfAttribute, newValueAttribute);
     }
 
     @Override
     public void updateAnnotationJoinColumn(String nameField, String nameOfAttribute, String newValueAttribute){
-        super.updateAnnotationJoinColumn(nameField, nameOfAttribute,newValueAttribute);
+        super.updateAnnotationJoinColumn(nameField, nameOfAttribute, newValueAttribute);
     }
+
 
 
 

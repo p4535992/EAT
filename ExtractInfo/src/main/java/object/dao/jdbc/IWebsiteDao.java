@@ -13,7 +13,7 @@ import java.util.List;
  */
 public interface IWebsiteDao extends IGenericDao<Website> {
 
-    void setDriverManager(String driver, String typeDb, String host, String port, String user, String pass, String database);
+    void setDriverManager(String driver, String dialectDB, String host, String port, String user, String pass, String database);
     void setTableSelect(String nameOfTable);
     void setNewJdbcTemplate();
     //void setHibernateTemplate(HibernateTemplate ht);
@@ -24,7 +24,7 @@ public interface IWebsiteDao extends IGenericDao<Website> {
 
     boolean verifyDuplicate(String columnWhereName, String valueWhereName);
 
-    List<String> select(String column, int limit, int offset);
+    List<String> trySelect(String column, int limit, int offset);
 
     List<URL> selectAllUrl(String column_table_input, int limit, int offset) throws MalformedURLException;
 

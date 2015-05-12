@@ -228,7 +228,7 @@
         </element>
       </element>
       <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/web-Karma-master/karma-web/target/MANIFEST.MF" />
+        <element id="file-copy" path="$PROJECT_DIR$/web-Karma-master/karma-web/target/karma-web-0.0.1-SNAPSHOT/META-INF/MANIFEST.MF" />
       </element>
       <element id="javaee-facet-resources" facet="karma-web/web/Web" />
     </root>

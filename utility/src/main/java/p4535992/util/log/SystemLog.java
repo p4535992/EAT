@@ -137,6 +137,7 @@ public class SystemLog {
     public static void warning(String logEntry){level = Level.WARN; ERROR=true; write(logEntry);}
     public static void warning(Exception e){level = Level.WARN; ERROR=true; write(e.getMessage()+","+e.getCause());}
     //public static void ticket(String message){ LEVEL = 1;printString2File(message);}
+    public static void hibernate(String logEntry) { level = Level.HIBERNATE; write(logEntry);}
     public static void sparql(String logEntry) { level = Level.SPARQL; write(logEntry);}
     public static void query(String logEntry) { level = Level.QUERY; write(logEntry);}
     public static void attention(String logEntry) {level = Level.ATTENTION; write(logEntry);}
@@ -258,7 +259,7 @@ public class SystemLog {
 
 
     public enum Level {
-        VOID(0), OUT(1), WARN(2),ERR(3),ABORT(4),SPARQL(6),QUERY(7),THROW(8),EXCEP(9),ATTENTION(10);
+        VOID(0), OUT(1), WARN(2),ERR(3),ABORT(4),HIBERNATE(5),SPARQL(6),QUERY(7),THROW(8),EXCEP(9),ATTENTION(10);
         private Integer value;
         Level(Integer value) {
             this.value = value;
@@ -271,6 +272,7 @@ public class SystemLog {
                 case ERR: value = "[ERROR] -> "; break;
                 case WARN: value ="[WARNING] -> "; break;
                 case ABORT: value ="[EXIT] -> "; break;
+                case HIBERNATE: value = "[HIBERNATE] -> "; break;
                 case SPARQL: value ="[SPARQL] -> "; break;
                 case QUERY: value ="[QUERY] -> "; break;
                 case ATTENTION: value ="=====[ATTENTION]===== -> "; break;

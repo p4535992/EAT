@@ -10,6 +10,11 @@
           <file>file://$MODULE_DIR$/ExtractInfo/src/main/resources/spring_hibernate/test-applicationContext.xml</file>
           <file>file://$MODULE_DIR$/ExtractInfo/src/main/resources/spring_hibernate/sample-applicationContext.xml</file>
           <file>file://$MODULE_DIR$/ExtractInfo/src/main/resources/spring_hibernate/spring-hibernate4v3.xml</file>
+          <file>file://$MODULE_DIR$/ExtractInfo/src/main/resources/spring_hibernate/spring-datasource.xml</file>
+          <file>file://$MODULE_DIR$/ExtractInfo/src/main/resources/spring_hibernate/spring-context.xml</file>
+          <file>file://$MODULE_DIR$/ExtractInfo/src/main/resources/spring_hibernate/spring-sessionFactory.xml</file>
+          <file>file://$MODULE_DIR$/ExtractInfo/src/main/resources/spring_hibernate/spring-hibernate4v4.xml</file>
+          <file>file://$MODULE_DIR$/ExtractInfo/src/main/resources/spring_hibernate/spring-hibernate4v2.xml</file>
         </fileset>
       </configuration>
     </facet>
@@ -117,7 +122,6 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-jdbc:4.1.6.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-web:4.1.6.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-webmvc:4.1.6.RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: jstl:jstl:1.2" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:jcl-over-slf4j:1.7.11" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.11" level="project" />
     <orderEntry type="library" name="Maven: ch.qos.logback:logback-classic:1.0.13" level="project" />
@@ -133,7 +137,7 @@
     <orderEntry type="library" name="Maven: org.apache.hadoop:hadoop-common:2.4.0.2.1.3.0-563" level="project" />
     <orderEntry type="library" name="Maven: org.apache.hadoop:hadoop-annotations:2.4.0.2.1.3.0-563" level="project" />
     <orderEntry type="module-library">
-      <library name="Maven: jdk.tools:jdk.tools:1.7">
+      <library name="Maven: jdk.tools:jdk.tools:1.6">
         <CLASSES>
           <root url="jar://C:/Program Files/Java/jdk1.7.0_79/lib/tools.jar!/" />
         </CLASSES>

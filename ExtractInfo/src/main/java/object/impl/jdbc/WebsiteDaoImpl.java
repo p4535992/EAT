@@ -18,8 +18,8 @@ import java.util.List;
 public class WebsiteDaoImpl extends GenericDaoImpl<Website> implements IWebsiteDao {
 
     @Override
-    public void setDriverManager(String driver, String typeDb, String host,String port, String user, String pass, String database) {
-        super.setDriverManager(driver,typeDb, host, port,user,  pass, database);
+    public void setDriverManager(String driver, String dialectDB, String host,String port, String user, String pass, String database) {
+        super.setDriverManager(driver, dialectDB, host, port,user,  pass, database);
     }
 
     @Override
@@ -48,8 +48,8 @@ public class WebsiteDaoImpl extends GenericDaoImpl<Website> implements IWebsiteD
 
 
 //    @Override
-//    public List<String> select(String column,int limit,int offset) {
-////       return this.jdbcTemplate.query("select " + column + " from " + mySelectTable + " LIMIT " + limit + " OFFSET " + offset + "",
+//    public List<String> trySelect(String column,int limit,int offset) {
+////       return this.jdbcTemplate.query("trySelect " + column + " from " + mySelectTable + " LIMIT " + limit + " OFFSET " + offset + "",
 ////                new RowMapper<String>() {
 ////                    @Override
 ////                    public String mapRow(ResultSet rs, int rowNum) throws SQLException {
@@ -57,13 +57,13 @@ public class WebsiteDaoImpl extends GenericDaoImpl<Website> implements IWebsiteD
 ////                    }
 ////                }
 ////        );
-//        List<String> list = super.select(column,limit,offset);
+//        List<String> list = super.trySelect(column,limit,offset);
 //        return list;
 //    }
 
     @Override
     public List<URL> selectAllUrl(String column,int limit,int offset) throws MalformedURLException {
-        List<String> listStringUrl = super.select(column,limit,offset);
+        List<String> listStringUrl = super.trySelect(column, limit, offset);
         List<URL> listUrl = new ArrayList<URL>();
         for(String sUrl : listStringUrl){
             URL u;
@@ -113,8 +113,8 @@ public class WebsiteDaoImpl extends GenericDaoImpl<Website> implements IWebsiteD
 
     /*
     @Override
-    public List<Website> select(String firstname, String lastname) {
-        return this.jdbcTemplate.query("select FIRSTNAME, LASTNAME from PERSON where FIRSTNAME = ? AND LASTNAME= ?",
+    public List<Website> trySelect(String firstname, String lastname) {
+        return this.jdbcTemplate.query("trySelect FIRSTNAME, LASTNAME from PERSON where FIRSTNAME = ? AND LASTNAME= ?",
                 new Object[]{firstname, lastname},
                 new RowMapper<Website>() {
                     @Override

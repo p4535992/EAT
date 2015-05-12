@@ -35,10 +35,10 @@
     <property name="edificio" type="string">
       <column name="edificio"/>
     </property>
-    <property name="lat" type="double">
+    <property name="latitude" type="double">
       <column name="latitude"/>
     </property>
-    <property name="lng" type="double">
+    <property name="getLongitude" type="double">
       <column name="longitude"/>
     </property>
     <property name="nazione" type="string">

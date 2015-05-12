@@ -4,12 +4,13 @@ import object.dao.hibernate.IGeoDocumentHibernateDao;
 import object.impl.hibernate.GeoDocumentHibernateDaoImpl;
 import org.springframework.context.ApplicationContext;
 import object.model.GeoDocument;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-import p4535992.util.file.FileUtil;
+import p4535992.util.reflection.ReflectionKit;
+import p4535992.util.sql.SQLKit;
+import p4535992.util.string.StringKit;
 
+import java.lang.reflect.Field;
 import java.net.URL;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by 4535992 on 04/05/2015.
@@ -31,35 +32,39 @@ public class Test_Hibernate_Spring {
         //String path = FileUtil.convertResourceToFile("spring_hibernate/spring-hibernate4v3.xml").getAbsolutePath();
         //String path = "C:\\Users\\Marco\\Documents\\GitHub\\EAT\\ExtractInfo\\src\\main\\resources\\spring_hibernate\\spring-hibernate4v3.xml";
         //String path ="C:\\Users\\Marco\\Documents\\GitHub\\EAT\\ExtractInfo\\src\\main\\resources\\spring_hibernate\\spring-hibernate4v2.xml";
-        String path = "spring_hibernate/spring-hibernate4v2.xml";
+        String path = "spring_hibernate/spring-context.xml";
         //ApplicationContext context = new ClassPathXmlApplicationContext(path);
         //dao.setContextFile(path);
-        //
+
+
+        /*List<Object[]> test1 = dao.getAnnotationTable();
+        dao.updateAnnotationTable("name", "geodocument_ann");
+        List<Object[]> test2 = dao.getAnnotationTable();
+        */
+
+        dao.setBeanIdSessionFactory("sessionFactory");
         dao.loadSpringContext(path);
         //dao.restartSession();
-        dao.setBeanIdSessionFactory("sessionFactory");
+
         ApplicationContext context = dao.getContext();
         // Read
-        GeoDocument ges = dao.select(456);
+        GeoDocument ges = dao.selectRow(244);
         dao.restartSession();
 
         // Update
         Integer updateWeight = 90;
         ges.setDoc_id(updateWeight);
-        dao.update(ges);
-        GeoDocument updatedPerson = dao.select(updateWeight);
+        dao.updateRow(ges);
+        GeoDocument updatedPerson = dao.selectRow(updateWeight);
 
         dao.restartSession();
 
         // Delete
-        dao.delete(ges);
+        dao.deleteRow(ges);
         dao.restartSession();
 
         //FIND NAME QUERY
-        dao.insert(geo);
-        List<GeoDocument> byName = dao.findByName("city");
-
-        Iterator<GeoDocument> byWeight = dao.iterateByWeight(geo.getDoc_id());
+        dao.insertRow(geo);
     }
 
 

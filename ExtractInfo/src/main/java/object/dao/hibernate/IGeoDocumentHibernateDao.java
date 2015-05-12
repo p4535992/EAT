@@ -2,7 +2,9 @@ package object.dao.hibernate;
 
 import object.dao.hibernate.generic.IGenericHibernateDao;
 import object.model.GeoDocument;
+import org.hibernate.SessionFactory;
 import org.springframework.context.ApplicationContext;
+import org.springframework.orm.hibernate4.HibernateTemplate;
 
 import javax.sql.DataSource;
 import java.io.File;
@@ -17,31 +19,23 @@ public interface IGeoDocumentHibernateDao extends IGenericHibernateDao<GeoDocume
     void setDriverManager(String driver, String typeDb, String host, String port, String user, String pass, String database);
     void setTableInsert(String nameOfTable);
     void setTableSelect(String nameOfTable);
-    //void setNewJdbcTemplate();
-    //void setHibernateTemplate(HibernateTemplate ht);
-    //void setNewHibernateTemplate(SessionFactory sessionFactory);
     void setDataSource(DataSource ds);
-
     void setContext(ApplicationContext context);
     ApplicationContext getContext();
     void setBeanIdSessionFactory(String beanIdSessionFactory);
     String getBeanIdSessionFactory();
-    //method to save
-    //void saveH(GeoDocument g);
 
-    //method to update
-    void update(GeoDocument g);
+    void setHibernateTemplate(HibernateTemplate hibernateTemplate);
+    void setNewHibernateTemplate(SessionFactory sessionFactory);
+    void loadSpringContext(String filePathXml);
 
-    //method to delete
-    //void deleteH(GeoDocument g);
+    DataSource getDataSource();
+    void setSessionFactory(DataSource dataSource);
 
-    //method to return one of given id
-    //GeoDocument  getHByColumn(String column);
 
     //method to return all
-    List<GeoDocument> selectAll(Serializable serial);
-    GeoDocument select(Serializable serial);
-    List<GeoDocument> findByName(String name);
-    Iterator<GeoDocument> iterateByWeight(int weight);
-    IGeoDocumentHibernateDao getDao(String beanIdName);
+    List<GeoDocument> selectRows();
+    GeoDocument selectRow(Serializable serial);
+
+    GeoDocument getDao(String beanIdNAme);
 }
