@@ -1,7 +1,8 @@
-package p4535992.util.sesame;
+package util;
 
 import org.openrdf.repository.Repository;
 import org.openrdf.repository.RepositoryException;
+import p4535992.util.sesame.SesameUtil2;
 
 /**
  * Created by Marco on 02/05/2015.

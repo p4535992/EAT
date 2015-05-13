@@ -16,17 +16,9 @@ public interface IWebsiteDao extends IGenericDao<Website> {
     void setDriverManager(String driver, String dialectDB, String host, String port, String user, String pass, String database);
     void setTableSelect(String nameOfTable);
     void setNewJdbcTemplate();
-    //void setHibernateTemplate(HibernateTemplate ht);
-    //void setNewHibernateTemplate(SessionFactory sessionFactory);
     void setDataSource(DataSource ds);
     void loadSpringConfig(String filePathXml);
-    //void loadHibernateConfig(String filePathXml);
-
     boolean verifyDuplicate(String columnWhereName, String valueWhereName);
-
-    List<String> trySelect(String column, int limit, int offset);
-
-    List<URL> selectAllUrl(String column_table_input, int limit, int offset) throws MalformedURLException;
-
+    List<URL> selectAllUrl(String column_table_input, Integer limit, Integer offset) throws MalformedURLException;
     URL selectURL(String column, String column_where, String value_where);
 }

@@ -282,7 +282,7 @@ public class OwlExporter extends AbstractLanguageAnalyser
 					if(o.hasProcessed(o.getOwlExporterOntology().getOwlModel(), this.getDocument().getSourceUrl())) {
 						System.out.println("The OwlExporter has already processed entites from corpus: " +
 								this.getDocument().getName() +
-								". Please trySelect another corpus to process or remove the existing output ontology.");
+								". Please trySelectWithRowMap another corpus to process or remove the existing output ontology.");
 						
 						return;						
 					}									

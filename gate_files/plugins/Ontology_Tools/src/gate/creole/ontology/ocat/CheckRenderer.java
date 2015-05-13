@@ -32,7 +32,7 @@ public class CheckRenderer extends JPanel implements TreeCellRenderer {
   private static final long serialVersionUID = 3257004371551204912L;
 
   /**
-   * Allows user to trySelect/deselect class in the ontology Tree
+   * Allows user to trySelectWithRowMap/deselect class in the ontology Tree
    */
   private JCheckBox check;
 

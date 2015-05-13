@@ -21,8 +21,6 @@ public interface IGeoDomainDocumentDao extends IGenericDao<GeoDomainDocument> {
     void loadSpringConfig(String filePathXml);
     //void loadHibernateConfig(String filePathXml) throws IOException;
 
-    void create() throws Exception;
-
     void create(boolean erase) throws Exception;
 
     boolean verifyDuplicate(String columnWhereName, String valueWhereName);
@@ -34,5 +32,5 @@ public interface IGeoDomainDocumentDao extends IGenericDao<GeoDomainDocument> {
     //GeoDomainDocument getHByColumn(String column);
     //List<GeoDocument> getAllH(final String limit, final String offset);
 
-    String prepareSelectQuery(String[] columns_where,Object[] values_where,Integer limit,Integer offset,String condition);
+    //String prepareSelectQuery(String[] columns_where,Object[] values_where,Integer limit,Integer offset,String condition);
 }

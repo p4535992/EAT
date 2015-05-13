@@ -40,19 +40,17 @@ public interface IGenericDao<T> {
     boolean verifyDuplicate(String columnWhereName, String valueWhereName);
     int getCount();
     void deleteAll();
-    Object select(String column, String column_where, String value_where,Class<? extends Object> aClass);
 
-    //private T supportObject =  ReflectionKit.invokeConstructor(cl);
-    List trySelect(String query, T supportObject);
+    List<Object> select(String column, String column_where, Object value_where,Integer limit,Integer offset,String condition);
+    Object select(String column, String column_where, Object value_where);
+    List<T> trySelect(String[] columns,String[] columns_where,Object[] values_where,Integer limit,Integer offset,String condition);
+    //List<T> trySelect(String[] columns,Object[] values,Integer limit, Integer offset,String condition);
+    List<T> trySelectWithRowMap(
+            String[] columns,String[] columns_where,Object[] values_where,Integer limit, Integer offset,String condition);
+    List<T> trySelectWithResultSetExtractor(
+            String[] columns,String[] columns_where,Object[] values_where,Integer limit,Integer offset,String condition);
 
-    //Object trySelect(String column, String column_where, String value_where);
-    //List trySelect(String column, String limit, String offset,Class<T> aClass);
-    List trySelect(final String column, int limit, int offset);
-    //List<T> trySelect(String query);
-    List<T> select(int limit, int offset);
-    List<T> select(String[] columns_where,Object[] values_where,int limit, int offset,String condition);
-    List<T> trySelect(String[] columns_where,Object[] values_where,Integer limit, Integer offset,String condition);
-    List<T> select(String column, String datatype,int limit, int offset);
+    //List<T> trySelect(String column, String datatype,int limit, int offset);
     void insertAndTrim(String[] columns,Object[] params,int[] types);
     void insert(String[] columns,Object[] params,int[] types);
     void tryInsert(T object);
@@ -67,9 +65,9 @@ public interface IGenericDao<T> {
     void update(String[] columns,Object[] values,String column_where,String value_where);
     long countAll(Map<String, Object> params);
 
-    String prepareSelectQuery(String[] columns_where,Object[] values_where,Integer limit,Integer offset,String condition);
-
-
-
+    String prepareInsertIntoQuery(String[] columns,Object[] values);
+    String prepareSelectQuery(
+            String[] columns,String[] columns_where,Object[] values_where,Integer limit,Integer offset,String condition);
+    void trim(String column);
 
 }

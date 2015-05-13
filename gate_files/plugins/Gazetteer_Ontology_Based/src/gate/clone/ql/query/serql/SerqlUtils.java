@@ -88,7 +88,7 @@ public class SerqlUtils {
     String query =
       "Select distinct y, m, n " + "from {y} rdf:type {<" + RDF.PROPERTY
         + ">}, " + "{y} m {n}, {m} rdf:type {<" + RDF.PROPERTY + ">}"
-        + "WHERE exists " + "(trySelect * from {y} m {n})  and isLiteral(n)";
+        + "WHERE exists " + "(trySelectWithRowMap * from {y} m {n})  and isLiteral(n)";
     return ontology.executeQuery(query);
   }
 
@@ -211,31 +211,31 @@ public class SerqlUtils {
         + "rdfs:subClassOf {Parent}";
 
     String queryDomain =
-      "trySelect distinct p, x " + "from {x} rdfs:subClassOf {y}, "
+      "trySelectWithRowMap distinct p, x " + "from {x} rdfs:subClassOf {y}, "
         + "     {p} rdfs:domain {y}, " + "     {p} rdfs:domain {x}, "
         + "     {p} rdf:type {<" + OWL.OBJECTPROPERTY + ">} " + "where y in ("
         + domainClasses + ") and x in (" + domainClasses + ")" + " MINUS "
-        + "trySelect distinct p,y " + "from {x} rdfs:subClassOf {y}, "
+        + "trySelectWithRowMap distinct p,y " + "from {x} rdfs:subClassOf {y}, "
         + "     {p} rdfs:domain {y}, " + "     {p} rdfs:domain {x}, "
         + "     {p} rdf:type {<" + OWL.OBJECTPROPERTY + ">} " + "where y in ("
         + domainClasses + ") and x in (" + domainClasses + ")  and x!=y";
 
     @SuppressWarnings("unused")
     String domainAddition =
-      " trySelect distinct p, x" + " from {p} rdfs:domain {x}" + " where x=<"
+      " trySelectWithRowMap distinct p, x" + " from {p} rdfs:domain {x}" + " where x=<"
         + firstUri + "> ";
 
     @SuppressWarnings("unused")
     String rangeAddition =
-      " trySelect distinct p, x" + " from {p} rdfs:range {x}" + " where x=<"
+      " trySelectWithRowMap distinct p, x" + " from {p} rdfs:range {x}" + " where x=<"
         + secondUri + "> ";
 
     String queryRange =
-      "trySelect distinct p, x " + "from {x} rdfs:subClassOf {y}, "
+      "trySelectWithRowMap distinct p, x " + "from {x} rdfs:subClassOf {y}, "
         + "     {p} rdfs:range {y}, " + "     {p} rdfs:range {x}, "
         + "     {p} rdf:type {<" + OWL.OBJECTPROPERTY + ">} " + "where y in ("
         + rangeClasses + ") and x in (" + rangeClasses + ")" + " MINUS "
-        + "trySelect distinct p, y " + "from {x} rdfs:subClassOf {y}, "
+        + "trySelectWithRowMap distinct p, y " + "from {x} rdfs:subClassOf {y}, "
         + "     {p} rdfs:range {y}, " + "     {p} rdfs:range {x}, "
         + "     {p} rdf:type {<" + OWL.OBJECTPROPERTY + ">} " + "where y in ("
         + rangeClasses + ") and x in (" + rangeClasses + ") and x!=y";// +
@@ -285,7 +285,7 @@ public class SerqlUtils {
         + ">}," + " {p} rdfs:domain {y} ";
 
     String queryDomain =
-      "trySelect distinct p, y " + "from {x} rdfs:subClassOf {y}, "
+      "trySelectWithRowMap distinct p, y " + "from {x} rdfs:subClassOf {y}, "
         + "     {p} rdfs:domain {y}, " + "     {p} rdfs:domain {x}, "
         + "     {p} rdf:type {<" + OWL.OBJECTPROPERTY + ">} " + "where y != x ";
     return ontology.executeQuery(queryAll + " MINUS " + queryDomain);
@@ -306,7 +306,7 @@ public class SerqlUtils {
         + ">}," + " {p} rdfs:range {y} ";
 
     String queryRange =
-      "trySelect distinct p, y " + "from {x} rdfs:subClassOf {y}, "
+      "trySelectWithRowMap distinct p, y " + "from {x} rdfs:subClassOf {y}, "
         + "     {p} rdfs:range {y}, " + "     {p} rdfs:range {x}, "
         + "     {p} rdf:type {<" + OWL.OBJECTPROPERTY + ">} " + "where y != x ";
     return ontology.executeQuery(queryAll + " MINUS " + queryRange);
@@ -350,7 +350,7 @@ public class SerqlUtils {
     String query =
       "Select distinct SUB, SUPER FROM " + " {SUB} rdfs:subPropertyOf {SUPER}"
         + " WHERE SUPER!=SUB " + " MINUS "
-        + " trySelect distinct B FROM {B} owl:equivalentProperty {SUB}";
+        + " trySelectWithRowMap distinct B FROM {B} owl:equivalentProperty {SUB}";
     return ontology.executeQuery(query);
   }
 

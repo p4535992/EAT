@@ -72,11 +72,11 @@ public class GeoDomainDocumentDaoImpl extends GenericDaoImpl<GeoDomainDocument> 
     ////////////////
 
     @Override
-    public void create() throws Exception {
-        if(myInsertTable.isEmpty()) {
+    public void create(boolean erase) throws Exception {
+        if (myInsertTable.isEmpty()) {
             throw new Exception("Name of the table is empty!!!");
         }
-        String query ="CREATE TABLE IF NOT EXISTS `"+myInsertTable+"` (\n" +
+        String query = "CREATE TABLE IF NOT EXISTS `" + myInsertTable + "` (\n" +
                 "  `doc_id` int(11) NOT NULL AUTO_INCREMENT,\n" +
                 "  `url` varchar(255) COLLATE utf8_bin DEFAULT NULL,\n" +
                 "  `regione` varchar(50) COLLATE utf8_bin DEFAULT NULL,\n" +
@@ -98,27 +98,12 @@ public class GeoDomainDocumentDaoImpl extends GenericDaoImpl<GeoDomainDocument> 
                 "  PRIMARY KEY (`doc_id`),\n" +
                 "  KEY `url` (`url`)\n" +
                 ") ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;";
-        jdbcTemplate.execute(query);
+        super.create(query, erase);
     }
 
     @Override
-    public void create(boolean erase) throws Exception {
-        String query;
-        if(erase==true) {
-            query = "DROP TABLE IF EXISTS "+myInsertTable+";";
-            jdbcTemplate.execute(query);
-        }
-        create();
-    }
-
-    @Override
-    public boolean verifyDuplicate(String columnWhereName, String valueWhereName) {
-        int c = this.jdbcTemplate.queryForObject("select count(*) from "+myInsertTable+" where "+columnWhereName+"='"+valueWhereName+"'", Integer.class);
-        boolean b = false;
-        if(c > 0){
-            b = true;
-        }
-        return b;
+    public boolean verifyDuplicate(String column_where, String value_where) {
+       return super.verifyDuplicate(column_where, value_where);
     }
 
 
@@ -179,7 +164,7 @@ public class GeoDomainDocumentDaoImpl extends GenericDaoImpl<GeoDomainDocument> 
         //Class aClass = GeoDocument.class;
         //return super.selectAll(aClass,column, limit, offset);
 
-//        query = "trySelect "+column+" from " + mySelectTable + " LIMIT " + limit + " OFFSET " + offset + "";
+//        query = "trySelectWithRowMap "+column+" from " + mySelectTable + " LIMIT " + limit + " OFFSET " + offset + "";
 //        List<Map<String, Object>> map = jdbcTemplate.queryForList(query);
 //        for (Map<String, Object> geoDoc : map) {
 //            for (Iterator<Map.Entry<String, Object>> it = geoDoc.entrySet().iterator(); it.hasNext();) {
@@ -436,12 +421,6 @@ public class GeoDomainDocumentDaoImpl extends GenericDaoImpl<GeoDomainDocument> 
             SystemLog.query(query);
         }
     }
-
-
-    public String prepareSelectQuery(String[] columns_where,Object[] values_where,Integer limit,Integer offset,String condition){
-        return super.prepareSelectQuery(columns_where,values_where,limit,offset,condition);
-    }
-
 
 
 

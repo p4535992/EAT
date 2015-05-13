@@ -563,6 +563,54 @@ public class StringKit<T> {
         return str.matches("(\\-|\\+)?\\d+(\\.\\d+)?");
     }
 
+    public static <T> T[] concatenateArrays(T[] a,T[] b) {
+        int aLen = a.length;
+        int bLen = b.length;
+        @SuppressWarnings("unchecked")
+        T[] c = (T[]) Array.newInstance(a.getClass().getComponentType(), aLen+bLen);
+        System.arraycopy(a, 0, c, 0, aLen);
+        System.arraycopy(b, 0, c, aLen, bLen);
+        return c;
+    }
+
+    public static <T> T[] concatenateArrays(T[] first, T[]... rest) {
+        int totalLength = first.length;
+        for (T[] array : rest) {
+            totalLength += array.length;
+        }
+        T[] result = Arrays.copyOf(first, totalLength);
+        int offset = first.length;
+        for (T[] array : rest) {
+            System.arraycopy(array, 0, result, offset, array.length);
+            offset += array.length;
+        }
+        return result;
+    }
+
+    public static <T> T[] copyContentArray(T[] baseArray){
+        T[] b = (T[]) Array.newInstance(baseArray.getClass().getComponentType(), baseArray.length);
+        //b = Arrays.copyOf(baseArray, baseArray.length);
+        //b = new T[baseArray.length];
+        System.arraycopy(baseArray, 0, b, 0, b.length);
+        //b = baseArray.clone();
+        return b;
+    }
+
+    public static <T> boolean isArrayEmpty(T[] array){
+        boolean empty = true;
+        if(array!=null && array.length > 0) {
+            for (int i = 0; i < array.length; i++) {
+                if (array[i] != null) {
+                    empty = false;
+                    break;
+                }
+            }
+        }
+        return empty;
+    }
+
+
+
 
 
 }//end of the class StringKit

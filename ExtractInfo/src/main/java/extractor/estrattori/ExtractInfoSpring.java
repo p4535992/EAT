@@ -171,19 +171,19 @@ public class ExtractInfoSpring {
              indGDoc = 0;
              List<GeoDocument> listGeo = new ArrayList<>();
              if(PROCESS_PROGAMM < 4){
-                 if(CreaNuovaTabellaGeoDocumenti ==true){
-                     geoDocumentDao.create();
+                 if(CreaNuovaTabellaGeoDocumenti){
+                     geoDocumentDao.create(ERASE);
                  }
                  //SET GATE FOR THE PROGRAMM
                  GateKit.setUpGateEmbedded("gate_files", "plugins", "gate.xml", "user-gate.xml", "gate.session");
                  GateKit.loadGapp("custom/gapp", "geoLocationPipeline06102014v7_fastMode.xgapp");
                  controller = GateKit.getController();
                  //QUIT THE PROGRAMM SE LA LISTA DEGLI URL E' VUOTA
-                 GeoDocument geo3 = new GeoDocument(null,null,null, null, null, null, null,null, null, null,null,null,null,null,null,null,null);
-                 GeoDocument geo2 = new GeoDocument(null, null, null, null, null, null, null, null, null, null, null, null,null,null,null,null,null);
+                 GeoDocument geo3;
+                 GeoDocument geo2 = new GeoDocument();
                  if(PROCESS_PROGAMM == 1){
                      try{
-                         SystemLog.message("RUN PROCESS 1: METODOLOGIA PER SINGOLO URL");
+                         SystemLog.message("RUN PROCESS 1: CREATE GATE CORPUS FOR SINGLE URL");
                          listUrl = websiteDao.selectAllUrl(COLUMN_TABLE_INPUT, LIMIT, OFFSET);
                          SystemLog.message("Loaded list of URL's with " + listUrl.size() + " elements");
                          if(listUrl.isEmpty()){SystemLog.abort(0,"Forced Exit from the programm hte list of url was empty!");}
@@ -204,7 +204,7 @@ public class ExtractInfoSpring {
                                  listGeo.add(geo3);
                                  for(GeoDocument geo: listGeo) {
                                      if (geo.getUrl() != null) {
-                                         SystemLog.message("INSERIMENTO");
+                                         //SystemLog.message("INSERIMENTO");
                                          SystemLog.message(geo.toString());
                                          geoDocumentDao.insertAndTrim(geo);
                                      }//if
@@ -261,7 +261,7 @@ public class ExtractInfoSpring {
                      else subFiles.addAll(files.subList(OFFSET, files.size()));
                      files.clear();
                      for(File file : subFiles){
-                        String urlFile =(String) websiteDao.select("url","file_path",file.getName(),String.class);
+                        String urlFile =(String) websiteDao.select("url", "file_path", file.getName());
                         if(!(urlFile == null ||
                             (urlFile != null && geoDocumentDao.verifyDuplicate("url", urlFile.toString()))
                         )){
@@ -277,7 +277,7 @@ public class ExtractInfoSpring {
                      for(File file : subFiles){
                          //SystemLog.debug("File:"+file.getAbsolutePath());
                          GeoDocument g = egate.extractMicrodataWithGATESingleFile(file,controller);
-                         //g.setUrl(new URL(websiteDao.trySelect("url","file_path",file.getName(),String.class).toString()));
+                         //g.setUrl(new URL(websiteDao.trySelectWithRowMap("url","file_path",file.getName(),String.class).toString()));
                          g.setUrl(new URL(mapFile.get(file)));
                          geoDocs.add(g);
                      }
@@ -373,10 +373,11 @@ public class ExtractInfoSpring {
                     geoDomainDocumentDao.create(ERASE_GEODOMAIN);
                 }
                 egd = new ExtractorDomain((GeoDomainDocumentDaoImpl) geoDomainDocumentDao, LIMIT_GEODOMAIN, OFFSET_GEODOMAIN, FREQUENZA_URL_GEODOMAIN);
-                List<String> listUrlGM = geoDomainDocumentDao.trySelect("url", 500, 0);
+                List<String> listUrlGM = new ArrayList<>();
+                //List<String> listUrlGM = geoDomainDocumentDao.trySelect("url", 500, 0);
                 Map<String,String> map = new HashMap<>();
                 for(String url: listUrlGM){
-                    String ids = (String)geoDomainDocumentDao.select("doc_id","url",url,String.class);
+                    String ids = (String)geoDomainDocumentDao.select("doc_id", "url", url);
                     map.put(ids,url);
                 }
 

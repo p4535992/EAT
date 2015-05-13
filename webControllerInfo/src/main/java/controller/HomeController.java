@@ -23,7 +23,7 @@ public class HomeController {
 
 	@RequestMapping("/")
 	public ModelAndView handleRequest() throws Exception {
-		List<GeoDocument> list = geoDocumentDao.getAllH();
+		List<GeoDocument> list = null;
 		ModelAndView model = new ModelAndView("GeoList");
 		model.addObject("GeoList", list);
 		return model;
@@ -55,7 +55,7 @@ public class HomeController {
 	
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	public ModelAndView saveGeoDocument(@ModelAttribute GeoDocument g) {
-		geoDocumentDao.saveH(g);
+		//geoDocumentDao.saveH(g);
 		return new ModelAndView("redirect:/");
 	}
 
@@ -65,7 +65,7 @@ public class HomeController {
 
 	@RequestMapping(value="/")
 	public ModelAndView home() {
-		List<GeoDocument> list = geoDocumentDao.getAllH();
+		List<GeoDocument> list = null;
 		ModelAndView model = new ModelAndView("home");
 		model.addObject("List", list);
 		return model;

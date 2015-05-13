@@ -313,7 +313,7 @@ public class SetCodicePostale {
             Document doc = Jsoup.connect(baseURI).get();           
             //<table cellspacing="0" cellpadding="4" bordercolor="#E9E9E9" border="1" width="100%">  
             int identificatore =-1;
-            //Elements links = doc.trySelect("a[href]"); // a with href
+            //Elements links = doc.trySelectWithRowMap("a[href]"); // a with href
             //ecap.getInfoOnTheElementsOnlyComuni(links);
             
             ///////////////////////////////////////////////////////////////////////////

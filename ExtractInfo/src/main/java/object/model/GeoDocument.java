@@ -54,34 +54,9 @@ public class GeoDocument implements Serializable{
     /////////////////////////////////
     @Column(name = "indirizzoHasNumber")
     private String indirizzoHasNumber;
-  
-    public String getIndirizzoHasNumber() {
-        return indirizzoHasNumber;
-    }
 
-    public void setIndirizzoHasNumber(String indirizzoHasNumber) {
-        this.indirizzoHasNumber = indirizzoHasNumber;
-    }
-    
     public GeoDocument (){}
-   
-    /**
-     * Geodocument da inserire nella tabella GeoDocument
-     * @param doc_id
-     * @param url
-     * @param city
-     * @param lat
-     * @param lng
-     */
-    public GeoDocument(Integer doc_id, URL url, String city, Double lat, Double lng) {
-        this.doc_id = doc_id;
-        this.url = url;
-        this.city = city;
-        this.lat = lat;
-        this.lng = lng;
-    }
-    
-    
+
     /**
      * GeoDocument da inserire nella tabrella InfoDocument
      * @param url
@@ -124,21 +99,6 @@ public class GeoDocument implements Serializable{
         this.indirizzoHasNumber = indirizzoHasNumber;
 	}
 
-    public String getIndirizzoNoCAP() {
-        return indirizzoNoCAP;
-    }
-
-    public void setIndirizzoNoCAP(String indirizzoNoCAP) {
-        this.indirizzoNoCAP = indirizzoNoCAP;
-    }
-
-    public String getPostalCode() {
-        return postalCode;
-    }
-
-    public void setPostalCode(String postalCode) {
-        this.postalCode = postalCode;
-    }   
 
     public Integer getDoc_id() {
         return doc_id;
@@ -151,9 +111,6 @@ public class GeoDocument implements Serializable{
     public URL getUrl() {
         return url;
     }
-
-
-
 
     @PostRemove
     @PreUpdate
@@ -257,7 +214,7 @@ public class GeoDocument implements Serializable{
     public void setLng(Double lng) {
         this.lng = lng;
     }
-    
+
     public String getDescription() {
         return description;
     }
@@ -265,13 +222,37 @@ public class GeoDocument implements Serializable{
     public void setDescription(String description) {
         this.description = description;
     }
-    
+
+    public String getIndirizzoNoCAP() {
+        return indirizzoNoCAP;
+    }
+
+    public void setIndirizzoNoCAP(String indirizzoNoCAP) {
+        this.indirizzoNoCAP = indirizzoNoCAP;
+    }
+
+    public String getPostalCode() {
+        return postalCode;
+    }
+
+    public void setPostalCode(String postalCode) {
+        this.postalCode = postalCode;
+    }
+
     public String getFax() {
         return fax;
     }
 
     public void setFax(String fax) {
         this.fax = fax;
+    }
+
+    public String getIndirizzoHasNumber() {
+        return indirizzoHasNumber;
+    }
+
+    public void setIndirizzoHasNumber(String indirizzoHasNumber) {
+        this.indirizzoHasNumber = indirizzoHasNumber;
     }
 
     @Override

@@ -1,7 +1,7 @@
 package gate.qa;
 
 /**
- * ENUM for different measure types. User can trySelect one of these as a
+ * ENUM for different measure types. User can trySelectWithRowMap one of these as a
  * parameter for the PRs such as QualityAssurance PR and QA for Teamware PR.
  * 
  * @author niraj

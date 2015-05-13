@@ -46,31 +46,17 @@ public class WebsiteDaoImpl extends GenericDaoImpl<Website> implements IWebsiteD
         return sessionFactory;
     }
 
-
-//    @Override
-//    public List<String> trySelect(String column,int limit,int offset) {
-////       return this.jdbcTemplate.query("trySelect " + column + " from " + mySelectTable + " LIMIT " + limit + " OFFSET " + offset + "",
-////                new RowMapper<String>() {
-////                    @Override
-////                    public String mapRow(ResultSet rs, int rowNum) throws SQLException {
-////                        return rs.getURL("url").toString();
-////                    }
-////                }
-////        );
-//        List<String> list = super.trySelect(column,limit,offset);
-//        return list;
-//    }
-
     @Override
-    public List<URL> selectAllUrl(String column,int limit,int offset) throws MalformedURLException {
-        List<String> listStringUrl = super.trySelect(column, limit, offset);
-        List<URL> listUrl = new ArrayList<URL>();
-        for(String sUrl : listStringUrl){
+    public List<URL> selectAllUrl(String column,Integer limit,Integer offset) throws MalformedURLException {
+        //List<String> listStringUrl = super.trySelect(new String[]{column},new String[]{column}, null, limit, offset, "AND");
+        List<Object> listStringUrl = super.select(column,null,null,limit,offset,null);
+        List<URL> listUrl = new ArrayList<>();
+        for(Object sUrl : listStringUrl){
             URL u;
-            if(!(sUrl.contains("http://"))){
+            if(!(sUrl.toString().contains("http://"))){
                 u = new URL("http://"+sUrl);
             }else{
-                u = new URL(sUrl);
+                u = new URL(sUrl.toString());
             }
             listUrl.add(u);
         }
@@ -86,7 +72,7 @@ public class WebsiteDaoImpl extends GenericDaoImpl<Website> implements IWebsiteD
             }
         }
         for(int i = 0; i < listStringUrl.size(); i++){
-            listUrl.remove(new URL(listStringUrl.get(i)));
+            listUrl.remove(new URL(listStringUrl.get(i).toString()));
         }
         listStringUrl.clear();
         return listUrl;
@@ -96,7 +82,7 @@ public class WebsiteDaoImpl extends GenericDaoImpl<Website> implements IWebsiteD
     public URL selectURL(String column, String column_where, String value_where){
         URL newURL;
         try {
-            String url =(String) super.select(column,column_where,value_where,String.class);
+            String url = (String) super.select(column, column_where, value_where);
             newURL =  new URL(url);
         }catch(MalformedURLException ue){
             newURL = null;
@@ -105,16 +91,14 @@ public class WebsiteDaoImpl extends GenericDaoImpl<Website> implements IWebsiteD
     }
 
     @Override
-    public boolean verifyDuplicate(String columnWhereName,String valueWhereName){
-        return super.verifyDuplicate(columnWhereName,valueWhereName);
+    public boolean verifyDuplicate(String column_where,String value_where){
+        return super.verifyDuplicate(column_where, value_where);
     }
-
-
 
     /*
     @Override
-    public List<Website> trySelect(String firstname, String lastname) {
-        return this.jdbcTemplate.query("trySelect FIRSTNAME, LASTNAME from PERSON where FIRSTNAME = ? AND LASTNAME= ?",
+    public List<Website> trySelectWithRowMap(String firstname, String lastname) {
+        return this.jdbcTemplate.query("trySelectWithRowMap FIRSTNAME, LASTNAME from PERSON where FIRSTNAME = ? AND LASTNAME= ?",
                 new Object[]{firstname, lastname},
                 new RowMapper<Website>() {
                     @Override

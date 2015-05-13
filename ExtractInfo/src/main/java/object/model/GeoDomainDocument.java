@@ -57,115 +57,6 @@ public class GeoDomainDocument {
     @Column(name = "indirizzoHasNumber")
     private String indirizzoHasNumber;
 
-    public String getIndirizzoHasNumber() {
-        return indirizzoHasNumber;
-    }
-
-    public void setIndirizzoHasNumber(String indirizzoHasNumber) {
-        this.indirizzoHasNumber = indirizzoHasNumber;
-    }
-    
-    public GeoDomainDocument (){}
-   
-    /**
-     * Geodocument da inserire nella tabella GeoDocument
-     * @param doc_id
-     * @param url
-     * @param city
-     * @param latitude
-     * @param longitude
-     */
-    public GeoDomainDocument(Integer doc_id, URL url, String city, Double latitude, Double longitude) {
-        this.doc_id = doc_id;
-        this.url = url;
-        this.city = city;
-        this.latitude = latitude;
-        this.longitude = longitude;
-    }
-    
-    
-    /**
-     * GeoDocument da inserire nella tabrella InfoDocument
-     * @param url
-     * @param regione
-     * @param provincia
-     * @param city
-     * @param indirizzo
-     * @param iva
-     * @param email
-     * @param telefono
-     * @param fax
-     * @param edificio
-     * @param latitude
-     * @param longitude
-     * @param nazione
-     * @param description
-     * @param postalCode
-     * @param indirizzoNoCAP
-     */
-    public GeoDomainDocument(URL url, String regione, String provincia, String city,
-			String indirizzo,String iva, String email, String telefono,String fax,
-			String edificio,Double latitude, Double longitude,String nazione,String description,
-                        String postalCode,String indirizzoNoCAP,String indirizzoHasNumber) {
-		this.url = url;
-		this.regione = regione;
-        this.provincia = provincia;
-		this.city = city;		
-		this.indirizzo = indirizzo;
-                this.iva = iva;
-		this.email = email;
-		this.telefono = telefono;
-                this.fax = fax;
-		this.edificio = edificio;
-		this.latitude = latitude;
-		this.longitude = longitude;
-                this.nazione = nazione;
-                this.description = description;
-                this.indirizzoNoCAP = indirizzoNoCAP;
-                this.postalCode = postalCode;
-                this.indirizzoHasNumber = indirizzoHasNumber;
-	}
-
-    public GeoDomainDocument(Integer doc_id,URL url, String regione, String provincia, String city,
-                             String indirizzo,String iva, String email, String telefono,String fax,
-                             String edificio,Double latitude, Double longitude,String nazione,String description,
-                             String postalCode,String indirizzoNoCAP,String indirizzoHasNumber) {
-        this.doc_id = doc_id;
-        this.url = url;
-        this.regione = regione;
-        this.provincia = provincia;
-        this.city = city;
-        this.indirizzo = indirizzo;
-        this.iva = iva;
-        this.email = email;
-        this.telefono = telefono;
-        this.fax = fax;
-        this.edificio = edificio;
-        this.latitude = latitude;
-        this.longitude = longitude;
-        this.nazione = nazione;
-        this.description = description;
-        this.indirizzoNoCAP = indirizzoNoCAP;
-        this.postalCode = postalCode;
-        this.indirizzoHasNumber = indirizzoHasNumber;
-    }
-
-    public String getIndirizzoNoCAP() {
-        return indirizzoNoCAP;
-    }
-
-    public void setIndirizzoNoCAP(String indirizzoNoCAP) {
-        this.indirizzoNoCAP = indirizzoNoCAP;
-    }
-
-    public String getPostalCode() {
-        return postalCode;
-    }
-
-    public void setPostalCode(String postalCode) {
-        this.postalCode = postalCode;
-    }   
-
     public Integer getDoc_id() {
         return doc_id;
     }
@@ -258,18 +149,18 @@ public class GeoDomainDocument {
         return latitude;
     }
 
-    public void setLatitude(Double lat) {
-        this.latitude = lat;
+    public void setLatitude(Double latitude) {
+        this.latitude = latitude;
     }
 
     public Double getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(Double lng) {
-        this.longitude = lng;
+    public void setLongitude(Double longitude) {
+        this.longitude = longitude;
     }
-    
+
     public String getDescription() {
         return description;
     }
@@ -277,7 +168,23 @@ public class GeoDomainDocument {
     public void setDescription(String description) {
         this.description = description;
     }
-    
+
+    public String getIndirizzoNoCAP() {
+        return indirizzoNoCAP;
+    }
+
+    public void setIndirizzoNoCAP(String indirizzoNoCAP) {
+        this.indirizzoNoCAP = indirizzoNoCAP;
+    }
+
+    public String getPostalCode() {
+        return postalCode;
+    }
+
+    public void setPostalCode(String postalCode) {
+        this.postalCode = postalCode;
+    }
+
     public String getFax() {
         return fax;
     }
@@ -285,6 +192,85 @@ public class GeoDomainDocument {
     public void setFax(String fax) {
         this.fax = fax;
     }
+
+    public String getIndirizzoHasNumber() {
+        return indirizzoHasNumber;
+    }
+
+    public void setIndirizzoHasNumber(String indirizzoHasNumber) {
+        this.indirizzoHasNumber = indirizzoHasNumber;
+    }
+
+    public GeoDomainDocument (){}
+   
+
+    /**
+     * GeoDocument da inserire nella tabrella InfoDocument
+     * @param url
+     * @param regione
+     * @param provincia
+     * @param city
+     * @param indirizzo
+     * @param iva
+     * @param email
+     * @param telefono
+     * @param fax
+     * @param edificio
+     * @param latitude
+     * @param longitude
+     * @param nazione
+     * @param description
+     * @param postalCode
+     * @param indirizzoNoCAP
+     */
+    public GeoDomainDocument(URL url, String regione, String provincia, String city,
+			String indirizzo,String iva, String email, String telefono,String fax,
+			String edificio,Double latitude, Double longitude,String nazione,String description,
+                        String postalCode,String indirizzoNoCAP,String indirizzoHasNumber) {
+		this.url = url;
+		this.regione = regione;
+        this.provincia = provincia;
+		this.city = city;		
+		this.indirizzo = indirizzo;
+                this.iva = iva;
+		this.email = email;
+		this.telefono = telefono;
+                this.fax = fax;
+		this.edificio = edificio;
+		this.latitude = latitude;
+		this.longitude = longitude;
+                this.nazione = nazione;
+                this.description = description;
+                this.indirizzoNoCAP = indirizzoNoCAP;
+                this.postalCode = postalCode;
+                this.indirizzoHasNumber = indirizzoHasNumber;
+	}
+
+    public GeoDomainDocument(Integer doc_id,URL url, String regione, String provincia, String city,
+                             String indirizzo,String iva, String email, String telefono,String fax,
+                             String edificio,Double latitude, Double longitude,String nazione,String description,
+                             String postalCode,String indirizzoNoCAP,String indirizzoHasNumber) {
+        this.doc_id = doc_id;
+        this.url = url;
+        this.regione = regione;
+        this.provincia = provincia;
+        this.city = city;
+        this.indirizzo = indirizzo;
+        this.iva = iva;
+        this.email = email;
+        this.telefono = telefono;
+        this.fax = fax;
+        this.edificio = edificio;
+        this.latitude = latitude;
+        this.longitude = longitude;
+        this.nazione = nazione;
+        this.description = description;
+        this.indirizzoNoCAP = indirizzoNoCAP;
+        this.postalCode = postalCode;
+        this.indirizzoHasNumber = indirizzoHasNumber;
+    }
+
+
 
     @Override
     public String toString() {

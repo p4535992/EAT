@@ -97,8 +97,8 @@ public class InfoDocumentDaoImpl extends GenericDaoImpl<InfoDocument> implements
 
 
     @Override
-    public boolean verifyDuplicate(String columnWhereName,String valueWhereName){
-        int c = this.jdbcTemplate.queryForObject("select count(*) from "+myInsertTable+" where "+columnWhereName+"='"+valueWhereName+"'", Integer.class);
+    public boolean verifyDuplicate(String column_where,String value_where){
+        int c = this.jdbcTemplate.queryForObject("select count(*) from "+myInsertTable+" where "+ column_where +"='"+ value_where +"'", Integer.class);
         boolean b = false;
         if(c > 0){
             b = true;

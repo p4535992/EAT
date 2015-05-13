@@ -3,31 +3,26 @@ package object.impl.jdbc.generic;
 import object.dao.jdbc.generic.IGenericDao;
 import org.hibernate.SessionFactory;
 import org.springframework.context.ApplicationContext;
-import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import p4535992.util.reflection.ReflectionKit;
-import p4535992.util.sql.SQLKit;
 import p4535992.util.sql.SQLSupport;
-import p4535992.util.string.StringKit;
 import bean.BeansKit;
 import p4535992.util.log.SystemLog;
+import p4535992.util.string.StringKit;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.sql.DataSource;
 import java.io.IOException;
-import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by 4535992 on 16/04/2015.
@@ -111,16 +106,14 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
 
 
     @Override
-    public void create(String SQL) throws Exception {
-        //Copy the geodocument table
+    public void create(String SQL){
         try {
             query = SQL;
+            jdbcTemplate.execute(query);
             SystemLog.message(query);
-
         }catch(Exception e){
-            if(!e.getMessage().contains("already exists")){
-                SystemLog.logStackTrace(e, logger);
-                e.printStackTrace();
+            if(!e.getMessage().contains("Table already exists")){
+                SystemLog.exception(e);
             }
         }
     }
@@ -131,14 +124,19 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
             throw new Exception("Name of the table is empty!!!");
         }
         String query;
+        if(erase) {
+            query = "DROP TABLE IF EXISTS "+myInsertTable+";";
+            jdbcTemplate.execute(query);
+            SystemLog.query(query);
+        }
         create(SQL);
     }
 
     @Override
-    public boolean verifyDuplicate(String columnWhereName, String valueWhereName) {
+    public boolean verifyDuplicate(String column_where, String value_where) {
         boolean b = false;
         try {
-            query = "SELECT count(*) FROM " + myInsertTable + " WHERE " + columnWhereName + "='" + valueWhereName.replace("'", "''") + "'";
+            query = "SELECT count(*) FROM " + myInsertTable + " WHERE " + column_where + "='" + value_where.replace("'", "''") + "'";
             int c = this.jdbcTemplate.queryForObject(query, Integer.class);
             if (c > 0) {
                 b = true;
@@ -217,7 +215,7 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
         final StringBuffer queryString = new StringBuffer(
                 "SELECT count(o) from ");
         queryString.append(clName).append(" o ");
-        //queryString.append(this.getQueryClauses(params, null));
+        //queryString.append(this.getQueryClauses(values, null));
         final javax.persistence.Query query = this.em.createQuery(queryString.toString());
         return (Long) query.getSingleResult();
     }
@@ -225,144 +223,177 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
 
     @Override
     public void deleteAll() {
-            jdbcTemplate.update("DELETE from "+myInsertTable+"");
+            jdbcTemplate.update("DELETE from " + myInsertTable + "");
     }
 
     @Override
-    public Object select(String column, String column_where, String value_where,Class<? extends Object> aClass){
-        Object result = null;
+    public Object select(String column, String column_where, Object value_where){
+        Object result;
         try {
-            query = "SELECT " + column + " from " + mySelectTable + " WHERE " + column_where + " = ? LIMIT 1";
-            result =  jdbcTemplate.queryForObject(query, new Object[]{value_where},aClass);
+            query = prepareSelectQuery(new String[]{column},new String[]{column_where},null,null,null,null);
+            //query = "SELECT " + column + " FROM " + mySelectTable + " WHERE " + column_where + " = ? LIMIT 1";
+            result =  jdbcTemplate.queryForObject(query, new Object[]{value_where},value_where.getClass());
         }catch(org.springframework.dao.EmptyResultDataAccessException e){
-            SystemLog.error(query + " ->" + e.getMessage());
+            SystemLog.warning(query + " ->" + e.getMessage());
+            SystemLog.warning("Attention probably the SQL result is empty!");
             return null;
-        }catch(java.lang.NullPointerException ex){
-            SystemLog.error(query + " ->" + ex.getMessage());
+        }catch(java.lang.NullPointerException e){
+            SystemLog.warning(query + " ->" + e.getMessage());
+            return null;
+        }catch(org.springframework.jdbc.CannotGetJdbcConnectionException e){
+            SystemLog.warning(query + " ->" + e.getMessage());
+            SystemLog.warning("Attention probably the database not exists!");
             return null;
         }
         SystemLog.query(query + " -> " + result);
-        //String name = (String)getJdbcTemplate().queryForObject(query, new Object[] { custId }, String.class);
         return result;
     }
 
     @Override
-    public void insertAndTrim(String[] columns,Object[] params,int[] types) {
-        query =  "INSERT INTO "+myInsertTable+"  (";
-        for(int i = 0; i <  columns.length; i++){
-            query += columns[i];
-            if(i < columns.length-1){
-                query+= ",";
-            }
+    public void insertAndTrim(String[] columns,Object[] values,int[] types) {
+        insert(columns, values, types);
+        for(int i= 0; i < columns.length; i++){
+            trim(columns[i]);
         }
-        query +=" ) VALUES ( ";
-        for(int i = 0; i <  params.length; i++){
-            query += "?";
-            if(i < params.length-1){
-                query+= ",";
-            }
-        }
-        query += ");";
-        // execute insert query to insert the data
-        // return number of row / rows processed by the executed query
-        jdbcTemplate.update(query, params, types);
-        try {
-            Connection connection = dataSource.getConnection();
-            PreparedStatement p = connection.prepareStatement(query);
-            ResultSet rs = p.executeQuery();
-            ResultSetMetaData rsMetaData = rs.getMetaData();
-            int numberOfColumns = rsMetaData.getColumnCount();
-
-            // get the column names; column indexes start from 1
-            for (int i = 1; i < numberOfColumns + 1; i++) {
-                query = "UPDATE `" + myInsertTable + "` SET `" + rsMetaData.getColumnName(i) + "` = LTRIM(RTRIM(`" + rsMetaData.getColumnName(i) + "`));";
-                SystemLog.message("SQL:" + query);
-                jdbcTemplate.execute(query);
-            }
-        }catch(Exception e){}
     }
 
     @Override
-    public void insert(String[] columns,Object[] params,int[] types) {
-        query =  "INSERT INTO "+myInsertTable+"  (";
-        for(int i = 0; i <  columns.length; i++){
-            query += columns[i];
-            if(i < columns.length-1){
-                query+= ",";
-            }
-        }
-        query +=" ) VALUES ( ";
-        for(int i = 0; i <  params.length; i++){
-            query += "?";
-            if(i < params.length-1){
-                query+= ",";
-            }
-        }
-        query += ");";
-
-        jdbcTemplate.update(query, params, types);
+    public void trim(String column){
+        query = "UPDATE `" + myInsertTable + "` SET `" + column + "` = LTRIM(RTRIM(`" + column + "`));";
+        SystemLog.message("SQL:" + query);
+        jdbcTemplate.execute(query);
     }
 
+    @Override
+    public void insert(String[] columns,Object[] values,int[] types) {
+        try {
+            query = prepareInsertIntoQuery(columns, null);
+            jdbcTemplate.update(query, values, types);
+            //query = prepareInsertIntoQuery(columns, values);
+            //jdbcTemplate.update(query);
+            SystemLog.query(prepareInsertIntoQuery(columns, values));
+        }catch(org.springframework.dao.TransientDataAccessResourceException e){
+            SystemLog.warning("Attention: probably there is some java.sql.Type not supported" +
+                    " from your database");
+            SystemLog.exception(e);
+        }
+    }
 
     @Override
     public void tryInsert(T object) {
-        try {
-            SQLSupport support = SQLKit.insertSupport(object);
-            String[] columns = support.getCOLUMNS();
-            Object[] params = support.getVALUES();
-            int[] types = support.getTYPES();
-            insert(columns,params,types);
-        }catch(IllegalAccessException | NoSuchMethodException |InvocationTargetException | NoSuchFieldException ne){
-            SystemLog.exception(ne);
-        }
+        SQLSupport support = new SQLSupport(object);
+        String[] columns = support.getCOLUMNS();
+        Object[] params = support.getVALUES();
+        int[] types = support.getTYPES();
+        insert(columns,params,types);
     }
 
+//    @Override
+//      public List trySelect(int limit, int offset){
+//        List<Object> list = new ArrayList<>();
+//        query = "SELECT * FROM "+mySelectTable+" LIMIT 1 OFFSET 0";
+//        Connection connection = null;
+//        try {
+//            connection = dataSource.getConnection();
+//            PreparedStatement p = connection.prepareStatement(query);
+//            ResultSet rs = p.executeQuery();
+//            ResultSetMetaData rsMetaData = rs.getMetaData();
+//            int numberOfColumns = rsMetaData.getColumnCount();
+//            query = "SELECT ";
+//            // get the column names; column indexes start from 1
+//            for (int i = 1; i < numberOfColumns + 1; i++) {
+//                query += rsMetaData.getColumnName(i);
+//                if(i < numberOfColumns){query += " ,";}
+//            }
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+//        query += " FROM "+mySelectTable+" LIMIT "+limit+" OFFSET "+offset+"";
+//        return list;
+//    }
+
     @Override
-      public List select(int limit,int offset){
-        List<Object> list = new ArrayList<>();
-        query = "SELECT * FROM "+mySelectTable+" LIMIT 1 OFFSET 0";
-        Connection connection = null;
+    public String prepareInsertIntoQuery(String[] columns,Object[] values){
         try {
-            connection = dataSource.getConnection();
-            PreparedStatement p = connection.prepareStatement(query);
-            ResultSet rs = p.executeQuery();
-            ResultSetMetaData rsMetaData = rs.getMetaData();
-            int numberOfColumns = rsMetaData.getColumnCount();
-            query = "SELECT ";
-            // get the column names; column indexes start from 1
-            for (int i = 1; i < numberOfColumns + 1; i++) {
-                query += rsMetaData.getColumnName(i);
-                if(i < numberOfColumns){query += " ,";}
+            boolean statement = false;
+            query = "INSERT INTO " + myInsertTable + "  (";
+            for (int i = 0; i < columns.length; i++) {
+                query += columns[i];
+                if (i < columns.length - 1) {
+                    query += ",";
+                }
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
+            query += " ) VALUES ( ";
+            if (values == null) {
+                statement = true;
+            }
+            for (int i = 0; i < columns.length; i++) {
+                if (statement) {
+                    query += "?";
+                } else {
+                    if(values[i]== null){
+                        values[i]= " NULL ";
+                    }else if (values[i]!=null && values[i] instanceof String) {
+                        values[i] = "'" + values[i].toString().replace("'", "''") + "'";
+                    }else if (values[i]!=null && values[i] instanceof java.net.URL) {
+                        values[i] = "'" + values[i].toString().replace("'", "''") + "'";
+                    }else{
+                        values[i] = " " + values[i] + " ";
+                    }
+                    query += "" + values[i] + "";
+                }
+                if (i < columns.length - 1) {
+                    query += ",";
+                }
+            }
+            query += ");";
+        }catch (NullPointerException e){
+            SystemLog.warning("Attention: you problably have forgotten  to put some column for the SQL query");
+            SystemLog.exception(e);
         }
-        query += " FROM "+mySelectTable+" LIMIT "+limit+" OFFSET "+offset+"";
-        return list;
+        return query;
     }
 
     @Override
-    public List select(String[] columns_where,Object[] values_where,int limit,int offset,String condition){
-        List<Object> list = new ArrayList<>();
-        query = "SELECT * FROM "+mySelectTable+" WHERE ";
-        for(int k=0; k < columns_where.length; k++ ){
-            query+= columns_where[k] +" = "+ values_where[k];
-            if(k < columns_where.length -1){ query += " "+condition.toUpperCase()+" ";}
-        }
-        query += " LIMIT "+limit+" OFFSET "+offset+"";
-        return list;
-    }
-
-    @Override
-    public String prepareSelectQuery(String[] columns_where,Object[] values_where,Integer limit,Integer offset,String condition){
+    public String prepareSelectQuery(String[] columns,String[] columns_where,Object[] values_where,Integer limit,Integer offset,String condition){
+        boolean statement = false;
         //PREPARE THE QUERY STRING
-        query = "SELECT * FROM "+mySelectTable+" WHERE ";
-        for(int k=0; k < columns_where.length; k++ ){
-            query+= columns_where[k] +" ";
-            if(values_where[k]== null){ query += " IS NULL ";}
-            else{query += " = '" + values_where[k]+"'";}
-            if(condition!=null && k < columns_where.length -1){ query += " "+condition.toUpperCase()+" ";}
-            else{query += " ";}
+        query = "SELECT ";
+        if(columns.length==0 || (columns.length==1 && columns[0]=="*")){
+             query += " * ";
+        }else{
+            for(int i = 0; i < columns.length; i++){
+                query += " "+columns[i]+"";
+                if(i < columns.length-1){
+                    query += ", ";
+                }
+            }
+        }
+        query +=" FROM "+mySelectTable+" ";
+        if(!StringKit.isArrayEmpty(columns_where)) {
+            if(values_where==null){
+                statement = true;
+                //values_where = new Object[columns_where.length];
+                //for(int i = 0; i < columns_where.length; i++){values_where[i]="?";}
+            }
+            query += " WHERE ";
+            for (int k = 0; k < columns_where.length; k++) {
+                query += columns_where[k] + " ";
+                if(statement){
+                    query += " = ? ";
+                }else {
+                    if (values_where[k] == null) {
+                        query += " IS NULL ";
+                    } else {
+                        query += " = '" + values_where[k] + "'";
+                    }
+                }
+                if (condition != null && k < columns_where.length - 1) {
+                    query += " " + condition.toUpperCase() + " ";
+                } else {
+                    query += " ";
+                }
+            }
         }
         if(limit != null && offset!= null) {
             query += " LIMIT " + limit + " OFFSET " + offset + "";
@@ -371,17 +402,15 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
     }
 
     @Override
-    public List trySelect(String[] columns_where,Object[] values_where,Integer limit,Integer offset,String condition) {
+    public List<T> trySelect(final String[] columns,String[] columns_where,Object[] values_where,Integer limit,Integer offset,String condition) {
         List<T> list = new ArrayList<>();
-        //PREPARE THE QUERY STRING
-        query = prepareSelectQuery(columns_where,values_where,limit,offset,condition);
+        query = prepareSelectQuery(columns,columns_where,values_where,limit,offset,condition);
         List<Map<String, Object>> map = jdbcTemplate.queryForList(query);
         SystemLog.query(query);
         try {
             int i = 0;
             Class[] classes = ReflectionKit.getClassesByFieldsByAnnotation(cl,javax.persistence.Column.class);
             for (Map<String, Object> geoDoc : map) {
-                //INVOKE NEW DEFAULT CONSTRUCTOR
                 T iClass =  ReflectionKit.invokeConstructor(cl);
                 for (Iterator<Map.Entry<String, Object>> it = geoDoc.entrySet().iterator(); it.hasNext(); ) {
                     Map.Entry<String, Object> entry = it.next();
@@ -403,7 +432,7 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
                         } else if (classes[i].getName() == Float.class.getName()){
                             value = Float.parseFloat(value.toString());
                         }
-                        iClass = (T) SQLKit.invokeSetterSupport(iClass, entry.getKey(), value);
+                        iClass = SQLSupport.invokeSetterSupport(iClass, entry.getKey(), value);
                     }
                     i++;
                 }
@@ -415,84 +444,75 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
         return list;
     }
 
-    private T supportObject2;
     @Override
-    public List trySelect(String query, final T MyObject) {
+    public List<T> trySelectWithRowMap(String[] columns,String[] columns_where,Object[] values_where,Integer limit, Integer offset,String condition) {
+        query = prepareSelectQuery(columns,columns_where,values_where,limit,offset,condition);
         List<T> list = new ArrayList<>();
         try {
-            //T MyObject = ReflectionKit.invokeConstructor(cl);
-            list = this.jdbcTemplate.query(query,
-                    new RowMapper<T>() {
+            final String[] columns2;
+            if(columns.length==1 && Arrays.asList(columns).contains("*")) {
+                columns2 = SQLSupport.getArrayColumns(cl, javax.persistence.Column.class, "name");
+//            final Integer[] types =
+//                    SQLKit.getArrayTypes(cl, javax.persistence.Column.class);
+            }else{
+                columns2 = StringKit.copyContentArray(columns);
+            }
+
+            final Class[] classes =
+                    SQLSupport.getArrayClassesTypes(cl, javax.persistence.Column.class);
+
+            final List<Method> setters = ReflectionKit.getSettersClassOrder(cl);
+
+            list = this.jdbcTemplate.query(
+                    query, new RowMapper<T>() {
                         @Override
                         public T mapRow(ResultSet rs, int rowNum) throws SQLException {
-                            T MyObject =ReflectionKit.invokeConstructor(cl);
-                            ResultSetExtractor extractor = new ResultSetExtractor() {
-                                @Override
-                                public Object extractData(ResultSet rs) throws SQLException, DataAccessException {
-                                    //supportObject2 = ReflectionKit.invokeConstructor(cl);
-                                    //supportObject2 = ReflectionKit.invokeSetterMethod(supportObject2, rs);
-                                    //list.add(supportObject2);
-                                    T MyObject2 = ReflectionKit.invokeConstructor(cl);
-                                    while (rs.next()) {
-                                        int size = rs.getFetchSize();
-                                        for (Field field : cl.getDeclaredFields()){
-                                            for (Method method : ReflectionKit.getSettersClass(cl)){
-                                                //for (Method method : MyObject.getClass().getMethods())
-                                                //if (ReflectionKit.isSetter(method)) {
-//                                                    if (method.getName().toLowerCase().endsWith(field.getName().toLowerCase())
-//                                                            && method.getName().toLowerCase().startsWith("set"))
-//                                                    {
-
-                                                // MZ: Method found, run it
-                                                try
-                                                {
-                                                    method.setAccessible(true);
-                                                    if(field.getType().getSimpleName().toLowerCase().endsWith("integer"))
-                                                        method.invoke(MyObject2,rs.getInt(field.getName().toLowerCase()));
-                                                    else if(field.getType().getSimpleName().toLowerCase().endsWith("long"))
-                                                        method.invoke(MyObject2,rs.getLong(field.getName().toLowerCase()));
-                                                    else if(field.getType().getSimpleName().toLowerCase().endsWith("string"))
-                                                        method.invoke(MyObject2,rs.getString(field.getName().toLowerCase()));
-                                                    else if(field.getType().getSimpleName().toLowerCase().endsWith("boolean"))
-                                                        method.invoke(MyObject2,rs.getBoolean(field.getName().toLowerCase()));
-                                                    else if(field.getType().getSimpleName().toLowerCase().endsWith("timestamp"))
-                                                        method.invoke(MyObject2,rs.getTimestamp(field.getName().toLowerCase()));
-                                                    else if(field.getType().getSimpleName().toLowerCase().endsWith("date"))
-                                                        method.invoke(MyObject2,rs.getDate(field.getName().toLowerCase()));
-                                                    else if(field.getType().getSimpleName().toLowerCase().endsWith("double"))
-                                                        method.invoke(MyObject2,rs.getDouble(field.getName().toLowerCase()));
-                                                    else if(field.getType().getSimpleName().toLowerCase().endsWith("float"))
-                                                        method.invoke(MyObject2,rs.getFloat(field.getName().toLowerCase()));
-                                                    else if(field.getType().getSimpleName().toLowerCase().endsWith("time"))
-                                                        method.invoke(MyObject2,rs.getTime(field.getName().toLowerCase()));
-                                                    else if(field.getType().getSimpleName().toLowerCase().endsWith("url"))
-                                                        method.invoke(MyObject2,rs.getURL(field.getName().toLowerCase()));
-                                                    else
-                                                        method.invoke(MyObject2,rs.getObject(field.getName().toLowerCase()));
-                                                }
-                                                catch (IllegalAccessException | InvocationTargetException | SQLException e)
-                                                {
-                                                    System.err.println(e.getMessage());
-                                                }
-                                                    //}
-                                                //}
-                                            }
-                                        }
+                            T MyObject2 = ReflectionKit.invokeConstructor(cl);
+                            try {
+                                for (int i = 0; i < columns2.length; i++) {
+                                    System.out.println(i+")Class:"+classes[i].getName()+",Column:"+columns2[i]);
+                                    if (classes[i].getName()
+                                            .equalsIgnoreCase(String.class.getName())) {
+                                        MyObject2 = ReflectionKit.invokeSetterMethodForObject(
+                                                MyObject2, setters.get(i), new Object[]{rs.getString(columns2[i])});
                                     }
-                                    return MyObject2;
-                                }
-                            };
-                            return MyObject;
-                        }
+                                    else if (classes[i].getName()
+                                            .equalsIgnoreCase(URL.class.getName())) {
+                                        URL url;
+                                        if(rs.getString(columns2[i]).contains("://")){
+                                            url = new URL(rs.getString(columns2[i]));
+                                        }else{
+                                            url = new URL("http://"+rs.getString(columns2[i]));
+                                        }
+                                        MyObject2 = ReflectionKit.invokeSetterMethodForObject(
+                                                MyObject2, setters.get(i), new Object[]{url});
 
+                                    }
+                                    else if (classes[i].getName()
+                                            .equalsIgnoreCase(Double.class.getName())) {
+                                        String sup = rs.getString(columns2[i]).replace(",",".").replace(" ",".");
+                                        Double num = Double.parseDouble(sup);
+                                        MyObject2 = ReflectionKit.invokeSetterMethodForObject(
+                                                MyObject2, setters.get(i), new Object[]{num});
+
+                                    }else if (classes[i].getName()
+                                            .equalsIgnoreCase(Integer.class.getName())) {
+                                        String sup = rs.getString(columns2[i]).replace(",", "").replace(".", "").replace(" ", "");
+                                        Integer num = Integer.parseInt(sup);
+                                        MyObject2 = ReflectionKit.invokeSetterMethodForObject(
+                                                MyObject2, setters.get(i), new Object[]{num});
+                                    }
+
+                                }
+                            }catch(IllegalAccessException|InvocationTargetException|NoSuchMethodException e){
+                                e.printStackTrace();
+                            } catch (MalformedURLException e) {
+                                e.printStackTrace();
+                            }
+                            return MyObject2;
+                        }
                     }
             );
-//            T MyObject = ReflectionKit.invokeConstructor(cl);
-//            GenericRowMapper<T> rowMapper = new GenericRowMapper(MyObject);
-//            this.jdbcTemplate.query(query,rowMapper);
-
-
-
         }catch (Exception e){
             SystemLog.exception(e);
         }finally{
@@ -503,29 +523,119 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
     }
 
     @Override
-    public List trySelect(final String column, int limit, int offset) {
-        List <Object> list = new ArrayList<>();
-        query = "select " + column + " from " + mySelectTable + " LIMIT " + limit + " OFFSET " + offset + "";
+    public List<T> trySelectWithResultSetExtractor(String[] columns,String[] columns_where,Object[] values_where,Integer limit,Integer offset,String condition){
+        List<T> list = new ArrayList<>();
+        query = prepareSelectQuery(columns,columns_where,values_where,limit,offset,condition);
         try {
-            list = this.jdbcTemplate.query(query,
-                    new RowMapper<Object>() {
-                        @Override
-                        public Object mapRow(ResultSet rs, int rowNum) throws SQLException {
-                            return rs.getObject(column);
-                        }
-                    }
-            );
+            //T MyObject = ReflectionKit.invokeConstructor(cl);
+            final String[] columns2;
+            if(columns.length==1 && Arrays.asList(columns).contains("*")) {
+              columns2 = SQLSupport.getArrayColumns(cl, javax.persistence.Column.class, "name");
+//            final Integer[] types =
+//                    SQLKit.getArrayTypes(cl, javax.persistence.Column.class);
+            }else{
+                columns2 = StringKit.copyContentArray(columns);
+            }
 
-        }catch(Exception e){
-           SystemLog.exception(e);
+            final Class[] classes =
+                    SQLSupport.getArrayClassesTypes(cl, javax.persistence.Column.class);
+
+            final List<Method> setters = ReflectionKit.getSettersClassOrder(cl);
+
+            list = (List<T>) jdbcTemplate.query(query,new ResultSetExtractor() {
+                @Override
+                public List<T> extractData(ResultSet rs) throws SQLException {
+                    List<T> list = new ArrayList<>();
+                    while(rs.next()){
+                        T MyObject2 = ReflectionKit.invokeConstructor(cl);
+                        Method method = null;
+                        try {
+                            for (int i = 0; i < columns2.length; i++) {
+                                method = setters.get(i); //..support for exception
+
+                                System.out.println(i + ")Class:" + classes[i].getName() + ",Column:" + columns2[i]);
+                                //String[] column2 = new String[rs.getMetaData().getColumnCount()];
+                                //for(int j = 0; j < rs.getMetaData().getColumnCount(); j++){column2[j] = rs.getMetaData().getColumnName(j);}
+                                try {
+                                    if (classes[i].getName()
+                                            .equalsIgnoreCase(String.class.getName())) {
+                                        MyObject2 = ReflectionKit.invokeSetterMethodForObject(
+                                                MyObject2, setters.get(i), new Object[]{rs.getString(columns2[i])});
+                                        //map.put(columns[i], rs.getString(columns[i]));
+                                    } else if (classes[i].getName()
+                                            .equalsIgnoreCase(URL.class.getName())) {
+                                        URL url;
+                                        if (rs.getString(columns2[i]).contains("://")) {
+                                            url = new URL(rs.getString(columns2[i]));
+                                        } else {
+                                            url = new URL("http://" + rs.getString(columns2[i]));
+                                        }
+                                        MyObject2 = ReflectionKit.invokeSetterMethodForObject(
+                                                MyObject2, setters.get(i), new Object[]{url});
+                                        //map.put(columns[i], url);
+                                    } else if (classes[i].getName()
+                                            .equalsIgnoreCase(Double.class.getName())) {
+                                        String sup = rs.getString(columns2[i]).replace(",", ".").replace(" ", ".");
+                                        Double num = Double.parseDouble(sup);
+                                        MyObject2 = ReflectionKit.invokeSetterMethodForObject(
+                                                MyObject2, setters.get(i), new Object[]{num});
+                                        //map.put(columns[i], num);
+                                    }else if (classes[i].getName()
+                                            .equalsIgnoreCase(Integer.class.getName())) {
+                                        String sup = rs.getString(columns2[i]).replace(",", "").replace(".", "").replace(" ", "");
+                                        Integer num = Integer.parseInt(sup);
+                                        MyObject2 = ReflectionKit.invokeSetterMethodForObject(
+                                                MyObject2, setters.get(i), new Object[]{num});
+                                        //map.put(columns[i], num);
+                                    }
+                                } catch (org.springframework.jdbc.UncategorizedSQLException e) {
+                                    SystemLog.warning("... try and failed to get a value of a column not specify  in the query");
+                                    MyObject2 = ReflectionKit.invokeSetterMethodForObject(MyObject2, method, new Object[]{null});
+                                }
+                            }
+                        } catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
+                            e.printStackTrace();
+                        } catch (MalformedURLException e) {
+                            e.printStackTrace();
+                        }
+                        list.add(MyObject2);
+                    }
+                    return list;
+                }
+
+            });
+        }catch (Exception e){
+            SystemLog.exception(e);
+        }finally{
+            if(list.isEmpty()){SystemLog.warning("The result list of:"+query+" is empty!!");}
+            else{SystemLog.query(query + " -> return a list with size:"+list.size());}
         }
         return list;
     }
 
     @Override
-    public List select(String column, String datatype, int limit, int offset) {
-
-        return null;
+    public List<Object> select(String column,String column_where,Object value_where,Integer limit,Integer offset,String condition){
+        List<Object> listObj = new ArrayList<>();
+        query = prepareSelectQuery(new String[]{column},new String[]{column_where},null,limit,offset,condition);
+        List<Map<String, Object>> list;
+        if(value_where != null) {
+            Class[] classes = new Class[]{value_where.getClass()};
+            list = jdbcTemplate.queryForList(query, new Object[]{value_where}, classes);
+            SystemLog.query(query +" -> Return a list of "+list.size()+" elements!");
+        }else{
+            list = jdbcTemplate.queryForList(query);
+            SystemLog.query(query +" -> Return a list of "+list.size()+" elements!");
+        }
+        try {
+            for (Map<String, Object> map : list) { //...column already filter from the query
+                for (Iterator<Map.Entry<String, Object>> it = map.entrySet().iterator(); it.hasNext(); ) {
+                    Map.Entry<String, Object> entry = it.next();
+                    Object value = entry.getValue();
+                    listObj.add(value);
+                }
+            }
+        }catch(Exception e){SystemLog.exception(e);}
+        return listObj;
     }
 
     @Override
@@ -554,43 +664,3 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
 
 
 }
-
-    class GenericResultSetExtractor<T> implements ResultSetExtractor {
-
-        public T MyObject;
-        GenericResultSetExtractor(T MyObject){
-            this.MyObject=MyObject;
-        }
-
-        @Override
-        public T extractData(ResultSet rs) throws SQLException, DataAccessException {
-            //SETTTER OF T
-            return ReflectionKit.invokeSetterMethod(MyObject, rs);
-        }
-    }
-
-    class GenericRowMapper<T> implements RowMapper {
-
-        public T MyObject;
-        GenericRowMapper(T MyObject){
-            this.MyObject = MyObject;
-        }
-
-        @Override
-        public Object mapRow(ResultSet rs, int line) throws SQLException {
-            GenericResultSetExtractor extractor = new GenericResultSetExtractor(MyObject);
-            return extractor.extractData(rs);
-        }
-    }
-
-//    public void insertBatchNamedParameter2(final List<Customer> customers){
-//
-//        SqlParameterSource[] params =
-//                SqlParameterSourceUtils.createBatch(customers.toArray());
-//        jdbcTemplate.update(
-//                "INSERT INTO CUSTOMER (CUST_ID, NAME, AGE) VALUES (:custId, :name, :age)",
-//                params);
-//
-//    }
-
-

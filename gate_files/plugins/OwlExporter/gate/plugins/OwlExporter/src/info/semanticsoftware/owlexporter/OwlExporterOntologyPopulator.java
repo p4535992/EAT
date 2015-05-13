@@ -230,7 +230,7 @@ public abstract class OwlExporterOntologyPopulator {
 			catch(IllegalArgumentException iaEx) {
 				throw new PopulatorException("The OwlExporter has already processed entites from corpus: " +
 						this.getOwlExporterOntology().getOwlExporter().getDocumentFileName() +
-						". Please trySelect another corpus to process or remove the existing output ontology.");
+						". Please trySelectWithRowMap another corpus to process or remove the existing output ontology.");
 			}		 									
 		}	
 	}

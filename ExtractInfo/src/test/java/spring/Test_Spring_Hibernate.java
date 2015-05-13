@@ -55,8 +55,6 @@ public class Test_Spring_Hibernate {
         dao.setTableInsert("test_34");
         //dao.setDriverManager("com.sql.jdbc.Driver","jdbc:sql","localhost","3306","siimobility","siimobility","geolocationddb")
         dao.loadSpringConfig(filePathXml);
-        dao.saveH(geo);
-        List<GeoDocument> list = dao.getAllH();
     }
 
 //    public void loadXml() throws IOException, URISyntaxException {

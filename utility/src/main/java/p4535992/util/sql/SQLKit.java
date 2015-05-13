@@ -99,6 +99,7 @@ public class  SQLKit<T> {
         else if(aClass.getName().equals(java.sql.Date.class.getName())) result = Types.DATE;
         else if(aClass.getName().equals(java.sql.Time.class.getName()))result = Types.TIME;
         else if(aClass.getName().equals(java.sql.Timestamp.class.getName()))result = Types.TIMESTAMP;
+        else if(aClass.getName().equals(java.net.URL.class.getName()))result = Types.VARCHAR;
         else result = Types.NULL;
         return result;
     }
@@ -210,104 +211,7 @@ public class  SQLKit<T> {
 //    return javaType;
 //  }
 
-    /**
-     * Method for get from a java class all the information you need for insert
-     * a data in a database a homemade very very very base similar hibernate usage
-     * @ATTENTION: you need to be sure all the getter have reference to a field with a hibernate annotation and the attribute column.
-     * @ATTENTION: you need all field of the object class have a hibernate annotation and the attribute column, or at least
-     * a personal annotation with the attribute column and a value who is the column of the column.
-     * @param object
-     * @return
-     * @throws IllegalAccessException
-     * @throws NoSuchMethodException
-     * @throws InvocationTargetException
-     * @throws NoSuchFieldException
-     */
-    public static <T> SQLSupport insertSupport(T object)
-            throws IllegalAccessException, NoSuchMethodException, InvocationTargetException, NoSuchFieldException {
-        Map<String,Class> l = ReflectionKit.inspectAndLoadGetterObject(object);
-        Object[] values = new Object[l.size()];
-        int[] types = new int[l.size()];
-        String[] columns = new String[l.size()];
-        int i = 0;
-        for(Map.Entry<String,Class> entry : l.entrySet()) {
-            Class[] arrayClass = new Class[]{entry.getValue()};
-            values[i] = ReflectionKit.invokeObjectMethod(object, entry.getKey().toString(),arrayClass);
-            types[i] = SQLKit.convertClass2SQLTypes(entry.getValue());
-            i++;
-        }
-        i = 0;
-        List<List<Object[]>> ssc = ReflectionKit.getAnnotationsFields(object.getClass());
-        for(List<Object[]> list : ssc){
-            int j =0;
-            boolean flag = false;
-            while(j < list.size()){
-                int k = 0;
-                while(k < list.get(j).length) {
-                    if (list.get(j)[k].equals("column")) {
-                        columns[i] = list.get(j)[++k].toString();
-                        flag = true;
-                        break;
-                    }
-                    k++;
-                }
-                if(flag==true)break;
-                j++;
-            }
-            i++;
-        }
-        return new SQLSupport(columns,values,types);
-    }
 
-    public static Integer[] getArrayTypes(Class<?> clazz, Class<? extends Annotation> aClass){
-        List<Integer> types = new ArrayList<>();
-        Class[] classes = ReflectionKit.getClassesByFieldsByAnnotation(clazz, aClass);
-        //GET TYPES SQL
-        for(Class cl: classes){
-            types.add(convertClass2SQLTypes(cl));
-        }
-        return StringKit.convertListToArray(types);
-    }
-
-    public static String[] getArrayColumns(Class<?> clazz, Class<? extends Annotation> aClass,String attributeNameColumnAnnotation) throws NoSuchFieldException {
-        List<List<Object[]>> test4 = ReflectionKit.getAnnotationsFields(clazz,aClass);
-        int j,i,x;
-        boolean found = false;
-        String[] columns = new String[test4.size()];
-        j=0;
-        for(List<Object[]> list : test4){
-            i = 0;
-            found = false;
-            while(i < list.size()){
-                x = 0;
-                while (x < list.get(i).length) {
-                    if (list.get(i)[x].toString().equals(attributeNameColumnAnnotation)) {
-                        columns[j] = String.valueOf(list.get(i)[++x]);
-                        j++;
-                        found = true;
-                        break;
-                    }
-                    x++;
-                }
-                if(found) break;
-                else i++;
-            }
-        }
-        return  columns;
-    }
-
-    public static <T> T invokeSetterSupport(T iClass, String column, Object value) throws NoSuchFieldException {
-        try {
-            Method method = ReflectionKit.findSetterMethod(iClass,column,value);
-           Object[] values = new Object[]{value};
-           iClass = ReflectionKit.invokeSetterMethod(iClass, method,values);
-            return iClass;
-        } catch (IllegalAccessException|
-                InvocationTargetException|NoSuchMethodException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
 
 
 
