@@ -1,5 +1,6 @@
 package object.impl.jdbc.generic;
 
+import extractor.hibernate.interceptor.GeoDocumentInterceptor;
 import object.dao.jdbc.generic.IGenericDao;
 import org.hibernate.SessionFactory;
 import org.springframework.context.ApplicationContext;
@@ -656,11 +657,5 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
         }catch(Exception e){}
         return columns;
     }
-
-
-
-
-
-
 
 }

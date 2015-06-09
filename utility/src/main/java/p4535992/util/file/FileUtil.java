@@ -4,14 +4,12 @@
 
 package p4535992.util.file;
 
-import p4535992.util.cmd.SimpleParameters;
 import p4535992.util.log.SystemLog;
 
 import java.io.*;
 import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.net.URL;
 import java.util.*;
 import java.util.zip.GZIPInputStream;
 
@@ -178,7 +176,7 @@ public class FileUtil {
                 files.add(new File(fullPathDir+File.separator+path));
             }
         } catch (Exception e) {
-            // if any error occurs
+            // if any org.p4535992.mvc.error occurs
             e.printStackTrace();
         }
         return files;
@@ -435,7 +433,7 @@ public class FileUtil {
     /**
      * Utility for a depth first traversal of a file-system starting from a
      * given node (file or directory).
-     * e.g.
+     * e.home.
      * FileWalker.Handler handler = new FileWalker.Handler() {
      *
      * @Override public void file(File file) throws Exception {

@@ -74,11 +74,11 @@ public class MyGateHandler implements HttpRequestHandler {
        corpus = Factory.newCorpus("MainPipeline corpus");
        corpus = create.createCorpusByListOfUrls(listaUrl, corpus.getName());
        System.err.println("Fine caricamento della PIPELINE");
-       //spring.mvc.controller.setCorpus(corpus2);
+       //spring.mvc.home.home.initializer.org.p4535992.mvc.webapp.controller.setCorpus(corpus2);
        application.setCorpus(corpus);//set corpus
        System.err.println("...START");
        application.execute();
-       //spring.mvc.controller.execute();//execute the corpus fatto da spring
+       //spring.mvc.home.home.initializer.org.p4535992.mvc.webapp.controller.execute();//execute the corpus fatto da spring
      }catch (Exception e){
        e.printStackTrace();
      }
@@ -170,7 +170,7 @@ public class MyGateHandler implements HttpRequestHandler {
   }
 
   /**
-   * Simple error handler - you would obviously use something more
+   * Simple org.p4535992.mvc.error handler - you would obviously use something more
    * sophisticated in a real application.
    */
   private void failureMessage(String message, Exception e,

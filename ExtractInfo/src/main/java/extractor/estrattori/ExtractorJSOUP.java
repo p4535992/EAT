@@ -79,7 +79,7 @@ public class ExtractorJSOUP {
                     throw new Exception("HTTP GET HA FALLITO");
                 }
             }catch(Exception en){
-                //SystemLog.error("HTTP GET HA FALLITO:" + en.getMessage());
+                //SystemLog.org.p4535992.mvc.error("HTTP GET HA FALLITO:" + en.getMessage());
                 EXIST_WEBPAGE = false;
             }
         }else{
@@ -100,7 +100,7 @@ public class ExtractorJSOUP {
                 for(Element e : Tags){
                      result += pulisciStringaEdificio(e.text())+" "; 
                      if(result.contains("momentaneamente disabilitato")
-                       //||result.contains("sito web") //occupato,non più raggiungibile,nestitente
+                       //||result.contains("sito org.p4535992.mvc.webapp") //occupato,non più raggiungibile,nestitente
                              ){break;}
                      if(setNullForEmptyString(result)!=null)break;
                 }
@@ -182,7 +182,7 @@ public class ExtractorJSOUP {
      * @return la stringa "ripulita"
      */
     private String pulisciStringaEdificio(String edificio){
-        List<String> badWords = Arrays.asList("INDEX","index","home", "HOME", "homepage","HOMEPAGE",
+        List<String> badWords = Arrays.asList("INDEX","index", "home/home", "HOME", "homepage","HOMEPAGE",
                 "page","PAGE","Homepage","Page","Home","Chi siamo","Chi Siamo","Portale","portale",
                 "NEWS","News","Benvenuto nel","benvenuto nel","Benvenuto","benvenuto"
                 );

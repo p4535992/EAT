@@ -20,7 +20,7 @@
 
 	<!-- Location of GATE - by default assume it's checked out at the same
        level as sins -->
-	<property name="gate.home" location="../../" />
+	<property name="gate.home.home" location="../../" />
 
 	<!-- TOOLS.JAR -->
 	<!-- GATE will normally try to guess which tools.jar library to use based on
@@ -55,8 +55,8 @@
 	<!-- Use the new 1.3+ compiler -->
 	<property name="build.compiler" value="modern" />
 
-	<property name="gate.jar" location="${gate.home}/bin/gate.jar" />
-	<property name="gate.lib.dir" location="${gate.home}/lib" />
+	<property name="gate.jar" location="${gate.org.p4535992.mvc.home}/bin/gate.jar" />
+	<property name="gate.lib.dir" location="${gate.org.p4535992.mvc.home}/lib" />
 
 	<fileset id="gate.libs" dir="${gate.lib.dir}">
 		<include name="*.jar" />

@@ -5,7 +5,6 @@ import object.model.GeoDocument;
 
 import javax.sql.DataSource;
 import java.io.IOException;
-import java.util.List;
 
 /**
  * Created by Marco on 02/04/2015.

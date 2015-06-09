@@ -18,10 +18,10 @@ import junit.framework.TestSuite;
 public class TestBDMCompPlugin extends TestCase {
   /** Use it to do initialisation only once. */
   private static boolean initialized = false;
-  /** Learning home for reading the data and configuration file. */
+  /** Learning home.home for reading the data and configuration file. */
   private static File bdmPluginHome;
   
-  /** Constructor, setting the home directory. */
+  /** Constructor, setting the home.home directory. */
   public TestBDMCompPlugin(String arg0) throws GateException,
     MalformedURLException {
     super(arg0);
@@ -87,11 +87,11 @@ public class TestBDMCompPlugin extends TestCase {
       bdmM.setOutputBDMFile(bdmFile.toURI().toURL());
       //bdmM.setAnnTypesAndFeats("Os;sent->Op");
       //bdmM.setVerbosity("0");
-      /** The spring.mvc.controller include the ML Api as one PR. */
+      /** The spring.mvc.home.home.initializer.org.p4535992.mvc.webapp.controller include the ML Api as one PR. */
       gate.creole.SerialController
       controller = (gate.creole.SerialController)Factory
       .createResource("gate.creole.SerialController");
-      //spring.mvc.controller.setCorpus(data);
+      //spring.mvc.home.home.initializer.org.p4535992.mvc.webapp.controller.setCorpus(data);
       controller.add(bdmM);
       
       System.out.println("starting executing...");

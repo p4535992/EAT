@@ -72,7 +72,7 @@ public class BeansKit<T> implements  org.springframework.context.ResourceLoaderA
                     context = abstractContext;
                 } catch (Exception e3) {
                         //XmlBeanFactory context = new XmlBeanFactory (new ClassPathResource(filePathXml));
-//                        //This container loads the XML file with definitions of all beans from within a web application.
+//                        //This container loads the XML file with definitions of all beans from within a org.p4535992.mvc.webapp application.
 //                        try{
 //                            context = new XmlWebApplicationContext();
 //                        }catch(Exception e4){
@@ -177,7 +177,7 @@ public class BeansKit<T> implements  org.springframework.context.ResourceLoaderA
             br.close();
             s = stringBuilder.toString();
         } catch (Exception e) {
-            //LOGGER.error(e);
+            //LOGGER.org.p4535992.mvc.error(e);
         }
         return s;
     }

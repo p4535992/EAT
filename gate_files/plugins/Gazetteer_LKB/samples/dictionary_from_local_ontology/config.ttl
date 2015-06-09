@@ -7,9 +7,9 @@
 # including Sesame in the gazetteer /lib folder.
 
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
-@prefix rep: <http://www.openrdf.org/config/repository#>.
-@prefix sr: <http://www.openrdf.org/config/repository/sail#>.
-@prefix sail: <http://www.openrdf.org/config/sail#>.
+@prefix rep: <http://www.openrdf.org/home.home.initializer.org.p4535992.mvc.config/repository#>.
+@prefix sr: <http://www.openrdf.org/home.home.initializer.org.p4535992.mvc.config/repository/sail#>.
+@prefix sail: <http://www.openrdf.org/home.home.initializer.org.p4535992.mvc.config/sail#>.
 @prefix owlim: <http://www.ontotext.com/trree/owlim#>.
 @prefix lkbg: <http://www.ontotext.com/lkb_gazetteer#>.
 

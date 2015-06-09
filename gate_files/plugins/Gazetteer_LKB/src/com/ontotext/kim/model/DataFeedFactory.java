@@ -73,9 +73,9 @@ public class DataFeedFactory {
 	private QueryResultListener.Feed createSesameFeed(File dictionaryPath, Options opt) {
 		File queryFile = new File(dictionaryPath, "query.txt").getAbsoluteFile();
 		try {
-			URL configFileUrl = new File(dictionaryPath, "config.ttl").getAbsoluteFile().toURI().toURL();
+			URL configFileUrl = new File(dictionaryPath, "home.home.initializer.org.p4535992.mvc.config.ttl").getAbsoluteFile().toURI().toURL();
 			if (!Files.fileFromURL(configFileUrl).isFile()) {
-			  log.info("No config.ttl file in " + dictionaryPath);
+			  log.info("No home.home.initializer.org.p4535992.mvc.config.ttl file in " + dictionaryPath);
 			  return null;
 			}
 			if (!queryFile.exists()) {

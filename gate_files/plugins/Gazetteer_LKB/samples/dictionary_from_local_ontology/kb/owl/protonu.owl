@@ -34,7 +34,7 @@
 
   <owl:Class rdf:about="&pupp;Account"
              rdfs:label="Account">
-    <rdfs:comment>An explicit agreement between agents. Typically, service providers (e.g. banks or ISPs) provide accounts to their customers or users, which are considered account owners. The existence of the account depends on the provider, even though the user owns it in some metaphoric sense.
+    <rdfs:comment>An explicit agreement between agents. Typically, service providers (e.home. banks or ISPs) provide accounts to their customers or users, which are considered org.p4535992.mvc.account owners. The existence of the org.p4535992.mvc.account depends on the provider, even though the user owns it in some metaphoric sense.
 Examples could be bank, ISP, e-Commerce, ICQ, email accounts.
 The accounts are usually aligned with a sort of contract.</rdfs:comment>
     <rdfs:subClassOf rdf:resource="&ptop;Object"/>
@@ -531,7 +531,7 @@ NIMA GNS designator GAP, GAPU, GAPF, PASS, SILL, SILU.</rdfs:comment>
 
   <owl:Class rdf:about="&pupp;GovernmentOrganization"
              rdfs:label="Government Organization">
-    <rdfs:comment>The government of a country, i.e. the authorized  country administration, without account for a specific government elected and being in power for some period. This notion of government groups all the administration, including any sort of ministries, agencies, commissions, etc.</rdfs:comment>
+    <rdfs:comment>The government of a country, i.e. the authorized  country administration, without org.p4535992.mvc.account for a specific government elected and being in power for some period. This notion of government groups all the administration, including any sort of ministries, agencies, commissions, etc.</rdfs:comment>
     <rdfs:subClassOf rdf:resource="&ptop;Organization"/>
   </owl:Class>
 
@@ -895,7 +895,7 @@ NIMA GNS designator OCN</rdfs:comment>
 
   <owl:Class rdf:about="&pupp;OfficialPosition"
              rdfs:label="Official Position">
-    <rdfs:comment>Specific position, which models the Person->hasPosition->Location, e.g. "the president of US", "the Mayor of NY". It is usually a shortcut to holding a position within the local government or other local administration, including military positions.</rdfs:comment>
+    <rdfs:comment>Specific position, which models the Person->hasPosition->Location, e.home. "the president of US", "the Mayor of NY". It is usually a shortcut to holding a position within the local government or other local administration, including military positions.</rdfs:comment>
     <rdfs:subClassOf rdf:resource="&ptop;JobPosition"/>
   </owl:Class>
 
@@ -1335,7 +1335,7 @@ NIMA GNS designators SPNG, SPNS, SPNT.</rdfs:comment>
 
   <owl:Class rdf:about="&pupp;StockExchange"
              rdfs:label="Stock Exchange">
-    <rdfs:comment>Stock Exchange where public companies are traded, e. g. Nasdaq, NYSE, etc.</rdfs:comment>
+    <rdfs:comment>Stock Exchange where public companies are traded, e. home. Nasdaq, NYSE, etc.</rdfs:comment>
     <rdfs:subClassOf rdf:resource="&ptop;Organization"/>
   </owl:Class>
 
@@ -1590,7 +1590,7 @@ others) dates of the form YYYY-MM-DD.</rdfs:comment>
 <!-- Object Properties -->
   <owl:ObjectProperty rdf:about="&pupp;accountProvider"
                       rdfs:label="Account Provider">
-    <rdfs:comment>a relation between an account and the Agent (usually organization) providing and managing it</rdfs:comment>
+    <rdfs:comment>a relation between an org.p4535992.mvc.account and the Agent (usually organization) providing and managing it</rdfs:comment>
     <rdfs:domain rdf:resource="&pupp;Account"/>
     <rdfs:range rdf:resource="&ptop;Agent"/>
   </owl:ObjectProperty>

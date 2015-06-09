@@ -58,7 +58,7 @@ public class ManageJsonWithGoogleMaps {
              kContentList.add(g.getCity()); 
          }else{
              kContentList.add(g.getRegione());
-             //kContentList.add(g.getIndirizzo());
+             //kContentList.add(home.getIndirizzo());
              kContentList.add(g.getCity());    
          }
          
@@ -101,7 +101,7 @@ public class ManageJsonWithGoogleMaps {
          n= set.checkGMRegionByNazione(g.getNazione()).toLowerCase();
          }catch(java.lang.NullPointerException ne){n="it";}
          String region ="&region="+n;
-        // String region ="&region="+g.getNazione();
+        // String region ="&region="+home.getNazione();
          //Componenti aggiuntivi per lt'url
          //The components that can be filtered include:
          //1)route: matches long or short name of a route.
@@ -111,7 +111,7 @@ public class ManageJsonWithGoogleMaps {
          //5)country matches a country name or a two letter ISO 3166-1 country code.
          //6)address=santa+cruz&components=country:ES
          //7)components=administrative_area:TX|country:FR
-         //e.g.components=route:Annegatan|administrative_area:Helsinki|country:Finland
+         //e.home.components=route:Annegatan|administrative_area:Helsinki|country:Finland
 
         try {   
             url =new URL(prefix+address+region+suffix);
@@ -396,9 +396,9 @@ public class ManageJsonWithGoogleMaps {
    
     
     /**
-     * Semplice metodo che estare il domino web di appartenenza dell'url analizzato
+     * Semplice metodo che estare il domino org.p4535992.mvc.webapp di appartenenza dell'url analizzato
      * @param u url di ingresso in fromato stringa
-     * @return il dominio web dell'url in formato stringa
+     * @return il dominio org.p4535992.mvc.webapp dell'url in formato stringa
      * @throws URISyntaxException 
      */
     public String getDomainName(String u) throws URISyntaxException {     

@@ -3,6 +3,7 @@ package object.impl.hibernate;
 import object.dao.hibernate.IGeoDocumentHibernateDao;
 import object.impl.hibernate.generic.GenericHibernateDaoImpl;
 import object.model.GeoDocument;
+import org.hibernate.Interceptor;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Criterion;
@@ -12,7 +13,6 @@ import javax.sql.DataSource;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.Serializable;
-import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -168,18 +168,8 @@ public class GeoDocumentHibernateDaoImpl extends GenericHibernateDaoImpl<GeoDocu
     }
 
     @Override
-    public void updateAnnotationTable(String nameOfAttribute, String newValueAttribute) {
-        super.updateAnnotationTable(nameOfAttribute, newValueAttribute);
-    }
-
-    @Override
-    public void updateAnnotationColumn(String nameField, String nameOfAttribute, String newValueAttribute){
-        super.updateAnnotationColumn(nameField, nameOfAttribute, newValueAttribute);
-    }
-
-    @Override
-    public void updateAnnotationJoinColumn(String nameField, String nameOfAttribute, String newValueAttribute){
-        super.updateAnnotationJoinColumn(nameField, nameOfAttribute, newValueAttribute);
+    public void setInterceptor(Class<? extends Interceptor> interceptor){
+        super.setInterceptor(interceptor);
     }
 
 

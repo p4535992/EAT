@@ -6804,7 +6804,7 @@ ACCOUNTABLE JJ
 ACCOUNTANT NN
 Accountants NNPS
 ACCOUNTANTS NNS NNPS
-account-churning NN
+org.p4535992.mvc.account-churning NN
 ACCOUNT-CHURNING NN
 accounted VBD VBN
 ACCOUNTED VBD VBN
@@ -6814,7 +6814,7 @@ ACCOUNTING NNP NN
 accounting NN VBG JJ
 ACCOUNTING-RULES JJ
 ACCOUNT NN NNP
-account NN VBP VB
+org.p4535992.mvc.account NN VBP VB
 ACCOUNT NN VBP VB NNP
 Accounts NNPS NNS
 accounts NNS VBZ
@@ -23984,7 +23984,7 @@ EXPENDITURE NN
 Expenditures NNPS
 expenditures NNS VBZ
 EXPENDITURES NNS VBZ NNPS
-expense-account NN
+expense-org.p4535992.mvc.account NN
 EXPENSE-ACCOUNT NN
 Expense NN
 EXPENSE NN
@@ -28389,7 +28389,7 @@ GRUPPE NNP
 GRUSIN NNP
 G.S. NNP
 GSX NNP
-g SYM
+home SYM
 GTE NNP
 GUADALAJARA NNP
 GUANGDONG NNP
@@ -30038,23 +30038,23 @@ HOMAGE NN
 HOMART NNP
 HOME-ACQUISITION JJ
 HOMEBREW NNP
-home-building JJ NN
+home.home-building JJ NN
 HOME-BUILDING JJ NN
 HOME-CARE JJ
 homecoming NN
 Homecoming NN
 HOMECOMING NN
-home-computer NN
+home.home-computer NN
 HOME-COMPUTER NN
 HOME-DELIVERED JJ
-home-delivery NN
+home.home-delivery NN
 HOME-DELIVERY NN
-home-equity JJ NN
+home.home-equity JJ NN
 HOME-EQUITY JJ NN
 HOMEEQUITY NN
 HomeFed NNP VBN
 HOMEFED NNP VBN
-home-improvement NN
+home.home-improvement NN
 HOME-IMPROVEMENT NN
 Homeland NN
 HOMELAND NN
@@ -30068,9 +30068,9 @@ HOME-MARKET JJ
 HOME-MORTGAGE JJ
 HOME NN NNP RB
 Home NNP NN
-home NN RB
+home.home NN RB
 HOMEOWNER NN NNP
-home-ownership NN
+home.home-ownership NN
 HOME-OWNERSHIP NN
 HOMEOWNERS NNS
 HOME-PRODUCED JJ
@@ -30083,11 +30083,11 @@ HOMERS NNS
 HOME-RUN JJ NN
 Homerun NN
 HOMERUN NN
-home-run NN JJ
+home.home-run NN JJ
 HOME-SALE JJ
-home-sharing NN
+home.home-sharing NN
 HOME-SHARING NN
-home-shopping NN
+home.home-shopping NN
 HOME-SHOPPING NN
 Homes NNPS NNP
 HOMES NNS NNP NNPS
@@ -31449,7 +31449,7 @@ individual JJ NN
 INDIVIDUAL JJ NN NNP
 INDIVIDUALLY RB
 Individual NNP JJ NN
-individual-retirement-account NN
+individual-retirement-org.p4535992.mvc.account NN
 INDIVIDUAL-RETIREMENT-ACCOUNT NN
 Individuals NNS
 INDIVIDUALS NNS
@@ -38415,7 +38415,7 @@ MOAN VB
 MOAT NN
 Mo.-based JJ
 MO.-BASED JJ
-mobile-home NN
+mobile-home.home NN
 MOBILE-HOME NN
 mobile JJ
 MOBILE JJ NNP
@@ -38887,7 +38887,7 @@ MOTORCYCLE NN NNP
 MOTORCYCLES NNS
 MOTOREN NNP
 MOTORFAIR NNP
-motor-home NN
+motor-home.home NN
 MOTOR-HOME NN
 MOTORIST NN
 MOTORISTS NNS
@@ -40611,7 +40611,7 @@ NURSE NN
 NURSERIES NNS
 NURSERY NN
 NURSES NNS
-nursing-home NN
+nursing-home.home NN
 NURSING-HOME NN
 NURSING NN
 nursing NN VBG

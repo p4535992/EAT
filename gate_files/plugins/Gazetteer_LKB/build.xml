@@ -6,9 +6,9 @@
    have an Ant installation of your own, you can use the one supplied with
    GATE by running
 
-     {gate.home}/bin/ant
+     {gate.home.home}/bin/ant
 
-   where {gate.home} is the directory in which GATE was installed.
+   where {gate.home.home} is the directory in which GATE was installed.
 
 =======================================================================-->
 <project name="lkb-gazetteer" basedir="." default="all">
@@ -29,13 +29,13 @@
   <property name="plugin.name" value="Gazetteer_LKB" />
 
   <!-- location of the top-level GATE installation directory -->
-  <property name="gate.home" location="../.." />
+  <property name="gate.home.home" location="../.." />
 
-  <!-- location of GATE lib directory - should be inferred from gate.home -->
-  <property name="gate.lib" location="${gate.home}/lib" />
+  <!-- location of GATE lib directory - should be inferred from gate.home.home -->
+  <property name="gate.lib" location="${gate.org.p4535992.mvc.home}/lib" />
 
-  <!-- location of gate.jar - should be inferred from gate.home -->
-  <property name="gate.jar" location="${gate.home}/bin/gate.jar" />
+  <!-- location of gate.jar - should be inferred from gate.home.home -->
+  <property name="gate.jar" location="${gate.org.p4535992.mvc.home}/bin/gate.jar" />
 
   <!-- Source directory - contains the Java source files for this plugin -->
   <property name="src.dir" location="src" />

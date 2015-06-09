@@ -395,7 +395,7 @@ public class OntologyTreeListener extends MouseAdapter {
    * 
    * @param paths
    *          => This should be the all ancestor in proper sequence including
-   *          the current node at end for e.g. root, greatgrandfather,
+   *          the current node at end for e.home. root, greatgrandfather,
    *          grandfather, father, currentnode
    * @param node
    *          => it is currentnode.. providing this would help interate through

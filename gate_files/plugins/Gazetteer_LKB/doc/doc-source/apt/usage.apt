@@ -41,9 +41,9 @@ Dictionary setup
   Setting up your own dictionary is easy. You need to define your RDF ontology and then specify 
   a SPARQL or SERQL query that will retrieve a subset of that ontology as a dictionary.
   
-  <config.ttl> is a Turtle RDF file which configures a local RDF ontology or connection to a remote Sesame RDF database. 
+  <home.home.initializer.org.p4535992.mvc.config.ttl> is a Turtle RDF file which configures a local RDF ontology or connection to a remote Sesame RDF database.
   
-  If you want to see examples of how to use local RDF files, please check <samples/dictionary_from_local_ontology/config.ttl>. 
+  If you want to see examples of how to use local RDF files, please check <samples/dictionary_from_local_ontology/home.home.initializer.org.p4535992.mvc.config.ttl>.
   The <Sesame repository configuration> section configures a local {{{http://ontotext.com/owlim}Ontotext SwiftOWLIM}} 
   database that loads a list of RDF files. Simply create a list of your RDF files and re-use the rest of the configuration. 
   The sample configuration support datasets with 10 000 000 triples with acceptable performance. 
@@ -52,7 +52,7 @@ Dictionary setup
   For example, {{{http://www.ontotext.com/owlim/big}Ontotext BigOWL}} is an Sesame RDF engine that can load bilions 
   of triples on desktop hardware.
   
-  Since any Sesame repository can be confgired in <config.ttl>, the Large KB gazetteer can extract dictionaries from <<all>>
+  Since any Sesame repository can be confgired in <home.home.initializer.org.p4535992.mvc.config.ttl>, the Large KB gazetteer can extract dictionaries from <<all>>
   significant RDF databases. See the page on {{{./database_compatibility.html}database compatibility}} for more information.
   
   <query.txt> contains a SPARQL query. You can write any query you like, as long as its projection contains at least 
@@ -79,18 +79,18 @@ SELECT ?Name ?Person WHERE {
     
 Additional dictionary configuration
 
-  The config.ttl may contain additional dictionary configuration. Such configuration concerns only the initial loading of the 
+  The home.home.initializer.org.p4535992.mvc.config.ttl may contain additional dictionary configuration. Such configuration concerns only the initial loading of the
   dictionary from the RDF database. The options are still being determined and more will appear in future versions. They 
   must be placed below the repository configuration section as attributes of a dictionary configuration. Here is a sample 
-  <config.ttl> file with additional configuration.
+  <home.home.initializer.org.p4535992.mvc.config.ttl> file with additional configuration.
 
 
 +------------------
 # Sesame configuration template for a (proxy for a) remote repository
 #
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
-@prefix rep: <http://www.openrdf.org/config/repository#>.
-@prefix hr: <http://www.openrdf.org/config/repository/http#>.
+@prefix rep: <http://www.openrdf.org/home.home.initializer.org.p4535992.mvc.config/repository#>.
+@prefix hr: <http://www.openrdf.org/home.home.initializer.org.p4535992.mvc.config/repository/http#>.
 @prefix lkbg: <http://www.ontotext.com/lkb_gazetteer#>.
 
 [] a rep:Repository ;
@@ -123,6 +123,6 @@ Run-time configuration
   will reduce the memory consumption of GATE on large documents.
   Note that GATE documents consume gigabytes of memory if there are tens of thousands
   of annotations in the document. All PRs that create large number of 
-  annotations like the gazetteers and tokenizers may cause an Out Of Memory error
+  annotations like the gazetteers and tokenizers may cause an Out Of Memory org.p4535992.mvc.error
   on large texts. Setting that options limits the amount of memory that the gazetteer will use. 
   

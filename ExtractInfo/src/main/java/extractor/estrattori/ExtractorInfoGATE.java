@@ -29,9 +29,11 @@ import java.util.List;
 public class ExtractorInfoGATE {
 
     private Corpus corpus;
-    public ExtractorInfoGATE(){}
+    public ExtractorInfoGATE(){
 
-    /** Tell GATE's spring.mvc.controller about the corpus you want to run on.
+    }
+
+    /** Tell GATE's spring.mvc.home.home.initializer.org.p4535992.mvc.webapp.controller about the corpus you want to run on.
      * *  @param corpus il corpus da settare
      */
     public void setCorpus(Corpus corpus,CorpusController controller) {controller.setCorpus(corpus);} // setCorpus
@@ -63,8 +65,8 @@ public class ExtractorInfoGATE {
 
 
     /**
-     * Metodo che estrae le informazioni dal singolo documento web
-     * @param url indirizzo web del documento
+     * Metodo che estrae le informazioni dal singolo documento org.p4535992.mvc.webapp
+     * @param url indirizzo org.p4535992.mvc.webapp del documento
      * contenuto come capita con lt'estrazione con SearhMonkey
      * @param controller il CorpusController di GATE settato precedentemente
      * @return un GeoDocument con i campi riempiti dalle annotazioni di GATE
@@ -72,7 +74,8 @@ public class ExtractorInfoGATE {
      * @throws InvocationTargetException
      * @throws SQLException
      */
-    public GeoDocument extractorGATE(URL url, CorpusController controller) throws InterruptedException, InvocationTargetException, SQLException{
+    public GeoDocument extractorGATE(URL url, CorpusController controller)
+            throws GateException,InterruptedException, InvocationTargetException, SQLException{
         //for each url we create a corpus
         GeoDocument geoDoc = new GeoDocument();
         try{
@@ -108,8 +111,8 @@ public class ExtractorInfoGATE {
     }//extractorGATE
 
      /**
-      * Metodo che estrae le informazioni da una lista di documenti web
-      * @param listUrl lista degli indirizzi web del documento
+      * Metodo che estrae le informazioni da una lista di documenti org.p4535992.mvc.webapp
+      * @param listUrl lista degli indirizzi org.p4535992.mvc.webapp del documento
       * contenuto come capita con lt'estrazione con SearhMonkey
       * @param controller il CorpusController di GATE settato precedentemente
       * @return un GeoDocument con i campi riempiti dalle annotazioni di GATE
@@ -137,7 +140,8 @@ public class ExtractorInfoGATE {
       return listGeo;                 
      }//extractorGATE
 
-    public List<GeoDocument> extractMicrodataWithGATEMultipleFiles(List<File> listFile,CorpusController controller) throws MalformedURLException, InterruptedException, SQLException, InvocationTargetException {
+    public List<GeoDocument> extractMicrodataWithGATEMultipleFiles(List<File> listFile,CorpusController controller)
+            throws GateException,MalformedURLException, InterruptedException, SQLException, InvocationTargetException {
         List<GeoDocument> listGeo = new ArrayList<GeoDocument>();
         for(File file : listFile){
             GeoDocument g = new GeoDocument();
@@ -147,11 +151,12 @@ public class ExtractorInfoGATE {
         return listGeo;
     }//extractMicrodataWithGATEMultipleFiles
 
-    public GeoDocument extractMicrodataWithGATESingleFile(File file,CorpusController controller) throws MalformedURLException, InterruptedException, SQLException, InvocationTargetException {
+    public GeoDocument extractMicrodataWithGATESingleFile(File file,CorpusController controller)
+            throws GateException,MalformedURLException, InterruptedException, SQLException, InvocationTargetException {
         GeoDocument g = new GeoDocument();
         SystemLog.debug(FileUtil.convertFileToUri(file).toURL().toString());
         g = extractorGATE(FileUtil.convertFileToUri(file).toURL(), controller);
-        //g = extractorGATE(file.toURL(), controller);
+        //home = extractorGATE(file.toURL(), home.home.initializer.org.p4535992.mvc.webapp.controller);
         return g;
     }//extractMicrodataWithGATESingleFile
 

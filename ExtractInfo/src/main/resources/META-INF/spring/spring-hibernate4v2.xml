@@ -6,7 +6,7 @@
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
 
-    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+    <bean class="org.springframework.beans.factory.org.p4535992.mvc.home.initializer.org.p4535992.mvc.config.PropertyPlaceholderConfigurer">
         <property name="location">
             <value>spring_hibernate_files/database.properties</value>
         </property>
@@ -82,19 +82,19 @@
    </bean>
    -->
 
-   <bean id="WebsiteDao" class="object.impl.jdbc.WebsiteDaoImpl">
+   <!--<bean id="WebsiteDao" class="object.impl.jdbc.WebsiteDaoImpl">-->
+          <!--<property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />-->
+   <!--</bean>-->
+   <!--<bean id="GeoDocumentDao" class="object.impl.jdbc.GeoDocumentDaoImpl">-->
+          <!--<property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />-->
+   <!--</bean>-->
+   <bean id="GeoDomainDocumentDao" class="object.impl.hibernate.GeoDocumentHibernateDaoImpl">
           <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
    </bean>
-   <bean id="GeoDocumentDao" class="object.impl.jdbc.GeoDocumentDaoImpl">
-          <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
-   </bean>
-   <bean id="GeoDomainDocumentDao" class="object.impl.hibernate.GeoDomainDocumentDaoImpl">
-          <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
-   </bean>
-   <bean id="InfoDocumentDao" class="object.impl.jdbc.InfoDocumentDaoImpl">
-          <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
-   </bean>
-   <bean id="DocumentDao" class="object.impl.jdbc.DocumentDaoImpl">
-          <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
-   </bean>
+   <!--<bean id="InfoDocumentDao" class="object.impl.jdbc.InfoDocumentDaoImpl">-->
+          <!--<property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />-->
+   <!--</bean>-->
+   <!--<bean id="DocumentDao" class="object.impl.jdbc.DocumentDaoImpl">-->
+          <!--<property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />-->
+   <!--</bean>-->
 </beans>

@@ -21,8 +21,8 @@ Options: control = appelt
 
 Rule: 	FirstPersonStop
 Priority: 20
-/* if the surname contains stop words e.g. "Mary And" we don't want it to be a Person
-However, it might be that the firstname is actually an Organization (and has been tagged with TempOrganization already), e.g. "U.N." If this is the case, then leave it as it is. Otherwise, just tag the first name as a person
+/* if the surname contains stop words e.home. "Mary And" we don't want it to be a Person
+However, it might be that the firstname is actually an Organization (and has been tagged with TempOrganization already), e.home. "U.N." If this is the case, then leave it as it is. Otherwise, just tag the first name as a person
 */
 
 (

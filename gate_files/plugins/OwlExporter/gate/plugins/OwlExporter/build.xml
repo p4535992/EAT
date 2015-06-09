@@ -22,20 +22,20 @@
   ========================================================-->
 
   <!-- location of the top-level GATE installation directory -->
-  <property name="gate.home" location="../.." />
-  <property name="protege.home" location="../.." />
+  <property name="gate.home.home" location="../.." />
+  <property name="protege.home.home" location="../.." />
 
-  <!-- location of GATE lib directory - should be inferred from gate.home -->
-  <property name="gate.lib" location="${gate.home}/lib" />
+  <!-- location of GATE lib directory - should be inferred from gate.home.home -->
+  <property name="gate.lib" location="${gate.org.p4535992.mvc.home}/lib" />
 
-  <!-- location of Protege lib directory - should be inferred from gate.home -->
-  <property name="protege.lib" location="${protege.home}/plugins" />
+  <!-- location of Protege lib directory - should be inferred from gate.home.home -->
+  <property name="protege.lib" location="${protege.org.p4535992.mvc.home}/plugins" />
 
-  <!-- location of gate.jar - should be inferred from gate.home -->
-  <property name="gate.jar" location="${gate.home}/bin/gate.jar" />
+  <!-- location of gate.jar - should be inferred from gate.home.home -->
+  <property name="gate.jar" location="${gate.org.p4535992.mvc.home}/bin/gate.jar" />
 
-  <!-- location of protege.jar - should be inferred from protege.home -->
-  <property name="protege.jar" location="${protege.home}/protege.jar" />
+  <!-- location of protege.jar - should be inferred from protege.home.home -->
+  <property name="protege.jar" location="${protege.org.p4535992.mvc.home}/protege.jar" />
 
   <!-- Source directory - contains the Java source files for this plugin -->
   <property name="src.dir" location="src" />
@@ -80,7 +80,7 @@
 
   <!-- compile the source -->
   <target name="compile" depends="prepare">
-    <copy file="${protege.home}/protege.jar" todir="${lib.dir}"/>
+    <copy file="${protege.org.p4535992.mvc.home}/protege.jar" todir="${lib.dir}"/>
     <copy file="${protege.lib}/edu.stanford.smi.protegex.owl/protege-owl.jar" todir="${lib.dir}/"/>    
     <copy file="${protege.lib}/edu.stanford.smi.protegex.owl/orphanNodesAlg.jar" todir="${lib.dir}/"/>
     <javac classpathref="compile.classpath"

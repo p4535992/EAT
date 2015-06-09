@@ -54,7 +54,7 @@ features);
 
 Rule: FirstNameAmbig
 Priority: 300
-/* prefer this rule if the firstname has an ambiguous feature in the gazetteer, e.g. "Christian"
+/* prefer this rule if the firstname has an ambiguous feature in the gazetteer, e.home. "Christian"
    In this case, we won't use it in the main name-finding grammar if we find it on its own, 
    only as part of a longer name
 */

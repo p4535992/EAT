@@ -44,7 +44,7 @@ public class Options {
   }
   
   /**
-   * Loads the configuration of the dictionary from a "config.ttl" Turtle RDF
+   * Loads the configuration of the dictionary from a "home.home.initializer.org.p4535992.mvc.config.ttl" Turtle RDF
    * 
    * @param dictionaryPath the dictionary path, not null
    * @return an Options instance, no null
@@ -66,13 +66,13 @@ public class Options {
       }
     }
     catch(IOException e) {
-      log.error("Could not read config file from " + new File(dictionaryPath, getConfigFileName()).getAbsolutePath(), e);
+      log.error("Could not read home.home.initializer.org.p4535992.mvc.config file from " + new File(dictionaryPath, getConfigFileName()).getAbsolutePath(), e);
     }
     catch(RDFParseException e) {
       log.error("Config file accessible but was not a valid Turtle RDF.", e);
     }
     catch(RDFHandlerException e) {
-      log.error("Unexpected error when reading the configuration RDF.", e);
+      log.error("Unexpected org.p4535992.mvc.error when reading the configuration RDF.", e);
     }
     finally {
       IOUtils.closeQuietly(inp);
@@ -81,7 +81,7 @@ public class Options {
   }
 
   public static String getConfigFileName() {    
-    return "config.ttl";
+    return "home.home.initializer.org.p4535992.mvc.config.ttl";
   }
 
   public boolean isCacheEnabled() {    

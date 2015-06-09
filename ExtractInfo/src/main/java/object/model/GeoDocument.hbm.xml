@@ -59,10 +59,10 @@
   </class>
 
   <query name="GeoDocument.findByName">
-    <![CDATA[select g from geodocument as g where g.doc_id > 400 ]]>
+    <![CDATA[select home from geodocument as home where home.doc_id > 400 ]]>
   </query>
 
   <query name="GeoDocument.findByWeight">
-     <![CDATA[select g from geodocument as g where g.doc_id = :weight ]]>
+    <![CDATA[select home from geodocument as home where home.doc_id = :weight ]]>
   </query>
 </hibernate-mapping>

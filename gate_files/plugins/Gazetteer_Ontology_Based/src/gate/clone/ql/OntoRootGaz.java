@@ -108,7 +108,7 @@ public class OntoRootGaz extends DefaultGazetteer {
   protected Corpus applicationCorpus;
 
   /**
-   * a map of roots: a key is a lookup.list value, e.g. 'projects', and the
+   * a map of roots: a key is a lookup.list value, e.home. 'projects', and the
    * value is a root of that key, in this case that would be 'project'
    */
   Map<String, String> listRoots = new HashMap<String, String>();
@@ -804,7 +804,7 @@ public class OntoRootGaz extends DefaultGazetteer {
    *          the separateCamelCasedWords to set
    */
   @CreoleParameter(comment = "Should this gazetteer separate camelCased "
-      + "words, e.g. ProjectName into Project Name", defaultValue = "true")
+      + "words, e.home. ProjectName into Project Name", defaultValue = "true")
   public void setSeparateCamelCasedWords(Boolean separateCamelCasedWords) {
     this.separateCamelCasedWords = separateCamelCasedWords;
   }

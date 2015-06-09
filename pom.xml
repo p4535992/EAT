@@ -20,47 +20,63 @@
 
     <packaging>pom</packaging>
 
-    <version>0.0.1-SNAPSHOT</version>
-    <name>Maven Project ExtractInfo 2015-03</name>
-    <url>http://maven.apache.org</url>
-
+    <version>1.0</version>
+    <name>EAT</name>
 
     <modules>
-        <module>web-karma-master</module>
         <module>ExtractInfo</module>
-        <module>webControllerInfo</module>
     </modules>
 
     <properties>
+        <!-- Generic properties -->
+        <downloadSources>true</downloadSources>
+        <downloadJavadocs>true</downloadJavadocs>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.build.outputEncoding>UTF-8</project.build.outputEncoding>
+        <java-version>1.7</java-version>
+
+        <!-- Version of the Maven properties -->
+        <maven-eclipse-plugin.version>2.9</maven-eclipse-plugin.version>
+        <maven-compiler-plugin.version>2.3.2</maven-compiler-plugin.version>
+        <maven-source-plugin.version>2.3</maven-source-plugin.version>
+        <maven-javadoc-plugin.version>2.3</maven-javadoc-plugin.version>
+        <maven-exec-plugin.version>1.1.1</maven-exec-plugin.version>
+        <maven-dependency-plugin.version>2.10</maven-dependency-plugin.version>
     </properties>
 
 
-
-
-    <!--other repositories if any-->
-    <!--
-        <repositories>
-            <repository>
-                <id>project.local</id>
-                <name>project</name>
-                <localRepository>${user.home}/.m2/repository</localRepository>
-                <C:\Users\Marco\Documents\GitHub\web-karma-master
-                <url>file:${user.home}/Documents/GitHub/web-karma-master</url>
-            </repository>
-        </repositories>
-        <settings>
-            <localRepository>
-                C:/Users/Marco/Documents/GitHub/webkarma
-            </localRepository>
-        </settings>
-    -->
+   <!-- <repositories>
+        <repository>
+            <id>JBoss repository</id>
+            <url>http://repository.jboss.org/nexus/content/groups/public/</url>
+        </repository>
+        <repository>
+            <id>java.net</id>
+            <url>https://maven.java.net/content/repositories/public/</url>
+        </repository>
+        <repository>
+            <id>Maven repository</id>
+            <url>http://mvnrepository.com</url>
+        </repository>
+        <repository>
+            <id>Apache repository</id>
+            <url>http://repository.apache.org</url>
+        </repository>
+        <repository>
+            <id>Search repository</id>
+            <url>http://search.maven.org</url>
+        </repository>
+        <repository>
+            <id>Central</id>
+            <url>http://repo1.maven.org/maven2/</url>
+        </repository>
+    </repositories>-->
 
     <dependencies>
         <dependency>
             <groupId>extractInfo</groupId>
             <artifactId>ExtractInfo</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <version>1.0</version>
             <exclusions>
                 <exclusion>
                     <groupId>org.slf4j</groupId>
@@ -76,14 +92,62 @@
 
     <build>
         <plugins>
+
+            <plugin>
+                <artifactId>maven-eclipse-plugin</artifactId>
+
+                <version>${maven-eclipse-plugin.version}</version>
+                <configuration>
+                    <additionalProjectnatures>
+                        <projectnature>org.springframework.ide.eclipse.core.springnature</projectnature>
+                    </additionalProjectnatures>
+                    <additionalBuildcommands>
+                        <buildcommand>org.springframework.ide.eclipse.core.springbuilder</buildcommand>
+                    </additionalBuildcommands>
+                    <downloadSources>true</downloadSources>
+                    <downloadJavadocs>true</downloadJavadocs>
+                </configuration>
+            </plugin>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>2.3.2</version>
+                <version>${maven-compiler-plugin.version}</version>
                 <configuration>
                     <source>1.7</source>
                     <target>1.7</target>
+                    <compilerArgument>-Xlint:all</compilerArgument>
+                    <showWarnings>true</showWarnings>
+                    <showDeprecation>true</showDeprecation>
                 </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>${maven-source-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>${maven-javadoc-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
 
             <plugin>
@@ -250,7 +314,7 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
-                <version>1.1.1</version>
+                <version>${maven-exec-plugin.version}</version>
                 <executions>
                     <execution>
                         <goals>
@@ -267,6 +331,27 @@
                     </arguments>
                     -->
                 </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>${maven-dependency-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>copy-dependencies</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>copy-dependencies</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>../m2</outputDirectory>
+                            <overWriteReleases>false</overWriteReleases>
+                            <overWriteSnapshots>false</overWriteSnapshots>
+                            <overWriteIfNewer>true</overWriteIfNewer>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>

@@ -60,7 +60,7 @@
 
 #words#
 // a word can be any combination of letters, including hyphens,
-// but excluding symbols and punctuation, e.g. apostrophes
+// but excluding symbols and punctuation, e.home. apostrophes
 // Note that there is an alternative version of the tokeniser that
 // treats hyphens as separate tokens
 

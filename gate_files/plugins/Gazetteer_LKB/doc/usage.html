@@ -145,9 +145,9 @@
 <div class="section"><h2>Dictionary setup</h2>
 <p>The dictionary is a folder with some configuration files. You can find samples at <i>GATE_HOME/plugins/lkb_gazetteer/samples</i>. Additionaly, prebuilt dictionaries can be downloaded from <a href="./prebuilt_dictionaries.html">here</a>.</p>
 <p>Setting up your own dictionary is easy. You need to define your RDF ontology and then specify a SPARQL or SERQL query that will retrieve a subset of that ontology as a dictionary.</p>
-<p><i>config.ttl</i> is a Turtle RDF file which configures a local RDF ontology or connection to a remote Sesame RDF database. </p>
-<p>If you want to see examples of how to use local RDF files, please check <i>samples/dictionary_from_local_ontology/config.ttl</i>. The <i>Sesame repository configuration</i> section configures a local <a href="http://ontotext.com/owlim" class="externalLink">Ontotext SwiftOWLIM</a> database that loads a list of RDF files. Simply create a list of your RDF files and re-use the rest of the configuration. The sample configuration support datasets with 10 000 000 triples with acceptable performance. For working with larger datasets, advanced users can substitute SwiftOWLIM with another Sesame RDF engine. In that case, make sure you add the necessary JARs to the list in <i>GATE_HOME/plugins/lkb_gazetteer/creole.xml</i>. For example, <a href="http://www.ontotext.com/owlim/big" class="externalLink">Ontotext BigOWL</a> is an Sesame RDF engine that can load bilions of triples on desktop hardware.</p>
-<p>Since any Sesame repository can be confgired in <i>config.ttl</i>, the Large KB gazetteer can extract dictionaries from <b>all</b> significant RDF databases. See the page on <a href="./database_compatibility.html">database compatibility</a> for more information.</p>
+<p><i>org.p4535992.mvc.home.initializer.org.p4535992.mvc.config.ttl</i> is a Turtle RDF file which configures a local RDF ontology or connection to a remote Sesame RDF database. </p>
+<p>If you want to see examples of how to use local RDF files, please check <i>samples/dictionary_from_local_ontology/org.p4535992.mvc.home.initializer.org.p4535992.mvc.config.ttl</i>. The <i>Sesame repository configuration</i> section configures a local <a href="http://ontotext.com/owlim" class="externalLink">Ontotext SwiftOWLIM</a> database that loads a list of RDF files. Simply create a list of your RDF files and re-use the rest of the configuration. The sample configuration support datasets with 10 000 000 triples with acceptable performance. For working with larger datasets, advanced users can substitute SwiftOWLIM with another Sesame RDF engine. In that case, make sure you add the necessary JARs to the list in <i>GATE_HOME/plugins/lkb_gazetteer/creole.xml</i>. For example, <a href="http://www.ontotext.com/owlim/big" class="externalLink">Ontotext BigOWL</a> is an Sesame RDF engine that can load bilions of triples on desktop hardware.</p>
+<p>Since any Sesame repository can be confgired in <i>org.p4535992.mvc.home.initializer.org.p4535992.mvc.config.ttl</i>, the Large KB gazetteer can extract dictionaries from <b>all</b> significant RDF databases. See the page on <a href="./database_compatibility.html">database compatibility</a> for more information.</p>
 <p><i>query.txt</i> contains a SPARQL query. You can write any query you like, as long as its projection contains at least two columns in the following order: label and instance. As an option, you can also add a third column for the ontology class of the RDF entity. Below you can see a sample query, which creates a dictionary from the names and the unique identifiers of 10,000 entertainers in DbPedia.</p>
 <div class="source"><pre>PREFIX opencyc: &lt;http://sw.opencyc.org/2008/06/10/concept/en/&gt;
 PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
@@ -155,18 +155,19 @@ PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
 SELECT ?Name ?Person WHERE {
         ?Person a opencyc:Entertainer ; rdfs:label ?Name .           
     FILTER (lang(?Name) = &quot;en&quot;) 
-} LIMIT 10000</pre>
+} LIMIT 10000
+</pre>
 </div>
 <p>Try this query at the <a href="http://ldsr.ontotext.com" class="externalLink">Linked Data Semantic Repository</a>.</p>
 <p>When you load the dictionary configuration in GATE for the first time, it creates a binary snapshot of the dictionary. Thereafter it will load only this binary snapshot. If the dictionary configuration is changed, the snapshot will be reinitialized automatically. For more information, please see the <a href="./dictionary_lifecycle.html">dictionary lifecycle specification</a> </p>
 </div>
 <div class="section"><h2>Additional dictionary configuration</h2>
-<p>The config.ttl may contain additional dictionary configuration. Such configuration concerns only the initial loading of the dictionary from the RDF database. The options are still being determined and more will appear in future versions. They must be placed below the repository configuration section as attributes of a dictionary configuration. Here is a sample <i>config.ttl</i> file with additional configuration.</p>
+<p>The home.home.initializer.org.p4535992.mvc.config.ttl may contain additional dictionary configuration. Such configuration concerns only the initial loading of the dictionary from the RDF database. The options are still being determined and more will appear in future versions. They must be placed below the repository configuration section as attributes of a dictionary configuration. Here is a sample <i>org.p4535992.mvc.home.initializer.org.p4535992.mvc.config.ttl</i> file with additional configuration.</p>
 <div class="source"><pre># Sesame configuration template for a (proxy for a) remote repository
 #
 @prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;.
-@prefix rep: &lt;http://www.openrdf.org/config/repository#&gt;.
-@prefix hr: &lt;http://www.openrdf.org/config/repository/http#&gt;.
+@prefix rep: &lt;http://www.openrdf.org/org.p4535992.mvc.home.initializer.org.p4535992.mvc.config/repository#&gt;.
+@prefix hr: &lt;http://www.openrdf.org/org.p4535992.mvc.home.initializer.org.p4535992.mvc.config/repository/http#&gt;.
 @prefix lkbg: &lt;http://www.ontotext.com/lkb_gazetteer#&gt;.
 
 [] a rep:Repository ;
@@ -178,7 +179,8 @@ SELECT ?Name ?Person WHERE {
    rdfs:label &quot;LDSR&quot; .
    
 [] a lkbg:DictionaryConfiguration ; 
-  lkbg:caseSensitivity &quot;CASE_INSENSITIVE&quot; .  </pre>
+  lkbg:caseSensitivity &quot;CASE_INSENSITIVE&quot; .  
+</pre>
 </div>
 </div>
 <div class="section"><h2>Processing Resource Configuration</h2>
@@ -189,7 +191,7 @@ SELECT ?Name ?Person WHERE {
 </div>
 <div class="section"><h2>Run-time configuration</h2>
 <ul><li>annotationSetName - The annotation set, which will receive the generated lookup annotations.</li>
-<li>annotationLimit - The maximum number of the generated annotations. NULL or 0 for no limit. Setting limit of the number of the created annotations will reduce the memory consumption of GATE on large documents. Note that GATE documents consume gigabytes of memory if there are tens of thousands of annotations in the document. All PRs that create large number of annotations like the gazetteers and tokenizers may cause an Out Of Memory error on large texts. Setting that options limits the amount of memory that the gazetteer will use. </li>
+<li>annotationLimit - The maximum number of the generated annotations. NULL or 0 for no limit. Setting limit of the number of the created annotations will reduce the memory consumption of GATE on large documents. Note that GATE documents consume gigabytes of memory if there are tens of thousands of annotations in the document. All PRs that create large number of annotations like the gazetteers and tokenizers may cause an Out Of Memory org.p4535992.mvc.error on large texts. Setting that options limits the amount of memory that the gazetteer will use. </li>
 </ul>
 </div>
 

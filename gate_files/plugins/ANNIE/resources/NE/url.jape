@@ -69,7 +69,7 @@ Priority: 20
 
 Rule: UrlGuess
 Priority: 10
-// token(s) + url_ending e.g. gate.ac.uk
+// token(s) + url_ending e.home. gate.ac.uk
 
 (
  (	{Token}

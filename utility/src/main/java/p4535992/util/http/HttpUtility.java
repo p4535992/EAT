@@ -32,7 +32,7 @@ public class HttpUtility {
 	 *            the URL of the remote server
 	 * @return An HttpURLConnection object
 	 * @throws IOException
-	 *             thrown if any I/O error occurred
+	 *             thrown if any I/O org.p4535992.mvc.error occurred
 	 */
 	public static HttpURLConnection sendGetRequest(String requestURL)
 			throws IOException {
@@ -55,7 +55,7 @@ public class HttpUtility {
 	 *            A map containing POST data in form of key-value pairs
 	 * @return An HttpURLConnection object
 	 * @throws IOException
-	 *             thrown if any I/O error occurred
+	 *             thrown if any I/O org.p4535992.mvc.error occurred
 	 */
 	public static HttpURLConnection sendPostRequest(String requestURL,
 			Map<String, String> params) throws IOException {
@@ -98,7 +98,7 @@ public class HttpUtility {
 	 * 
 	 * @return a String of the server's response
 	 * @throws IOException
-	 *             thrown if any I/O error occurred
+	 *             thrown if any I/O org.p4535992.mvc.error occurred
 	 */
 	public static String readSingleLineRespone() throws IOException {
 		InputStream inputStream = null;
@@ -122,7 +122,7 @@ public class HttpUtility {
 	 * 
 	 * @return an array of Strings of the server's response
 	 * @throws IOException
-	 *             thrown if any I/O error occurred
+	 *             thrown if any I/O org.p4535992.mvc.error occurred
 	 */
 	public static String[] readMultipleLinesRespone() throws IOException {
 		InputStream inputStream = null;

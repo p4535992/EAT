@@ -9,11 +9,8 @@ package util;
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
-import java.util.ArrayList;
-import java.util.List;
 import javax.xml.transform.TransformerConfigurationException;
 
-import object.model.Website;
 import org.xml.sax.SAXException;
 
 /**

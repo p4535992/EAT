@@ -1,7 +1,7 @@
 package extractor.gate;
 /**
  *  CreateCorpus.java.
- * @author Tenti Marco Elaborato Sistemi Distribuiti
+ * @author 4535992 Elaborato Sistemi Distribuiti
  * Crea un GATE Document per ogni URL della tabella website del database UrlDB
  * ogni volta che viene creato un documento lo inserisce nel Corpus di GATE
  * quando per tutti gli URL che ci interessano sono stati elaborati il Corpus
@@ -11,8 +11,6 @@ package extractor.gate;
 */
 import gate.*;
 import gate.corpora.DocumentImpl;
-import gate.security.SecurityException;
-
 import java.util.*;
 import java.io.*;
 import java.net.*;
@@ -41,7 +39,7 @@ public class GateCorpusKit {
 
     /**
      * Crea un Corpus di Documenti Gate
-     * @param  url lt'url relativo alla singola pagina web da convertire in GATE Document
+     * @param  url lt'url relativo alla singola pagina org.p4535992.mvc.webapp da convertire in GATE Document
      * @param  nomeCorpus il nome assegnato al Corpus in esame
      * @return il corpus "riempito" di GATE
      */

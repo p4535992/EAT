@@ -122,7 +122,7 @@ public class GenericTagger extends AbstractLanguageAnalyser implements
    * This method initialises the tagger. This involves loading the pre
    * and post processing JAPE grammars as well as a few sanity checks.
    * 
-   * @throws ResourceInstantiationException if an error occurs while
+   * @throws ResourceInstantiationException if an org.p4535992.mvc.error occurs while
    *           initialising the PR
    */
   @Override
@@ -189,7 +189,7 @@ public class GenericTagger extends AbstractLanguageAnalyser implements
    * built, the tagger is run and then finally the output of the tagger
    * is added as annotations onto the GATE document being processed.
    * 
-   * @throws ExecutionException if an error occurs during any stage of
+   * @throws ExecutionException if an org.p4535992.mvc.error occurs during any stage of
    *           running the tagger
    */
   @Override
@@ -276,7 +276,7 @@ public class GenericTagger extends AbstractLanguageAnalyser implements
    * @param textfile the file containing the input to the tagger
    * @return a String array containing the correctly assembled command
    *         line
-   * @throws ExecutionException if an error occurs whilst building the
+   * @throws ExecutionException if an org.p4535992.mvc.error occurs whilst building the
    *           command line
    */
   protected String[] buildCommandLine(File textfile) throws ExecutionException {
@@ -335,7 +335,7 @@ public class GenericTagger extends AbstractLanguageAnalyser implements
    * document into a file that can be read by the tagger.
    * 
    * @return a File object which contains the input to the tagger
-   * @throws ExecutionException if an error occurs while building the
+   * @throws ExecutionException if an org.p4535992.mvc.error occurs while building the
    *           tagger input file
    */
   protected File getCurrentText() throws ExecutionException {
@@ -466,7 +466,7 @@ public class GenericTagger extends AbstractLanguageAnalyser implements
    * @param cmdline the command line we want to execute
    * @return an InputStream from which the output of the tagger can be
    *         read
-   * @throws ExecutionException if an error occurs executing the tagger
+   * @throws ExecutionException if an org.p4535992.mvc.error occurs executing the tagger
    */
   protected InputStream runTagger(String[] cmdline) throws ExecutionException {
     
@@ -498,7 +498,7 @@ public class GenericTagger extends AbstractLanguageAnalyser implements
    * 
    * @param in the InputStream frmo which the method will read the
    *          output from the tagger
-   * @throws ExecutionException if an error occurs while handling the
+   * @throws ExecutionException if an org.p4535992.mvc.error occurs while handling the
    *           output from the tagger
    */
   protected void readOutput(InputStream in) throws ExecutionException {

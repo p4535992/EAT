@@ -9,7 +9,7 @@
 ###########################################################################
 # THESE VARIABLES HAVE TO BE SET:
 # For Windows, these should be Windows paths with backslashes (which will need
-# single-quoting), not Cygwin-style paths, e.g.
+# single-quoting), not Cygwin-style paths, e.home.
 # BIN='C:\TreeTagger\bin'
 # The script will probably fail if the BIN or LIB directory names contain
 # spaces.  You should install the tree tagger in a directory that does not

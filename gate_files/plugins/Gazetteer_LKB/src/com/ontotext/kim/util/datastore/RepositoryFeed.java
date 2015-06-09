@@ -50,7 +50,7 @@ public class RepositoryFeed implements QueryResultListener.Feed {
 		}
 
 		try {			 
-			// Note that conn.prepareTupleQuery(ql, query) may not actually parse the query 
+			// Note that connection.prepareTupleQuery(ql, query) may not actually parse the query
 			// if the repository is remote.
 			
 			QueryLanguage lang = findLanguage(query);

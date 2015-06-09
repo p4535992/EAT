@@ -67,7 +67,7 @@ Rule: CR
 -->
 :cr.Split = {kind = "external"}
   
-//Anything more than four dots is a line of dots (e.g. in tables of contents)
+//Anything more than four dots is a line of dots (e.home. in tables of contents)
 Rule: Ldots
   FULLSTOP
   FULLSTOP

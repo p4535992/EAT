@@ -528,9 +528,9 @@ public class Gaze extends AbstractVisualResource
 
   /**
    * Performs an action over the Linear Definition.
-   * e.g. edit,insert,remove Linear Node.
+   * e.home. edit,insert,remove Linear Node.
    * @param action the action to be performed
-   * @param index index of the place where this action took place(e.g. where to insert)
+   * @param index index of the place where this action took place(e.home. where to insert)
    * @param node the Linear Node to be used in the action
    */
   private void performLinearAction(int action, int index, LinearNode node ) {

@@ -1,24 +1,23 @@
 package home;
 
-import org.xml.sax.SAXException;
-import p4535992.util.file.FileUtil;
-import p4535992.util.log.SystemLog;
-import p4535992.util.cmd.SimpleParameters;
 import extractor.estrattori.ExtractInfoSpring;
 import extractor.gate.GateDataStoreKit;
+import org.xml.sax.SAXException;
+import p4535992.util.file.FileUtil;
+import p4535992.util.file.SimpleParameters;
+import p4535992.util.log.SystemLog;
 
-import java.awt.EventQueue;
+import java.awt.*;
 import java.io.*;
 import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.Map;
-
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
  *
- * @author Tenti Marco
+ * @author 4535992
  */
 public class MainExtractInfo {
 
@@ -50,10 +49,12 @@ public class MainExtractInfo {
                         params = new SimpleParameters(args);
                         SystemLog.message("Using parameters:");
                         SystemLog.message(params.toString());
+                        //C:\Users\Marco\Documents\GitHub\EAT\src\main\resources\input.properties
                     }else{
                         //C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\resources\input.properties
+                        // + "ExtractInfo" + File.separator +
                         mParameters = FileUtil.readStringFromFileLineByLine(
-                                System.getProperty("user.dir") + File.separator + "ExtractInfo" + File.separator +
+                                System.getProperty("user.dir") + File.separator +
                                         "src" + File.separator + "main" + File.separator + "resources" + File.separator +
                                         "input.properties", '=', params);
                         //VARIABILI ALTRE
@@ -96,7 +97,7 @@ public class MainExtractInfo {
                    }
                }
         });//runnable    
-    }catch(java.lang.OutOfMemoryError e){
+    }catch(OutOfMemoryError e){
         //ricarica il programma 
         SystemLog.error("java.lang.OutOfMemoryError, Ricarica il programma modificando LIMIT e OFFSET.\n GATE execute in timeout");
     }

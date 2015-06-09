@@ -68,7 +68,7 @@ public class Test_GraphDB6 {
 			// Thus, for large datasets the initialisation could take
 			// considerable time.
                         /*
-			s = new home.utils.sesame.SesameUtil(
+			s = new home.home.utils.sesame.SesameUtil(
                                 "http://localhost:8080/openrdf-sesame/", //url
                                 "km4city04", //repositoryid
                                 null,        //fileconfig

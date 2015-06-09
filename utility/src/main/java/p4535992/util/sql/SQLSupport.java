@@ -116,7 +116,7 @@ public class SQLSupport<T>{
                 //Method method = ReflectionKit.getMethodByNameAndParam(object, entry.getKey().toString(), null);
                 values[i] = ReflectionKit.invokeGetterMethod(object, method);
                 Class clazz = fields[i].getType();
-                types[i] = SQLKit.convertClass2SQLTypes(clazz);
+                types[i] = SQLHelper.convertClass2SQLTypes(clazz);
                 //System.out.println(method+","+values[i]+","+types[i]);
             }
             int i = 0;
@@ -164,7 +164,7 @@ public class SQLSupport<T>{
         Class[] classes = ReflectionKit.getClassesByFieldsByAnnotation(clazz, aClass);
         //GET TYPES SQL
         for(Class cl: classes){
-            types.add(SQLKit.convertClass2SQLTypes(cl));
+            types.add(SQLHelper.convertClass2SQLTypes(cl));
         }
         return StringKit.convertListToArray(types);
     }

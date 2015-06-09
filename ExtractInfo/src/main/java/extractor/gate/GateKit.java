@@ -94,7 +94,7 @@ public class GateKit {
      */
     public static void loadGapp(String base,String fileGapp) throws GateException, IOException {
         SystemLog.message("Loading file .gapp/.xgapp...");
-        //File gapp = new File(home, "custom/gapp/geoLocationPipelineFast.xgapp");
+        //File gapp = new File(home.home, "custom/gapp/geoLocationPipelineFast.xgapp");
         if(new File(Gate.getGateHome() + File.separator + base + File.separator  + fileGapp).exists()) {
             controller = (CorpusController) PersistenceManager.loadObjectFromFile(
                     new File(Gate.getGateHome() + File.separator + base + File.separator + fileGapp));
@@ -110,7 +110,7 @@ public class GateKit {
     }
 
     public static Set<String> countAnnotationsOnTheWebPage(Document doc){
-        //codice aggiuntivo utile per avere un'idea del contenuto della pagina web
+        //codice aggiuntivo utile per avere un'idea del contenuto della pagina org.p4535992.mvc.webapp
         // obtain a map of all named annotation sets
         Set<String> annotTypes= null;
         Map<String, AnnotationSet> namedASes = doc.getNamedAnnotationSets();

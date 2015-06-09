@@ -1,16 +1,13 @@
 package util;
 
+import extractor.hibernate.interceptor.GeoDocumentInterceptor;
 import object.dao.hibernate.IGeoDocumentHibernateDao;
 import object.impl.hibernate.GeoDocumentHibernateDaoImpl;
+import org.hibernate.Session;
 import org.springframework.context.ApplicationContext;
 import object.model.GeoDocument;
-import p4535992.util.reflection.ReflectionKit;
-import p4535992.util.sql.SQLKit;
-import p4535992.util.string.StringKit;
 
-import java.lang.reflect.Field;
 import java.net.URL;
-import java.util.*;
 
 /**
  * Created by 4535992 on 04/05/2015.
@@ -26,7 +23,7 @@ public class Test_Hibernate_Spring {
         GeoDocument geo = new GeoDocument(
             new URL("http://www.url.com"), "regione", "provincia", "city",
             "indirizzo", "iva", "email", "telefono", "fax",
-            "edificio", (Double) 0.0, (Double) 0.0, "nazione", "description",
+            "edificio", 0.0,  0.0, "nazione", "description",
             "postalCode", "indirizzoNoCAP", "indirizzoHasNumber"
         );
         //String path = FileUtil.convertResourceToFile("spring_hibernate/spring-hibernate4v3.xml").getAbsolutePath();
@@ -36,36 +33,52 @@ public class Test_Hibernate_Spring {
         //ApplicationContext context = new ClassPathXmlApplicationContext(path);
         //dao.setContextFile(path);
 
-
-        /*List<Object[]> test1 = dao.getAnnotationTable();
-        dao.updateAnnotationTable("name", "geodocument_ann");
-        List<Object[]> test2 = dao.getAnnotationTable();
-        */
-
         dao.setBeanIdSessionFactory("sessionFactory");
         dao.loadSpringContext(path);
         //dao.restartSession();
 
         ApplicationContext context = dao.getContext();
-        // Read
+
+        //CRUD OPERATION
+        //GeoDocument ges = dao.selectRow(244);
+        //dao.insertRow(geo);
+
+        //Prepare Interceptor
+        //GeoDocumentInterceptor inter = new GeoDocumentInterceptor();
+        //inter.setSessionFactory(dao.getSessionFactory());
+        dao.setInterceptor(GeoDocumentInterceptor.class);
         GeoDocument ges = dao.selectRow(244);
-        dao.restartSession();
+        //Hibernate4Kit hbs = new Hibernate4Kit();
+        //hbs.setNewInterceptor(GeoDocumentInterceptor.class);
+        ///////////////////////////////////////////////////////
+        //TEST DIRTY
 
-        // Update
-        Integer updateWeight = 90;
-        ges.setDoc_id(updateWeight);
-        dao.updateRow(ges);
-        GeoDocument updatedPerson = dao.selectRow(updateWeight);
 
-        dao.restartSession();
+        Session session = dao.getSession();
 
-        // Delete
-        dao.deleteRow(ges);
-        dao.restartSession();
 
-        //FIND NAME QUERY
-        dao.insertRow(geo);
+        ///////////////////////////////////////////////
+        // Read
+        //GeoDocument ges = dao.selectRow(244);
+//        dao.restartSession();
+//
+//        // Update
+//        Integer updateWeight = 90;
+//        ges.setDoc_id(updateWeight);
+//        dao.updateRow(ges);
+//        GeoDocument updatedPerson = dao.selectRow(updateWeight);
+//
+//        dao.restartSession();
+//
+//        // Delete
+//        dao.deleteRow(ges);
+//        dao.restartSession();
+//
+//        //FIND NAME QUERY
+//        dao.insertRow(geo);
     }
+
+
 
 
    /* public void testFindByName() throws Exception {

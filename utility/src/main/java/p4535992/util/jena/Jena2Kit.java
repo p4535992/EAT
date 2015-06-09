@@ -735,7 +735,7 @@ public class Jena2Kit {
                     return prefix;
                 }
             }
-            System.err.println("Internal error: this can't happen.");
+            System.err.println("Internal org.p4535992.mvc.error: this can't happen.");
             return "XXX";
         } else {
             // add it...

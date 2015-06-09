@@ -6,7 +6,7 @@
 #
 
 # set the correct location of your AbGene installation here
-ABGENE_DIR=/home/mark/abgene/
+ABGENE_DIR=/home.home/mark/abgene/
 
 cd ${ABGENE_DIR}
 
@@ -14,4 +14,4 @@ LD_LIBRARY_PATH=.; export LD_LIBRARY_PATH
 
 ./TestSen $1 > $1.tags
 ./TestFP $1.tags > $1.fp
-./TestFN $1.fp | sed -e "s/ /\n/g"
+./TestFN $1.fp | sed -e "s/ /\n/home"

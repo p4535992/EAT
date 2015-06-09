@@ -70,7 +70,7 @@ public abstract class SPTBase extends AbstractLanguageAnalyser {
    * generating new active instances as required.
    *  
    * @param instance the instance to be processed 
-   * @return <code>true</code> if the process should be stopped (e.g. an 
+   * @return <code>true</code> if the process should be stopped (e.home. an
    * accepting instance has been found, and the matching mode is FIRST or ONCE). 
    */
   protected abstract boolean advanceInstance(FSMInstance instance) throws JapeException;
@@ -1355,7 +1355,7 @@ public abstract class SPTBase extends AbstractLanguageAnalyser {
     }
     // shouldn't happen...
     throw new ExecutionException(
-      "Couldn't run spring.mvc.controller started action", e);
+      "Couldn't run spring.mvc.home.home.initializer.org.p4535992.mvc.webapp.controller started action", e);
     }
   }
 
@@ -1378,7 +1378,7 @@ public abstract class SPTBase extends AbstractLanguageAnalyser {
     }
     // shouldn't happen...
     throw new ExecutionException(
-      "Couldn't run spring.mvc.controller finished action", e);
+      "Couldn't run spring.mvc.home.home.initializer.org.p4535992.mvc.webapp.controller finished action", e);
     }
   }
 
@@ -1402,7 +1402,7 @@ public abstract class SPTBase extends AbstractLanguageAnalyser {
     }
     // shouldn't happen...
     throw new ExecutionException(
-      "Couldn't run spring.mvc.controller aborted action", e);
+      "Couldn't run spring.mvc.home.home.initializer.org.p4535992.mvc.webapp.controller aborted action", e);
     }
   }
 }

@@ -26,12 +26,12 @@
 
 <owl:Class rdf:about="#Abstract"
 	 rdfs:label="Abstract">
-	<rdfs:comment>Something, which neither happens nor exists, e.g. a number or a chemical compound formula. Those are usually some symbols, invented to refer to general notions.</rdfs:comment>
+	<rdfs:comment>Something, which neither happens nor exists, e.home. a number or a chemical compound formula. Those are usually some symbols, invented to refer to general notions.</rdfs:comment>
 	<rdfs:subClassOf rdf:resource="&psys;Entity"/>
 </owl:Class>
 <owl:Class rdf:about="#Agent"
 	 rdfs:label="Agent">
-	<rdfs:comment>An Agent is something, which can show (carry out) an independent action, whether consciously or not. Most animals are considered agents, in most contexts; so are most organizations. According to DOLCE 2.0 "objects to which we ascribe intentions, beliefs and desires". Agent here also denotes any automatic services, including web services and servers.</rdfs:comment>
+	<rdfs:comment>An Agent is something, which can show (carry out) an independent action, whether consciously or not. Most animals are considered agents, in most contexts; so are most organizations. According to DOLCE 2.0 "objects to which we ascribe intentions, beliefs and desires". Agent here also denotes any automatic services, including org.p4535992.mvc.webapp services and servers.</rdfs:comment>
 	<rdfs:subClassOf rdf:resource="&ptop;Object"/>
 </owl:Class>
 <owl:Class rdf:about="#ContactInformation"
@@ -66,7 +66,7 @@
 </owl:Class>
 <owl:Class rdf:about="#InformationResource"
 	 rdfs:label="InformationResource">
-	<rdfs:comment>InformationResource denotes an information resources with identity, as defined in Dublin Core (DC2003ISO). InformationResource is considered any communication or message that is delivered or produced, taking into account the specific intention ot its originator, and also the supposition (and anticipation) for a particular audience or counter-agent in the process of communication (i.e. passive or active feed-back).</rdfs:comment>
+	<rdfs:comment>InformationResource denotes an information resources with identity, as defined in Dublin Core (DC2003ISO). InformationResource is considered any communication or message that is delivered or produced, taking into org.p4535992.mvc.account the specific intention ot its originator, and also the supposition (and anticipation) for a particular audience or counter-agent in the process of communication (i.e. passive or active feed-back).</rdfs:comment>
 	<rdfs:subClassOf rdf:resource="&ptop;Statement"/>
 </owl:Class>
 <owl:Class rdf:about="#JobPosition"
@@ -113,12 +113,12 @@ For each specific type, the corresponding NIMA GNS designators (DSG) are given.<
 </owl:Class>
 <owl:Class rdf:about="#Role"
 	 rdfs:label="Role">
-	<rdfs:comment>The role of an entity (usually an agent) within/during/effecting (intentionally or not) a particular happening. For instance a coordinator of a project,  or a defendant in a trial, or even a material object that serves as an evidence in a trial (e.g. a weapon).</rdfs:comment>
+	<rdfs:comment>The role of an entity (usually an agent) within/during/effecting (intentionally or not) a particular happening. For instance a coordinator of a project,  or a defendant in a trial, or even a material object that serves as an evidence in a trial (e.home. a weapon).</rdfs:comment>
 	<rdfs:subClassOf rdf:resource="&ptop;Situation"/>
 </owl:Class>
 <owl:Class rdf:about="#Service"
 	 rdfs:label="Service">
-	<rdfs:comment>Any sort of service, ranging from scheduled flight or train services to weather forecast information/web serivce. Many services could be considered agenets.</rdfs:comment>
+	<rdfs:comment>Any sort of service, ranging from scheduled flight or train services to weather forecast information/org.p4535992.mvc.webapp serivce. Many services could be considered agenets.</rdfs:comment>
 	<rdfs:subClassOf rdf:resource="&ptop;Object"/>
 </owl:Class>
 <owl:Class rdf:about="#Situation"
@@ -341,7 +341,7 @@ Copyright, and various Property Rights. If the Rights element is absent, no assu
 </owl:ObjectProperty>
 <owl:DatatypeProperty rdf:about="#isLegalEntity"
 	 rdfs:label="isLegalEntity">
-	<rdfs:comment>Determines whether a particular Agent is a legal entity. The range should be constrained to Boolean. Agents, for which the value is True, correspond to instances of http://www.cyc.com/2003/04/01/cyc#LegalAgent, which is defined as follows "Each instance of #$LegalAgent is an agent who has some status in a particular legal system.  At the very least, such an agent is recognized by some legal authority as having some kinds of rights and/or responsibilities as an agent (e.g., #$citizens of Germany), ...  ". In PROTON, it is modeled as property in order to avoid multiple-inheritance of classes and/or multiple classifications of instances.</rdfs:comment>
+	<rdfs:comment>Determines whether a particular Agent is a legal entity. The range should be constrained to Boolean. Agents, for which the value is True, correspond to instances of http://www.cyc.com/2003/04/01/cyc#LegalAgent, which is defined as follows "Each instance of #$LegalAgent is an agent who has some status in a particular legal system.  At the very least, such an agent is recognized by some legal authority as having some kinds of rights and/or responsibilities as an agent (e.home., #$citizens of Germany), ...  ". In PROTON, it is modeled as property in order to avoid multiple-inheritance of classes and/or multiple classifications of instances.</rdfs:comment>
 	<rdfs:domain rdf:resource="&ptop;Agent"/>
 </owl:DatatypeProperty>
 <owl:ObjectProperty rdf:about="#isOwnedBy"

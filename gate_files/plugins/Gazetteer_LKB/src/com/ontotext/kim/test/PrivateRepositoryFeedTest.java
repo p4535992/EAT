@@ -19,7 +19,7 @@ import com.ontotext.kim.query.QueryResultCounter;
 public class PrivateRepositoryFeedTest extends TestCase {
 
 	public void testWithLLD() throws IOException, KIMQueryException {
-		URL configReader = this.getClass().getClassLoader().getResource("config.ttl");
+		URL configReader = this.getClass().getClassLoader().getResource("home.home.initializer.org.p4535992.mvc.config.ttl");
 		String query = IOUtils.toString(this.getClass().getClassLoader().getResourceAsStream("query.txt"));
 		int settingsHash = new SettingsHashBuilder().getHash(configReader, query);
 		@SuppressWarnings("unchecked")
@@ -30,7 +30,7 @@ public class PrivateRepositoryFeedTest extends TestCase {
 	}
 	
 	public void testWithLocal() throws IOException, KIMQueryException {
-		File configFile = new File("plugins/Gazetteer_LKB/samples/dictionary_from_local_ontology/config.ttl").getCanonicalFile();
+		File configFile = new File("plugins/Gazetteer_LKB/samples/dictionary_from_local_ontology/home.home.initializer.org.p4535992.mvc.config.ttl").getCanonicalFile();
 		URL configReader = configFile.toURI().toURL();
 		String query = FileUtils.readFileToString(new File(configFile.getParentFile(), "query.txt"));
 		int settingsHash = new SettingsHashBuilder().getHash(configReader, query);

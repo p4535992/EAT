@@ -3,7 +3,7 @@ package object.support;
  * FrequencyInfo.java.
  * @author Tenti Marco Elaborato Sistemi Distribuiti.
  * Oggetto Java con il quale andiamo e immagazzinare la frequenza di un determinato
- * dominio web avente i medesimi valori di latitudine e longitudine.
+ * dominio org.p4535992.mvc.webapp avente i medesimi valori di latitudine e longitudine.
  */
 public class FrequencyInfo {
     

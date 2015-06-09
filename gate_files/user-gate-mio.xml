@@ -37,13 +37,13 @@
  runtime.max.memory="3000M"
  runtime.start.memory="200M"
 />
-   <!--    gate.swing.XJFileChooser="{lastapplication=P:\Pantaleo\OSIM\Sorgente New\competence_crawler\build\web\WEB-INF\resource\crawler\competenceExtraction.xgapp, 
-gate.persist.SerialDataStore=P:\Pantaleo\OSIM\Sorgente New\competence_crawler\build\web\WEB-INF\resource\crawler\temp\datastore-chim_store, 
-gate.CreoleRegister=P:\Pantaleo\OSIM\Sorgente New\competence_crawler\web\WEB-INF\resource\crawler\plugins\Tools, 
-application.zip.LingPipe Application=P:\Pantaleo\OSIM\Sorgente New\competence_crawler\web\WEB-INF\resource\crawler\langDetector.zip, 
-application.ANNIE=P:\Pantaleo\OSIM\Sorgente New\competence_crawler\build\web\WEB-INF\resource\crawler\competenceExtraction.xgapp, 
-gate.corpora.DocumentImpl=P:\Pantaleo\OSIM\Sorgente New\competence_crawler\build\web\WEB-INF\resource\crawler\temp\langDocuments\it.txt, 
-application.LingPipe Application=P:\Pantaleo\OSIM\Sorgente New\competence_crawler\web\WEB-INF\resource\crawler\langDetector.xgapp, 
-applications=ANNIE;LingPipe Application;, application.zip.ANNIE=P:\Pantaleo\OSIM\Sorgente New\competence_crawler\build\web\WEB-INF\resource\crawler\competenceExtraction.zip}"-->
+   <!--    gate.swing.XJFileChooser="{lastapplication=P:\Pantaleo\OSIM\Sorgente New\competence_crawler\build\org.p4535992.mvc.webapp\WEB-INF\resource\crawler\competenceExtraction.xgapp,
+gate.persist.SerialDataStore=P:\Pantaleo\OSIM\Sorgente New\competence_crawler\build\org.p4535992.mvc.webapp\WEB-INF\resource\crawler\temp\datastore-chim_store,
+gate.CreoleRegister=P:\Pantaleo\OSIM\Sorgente New\competence_crawler\org.p4535992.mvc.webapp\WEB-INF\resource\crawler\plugins\Tools,
+application.zip.LingPipe ApplicationWebb=P:\Pantaleo\OSIM\Sorgente New\competence_crawler\org.p4535992.mvc.webapp\WEB-INF\resource\crawler\langDetector.zip,
+application.ANNIE=P:\Pantaleo\OSIM\Sorgente New\competence_crawler\build\org.p4535992.mvc.webapp\WEB-INF\resource\crawler\competenceExtraction.xgapp,
+gate.corpora.DocumentImpl=P:\Pantaleo\OSIM\Sorgente New\competence_crawler\build\org.p4535992.mvc.webapp\WEB-INF\resource\crawler\temp\langDocuments\it.txt,
+application.LingPipe ApplicationWebb=P:\Pantaleo\OSIM\Sorgente New\competence_crawler\org.p4535992.mvc.webapp\WEB-INF\resource\crawler\langDetector.xgapp,
+applications=ANNIE;LingPipe ApplicationWebb;, application.zip.ANNIE=P:\Pantaleo\OSIM\Sorgente New\competence_crawler\build\org.p4535992.mvc.webapp\WEB-INF\resource\crawler\competenceExtraction.zip}"-->
     
 </GATE>

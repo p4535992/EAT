@@ -62,7 +62,7 @@ public class ExpressionFinder {
     compiler = new AwkCompiler();
     matcher = new AwkMatcher();
     // Attempt to compile the pattern. If the pattern is not valid,
-    // report the error and exit.
+    // report the org.p4535992.mvc.error and exit.
     try {
       pattern = compiler.compile(regularExpression);
     }
@@ -116,7 +116,7 @@ public class ExpressionFinder {
     compiler = new AwkCompiler();
     matcher = new AwkMatcher();
     // Attempt to compile the pattern. If the pattern is not valid,
-    // report the error and exit.
+    // report the org.p4535992.mvc.error and exit.
     try {
       pattern = compiler.compile(regularExpression);
     }

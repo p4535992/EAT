@@ -543,7 +543,7 @@ public class SPTBuilder {
       }else{
         if(!oldToNewStates.containsKey(anOldState.getIndex())){
           throw new ResourceInstantiationException(
-                  "State mapping error: " +
+                  "State mapping org.p4535992.mvc.error: " +
                   "old state not associated with a new state!");
         }
         SPTBase.State newState = newStates.get(oldToNewStates.get(
@@ -558,7 +558,7 @@ public class SPTBuilder {
           }
           if(!oldToNewStates.containsKey(anOldTransition.getTarget().getIndex())){
             throw new ResourceInstantiationException(
-                    "State mapping error: " +
+                    "State mapping org.p4535992.mvc.error: " +
                     "old target state not associated with a new state!");
           }
           int newStateTarget = oldToNewStates.get(anOldTransition.getTarget().getIndex());

@@ -150,16 +150,16 @@ public class PrepareCommand {
             
             //rt.exec("cmd.exe /c cd \""+new_dir+"\" & start cmd.exe /k \"java -flag -flag -cp terminal-based-program.jar\"");
             
-            error = rte.getStreamWrapper(proc.getErrorStream(), "ERROR");
+            org.p4535992.mvc.error = rte.getStreamWrapper(proc.getErrorStream(), "ERROR");
             output = rte.getStreamWrapper(proc.getInputStream(), "OUTPUT");
             int exitVal = 0;
-            error.start();
+            org.p4535992.mvc.error.start();
             output.start();
-            error.join(3000);
+            org.p4535992.mvc.error.join(3000);
             output.join(3000);
             exitVal = proc.waitFor();
             System.out.println("Output: "+output.message);
-            System.out.println("Error: "+error.message);
+            System.out.println("Error: "+org.p4535992.mvc.error.message);
             */
         }catch(Exception e){
             SystemLog.exception(e);

@@ -235,7 +235,7 @@ public class ReflectionKit<T>{
         List<Method> list = new ArrayList<>();
         Field[] fields = clazz.getDeclaredFields();
         for (Field field : fields) {
-            Method method = findSetterMethod(clazz, field.getName(),field.getType());
+            Method method = findSetterMethod(clazz, field.getName(), field.getType());
             list.add(method);
         }
         return list;
@@ -245,7 +245,7 @@ public class ReflectionKit<T>{
         List<Method> list = new ArrayList<>();
         Field[] fields = clazz.getDeclaredFields();
         for (Field field : fields) {
-            Method method = findGetterMethod(clazz, field.getName(),field.getType());
+            Method method = findGetterMethod(clazz, field.getName(), field.getType());
             list.add(method);
         }
         return list;
@@ -418,54 +418,85 @@ public class ReflectionKit<T>{
         return MyObject;
     }
 
+    public static <T> T invokeSetterClass(T MyObject,String methodName,Object values,Class<?> clazzValue)
+    {
+        try {
+            Method method = getMethodByNameAndParam(
+                    MyObject.getClass(),methodName,new Class[]{clazzValue});
+            MyObject = (T) method.invoke(MyObject,values);
+            return MyObject;
+        } catch (InvocationTargetException|IllegalAccessException|
+                SecurityException|NoSuchMethodException|
+                ClassCastException|NullPointerException  e) {
+            SystemLog.exception(e);
+        }
+        return null;
+    }
+
+    public static <T> Object invokeGetterClass(T MyObject,String methodName)
+    {
+        Object MyObject2;
+        try {
+            //Object MyObject = clazzValue.cast(new Object());
+            Method method = getMethodByNameAndParam(
+                   MyObject.getClass(),methodName,new Class[0]);
+            MyObject2 = method.invoke(MyObject, new Object[0]);
+            return MyObject2;
+        } catch (InvocationTargetException|IllegalAccessException|
+                SecurityException|NoSuchMethodException  e) {
+            SystemLog.exception(e);
+        }
+        return null;
+    }
+    
     public static <T> T invokeSetterMethodForObject(T MyObject, Method method, Object values)
             throws IllegalAccessException,InvocationTargetException,NoSuchMethodException{
         try{
             //if the method you try to invoke is static...
-            method.invoke(null, values);
+            MyObject = (T) method.invoke(null, values);
         }catch(NullPointerException ne) {
             //...The method is not static
-            method.invoke(MyObject, values);
+            MyObject = (T) method.invoke(MyObject, values);
         }
         return MyObject;
     }
 
     public static Object invokeSetterMethod(Object MyObject, Method method, Object values)
             throws IllegalAccessException,InvocationTargetException,NoSuchMethodException{
-        Object obj;
+        Object MyObject2;
         try{
             //if the method you try to invoke is static...
-           obj = method.invoke(null, values);
+            MyObject2 = method.invoke(null, values);
         }catch(NullPointerException ne) {
             //...The method is not static
-           obj = method.invoke(MyObject, values);
+            MyObject2 = method.invoke(MyObject, values);
         }
-        return obj;
+        return MyObject2;
     }
 
     public static <T> T invokeGetterMethodForObject(T MyObject, Method method)
             throws IllegalAccessException,InvocationTargetException,NoSuchMethodException{
         try{
             //if the method you try to invoke is static...
-            method.invoke(null,new Object[0]);
+            MyObject = (T) method.invoke(null,new Object[0]);
         }catch(NullPointerException ne) {
             //...The method is not static
-            method.invoke(MyObject,new Object[0]);
+            MyObject = (T) method.invoke(MyObject,new Object[0]);
         }
         return MyObject;
     }
 
     public static Object invokeGetterMethod(Object MyObject,Method method)
             throws IllegalAccessException,InvocationTargetException,NoSuchMethodException{
-        Object obj;
+        Object MyObject2;
         try{
             //if the method you try to invoke is static...
-            obj = method.invoke(null, new Object[0]);
+            MyObject2 = method.invoke(null, new Object[0]);
         }catch(NullPointerException ne) {
             //...The method is not static
-            obj = method.invoke(MyObject, new Object[0]);
+            MyObject2 = method.invoke(MyObject, new Object[0]);
         }
-        return obj;
+        return MyObject2;
     }
 
     /**
@@ -1230,6 +1261,18 @@ public class ReflectionKit<T>{
         return m;
     }
 
+    public static Class<?> getClassFromPath(String pakage,String clazz){
+        //String pack = this.getClass().getPackage().getName()+".interceptor";
+        //String sclazz = cl.getSimpleName()+"Interceptor";
+        //String full = pack+"."+sclazz;
+        try {
+            return Class.forName(pakage+"."+clazz);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 
     //OTHER METHODS
     /*public static Class createNewClass(String annotatedClassName,String pathPackageToAnnotatedClass)
@@ -1241,7 +1284,7 @@ public class ReflectionKit<T>{
     }
 
     public static Class createNewClass(String pathPackageToAnnotatedClass) throws ClassNotFoundException, InstantiationException, IllegalAccessException, NoSuchMethodException, IllegalArgumentException, InvocationTargetException{
-        //e.g. oracle.jdbc.driver.OracleDriver#sthash.4rtwgiWJ.dpuf
+        //e.home. oracle.jdbc.driver.OracleDriver#sthash.4rtwgiWJ.dpuf
         Class cls = Class.forName(pathPackageToAnnotatedClass).getConstructor().newInstance().getClass();
         SystemLog.message("Create new Class Object con Name: " + cls.getName());
         return cls;

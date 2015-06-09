@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="webExtractInfo:war">
+    <output-path>$PROJECT_DIR$/webExtractInfo/target</output-path>
+    <root id="archive" name="test.war">
+      <element id="artifact" artifact-name="webExtractInfo:war exploded" />
+    </root>
+  </artifact>
+</component>

@@ -400,7 +400,7 @@ Priority: 20
 Rule: NotFirstPersonStop
 Priority: 50
 // ambig first name and surname is stop word
-// e.g. Will And
+// e.home. Will And
 
 (
  ((FIRSTNAMEAMBIG)+ | 
@@ -728,7 +728,7 @@ features);
 Rule:PersonOrgAmbig
 Priority: 50
 // if the last name is an organisation ending, treat as an organisation not person
-// e.g. A.B. Consulting
+// e.home. A.B. Consulting
 
 (
  {Token.category == DT}
@@ -950,7 +950,7 @@ Priority: 500
 Rule: NotOrgXKey
 Priority: 150
 // if all the names are org_base or org_key, it's not an organisation
-// e.g. Business Consulting
+// e.home. Business Consulting
 
 (
  ({Lookup.majorType == org_key}|
@@ -1162,7 +1162,7 @@ Rule:	OrgXBase
 Priority: 130
 
 // same as OrgXKey but uses base instead of key
-// includes govern_key e.g. academy
+// includes govern_key e.home. academy
 // Barclays Bank
 // Royal Academy of Art
 

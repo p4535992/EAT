@@ -2,14 +2,12 @@ package object.impl.hibernate.generic;
 
 import extractor.hibernate.Hibernate4Kit;
 import object.dao.hibernate.generic.IGenericHibernateDao;
-import object.model.GeoDocument;
 import org.hibernate.*;
 import org.hibernate.criterion.Criterion;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import p4535992.util.log.SystemLog;
-import p4535992.util.reflection.ReflectionKit;
 import p4535992.util.string.StringKit;
 import bean.BeansKit;
 
@@ -20,9 +18,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.sql.DataSource;
 import java.io.Serializable;
-import java.lang.annotation.Annotation;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -58,9 +54,8 @@ public class GenericHibernateDaoImpl<T> implements IGenericHibernateDao<T> {
     protected String beanIdSessionFactory;
     protected String beanIdSpringContext;
 
-
-    protected File contextFile;
     protected Hibernate4Kit hbs;
+    protected File contextFile;
 
     //CONSTRUCTOR
     public GenericHibernateDaoImpl() {
@@ -113,6 +108,7 @@ public class GenericHibernateDaoImpl<T> implements IGenericHibernateDao<T> {
 
    @Override
    public Session getSession() {
+       // session = getCurrentSession();
         session =  sessionFactory.getCurrentSession();
         return session;
    }
@@ -199,29 +195,7 @@ public class GenericHibernateDaoImpl<T> implements IGenericHibernateDao<T> {
         this.sessionFactory = sessionBuilder.buildSessionFactory();
     }
 
-    @Override
-    public void updateAnnotationEntity(String nameOfAttribute, String newValueAttribute) {
-        ReflectionKit.updateAnnotationClassValue(cl, javax.persistence.Entity.class, nameOfAttribute, newValueAttribute);
-    }
 
-    @Override
-    public void updateAnnotationTable(String nameOfAttribute, String newValueAttribute) {
-        ReflectionKit.updateAnnotationClassValue(cl, javax.persistence.Table.class, nameOfAttribute, newValueAttribute);
-    }
-    @Override
-    public void updateAnnotationColumn(String nameField, String nameOfAttribute, String newValueAttribute){
-        ReflectionKit.updateAnnotationFieldValue(cl, javax.persistence.Column.class, nameField, nameOfAttribute, newValueAttribute);
-    }
-    @Override
-    public void updateAnnotationJoinColumn(String nameField, String nameOfAttribute, String newValueAttribute) {
-        ReflectionKit.updateAnnotationFieldValue(cl, javax.persistence.JoinColumn.class, nameField, nameOfAttribute, newValueAttribute);
-    }
-
-    @Override
-    public List<Object[]> getAnnotationTable() {
-        Annotation ann = GeoDocument.class.getAnnotation(javax.persistence.Table.class);
-        return ReflectionKit.getAnnotationClass(ann);
-    }
     //@Override
     public javax.sql.DataSource getDataSource() {
         if(dataSource==null) {
@@ -284,6 +258,7 @@ public class GenericHibernateDaoImpl<T> implements IGenericHibernateDao<T> {
             hibernateTemplate.save(object);
             return null;
         }else if(sessionFactory !=null){
+            doInHibernate();
             hbs.setSessionFactory(sessionFactory);
             return hbs.insertRow(object);
         }else{
@@ -294,6 +269,7 @@ public class GenericHibernateDaoImpl<T> implements IGenericHibernateDao<T> {
 
     @Override
     public List<T> selectRows(String nameColumn, int limit, int offset) {
+
         return null;
     }
 
@@ -337,7 +313,7 @@ public class GenericHibernateDaoImpl<T> implements IGenericHibernateDao<T> {
     public T selectRow(Serializable serial){
         setNewHibernateTemplate(sessionFactory);
         doInHibernate();
-        return (T)hbs.selectRow(serial);
+        return (T) hbs.selectRow(serial);
     }
 
     @Override
@@ -345,6 +321,11 @@ public class GenericHibernateDaoImpl<T> implements IGenericHibernateDao<T> {
         return 0;
     }
 
+    @Override
+    public void setInterceptor(Class<? extends Interceptor> interceptor){
+        doInHibernate();
+        hbs.setNewInterceptor(interceptor);
+    }
 
     //SUPPORT
     /**
@@ -354,9 +335,13 @@ public class GenericHibernateDaoImpl<T> implements IGenericHibernateDao<T> {
      * inner class
      */
     private void  doInHibernate(){
-        session = getCurrentSession();
-        hbs.setSession(session);
-        hbs.setSessionFactory(sessionFactory);
+        if(hbs.getSession()==null) {
+            session = getCurrentSession();
+            hbs.setSession(session);
+        }
+        if(hbs.getSessionFactory()==null) {
+            hbs.setSessionFactory(sessionFactory);
+        }
         if(criterion!=null)hbs.setNewCriteria(criterion);
         if(newServiceRegistry){
             hbs.setNewServiceRegistry();

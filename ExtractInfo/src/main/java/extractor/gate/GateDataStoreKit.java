@@ -13,9 +13,6 @@ import p4535992.util.log.SystemLog;
 import gate.persist.SerialDataStore;
 import gate.creole.ResourceInstantiationException;
 import gate.persist.PersistenceException;
-import gate.security.SecurityException;
-import gate.security.SecurityInfo;
-
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Path;
@@ -86,7 +83,7 @@ public class GateDataStoreKit {
       // SecurityInfo is ingored for SerialDataStore - just pass null
       // a new persisent corpus is returned     
       Corpus persistCorp = null;
-      persistCorp = (Corpus)sds.adopt(corp,null);
+      persistCorp = (Corpus)sds.adopt(corp);
       sds.sync(persistCorp);
       SystemLog.message("Corpus saved in datastore...");
       Object corpusID  = persistCorp.getLRPersistenceId();
@@ -187,9 +184,9 @@ public class GateDataStoreKit {
    }
 
    /**Save Document on the DataStore. */
-   public static Document saveDocumentOnDataStore(Document persistDoc,Document doc,SecurityInfo securityInfo) throws PersistenceException, SecurityException{
+   public static Document saveDocumentOnDataStore(Document persistDoc,Document doc) throws PersistenceException, SecurityException{
       //SecurityInfo is ingored for SerialDataStore - just pass null
-      persistDoc = (Document)sds.adopt(doc,securityInfo);
+      persistDoc = (Document)sds.adopt(doc);
       sds.sync(persistDoc);
       SystemLog.message("Document " + doc.getName() + " save to Datastore with the name " + persistDoc.getName());
       return persistDoc;
@@ -293,7 +290,7 @@ public class GateDataStoreKit {
       Corpus persistCorp = null;
       //save corpus in datastore,SecurityInfo is ingored for SerialDataStore - just pass null
       // a new persisent corpus is returned
-      persistCorp = (Corpus)sds.adopt(corp,null);
+      persistCorp = (Corpus)sds.adopt(corp);
       sds.sync(persistCorp);    
       SystemLog.message("corpus saved in datastore...");
       Object corpusID  = persistCorp.getLRPersistenceId();

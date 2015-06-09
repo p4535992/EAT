@@ -11,6 +11,10 @@ import org.slf4j.LoggerFactory;
 import p4535992.util.log.SystemLog;
 import p4535992.util.reflection.ReflectionKit;
 
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
+import javax.xml.bind.Unmarshaller;
 import java.io.*;
 import java.lang.reflect.Array;
 import java.nio.charset.Charset;
@@ -172,7 +176,7 @@ public class StringKit<T> {
                 sb.append(hexChar[(c >> 12) & 0xF]); // append the hex character for the left-most 4-bits
                 sb.append(hexChar[(c >> 8) & 0xF]); // hex for the second group of 4-bits from the left
                 sb.append(hexChar[(c >> 4) & 0xF]); // hex for the third group
-                sb.append(hexChar[c & 0xF]); // hex for the last group, e.g., the right most 4-bits
+                sb.append(hexChar[c & 0xF]); // hex for the last group, e.home., the right most 4-bits
             }else {
                 sb.append(c);
             }
@@ -420,7 +424,7 @@ public class StringKit<T> {
     /**
      * Merge the content of two arrays of string with same size for
      * make the args for a main method java class with option
-     * e.g. arrays1 = ["A","B"] arrays2 = ["--firstLetter",--"secondLetter"] -> arrays3 = ["--firstLetter","A",--"secondLetter","B"]
+     * e.home. arrays1 = ["A","B"] arrays2 = ["--firstLetter",--"secondLetter"] -> arrays3 = ["--firstLetter","A",--"secondLetter","B"]
      * @param param
      * @param value
      * @return
@@ -443,7 +447,7 @@ public class StringKit<T> {
                 array[j] = value[i];
             }
         }else{
-            //logger.error("WARNING: Check your array size");
+            //logger.org.p4535992.mvc.error("WARNING: Check your array size");
             throw new Exception("WARNING: Check your array size");
         }
        return array;
@@ -557,12 +561,25 @@ public class StringKit<T> {
         }
     }
 
+    /**
+     * Method for check if a string rappresent a numeric value
+     * @param str
+     * @return
+     */
     public static boolean isNumeric(String str) {
         //match a number with optional '-' and decimal.
         str = str.replace(",",".").replace(" ",".");
         return str.matches("(\\-|\\+)?\\d+(\\.\\d+)?");
     }
 
+
+    /**
+     * Method for concatenate the content of two arrays in a single array
+     * @param a
+     * @param b
+     * @param <T>
+     * @return
+     */
     public static <T> T[] concatenateArrays(T[] a,T[] b) {
         int aLen = a.length;
         int bLen = b.length;
@@ -573,6 +590,14 @@ public class StringKit<T> {
         return c;
     }
 
+
+    /**
+     * Method to concatenate the content of n arrays toa single array
+     * @param first
+     * @param rest
+     * @param <T>
+     * @return
+     */
     public static <T> T[] concatenateArrays(T[] first, T[]... rest) {
         int totalLength = first.length;
         for (T[] array : rest) {
@@ -587,6 +612,13 @@ public class StringKit<T> {
         return result;
     }
 
+
+    /**
+     * Method for copy the content of a array to aniother array of the same type
+     * @param baseArray
+     * @param <T>
+     * @return
+     */
     public static <T> T[] copyContentArray(T[] baseArray){
         T[] b = (T[]) Array.newInstance(baseArray.getClass().getComponentType(), baseArray.length);
         //b = Arrays.copyOf(baseArray, baseArray.length);
@@ -596,6 +628,13 @@ public class StringKit<T> {
         return b;
     }
 
+
+    /**
+     * Method to check is a array is empty or with all value null or empty
+     * @param array
+     * @param <T>
+     * @return
+     */
     public static <T> boolean isArrayEmpty(T[] array){
         boolean empty = true;
         if(array!=null && array.length > 0) {
@@ -609,6 +648,60 @@ public class StringKit<T> {
         return empty;
     }
 
+
+    /**
+     * Method to convert a POJO java object to XML string
+     * @param object
+     * @param clazz
+     * @param <T>
+     * @return
+     * @throws JAXBException
+     */
+    public static <T> String convertPojoToXml(T object, Class<T> clazz)throws JAXBException {
+        JAXBContext context = JAXBContext.newInstance(clazz);
+        Marshaller marshaller = context.createMarshaller();
+        marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+        StringWriter writer = new StringWriter();
+        marshaller.marshal(object, writer);
+        String xmlStringData = writer.toString();
+        return xmlStringData;
+    }
+
+    /**
+     * Method to convert a XML string to POJO java object
+     * @param xmlStringData
+     * @param clazz
+     * @param <T>
+     * @return
+     * @throws JAXBException
+     */
+    public static <T> T convertXmlToPojo(String xmlStringData, Class<T> clazz)  throws JAXBException {
+        JAXBContext context = JAXBContext.newInstance(clazz);
+        StringReader reader = new StringReader(xmlStringData);
+        Unmarshaller unmarshaller = context.createUnmarshaller();
+        T obj = (T) unmarshaller.unmarshal(reader);
+        return obj;
+    }
+
+    /**
+     * Method read a properties file
+     * @param file
+     * @return
+     */
+    public static Map<String,String> readPropertiesFile(File file){
+        Map<String,String> map = new HashMap<>();
+        Properties prop = new Properties();
+        InputStream inputStream = StringKit.class.getClassLoader().getResourceAsStream(file.getAbsolutePath());
+        try {
+            prop.load(inputStream);
+            for(Map.Entry<Object, Object> e : prop.entrySet()) {
+                map.put(e.getKey().toString(),e.getValue().toString());
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return map;
+    }
 
 
 

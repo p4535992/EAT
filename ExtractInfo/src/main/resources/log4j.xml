@@ -10,7 +10,7 @@
         </layout>
     </appender>
 
-    <!-- Application Loggers -->
+    <!-- ApplicationWebb Loggers -->
     <logger name="net.codejava.spring">
         <level value="info" />
     </logger>
@@ -28,7 +28,7 @@
         <level value="info" />
     </logger>
 
-    <logger name="org.springframework.web">
+    <logger name="org.springframework.org.p4535992.mvc.web">
         <level value="info" />
     </logger>
 

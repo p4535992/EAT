@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
@@ -23,7 +22,7 @@ import p4535992.util.string.StringKit;
 
 /**
  * MainEstrazioneGeoDomainDocumentPerElaborato.java
- * Classe per lt'estrazione dei GeoDocument o InfoDocument relativi ai singoli domni web
+ * Classe per lt'estrazione dei GeoDocument o InfoDocument relativi ai singoli domni org.p4535992.mvc.webapp
  * attraverso un'analisi dei singoli GeoDocument e InfoDocument dei singoli URL segunedo
  * opportuni criteri di scelta e confronto.
  * @author 4535992
@@ -128,12 +127,12 @@ public class ExtractorDomain {
     * Nuova regola per il tracciamento della frequenza si basa sugli oggetti java
     * DepositFrequencyInfo  e su quali sono i parametri dei relativi InfoDocument
     * più frequenti per un certo limite di soglia.
-    * @param domain il dominio web a cui appartiene il campo url del geoDocument in analisi
+    * @param domain il dominio org.p4535992.mvc.webapp a cui appartiene il campo url del geoDocument in analisi
     * @param geoDoc il geodocument in analisi
     */
     private void applyTheMemorizeRecordCordinatesRules(String domain,GeoDocument geoDoc,String tipo){
         try{                        
-        //Se è la prima volta che appare un GeoDocument relativo a questo particalore dominio web
+        //Se è la prima volta che appare un GeoDocument relativo a questo particalore dominio org.p4535992.mvc.webapp
         if(listDomains.contains(domain)==false){  
             ArrayList<GeoDocument> lgd = new ArrayList<GeoDocument>();                                       
             lgd.add(geoDoc); 
@@ -142,7 +141,7 @@ public class ExtractorDomain {
             listDomains.add(domain);
             listDepositFrequency.add(dfi);
              
-        //Se il Dominio web di questo geoDocument è già presente
+        //Se il Dominio org.p4535992.mvc.webapp di questo geoDocument è già presente
         }else if(listDomains.contains(domain)==true){
             for (DepositFrequencyInfo dfi2 : listDepositFrequency) {
                 //Se il dominio dell'url analizzato è lo stesso di quello già
@@ -308,9 +307,9 @@ public class ExtractorDomain {
     } 
  
     /**
-     * Semplice metodo che estare il domino web di appartenenza dell'url analizzato
+     * Semplice metodo che estare il domino org.p4535992.mvc.webapp di appartenenza dell'url analizzato
      * @param u url di ingresso in fromato stringa
-     * @return il dominio web dell'url in formato stringa
+     * @return il dominio org.p4535992.mvc.webapp dell'url in formato stringa
      * @throws URISyntaxException 
      */
    private String getDomainName(String u) throws URISyntaxException {     

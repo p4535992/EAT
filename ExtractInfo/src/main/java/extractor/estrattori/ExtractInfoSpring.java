@@ -1,7 +1,7 @@
 package extractor.estrattori;
 
 import extractor.ManageJsonWithGoogleMaps;
-import p4535992.util.cmd.SimpleParameters;
+import p4535992.util.file.SimpleParameters;
 import extractor.gate.GateKit;
 import p4535992.util.http.HttpUtilApache;
 import extractor.setInfoParameterIta.SetNazioneELanguage;
@@ -52,6 +52,8 @@ public class ExtractInfoSpring {
      private Integer LIMIT_GEODOMAIN, OFFSET_GEODOMAIN,FREQUENZA_URL_GEODOMAIN;
      private String TABLE_INPUT_GEODOMAIN,TABLE_OUTPUT_GEODOMAIN,DB_INPUT_GEODOMAIN,DB_OUTPUT_GEODOMAIN;
      private boolean CREA_NUOVA_TABELLA_GEODOMAIN,ERASE_GEODOMAIN;
+
+     private String DIRECTORY_FILES,SILK_SLS_FILE;
 
      //COSTRUTTORI
      private GenerationOfTriple got = new GenerationOfTriple();
@@ -105,6 +107,10 @@ public class ExtractInfoSpring {
 
         this.SAVE_DATASTORE = Boolean.parseBoolean(par.getValue("PARAM_SAVE_DATASTORE").toLowerCase());
 
+        if(PROCESS_PROGAMM==3){
+            this.DIRECTORY_FILES = par.getValue("PARAM_DIRECTORY_FILES");
+        }
+
         if (SAVE_DATASTORE) {
             this.NOME_DATASTORE = par.getValue("PARAM_NOME_DATASTORE");
             this.DS_DIR = par.getValue("PARAM_DS_DIR");
@@ -141,6 +147,7 @@ public class ExtractInfoSpring {
         this.ERASE_GEODOMAIN = Boolean.parseBoolean(par.getValue("PARAM_ERASE_GEODOMAIN").toLowerCase());
 
         this.SILK_LINKING_TRIPLE_PROGRAMM = Boolean.parseBoolean(par.getValue("PARAM_SILK_LINKING_TRIPLE_PROGRAMM").toLowerCase());
+        this.SILK_SLS_FILE = par.getValue("PARAM_SILK_SLS_FILE");
     }catch(java.lang.NullPointerException ne){
         SystemLog.warning("Attention: make sure all the parameter on the input.properties file are setted correctly");
         SystemLog.exception(ne);
@@ -196,6 +203,7 @@ public class ExtractInfoSpring {
                              geo2 = j.GetTitleAndHeadingTags(url.toString(),geo2);
                              if(ExtractorJSOUP.isEXIST_WEBPAGE()){
                                  SystemLog.message("*******************Run GATE**************************");
+                                 //ExtractorInfoGATE egate = new ExtractorInfoGATE();
                                  geo3 = egate.extractorGATE(url, controller);
                                  geo3 = compareInfo3(geo3, geo2);
                                  //AGGIUNGIAMO ALTRE INFORMAZIONI AL GEODOCUMENT
@@ -224,6 +232,7 @@ public class ExtractInfoSpring {
                      List<GeoDocument> listGeoFinal = new ArrayList<>();
                      try{
                         SystemLog.message("*******************Run GATE**************************");
+                        //ExtractorInfoGATE egate = new ExtractorInfoGATE();
                         listGeo = egate.extractorGATE(listUrl, controller);
                         listUrl.clear();
                         for(GeoDocument geo: listGeo){
@@ -253,7 +262,8 @@ public class ExtractInfoSpring {
 //                            }
                 }else if(PROCESS_PROGAMM == 3){
                      SystemLog.message("RUN PROCESS 3");
-                     String DIRECTORY_FILE = "C:\\Users\\Marco\\Downloads\\parseWebUrls";
+                     //String DIRECTORY_FILE = "C:\\Users\\Marco\\Downloads\\parseWebUrls";
+                     String DIRECTORY_FILE = DIRECTORY_FILES;
                      List<File> files = FileUtil.readDirectory(DIRECTORY_FILE);
                      List<File> subFiles = new ArrayList<File>();
                      Map<File,String> mapFile = new HashMap<>();
@@ -273,11 +283,12 @@ public class ExtractInfoSpring {
                      subFiles.addAll(files);
                      SystemLog.attention("Loaded a list of: "+subFiles.size()+" files");
                      List<GeoDocument> geoDocs = new ArrayList<>();
-                     //geoDocs = egate.extractMicrodataWithGATEMultipleFiles(subFiles, controller);
+                     //geoDocs = egate.extractMicrodataWithGATEMultipleFiles(subFiles, home.home.initializer.org.p4535992.mvc.webapp.controller);
                      for(File file : subFiles){
                          //SystemLog.debug("File:"+file.getAbsolutePath());
+                         //ExtractorInfoGATE egate = new ExtractorInfoGATE();
                          GeoDocument g = egate.extractMicrodataWithGATESingleFile(file,controller);
-                         //g.setUrl(new URL(websiteDao.trySelectWithRowMap("url","file_path",file.getName(),String.class).toString()));
+                         //home.setUrl(new URL(websiteDao.trySelectWithRowMap("url","file_path",file.getName(),String.class).toString()));
                          g.setUrl(new URL(mapFile.get(file)));
                          geoDocs.add(g);
                      }
@@ -327,7 +338,7 @@ public class ExtractInfoSpring {
                     }
                     //GENERIAMO IL FILE DI TRIPLE CORRISPONDENTE ALLE INFORMAZIONI ESTRATTE CON KARMA
                     if (GENERATION_TRIPLE_KARMA_PROGRAMM == true) {
-                        SystemLog.message("RUN KARMA PROGRAMM: Generation of triple with web-karma!!");
+                        SystemLog.message("RUN KARMA PROGRAMM: Generation of triple with org.p4535992.mvc.webapp-karma!!");
                         got = new GenerationOfTriple(
                                 ID_DATABASE_KARMA,//DB
                                 FILE_MAP_TURTLE_KARMA, //PATH: karma_files/model/
@@ -345,7 +356,12 @@ public class ExtractInfoSpring {
                         got.GenerationOfTripleWithKarmaAPIFromDataBase();
                     }
                     if(SILK_LINKING_TRIPLE_PROGRAMM){
-                        //...in progress
+                        if(new File(SILK_SLS_FILE).exists()){
+                            de.fuberlin.wiwiss.silk.Silk.executeFile(new File(SILK_SLS_FILE), "interlink_location", 2, true);
+                        }else{
+                            SystemLog.error("The "+new File(SILK_SLS_FILE).getAbsolutePath()+" not exists!!");
+                        }
+
                     }
                 }
             }
@@ -395,7 +411,7 @@ public class ExtractInfoSpring {
             //*************************************************************************************
             //INTEGRAZIONE FINALE CON IL DATABASE KEYWORDDB
             //SET CITY IF YOU DON'T HAVE
-            if(StringKit.setNullForEmptyString(geo.getCity())==null){
+            if(StringKit.setNullForEmptyString(geo.getCity())==null && TABLE_KEYWORD_DOCUMENT!=null){
                 //SystemLog.message("Integrazione Keyworddb");
                 geo.setCity(Docdao.selectValueForSpecificColumn("city", "url", geo.getUrl().toString()));
             }

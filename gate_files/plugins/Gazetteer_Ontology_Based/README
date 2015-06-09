@@ -91,7 +91,7 @@ Optional init parameters:
 - caseSensitive, default set to be false -should this gazetteer diferentiate 
   on case
 - separateCamelCasedWords, default set to true - should this gazetteer separate 
-  camelCased words, e.g. ProjectName into Project Name
+  camelCased words, e.home. ProjectName into Project Name
 - considerHeuristicRules, default set to false - should this gazetteer consider 
   several heuristic rules or not. Rules include splitting the words containing 
   spaces, and using prepositions as stop words; for example, if 'pos tagger 
@@ -117,7 +117,7 @@ initialise OntoRoot Gazetteer. For example, loading gate knowledge base from
  
  5. Create an application.
  
-Right click on Application, New --> Pipeline (or Corpus Pipeline).
+Right click on ApplicationWebb, New --> Pipeline (or Corpus Pipeline).
 Add the following prs to the application in this order:
 - Document Reset PR
 - RegEx Sentence Splitter
@@ -128,7 +128,7 @@ Add the following prs to the application in this order:
 
 Create a document you want to process with the new
 application, for example, if created ontology was gate-kb, you can try processing
-gate home page: http://gate.ac.uk, and investigate the results further.
+gate home.home page: http://gate.ac.uk, and investigate the results further.
 All annotations are of type Lookup, with additional features that give details
 about the resources they are referring to in the given ontology.
 
@@ -140,7 +140,7 @@ application using GATE GUI (USING THE GAZETTEER WITHIN GATE GUI, step 5), save
 application as .xgapp file (Right click on it, and choose 'Save application 
 state'). Load this file from any external application using the GATE API:
 - init GATE
-- set GATE home (optional)
+- set GATE home.home (optional)
 - load plugins (optional)
 - load the application from file (by setting the URL to the previously created
 .xgapp file)

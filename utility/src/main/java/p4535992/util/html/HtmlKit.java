@@ -114,18 +114,18 @@ public class HtmlKit {
      * Replaces characters that may be confused by a HTML
      * parser with their equivalent character entity references.
      *
-     * Any data that will appear as text on a web page should
+     * Any data that will appear as text on a org.p4535992.mvc.webapp page should
      * be be escaped.  This is especially important for data
      * that comes from untrusted sources such as Internet users.
      * A common mistake in CGI programming is to ask a user for
-     * data and then put that data on a web page.  For example:<pre>
+     * data and then put that data on a org.p4535992.mvc.webapp page.  For example:<pre>
      * Server: What is your name?
      * User: &lt;b&gt;Joe&lt;b&gt;
      * Server: Hello <b>Joe</b>, Welcome</pre>
      * If the name is put on the page without checking that it doesn't
      * contain HTML code or without sanitizing that HTML code, the user
      * could reformat the page, insert scripts, and control the the
-     * content on your web server.
+     * content on your org.p4535992.mvc.webapp server.
      *
      * This method will replace HTML characters such as &gt; with their
      * HTML entity reference (&amp;gt;) so that the html parser will
@@ -288,7 +288,7 @@ public class HtmlKit {
     /**
      * Filter the specified message string for characters that are sensitive
      * in HTML.  This avoids potential attacks caused by including JavaScript
-     * codes in the request URL that is often reported in error messages.
+     * codes in the request URL that is often reported in org.p4535992.mvc.error messages.
      *
      * @param message The message string to be filtered
      */

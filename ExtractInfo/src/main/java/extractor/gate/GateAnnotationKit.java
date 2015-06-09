@@ -390,7 +390,7 @@ public class GateAnnotationKit {
      * logico , questo metodo viene attivato solo dal set di annotazioni MyAnnSet e
      * MySpecialID in entrambi i casi in mancanza di FOOTER e HEADER lt'ultima annotazione
      * di quel tipo riscontrata è probabilemnte la più esatta a rappresentare la pagina
-     * web.
+     * org.p4535992.mvc.webapp.
      * @param doc il GATE Document che si sta studiando
      * @param dateSet lt'AnnotationSet di riferimento (MyAnnSet o MySpecialID)
      * @param stringNameAnnotation il tipo dell'annotazione in formato stringa

@@ -77,8 +77,8 @@ public class GateHandler implements HttpRequestHandler {
   public void init() throws Exception {
     handlerId = nextId.getAndIncrement();
     log.info("init() for GateHandler " + handlerId);
-    // insert a corpus and give it to the spring.mvc.controller
-    corpus = Factory.newCorpus("webapp corpus");
+    // insert a corpus and give it to the spring.mvc.home.home.initializer.org.p4535992.mvc.webapp.controller
+    corpus = Factory.newCorpus("org.p4535992.mvc.webapp corpus");
     application.setCorpus(corpus);
   }
 
@@ -179,7 +179,7 @@ public class GateHandler implements HttpRequestHandler {
   }
 
   /**
-   * Simple error handler - you would obviously use something more
+   * Simple org.p4535992.mvc.error handler - you would obviously use something more
    * sophisticated in a real application.
    */
   private void failureMessage(String message, Exception e,

@@ -354,7 +354,7 @@ public class AliasCacheImpl implements AliasLookupDictionary {
   private void loadTrustedMaps(QueryResultListener.Feed dataFeed) {
     log.info("Loading of trusted entities from Sesame");
 
-    String filePath = System.getProperty("kim.home.dir", ".") +
+    String filePath = System.getProperty("kim.home.home.dir", ".") +
     EntityPriority.PRIORITY_CONF_FILE.substring(1);
     existsClassPriority = (new File(filePath)).exists();
 

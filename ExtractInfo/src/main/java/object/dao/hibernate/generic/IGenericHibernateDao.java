@@ -1,5 +1,6 @@
 package object.dao.hibernate.generic;
 
+import org.hibernate.Interceptor;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Criterion;
@@ -56,17 +57,17 @@ public interface IGenericHibernateDao<T> {
     Serializable updateRow(String whereColumn, Object whereValue);
     Serializable deleteRow(T object);
     Serializable deleteRow(String whereColumn, Object whereValue);
+    void setInterceptor(Class<? extends Interceptor> interceptor);
 
-    void updateAnnotationEntity(String nameOfAttribute, String newValueAttribute);
-    void updateAnnotationTable(String nameOfAttribute, String newValueAttribute);
-    void updateAnnotationColumn(String nameField, String nameOfAttribute, String newValueAttribute) throws NoSuchFieldException;
-    void updateAnnotationJoinColumn(String nameField, String nameOfAttribute, String newValueAttribute) throws NoSuchFieldException;
-    List<Object[]> getAnnotationTable();
 
     //FINDER IN PROGRESS...
     //List<T> executeFinder(java.lang.reflect.Method method, final Object[] queryArgs);
     //Iterator<T> iterateFinder(java.lang.reflect.Method method, final Object[] queryArgs);
-
+//    void updateAnnotationEntity(String nameOfAttribute, String newValueAttribute);
+//    void updateAnnotationTable(String nameOfAttribute, String newValueAttribute);
+//    void updateAnnotationColumn(String nameField, String nameOfAttribute, String newValueAttribute) throws NoSuchFieldException;
+//    void updateAnnotationJoinColumn(String nameField, String nameOfAttribute, String newValueAttribute) throws NoSuchFieldException;
+//    List<Object[]> getAnnotationTable();
 }
 
 

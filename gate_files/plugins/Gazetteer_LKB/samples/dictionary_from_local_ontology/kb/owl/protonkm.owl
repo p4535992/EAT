@@ -22,7 +22,7 @@
 
 <owl:Ontology rdf:about="">
   <rdfs:comment>PROTON Knowledge Management Ontology</rdfs:comment>
-  <!-- THESE IMPORTS NEED TO BE with NAMESPACES when D E P L O Y E D to a public web server -->
+  <!-- THESE IMPORTS NEED TO BE with NAMESPACES when D E P L O Y E D to a public org.p4535992.mvc.webapp server -->
 
   <owl:imports rdf:resource="protons.owl"/>
   <owl:imports rdf:resource="protont.owl"/>

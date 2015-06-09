@@ -28,7 +28,7 @@ import java.util.regex.Pattern;
 public class URLUtil {
 
   /**
-   * Resolve relative URL-s and fix a java.net.URL error in handling of URLs
+   * Resolve relative URL-s and fix a java.net.URL org.p4535992.mvc.error in handling of URLs
    * with pure query targets.
    * 
    * @param base

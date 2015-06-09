@@ -1,6 +1,6 @@
 This directory contains wrappers for LingPipe from Alias-I, redistributed
 under their royalty-free licence. Please consult their pages for more
-information: http://alias-i.com/lingpipe/web/licensing.html (the royalty free
+information: http://alias-i.com/lingpipe/org.p4535992.mvc.webapp/licensing.html (the royalty free
 license is at http://alias-i.com/lingpipe/licenses/lingpipe-license-1.txt and
 copied here as licence.txt).
 

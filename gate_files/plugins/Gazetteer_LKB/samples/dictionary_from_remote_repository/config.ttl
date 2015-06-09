@@ -4,13 +4,13 @@
 # %relpath% will be replaced with the path to the dictionary folder.
 #
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
-@prefix rep: <http://www.openrdf.org/config/repository#>.
-@prefix hr: <http://www.openrdf.org/config/repository/http#>.
+@prefix rep: <http://www.openrdf.org/home.home.initializer.org.p4535992.mvc.config/repository#>.
+@prefix hr: <http://www.openrdf.org/home.home.initializer.org.p4535992.mvc.config/repository/http#>.
 @prefix lkbg: <http://www.ontotext.com/lkb_gazetteer#>.
 
 # The dictionary will be loaded from a remote Sesame HTTP repository. 
 # Its configuration follows. See the Sesame configuration for detals.
-# http://www.openrdf.org/doc/sesame2/users/ch07.html#section-repository-config
+# http://www.openrdf.org/doc/sesame2/users/ch07.html#section-repository-home.home.initializer.org.p4535992.mvc.config
 [] a rep:Repository ;
    rep:repositoryImpl [
       rep:repositoryType "openrdf:HTTPRepository" ;

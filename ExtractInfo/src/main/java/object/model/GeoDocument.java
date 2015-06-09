@@ -7,13 +7,15 @@
  */
 package object.model;
 
+import extractor.hibernate.interceptor.SelfDirtyCheckingEntity;
+
 import java.io.Serializable;
 import java.net.MalformedURLException;
 import java.net.URL;
 import javax.persistence.*;
 @Entity
 @Table(name = "geodocument")
-public class GeoDocument implements Serializable{
+public class GeoDocument extends SelfDirtyCheckingEntity implements Serializable{
     @Id @GeneratedValue
     @Column(name = "doc_id")
     private Integer doc_id;
@@ -106,13 +108,14 @@ public class GeoDocument implements Serializable{
 
     public void setDoc_id(Integer doc_id) {
         this.doc_id = doc_id;
+        markDirtyProperty();
     }
 
     public URL getUrl() {
         return url;
     }
 
-    @PostRemove
+    //@PostRemove
     @PreUpdate
     @PrePersist
     public void setUrl(URL url) {
@@ -125,7 +128,26 @@ public class GeoDocument implements Serializable{
                 e.printStackTrace();
             }
         }
+        markDirtyProperty();
     }
+
+//    @PreUpdate
+//    @PrePersist
+//    public void setUrl(String url) {
+//        if(url.toString().contains("://")) {
+//            try {
+//                this.url = new URL(url);
+//            } catch (MalformedURLException e) {
+//                e.printStackTrace();
+//            }
+//        }else{
+//            try {
+//                this.url = new URL("http://"+url.toString());
+//            } catch (MalformedURLException e) {
+//                e.printStackTrace();
+//            }
+//        }
+//    }
 
     public String getRegione() {
         return regione;
@@ -133,6 +155,7 @@ public class GeoDocument implements Serializable{
 
     public void setRegione(String regione) {
         this.regione = regione;
+        markDirtyProperty();
     }
 
     public String getProvincia() {
@@ -141,6 +164,7 @@ public class GeoDocument implements Serializable{
 
     public void setProvincia(String provincia) {
         this.provincia = provincia;
+        markDirtyProperty();
     }
 
     public String getCity() {
@@ -149,6 +173,7 @@ public class GeoDocument implements Serializable{
 
     public void setCity(String city) {
         this.city = city;
+        markDirtyProperty();
     }
 
     public String getIndirizzo() {
@@ -157,6 +182,7 @@ public class GeoDocument implements Serializable{
 
     public void setIndirizzo(String indirizzo) {
         this.indirizzo = indirizzo;
+        markDirtyProperty();
     }
 
     public String getIva() {
@@ -165,6 +191,7 @@ public class GeoDocument implements Serializable{
 
     public void setIva(String iva) {
         this.iva = iva;
+        markDirtyProperty();
     }
 
     public String getEmail() {
@@ -173,6 +200,7 @@ public class GeoDocument implements Serializable{
 
     public void setEmail(String email) {
         this.email = email;
+        markDirtyProperty();
     }
 
     public String getTelefono() {
@@ -181,6 +209,7 @@ public class GeoDocument implements Serializable{
 
     public void setTelefono(String telefono) {
         this.telefono = telefono;
+        markDirtyProperty();
     }
 
     public String getEdificio() {
@@ -189,6 +218,7 @@ public class GeoDocument implements Serializable{
 
     public void setEdificio(String edificio) {
         this.edificio = edificio;
+        markDirtyProperty();
     }
 
     public String getNazione() {
@@ -197,6 +227,7 @@ public class GeoDocument implements Serializable{
 
     public void setNazione(String nazione) {
         this.nazione = nazione;
+        markDirtyProperty();
     }
 
     public Double getLat() {
@@ -205,6 +236,7 @@ public class GeoDocument implements Serializable{
 
     public void setLat(Double lat) {
         this.lat = lat;
+        markDirtyProperty();
     }
 
     public Double getLng() {
@@ -213,6 +245,7 @@ public class GeoDocument implements Serializable{
 
     public void setLng(Double lng) {
         this.lng = lng;
+        markDirtyProperty();
     }
 
     public String getDescription() {
@@ -221,6 +254,7 @@ public class GeoDocument implements Serializable{
 
     public void setDescription(String description) {
         this.description = description;
+        markDirtyProperty();
     }
 
     public String getIndirizzoNoCAP() {
@@ -229,6 +263,7 @@ public class GeoDocument implements Serializable{
 
     public void setIndirizzoNoCAP(String indirizzoNoCAP) {
         this.indirizzoNoCAP = indirizzoNoCAP;
+        markDirtyProperty();
     }
 
     public String getPostalCode() {
@@ -237,6 +272,7 @@ public class GeoDocument implements Serializable{
 
     public void setPostalCode(String postalCode) {
         this.postalCode = postalCode;
+        markDirtyProperty();
     }
 
     public String getFax() {
@@ -245,6 +281,7 @@ public class GeoDocument implements Serializable{
 
     public void setFax(String fax) {
         this.fax = fax;
+        markDirtyProperty();
     }
 
     public String getIndirizzoHasNumber() {
@@ -253,6 +290,7 @@ public class GeoDocument implements Serializable{
 
     public void setIndirizzoHasNumber(String indirizzoHasNumber) {
         this.indirizzoHasNumber = indirizzoHasNumber;
+        markDirtyProperty();
     }
 
     @Override

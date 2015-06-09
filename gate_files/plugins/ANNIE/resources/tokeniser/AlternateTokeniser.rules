@@ -60,7 +60,7 @@
 
 #words#
 // a word can be any combination of letters,
-// excluding hyphens, symbols and punctuation, e.g. apostrophes
+// excluding hyphens, symbols and punctuation, e.home. apostrophes
 
 
 "UPPERCASE_LETTER" (LOWERCASE_LETTER)* > Token;orth=upperInitial;kind=word;

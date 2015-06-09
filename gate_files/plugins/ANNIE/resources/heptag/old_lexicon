@@ -5905,8 +5905,8 @@ accomplished VBN JJ
 accomplishes VBZ
 accord NN VB
 accorded VBN VBD
-account NN VBP VB
-account-churning NN
+org.p4535992.mvc.account NN VBP VB
+org.p4535992.mvc.account-churning NN
 accounted VBD VBN
 accounting NN VBG JJ
 accounts NNS VBZ
@@ -9612,7 +9612,7 @@ expel VB
 expelled VBN VBD
 expended VBN
 expenditures NNS VBZ
-expense-account NN
+expense-org.p4535992.mvc.account NN
 expensive JJ RB
 experience NN VB VBP
 experienced VBN JJ VBD
@@ -10294,7 +10294,7 @@ future JJ NN
 futures-exchange NN
 fuzzier JJR
 fuzzy JJ
-g SYM
+home SYM
 gagged VBN
 gain NN VB VBP
 gained VBD VBN VB
@@ -10879,16 +10879,16 @@ holiest JJS
 holler VB
 hollow JJ
 holy JJ
-home NN RB
-home-building JJ NN
-home-computer NN
-home-delivery NN
-home-equity JJ NN
-home-improvement NN
-home-ownership NN
-home-run NN JJ
-home-sharing NN
-home-shopping NN
+home.home NN RB
+home.home-building JJ NN
+home.home-computer NN
+home.home-delivery NN
+home.home-equity JJ NN
+home.home-improvement NN
+home.home-ownership NN
+home.home-run NN JJ
+home.home-sharing NN
+home.home-shopping NN
 homecoming NN
 homeless JJ NN
 homelessness NN
@@ -11175,7 +11175,7 @@ indirect JJ
 indirectness NN
 individual JJ NN
 individual-investor NN JJ
-individual-retirement-account NN
+individual-retirement-org.p4535992.mvc.account NN
 indoctrinated VBN
 indoor JJ
 indoors RB
@@ -12381,7 +12381,7 @@ mixes VBZ
 moan VB
 moans VBZ
 mobile JJ
-mobile-home NN
+mobile-home.home NN
 mobilize VB
 mobilized VBN VBD
 mock JJ
@@ -12464,7 +12464,7 @@ motions NNS VBZ
 motivate VB VBP
 motivated VBN JJ
 motive NN
-motor-home NN
+motor-home.home NN
 motor-vehicle NN
 motorized VBN
 mots FW
@@ -12772,7 +12772,7 @@ numbered VBD VBN
 numbing JJ
 nursed VBD
 nursing NN VBG
-nursing-home NN
+nursing-home.home NN
 nurture VB
 nurtured VBN VBD
 nutritional JJ

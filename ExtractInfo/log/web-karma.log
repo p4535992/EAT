@@ -1,4 +1,4 @@
-INFO [2015-03-27 10:11:16,075] (ServletContextParameterMap-><clinit>->86): Karma home: C:\Users\Marco\karma\
+INFO [2015-03-27 10:11:16,075] (ServletContextParameterMap-><clinit>->86): Karma home.home: C:\Users\Marco\karma\
 INFO [2015-03-27 10:11:16,318] (KarmaUserMetadata->createDirectoryForMetadata->30): Set parameter: USER_PREFERENCES_DIRECTORY -> C:\Users\Marco\karma\UserPrefs\
 INFO [2015-03-27 10:11:16,335] (KarmaUserMetadata->createDirectoryForMetadata->30): Set parameter: USER_CONFIG_DIRECTORY -> C:\Users\Marco\karma\Config\
 INFO [2015-03-27 10:11:16,344] (KarmaUserMetadata->createDirectoryForMetadata->30): Set parameter: USER_PYTHON_SCRIPTS_DIRECTORY -> C:\Users\Marco\karma\python\
@@ -38,11 +38,11 @@ INFO [2015-03-27 10:17:45,167] (KR2RMLConfiguration->loadParams->47): Load kr2rm
 INFO [2015-03-27 10:17:45,192] (KR2RMLConfiguration->loadParams->61): Done loading kr2rml.properties
 INFO [2015-03-27 10:18:34,505] (OfflineRdfGenerator->generateRDF->183): done after 114778
 INFO [2015-03-27 10:18:40,446] (OfflineRdfGenerator->generateRDF->184): RDF published at: C:\Users\Marco\Desktop\tripla-model-2015-03-30.n3
-INFO [2015-03-27 13:47:59,509] (ServletContextParameterMap-><clinit>->86): Karma home: C:\Users\Marco\karma\
+INFO [2015-03-27 13:47:59,509] (ServletContextParameterMap-><clinit>->86): Karma home.home: C:\Users\Marco\karma\
 INFO [2015-03-27 13:47:59,564] (KarmaUserMetadata->createDirectoryForMetadata->30): Set parameter: USER_PREFERENCES_DIRECTORY -> C:\Users\Marco\karma\UserPrefs\
 INFO [2015-03-27 13:47:59,613] (KarmaUserMetadata->createDirectoryForMetadata->30): Set parameter: USER_CONFIG_DIRECTORY -> C:\Users\Marco\karma\Config\
 INFO [2015-03-27 13:47:59,616] (KarmaUserMetadata->createDirectoryForMetadata->30): Set parameter: USER_PYTHON_SCRIPTS_DIRECTORY -> C:\Users\Marco\karma\python\
-INFO [2015-03-27 14:24:01,066] (ServletContextParameterMap-><clinit>->86): Karma home: C:\Users\Marco\karma\
+INFO [2015-03-27 14:24:01,066] (ServletContextParameterMap-><clinit>->86): Karma home.home: C:\Users\Marco\karma\
 INFO [2015-03-27 14:24:01,135] (KarmaUserMetadata->createDirectoryForMetadata->30): Set parameter: USER_PREFERENCES_DIRECTORY -> C:\Users\Marco\karma\UserPrefs\
 INFO [2015-03-27 14:24:01,162] (KarmaUserMetadata->createDirectoryForMetadata->30): Set parameter: USER_CONFIG_DIRECTORY -> C:\Users\Marco\karma\Config\
 INFO [2015-03-27 14:24:01,173] (KarmaUserMetadata->createDirectoryForMetadata->30): Set parameter: USER_PYTHON_SCRIPTS_DIRECTORY -> C:\Users\Marco\karma\python\

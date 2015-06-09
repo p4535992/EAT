@@ -5,13 +5,10 @@ import object.impl.jdbc.generic.GenericDaoImpl;
 import object.model.GeoDocument;
 import org.hibernate.SessionFactory;
 import p4535992.util.log.SystemLog;
-import p4535992.util.sql.SQLKit;
 import p4535992.util.sql.SQLSupport;
 
 import javax.sql.DataSource;
 import java.io.IOException;
-import java.sql.*;
-import java.util.List;
 
 /**
  * Created by 4535992 on 01/04/2015.
@@ -103,4 +100,6 @@ public class GeoDocumentDaoImpl extends GenericDaoImpl<GeoDocument> implements I
             SystemLog.throwException(new Throwable("Null pointer on the query:"+query+"",e.getCause()));
         }
     }
+
+
 }

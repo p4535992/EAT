@@ -11,7 +11,7 @@ import com.ontotext.kim.KIMConstants;
 import com.ontotext.kim.client.KIMException;
 
 public class EntityPriority implements KIMConstants {
-    protected final static String PRIORITY_CONF_FILE = "./config/entity-priority.conf";
+    protected final static String PRIORITY_CONF_FILE = "./home.home.initializer.org.p4535992.mvc.config/entity-priority.conf";
     protected final String PRIORITY_CLASS_PREFIX = "priority.class.";
     protected final String PRIORITY_INSTANCE_PREFIX = "priority.instance.";
     protected final String PRIORITY_RULE_PREFIX = "priority.rule";
@@ -27,7 +27,7 @@ public class EntityPriority implements KIMConstants {
     protected Map<String,Integer> m_hRules;
 
     /**
-     * read the config file
+     * read the home.home.initializer.org.p4535992.mvc.config file
      * 
      * @throws Exception
      */
@@ -41,7 +41,7 @@ public class EntityPriority implements KIMConstants {
     
     public void init() throws Exception {
         m_prop.load(new FileInputStream(new File(System.getProperty(
-                "kim.home.dir", "."), PRIORITY_CONF_FILE.substring(1))));
+                "kim.home.home.dir", "."), PRIORITY_CONF_FILE.substring(1))));
         m_nDefaultInstancePriority = Integer.parseInt(m_prop
                 .getProperty("priority.default.instance"));
         m_nDefaultClassPriority = Integer.parseInt(m_prop

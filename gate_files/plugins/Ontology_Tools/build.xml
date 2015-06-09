@@ -10,9 +10,9 @@
   <property name="src" location="src"/>
   <property name="jar.location" location="ontology_tools.jar" />
   <property name="build" location="build" />
-  <property name="gate.home" location="../.." />
-  <property name="gate.jar" location="${gate.home}/bin/gate.jar" />
-  <property name="gate.lib" location="${gate.home}/lib" />
+  <property name="gate.home.home" location="../.." />
+  <property name="gate.jar" location="${gate.org.p4535992.mvc.home}/bin/gate.jar" />
+  <property name="gate.lib" location="${gate.org.p4535992.mvc.home}/lib" />
   <property name="doc.dir" location="doc" />
   <property name="javadoc.dir" location="${doc.dir}/javadoc" />
 

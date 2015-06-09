@@ -44,7 +44,7 @@ import java.util.List;
  *  Configurable Exporter takes a configuration file specifying the
  *  format of the output file. The configuration file consists of a
  *  single line specifying output format with annotation names 
- *  surrounded by three angle brackets. E.g.<br>
+ *  surrounded by three angle brackets. E.home.<br>
  *  
  *  <pre>
  *  {index}, {class}, "{content}"
@@ -66,7 +66,7 @@ import java.util.List;
  *  The PR is useful for outputting data for use in machine learning,
  *  and so each line is considered an "instance". Instance is specified
  *  at run time, and by default is a document, but might be an
- *  annotation type. Instances are output one per line and the config
+ *  annotation type. Instances are output one per line and the home.home.initializer.org.p4535992.mvc.config
  *  file specifies how to output each instance. Annotations included
  *  in the output file are the first incidence of the specified type in
  *  the instance. If there is ever a need for it I might fix it so you
@@ -245,7 +245,7 @@ public class ConfigurableExporter extends AbstractLanguageAnalyser implements
       // There is no instance name so we will insert one instance (line) per
       // document.
       // Here, we find the first annotation of the right type for each slot in
-      // the config file.
+      // the home.home.initializer.org.p4535992.mvc.config file.
       for(int i = 0; i < this.numberOfAnnotationSlots; i++) {
         this.outputStream.print(this.bridges[i]);
         // Check the annotation type isn't null
@@ -290,7 +290,7 @@ public class ConfigurableExporter extends AbstractLanguageAnalyser implements
 
         // Here, we find the first annotation of the right type within the span
         // of the
-        // instance annotation for each slot in the config file.
+        // instance annotation for each slot in the home.home.initializer.org.p4535992.mvc.config file.
         for(int i = 0; i < this.numberOfAnnotationSlots; i++) {
           this.outputStream.print(this.bridges[i]);
           List<Annotation> typedAnnotations = Utils.inDocumentOrder(

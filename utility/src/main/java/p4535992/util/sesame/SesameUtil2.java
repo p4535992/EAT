@@ -73,7 +73,7 @@ public class SesameUtil2 {
             ){
         this.TYPE_REPOSITORY=TYPE_REPOSITORY;
         this.PATH_FOLDER_STORAGE=PATH_FOLDER_STORAGE;
-        this. PATH_FOLDER_REPOSITORY=PATH_FOLDER_REPOSITORY;
+        this.PATH_FOLDER_REPOSITORY=PATH_FOLDER_REPOSITORY;
         this.RULESET=RULESET;
         this.USER_REPOSITORY= null;
         this.PASSWORD_REPOSITORY=null;
@@ -112,8 +112,13 @@ public class SesameUtil2 {
 
     private void setURLRepository(){
         this.URL_SESAME = "http://localhost:8080/openrdf-sesame/" + ID_REPOSITORY;
-        this.URL_REPOSITORY = "http://www.openrdf.org/config/repository#Repository";
-        this.URL_REPOSITORY_ID = "http://www.openrdf.org/config/repository#"+ ID_REPOSITORY;
+        this.URL_REPOSITORY = "http://www.openrdf.org/repository#"+ ID_REPOSITORY;
+        this.URL_REPOSITORY_ID = "http://www.openrdf.org/repository#"+ ID_REPOSITORY;
+    }
+    private void setURLRepository(String URL_SESAME,String URL_REPOSITORY_ID){
+        this.URL_SESAME = URL_SESAME;
+        this.URL_REPOSITORY = URL_REPOSITORY_ID;
+        this.URL_REPOSITORY_ID = URL_REPOSITORY_ID;
     }
 
     private static void openConnection(org.openrdf.repository.Repository repository)
@@ -254,7 +259,7 @@ public class SesameUtil2 {
 
     /**
      * Parses and loads all files specified in PARAM_PRELOAD
-     * @param preloadFolder e.g.  "./preload"
+     * @param preloadFolder e.home.  "./preload"
      * @throws Exception
      */
     public void loadFiles(String preloadFolder) throws Exception {
@@ -561,7 +566,7 @@ public class SesameUtil2 {
                 SystemLog.message(rows + " result(s) in " + (queryEnd - queryBegin) / 1000000 + "ms.");
             }
         } catch (Throwable e) {
-            SystemLog.message("An error occurred during query execution: " + e.getMessage());
+            SystemLog.message("An org.p4535992.mvc.error occurred during query execution: " + e.getMessage());
         }
     }
 
@@ -617,7 +622,7 @@ public class SesameUtil2 {
     /**
      * Export the contents of the repository (explicit, implicit or all statements) to the given filename in
      * the given RDF format,
-     * @param exportType e.g //explicit,implicit,all,specific
+     * @param exportType e.home //explicit,implicit,all,specific
      */
     public void export(String outputPathFile,String outputFormat,String exportType) throws RepositoryException, UnsupportedRDFormatException, IOException,
             RDFHandlerException {
@@ -938,7 +943,7 @@ public class SesameUtil2 {
         // finally, insert the DatasetGraph instance
         SesameDataset dataset = new SesameDataset(repositoryConnection);
         //From now on the SesameDataset object can be used through the Jena API 
-        //as regular Dataset, e.g. to add some data into it one could something like the
+        //as regular Dataset, e.home. to add some data into it one could something like the
         //following:
         com.hp.hpl.jena.rdf.model.Model model = 
                 com.hp.hpl.jena.rdf.model.ModelFactory.createModelForGraph(dataset.getDefaultGraph());
@@ -951,10 +956,11 @@ public class SesameUtil2 {
      * @param queryString
      */
     public static void TupleQueryEvalutation(
-            org.openrdf.repository.Repository repo,String queryString){
+            org.openrdf.repository.Repository repo,String queryString,boolean write){
         try { 
             //org.openrdf.repository.RepositoryConnection con = repo.getConnection();
             //repositoryConnection = repo.getConnection();
+            if(write)
             try {
                 //String queryString = " SELECT ?x ?y WHERE { ?x ?p ?y } ";
                 org.openrdf.query.TupleQuery tupleQuery = repositoryConnection.prepareTupleQuery(
@@ -964,8 +970,8 @@ public class SesameUtil2 {
                     List<String> bindingNames = result.getBindingNames();
                     while (result.hasNext()) {
                         org.openrdf.query.BindingSet bindingSet = result.next();
-                        org.openrdf.model.Value firstValue = bindingSet.getValue(bindingNames.get(0));
-                        org.openrdf.model.Value secondValue = bindingSet.getValue(bindingNames.get(1));
+                        org.openrdf.model.Value firstValue = bindingSet.getValue(bindingNames.get(0)); //get X
+                        org.openrdf.model.Value secondValue = bindingSet.getValue(bindingNames.get(1));//get Y
                         // do something interesting with the values here...
                     }
                 } finally { 
@@ -1053,7 +1059,16 @@ public class SesameUtil2 {
             SystemLog.message("Try to write the query graph result in the format:" + stringToRDFFormat(outputFormat).toString() +
                     " int o the file " + nameFileOut + "...");
             RDFWriter writer = Rio.createWriter(stringToRDFFormat(outputFormat), fileOut);
-            repositoryConnection.prepareGraphQuery(org.openrdf.query.QueryLanguage.SPARQL, queryString).evaluate(writer);
+            //CHECK the language of the uery string if SPARQL or SERQL
+            QueryLanguage lang = new QueryLanguage("");
+            for (QueryLanguage language : queryLanguages) {
+                Query result = prepareQuery(queryString, language,  repositoryConnection);
+                if (result != null) {
+                    lang = language;
+                    break;
+                }
+            }
+            repositoryConnection.prepareGraphQuery(lang, queryString).evaluate(writer);
             //query.evaluate(writer);
             SystemLog.message("... the file " + nameFileOut + " is been written!!!");
             //connection.prepareGraphQuery(QueryLanguage.SPARQL,sparql).evaluate(writer);
@@ -1092,12 +1107,24 @@ public class SesameUtil2 {
                     trh = new org.openrdf.query.resultio.text.tsv.SPARQLResultsTSVWriter(out);
                 }else if(outputFormat.equalsIgnoreCase("xml")){
                     trh = new org.openrdf.query.resultio.sparqlxml.SPARQLResultsXMLWriter(out);
-                }else if(outputFormat.equalsIgnoreCase("tsv")){
+                }else if(outputFormat.equalsIgnoreCase("tsv")) {
                     trh = new org.openrdf.query.resultio.text.tsv.SPARQLResultsTSVWriter(out);
+//                }else if(outputFormat.equalsIgnoreCase("tablehtml")){
+//                    trh = new org.openrdf.query.resultio.TupleQueryResultFormat.TSV;
+//                }
                 }else {
                     RDFWriter writer = Rio.createWriter(stringToRDFFormat(outputFormat), out);
                 }
-                repositoryConnection.prepareTupleQuery(org.openrdf.query.QueryLanguage.SPARQL, queryString).evaluate(trh);
+                //CHECK the language of the uery string if SPARQL or SERQL
+                QueryLanguage lang = new QueryLanguage("");
+                for (QueryLanguage language : queryLanguages) {
+                    Query result = prepareQuery(queryString, language,  repositoryConnection);
+                    if (result != null) {
+                        lang = language;
+                        break;
+                    }
+                }
+                repositoryConnection.prepareTupleQuery(lang, queryString).evaluate(trh);
                 SystemLog.message("...the result of the tuple query is been written " + filePath);
             } finally {                
                 //repositoryConnection.close();
@@ -1106,7 +1133,6 @@ public class SesameUtil2 {
          // handle exception
         }
      }
-
 
     /**
      * Method to convert a file to another specific format
@@ -1260,7 +1286,7 @@ public class SesameUtil2 {
             else {
                 reader = new BufferedInputStream(new FileInputStream(file), 256 * 1024);
             }
-            // create a parser config with preferred settings
+            // create a parser home.home.initializer.org.p4535992.mvc.config with preferred settings
            /* boolean verifyData = VERIFY;
             boolean stopAtFirstError = STOP_ON_ERROR;
             boolean preserveBnodeIds = PRESERVE_BNODES;*/
@@ -1275,7 +1301,7 @@ public class SesameUtil2 {
             configs.set(stopAtFirstErrorSet,STOP_ON_ERROR);
             configs.set(preserveBnodeIdsSet,PRESERVE_BNODES);*/
 
-            //ParserConfig config = new ParserConfig(verifyData, stopAtFirstError, preserveBnodeIds, RDFParser.DatatypeHandling.VERIFY);
+            //ParserConfig home.home.initializer.org.p4535992.mvc.config = new ParserConfig(verifyData, stopAtFirstError, preserveBnodeIds, RDFParser.DatatypeHandling.VERIFY);
             ParserConfig config = new ParserConfig();
             config.set(verifyDataSet,VERIFY);
             config.set(stopAtFirstErrorSet,STOP_ON_ERROR);
@@ -1284,7 +1310,7 @@ public class SesameUtil2 {
             long chunkSize = Long.parseLong(CHUNK_SIZE);
             long start = System.currentTimeMillis();
             // set the parser configuration for our connection
-            /*ParserConfig config = new ParserConfig(verifyData, stopAtFirstError, preserveBnodeIds, datatypeHandling);*/
+            /*ParserConfig home.home.initializer.org.p4535992.mvc.config = new ParserConfig(verifyData, stopAtFirstError, preserveBnodeIds, datatypeHandling);*/
 
             repositoryConnection.setParserConfig(config);
             RDFParser parser = Rio.createParser(format);
@@ -1323,8 +1349,13 @@ public class SesameUtil2 {
     }
 
 
-
-
+    /**
+     * Method for try to create a reposiotry programmatically intead from the web interface
+     * @param graph
+     * @param repositoryNode
+     * @throws RepositoryException
+     * @throws RepositoryConfigException
+     */
     public static void createSesameRepository(Graph graph,Resource repositoryNode) throws RepositoryException,RepositoryConfigException {
         // Create a manager for local repositories
         org.openrdf.repository.manager.RepositoryManager repositoryManager =
@@ -1419,4 +1450,20 @@ public class SesameUtil2 {
             inserter.handleComment(comment);
         }
     }
+
+    /**
+     * Method for update your repository with a SPARQL query
+     * @param queryString
+     */
+    public static void updateRepository(String queryString){
+        Update update = null;
+        try {
+            update = repositoryConnection.prepareUpdate(QueryLanguage.SPARQL, queryString);
+            update.execute();
+        } catch (RepositoryException|MalformedQueryException|UpdateExecutionException e) {
+            SystemLog.exception(e);
+        }
+    }
+
+
 }

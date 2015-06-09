@@ -41,7 +41,7 @@ Priority: 20
         outputAS.add(matchedAnns.firstNode(), matchedAnns.lastNode(), "LI", newFeatures);
    }
 }
-/**Se il feature lang del documento html non nè it nè en o non è un documento html(e.g. pdf)*/
+/**Se il feature lang del documento html non nè it nè en o non è un documento html(e.home. pdf)*/
 Rule: RuleLanguageIdentificator3
 Priority: 20
 (

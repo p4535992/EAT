@@ -58,12 +58,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.Reader;
-import java.net.HttpURLConnection;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.net.URL;
-import java.net.URLDecoder;
-import java.net.URLEncoder;
+import java.net.*;
 import java.nio.charset.Charset;
 
 import java.util.HashMap;
@@ -71,8 +66,24 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 import java.util.StringTokenizer;
+
+import org.apache.http.HttpHost;
+import org.apache.http.HttpResponse;
+import org.apache.http.HttpStatus;
+import org.apache.http.HttpVersion;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.config.RequestConfig;
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.protocol.HttpClientContext;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClientBuilder;
+import org.apache.http.impl.client.HttpClients;
+import org.apache.http.impl.conn.DefaultProxyRoutePlanner;
+import org.apache.http.impl.conn.SystemDefaultRoutePlanner;
 import org.json.JSONException;
 import org.json.JSONObject;
+import p4535992.util.log.SystemLog;
 
 
 public class HttpUtilApache {
@@ -401,32 +412,73 @@ public class HttpUtilApache {
             return content;
         }
 
-        public static String GET4(String url) throws IOException{
-             String content ="";          
-            //HttpClient httpclient = new DefaultHttpClient();
-			org.apache.http.impl.client.CloseableHttpClient httpclient = org.apache.http.impl.client.HttpClients.createDefault();
-            DefaultHttpRequestRetryHandler def = new DefaultHttpRequestRetryHandler();
-			org.apache.http.client.methods.HttpGet httpget = new org.apache.http.client.methods.HttpGet(url);
-            //httpget.getParams().setParameter("RETRY_HANDLER", def);
-            try {
-				org.apache.http.client.methods.CloseableHttpResponse response = httpclient.execute(httpget);
-                //HttpResponse response = httpclient.execute(httpget);
-                System.out.println(response);
-				org.apache.http.HttpEntity entity = response.getEntity();
-                if (entity != null) {
-                    InputStream instream = entity.getContent();
-                    try {
-                        // do something useful
-                        content = HttpUtilApache.streamToString(instream);
-                    } finally {
-                        instream.close();                     
-                    }
+    public static String GET4(String url) throws IOException{
+         String content ="";
+        //HttpClient httpclient = new DefaultHttpClient();
+        CloseableHttpClient httpclient = org.apache.http.impl.client.HttpClients.createDefault();
+        DefaultHttpRequestRetryHandler def = new DefaultHttpRequestRetryHandler();
+        HttpGet httpget = new org.apache.http.client.methods.HttpGet(url);
+        //httpget.getParams().setParameter("RETRY_HANDLER", def);
+        try {
+            CloseableHttpResponse response = httpclient.execute(httpget);
+            //HttpResponse response = httpclient.execute(httpget);
+            System.out.println(response);
+            org.apache.http.HttpEntity entity = response.getEntity();
+            if (entity != null) {
+                InputStream instream = entity.getContent();
+                try {
+                    // do something useful
+                    content = HttpUtilApache.streamToString(instream);
+                } finally {
+                    instream.close();
                 }
-            } finally {                
-                httpget.releaseConnection();
             }
-            return content;
+        } finally {
+            httpget.releaseConnection();
         }
+        return content;
+    }
+
+    public static String GET42(String url) throws IOException {
+        String content="";
+        CloseableHttpClient httpClient = HttpClients.createDefault();
+        // Request configuration can be overridden at the request level.
+        // They will take precedence over the one set at the client level.
+        RequestConfig requestConfig = RequestConfig.custom()
+                .setSocketTimeout(5000)
+                .setConnectTimeout(5000)
+                .setConnectionRequestTimeout(5000)
+                .build();
+        HttpGet httpget = new HttpGet(url);
+        httpget.setConfig(requestConfig);
+        httpget.setHeader("User-Agent", "Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.9.2.13) Gecko/20101206 Firefox/3.6.13");
+        // Execution context can be customized locally.
+        HttpClientContext context = HttpClientContext.create();
+        // Contextual attributes set the local context level will take
+        // precedence over those set at the client level.
+        context.setAttribute("http.protocol.version", HttpVersion.HTTP_1_1);
+        try {
+            // Execute the method.
+            HttpResponse response = httpClient.execute(httpget);
+            int statusCode = response.getStatusLine().getStatusCode();
+            if (statusCode != HttpStatus.SC_OK) {
+                throw new IllegalStateException("Method failed: " + response.getStatusLine());
+            }
+            BufferedReader br = new BufferedReader(new InputStreamReader((response.getEntity().getContent())));
+            StringBuffer buf = new StringBuffer();
+            String output;
+            while ((output = br.readLine()) != null) {
+                buf.append(output);
+            }
+            content = buf.toString();
+        } catch (Exception e) {
+            SystemLog.exception(e);
+        } finally {
+            // Release the connection.
+            httpClient.close();
+        }
+        return content;
+    }
 
         public static void waiter() throws InterruptedException{
             Random generator = new Random();
@@ -516,7 +568,7 @@ public class HttpUtilApache {
        }
        /**
         * Metodo che legge la risposta Json restituita da un URL fornito di input.
-        * @param url lt'indirizzo web di input
+        * @param url lt'indirizzo org.p4535992.mvc.webapp di input
         * @return ritorna la risposta Json restituita dall url
         * @throws IOException
         * @throws JSONException 
@@ -534,16 +586,16 @@ public class HttpUtilApache {
        }
        
         /**
-        * Semplice metodo che estare il domino web di appartenenza dell'url analizzato
+        * Semplice metodo che estare il domino org.p4535992.mvc.webapp di appartenenza dell'url analizzato
         * @param url url di ingresso in fromato stringa
-        * @return il dominio web dell'url in formato stringa
+        * @return il dominio org.p4535992.mvc.webapp dell'url in formato stringa
         * @throws URISyntaxException 
         */
        public static String getDomainName(String url) {
 
-			   String domain ="";
-			   try{
-				   URI uri = new URI(url);
+           String domain = "";
+           try {
+               URI uri = new URI(url);
 				   domain = uri.getHost();
 				   //return domain.startsWith("www.") ? domain.substring(4) : domain;
 			   }catch(URISyntaxException ue){
@@ -562,4 +614,28 @@ public class HttpUtilApache {
             provider = split2.nextToken().toUpperCase();
             return provider;
        }
+
+	public static HttpClient createHttpClientOrProxy(boolean check) {
+		HttpClientBuilder hcBuilder = HttpClients.custom();
+        if(check) {
+            // Set HTTP proxy, if specified in system properties
+            if (System.getProperty("http.proxyHost") != null) {
+                int port = 80;
+                if (System.getProperty("http.proxyPort") != null) {
+                    port = Integer.parseInt(System.getProperty("http.proxyPort"));
+                }
+                HttpHost proxy = new HttpHost(System.getProperty("http.proxyHost"), port, "http");
+                DefaultProxyRoutePlanner routePlanner = new DefaultProxyRoutePlanner(proxy);
+                hcBuilder.setRoutePlanner(routePlanner);
+            }
+            CloseableHttpClient httpClient = hcBuilder.build();
+            return httpClient;
+        }else {
+            CloseableHttpClient client = hcBuilder.setRoutePlanner(new SystemDefaultRoutePlanner(ProxySelector.getDefault()))
+                    .build();
+            //or with SystemDefault
+            //CloseableHttpClient client2 = HttpClients.createSystem();
+            return client;
+        }
+	}
 }

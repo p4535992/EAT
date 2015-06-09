@@ -5,8 +5,11 @@
   </component>
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$/silk-master/silk-tools/silk-server" />
+    <file type="web" url="file://$PROJECT_DIR$/spring-mvc-quickstart-archetype" />
     <file type="web" url="file://$PROJECT_DIR$/web-Karma-master/karma-web" />
     <file type="web" url="file://$PROJECT_DIR$/web-Karma-master/karma-web-services/web-services-rdf" />
+    <file type="web" url="file://$PROJECT_DIR$/webExtractInfo" />
+    <type id="Spring" />
   </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
@@ -16,8 +19,8 @@
     </option>
     <option name="ignoredFiles">
       <set>
-        <option value="$PROJECT_DIR$/linking/pom.xml" />
-        <option value="$PROJECT_DIR$/silk-singlemachine/pom.xml" />
+        <option value="$PROJECT_DIR$/web-Karma-master/pom.xml" />
+        <option value="$PROJECT_DIR$/webExtractInfo/pom.xml" />
       </set>
     </option>
   </component>

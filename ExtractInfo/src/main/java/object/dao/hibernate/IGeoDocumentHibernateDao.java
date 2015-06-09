@@ -7,9 +7,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.orm.hibernate4.HibernateTemplate;
 
 import javax.sql.DataSource;
-import java.io.File;
 import java.io.Serializable;
-import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -24,16 +22,11 @@ public interface IGeoDocumentHibernateDao extends IGenericHibernateDao<GeoDocume
     ApplicationContext getContext();
     void setBeanIdSessionFactory(String beanIdSessionFactory);
     String getBeanIdSessionFactory();
-
     void setHibernateTemplate(HibernateTemplate hibernateTemplate);
     void setNewHibernateTemplate(SessionFactory sessionFactory);
     void loadSpringContext(String filePathXml);
-
     DataSource getDataSource();
     void setSessionFactory(DataSource dataSource);
-
-
-    //method to return all
     List<GeoDocument> selectRows();
     GeoDocument selectRow(Serializable serial);
 

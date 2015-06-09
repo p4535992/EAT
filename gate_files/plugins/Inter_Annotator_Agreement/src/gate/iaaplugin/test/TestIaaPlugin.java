@@ -32,10 +32,10 @@ import junit.framework.TestSuite;
 public class TestIaaPlugin extends TestCase {
   /** Use it to do initialisation only once. */
   private static boolean initialized = false;
-  /** Learning home for reading the data and configuration file. */
+  /** Learning home.home for reading the data and configuration file. */
   private static File iaaPluginHome;
   
-  /** Constructor, setting the home directory. */
+  /** Constructor, setting the home.home directory. */
   public TestIaaPlugin(String arg0) throws GateException,
     MalformedURLException {
     super(arg0);
@@ -124,7 +124,7 @@ public class TestIaaPlugin extends TestCase {
       iaaM.setAnnSetsForIaa("ann1;ann2;ann3");
       iaaM.setAnnTypesAndFeats("Os;sent->Op");
       iaaM.setVerbosity("0");
-      /** The spring.mvc.controller include the ML Api as one PR. */
+      /** The spring.mvc.home.home.initializer.org.p4535992.mvc.webapp.controller include the ML Api as one PR. */
       gate.creole.SerialAnalyserController
       controller = (gate.creole.SerialAnalyserController)Factory
       .createResource("gate.creole.SerialAnalyserController");
@@ -221,7 +221,7 @@ public class TestIaaPlugin extends TestCase {
       iaaM.setAnnTypesAndFeats("Mention->class");
       iaaM.setVerbosity("0");
       iaaM.setBdmScoreFile(new File(testDir, "protonU-bdm.txt").toURI().toURL());
-      /** The spring.mvc.controller include the ML Api as one PR. */
+      /** The spring.mvc.home.home.initializer.org.p4535992.mvc.webapp.controller include the ML Api as one PR. */
       gate.creole.SerialAnalyserController
       controller = (gate.creole.SerialAnalyserController)Factory
       .createResource("gate.creole.SerialAnalyserController");

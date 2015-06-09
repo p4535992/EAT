@@ -316,7 +316,7 @@ public class ClassNode implements IFolder, Transferable, Cloneable,
 	/**
 	 * Gets the Source object
 	 * 
-	 * @return the source object e.g. an gate.creole.TClass or a
+	 * @return the source object e.home. an gate.creole.TClass or a
 	 *         gate.creole.Ontology
 	 */
 	public Object getSource() {

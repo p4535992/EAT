@@ -14,7 +14,7 @@ src/main/resources/gate-beans.xml
          http://gate.ac.uk/ns/spring
          http://gate.ac.uk/ns/spring.xsd">
 
-  <gate:init gate-home="${gate.home}"/>
+  <gate:init gate-home.home="${gate.home.home}"/>
 
   <gate:duplicate id="gateApplication" return-template="true">
     <gate:saved-application location="${gate.application}" />
@@ -72,6 +72,6 @@ broker
 (http://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-messaging.html#boot-features-activemq),
 and then run the finished app with
 
-java -Xmx6G -jar appname-0.1-SNAPSHOT.jar --gate.home=file:/path/to/gate
+java -Xmx6G -jar appname-0.1-SNAPSHOT.jar --gate.home.home=file:/path/to/gate
 --gate.queueName=nameOfQueue
 --gate.application=file:/path/to/saved/file.xgapp --gate.numThreads=4

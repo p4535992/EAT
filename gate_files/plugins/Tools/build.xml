@@ -11,23 +11,23 @@
 	<property environment="env" />
 
 	<!-- If environment variable GATE_HOME is set, use it for
-       gate.home (unless it was already set in build.properties -->
-	<condition property="gate.home" value="${env.GATE_HOME}">
+       gate.home.home (unless it was already set in build.properties -->
+	<condition property="gate.home.home" value="${env.GATE_HOME}">
 		<isset property="env.GATE_HOME" />
 	</condition>
 
 	<property name="dest" value="classes" />
-	<property name="gate.home" value="../.." />
+	<property name="gate.home.home" value="../.." />
 	<property name="src" value="src" />
 	<property name="doc.dir" location="doc" />
 	<property name="javadoc.dir" location="${doc.dir}/javadoc" />
 
-	<fileset id="gatelib.classpath" dir="${gate.home}/lib">
+	<fileset id="gatelib.classpath" dir="${gate.org.p4535992.mvc.home}/lib">
 		<include name="*.jar" />
 		<include name="*.zip" />
 	</fileset>
 
-	<fileset id="gate.classpath" dir="${gate.home}/bin">
+	<fileset id="gate.classpath" dir="${gate.org.p4535992.mvc.home}/bin">
 		<include name="*.jar" />
 		<include name="*.zip" />
 	</fileset>

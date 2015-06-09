@@ -27,7 +27,7 @@
       </question>
       <answer>
         <p>  The Large KB gazetteer communicates with RDF databases through the standard open-source <a href="http://www.openrdf.org">Sesame 2 API</a>.
-  The database connection is configured through <em>config.ttl</em> in the dictionary directory which contains standard Sesame
+  The database connection is configured through <em>home.home.initializer.org.p4535992.mvc.config.ttl</em> in the dictionary directory which contains standard Sesame
   <a href="http://www.openrdf.org/doc/sesame2/2.3-pr1/users/ch07.html#d0e606">configuration template</a>. Note that in order to
   configure a new database, you will need to add to the classpath the database Sesame adapter.</p>
 

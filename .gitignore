@@ -2,7 +2,7 @@
 Thumbs.db
 ehthumbs.db
 
-# Folder config file
+# Folder home.home.initializer.org.p4535992.mvc.config file
 Desktop.ini
 
 # Recycle Bin used on file shares
@@ -42,10 +42,10 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
-# exclude everything except directory  in the direcotry web-karma-master and the file README
-/web-karma-master/doc
-/web-karma-master/*
-#!/web-karma-master/README.md
+# exclude everything except directory  in the direcotry org.p4535992.mvc.webapp-karma-master and the file README
+/org.p4535992.mvc.webapp-karma-master/doc
+/org.p4535992.mvc.webapp-karma-master/*
+#!/org.p4535992.mvc.webapp-karma-master/README.md
 /LOG_*
 /m2
 /repo
