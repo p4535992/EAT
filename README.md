@@ -1,5 +1,5 @@
 #########################
-##Last Update: 2015-05-11
+###Last Update: 2015-06-10
 #########################
 
 EAT (Extraction and Triplify)
@@ -11,6 +11,9 @@ EAT (Extraction and Triplify)
 - Integration with Hibernate 4 (almost done just finish the last test)
 - Integration with spring framework
 - Integration with Jena API
+- Integration with Web-Karma API
+- Integration with GATE Embedded API
+- Integration with SILK API (SIngle Machine)
 
 For the future:
 
