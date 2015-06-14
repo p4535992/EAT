@@ -3,7 +3,7 @@ package extractor.estrattori;
 import extractor.ManageJsonWithGoogleMaps;
 import object.support.DepositFrequencyInfo;
 import object.model.GeoDocument;
-import p4535992.util.log.SystemLog;
+import com.p4535992.util.log.SystemLog;
 import object.impl.jdbc.GeoDomainDocumentDaoImpl;
 
 import java.net.MalformedURLException;
@@ -18,7 +18,7 @@ import java.util.logging.Logger;
 
 import object.support.LatLng;
 import org.hibernate.SessionFactory;
-import p4535992.util.string.StringKit;
+import com.p4535992.util.string.StringKit;
 
 /**
  * MainEstrazioneGeoDomainDocumentPerElaborato.java

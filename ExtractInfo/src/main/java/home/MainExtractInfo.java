@@ -3,9 +3,9 @@ package home;
 import extractor.estrattori.ExtractInfoSpring;
 import extractor.gate.GateDataStoreKit;
 import org.xml.sax.SAXException;
-import p4535992.util.file.FileUtil;
-import p4535992.util.file.SimpleParameters;
-import p4535992.util.log.SystemLog;
+import com.p4535992.util.file.FileUtil;
+import com.p4535992.util.file.SimpleParameters;
+import com.p4535992.util.log.SystemLog;
 
 import java.awt.*;
 import java.io.*;

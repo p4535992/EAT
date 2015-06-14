@@ -1,7 +1,7 @@
 package object.impl.jdbc;
 
 import object.impl.jdbc.generic.GenericDaoImpl;
-import p4535992.util.log.SystemLog;
+import com.p4535992.util.log.SystemLog;
 import object.dao.jdbc.IGeoDomainDocumentDao;
 import object.model.GeoDocument;
 import object.model.GeoDomainDocument;
@@ -10,7 +10,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.RowMapper;
-import p4535992.util.string.StringKit;
+import com.p4535992.util.string.StringKit;
 
 import javax.sql.DataSource;
 import java.net.MalformedURLException;

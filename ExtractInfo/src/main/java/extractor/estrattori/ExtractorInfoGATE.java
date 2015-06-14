@@ -8,9 +8,9 @@ import gate.creole.ExecutionException;
 import gate.util.GateException;
 import object.model.GeoDocument;
 import object.support.AnnotationInfo;
-import p4535992.util.file.FileUtil;
-import p4535992.util.log.SystemLog;
-import p4535992.util.string.StringKit;
+import com.p4535992.util.file.FileUtil;
+import com.p4535992.util.log.SystemLog;
+import com.p4535992.util.string.StringKit;
 
 import java.io.File;
 import java.io.IOException;

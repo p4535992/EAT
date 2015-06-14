@@ -31,6 +31,9 @@ public interface IGenericDao<T> {
     void setTableInsert(String nameOfTable);
     void setTableSelect(String nameOfTable);
     void setTableUpdate(String nameOfTable);
+
+
+
     /////////
     //JDBC///
     /////////
@@ -43,8 +46,14 @@ public interface IGenericDao<T> {
 
     List<Object> select(String column, String column_where, Object value_where,Integer limit,Integer offset,String condition);
     Object select(String column, String column_where, Object value_where);
+
+    String prepareUpdateQuery(String[] columns, Object[] values, String[] columns_where, Object[] values_where, String condition);
+
     List<T> trySelect(String[] columns,String[] columns_where,Object[] values_where,Integer limit,Integer offset,String condition);
     //List<T> trySelect(String[] columns,Object[] values,Integer limit, Integer offset,String condition);
+    List<List<Object[]>> select(String[] columns, String[] columns_where, Object[] values_where, Integer limit, Integer offset, String condition);
+    List<Object> select(String column, Integer limit, Integer offset, Class<?> clazz);
+
     List<T> trySelectWithRowMap(
             String[] columns,String[] columns_where,Object[] values_where,Integer limit, Integer offset,String condition);
     List<T> trySelectWithResultSetExtractor(
@@ -62,7 +71,10 @@ public interface IGenericDao<T> {
     void delete(String whereColumn, String whereValue);
     T find(final Object id);
     T update(final T t);
-    void update(String[] columns,Object[] values,String column_where,String value_where);
+
+    void update(String[] columns, Object[] values, String[] columns_where,Object[] values_where);
+    void update(String[] columns,Object[] values,String columns_where,String values_where);
+    void update(String queryString);
     long countAll(Map<String, Object> params);
 
     String prepareInsertIntoQuery(String[] columns,Object[] values);

@@ -1,6 +1,6 @@
 package extractor.hibernate;
 
-import p4535992.util.log.SystemLog;
+import com.p4535992.util.log.SystemLog;
 
 import java.io.Serializable;
 import java.util.ArrayList;

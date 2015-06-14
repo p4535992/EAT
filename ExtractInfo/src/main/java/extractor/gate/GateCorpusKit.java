@@ -17,8 +17,8 @@ import java.net.*;
 import gate.creole.ResourceInstantiationException;
 import gate.persist.PersistenceException;
 import gate.util.*;
-import p4535992.util.file.FileUtil;
-import p4535992.util.log.SystemLog;
+import com.p4535992.util.file.FileUtil;
+import com.p4535992.util.log.SystemLog;
 
 public class GateCorpusKit {
     private static org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger(GateCorpusKit.class);

@@ -1,9 +1,9 @@
 package extractor.estrattori;
 
 import extractor.ManageJsonWithGoogleMaps;
-import p4535992.util.file.SimpleParameters;
+import com.p4535992.util.file.SimpleParameters;
 import extractor.gate.GateKit;
-import p4535992.util.http.HttpUtilApache;
+import com.p4535992.util.http.HttpUtilApache;
 import extractor.setInfoParameterIta.SetNazioneELanguage;
 import extractor.setInfoParameterIta.SetProvinciaECity;
 import extractor.setInfoParameterIta.SetRegioneEProvincia;
@@ -12,12 +12,12 @@ import object.dao.jdbc.*;
 import object.impl.jdbc.GeoDomainDocumentDaoImpl;
 import object.impl.jdbc.*;
 import object.model.GeoDocument;
-import p4535992.util.file.FileUtil;
-import p4535992.util.log.SystemLog;
+import com.p4535992.util.file.FileUtil;
+import com.p4535992.util.log.SystemLog;
 import extractor.gate.GateDataStoreKit;
 import extractor.karma.GenerationOfTriple;
 import extractor.setInfoParameterIta.SetCodicePostale;
-import p4535992.util.string.StringKit;
+import com.p4535992.util.string.StringKit;
 
 import java.io.File;
 import java.net.URISyntaxException;
@@ -330,10 +330,33 @@ public class ExtractInfoSpring {
                         if (CREA_NUOVA_TABELLA_INFODOCUMENT_ONTOLOGY == true) {
                             infoDocumentDao.create(ERASE_ONTOLOGY);
                         }else {
-                            for (GeoDocument g : listGeo) {
+                           for(GeoDocument g : listGeo){
                                 infoDocumentDao.insertAndTrim(g);
-                            }
+                           }
                         }
+                        //UPDATE INDIRIZZO(OPTIONAL)
+                        /*geoDocumentDao.setTableSelect("geodomaindocument_coord_siimobility_05052014");
+                        List<List<Object[]>> list = geoDocumentDao.select(
+                                new String[]{"doc_id","indirizzoNoCAP","indirizzoHasNumber"},null,null,500,0,null);
+                        for (List<Object[]> g : list) {
+                            try {
+                                String address;
+                                if (g.get(2).length < 2 && g.get(1).length < 2 ) {
+                                    //do nothing
+                                    continue;
+                                }else{
+                                    if (g.get(2) == null || StringKit.isNullOrEmpty(g.get(2)[1].toString())) {
+                                        address = g.get(1)[1].toString();
+                                    } else {
+                                        address = g.get(1)[1].toString() + ", " + g.get(2)[1].toString();
+                                    }
+                                }
+                                infoDocumentDao.setTableUpdate(TABLE_OUTPUT_ONTOLOGY);
+                                infoDocumentDao.update(new String[]{"indirizzo"}, new Object[]{address}, new String[]{"doc_id"}, new Object[]{g.get(0)[1].toString()});
+                            }catch(java.lang.NullPointerException e){
+                                System.err.println(g);
+                            }
+                        }*/
                         //integrationTableWithAOntology(DB_OUTPUT,USER,PASS,TABLE_OUTPUT,TABLE_OUTPUT_ONTOLOGY);
                     }
                     //GENERIAMO IL FILE DI TRIPLE CORRISPONDENTE ALLE INFORMAZIONI ESTRATTE CON KARMA
@@ -470,6 +493,13 @@ public class ExtractInfoSpring {
                indirizzoNoCAP = indirizzoNoCAP.replace(indirizzoHasNumber,"").replaceAll("[\\^\\|\\;\\:\\,]","");
            }
            geo.setIndirizzoNoCAP(indirizzoNoCAP);
+           //UPDATE THE "indirizzo" FIELD TO "indirizzoNoCAP"+","+"indirizzoHasNumber"
+           if(StringKit.isNullOrEmpty(geo.getIndirizzoHasNumber())) {
+               geo.setIndirizzo(geo.getIndirizzoNoCAP());
+           }else{
+               geo.setIndirizzo(geo.getIndirizzoNoCAP()+", "+geo.getIndirizzoHasNumber());
+           }
+
        }catch(NullPointerException ne){ne.printStackTrace();}
         return geo;
     }

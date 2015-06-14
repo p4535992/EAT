@@ -9,7 +9,7 @@
  * NON E STATA INTEGRATA IN QUESTO PROGETTO MA PER INVOCARLA CI VUOLE POCO
  */
 package extractor.gate;
-import p4535992.util.log.SystemLog;
+import com.p4535992.util.log.SystemLog;
 import gate.persist.SerialDataStore;
 import gate.creole.ResourceInstantiationException;
 import gate.persist.PersistenceException;
@@ -21,8 +21,6 @@ import gate.*;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class GateDataStoreKit {
     private static org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger(GateDataStoreKit.class);

@@ -6,7 +6,7 @@ import object.model.GeoDocument;
 import object.model.InfoDocument;
 import org.hibernate.SessionFactory;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import p4535992.util.log.SystemLog;
+import com.p4535992.util.log.SystemLog;
 
 import java.sql.*;
 
@@ -80,8 +80,13 @@ public class InfoDocumentDaoImpl extends GenericDaoImpl<InfoDocument> implements
             query = "UPDATE " + myInsertTable + " SET name_location=CONCAT('Location_',name_location);";
             SystemLog.message(query);
             jdbcTemplate.execute(query);
-        }catch(Exception e){
-            SystemLog.exception(e);
+
+        }catch(org.springframework.jdbc.BadSqlGrammarException e){
+            if(e.getMessage().contains("Table '"+myInsertTable+"' already exists")){
+                SystemLog.warning("Table '"+myInsertTable+"' already exists");
+            }else {
+                SystemLog.exception(e);
+            }
         }
 
     }

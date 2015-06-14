@@ -1,6 +1,5 @@
 package object.impl.jdbc.generic;
 
-import extractor.hibernate.interceptor.GeoDocumentInterceptor;
 import object.dao.jdbc.generic.IGenericDao;
 import org.hibernate.SessionFactory;
 import org.springframework.context.ApplicationContext;
@@ -8,11 +7,11 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
-import p4535992.util.reflection.ReflectionKit;
-import p4535992.util.sql.SQLSupport;
+import com.p4535992.util.reflection.ReflectionKit;
+import com.p4535992.util.sql.SQLSupport;
 import bean.BeansKit;
-import p4535992.util.log.SystemLog;
-import p4535992.util.string.StringKit;
+import com.p4535992.util.log.SystemLog;
+import com.p4535992.util.string.StringKit;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -113,7 +112,9 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
             jdbcTemplate.execute(query);
             SystemLog.message(query);
         }catch(Exception e){
-            if(!e.getMessage().contains("Table already exists")){
+            if(e.getMessage().contains("Table '"+myInsertTable+"' already exists")){
+                SystemLog.warning("Table '"+myInsertTable+"' already exists");
+            }else {
                 SystemLog.exception(e);
             }
         }
@@ -184,7 +185,23 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
     }
 
     @Override
-    public void update(String[] columns,Object[] values,String column_where,String value_where){
+    public void update(String[] columns, Object[] values, String[] columns_where, Object[] values_where){
+        try {
+            query = prepareUpdateQuery(columns,null,columns_where,null,"AND");
+            Object[] vals = StringKit.concatenateArrays(values,values_where);
+            if(values_where!=null) {
+                jdbcTemplate.update(query, vals);
+            }else{
+                jdbcTemplate.update(query);
+            }
+            SystemLog.query(query);
+        }catch(org.springframework.jdbc.BadSqlGrammarException e) {
+            SystemLog.warning(e.getMessage());
+        }
+    }
+
+    @Override
+    public void update(String[] columns,Object[] values,String columns_where,String values_where){
         try {
             Object[] newValues = new Object[values.length+1];
             query = "UPDATE " + myUpdateTable + " SET ";
@@ -201,15 +218,27 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
                     query += ", ";
                 }
             }
-            query += " WHERE " + column_where + "=?";
-            newValues[f] = column_where;
-            jdbcTemplate.update(query, newValues);
+            query += " WHERE " + columns_where + "=?";
+            if(values_where!=null) {
+                jdbcTemplate.update(query, values_where);
+            }else{
+                jdbcTemplate.update(query);
+            }
             SystemLog.query(query);
         }catch(org.springframework.jdbc.BadSqlGrammarException e) {
             SystemLog.warning(e.getMessage());
         }
     }
 
+    @Override
+    public void update(String queryString){
+        try{
+            query = queryString;
+            jdbcTemplate.update(query);
+        }catch(org.springframework.jdbc.BadSqlGrammarException e) {
+            SystemLog.warning(e.getMessage());
+        }
+    }
 
     @Override
     public long countAll(final Map<String, Object> params) {
@@ -398,6 +427,55 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
         }
         if(limit != null && offset!= null) {
             query += " LIMIT " + limit + " OFFSET " + offset + "";
+        }
+        return query;
+    }
+
+    @Override
+    public String prepareUpdateQuery(String[] columns, Object[] values, String[] columns_where, Object[] values_where, String condition){
+        boolean statement = false;
+        //Object[] newValues = new Object[values.length+values_where.length];
+        query = "UPDATE " + myUpdateTable + " SET ";
+        int f = 0;
+        for (int k = 0; k < columns.length; k++) {
+            query += columns[k] + "=? ";
+            if(!StringKit.isArrayEmpty(values)) {
+                if (values[k] == null) {
+                    values[f] = "NULL";
+                    f++;
+                } else {
+                    values[f] = values[k];
+                    f++;
+                }
+            }
+            if (k < columns.length - 1) {
+                query += ", ";
+            }
+        }
+        if(!StringKit.isArrayEmpty(columns_where)) {
+            if(values_where==null){
+                statement = true;
+                //values_where = new Object[columns_where.length];
+                //for(int i = 0; i < columns_where.length; i++){values_where[i]="?";}
+            }
+            query += " WHERE ";
+            for (int k = 0; k < columns_where.length; k++) {
+                query += columns_where[k] + " ";
+                if(statement){
+                    query += " = ? ";
+                }else {
+                    if (values_where[k] == null) {
+                        query += " IS NULL ";
+                    } else {
+                        query += " = '" + values_where[k] + "'";
+                    }
+                }
+                if (condition != null && k < columns_where.length - 1) {
+                    query += " " + condition.toUpperCase() + " ";
+                } else {
+                    query += " ";
+                }
+            }
         }
         return query;
     }
@@ -640,6 +718,60 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
     }
 
     @Override
+    public List<List<Object[]>> select(
+            String[] columns, String[] columns_where, Object[] values_where, Integer limit, Integer offset, String condition){
+
+        List<List<Object[]>> listOfList = new ArrayList<>();
+        query = prepareSelectQuery(columns,columns_where,null,limit,offset,condition);
+        List<Map<String, Object>> list;
+        if(values_where != null) {
+            Class[] classes = new Class[]{values_where.getClass()};
+            list = jdbcTemplate.queryForList(query, new Object[]{values_where}, classes);
+            SystemLog.query(query +" -> Return a list of "+list.size()+" elements!");
+        }else{
+            list = jdbcTemplate.queryForList(query);
+            SystemLog.query(query +" -> Return a list of "+list.size()+" elements!");
+        }
+        try {
+            for (Map<String, Object> map : list) { //...column already filter from the query
+                List<Object[]> listObj = new ArrayList<>();
+                for (Iterator<Map.Entry<String, Object>> it = map.entrySet().iterator(); it.hasNext(); ) {
+                    Map.Entry<String, Object> entry = it.next();
+                    for(int i=0; i < columns.length; i++){
+                        if(entry.getKey().contains(columns[i])) {
+                            Object value = entry.getValue();
+                            if(value==null){value="";}
+                            Object[] obj = new Object[]{entry.getKey(),value};
+                            listObj.add(obj);
+                        }
+                    }
+                }
+                listOfList.add(listObj);
+            }
+        }catch(Exception e){SystemLog.exception(e);}
+        return listOfList;
+    }
+
+    @Override
+    public List<Object> select(String column, Integer limit, Integer offset, Class<?> clazz){
+        List<Object> listObj = new ArrayList<>();
+        query = prepareSelectQuery(new String[]{column},null,null,limit,offset,null);
+        List<Map<String, Object>> list;
+        list = jdbcTemplate.queryForList(query);
+        SystemLog.query(query +" -> Return a list of "+list.size()+" elements!");
+        try {
+            for (Map<String, Object> map : list) { //...column already filter from the query
+                for (Iterator<Map.Entry<String, Object>> it = map.entrySet().iterator(); it.hasNext(); ) {
+                    Map.Entry<String, Object> entry = it.next();
+                    Object value = StringKit.convertInstanceOfObject(entry.getValue(),clazz);
+                    listObj.add(value);
+                }
+            }
+        }catch(Exception e){SystemLog.exception(e);}
+        return listObj;
+    }
+
+    @Override
     public String[] getColumnsInsertTable(){
         query = "SELECT * FROM "+myInsertTable+" LIMIT 1";
         String[] columns =  new String[]{};
@@ -657,5 +789,9 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
         }catch(Exception e){}
         return columns;
     }
+
+
+
+
 
 }

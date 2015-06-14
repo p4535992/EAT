@@ -6,7 +6,7 @@ import object.impl.jdbc.GeoDocumentDaoImpl;
 import object.impl.jdbc.GeoDomainDocumentDaoImpl;
 import object.model.GeoDocument;
 import object.model.GeoDomainDocument;
-import p4535992.util.sql.SQLSupport;
+import com.p4535992.util.sql.SQLSupport;
 
 import java.net.URL;
 import java.util.List;

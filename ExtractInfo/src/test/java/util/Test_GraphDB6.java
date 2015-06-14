@@ -1,6 +1,6 @@
 package util;
 
-import p4535992.util.sesame.SesameUtil2;
+import com.p4535992.util.sesame.SesameUtil28;
 
 public class Test_GraphDB6 {
 
@@ -59,7 +59,7 @@ public class Test_GraphDB6 {
 				+ "WHERE {?service a <http://www.disit.org/km4city/schema#Service>;"
 				+ "       ?p ?o . } LIMIT 600000 OFFSET 0 ";	
 		
-		SesameUtil2 s = null;
+		SesameUtil28 s = null;
 		try {
 			long initializationStart = System.currentTimeMillis();
 			// The ontologies and datasets specified in the 'import' parameter
@@ -103,8 +103,8 @@ public class Test_GraphDB6 {
 			
 			ex.printStackTrace();
 		} finally {
-			if (s != null)
-				s.shutdown();
+			if (s != null){}
+//				s.shutdown();
 		}
 	}
 

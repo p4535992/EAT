@@ -6,7 +6,7 @@
  * GeoDocument.
  */
 package extractor;
-import p4535992.util.http.HttpUtilApache;
+import com.p4535992.util.http.HttpUtilApache;
 import extractor.setInfoParameterIta.SetNazioneELanguage;
 import object.model.GeoDocument;
 import object.support.LatLng;
@@ -20,7 +20,7 @@ import java.net.URL;
 import java.util.*;
 
 import org.json.JSONObject;
-import p4535992.util.log.SystemLog;
+import com.p4535992.util.log.SystemLog;
 
 
 public class ManageJsonWithGoogleMaps {

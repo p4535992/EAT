@@ -5,12 +5,12 @@
  */
 
 package extractor.karma;
-import p4535992.util.encoding.EncodingUtil;
-import p4535992.util.file.FileUtil;
+import com.p4535992.util.encoding.EncodingUtil;
+import com.p4535992.util.file.FileUtil;
 import extractor.JenaInfoDocument;
-import p4535992.util.log.SystemLog;
-import p4535992.util.cmd.PrepareCommand;
-import p4535992.util.string.StringKit;
+import com.p4535992.util.log.SystemLog;
+import com.p4535992.util.cmd.PrepareCommand;
+import com.p4535992.util.string.StringKit;
 
 import java.io.*;
 import java.util.List;
@@ -87,33 +87,42 @@ public class GenerationOfTriple {
             SystemLog.message("PARAM KARMA:"+ msg);
             SystemLog.message("try to create a file of triples from a relational table with karma...");
             edu.isi.karma.rdf.OfflineRdfGenerator.main(args2);
+
+            SystemLog.message("...file of triples created in the path:" + pathOut);
+
+            String output = System.getProperty("user.dir")+File.separator+"karma_files"+File.separator+"output"+File.separator+FileUtil.filename(TRIPLE_OUTPUT_KARMA)
+                    .replace("."+FileUtil.extension(TRIPLE_OUTPUT_KARMA), "-UTF8."+FileUtil.extension(TRIPLE_OUTPUT_KARMA));
+
+
+            File filePathTriple = new File(pathOut);
+            List<String> lines = EncodingUtil.convertUnicodeEscapeToUTF8(filePathTriple);
+            EncodingUtil.writeLargerTextFileWithReplace2(output, lines);
+
+
+            //TEST
+            //String output = "C:\\Users\\Marco\\Documents\\GitHub\\EAT\\karma_files\\output\\\\output_karma_2015-04-UTF8.n3";
+
+            File f = new File(output);
+            //RIPULIAMO LETRIPLE DALLE LOCATION SENZA COORDINATE CON JENA
+            SystemLog.message("Re-clean infodocument triples from the Location information  without coordinates from the file:" + output);
+            SystemLog.message(FileUtil.filenameNoExt(f)+","+FileUtil.path(f)+","+FileUtil.filenameNoExt(f) + "-c" + "," + FileUtil.extension(f));
+            jInfo.readQueryAndCleanTripleInfoDocument(
+                    FileUtil.filenameNoExt(f), //filenameInput
+                    FileUtil.path(f), //filepath
+                    FileUtil.filenameNoExt(f) + "-c", //fileNameOutput
+                    FileUtil.extension(f), //inputFormat n3
+                    OUTPUT_FORMAT_KARMA //outputFormat "ttl"
+             );
+            //delete not filter file of triples
+            f.delete();
+            filePathTriple.delete();
+
+
         }catch(Exception ex){
             SystemLog.exception(ex);
         }
-        String output = System.getProperty("user.dir")+File.separator+"karma_files"+File.separator+"output"+File.separator+FileUtil.filename(TRIPLE_OUTPUT_KARMA)
-                .replace("."+FileUtil.extension(TRIPLE_OUTPUT_KARMA), "-UTF8."+FileUtil.extension(TRIPLE_OUTPUT_KARMA));
-        SystemLog.message("...file of triples created in the path:" + pathOut);
 
-        List<String> lines = EncodingUtil.convertUnicodeEscapeToUTF8(new File(pathOut));
-        EncodingUtil.writeLargerTextFileWithReplace2(output, lines);
-        File filePathTriple = new File(pathOut);
-        filePathTriple.delete();
 
-        //TEST
-        //String output = "C:\\Users\\Marco\\Documents\\GitHub\\EAT\\karma_files\\output\\\\output_karma_2015-04-UTF8.n3";
-
-        File f = new File(output);
-        //RIPULIAMO LETRIPLE DALLE LOCATION SENZA COORDINATE CON JENA
-        SystemLog.message("Re-clean infodocument triples from the Location information  without coordinates from the file:" + output);
-        SystemLog.message(FileUtil.filenameNoExt(f)+","+FileUtil.path(f)+","+FileUtil.filenameNoExt(f) + "-c" + "," + FileUtil.extension(f));
-        jInfo.readQueryAndCleanTripleInfoDocument(
-                FileUtil.filenameNoExt(f), //filenameInput
-                FileUtil.path(f), //filepath
-                FileUtil.filenameNoExt(f) + "-c", //fileNameOutput
-                FileUtil.extension(f), //inputFormat n3
-                 OUTPUT_FORMAT_KARMA //outputFormat "ttl"
-         );
-        f.delete();
 
     }
 }

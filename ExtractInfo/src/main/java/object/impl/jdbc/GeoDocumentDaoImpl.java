@@ -4,8 +4,8 @@ import object.dao.jdbc.IGeoDocumentDao;
 import object.impl.jdbc.generic.GenericDaoImpl;
 import object.model.GeoDocument;
 import org.hibernate.SessionFactory;
-import p4535992.util.log.SystemLog;
-import p4535992.util.sql.SQLSupport;
+import com.p4535992.util.log.SystemLog;
+import com.p4535992.util.sql.SQLSupport;
 
 import javax.sql.DataSource;
 import java.io.IOException;

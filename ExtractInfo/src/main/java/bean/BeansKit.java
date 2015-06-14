@@ -5,8 +5,8 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
 import org.springframework.context.support.GenericApplicationContext;
 import org.springframework.core.io.ResourceLoader;
-import p4535992.util.file.FileUtil;
-import p4535992.util.log.SystemLog;
+import com.p4535992.util.file.FileUtil;
+import com.p4535992.util.log.SystemLog;
 
 import java.io.*;
 import java.net.MalformedURLException;
@@ -55,7 +55,7 @@ public class BeansKit<T> implements  org.springframework.context.ResourceLoaderA
             // Here you do not need to provide the full path of the XML file but
             // you need to set CLASSPATH properly because this container will look
             // bean configuration XML file in CLASSPATH.
-            String path = FileUtil.convertFileToUri2(getResourceAsFile(filePathXml));
+            String path = FileUtil.convertFileToStringUriWithPrefix(getResourceAsFile(filePathXml));
             context = new ClassPathXmlApplicationContext(path);
             if(context == null){
                 //InputStream is = FileUtil.getResourceAsStream(BeansKit.class,filePathXml);

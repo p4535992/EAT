@@ -1,4 +1,4 @@
-import p4535992.util.string.StringKit;
+import com.p4535992.util.string.StringKit;
 
 import java.io.IOException;
 

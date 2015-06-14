@@ -1,7 +1,7 @@
 package extractor.hibernate;
 
 import object.model.GeoDocument;
-import p4535992.util.reflection.ReflectionKit;
+import com.p4535992.util.reflection.ReflectionKit;
 
 import java.lang.annotation.Annotation;
 import java.util.List;

@@ -7,8 +7,8 @@ import org.hibernate.criterion.Criterion;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
-import p4535992.util.log.SystemLog;
-import p4535992.util.string.StringKit;
+import com.p4535992.util.log.SystemLog;
+import com.p4535992.util.string.StringKit;
 import bean.BeansKit;
 
 import java.io.File;

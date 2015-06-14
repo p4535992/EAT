@@ -2,17 +2,14 @@ package extractor.hibernate;
 import org.hibernate.*;
 import org.hibernate.InstantiationException;
 import org.hibernate.criterion.Criterion;
-import org.hibernate.internal.SessionFactoryImpl;
-import org.hibernate.internal.SessionImpl;
-import p4535992.util.log.SystemLog;
-import p4535992.util.reflection.ReflectionKit;
+import com.p4535992.util.log.SystemLog;
+import com.p4535992.util.reflection.ReflectionKit;
 
 import java.io.File;
 import java.io.Serializable;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
