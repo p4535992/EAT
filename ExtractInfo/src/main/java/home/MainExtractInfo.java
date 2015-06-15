@@ -39,43 +39,34 @@ public class MainExtractInfo {
             EventQueue.invokeLater(new Runnable() {	 
             //SwingUtilities.invokeAndWait(new Runnable() {
                public void run() {
-                   try{
-                    SystemLog LOG = new SystemLog();
-                    SystemLog.message("===== START THE PROGRAMM =========");
-                    /*long start = System.currentTimeMillis();*/                  
-                    // Parse all the parameters
-                    SimpleParameters params = new SimpleParameters();
-                    if(args.length > 0){
-                        params = new SimpleParameters(args);
-                        SystemLog.message("Using parameters:");
-                        SystemLog.message(params.toString());
-                        //C:\Users\Marco\Documents\GitHub\EAT\src\main\resources\input.properties
-                    }else{
-                        //C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\resources\input.properties
-                        // + "ExtractInfo" + File.separator +
-                        mParameters = FileUtil.readStringFromFileLineByLine(
-                                System.getProperty("user.dir") + File.separator +
-                                        "src" + File.separator + "main" + File.separator + "resources" + File.separator +
-                                        "input.properties", '=', params);
+                   try {
+                       SystemLog LOG = new SystemLog();
+                       SystemLog.message("===== START THE PROGRAMM =========");
+                    /*long start = System.currentTimeMillis();*/
+                       // Parse all the parameters
+                       SimpleParameters params = new SimpleParameters();
+                       if (args.length > 0) {
+                           mParameters = FileUtil.readStringFromFileLineByLine(args[0], '=', params);
+                       } else{
+                           //C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\resources\input.properties
+                           // + "ExtractInfo" + File.separator +
+                           mParameters = FileUtil.readStringFromFileLineByLine(
+                                   System.getProperty("user.dir") + File.separator +
+                                           "src" + File.separator + "main" + File.separator + "resources" + File.separator +
+                                           "input.properties", '=', params);
+                        }
                         //VARIABILI ALTRE
                         //PRINT SULLA CONSOLE
                         SystemLog.message("Using parameters:");
                         SystemLog.message(params.toString());
 
                         String test = params.getValue("PARAM_PATH_FILE_CFG_DB_INPUT_KEYWORD");
-//                        if ( params.getValue("PARAM_TYPE_EXTRACTION").equals("MYSQL")) {
-//                            SystemLog.message("Selezionato Estrazione MySQL", "OUT");
-//                            SystemLog.message("Caricamento costruttore...");
-//                            ExtractInfoMySQL m = new ExtractInfoMySQL(params);
-//                            SystemLog.message("... construttore pronto.");
-//                            m.Extraction();
-//                        }else
                        if(params.getValue("PARAM_TYPE_EXTRACTION").equals("SPRING")){
                             ExtractInfoSpring m = new ExtractInfoSpring(params);
                             SystemLog.message("START EXTRACT");
                             m.Extraction();
                        }
-                    }
+
                     //Ouput del tempo di elaborazione del progamma
                          /*System.out.println(String.format(
                                "------------ Processing took %s millis\n\n",

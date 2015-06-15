@@ -1,10 +1,10 @@
 package home;
 
+import extractor.estrattori.ExtractInfoSpring;
 import org.xml.sax.SAXException;
 import com.p4535992.util.file.FileUtil;
 import com.p4535992.util.log.SystemLog;
 import com.p4535992.util.file.SimpleParameters;
-import extractor.estrattori.ExtractInfoSpring;
 import extractor.gate.GateDataStoreKit;
 
 import java.awt.EventQueue;
@@ -18,7 +18,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author Tenti Marco
+ * @author 4535992
  */
 public class MainEAT {
 
@@ -47,10 +47,7 @@ public class MainEAT {
                     // Parse all the parameters
                     SimpleParameters params = new SimpleParameters();
                     if(args.length > 0){
-                        params = new SimpleParameters(args);
-                        SystemLog.message("Using parameters:");
-                        SystemLog.message(params.toString());
-                        //C:\Users\Marco\Documents\GitHub\EAT\src\main\resources\input.properties
+                        mParameters = FileUtil.readStringFromFileLineByLine(args[0],'=',params);
                     }else{
                         //C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\resources\input.properties
                         mParameters = FileUtil.readStringFromFileLineByLine(

@@ -51,34 +51,47 @@ public class GateKit {
     }
 
     public static void setUpGateEmbedded(String directoryFolderHome,String directoryFolderPlugin,
-                            String configFileGate,String configFileUser,String configFileSession) throws Exception {
+                            String configFileGate,String configFileUser,String configFileSession){
         //SETTIAMO GATE PER IL PROGRAMMA
-        SystemLog.message("Initializing GATE...");
-        directoryFolderHome = System.getProperty("user.dir")+File.separator+directoryFolderHome;
-        if(!new File(directoryFolderHome).exists())throw new IOException("The folder directoryFolderHome of GATE not exists!");
-        Gate.setGateHome(new File(directoryFolderHome));
+        try {
+            SystemLog.message("Initializing GATE...");
+            directoryFolderHome = System.getProperty("user.dir") + File.separator + directoryFolderHome;
+            if (!new File(directoryFolderHome).exists())
+                throw new IOException("The folder directoryFolderHome "+directoryFolderHome+" of GATE not exists!");
+            Gate.setGateHome(new File(directoryFolderHome));
 
-        directoryFolderPlugin = directoryFolderHome + File.separator + directoryFolderPlugin;
-        if(!new File(directoryFolderPlugin).exists())throw new IOException("The folder directoryFolderPlugin of GATE not exists!");
-        Gate.setPluginsHome(new File(directoryFolderPlugin));
+            directoryFolderPlugin = directoryFolderHome + File.separator + directoryFolderPlugin;
+            if (!new File(directoryFolderPlugin).exists())
+                throw new IOException("The folder directoryFolderPlugin "+directoryFolderPlugin+"of GATE not exists!");
+            Gate.setPluginsHome(new File(directoryFolderPlugin));
 
-        configFileGate = directoryFolderHome + File.separator + configFileGate;
-        if(!new File(configFileGate).exists())throw new IOException("The configFileGate of GATE not exists!");
-        Gate.setSiteConfigFile(new File(configFileGate));
+            configFileGate = directoryFolderHome + File.separator + configFileGate;
+            if (!new File(configFileGate).exists()) throw new IOException("The configFileGate "+configFileGate+"of GATE not exists!");
+            Gate.setSiteConfigFile(new File(configFileGate));
 
-        configFileUser = directoryFolderHome + File.separator + configFileUser;
-        if(!new File(configFileUser).exists())throw new IOException("The configFileUser of GATE not exists!");
-        Gate.setUserConfigFile(new File(configFileUser));
+            configFileUser = directoryFolderHome + File.separator + configFileUser;
+            if (!new File(configFileUser).exists()) throw new IOException("The configFileUser "+configFileUser+" of GATE not exists!");
+            Gate.setUserConfigFile(new File(configFileUser));
 
-        configFileSession = directoryFolderHome + File.separator + configFileSession;
-        if(!new File(configFileSession).exists())throw new IOException("The configFileSession of GATE not exists!");
-        Gate.setUserSessionFile(new File(configFileSession));
+            configFileSession = directoryFolderHome + File.separator + configFileSession;
+            if (!new File(configFileSession).exists())
+                throw new IOException("The configFileSession "+configFileSession+" of GATE not exists!");
+            Gate.setUserSessionFile(new File(configFileSession));
+        }catch(IOException e) {
+            SystemLog.error(e.getMessage());
+            SystemLog.abort(0,"Failed the initialization of GATE");
+        }
+        //...TRY A SECOND TIME TO INITIALIZE GATE
         try {
             Gate.init();
         }catch(gate.util.GateException e){
             //..Usuallly you got here for bad reading of the session file
-            FileUtil.createFile(configFileSession);
-            Gate.init();
+            try {
+                FileUtil.createFile(configFileSession);
+                Gate.init();
+            }catch(gate.util.GateException|IOException ex){
+
+            }
         }
         SystemLog.message("...GATE initialized");
         if(showGate) {
@@ -92,17 +105,21 @@ public class GateKit {
      * application that can be used to run sets of documents through
      * the extraction system.
      */
-    public static void loadGapp(String base,String fileGapp) throws GateException, IOException {
+    public static void loadGapp(String base,String fileGapp){
         SystemLog.message("Loading file .gapp/.xgapp...");
-        //File gapp = new File(home.home, "custom/gapp/geoLocationPipelineFast.xgapp");
-        if(new File(Gate.getGateHome() + File.separator + base + File.separator  + fileGapp).exists()) {
-            controller = (CorpusController) PersistenceManager.loadObjectFromFile(
-                    new File(Gate.getGateHome() + File.separator + base + File.separator + fileGapp));
-        }else{
-            throw new IOException("The gapp file not exists");
+        try {
+            //File gapp = new File(home.home, "custom/gapp/geoLocationPipelineFast.xgapp");
+            if (new File(Gate.getGateHome() + File.separator + base + File.separator + fileGapp).exists()) {
+                controller = (CorpusController) PersistenceManager.loadObjectFromFile(
+                        new File(Gate.getGateHome() + File.separator + base + File.separator + fileGapp));
+            } else {
+                throw new IOException("The gapp file not exists");
+            }
+            //CorpusController  con = (CorpusController) PersistenceManager.loadObjectFromFile(gapp);
+            SystemLog.message("... file .gapp/.xgapp loaded!");
+        }catch(GateException|IOException e){
+            SystemLog.exception(e);
         }
-        //CorpusController  con = (CorpusController) PersistenceManager.loadObjectFromFile(gapp);
-        SystemLog.message("... file .gapp/.xgapp loaded!");
     } // initAnnie()
 
     public static void setUpGateEmbeddedWithSpring(){

@@ -185,7 +185,6 @@ public class ExtractInfoSpring {
                  GateKit.setUpGateEmbedded("gate_files", "plugins", "gate.xml", "user-gate.xml", "gate.session");
                  GateKit.loadGapp("custom/gapp", "geoLocationPipeline06102014v7_fastMode.xgapp");
                  controller = GateKit.getController();
-                 //QUIT THE PROGRAMM SE LA LISTA DEGLI URL E' VUOTA
                  GeoDocument geo3;
                  GeoDocument geo2 = new GeoDocument();
                  if(PROCESS_PROGAMM == 1){
@@ -503,8 +502,8 @@ public class ExtractInfoSpring {
        }catch(NullPointerException ne){ne.printStackTrace();}
         return geo;
     }
-       
-    
+
+
     /**
      * Metodo che ripulisce il nome edificio da usare come URI da caratteri non
      * non voluti
@@ -514,10 +513,10 @@ public class ExtractInfoSpring {
     private GeoDocument pulisciDiNuovoLaStringaEdificio(GeoDocument geo){
         //Le seguenti righe di codice aiutano ad evitare un'errore di sintassi
         //in fase di inserimento dei record nel database.
-        try{       
-            String set; 
+        try{
+            String set;
              if(geo.getEdificio()!=null || StringKit.setNullForEmptyString(geo.getEdificio())!=null ){
-                set=geo.getEdificio(); 
+                set=geo.getEdificio();
                 //set = geo.getEdificio().replaceAll("[^a-zA-Z\\d\\s:]","");
                 //Accetta le lettere accentuate
                 if(set.toLowerCase().contains("http://")==true){
@@ -526,7 +525,7 @@ public class ExtractInfoSpring {
                     set = set.replaceAll("(www(\\d)?)", "");
                     set = set.replace("."," ");
                     set = set.replace("/"," ");
-                }            
+                }
                 set = set.replaceAll("[^a-zA-Z\\u00c0-\\u00f6\\u00f8-\\u00FF\\d\\s:]","");
                 set = set.replaceAll("\\s+", " ");
                 //set = set.replaceAll("http", "");
@@ -538,59 +537,59 @@ public class ExtractInfoSpring {
            }catch(Exception e){}
         return geo;
     }//pulisciDiNuovoLaStringaEdificio
-    
+
     /**
      * Metodo che ripulisce il nome indirizzo da usare come URI da caratteri non
      * non voluti
      * @param geo GeoDocument fornito come input
      * @return il GeoDocument con il campo indirizzo settato in un nuovo modo
      */
-     private GeoDocument pulisciDiNuovoLaStringaIndirizzo(GeoDocument geo){        
+     private GeoDocument pulisciDiNuovoLaStringaIndirizzo(GeoDocument geo){
         try{
             String address = geo.getIndirizzo();
            // address = "’Orario di Lavoro - Piazza San Marco, 4 - 50121";
-        if(address != null){   
+        if(address != null){
             if(StringKit.setNullForEmptyString(address)!=null){
         //Rimuovi gli SpaceToken
-        //set = geo.getIndirizzo().replaceAll("[^a-zA-Z\\d\\s:]",""); 
+        //set = geo.getIndirizzo().replaceAll("[^a-zA-Z\\d\\s:]","");
         address = address.replaceAll("\\s+", " ");
-        //set = set.replaceAll("...", "");    
-      
+        //set = set.replaceAll("...", "");
+
         List<String> addressWords = Arrays.asList(
                 "VIA","via","Via","VIALE","viale","Viale","STRADA","strada","Strada","ROAD","road","Road","Piazza","PIAZZA",
                 "piazza","P.zza","p.zza","Piazzale","piazzale","iazza","Corso","Loc.","loc.","loc","Loc","località",
                 "Località","V.","v."
         );
         boolean b = false;
-        for(String s : addressWords){                    
+        for(String s : addressWords){
             //With Split
             String[] listSplit = address.split(" "+s+" ");
-            if(listSplit.length > 0){            
+            if(listSplit.length > 0){
                 for(int i =0; i < listSplit.length; i++){
                     if(i > 0){
                         address ="";
-                        address = address + listSplit[i]; 
+                        address = address + listSplit[i];
                         address = s+" "+address;
                         b=true; break;
                     }
                     //if(i == listSplit.length-1){indirizzo = s+" "+indirizzo;}
-                }            
+                }
             }
-            if(b==true){ 
+            if(b==true){
                 //"[^a-z0-9\\s]+"
                 address = address.replaceAll("[^A-Za-z0-9\\s]+","");
                 geo.setIndirizzo(address);
-            }         
-        }//FOR       
+            }
+        }//FOR
         }//IF indirizzo is not null
         }//IF NOT NULL
         }catch(NullPointerException ne){ne.printStackTrace();}
-        
-      
+
+
         return geo;
     }
 
-       
+
     /**
      * Metodo di comparazione dei risultati attraverso GATE e Apache Tika per la modalità 1
      * @param geo GeoDocument ricavato da DOM HTML
@@ -604,7 +603,7 @@ public class ExtractInfoSpring {
         if(StringKit.setNullForEmptyString(geo2.getNazione())!=null){geo.setNazione(geo2.getNazione());}
         return geo;
     }//compareInfo3
-    
+
     private GeoDocument pulisciDiNuovoGeoDocument(GeoDocument geo){
         if(geo.getRegione()!=null){geo.setRegione(geo.getRegione().replaceAll("\\r\\n|\\r|\\n","").replace("\\n\\r", "").replace("\\n","").replace("\\r","").trim()); }
         if(geo.getProvincia()!=null){geo.setProvincia(geo.getProvincia().replaceAll("\\r\\n|\\r|\\n","").replace("\\n\\r", "").replace("\\n","").replace("\\r","").trim()); }
@@ -623,7 +622,7 @@ public class ExtractInfoSpring {
         if(geo.getFax()!=null){geo.setFax(geo.getFax().replaceAll("\\r\\n|\\r|\\n","").replace("\\n\\r", "").replace("\\n","").replace("\\r","").trim()); }
         if(geo.getIndirizzoHasNumber()!=null){geo.setIndirizzoHasNumber(geo.getIndirizzoHasNumber().replaceAll("\\r\\n|\\r|\\n","").replace("\\n\\r", "").replace("\\n","").replace("\\r","").trim()); }
         return geo;
-    
+
     }
 
 }

@@ -1,41 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>extractInfo</groupId>
+    <groupId>com.p4535992</groupId>
     <artifactId>ExtractInfo</artifactId>
-    <packaging>pom</packaging>
-
     <version>1.0</version>
-    <name>Maven Project ExtractInfo 2015-03</name>
+    <packaging>jar</packaging>
+
+    <name>${project.artifactId}</name>
     <url>http://maven.apache.org</url>
 
-    <modules>
-        <module>../utility</module>
-    </modules>
-
-    <parent>
-        <groupId>EAT</groupId>
+    <!--<parent>
+        <groupId>com.p4535992</groupId>
         <artifactId>EAT</artifactId>
         <version>1.0</version>
-    </parent>
-
-    <!-- Inherit defaults from Spring Boot -->
-    <!--<parent>-->
-        <!--<groupId>org.springframework.boot</groupId>-->
-        <!--<artifactId>spring-boot-starter-parent</artifactId>-->
-        <!--<version>1.2.3.RELEASE</version>-->
-    <!--</parent>-->
+    </parent>-->
 
     <repositories>
         <!-- Portable repository of the project -->
-        <repository>
+        <!--<repository>
             <id>localrepository</id>
             <url>file://${project.basedir}\m2</url>
-        </repository>
+        </repository>-->
         <!-- Github repository of the project org.p4535992.mvc.webapp-karma -->
         <repository>
             <id>Web-Karma</id>
@@ -54,6 +42,8 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.build.outputEncoding>UTF-8</project.build.outputEncoding>
         <java-version>1.7</java-version>
+        <encoding>UTF-8</encoding>
+        <language-level>1.7</language-level>
 
         <!-- Version of the libray we used on the project-->
         <springframework.version>4.1.6.RELEASE</springframework.version>
@@ -76,7 +66,7 @@
         <maven-compiler-plugin.version>2.3.2</maven-compiler-plugin.version>
         <maven-source-plugin.version>2.3</maven-source-plugin.version>
         <maven-javadoc-plugin.version>2.3</maven-javadoc-plugin.version>
-        <exec-maven-plugin.version>1.1.1</exec-maven-plugin.version>
+        <maven-exec-plugin.version>1.1.1</maven-exec-plugin.version>
         <maven-dependency-plugin.version>2.10</maven-dependency-plugin.version>
     </properties>
 
@@ -92,6 +82,7 @@
             </dependency>
 
             <!-- Module utility -->
+
             <dependency>
                 <groupId>4535992.utility</groupId>
                 <artifactId>utility</artifactId>
@@ -104,6 +95,27 @@
                     <exclusion>
                         <groupId>org.apache.httpcomponents</groupId>
                         <artifactId>httpclient</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.slf4j</groupId>
+                        <artifactId>slf4j-log4j12</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>log4j</groupId>
+                        <artifactId>log4j</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+
+            <dependency>
+                <groupId>uk.ac.gate</groupId>
+                <artifactId>gate-core</artifactId>
+                <version>8.1</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.springframework</groupId>
+                        <artifactId>spring-aop</artifactId>
                     </exclusion>
                     <exclusion>
                         <groupId>org.slf4j</groupId>
@@ -131,20 +143,6 @@
           <groupId>uk.ac.gate</groupId>
           <artifactId>gate-core</artifactId>
           <version>8.1</version>
-          <exclusions>
-                <exclusion>
-                    <groupId>org.springframework</groupId>
-                    <artifactId>*</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.slf4j</groupId>
-                    <artifactId>*</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>log4j</groupId>
-                    <artifactId>*</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
 
         <!-- SILK - https://maven-repository.com/artifact/eu.fusepool.p3.ext.de.fuberlin.wiwiss.silk/silk-singlemachine/2.6.0 -->
@@ -263,22 +261,22 @@
             </exclusions>
         </dependency>
 
-        <dependency>
-            <groupId>edu.isi</groupId>
-            <artifactId>webkarma</artifactId>
-            <version>${webkarma.version}</version>
-            <scope>compile</scope>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.slf4j</groupId>
-                    <artifactId>slf4j-log4j12</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>log4j</groupId>
-                    <artifactId>log4j</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>edu.isi</groupId>-->
+            <!--<artifactId>webkarma</artifactId>-->
+            <!--<version>${webkarma.version}</version>-->
+            <!--<scope>compile</scope>-->
+            <!--<exclusions>-->
+                <!--<exclusion>-->
+                    <!--<groupId>org.slf4j</groupId>-->
+                    <!--<artifactId>slf4j-log4j12</artifactId>-->
+                <!--</exclusion>-->
+                <!--<exclusion>-->
+                    <!--<groupId>log4j</groupId>-->
+                    <!--<artifactId>log4j</artifactId>-->
+                <!--</exclusion>-->
+            <!--</exclusions>-->
+        <!--</dependency>-->
 
         <!-- SPRING-BOOT FRAMEWORK -->
         <dependency>
@@ -313,5 +311,91 @@
 
     </dependencies>
 
+    <build>
+        <plugins>
+        <!-- How can I create an executable jar with dependencies using Maven?
+            mvn clean compile assembly:single-->
+
+           <!-- <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>fully.qualified.MainClass</mainClass>
+                        </manifest>
+                    </archive>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                </configuration>
+            </plugin>-->
+            <plugin>
+                <artifactId>maven-eclipse-plugin</artifactId>
+                <version>${maven-eclipse-plugin.version}</version>
+                <configuration>
+                    <additionalProjectnatures>
+                        <projectnature>org.springframework.ide.eclipse.core.springnature</projectnature>
+                    </additionalProjectnatures>
+                    <additionalBuildcommands>
+                        <buildcommand>org.springframework.ide.eclipse.core.springbuilder</buildcommand>
+                    </additionalBuildcommands>
+                    <downloadSources>true</downloadSources>
+                    <downloadJavadocs>true</downloadJavadocs>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven-compiler-plugin.version}</version>
+                <configuration>
+                    <source>${language-level}</source>
+                    <target>${language-level}</target>
+                    <compilerArgument>-Xlint:all</compilerArgument>
+                    <showWarnings>true</showWarnings>
+                    <showDeprecation>true</showDeprecation>
+                    <encoding>${encoding}</encoding>
+                    <!-- DO NOT include log4j.properties file in your Jar -->
+                    <excludes>
+                        <exclude>**/log4j.properties</exclude>
+                    </excludes>
+                   <!-- <archive>
+                        <manifest>
+                            &lt;!&ndash; Jar file entry point &ndash;&gt;
+                            <mainClass>home.MainExtractInfo</mainClass>
+                        </manifest>
+                    </archive>-->
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>${maven-source-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>${maven-javadoc-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
