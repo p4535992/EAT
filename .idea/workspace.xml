@@ -29,347 +29,244 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ddc8be51-6c6f-4bbd-b463-02aa428f706b" name="Default" comment="">
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\src\main\java\com\p4535992\util\xml\XMLKit_Extends.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\xml\XMLKit_Extends.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\xml\class-use\XMLKit_Extends.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\classes\com\p4535992\util\xml\XMLKit_Extends.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\surefire-reports\TEST-util.Test_Encoding.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\surefire-reports\TEST-util.Test_Http.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\surefire-reports\TEST-util.Test_Jena.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\surefire-reports\TEST-util.Test_Reflection.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\surefire-reports\TEST-util.Test_Sesame.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\surefire-reports\TEST-util.Test_Xml.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\surefire-reports\util.Test_Encoding.txt" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\surefire-reports\util.Test_Http.txt" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\surefire-reports\util.Test_Jena.txt" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\surefire-reports\util.Test_Reflection.txt" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\surefire-reports\util.Test_Sesame.txt" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\surefire-reports\util.Test_Xml.txt" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/html/CharacterEntityParser.class" afterPath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/html/CharacterEntityParser.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/color/Colors.class" afterPath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/color/Colors.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/http/DefaultHttpRequestRetryHandler.class" afterPath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/http/DefaultHttpRequestRetryHandler.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/encoding/EncodingUtil$ParseState.class" afterPath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/encoding/EncodingUtil$ParseState.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/encoding/EncodingUtil.class" afterPath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/encoding/EncodingUtil.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/file/FileUtil$FileWalker$1.class" afterPath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/file/FileUtil$FileWalker$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/file/FileUtil$FileWalker.class" afterPath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/file/FileUtil$FileWalker.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/file/FileUtil.class" afterPath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/file/FileUtil.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/object/model/GeoDocument.class" afterPath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/object/model/GeoDocument.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/object/model/GeoDomainDocument.class" afterPath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/object/model/GeoDomainDocument.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/geo/GeoHashUtils.class" afterPath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/geo/GeoHashUtils.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/jena/jena_vocabulary/GoodRelations.class" afterPath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/jena/jena_vocabulary/GoodRelations.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/html/HtmlCharacterEntities.class" afterPath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/html/HtmlCharacterEntities.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/html/HtmlKit.class" afterPath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/html/HtmlKit.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/html/scanner/HtmlScanner$ScannerHTMLEditorKit.class" afterPath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/html/scanner/HtmlScanner$ScannerHTMLEditorKit.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/html/scanner/HtmlScanner$ScannerParserCallback.class" afterPath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/html/scanner/HtmlScanner$ScannerParserCallback.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/html/scanner/HtmlScanner.class" afterPath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/html/scanner/HtmlScanner.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/http/HttpUtilApache.class" afterPath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/http/HttpUtilApache.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/http/HttpUtility.class" afterPath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/http/HttpUtility.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/object/model/InfoDocument.class" afterPath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/object/model/InfoDocument.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/jena/Jena2Kit.class" afterPath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/jena/Jena2Kit.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/html/parser/PageSaver.class" afterPath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/html/parser/PageSaver.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/html/parser/ParserGetter.class" afterPath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/html/parser/ParserGetter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/xml/PrefixGrabber.class" afterPath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/xml/PrefixGrabber.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/reflection/ReflectionKit.class" afterPath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/reflection/ReflectionKit.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/html/parser/ReportAttributes.class" afterPath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/html/parser/ReportAttributes.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/sql/SQLHelper.class" afterPath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/sql/SQLHelper.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/sql/SQLKit.class" afterPath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/sql/SQLKit.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/sql/SQLSupport.class" afterPath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/sql/SQLSupport.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/jena/jena_vocabulary/SchemaOrg.class" afterPath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/jena/jena_vocabulary/SchemaOrg.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/sesame/SesameManager$SesameManagerException.class" afterPath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/sesame/SesameManager$SesameManagerException.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/sesame/SesameManager.class" afterPath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/sesame/SesameManager.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/sesame/SesameManagerException.class" afterPath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/sesame/SesameManagerException.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/sesame/SesameUtil28$1.class" afterPath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/sesame/SesameUtil28$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/sesame/SesameUtil28$2.class" afterPath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/sesame/SesameUtil28$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/sesame/SesameUtil28$ChunkCommitter.class" afterPath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/sesame/SesameUtil28$ChunkCommitter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/sesame/SesameUtil28.class" afterPath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/sesame/SesameUtil28.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/jena/jena_vocabulary/SiiMobility1_3_4_WithIndividual.class" afterPath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/jena/jena_vocabulary/SiiMobility1_3_4_WithIndividual.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/jena/jena_vocabulary/SiiMobility1_3_4_WithoutIndividual.class" afterPath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/jena/jena_vocabulary/SiiMobility1_3_4_WithoutIndividual.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/file/SimpleParameters.class" afterPath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/file/SimpleParameters.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/html/scanner/Skaner$2.class" afterPath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/html/scanner/Skaner$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/html/scanner/Skaner$ScannerHTMLEditorKit.class" afterPath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/html/scanner/Skaner$ScannerHTMLEditorKit.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/html/scanner/Skaner$ScannerParserCallback.class" afterPath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/html/scanner/Skaner$ScannerParserCallback.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/html/scanner/Skaner.class" afterPath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/html/scanner/Skaner.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/string/StringKit$ParseState.class" afterPath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/string/StringKit$ParseState.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/string/StringKit.class" afterPath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/string/StringKit.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/string/StringOutputStreamKit.class" afterPath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/string/StringOutputStreamKit.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/log/SystemLog$1.class" afterPath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/log/SystemLog$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/log/SystemLog$Level.class" afterPath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/log/SystemLog$Level.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/log/SystemLog.class" afterPath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/log/SystemLog.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/test-classes/util/Test_Reflection.class" afterPath="$PROJECT_DIR$/utility/target/test-classes/util/Test_Reflection.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/http/URLUtil.class" afterPath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/http/URLUtil.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/xml/XMLKit$1.class" afterPath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/xml/XMLKit$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/xml/XMLKit.class" afterPath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/xml/XMLKit.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/utility-1.0-javadoc.jar" afterPath="$PROJECT_DIR$/utility/target/utility-1.0-javadoc.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/utility-1.0-sources.jar" afterPath="$PROJECT_DIR$/utility/target/utility-1.0-sources.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/utility-1.0.jar" afterPath="$PROJECT_DIR$/utility/target/utility-1.0.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/.classpath" afterPath="$PROJECT_DIR$/utility/.classpath" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/.project" afterPath="$PROJECT_DIR$/utility/.project" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/color/Colors.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/color/Colors.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/color/class-use/Colors.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/color/class-use/Colors.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/color/Colors.java" afterPath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/color/Colors.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/http/DefaultHttpRequestRetryHandler.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/http/DefaultHttpRequestRetryHandler.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/http/class-use/DefaultHttpRequestRetryHandler.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/http/class-use/DefaultHttpRequestRetryHandler.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/http/DefaultHttpRequestRetryHandler.java" afterPath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/http/DefaultHttpRequestRetryHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/object/model/Document.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/object/model/Document.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/object/model/class-use/Document.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/object/model/class-use/Document.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/encoding/EncodingUtil.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/encoding/EncodingUtil.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/encoding/class-use/EncodingUtil.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/encoding/class-use/EncodingUtil.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/encoding/EncodingUtil.java" afterPath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/encoding/EncodingUtil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/file/FileUtil.FileWalker.Handler.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/file/FileUtil.FileWalker.Handler.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/file/class-use/FileUtil.FileWalker.Handler.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/file/class-use/FileUtil.FileWalker.Handler.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/file/FileUtil.FileWalker.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/file/FileUtil.FileWalker.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/file/class-use/FileUtil.FileWalker.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/file/class-use/FileUtil.FileWalker.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/file/FileUtil.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/file/FileUtil.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/file/class-use/FileUtil.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/file/class-use/FileUtil.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/file/FileUtil.java" afterPath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/file/FileUtil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/geo/GeoDistanceSimple.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/geo/GeoDistanceSimple.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/geo/class-use/GeoDistanceSimple.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/geo/class-use/GeoDistanceSimple.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/geo/GeoDistanceSimple.java" afterPath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/geo/GeoDistanceSimple.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/object/model/GeoDocument.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/object/model/GeoDocument.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/object/model/class-use/GeoDocument.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/object/model/class-use/GeoDocument.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/object/model/GeoDocument.java" afterPath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/object/model/GeoDocument.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/object/model/GeoDomainDocument.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/object/model/GeoDomainDocument.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/object/model/class-use/GeoDomainDocument.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/object/model/class-use/GeoDomainDocument.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/object/model/GeoDomainDocument.java" afterPath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/object/model/GeoDomainDocument.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/geo/GeoHashUtils.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/geo/GeoHashUtils.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/geo/class-use/GeoHashUtils.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/geo/class-use/GeoHashUtils.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/geo/GeoHashUtils.java" afterPath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/geo/GeoHashUtils.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/geo/GeoPoint.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/geo/GeoPoint.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/geo/class-use/GeoPoint.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/geo/class-use/GeoPoint.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/geo/GeoPoint.java" afterPath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/geo/GeoPoint.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/jena/jena_vocabulary/GoodRelations.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/jena/jena_vocabulary/GoodRelations.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/jena/jena_vocabulary/class-use/GoodRelations.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/jena/jena_vocabulary/class-use/GoodRelations.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/jena/jena_vocabulary/GoodRelations.java" afterPath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/jena/jena_vocabulary/GoodRelations.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/json/GsonKit.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/json/GsonKit.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/json/class-use/GsonKit.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/json/class-use/GsonKit.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/html/HtmlCharacterEntities.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/html/HtmlCharacterEntities.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/html/class-use/HtmlCharacterEntities.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/html/class-use/HtmlCharacterEntities.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/html/HtmlCharacterEntities.java" afterPath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/html/HtmlCharacterEntities.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/html/HtmlKit.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/html/HtmlKit.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/html/class-use/HtmlKit.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/html/class-use/HtmlKit.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/html/HtmlKit.java" afterPath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/html/HtmlKit.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/html/scanner/HtmlScanner.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/html/scanner/HtmlScanner.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/html/scanner/class-use/HtmlScanner.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/html/scanner/class-use/HtmlScanner.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/html/scanner/HtmlScanner.java" afterPath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/html/scanner/HtmlScanner.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/http/HttpUtilApache.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/http/HttpUtilApache.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/http/class-use/HttpUtilApache.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/http/class-use/HttpUtilApache.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/http/HttpUtilApache.java" afterPath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/http/HttpUtilApache.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/http/HttpUtilApacheClient.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/http/HttpUtilApacheClient.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/http/class-use/HttpUtilApacheClient.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/http/class-use/HttpUtilApacheClient.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/http/HttpUtility.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/http/HttpUtility.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/http/class-use/HttpUtility.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/http/class-use/HttpUtility.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/http/HttpUtility.java" afterPath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/http/HttpUtility.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/object/model/InfoDocument.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/object/model/InfoDocument.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/object/model/class-use/InfoDocument.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/object/model/class-use/InfoDocument.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/object/model/InfoDocument.java" afterPath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/object/model/InfoDocument.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/html/JSoupKit.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/html/JSoupKit.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/html/class-use/JSoupKit.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/html/class-use/JSoupKit.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/json/JacksonKit.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/json/JacksonKit.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/json/class-use/JacksonKit.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/json/class-use/JacksonKit.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/json/JacksonKit.java" afterPath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/json/JacksonKit.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/jena/Jena2Kit.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/jena/Jena2Kit.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/jena/class-use/Jena2Kit.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/jena/class-use/Jena2Kit.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/jena/Jena2Kit.java" afterPath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/jena/Jena2Kit.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/jenaAndSesame/JenaAndSesame.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/jenaAndSesame/JenaAndSesame.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/jenaAndSesame/class-use/JenaAndSesame.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/jenaAndSesame/class-use/JenaAndSesame.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/metric/MetricKit.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/metric/MetricKit.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/metric/class-use/MetricKit.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/metric/class-use/MetricKit.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/html/parser/Outliner.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/html/parser/Outliner.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/html/parser/class-use/Outliner.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/html/parser/class-use/Outliner.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/html/parser/PageSaver.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/html/parser/PageSaver.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/html/parser/class-use/PageSaver.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/html/parser/class-use/PageSaver.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/html/parser/PageSaver.java" afterPath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/html/parser/PageSaver.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/html/parser/ParserGetter.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/html/parser/ParserGetter.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/html/parser/class-use/ParserGetter.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/html/parser/class-use/ParserGetter.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/html/parser/ParserGetter.java" afterPath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/html/parser/ParserGetter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/cmd/PrepareCommand.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/cmd/PrepareCommand.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/cmd/class-use/PrepareCommand.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/cmd/class-use/PrepareCommand.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/file/PropertiesKit.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/file/PropertiesKit.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/file/class-use/PropertiesKit.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/file/class-use/PropertiesKit.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/reflection/ReflectionKit.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/reflection/ReflectionKit.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/reflection/class-use/ReflectionKit.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/reflection/class-use/ReflectionKit.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/reflection/ReflectionKit.java" afterPath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/reflection/ReflectionKit.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/html/parser/ReportAttributes.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/html/parser/ReportAttributes.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/html/parser/class-use/ReportAttributes.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/html/parser/class-use/ReportAttributes.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/html/parser/ReportAttributes.java" afterPath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/html/parser/ReportAttributes.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/sql/SQLHelper.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/sql/SQLHelper.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/sql/class-use/SQLHelper.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/sql/class-use/SQLHelper.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/sql/SQLHelper.java" afterPath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/sql/SQLHelper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/sql/SQLKit.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/sql/SQLKit.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/sql/class-use/SQLKit.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/sql/class-use/SQLKit.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/sql/SQLKit.java" afterPath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/sql/SQLKit.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/sql/SQLSupport.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/sql/SQLSupport.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/sql/class-use/SQLSupport.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/sql/class-use/SQLSupport.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/sql/SQLSupport.java" afterPath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/sql/SQLSupport.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/jena/jena_vocabulary/SchemaOrg.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/jena/jena_vocabulary/SchemaOrg.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/jena/jena_vocabulary/class-use/SchemaOrg.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/jena/jena_vocabulary/class-use/SchemaOrg.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/jena/jena_vocabulary/SchemaOrg.java" afterPath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/jena/jena_vocabulary/SchemaOrg.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/sesame/SesameManager.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/sesame/SesameManager.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/sesame/class-use/SesameManager.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/sesame/class-use/SesameManager.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/sesame/SesameManager.java" afterPath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/sesame/SesameManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/sesame/SesameManagerException.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/sesame/SesameManagerException.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/sesame/class-use/SesameManagerException.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/sesame/class-use/SesameManagerException.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/sesame/SesameManagerException.java" afterPath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/sesame/SesameManagerException.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/sesame/SesameUtil28.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/sesame/SesameUtil28.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/sesame/class-use/SesameUtil28.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/sesame/class-use/SesameUtil28.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/sesame/SesameUtil28.java" afterPath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/sesame/SesameUtil28.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/jena/jena_vocabulary/SiiMobility1_3_4_WithIndividual.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/jena/jena_vocabulary/SiiMobility1_3_4_WithIndividual.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/jena/jena_vocabulary/class-use/SiiMobility1_3_4_WithIndividual.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/jena/jena_vocabulary/class-use/SiiMobility1_3_4_WithIndividual.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/jena/jena_vocabulary/SiiMobility1_3_4_WithIndividual.java" afterPath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/jena/jena_vocabulary/SiiMobility1_3_4_WithIndividual.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/jena/jena_vocabulary/SiiMobility1_3_4_WithoutIndividual.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/jena/jena_vocabulary/SiiMobility1_3_4_WithoutIndividual.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/jena/jena_vocabulary/class-use/SiiMobility1_3_4_WithoutIndividual.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/jena/jena_vocabulary/class-use/SiiMobility1_3_4_WithoutIndividual.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/jena/jena_vocabulary/SiiMobility1_3_4_WithoutIndividual.java" afterPath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/jena/jena_vocabulary/SiiMobility1_3_4_WithoutIndividual.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/encrypt/SimpleCrypto.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/encrypt/SimpleCrypto.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/encrypt/class-use/SimpleCrypto.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/encrypt/class-use/SimpleCrypto.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/file/SimpleParameters.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/file/SimpleParameters.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/file/class-use/SimpleParameters.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/file/class-use/SimpleParameters.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/file/SimpleParameters.java" afterPath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/file/SimpleParameters.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/html/scanner/Skaner.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/html/scanner/Skaner.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/html/scanner/class-use/Skaner.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/html/scanner/class-use/Skaner.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/html/scanner/Skaner.java" afterPath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/html/scanner/Skaner.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/string/StringKit.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/string/StringKit.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/string/class-use/StringKit.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/string/class-use/StringKit.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/string/StringKit.java" afterPath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/string/StringKit.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/string/StringOutputStreamKit.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/string/StringOutputStreamKit.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/string/class-use/StringOutputStreamKit.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/string/class-use/StringOutputStreamKit.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/string/StringOutputStreamKit.java" afterPath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/string/StringOutputStreamKit.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/log/SystemLog.Level.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/log/SystemLog.Level.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/log/class-use/SystemLog.Level.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/log/class-use/SystemLog.Level.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/log/SystemLog.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/log/SystemLog.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/log/class-use/SystemLog.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/log/class-use/SystemLog.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/log/SystemLog.java" afterPath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/log/SystemLog.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/encrypt/Test_Crypto.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/encrypt/Test_Crypto.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/encrypt/class-use/Test_Crypto.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/encrypt/class-use/Test_Crypto.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/html/Test_Html.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/html/Test_Html.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/html/class-use/Test_Html.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/html/class-use/Test_Html.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/html/Test_Jsoup.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/html/Test_Jsoup.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/html/class-use/Test_Jsoup.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/html/class-use/Test_Jsoup.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/src/test/java/util/Test_Reflection.java" afterPath="$PROJECT_DIR$/utility/src/test/java/util/Test_Reflection.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/http/URLUtil.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/http/URLUtil.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/http/class-use/URLUtil.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/http/class-use/URLUtil.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/http/URLUtil.java" afterPath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/http/URLUtil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/object/model/Website.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/object/model/Website.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/object/model/class-use/Website.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/object/model/class-use/Website.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/xml/XMLHibernate.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/xml/XMLHibernate.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/xml/class-use/XMLHibernate.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/xml/class-use/XMLHibernate.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/xml/XMLKit.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/xml/XMLKit.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/xml/class-use/XMLKit.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/xml/class-use/XMLKit.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/xml/XMLKit.java" afterPath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/xml/XMLKit.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/xml/XMLKitJDOM.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/xml/XMLKitJDOM.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/xml/class-use/XMLKitJDOM.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/xml/class-use/XMLKitJDOM.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/xml/XMLKitJDOM.java" afterPath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/xml/XMLKitJDOM.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/archive/ZipStreamer.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/archive/ZipStreamer.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/archive/class-use/ZipStreamer.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/archive/class-use/ZipStreamer.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/allclasses-frame.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/allclasses-frame.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/allclasses-noframe.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/allclasses-noframe.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/constant-values.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/constant-values.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterPath="$PROJECT_DIR$/utility/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/deprecated-list.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/deprecated-list.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/help-doc.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/help-doc.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/index-all.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/index-all.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/index.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="$PROJECT_DIR$/utility/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterPath="$PROJECT_DIR$/utility/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/overview-frame.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/overview-frame.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/overview-summary.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/overview-summary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/overview-tree.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/overview-tree.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/archive/package-frame.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/archive/package-frame.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/cmd/package-frame.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/cmd/package-frame.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/color/package-frame.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/color/package-frame.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/encoding/package-frame.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/encoding/package-frame.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/encrypt/package-frame.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/encrypt/package-frame.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/file/package-frame.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/file/package-frame.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/geo/package-frame.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/geo/package-frame.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/html/package-frame.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/html/package-frame.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/html/parser/package-frame.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/html/parser/package-frame.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/html/scanner/package-frame.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/html/scanner/package-frame.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/http/package-frame.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/http/package-frame.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/jena/package-frame.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/jena/package-frame.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/jenaAndSesame/package-frame.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/jenaAndSesame/package-frame.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/jena/jena_vocabulary/package-frame.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/jena/jena_vocabulary/package-frame.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/json/package-frame.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/json/package-frame.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/log/package-frame.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/log/package-frame.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/metric/package-frame.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/metric/package-frame.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/object/model/package-frame.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/object/model/package-frame.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/reflection/package-frame.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/reflection/package-frame.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/sesame/package-frame.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/sesame/package-frame.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/sql/package-frame.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/sql/package-frame.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/string/package-frame.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/string/package-frame.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/xml/package-frame.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/xml/package-frame.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/archive/package-summary.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/archive/package-summary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/cmd/package-summary.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/cmd/package-summary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/color/package-summary.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/color/package-summary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/encoding/package-summary.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/encoding/package-summary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/encrypt/package-summary.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/encrypt/package-summary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/file/package-summary.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/file/package-summary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/geo/package-summary.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/geo/package-summary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/html/package-summary.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/html/package-summary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/html/parser/package-summary.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/html/parser/package-summary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/html/scanner/package-summary.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/html/scanner/package-summary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/http/package-summary.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/http/package-summary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/jena/package-summary.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/jena/package-summary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/jenaAndSesame/package-summary.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/jenaAndSesame/package-summary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/jena/jena_vocabulary/package-summary.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/jena/jena_vocabulary/package-summary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/json/package-summary.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/json/package-summary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/log/package-summary.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/log/package-summary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/metric/package-summary.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/metric/package-summary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/object/model/package-summary.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/object/model/package-summary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/reflection/package-summary.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/reflection/package-summary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/sesame/package-summary.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/sesame/package-summary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/sql/package-summary.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/sql/package-summary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/string/package-summary.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/string/package-summary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/xml/package-summary.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/xml/package-summary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/archive/package-tree.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/archive/package-tree.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/cmd/package-tree.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/cmd/package-tree.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/color/package-tree.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/color/package-tree.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/encoding/package-tree.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/encoding/package-tree.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/encrypt/package-tree.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/encrypt/package-tree.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/file/package-tree.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/file/package-tree.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/geo/package-tree.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/geo/package-tree.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/html/package-tree.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/html/package-tree.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/html/parser/package-tree.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/html/parser/package-tree.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/html/scanner/package-tree.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/html/scanner/package-tree.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/http/package-tree.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/http/package-tree.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/jena/package-tree.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/jena/package-tree.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/jenaAndSesame/package-tree.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/jenaAndSesame/package-tree.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/jena/jena_vocabulary/package-tree.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/jena/jena_vocabulary/package-tree.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/json/package-tree.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/json/package-tree.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/log/package-tree.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/log/package-tree.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/metric/package-tree.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/metric/package-tree.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/object/model/package-tree.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/object/model/package-tree.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/reflection/package-tree.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/reflection/package-tree.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/sesame/package-tree.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/sesame/package-tree.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/sql/package-tree.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/sql/package-tree.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/string/package-tree.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/string/package-tree.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/xml/package-tree.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/xml/package-tree.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/archive/package-use.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/archive/package-use.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/cmd/package-use.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/cmd/package-use.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/color/package-use.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/color/package-use.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/encoding/package-use.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/encoding/package-use.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/encrypt/package-use.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/encrypt/package-use.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/file/package-use.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/file/package-use.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/geo/package-use.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/geo/package-use.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/html/package-use.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/html/package-use.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/html/parser/package-use.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/html/parser/package-use.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/html/scanner/package-use.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/html/scanner/package-use.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/http/package-use.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/http/package-use.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/jena/package-use.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/jena/package-use.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/jenaAndSesame/package-use.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/jenaAndSesame/package-use.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/jena/jena_vocabulary/package-use.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/jena/jena_vocabulary/package-use.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/json/package-use.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/json/package-use.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/log/package-use.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/log/package-use.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/metric/package-use.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/metric/package-use.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/object/model/package-use.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/object/model/package-use.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/reflection/package-use.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/reflection/package-use.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/sesame/package-use.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/sesame/package-use.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/sql/package-use.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/sql/package-use.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/string/package-use.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/string/package-use.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/xml/package-use.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/xml/package-use.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/utility/target/maven-archiver/pom.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/pom.xml" afterPath="$PROJECT_DIR$/utility/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/serialized-form.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/serialized-form.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/utility.iml" afterPath="$PROJECT_DIR$/utility/utility.iml" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\allclasses-frame.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\allclasses-noframe.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\archive\ZipStreamer.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\archive\class-use\ZipStreamer.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\archive\package-frame.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\archive\package-summary.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\archive\package-tree.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\archive\package-use.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\cmd\PrepareCommand.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\cmd\class-use\PrepareCommand.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\cmd\package-frame.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\cmd\package-summary.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\cmd\package-tree.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\cmd\package-use.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\color\Colors.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\color\class-use\Colors.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\color\package-frame.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\color\package-summary.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\color\package-tree.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\color\package-use.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\encoding\EncodingUtil.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\encoding\class-use\EncodingUtil.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\encoding\package-frame.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\encoding\package-summary.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\encoding\package-tree.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\encoding\package-use.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\encrypt\SimpleCrypto.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\encrypt\Test_Crypto.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\encrypt\class-use\SimpleCrypto.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\encrypt\class-use\Test_Crypto.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\encrypt\package-frame.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\encrypt\package-summary.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\encrypt\package-tree.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\encrypt\package-use.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\file\FileUtil.FileWalker.Handler.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\file\FileUtil.FileWalker.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\file\FileUtil.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\file\PropertiesKit.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\file\SimpleParameters.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\file\class-use\FileUtil.FileWalker.Handler.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\file\class-use\FileUtil.FileWalker.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\file\class-use\FileUtil.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\file\class-use\PropertiesKit.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\file\class-use\SimpleParameters.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\file\package-frame.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\file\package-summary.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\file\package-tree.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\file\package-use.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\geo\GeoDistanceSimple.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\geo\GeoHashUtils.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\geo\GeoPoint.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\geo\class-use\GeoDistanceSimple.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\geo\class-use\GeoHashUtils.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\geo\class-use\GeoPoint.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\geo\package-frame.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\geo\package-summary.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\geo\package-tree.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\geo\package-use.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\html\HtmlCharacterEntities.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\html\HtmlKit.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\html\JSoupKit.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\html\Test_Html.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\html\Test_Jsoup.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\html\class-use\HtmlCharacterEntities.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\html\class-use\HtmlKit.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\html\class-use\JSoupKit.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\html\class-use\Test_Html.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\html\class-use\Test_Jsoup.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\html\package-frame.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\html\package-summary.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\html\package-tree.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\html\package-use.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\html\parser\Outliner.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\html\parser\PageSaver.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\html\parser\ParserGetter.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\html\parser\ReportAttributes.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\html\parser\class-use\Outliner.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\html\parser\class-use\PageSaver.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\html\parser\class-use\ParserGetter.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\html\parser\class-use\ReportAttributes.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\html\parser\package-frame.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\html\parser\package-summary.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\html\parser\package-tree.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\html\parser\package-use.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\html\scanner\HtmlScanner.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\html\scanner\Skaner.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\html\scanner\class-use\HtmlScanner.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\html\scanner\class-use\Skaner.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\html\scanner\package-frame.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\html\scanner\package-summary.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\html\scanner\package-tree.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\html\scanner\package-use.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\http\DefaultHttpRequestRetryHandler.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\http\HttpUtilApache.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\http\HttpUtilApacheClient.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\http\HttpUtility.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\http\URLUtil.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\http\class-use\DefaultHttpRequestRetryHandler.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\http\class-use\HttpUtilApache.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\http\class-use\HttpUtilApacheClient.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\http\class-use\HttpUtility.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\http\class-use\URLUtil.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\http\package-frame.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\http\package-summary.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\http\package-tree.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\http\package-use.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\jenaAndSesame\JenaAndSesame.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\jenaAndSesame\class-use\JenaAndSesame.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\jenaAndSesame\package-frame.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\jenaAndSesame\package-summary.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\jenaAndSesame\package-tree.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\jenaAndSesame\package-use.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\jena\Jena2Kit.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\jena\class-use\Jena2Kit.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\jena\jena_vocabulary\GoodRelations.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\jena\jena_vocabulary\SchemaOrg.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\jena\jena_vocabulary\SiiMobility1_3_4_WithIndividual.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\jena\jena_vocabulary\SiiMobility1_3_4_WithoutIndividual.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\jena\jena_vocabulary\class-use\GoodRelations.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\jena\jena_vocabulary\class-use\SchemaOrg.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\jena\jena_vocabulary\class-use\SiiMobility1_3_4_WithIndividual.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\jena\jena_vocabulary\class-use\SiiMobility1_3_4_WithoutIndividual.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\jena\jena_vocabulary\package-frame.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\jena\jena_vocabulary\package-summary.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\jena\jena_vocabulary\package-tree.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\jena\jena_vocabulary\package-use.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\jena\package-frame.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\jena\package-summary.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\jena\package-tree.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\jena\package-use.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\json\GsonKit.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\json\JacksonKit.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\json\class-use\GsonKit.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\json\class-use\JacksonKit.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\json\package-frame.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\json\package-summary.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\json\package-tree.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\json\package-use.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\log\SystemLog.Level.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\log\SystemLog.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\log\class-use\SystemLog.Level.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\log\class-use\SystemLog.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\log\package-frame.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\log\package-summary.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\log\package-tree.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\log\package-use.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\metric\MetricKit.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\metric\class-use\MetricKit.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\metric\package-frame.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\metric\package-summary.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\metric\package-tree.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\metric\package-use.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\object\model\Document.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\object\model\GeoDocument.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\object\model\GeoDomainDocument.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\object\model\InfoDocument.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\object\model\Website.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\object\model\class-use\Document.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\object\model\class-use\GeoDocument.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\object\model\class-use\GeoDomainDocument.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\object\model\class-use\InfoDocument.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\object\model\class-use\Website.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\object\model\package-frame.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\object\model\package-summary.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\object\model\package-tree.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\object\model\package-use.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\reflection\ReflectionKit.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\reflection\class-use\ReflectionKit.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\reflection\package-frame.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\reflection\package-summary.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\reflection\package-tree.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\reflection\package-use.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\sesame\SesameManager.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\sesame\SesameManagerException.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\sesame\SesameUtil28.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\sesame\class-use\SesameManager.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\sesame\class-use\SesameManagerException.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\sesame\class-use\SesameUtil28.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\sesame\package-frame.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\sesame\package-summary.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\sesame\package-tree.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\sesame\package-use.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\sql\SQLHelper.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\sql\SQLKit.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\sql\SQLSupport.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\sql\class-use\SQLHelper.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\sql\class-use\SQLKit.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\sql\class-use\SQLSupport.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\sql\package-frame.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\sql\package-summary.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\sql\package-tree.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\sql\package-use.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\string\StringKit.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\string\StringOutputStreamKit.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\string\class-use\StringKit.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\string\class-use\StringOutputStreamKit.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\string\package-frame.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\string\package-summary.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\string\package-tree.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\string\package-use.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\xml\XMLHibernate.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\xml\XMLKit.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\xml\XMLKitJDOM.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\xml\class-use\XMLHibernate.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\xml\class-use\XMLKit.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\xml\class-use\XMLKitJDOM.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\xml\package-frame.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\xml\package-summary.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\xml\package-tree.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\xml\package-use.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\constant-values.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\deprecated-list.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\help-doc.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\index-all.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\index.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\overview-frame.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\overview-summary.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\overview-tree.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\package-list" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\resources\background.gif" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\resources\tab.gif" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\resources\titlebar.gif" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\resources\titlebar_end.gif" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\serialized-form.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\stylesheet.css" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\maven-archiver\pom.properties" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\maven-status\maven-compiler-plugin\compile\default-compile\createdFiles.lst" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\maven-status\maven-compiler-plugin\compile\default-compile\inputFiles.lst" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\maven-status\maven-compiler-plugin\testCompile\default-testCompile\createdFiles.lst" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\maven-status\maven-compiler-plugin\testCompile\default-testCompile\inputFiles.lst" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\utility-1.0-javadoc.jar" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\utility-1.0-sources.jar" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\utility-1.0.jar" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/home/MainEAT$1.class" afterPath="$PROJECT_DIR$/target/classes/home/MainEAT$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/home/MainEAT.class" afterPath="$PROJECT_DIR$/target/classes/home/MainEAT.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/EAT.iml" afterPath="$PROJECT_DIR$/EAT.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="EAT.iws" />
@@ -461,9 +358,12 @@
     <leaf>
       <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/utility/pom.xml">
+          <provider editor-type-id="MavenHelperPluginDependencyAnalyzer">
+            <state />
+          </provider>
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="262" column="37" selection-start-line="262" selection-start-column="37" selection-end-line="262" selection-end-column="37" />
+              <caret line="49" column="44" selection-start-line="48" selection-start-column="8" selection-end-line="49" selection-end-column="44" />
               <folding />
             </state>
           </provider>
@@ -471,6 +371,9 @@
       </file>
       <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ExtractInfo/pom.xml">
+          <provider editor-type-id="MavenHelperPluginDependencyAnalyzer">
+            <state />
+          </provider>
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
@@ -479,10 +382,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.54382825">
+            <state vertical-scroll-proportion="0.0">
               <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
               <folding />
             </state>
@@ -499,11 +402,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider editor-type-id="MavenHelperPluginDependencyAnalyzer">
+            <state />
+          </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="127" column="31" selection-start-line="127" selection-start-column="31" selection-end-line="127" selection-end-column="31" />
+            <state vertical-scroll-proportion="0.04725898">
+              <caret line="217" column="17" selection-start-line="217" selection-start-column="17" selection-end-line="217" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -514,7 +420,15 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="83" column="40" selection-start-line="83" selection-start-column="40" selection-end-line="83" selection-end-column="40" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#955#956#0" expanded="false" />
+                <element signature="e#1005#1006#0" expanded="false" />
+                <element signature="e#4506#4507#0" expanded="false" />
+                <element signature="e#4542#4543#0" expanded="false" />
+                <element signature="e#4663#4664#0" expanded="false" />
+                <element signature="e#4700#4701#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -523,8 +437,11 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/home/MainEAT.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="69" column="43" selection-start-line="69" selection-start-column="43" selection-end-line="69" selection-end-column="43" />
+              <caret line="49" column="69" selection-start-line="49" selection-start-column="69" selection-end-line="49" selection-end-column="69" />
               <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#841#842#0" expanded="false" />
+                <element signature="e#891#892#0" expanded="false" />
                 <element signature="e#4176#4177#0" expanded="false" />
                 <element signature="e#4212#4213#0" expanded="false" />
                 <element signature="e#4333#4334#0" expanded="false" />
@@ -606,11 +523,11 @@
         <option value="$PROJECT_DIR$/ExtractInfo/src/main/java/extractor/estrattori/ExtractorGeoDocumentSupport.java" />
         <option value="$PROJECT_DIR$/ExtractInfo/src/main/java/home/MainExtractInfo.java" />
         <option value="$PROJECT_DIR$/ExtractInfo/src/main/java/extractor/estrattori/ExtractInfoWeb.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/ExtractInfo/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/home/MainEAT.java" />
         <option value="$PROJECT_DIR$/utility/pom.xml" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
   </component>
@@ -633,6 +550,66 @@
   </component>
   <component name="MavenProjectNavigator">
     <treeState>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="utility" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="utility" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Plugins" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$PluginsNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="utility" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Plugins" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$PluginsNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="compiler" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$PluginNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="utility" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Plugins" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$PluginsNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="clean" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$PluginNode" />
+        </PATH_ELEMENT>
+      </PATH>
       <PATH>
         <PATH_ELEMENT>
           <option name="myItemId" value="" />
@@ -705,40 +682,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EAT" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EAT" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EAT" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EAT" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EAT" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="utility" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
       <pane id="Scope">
         <subPane subId="Project Files">
           <PATH>
@@ -749,7 +692,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="PackagesPane">
         <subPane>
           <PATH>
@@ -784,6 +726,169 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EAT" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EAT" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EAT" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EAT" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EAT" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="utility" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EAT" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EAT" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="utility" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EAT" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EAT" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="utility" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EAT" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EAT" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="utility" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="util" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EAT" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EAT" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EAT" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EAT" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="home" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EAT" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EAT" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ExtractInfo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -799,7 +904,7 @@
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15542522" />
     <property name="project.structure.side.proportion" value="0.30348837" />
-    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -1567,12 +1672,14 @@
       <workItem from="1434401652660" duration="883000" />
       <workItem from="1434526028323" duration="536000" />
       <workItem from="1434538445316" duration="456000" />
-      <workItem from="1434545370008" duration="192000" />
+      <workItem from="1434545370008" duration="564000" />
+      <workItem from="1434552089249" duration="2276000" />
+      <workItem from="1434554737837" duration="466000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1033641000" />
+    <option name="totallyTimeSpent" value="1036755000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -1584,8 +1691,8 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="0" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="1" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1605,7 +1712,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24205749" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24659607" sideWeight="0.4883721" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25642964" sideWeight="0.4766082" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25642964" sideWeight="0.4766082" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32854208" sideWeight="0.5116279" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4778157" sideWeight="0.49081165" order="2" side_tool="false" content_ui="tabs" />
@@ -2252,11 +2359,17 @@
           <properties />
           <option name="timeStamp" value="592" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/home/MainEAT.java</url>
+          <line>39</line>
+          <properties />
+          <option name="timeStamp" value="593" />
+        </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="593" />
+      <option name="time" value="594" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -2353,13 +2466,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/silk_files/batch/README.md">
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="1" column="49" selection-start-line="1" selection-start-column="49" selection-end-line="1" selection-end-column="49" />
         </state>
-      </provider>
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/silk_files/batch/run_silk_windows_2015-05-05.bat">
@@ -2370,13 +2483,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="19" column="24" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
         </state>
-      </provider>
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/bean/InitBean.java">
@@ -2902,7 +3015,15 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="83" column="40" selection-start-line="83" selection-start-column="40" selection-end-line="83" selection-end-column="40" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#955#956#0" expanded="false" />
+            <element signature="e#1005#1006#0" expanded="false" />
+            <element signature="e#4506#4507#0" expanded="false" />
+            <element signature="e#4542#4543#0" expanded="false" />
+            <element signature="e#4663#4664#0" expanded="false" />
+            <element signature="e#4700#4701#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2913,20 +3034,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/home/MainEAT.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="69" column="43" selection-start-line="69" selection-start-column="43" selection-end-line="69" selection-end-column="43" />
-          <folding>
-            <element signature="e#4176#4177#0" expanded="false" />
-            <element signature="e#4212#4213#0" expanded="false" />
-            <element signature="e#4333#4334#0" expanded="false" />
-            <element signature="e#4370#4371#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ExtractInfo/pom.xml">
+      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
@@ -2942,26 +3053,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utility/pom.xml">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="262" column="37" selection-start-line="262" selection-start-column="37" selection-end-line="262" selection-end-column="37" />
+          <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/home/MainEAT.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="49" column="69" selection-start-line="49" selection-start-column="69" selection-end-line="49" selection-end-column="69" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#841#842#0" expanded="false" />
+            <element signature="e#891#892#0" expanded="false" />
+            <element signature="e#4176#4177#0" expanded="false" />
+            <element signature="e#4212#4213#0" expanded="false" />
+            <element signature="e#4333#4334#0" expanded="false" />
+            <element signature="e#4370#4371#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utility/pom.xml">
+      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="49" column="44" selection-start-line="48" selection-start-column="8" selection-end-line="49" selection-end-column="44" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="127" column="31" selection-start-line="127" selection-start-column="31" selection-end-line="127" selection-end-column="31" />
-          <folding />
-        </state>
+      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer">
+        <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.54382825">
-          <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.04725898">
+          <caret line="217" column="17" selection-start-line="217" selection-start-column="17" selection-end-line="217" selection-end-column="17" />
           <folding />
         </state>
       </provider>
