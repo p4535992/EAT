@@ -25,112 +25,38 @@
     </artifacts-to-build>
   </component>
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/reflection/ReflectionKit.java" line="895" />
+    <bookmark url="file://$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/reflection/ReflectionKit.java" line="945" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ddc8be51-6c6f-4bbd-b463-02aa428f706b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__classworlds_classworlds_1_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_jcraft_jsch_0_1_52.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__jtidy_jtidy_4aug2000r7_dev.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_exec_1_0_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_doxia_doxia_sink_api_1_0_alpha_7.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_maven_artifact_2_0_6.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_maven_artifact_manager_2_0_6.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_maven_core_2_0_6.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_maven_error_diagnostics_2_0_6.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_maven_model_2_0_6.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_maven_monitor_2_0_6.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_maven_plugin_api_2_0_6.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_maven_plugin_descriptor_2_0_6.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_maven_plugin_parameter_documenter_2_0_6.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_maven_plugin_registry_2_0_6.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_maven_profile_2_0_6.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_maven_project_2_0_6.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_maven_repository_metadata_2_0_6.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_maven_settings_2_0_6.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_maven_toolchain_1_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_reporting_maven_reporting_api_2_0_6.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_wagon_wagon_file_1_0_beta_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_wagon_wagon_http_lightweight_1_0_beta_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_wagon_wagon_http_shared_1_0_beta_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_wagon_wagon_provider_api_1_0_beta_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_wagon_wagon_ssh_1_0_beta_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_wagon_wagon_ssh_common_1_0_beta_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_wagon_wagon_ssh_external_1_0_beta_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_mojo_exec_maven_plugin_1_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_plexus_plexus_container_default_1_0_alpha_9.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_plexus_plexus_interactivity_api_1_0_alpha_4.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_plexus_plexus_utils_2_0_5.xml" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\workspace-eclipse\EAT\ExtractInfo\src\main\java\extractor\hibernate\finder\FinderArgumentTypeFactory.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\workspace-eclipse\EAT\ExtractInfo\src\main\java\extractor\hibernate\finder\FinderExecutor.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\workspace-eclipse\EAT\ExtractInfo\src\main\java\extractor\hibernate\finder\FinderNamingStrategy.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\workspace-eclipse\EAT\ExtractInfo\src\main\java\extractor\hibernate\finder\HibernateFinder.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\workspace-eclipse\EAT\ExtractInfo\src\main\java\extractor\hibernate\finder\impl\ExtendedFinderNamingStrategy.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\workspace-eclipse\EAT\ExtractInfo\src\main\java\extractor\hibernate\finder\impl\FinderIntroductionAdvisor.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\workspace-eclipse\EAT\ExtractInfo\src\main\java\extractor\hibernate\finder\impl\FinderIntroductionInterceptor.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\workspace-eclipse\EAT\ExtractInfo\src\main\java\extractor\hibernate\finder\impl\SimpleFinderArgumentTypeFactory.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\workspace-eclipse\EAT\ExtractInfo\src\main\java\extractor\hibernate\finder\impl\SimpleFinderNamingStrategy.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\workspace-eclipse\EAT\ExtractInfo\target\classes\extractor\hibernate\HibernateFinder.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\workspace-eclipse\EAT\ExtractInfo\target\classes\extractor\hibernate\finder\FinderArgumentTypeFactory.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\workspace-eclipse\EAT\ExtractInfo\target\classes\extractor\hibernate\finder\FinderExecutor.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\workspace-eclipse\EAT\ExtractInfo\target\classes\extractor\hibernate\finder\FinderNamingStrategy.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\workspace-eclipse\EAT\ExtractInfo\target\classes\extractor\hibernate\finder\impl\ExtendedFinderNamingStrategy.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\workspace-eclipse\EAT\ExtractInfo\target\classes\extractor\hibernate\finder\impl\FinderIntroductionAdvisor.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\workspace-eclipse\EAT\ExtractInfo\target\classes\extractor\hibernate\finder\impl\FinderIntroductionInterceptor.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\workspace-eclipse\EAT\ExtractInfo\target\classes\extractor\hibernate\finder\impl\SimpleFinderArgumentTypeFactory.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\workspace-eclipse\EAT\ExtractInfo\target\classes\extractor\hibernate\finder\impl\SimpleFinderNamingStrategy.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\workspace-eclipse\EAT\target\classes\home\MainEAT$1.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\workspace-eclipse\EAT\target\classes\home\MainEAT.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\workspace-eclipse\EAT\target\classes\input.properties" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\workspace-eclipse\EAT\target\classes\input_with_comment.properties" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\workspace-eclipse\EAT\target\classes\input_with_no_comment.properties" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\workspace-eclipse\EAT\utility\src\main\java\com\p4535992\util\xml\XMLKit_Extends.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\workspace-eclipse\EAT\utility\target\apidocs\com\p4535992\util\xml\XMLKit_Extends.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\workspace-eclipse\EAT\utility\target\apidocs\com\p4535992\util\xml\class-use\XMLKit_Extends.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\workspace-eclipse\EAT\utility\target\classes\com\p4535992\util\xml\XMLKit_Extends.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\workspace-eclipse\EAT\utility\target\surefire-reports\TEST-util.Test_Encoding.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\workspace-eclipse\EAT\utility\target\surefire-reports\TEST-util.Test_Http.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\workspace-eclipse\EAT\utility\target\surefire-reports\TEST-util.Test_Jena.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\workspace-eclipse\EAT\utility\target\surefire-reports\TEST-util.Test_Reflection.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\workspace-eclipse\EAT\utility\target\surefire-reports\TEST-util.Test_Sesame.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\workspace-eclipse\EAT\utility\target\surefire-reports\TEST-util.Test_Xml.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\workspace-eclipse\EAT\utility\target\surefire-reports\util.Test_Encoding.txt" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\workspace-eclipse\EAT\utility\target\surefire-reports\util.Test_Http.txt" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\workspace-eclipse\EAT\utility\target\surefire-reports\util.Test_Jena.txt" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\workspace-eclipse\EAT\utility\target\surefire-reports\util.Test_Reflection.txt" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\workspace-eclipse\EAT\utility\target\surefire-reports\util.Test_Sesame.txt" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\workspace-eclipse\EAT\utility\target\surefire-reports\util.Test_Xml.txt" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\src\main\java\com\p4535992\util\xml\XMLKit_Extends.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\xml\XMLKit_Extends.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\apidocs\com\p4535992\util\xml\class-use\XMLKit_Extends.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\classes\com\p4535992\util\xml\XMLKit_Extends.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\surefire-reports\TEST-util.Test_Encoding.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\surefire-reports\TEST-util.Test_Http.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\surefire-reports\TEST-util.Test_Jena.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\surefire-reports\TEST-util.Test_Reflection.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\surefire-reports\TEST-util.Test_Sesame.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\surefire-reports\TEST-util.Test_Xml.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\surefire-reports\util.Test_Encoding.txt" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\surefire-reports\util.Test_Http.txt" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\surefire-reports\util.Test_Jena.txt" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\surefire-reports\util.Test_Reflection.txt" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\surefire-reports\util.Test_Sesame.txt" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\surefire-reports\util.Test_Xml.txt" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/html/CharacterEntityParser.class" afterPath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/html/CharacterEntityParser.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/color/Colors.class" afterPath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/color/Colors.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/http/DefaultHttpRequestRetryHandler.class" afterPath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/http/DefaultHttpRequestRetryHandler.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/encoding/EncodingUtil$ParseState.class" afterPath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/encoding/EncodingUtil$ParseState.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/encoding/EncodingUtil.class" afterPath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/encoding/EncodingUtil.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/target/classes/extractor/estrattori/ExtractInfoSpring.class" afterPath="$PROJECT_DIR$/ExtractInfo/target/classes/extractor/estrattori/ExtractInfoSpring.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/target/classes/extractor/estrattori/ExtractorDomain.class" afterPath="$PROJECT_DIR$/ExtractInfo/target/classes/extractor/estrattori/ExtractorDomain.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/target/classes/extractor/estrattori/ExtractorInfoGATE.class" afterPath="$PROJECT_DIR$/ExtractInfo/target/classes/extractor/estrattori/ExtractorInfoGATE.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/file/FileUtil$FileWalker$1.class" afterPath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/file/FileUtil$FileWalker$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/file/FileUtil$FileWalker.class" afterPath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/file/FileUtil$FileWalker.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/file/FileUtil.class" afterPath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/file/FileUtil.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/target/classes/extractor/gate/GateCorpusKit.class" afterPath="$PROJECT_DIR$/ExtractInfo/target/classes/extractor/gate/GateCorpusKit.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/target/classes/extractor/gate/GateDataStoreKit.class" afterPath="$PROJECT_DIR$/ExtractInfo/target/classes/extractor/gate/GateDataStoreKit.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/target/classes/extractor/gate/servlet/GateHandler.class" afterPath="$PROJECT_DIR$/ExtractInfo/target/classes/extractor/gate/servlet/GateHandler.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/target/classes/extractor/gate/GateKit$SortedAnnotationList.class" afterPath="$PROJECT_DIR$/ExtractInfo/target/classes/extractor/gate/GateKit$SortedAnnotationList.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/target/classes/extractor/gate/GateKit.class" afterPath="$PROJECT_DIR$/ExtractInfo/target/classes/extractor/gate/GateKit.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/target/classes/extractor/karma/GenerationOfTriple.class" afterPath="$PROJECT_DIR$/ExtractInfo/target/classes/extractor/karma/GenerationOfTriple.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/target/classes/object/impl/jdbc/generic/GenericDaoImpl$1.class" afterPath="$PROJECT_DIR$/ExtractInfo/target/classes/object/impl/jdbc/generic/GenericDaoImpl$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/target/classes/object/impl/jdbc/generic/GenericDaoImpl$2.class" afterPath="$PROJECT_DIR$/ExtractInfo/target/classes/object/impl/jdbc/generic/GenericDaoImpl$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/target/classes/object/impl/jdbc/generic/GenericDaoImpl.class" afterPath="$PROJECT_DIR$/ExtractInfo/target/classes/object/impl/jdbc/generic/GenericDaoImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/target/classes/object/impl/hibernate/generic/GenericHibernateDaoImpl.class" afterPath="$PROJECT_DIR$/ExtractInfo/target/classes/object/impl/hibernate/generic/GenericHibernateDaoImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/target/classes/object/model/GeoDocument.class" afterPath="$PROJECT_DIR$/ExtractInfo/target/classes/object/model/GeoDocument.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/object/model/GeoDocument.class" afterPath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/object/model/GeoDocument.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/object/model/GeoDomainDocument.class" afterPath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/object/model/GeoDomainDocument.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/target/classes/object/impl/jdbc/GeoDomainDocumentDaoImpl$1$1.class" afterPath="$PROJECT_DIR$/ExtractInfo/target/classes/object/impl/jdbc/GeoDomainDocumentDaoImpl$1$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/target/classes/object/impl/jdbc/GeoDomainDocumentDaoImpl$1.class" afterPath="$PROJECT_DIR$/ExtractInfo/target/classes/object/impl/jdbc/GeoDomainDocumentDaoImpl$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/target/classes/object/impl/jdbc/GeoDomainDocumentDaoImpl.class" afterPath="$PROJECT_DIR$/ExtractInfo/target/classes/object/impl/jdbc/GeoDomainDocumentDaoImpl.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/geo/GeoHashUtils.class" afterPath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/geo/GeoHashUtils.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/jena/jena_vocabulary/GoodRelations.class" afterPath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/jena/jena_vocabulary/GoodRelations.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/target/classes/extractor/hibernate/Hibernate4Kit.class" afterPath="$PROJECT_DIR$/ExtractInfo/target/classes/extractor/hibernate/Hibernate4Kit.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/target/classes/extractor/hibernate/HibernateCRUD.class" afterPath="$PROJECT_DIR$/ExtractInfo/target/classes/extractor/hibernate/HibernateCRUD.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/html/HtmlCharacterEntities.class" afterPath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/html/HtmlCharacterEntities.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/html/HtmlKit.class" afterPath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/html/HtmlKit.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/html/scanner/HtmlScanner$ScannerHTMLEditorKit.class" afterPath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/html/scanner/HtmlScanner$ScannerHTMLEditorKit.class" />
@@ -139,10 +65,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/http/HttpUtilApache.class" afterPath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/http/HttpUtilApache.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/http/HttpUtility.class" afterPath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/http/HttpUtility.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/object/model/InfoDocument.class" afterPath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/object/model/InfoDocument.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/target/classes/object/impl/jdbc/InfoDocumentDaoImpl.class" afterPath="$PROJECT_DIR$/ExtractInfo/target/classes/object/impl/jdbc/InfoDocumentDaoImpl.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/jena/Jena2Kit.class" afterPath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/jena/Jena2Kit.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/target/classes/extractor/ManageJsonWithGoogleMaps.class" afterPath="$PROJECT_DIR$/ExtractInfo/target/classes/extractor/ManageJsonWithGoogleMaps.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/target/classes/extractor/gate/servlet/MyGateHandler.class" afterPath="$PROJECT_DIR$/ExtractInfo/target/classes/extractor/gate/servlet/MyGateHandler.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/html/parser/PageSaver.class" afterPath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/html/parser/PageSaver.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/html/parser/ParserGetter.class" afterPath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/html/parser/ParserGetter.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/xml/PrefixGrabber.class" afterPath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/xml/PrefixGrabber.class" />
@@ -159,8 +82,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/sesame/SesameUtil28$2.class" afterPath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/sesame/SesameUtil28$2.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/sesame/SesameUtil28$ChunkCommitter.class" afterPath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/sesame/SesameUtil28$ChunkCommitter.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/sesame/SesameUtil28.class" afterPath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/sesame/SesameUtil28.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/target/classes/extractor/setInfoParameterIta/SetCodicePostale.class" afterPath="$PROJECT_DIR$/ExtractInfo/target/classes/extractor/setInfoParameterIta/SetCodicePostale.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/target/classes/extractor/setInfoParameterIta/SetRegioneEProvincia.class" afterPath="$PROJECT_DIR$/ExtractInfo/target/classes/extractor/setInfoParameterIta/SetRegioneEProvincia.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/jena/jena_vocabulary/SiiMobility1_3_4_WithIndividual.class" afterPath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/jena/jena_vocabulary/SiiMobility1_3_4_WithIndividual.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/jena/jena_vocabulary/SiiMobility1_3_4_WithoutIndividual.class" afterPath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/jena/jena_vocabulary/SiiMobility1_3_4_WithoutIndividual.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/file/SimpleParameters.class" afterPath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/file/SimpleParameters.class" />
@@ -174,21 +95,15 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/log/SystemLog$1.class" afterPath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/log/SystemLog$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/log/SystemLog$Level.class" afterPath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/log/SystemLog$Level.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/log/SystemLog.class" afterPath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/log/SystemLog.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/target/test-classes/util/Test_JDBC_util.class" afterPath="$PROJECT_DIR$/ExtractInfo/target/test-classes/util/Test_JDBC_util.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/test-classes/util/Test_Reflection.class" afterPath="$PROJECT_DIR$/utility/target/test-classes/util/Test_Reflection.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/target/test-classes/util/Test_SILK.class" afterPath="$PROJECT_DIR$/ExtractInfo/target/test-classes/util/Test_SILK.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/http/URLUtil.class" afterPath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/http/URLUtil.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/xml/XMLKit$1.class" afterPath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/xml/XMLKit$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/xml/XMLKit.class" afterPath="$PROJECT_DIR$/utility/target/classes/com/p4535992/util/xml/XMLKit.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/utility-1.0-javadoc.jar" afterPath="$PROJECT_DIR$/utility/target/utility-1.0-javadoc.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/utility-1.0-sources.jar" afterPath="$PROJECT_DIR$/utility/target/utility-1.0-sources.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/utility-1.0.jar" afterPath="$PROJECT_DIR$/utility/target/utility-1.0.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.classpath" afterPath="$PROJECT_DIR$/.classpath" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/.classpath" afterPath="$PROJECT_DIR$/ExtractInfo/.classpath" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/.classpath" afterPath="$PROJECT_DIR$/utility/.classpath" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/.gitignore" afterPath="$PROJECT_DIR$/ExtractInfo/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.project" afterPath="$PROJECT_DIR$/.project" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/.project" afterPath="$PROJECT_DIR$/ExtractInfo/.project" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/.project" afterPath="$PROJECT_DIR$/utility/.project" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/color/Colors.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/color/Colors.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/color/class-use/Colors.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/color/class-use/Colors.html" />
@@ -198,19 +113,9 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/http/DefaultHttpRequestRetryHandler.java" afterPath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/http/DefaultHttpRequestRetryHandler.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/object/model/Document.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/object/model/Document.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/object/model/class-use/Document.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/object/model/class-use/Document.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/EAT.eml" afterPath="$PROJECT_DIR$/EAT.eml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/EAT.iml" afterPath="$PROJECT_DIR$/EAT.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/EAT.userlibraries" afterPath="$PROJECT_DIR$/EAT.userlibraries" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/encoding/EncodingUtil.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/encoding/EncodingUtil.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/encoding/class-use/EncodingUtil.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/encoding/class-use/EncodingUtil.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/encoding/EncodingUtil.java" afterPath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/encoding/EncodingUtil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/ExtractInfo.eml" afterPath="$PROJECT_DIR$/ExtractInfo/ExtractInfo.eml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/ExtractInfo.iml" afterPath="$PROJECT_DIR$/ExtractInfo/ExtractInfo.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/java/extractor/estrattori/ExtractInfoSpring.java" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/extractor/estrattori/ExtractInfoSpring.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/java/extractor/estrattori/ExtractInfoWeb.java" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/extractor/estrattori/ExtractInfoWeb.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/java/extractor/estrattori/ExtractorDomain.java" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/extractor/estrattori/ExtractorDomain.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/java/extractor/estrattori/ExtractorGeoDocumentSupport.java" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/extractor/estrattori/ExtractorGeoDocumentSupport.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/java/extractor/estrattori/ExtractorInfoGATE.java" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/extractor/estrattori/ExtractorInfoGATE.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/file/FileUtil.FileWalker.Handler.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/file/FileUtil.FileWalker.Handler.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/file/class-use/FileUtil.FileWalker.Handler.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/file/class-use/FileUtil.FileWalker.Handler.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/file/FileUtil.FileWalker.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/file/FileUtil.FileWalker.html" />
@@ -218,27 +123,15 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/file/FileUtil.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/file/FileUtil.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/file/class-use/FileUtil.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/file/class-use/FileUtil.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/file/FileUtil.java" afterPath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/file/FileUtil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/java/extractor/gate/GateAnnotationKit.java" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/extractor/gate/GateAnnotationKit.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/java/extractor/gate/GateCorpusKit.java" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/extractor/gate/GateCorpusKit.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/java/extractor/gate/GateDataStoreKit.java" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/extractor/gate/GateDataStoreKit.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/java/extractor/gate/servlet/GateHandler.java" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/extractor/gate/servlet/GateHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/java/extractor/gate/GateKit.java" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/extractor/gate/GateKit.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/java/extractor/karma/GenerationOfTriple.java" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/extractor/karma/GenerationOfTriple.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/java/object/impl/jdbc/generic/GenericDaoImpl.java" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/object/impl/jdbc/generic/GenericDaoImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/java/object/impl/hibernate/generic/GenericHibernateDaoImpl.java" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/object/impl/hibernate/generic/GenericHibernateDaoImpl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/geo/GeoDistanceSimple.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/geo/GeoDistanceSimple.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/geo/class-use/GeoDistanceSimple.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/geo/class-use/GeoDistanceSimple.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/geo/GeoDistanceSimple.java" afterPath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/geo/GeoDistanceSimple.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/object/model/GeoDocument.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/object/model/GeoDocument.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/object/model/class-use/GeoDocument.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/object/model/class-use/GeoDocument.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/java/object/model/GeoDocument.java" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/object/model/GeoDocument.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/object/model/GeoDocument.java" afterPath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/object/model/GeoDocument.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/java/extractor/hibernate/interceptor/GeoDocumentInterceptor.java" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/extractor/hibernate/interceptor/GeoDocumentInterceptor.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/object/model/GeoDomainDocument.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/object/model/GeoDomainDocument.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/object/model/class-use/GeoDomainDocument.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/object/model/class-use/GeoDomainDocument.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/java/object/model/GeoDomainDocument.java" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/object/model/GeoDomainDocument.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/object/model/GeoDomainDocument.java" afterPath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/object/model/GeoDomainDocument.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/java/object/impl/jdbc/GeoDomainDocumentDaoImpl.java" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/object/impl/jdbc/GeoDomainDocumentDaoImpl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/geo/GeoHashUtils.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/geo/GeoHashUtils.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/geo/class-use/GeoHashUtils.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/geo/class-use/GeoHashUtils.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/geo/GeoHashUtils.java" afterPath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/geo/GeoHashUtils.java" />
@@ -250,7 +143,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/jena/jena_vocabulary/GoodRelations.java" afterPath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/jena/jena_vocabulary/GoodRelations.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/json/GsonKit.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/json/GsonKit.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/json/class-use/GsonKit.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/json/class-use/GsonKit.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/java/extractor/hibernate/Hibernate4Kit.java" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/extractor/hibernate/Hibernate4Kit.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/html/HtmlCharacterEntities.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/html/HtmlCharacterEntities.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/html/class-use/HtmlCharacterEntities.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/html/class-use/HtmlCharacterEntities.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/html/HtmlCharacterEntities.java" afterPath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/html/HtmlCharacterEntities.java" />
@@ -270,9 +162,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/http/HttpUtility.java" afterPath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/http/HttpUtility.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/object/model/InfoDocument.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/object/model/InfoDocument.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/object/model/class-use/InfoDocument.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/object/model/class-use/InfoDocument.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/java/object/model/InfoDocument.java" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/object/model/InfoDocument.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/object/model/InfoDocument.java" afterPath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/object/model/InfoDocument.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/java/object/impl/jdbc/InfoDocumentDaoImpl.java" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/object/impl/jdbc/InfoDocumentDaoImpl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/html/JSoupKit.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/html/JSoupKit.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/html/class-use/JSoupKit.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/html/class-use/JSoupKit.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/json/JacksonKit.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/json/JacksonKit.html" />
@@ -283,12 +173,8 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/jena/Jena2Kit.java" afterPath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/jena/Jena2Kit.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/jenaAndSesame/JenaAndSesame.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/jenaAndSesame/JenaAndSesame.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/jenaAndSesame/class-use/JenaAndSesame.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/jenaAndSesame/class-use/JenaAndSesame.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/java/extractor/JenaInfoDocument.java" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/extractor/JenaInfoDocument.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/home/MainEAT.java" afterPath="$PROJECT_DIR$/src/main/java/home/MainEAT.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/java/extractor/ManageJsonWithGoogleMaps.java" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/extractor/ManageJsonWithGoogleMaps.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/metric/MetricKit.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/metric/MetricKit.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/metric/class-use/MetricKit.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/metric/class-use/MetricKit.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/java/extractor/gate/servlet/MyGateHandler.java" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/extractor/gate/servlet/MyGateHandler.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/html/parser/Outliner.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/html/parser/Outliner.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/html/parser/class-use/Outliner.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/html/parser/class-use/Outliner.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/html/parser/PageSaver.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/html/parser/PageSaver.html" />
@@ -328,8 +214,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/sesame/SesameUtil28.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/sesame/SesameUtil28.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/sesame/class-use/SesameUtil28.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/sesame/class-use/SesameUtil28.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/sesame/SesameUtil28.java" afterPath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/sesame/SesameUtil28.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/java/extractor/setInfoParameterIta/SetCodicePostale.java" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/extractor/setInfoParameterIta/SetCodicePostale.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/java/extractor/setInfoParameterIta/SetRegioneEProvincia.java" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/extractor/setInfoParameterIta/SetRegioneEProvincia.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/jena/jena_vocabulary/SiiMobility1_3_4_WithIndividual.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/jena/jena_vocabulary/SiiMobility1_3_4_WithIndividual.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/jena/jena_vocabulary/class-use/SiiMobility1_3_4_WithIndividual.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/jena/jena_vocabulary/class-use/SiiMobility1_3_4_WithIndividual.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/jena/jena_vocabulary/SiiMobility1_3_4_WithIndividual.java" afterPath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/jena/jena_vocabulary/SiiMobility1_3_4_WithIndividual.java" />
@@ -359,11 +243,9 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/encrypt/class-use/Test_Crypto.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/encrypt/class-use/Test_Crypto.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/html/Test_Html.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/html/Test_Html.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/html/class-use/Test_Html.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/html/class-use/Test_Html.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/test/java/util/Test_JDBC_util.java" afterPath="$PROJECT_DIR$/ExtractInfo/src/test/java/util/Test_JDBC_util.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/html/Test_Jsoup.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/html/Test_Jsoup.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/html/class-use/Test_Jsoup.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/html/class-use/Test_Jsoup.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/src/test/java/util/Test_Reflection.java" afterPath="$PROJECT_DIR$/utility/src/test/java/util/Test_Reflection.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/test/java/util/Test_SILK.java" afterPath="$PROJECT_DIR$/ExtractInfo/src/test/java/util/Test_SILK.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/http/URLUtil.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/http/URLUtil.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/http/class-use/URLUtil.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/http/class-use/URLUtil.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/http/URLUtil.java" afterPath="$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/http/URLUtil.java" />
@@ -384,7 +266,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/constant-values.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/constant-values.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterPath="$PROJECT_DIR$/utility/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/deprecated-list.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/deprecated-list.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/help-doc.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/help-doc.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/index-all.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/index-all.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/index.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/index.html" />
@@ -486,7 +367,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/string/package-use.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/string/package-use.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/xml/package-use.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/com/p4535992/util/xml/package-use.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/utility/target/maven-archiver/pom.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/pom.xml" afterPath="$PROJECT_DIR$/ExtractInfo/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/pom.xml" afterPath="$PROJECT_DIR$/utility/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/apidocs/serialized-form.html" afterPath="$PROJECT_DIR$/utility/target/apidocs/serialized-form.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/utility.iml" afterPath="$PROJECT_DIR$/utility/utility.iml" />
@@ -579,7 +459,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/utility/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
@@ -593,19 +473,17 @@
         <entry file="file://$PROJECT_DIR$/ExtractInfo/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-              <folding>
-                <marker date="1434527743264" expanded="true" signature="15699:15721" placeholder="..." />
-              </folding>
+              <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="10" column="25" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
+            <state vertical-scroll-proportion="0.54382825">
+              <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -625,7 +503,7 @@
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="105" column="21" selection-start-line="91" selection-start-column="7" selection-end-line="105" selection-end-column="21" />
+              <caret line="127" column="31" selection-start-line="127" selection-start-column="31" selection-end-line="127" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -636,15 +514,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="83" column="40" selection-start-line="83" selection-start-column="40" selection-end-line="83" selection-end-column="40" />
-              <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#955#956#0" expanded="false" />
-                <element signature="e#1005#1006#0" expanded="false" />
-                <element signature="e#4506#4507#0" expanded="false" />
-                <element signature="e#4542#4543#0" expanded="false" />
-                <element signature="e#4663#4664#0" expanded="false" />
-                <element signature="e#4700#4701#0" expanded="false" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -653,15 +523,12 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/home/MainEAT.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="73" column="44" selection-start-line="73" selection-start-column="44" selection-end-line="73" selection-end-column="44" />
+              <caret line="69" column="43" selection-start-line="69" selection-start-column="43" selection-end-line="69" selection-end-column="43" />
               <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#941#942#0" expanded="false" />
-                <element signature="e#991#992#0" expanded="false" />
-                <element signature="e#4993#4994#0" expanded="false" />
-                <element signature="e#5029#5030#0" expanded="false" />
-                <element signature="e#5150#5151#0" expanded="false" />
-                <element signature="e#5187#5188#0" expanded="false" />
+                <element signature="e#4176#4177#0" expanded="false" />
+                <element signature="e#4212#4213#0" expanded="false" />
+                <element signature="e#4333#4334#0" expanded="false" />
+                <element signature="e#4370#4371#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -683,7 +550,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/utility" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GradleLocalSettings">
     <option name="externalProjectsViewState">
@@ -739,11 +606,11 @@
         <option value="$PROJECT_DIR$/ExtractInfo/src/main/java/extractor/estrattori/ExtractorGeoDocumentSupport.java" />
         <option value="$PROJECT_DIR$/ExtractInfo/src/main/java/home/MainExtractInfo.java" />
         <option value="$PROJECT_DIR$/ExtractInfo/src/main/java/extractor/estrattori/ExtractInfoWeb.java" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/ExtractInfo/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/home/MainEAT.java" />
         <option value="$PROJECT_DIR$/utility/pom.xml" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -838,51 +705,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EAT" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webControllerInfo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EAT" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webControllerInfo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EAT" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="Scratches" />
-      <pane id="Scope">
-        <subPane subId="Project Files">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -913,6 +735,51 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="utility" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scratches" />
+      <pane id="PackagesPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EAT" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webControllerInfo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EAT" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webControllerInfo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EAT" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -1700,11 +1567,12 @@
       <workItem from="1434401652660" duration="883000" />
       <workItem from="1434526028323" duration="536000" />
       <workItem from="1434538445316" duration="456000" />
+      <workItem from="1434545370008" duration="192000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1033449000" />
+    <option name="totallyTimeSpent" value="1033641000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -1717,7 +1585,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1737,10 +1605,10 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24205749" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24659607" sideWeight="0.4883721" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25642964" sideWeight="0.4766082" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25642964" sideWeight="0.4766082" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32854208" sideWeight="0.5116279" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4778157" sideWeight="0.49081165" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4778157" sideWeight="0.49081165" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31569967" sideWeight="0.48774886" order="1" side_tool="false" content_ui="tabs" />
@@ -1752,11 +1620,11 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
-      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3284839" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3284839" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.322807" sideWeight="0.53369063" order="8" side_tool="true" content_ui="tabs" />
@@ -1777,8 +1645,8 @@
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.322807" sideWeight="0.46630934" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24961714" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24432677" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
@@ -1876,43 +1744,43 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/ExtractInfo/src/main/java/extractor/gate/GateCorpusKit.java</url>
-          <line>89</line>
+          <line>95</line>
           <properties />
           <option name="timeStamp" value="170" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/ExtractInfo/src/main/java/extractor/estrattori/ExtractorInfoGATE.java</url>
-          <line>148</line>
+          <line>149</line>
           <properties />
           <option name="timeStamp" value="201" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/ExtractInfo/src/main/java/extractor/estrattori/ExtractorInfoGATE.java</url>
-          <line>158</line>
+          <line>159</line>
           <properties />
           <option name="timeStamp" value="206" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/ExtractInfo/src/main/java/extractor/estrattori/ExtractInfoSpring.java</url>
-          <line>324</line>
+          <line>325</line>
           <properties />
           <option name="timeStamp" value="209" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/ExtractInfo/src/main/java/extractor/estrattori/ExtractInfoSpring.java</url>
-          <line>311</line>
+          <line>312</line>
           <properties />
           <option name="timeStamp" value="210" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/ExtractInfo/src/main/java/extractor/estrattori/ExtractInfoSpring.java</url>
-          <line>227</line>
+          <line>228</line>
           <properties />
           <option name="timeStamp" value="216" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/ExtractInfo/src/main/java/extractor/estrattori/ExtractInfoSpring.java</url>
-          <line>264</line>
+          <line>265</line>
           <properties />
           <option name="timeStamp" value="225" />
         </line-breakpoint>
@@ -1960,13 +1828,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/ExtractInfo/src/main/java/extractor/estrattori/ExtractInfoSpring.java</url>
-          <line>391</line>
+          <line>392</line>
           <properties />
           <option name="timeStamp" value="250" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/ExtractInfo/src/main/java/extractor/estrattori/ExtractInfoSpring.java</url>
-          <line>401</line>
+          <line>402</line>
           <properties />
           <option name="timeStamp" value="258" />
         </line-breakpoint>
@@ -1984,13 +1852,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/reflection/ReflectionKit.java</url>
-          <line>880</line>
+          <line>930</line>
           <properties />
           <option name="timeStamp" value="282" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/reflection/ReflectionKit.java</url>
-          <line>841</line>
+          <line>891</line>
           <properties />
           <option name="timeStamp" value="284" />
         </line-breakpoint>
@@ -2038,7 +1906,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/ExtractInfo/src/main/java/extractor/karma/GenerationOfTriple.java</url>
-          <line>87</line>
+          <line>86</line>
           <properties />
           <option name="timeStamp" value="328" />
         </line-breakpoint>
@@ -2062,13 +1930,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/home/MainEAT.java</url>
-          <line>74</line>
+          <line>70</line>
           <properties />
           <option name="timeStamp" value="336" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/ExtractInfo/src/main/java/extractor/estrattori/ExtractInfoSpring.java</url>
-          <line>363</line>
+          <line>364</line>
           <properties />
           <option name="timeStamp" value="337" />
         </line-breakpoint>
@@ -2098,19 +1966,19 @@
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/ExtractInfo/src/main/java/extractor/estrattori/ExtractInfoSpring.java</url>
-          <line>405</line>
+          <line>406</line>
           <properties />
           <option name="timeStamp" value="355" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/ExtractInfo/src/main/java/extractor/estrattori/ExtractInfoSpring.java</url>
-          <line>423</line>
+          <line>424</line>
           <properties />
           <option name="timeStamp" value="357" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/sesame/SesameUtil28.java</url>
-          <line>548</line>
+          <line>581</line>
           <properties />
           <option name="timeStamp" value="359" />
         </line-breakpoint>
@@ -2134,7 +2002,7 @@
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/sesame/SesameUtil28.java</url>
-          <line>1144</line>
+          <line>1217</line>
           <properties />
           <option name="timeStamp" value="364" />
         </line-breakpoint>
@@ -2158,13 +2026,13 @@
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/html/scanner/HtmlScanner.java</url>
-          <line>33</line>
+          <line>35</line>
           <properties />
           <option name="timeStamp" value="381" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/html/scanner/HtmlScanner.java</url>
-          <line>30</line>
+          <line>32</line>
           <properties />
           <option name="timeStamp" value="382" />
         </line-breakpoint>
@@ -2212,55 +2080,49 @@
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/reflection/ReflectionKit.java</url>
-          <line>738</line>
+          <line>783</line>
           <properties />
           <option name="timeStamp" value="436" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/reflection/ReflectionKit.java</url>
-          <line>607</line>
+          <line>648</line>
           <properties />
           <option name="timeStamp" value="439" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/reflection/ReflectionKit.java</url>
-          <line>256</line>
+          <line>261</line>
           <properties />
           <option name="timeStamp" value="468" />
         </line-breakpoint>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/ExtractInfo/src/main/java/object/impl/jdbc/generic/GenericDaoImpl.java</url>
-          <line>798</line>
-          <properties />
-          <option name="timeStamp" value="479" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/ExtractInfo/src/main/java/extractor/estrattori/ExtractInfoSpring.java</url>
-          <line>180</line>
+          <line>181</line>
           <properties />
           <option name="timeStamp" value="491" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/ExtractInfo/src/main/java/extractor/estrattori/ExtractInfoSpring.java</url>
-          <line>190</line>
+          <line>191</line>
           <properties />
           <option name="timeStamp" value="492" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/utility/src/main/java/com/p4535992/util/reflection/ReflectionKit.java</url>
-          <line>349</line>
+          <line>373</line>
           <properties />
           <option name="timeStamp" value="508" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/ExtractInfo/src/main/java/extractor/estrattori/ExtractInfoSpring.java</url>
-          <line>216</line>
+          <line>217</line>
           <properties />
           <option name="timeStamp" value="523" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/ExtractInfo/src/main/java/object/impl/jdbc/generic/GenericDaoImpl.java</url>
-          <line>296</line>
+          <line>300</line>
           <properties />
           <option name="timeStamp" value="530" />
         </line-breakpoint>
@@ -2272,7 +2134,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/ExtractInfo/src/main/java/object/impl/jdbc/generic/GenericDaoImpl.java</url>
-          <line>289</line>
+          <line>293</line>
           <properties />
           <option name="timeStamp" value="534" />
         </line-breakpoint>
@@ -2332,7 +2194,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/home/MainEAT.java</url>
-          <line>72</line>
+          <line>68</line>
           <properties />
           <option name="timeStamp" value="559" />
         </line-breakpoint>
@@ -2350,13 +2212,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/ExtractInfo/src/main/java/extractor/estrattori/ExtractInfoSpring.java</url>
-          <line>205</line>
+          <line>206</line>
           <properties />
           <option name="timeStamp" value="563" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/ExtractInfo/src/main/java/extractor/estrattori/ExtractInfoSpring.java</url>
-          <line>288</line>
+          <line>289</line>
           <properties />
           <option name="timeStamp" value="564" />
         </line-breakpoint>
@@ -2368,25 +2230,25 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/ExtractInfo/src/main/java/extractor/estrattori/ExtractInfoSpring.java</url>
-          <line>342</line>
+          <line>343</line>
           <properties />
           <option name="timeStamp" value="579" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/ExtractInfo/src/main/java/extractor/estrattori/ExtractInfoSpring.java</url>
-          <line>356</line>
+          <line>357</line>
           <properties />
           <option name="timeStamp" value="590" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/ExtractInfo/src/main/java/object/impl/jdbc/generic/GenericDaoImpl.java</url>
-          <line>754</line>
+          <line>757</line>
           <properties />
           <option name="timeStamp" value="591" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/ExtractInfo/src/main/java/extractor/karma/GenerationOfTriple.java</url>
-          <line>115</line>
+          <line>114</line>
           <properties />
           <option name="timeStamp" value="592" />
         </line-breakpoint>
@@ -2421,7 +2283,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2492,13 +2353,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/silk_files/batch/README.md">
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="1" column="49" selection-start-line="1" selection-start-column="49" selection-end-line="1" selection-end-column="49" />
         </state>
+      </provider>
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/silk_files/batch/run_silk_windows_2015-05-05.bat">
@@ -2509,13 +2370,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="19" column="24" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
         </state>
+      </provider>
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/bean/InitBean.java">
@@ -2719,13 +2580,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/utility/utility.eml">
+      <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
-      </provider>
-      <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
-        <state />
       </provider>
     </entry>
     <entry file="uml://MAVEN/com.p4535992:ExtractInfo:1.0">
@@ -3041,15 +2902,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="83" column="40" selection-start-line="83" selection-start-column="40" selection-end-line="83" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#955#956#0" expanded="false" />
-            <element signature="e#1005#1006#0" expanded="false" />
-            <element signature="e#4506#4507#0" expanded="false" />
-            <element signature="e#4542#4543#0" expanded="false" />
-            <element signature="e#4663#4664#0" expanded="false" />
-            <element signature="e#4700#4701#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -3063,15 +2916,12 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/home/MainEAT.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="73" column="44" selection-start-line="73" selection-start-column="44" selection-end-line="73" selection-end-column="44" />
+          <caret line="69" column="43" selection-start-line="69" selection-start-column="43" selection-end-line="69" selection-end-column="43" />
           <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#941#942#0" expanded="false" />
-            <element signature="e#991#992#0" expanded="false" />
-            <element signature="e#4993#4994#0" expanded="false" />
-            <element signature="e#5029#5030#0" expanded="false" />
-            <element signature="e#5150#5151#0" expanded="false" />
-            <element signature="e#5187#5188#0" expanded="false" />
+            <element signature="e#4176#4177#0" expanded="false" />
+            <element signature="e#4212#4213#0" expanded="false" />
+            <element signature="e#4333#4334#0" expanded="false" />
+            <element signature="e#4370#4371#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -3079,17 +2929,7 @@
     <entry file="file://$PROJECT_DIR$/ExtractInfo/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding>
-            <marker date="1434527743264" expanded="true" signature="15699:15721" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="25" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
+          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -3102,18 +2942,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="105" column="21" selection-start-line="91" selection-start-column="7" selection-end-line="105" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/utility/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="262" column="37" selection-start-line="262" selection-start-column="37" selection-end-line="262" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="127" column="31" selection-start-line="127" selection-start-column="31" selection-end-line="127" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.54382825">
+          <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
           <folding />
         </state>
       </provider>
