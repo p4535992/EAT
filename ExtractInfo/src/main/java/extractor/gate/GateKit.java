@@ -104,6 +104,8 @@ public class GateKit {
      * Initialise the GATE system. This creates a "corpus pipeline"
      * application that can be used to run sets of documents through
      * the extraction system.
+     * @param base string base directory/folder.
+     * @param fileGapp string filepath ot the gapp file.
      */
     public static void loadGapp(String base,String fileGapp){
         SystemLog.message("Loading file .gapp/.xgapp...");
@@ -184,11 +186,11 @@ public class GateKit {
 
     /**
      * Method to convert every gate document in a coprus in xml files with all the annotations you gate in them
-     * @param corpus
-     * @param addAnnotTypesRequired
-     * @throws IOException
+     * @param corpus coprus  of gate.
+     * @param addAnnotTypesRequired list of annotation.
+     * @throws IOException error.
      */
-    public static void createXMLFileForEachDoc(Corpus corpus,ArrayList<String> addAnnotTypesRequired) throws IOException{
+    public static void createXMLFileForEachDoc(Corpus corpus,List<String> addAnnotTypesRequired) throws IOException{
         // for each document, get an XML document with the person,location,MyGeo names added
         Iterator iter = corpus.iterator();
         int count = 0;

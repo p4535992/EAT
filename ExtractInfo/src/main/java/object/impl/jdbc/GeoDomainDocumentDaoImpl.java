@@ -107,6 +107,7 @@ public class GeoDomainDocumentDaoImpl extends GenericDaoImpl<GeoDomainDocument> 
     }
 
 
+    @SuppressWarnings("rawtypes")
     public List<GeoDocument> selectAllGeoDocument(final String column,String limit, String offset) {
         query = "SELECT * FROM "+mySelectTable+" LIMIT 1 OFFSET 0";
         if(column == "*"){

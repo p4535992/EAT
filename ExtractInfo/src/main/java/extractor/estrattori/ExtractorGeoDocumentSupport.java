@@ -8,12 +8,6 @@ import extractor.setInfoParameterIta.SetCodicePostale;
 import extractor.setInfoParameterIta.SetNazioneELanguage;
 import extractor.setInfoParameterIta.SetProvinciaECity;
 import extractor.setInfoParameterIta.SetRegioneEProvincia;
-import object.dao.jdbc.IDocumentDao;
-import object.dao.jdbc.IGeoDocumentDao;
-import object.dao.jdbc.IWebsiteDao;
-import object.impl.jdbc.DocumentDaoImpl;
-import object.impl.jdbc.GeoDocumentDaoImpl;
-import object.impl.jdbc.WebsiteDaoImpl;
 import object.model.GeoDocument;
 
 import java.net.URISyntaxException;

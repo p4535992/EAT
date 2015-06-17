@@ -170,6 +170,7 @@ public class ExtractInfoSpring {
 
     /**
      * Metodo Main del programma per la creazione di InfoDocument
+     * @throws Exception error.
      */
     public void Extraction() throws Exception {
         try{

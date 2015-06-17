@@ -30,26 +30,26 @@ import com.p4535992.util.string.StringKit;
 public class ExtractorDomain {
     
     //FREQUENZA DEGLI URL PER L'IDENTIFICAZIONE DEL DOMINIO
-    private static Integer FREQUENZA_INTERVALLO_URL;
+    private  Integer FREQUENZA_INTERVALLO_URL;
     //TABELLA DI INPUT GEODOCUMENT DA CONVERTIRE IN GEODOMAINDOCUMENT
-    private static String TABLE_INPUT_GEODOMAIN; 
+    private  String TABLE_INPUT_GEODOMAIN; 
     //TABELLA DI OUTPUT GEODOMAINDOCUMENT
-    private static String TABLE_OUTPUT_GEODOMAIN; 
+    private  String TABLE_OUTPUT_GEODOMAIN; 
     
     //NOME USER PER L'HOST MYSQL
-    private static String USER;
+    private  String USER;
     //PASSWORD PER L'HOST MYSQL
-    private static String PASS;
+    private  String PASS;
     //DATABASE DELLA TABELLA DI INPUT
-    private static String DB_INPUT_GEODOMAIN;  
+    private  String DB_INPUT_GEODOMAIN;  
     //DATABASE DELLA TABELLA DI OUTPUT
-    private static String DB_OUTPUT_GEODOMAIN;
+    private  String DB_OUTPUT_GEODOMAIN;
     
-    private static Integer LIMIT;
-    private static Integer OFFSET;
+    private  Integer LIMIT;
+    private  Integer OFFSET;
 
-    private static SessionFactory factory = null;
-    private static GeoDomainDocumentDaoImpl geoDomainDocDao;
+    private  SessionFactory factory = null;
+    private  GeoDomainDocumentDaoImpl geoDomainDocDao;
     
     public ExtractorDomain(){}
 

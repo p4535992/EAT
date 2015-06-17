@@ -27,7 +27,7 @@ public class Test_JDBC_util {
                 "postalCode", "indirizzoNoCAP", "indirizzoHasNumber"
         );
 
-        SQLSupport support = new SQLSupport(geo);
+        SQLSupport<GeoDocument> support = new SQLSupport<>(geo);
 
         dao.setDriverManager(
                 "com.mysql.jdbc.Driver", "jdbc:mysql",

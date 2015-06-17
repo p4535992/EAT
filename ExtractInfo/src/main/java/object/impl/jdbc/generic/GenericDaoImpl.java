@@ -23,6 +23,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.sql.*;
 import java.util.*;
+import org.springframework.dao.DataAccessException;
 
 /**
  * Created by 4535992 on 16/04/2015.
@@ -42,6 +43,7 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
     protected String query;
     protected ApplicationContext context;
 
+    @SuppressWarnings("unchecked")
     public GenericDaoImpl() {
         java.lang.reflect.Type t = getClass().getGenericSuperclass();
         java.lang.reflect.ParameterizedType pt = (java.lang.reflect.ParameterizedType) t;
@@ -176,7 +178,7 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
 
     @Override
     public T find(final Object id) {
-        return (T) this.em.find(cl, id);
+        return this.em.find(cl, id);
     }
 
     @Override
@@ -309,7 +311,9 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
         }
     }
 
+   
     @Override
+    @SuppressWarnings({"rawtypes","unchecked"})
     public void tryInsert(T object) {
         SQLSupport support = new SQLSupport(object);
         String[] columns = support.getCOLUMNS();
@@ -488,7 +492,7 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
         SystemLog.query(query);
         try {
             int i = 0;
-            Class[] classes = ReflectionKit.getClassesByFieldsByAnnotation(cl,javax.persistence.Column.class);
+            Class<?>[] classes = ReflectionKit.getClassesByFieldsByAnnotation(cl,javax.persistence.Column.class);
             for (Map<String, Object> geoDoc : map) {
                 T iClass =  ReflectionKit.invokeConstructor(cl);
                 for (Iterator<Map.Entry<String, Object>> it = geoDoc.entrySet().iterator(); it.hasNext(); ) {
@@ -537,7 +541,7 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
                 columns2 = StringKit.copyContentArray(columns);
             }
 
-            final Class[] classes =
+            final Class<?>[] classes =
                     SQLSupport.getArrayClassesTypes(cl, javax.persistence.Column.class);
 
             final List<Method> setters = ReflectionKit.getSettersClassOrder(cl);
@@ -616,12 +620,12 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
                 columns2 = StringKit.copyContentArray(columns);
             }
 
-            final Class[] classes =
+            final Class<?>[] classes =
                     SQLSupport.getArrayClassesTypes(cl, javax.persistence.Column.class);
 
             final List<Method> setters = ReflectionKit.getSettersClassOrder(cl);
 
-            list = (List<T>) jdbcTemplate.query(query,new ResultSetExtractor() {
+            list = jdbcTemplate.query(query,new ResultSetExtractor<List<T>>() {
                 @Override
                 public List<T> extractData(ResultSet rs) throws SQLException {
                     List<T> list = new ArrayList<>();
@@ -681,7 +685,6 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
                     }
                     return list;
                 }
-
             });
         }catch (Exception e){
             SystemLog.exception(e);
@@ -698,7 +701,7 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
         query = prepareSelectQuery(new String[]{column},new String[]{column_where},null,limit,offset,condition);
         List<Map<String, Object>> list;
         if(value_where != null) {
-            Class[] classes = new Class[]{value_where.getClass()};
+            Class<?>[] classes = new Class<?>[]{value_where.getClass()};
             list = jdbcTemplate.queryForList(query, new Object[]{value_where}, classes);
             SystemLog.query(query +" -> Return a list of "+list.size()+" elements!");
         }else{
@@ -725,7 +728,7 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
         query = prepareSelectQuery(columns,columns_where,null,limit,offset,condition);
         List<Map<String, Object>> list;
         if(values_where != null) {
-            Class[] classes = new Class[]{values_where.getClass()};
+            Class<?>[] classes = new Class<?>[]{values_where.getClass()};
             list = jdbcTemplate.queryForList(query, new Object[]{values_where}, classes);
             SystemLog.query(query +" -> Return a list of "+list.size()+" elements!");
         }else{

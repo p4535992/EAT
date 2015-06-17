@@ -13,13 +13,13 @@ import java.util.Set;
  * Created by 4535992 on 14/05/2015.
  */
 public class GeoDocumentInterceptor extends EmptyInterceptor{
-
+    private static final long serailVersionUID = 13L;
     Session session;
     SessionFactory sessionFactory;
-    private Set inserts = new HashSet();
-    private Set updates = new HashSet();
-    private Set deletes = new HashSet();
-    private Set saves = new HashSet();
+    private Set<Object> inserts = new HashSet<>();
+    private Set<Object> updates = new HashSet<>();
+    private Set<Object> deletes = new HashSet<>();
+    private Set<Object> saves = new HashSet<>();
     //Hibernate4Kit hbs = new Hibernate4Kit();
 
     public void setSession(Session session) {

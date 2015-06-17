@@ -62,6 +62,7 @@ public class GateHandler implements HttpRequestHandler {
 
   /**
    * Set the application that will be run over the documents.
+   * @param application corpus controller of gate.
    */
   public void setApplication(CorpusController application) {
     this.application = application;
@@ -72,6 +73,7 @@ public class GateHandler implements HttpRequestHandler {
    * method will be called by spring once the handler object has been
    * constructed and its properties (i.e. the application) have been
    * set.
+   * @throws Exception error.
    */
   @PostConstruct
   public void init() throws Exception {
@@ -85,6 +87,7 @@ public class GateHandler implements HttpRequestHandler {
   /**
    * Clean-up method. The PreDestroy annotation means that Spring will
    * call the method when the object is no longer required.
+   * @throws Exception error.
    */
   @PreDestroy
   public void cleanup() throws Exception {

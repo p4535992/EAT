@@ -51,13 +51,13 @@ public class JenaInfoDocument {
     public JenaInfoDocument(){}
 
     /**
-     * Method for read,query and clean a specific set of triple
-     * @param filenameInput
-     * @param filepath
-     * @param fileNameOutput
-     * @param inputFormat
-     * @param outputFormat
-     * @throws IOException
+     * Method for read,query and clean a specific set of triple.
+     * @param filenameInput name of the file of input.
+     * @param filepath file path to the folder containt the fileNameInput.
+     * @param fileNameOutput name of the file output.
+     * @param inputFormat input format of the triples.
+     * @param outputFormat output format for the triples.
+     * @throws IOException error.
      */
     public static void readQueryAndCleanTripleInfoDocument(
             String filenameInput,String filepath,String fileNameOutput,String inputFormat,String outputFormat)

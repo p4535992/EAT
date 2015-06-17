@@ -23,10 +23,10 @@
 
     <name>EAT</name>
 
-    <modules>
+<!--    <modules>
         <module>ExtractInfo</module>
         <module>utility</module>
-    </modules>
+    </modules>-->
 
     <properties>
         <!-- Generic properties -->
@@ -104,6 +104,14 @@
                 </exclusion>
             </exclusions>
         </dependency>
+        
+        <!-- MAVEN PLUGIN DEPENDENCY-->
+        <dependency>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>exec-maven-plugin</artifactId>
+            <version>${maven-exec-plugin.version}</version>
+            <optional>true</optional>
+        </dependency>
     </dependencies>
 
 
@@ -112,8 +120,26 @@
         <plugins>
 
             <plugin>
-                <artifactId>maven-eclipse-plugin</artifactId>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>${maven-exec-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>java</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <!--
+                <configuration>
+                    <mainClass>C:\apache-camel-2.11.0\examples\camel-example-smooks-  
+                  integration\src\main\java\example\Main< /mainClass>
+                </configuration>
+                -->
+            </plugin>
 
+            <plugin>
+                <artifactId>maven-eclipse-plugin</artifactId>
                 <version>${maven-eclipse-plugin.version}</version>
                 <configuration>
                     <additionalProjectnatures>
@@ -132,11 +158,24 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>${maven-compiler-plugin.version}</version>
                 <configuration>
-                    <source>1.7</source>
-                    <target>1.7</target>
+                    <source>${language-level}</source>
+                    <target>${language-level}</target>
                     <compilerArgument>-Xlint:all</compilerArgument>
                     <showWarnings>true</showWarnings>
                     <showDeprecation>true</showDeprecation>
+                    <encoding>${encoding}</encoding>
+                    <debug>true</debug>
+                    <debuglevel>lines,vars,source</debuglevel> 
+                    <!-- DO NOT include log4j.properties file in your Jar -->
+                    <excludes>
+                        <exclude>**/log4j.properties</exclude>
+                    </excludes>
+                   <!-- <archive>
+                        <manifest>
+                            &lt;!&ndash; Jar file entry point &ndash;&gt;
+                            <mainClass>home.MainExtractInfo</mainClass>
+                        </manifest>
+                    </archive>-->
                 </configuration>
             </plugin>
 
@@ -166,197 +205,22 @@
                         </goals>
                     </execution>
                 </executions>
+                <!-- This will tell the javadoc execution to ignore all errors 
+                and not let the build fail. -->
+                <!--<configuration>
+                    <additionalparam>-Xdoclint:none</additionalparam>
+                    <failOnError>false</failOnError>
+                </configuration>-->
             </plugin>
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-antrun-plugin</artifactId>
-                <!--<version>1.1</version>-->
-                <executions>
-                    <!-- Clean Lifecycle -->
-                    <!-- In the following example, We'll attach maven-antrun-plugin:run goal to the pre-clean,
-                    clean, and post-clean phases. This will allow us to echo text messages displaying the phases of the clean lifecycle.-->
-                    <execution>
-                        <id>id.pre-clean</id>
-                        <phase>pre-clean</phase>
-                        <goals>
-                            <goal>run</goal>
-                        </goals>
-                        <configuration>
-                            <tasks>
-                                <echo>pre-clean phase</echo>
-                            </tasks>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>id.clean</id>
-                        <phase>clean</phase>
-                        <goals>
-                            <goal>run</goal>
-                        </goals>
-                        <configuration>
-                            <tasks>
-                                <echo>clean phase</echo>
-                            </tasks>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>id.post-clean</id>
-                        <phase>post-clean</phase>
-                        <goals>
-                            <goal>run</goal>
-                        </goals>
-                        <configuration>
-                            <tasks>
-                                <echo>post-clean phase</echo>
-                            </tasks>
-                        </configuration>
-                    </execution>
-                    <!-- Default (or Build) Lifecycle -->
-                    <!-- In the following example, We'll attach maven-antrun-plugin:run goal to few of the phases of
-                    Build lifecycle. This will allow us to echo text messages displaying the phases of the
-                    lifecycle. -->
-                    <execution>
-                        <id>id.validate</id>
-                        <phase>validate</phase>
-                        <goals>
-                            <goal>run</goal>
-                        </goals>
-                        <configuration>
-                            <tasks>
-                                <echo>validate phase</echo>
-                            </tasks> </configuration>
-                    </execution>
-                    <execution>
-                        <id>id.compile</id>
-                        <phase>compile</phase>
-                        <goals>
-                            <goal>run</goal>
-                        </goals>
-                        <configuration>
-                            <tasks>
-                                <echo>compile phase</echo>
-                            </tasks>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>id.test</id>
-                        <phase>test</phase>
-                        <goals>
-                            <goal>run</goal>
-                        </goals>
-                        <configuration>
-                            <tasks>
-                                <echo>test phase</echo>
-                            </tasks>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>id.package</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>run</goal>
-                        </goals>
-                        <configuration>
-                            <tasks>
-                                <echo>package phase</echo>
-                            </tasks>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>id.deploy</id>
-                        <phase>deploy</phase>
-                        <goals>
-                            <goal>run</goal>
-                        </goals>
-                        <configuration>
-                            <tasks>
-                                <echo>deploy phase</echo>
-                            </tasks>
-                        </configuration>
-                    </execution>
-                    <!-- Site Lifecycle -->
-                    <!-- In the following example, We'll attach maven-antrun-plugin:run goal to all the phases of Site
-                     lifecycle. This will allow us to echo text messages displaying the phases of the lifecycle. -->
-                    <execution>
-                        <id>id.pre-site</id>
-                        <phase>pre-site</phase>
-                        <goals>
-                            <goal>run</goal>
-                        </goals>
-                        <configuration>
-                            <tasks>
-                                <echo>pre-site phase</echo>
-                            </tasks>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>id.site</id>
-                        <phase>site</phase>
-                        <goals>
-                            <goal>run</goal>
-                        </goals>
-                        <configuration>
-                            <tasks>
-                                <echo>site phase</echo>
-                            </tasks>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>id.post-site</id>
-                        <phase>post-site</phase>
-                        <goals>
-                            <goal>run</goal>
-                        </goals>
-                        <configuration>
-                            <tasks>
-                                <echo>post-site phase</echo>
-                            </tasks>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>id.site-deploy</id>
-                        <phase>site-deploy</phase>
-                        <goals>
-                            <goal>run</goal>
-                        </goals>
-                        <configuration>
-                            <tasks>
-                                <echo>site-deploy phase</echo>
-                            </tasks>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <!-- Usage: mvn exec:java-->
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>exec-maven-plugin</artifactId>
-                <version>${maven-exec-plugin.version}</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>java</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <mainClass>home.MainExtractInfo</mainClass>
-                    <!--
-                    <arguments>
-                        <argument>foo</argument>
-                        <argument>bar</argument>
-                    </arguments>
-                    -->
-                </configuration>
-            </plugin>
-
+            <!--
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-dependency-plugin</artifactId>
                 <version>${maven-dependency-plugin.version}</version>
                 <executions>
                     <execution>
+                        Copy dependency jar to a m2 folder 
+                       
                         <id>copy-dependencies</id>
                         <phase>package</phase>
                         <goals>
@@ -368,9 +232,11 @@
                             <overWriteSnapshots>false</overWriteSnapshots>
                             <overWriteIfNewer>true</overWriteIfNewer>
                         </configuration>
+                                         
                     </execution>
                 </executions>
             </plugin>
+            -->
         </plugins>
     </build>
 </project>

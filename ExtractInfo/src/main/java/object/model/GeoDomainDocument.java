@@ -204,7 +204,7 @@ public class GeoDomainDocument {
     public GeoDomainDocument (){}
    
 
-    /**
+    /*
      * GeoDocument da inserire nella tabrella InfoDocument
      * @param url
      * @param regione

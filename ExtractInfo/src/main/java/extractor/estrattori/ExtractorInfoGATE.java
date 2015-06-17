@@ -34,11 +34,16 @@ public class ExtractorInfoGATE {
     }
 
     /** Tell GATE's spring.mvc.home.home.initializer.org.p4535992.mvc.webapp.controller about the corpus you want to run on.
-     * *  @param corpus il corpus da settare
+     *  @param corpus corpus gate to set.
+     *  @param controller corpus controller gate to set.
      */
     public void setCorpus(Corpus corpus,CorpusController controller) {controller.setCorpus(corpus);} // setCorpus
 
-    /** Run GATE. */
+    /** 
+     * Run GATE. 
+     * @param controller corpus controller gate to set.
+     * @throws GateException gate exception.
+     */
     public void execute(CorpusController controller) throws GateException {controller.execute();} // execute()
 
     /** Run GATE. */
@@ -66,16 +71,15 @@ public class ExtractorInfoGATE {
 
     /**
      * Metodo che estrae le informazioni dal singolo documento org.p4535992.mvc.webapp
-     * @param url indirizzo org.p4535992.mvc.webapp del documento
-     * contenuto come capita con lt'estrazione con SearhMonkey
-     * @param controller il CorpusController di GATE settato precedentemente
-     * @return un GeoDocument con i campi riempiti dalle annotazioni di GATE
-     * @throws InterruptedException
-     * @throws InvocationTargetException
-     * @throws SQLException
+     * @param url url to the web document.
+     * @param controller corpus controller gate to set.
+     * @return GeoDocument with field set.
+     * @throws InterruptedException error.
+     * @throws InvocationTargetException error.
+     * @throws SQLException error.
      */
     public GeoDocument extractorGATE(URL url, CorpusController controller)
-            throws GateException,InterruptedException, InvocationTargetException, SQLException{
+            throws InterruptedException, InvocationTargetException, SQLException{
         //for each url we create a corpus
         GeoDocument geoDoc = new GeoDocument();
         try{
@@ -92,13 +96,9 @@ public class ExtractorInfoGATE {
                 geoDoc = convertAnnotationInfoToGeoDocument(annInfo);
             }//else
         }//try
-        catch(GateException ex){
+        catch(GateException|RuntimeException|IOException ex){
               SystemLog.exception(ex);
-      } catch (RuntimeException ex) {
-              SystemLog.exception(ex);
-      } catch (IOException ex) {
-              SystemLog.exception(ex);
-      }
+       } 
        finally{
              //ripuliamo (opzionale)
             if(corpus!=null){
@@ -112,13 +112,14 @@ public class ExtractorInfoGATE {
 
      /**
       * Metodo che estrae le informazioni da una lista di documenti org.p4535992.mvc.webapp
-      * @param listUrl lista degli indirizzi org.p4535992.mvc.webapp del documento
-      * contenuto come capita con lt'estrazione con SearhMonkey
-      * @param controller il CorpusController di GATE settato precedentemente
-      * @return un GeoDocument con i campi riempiti dalle annotazioni di GATE
+      * @param listUrl list of url referenced to wed documents where you want extract the information.
+      * @param controller  CorpusController of GATE already setting.
+      * @return un GeoDocument con i campi riempiti dalle annotazioni di GATE.
+      * @throws GateException error.
+      * @throws IOException error.
       */
      public List<GeoDocument> extractorGATE(List<URL> listUrl, CorpusController controller)
-            throws GateException,IOException,InterruptedException{
+             throws GateException,IOException{
          List<GeoDocument> listGeo = new ArrayList<>();
          corpus = GateCorpusKit.createCorpusByListOfUrls(listUrl,"Nome COrpus");
          if(corpus == null){return null;}
@@ -162,9 +163,9 @@ public class ExtractorInfoGATE {
 
 
      /**
-      * Metodo che pulisce i campi dell'oggetto AnnotationInfo
-      * @param annInfo
-      * @return annotationInfo "ripulito"
+      * Method for re-cean AnnotationInfo.
+      * @param annInfo annotation info object, temporary file for memorize annotation on the gate document.
+      * @return annotationInfo "filtered".
       */
      private AnnotationInfo pulisciAnnotionInfo(AnnotationInfo annInfo){
          //if(annInfo.getUrl().toString()!=null){}

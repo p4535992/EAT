@@ -4,8 +4,10 @@ import org.hibernate.InstantiationException;
 import org.hibernate.criterion.Criterion;
 import com.p4535992.util.log.SystemLog;
 import com.p4535992.util.reflection.ReflectionKit;
+import com.p4535992.util.string.StringKit;
 
 import java.io.File;
+import java.io.IOException;
 import java.io.Serializable;
 import java.net.URL;
 import java.sql.Connection;
@@ -18,6 +20,7 @@ import javax.transaction.Transactional;
 /**
  * LIttle Class for help with first steps to Hibernate
  * @author 4535992
+ * @param <T> generci type super class.
  */
 public class Hibernate4Kit<T> {
 
@@ -31,9 +34,9 @@ public class Hibernate4Kit<T> {
     protected File PATH_CFG_HIBERNATE;
     protected boolean cfgXML;
     protected boolean isInterceptor=false;
-    protected static org.hibernate.Criteria criteria;
-    protected static org.hibernate.Criteria specificCriteria;
-    protected static org.hibernate.Transaction trns;
+    protected org.hibernate.Criteria criteria;
+    protected org.hibernate.Criteria specificCriteria;
+    protected org.hibernate.Transaction trns;
     protected  org.hibernate.SQLQuery SQLQuery;
     protected  org.hibernate.Query query;
     protected  Class<T> cl;
@@ -44,21 +47,20 @@ public class Hibernate4Kit<T> {
     //@PersistenceContext(unitName=UtilitiesModel.JPA_PERSISTENCE_UNIT)
     protected EntityManager entityManager;
 
-
+    @SuppressWarnings({"unchecked","rawtypes"})
     public Hibernate4Kit(){
         java.lang.reflect.Type t = getClass().getGenericSuperclass();
         java.lang.reflect.ParameterizedType pt = (java.lang.reflect.ParameterizedType) t;
         this.cl = (Class) pt.getActualTypeArguments()[0];
         this.clName = cl.getSimpleName();
     }
-
+    @SuppressWarnings({"unchecked","rawtypes"})
     public Hibernate4Kit(Class<T> cl){
         this.cl = cl;
         this.clName = cl.getSimpleName();
     }
-
-    public Hibernate4Kit(
-            org.hibernate.Session session,org.hibernate.SessionFactory sessionFactory){
+    @SuppressWarnings({"unchecked","rawtypes"})
+    public Hibernate4Kit(Session session,SessionFactory sessionFactory){
         this.session = session;
         this.sessionFactory = sessionFactory;
         java.lang.reflect.Type t = getClass().getGenericSuperclass();
@@ -69,11 +71,11 @@ public class Hibernate4Kit<T> {
 
     /**
      * Method for pass a personal Crtieria object to the CRUD operation of Hibernate
-     * @param criterion
+     * @param criterion criterion for the query hibernate.
      */
     public void setNewCriteria(Criterion criterion){
         specificCriteria = session.createCriteria(cl);
-        this.specificCriteria.add(criterion);
+        specificCriteria.add(criterion);
     }
 
     public Session setNewInterceptor(Class<? extends Interceptor> interceptor){
@@ -103,12 +105,9 @@ public class Hibernate4Kit<T> {
             //session = (SessionImpl) ReflectionKit.invokeGetterClass(inter,"getSession");
             //sessionFactory = (SessionFactoryImpl) ReflectionKit.invokeGetterClass(inter,"getSessionFactory");
             //setNewInterceptor(interceptor);
-        } catch (InstantiationException|IllegalAccessException e) {
-           SystemLog.exception(e);
-
-        } catch (java.lang.InstantiationException e) {
-            e.printStackTrace();
-        }
+        } catch (InstantiationException|IllegalAccessException|java.lang.InstantiationException e) {
+           SystemLog.exception(e); 
+        } 
         return session;
     }
 
@@ -138,19 +137,19 @@ public class Hibernate4Kit<T> {
                 try {
                     configuration = config;
                     configuration = config.configure(PATH_CFG_HIBERNATE.getAbsolutePath()); //work on Netbeans
-                } catch (Exception ex) {
+                } catch (HibernateException ex) {
                     try {
                         configuration = config;
                         configuration = config.configure(PATH_CFG_HIBERNATE.getCanonicalPath());
-                    } catch (Exception ex3) {
+                    } catch (IOException | HibernateException ex3) {
                         try {
                             configuration = config;
                             configuration = config.configure(PATH_CFG_HIBERNATE.getPath());
-                        } catch (Exception ex4) {
+                        } catch (HibernateException ex4) {
                             try {
                                 configuration = config;
                                 configuration = config.configure(PATH_CFG_HIBERNATE.getAbsoluteFile());
-                            }catch(Exception ex9){
+                            }catch(HibernateException ex9){
                                 SystemLog.warning("...failed to load the configuration file to the path:"+PATH_CFG_HIBERNATE.getAbsolutePath());
                                 SystemLog.exception(ex9);
                             }
@@ -170,7 +169,9 @@ public class Hibernate4Kit<T> {
         return configuration;
     }
 
-    /**Set the Service Registry*/
+    /**
+     * Set the Service Registry.
+     */
     public void setNewServiceRegistry() {
         /**deprecated in Hibernate 4.3*/
         //serviceRegistry = new ServiceRegistryBuilder().applySettings(
@@ -185,34 +186,33 @@ public class Hibernate4Kit<T> {
 
     /**
      * Get the ServiceRegistry
-     * @return serviceRegistry
+     * @return serviceRegistry the new service registry for hibernate 4 configuration.
      */
     public org.hibernate.service.ServiceRegistry getServiceRegistry(){
         return serviceRegistry;
     }
 
     /**
-     * Get the mapping of the selected class
-     * @param entityClass
-     * @return
+     * Method to Get the mapping of the selected class.
+     * @param entityClass class of the entity.
+     * @return the class mapping of the class for hibernate 4 configuration.
      */
-    public org.hibernate.mapping.PersistentClass getClassMapping(Class entityClass){
+    public org.hibernate.mapping.PersistentClass getClassMapping(Class<?> entityClass){
         return configuration.getClassMapping(entityClass.getName());
     }
 
     /**
-     * Get the  SessionFactory
-     * @return sessionFactory
+     * Method to Get the  SessionFactory.
+     * @return sessionFactory the new sessionfactory.
      */
     public org.hibernate.SessionFactory getSessionFactory() {
         return sessionFactory;
     }
 
-    public void setSessionFactory(
-            javax.persistence.EntityManager entityManager){
+    public void setSessionFactory( javax.persistence.EntityManager entityManager){
 //        EntityManagerFactory entityManagerFactory =
 //                javax.persistence.Persistence.createEntityManagerFactory("YOUR PU");
-        sessionFactory=  entityManager.unwrap(org.hibernate.SessionFactory.class);
+        this.sessionFactory=  entityManager.unwrap(org.hibernate.SessionFactory.class);
         //org.hibernate.Session session = sessionFactory.withOptions().interceptor(new MyInterceptor()).openSession();
     }
 
@@ -226,16 +226,16 @@ public class Hibernate4Kit<T> {
     }
 
     /**
-     * Get the Session
-     * @return session
+     * Method to Get the Session.
+     * @return the actual session..
      */
     public org.hibernate.Session getSession(){
         return session;
     }
 
     /**
-     * Set the Session
-     * @param session
+     * Method to Set the Session.
+     * @param session set the new session for hibernate.
      */
     public void setSession(org.hibernate.Session session){
         this.session = session;
@@ -255,9 +255,9 @@ public class Hibernate4Kit<T> {
         try {
             if(entityManager != null) {
                 session = (org.hibernate.Session) entityManager.getDelegate();
-                org.hibernate.internal.SessionFactoryImpl sessionFactory =
+                org.hibernate.internal.SessionFactoryImpl sessionFactoryImpl =
                         (org.hibernate.internal.SessionFactoryImpl) session.getSessionFactory();
-                connection = sessionFactory.getConnectionProvider().getConnection();
+                connection = sessionFactoryImpl.getConnectionProvider().getConnection();
             }else if(session != null){
                 session.doWork(new org.hibernate.jdbc.Work() {
                     @Transactional
@@ -286,7 +286,9 @@ public class Hibernate4Kit<T> {
         return session;
     }
 
-    /**Close caches and connection pool*/
+    /**
+     * Method to Close caches and connection pool.
+     */
     public void shutdown() {
         SystemLog.hibernate("try to closing session ... ");
         if (getCurrentSession() != null) {
@@ -328,8 +330,7 @@ public class Hibernate4Kit<T> {
     }
 
     /**
-     * Opens a session and will not bind it to a session context
-     * @return
+     * Method Opens a session and will not bind it to a session context
      */
     public void openSession() {
         if(isInterceptor){
@@ -361,9 +362,9 @@ public class Hibernate4Kit<T> {
      * Returns a session from the session context. If there is no session in the context it opens a session,
      * stores it in the context and returns it.
      * This context is intended to be used with a hibernate.cfg.xml including the following property
-     * <property name="current_session_context_class">thread</property>
-     * This would return the current open session or if this does not exist, will insert a new session
-     * @return the session
+     * property name="current_session_context_class" thread /property
+     * This would return the current open session or if this does not exist, will insert a new session.
+     * @return the session.
      */
     public org.hibernate.Session getCurrentSession() {
         return sessionFactory.getCurrentSession();
@@ -395,8 +396,8 @@ public class Hibernate4Kit<T> {
 
     /**
      * Method to build a Session Factory on a remote configuration file XML
-     * @param uri
-     * @note NOT WORK NEED UPDATE
+     * @param uri url urito the configuration file.
+     * note NOT WORK NEED UPDATE.
      */
     public void buildSessionFactory(URL uri) {
         try {
@@ -412,23 +413,27 @@ public class Hibernate4Kit<T> {
 
     /**
      * Method to build a Session Factory on a local configuration file XML
-     * @param filePath
+     * @param filePath string file to the configuration file.
      */
      public void buildSessionFactory(String filePath) {
-           try {
+         try{
+            if(StringKit.isNullOrEmpty(filePath)){
                File cfgFile = new File(filePath);                   
-               if(cfgFile != null && cfgFile.exists()){
+               if(cfgFile.exists()){
                    PATH_CFG_HIBERNATE = cfgFile;
                    buildSessionFactory();
-               }                    
-           } catch (Throwable ex) {
-                   SystemLog.throwException(ex);
-           }
+               }
+            }else{
+                throw new HibernateError("The string path to the file in input is null or empty");
+            }
+         }catch(HibernateError e){
+             SystemLog.exception(e);
+         }
     }
 
     /**
      * Method to build a Session Factory on a local configuration file XML
-     * @param cfgFile
+     * @param cfgFile file hibernate configuration.
      */
     public void buildSessionFactory(File cfgFile) {
         try {
@@ -456,7 +461,7 @@ public class Hibernate4Kit<T> {
     public void buildSessionFactory(
             String DB_OUTPUT_HIBERNATE,String USER_HIBERNATE,String PASS_HIBERNATE,String DRIVER_DATABASE,
             String DIALECT_DATABASE,String DIALECT_DATABASE_HIBERNATE,String HOST_DATABASE,String PORT_DATABASE,
-            List<Class> LIST_ANNOTATED_CLASS
+            List<Class<?>> LIST_ANNOTATED_CLASS
     ) {
         cfgXML = false;
         setNewConfiguration();
@@ -492,7 +497,7 @@ public class Hibernate4Kit<T> {
             */
             ;
             //ADD ANNOTATED CLASS
-            for (Class cls : LIST_ANNOTATED_CLASS) {
+            for (Class<?> cls : LIST_ANNOTATED_CLASS) {
                 configuration.addAnnotatedClass(cls);
             }
             buildSessionFactory();
@@ -518,7 +523,7 @@ public class Hibernate4Kit<T> {
     public void buildSessionFactory(
             String DB_OUTPUT_HIBERNATE,String USER_HIBERNATE,String PASS_HIBERNATE,String DRIVER_DATABASE,
             String DIALECT_DATABASE,String DIALECT_DATABASE_HIBERNATE, String HOST_DATABASE,String PORT_DATABASE,
-            List<Class> LIST_ANNOTATED_CLASS,List<File> LIST_RESOURCE_XML
+            List<Class<?>> LIST_ANNOTATED_CLASS,List<File> LIST_RESOURCE_XML
     ){
         cfgXML = false;
         setNewConfiguration();
@@ -554,7 +559,7 @@ public class Hibernate4Kit<T> {
             */
             ;
             //ADD ANNOTATED CLASS
-            for(Class cls : LIST_ANNOTATED_CLASS){
+            for(Class<?> cls : LIST_ANNOTATED_CLASS){
                 configuration.addAnnotatedClass(cls);
             }
             //Specifying the mapping files directly

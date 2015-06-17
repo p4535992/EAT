@@ -66,7 +66,7 @@ public class Test_SILK {
             byte[] contentInBytes = result.getBytes();
             fop.write(contentInBytes);
             fop.flush();
-            fop.close();
+            //fop.close();
 
             System.out.println("Done");
 

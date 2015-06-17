@@ -231,8 +231,8 @@
   <library name="Maven: org.springframework.boot:spring-boot-starter-test:1.2.3.RELEASE">
     <archive path="C:/Users/Marco/.m2/repository/org/springframework/boot/spring-boot-starter-test/1.2.3.RELEASE/spring-boot-starter-test-1.2.3.RELEASE.jar" />
   </library>
-  <library name="Maven: org.codehaus.jettison:jettison:1.1">
-    <archive path="C:/Users/Marco/.m2/repository/org/codehaus/jettison/jettison/1.1/jettison-1.1.jar" />
+  <library name="Maven: org.openrdf.sesame:sesame-rio-turtle:2.8.1">
+    <archive path="C:/Users/Marco/.m2/repository/org/openrdf/sesame/sesame-rio-turtle/2.8.1/sesame-rio-turtle-2.8.1.jar" />
   </library>
   <library name="Maven: asm:asm:3.3">
     <archive path="C:/Users/Marco/.m2/repository/asm/asm/3.3/asm-3.3.jar" />
@@ -300,8 +300,8 @@
   <library name="Maven: aopalliance:aopalliance:1.0">
     <archive path="C:/Users/Marco/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar" />
   </library>
-  <library name="Maven: org.openrdf.sesame:sesame-rio-turtle:2.8.1">
-    <archive path="C:/Users/Marco/.m2/repository/org/openrdf/sesame/sesame-rio-turtle/2.8.1/sesame-rio-turtle-2.8.1.jar" />
+  <library name="Maven: net.sf.json-lib:json-lib:jdk15:2.3">
+    <archive path="C:/Users/Marco/.m2/repository/net/sf/json-lib/json-lib/2.3/json-lib-2.3-jdk15.jar" />
   </library>
   <library name="Maven: org.jboss.logging:jboss-logging:3.1.3.GA">
     <archive path="C:/Users/Marco/.m2/repository/org/jboss/logging/jboss-logging/3.1.3.GA/jboss-logging-3.1.3.GA.jar" />
@@ -387,7 +387,6 @@
   <library name="Maven: edu.isi:karma-jdbc:0.0.1-SNAPSHOT">
     <archive path="C:/Users/Marco/.m2/repository/edu/isi/karma-jdbc/0.0.1-SNAPSHOT/karma-jdbc-0.0.1-SNAPSHOT.jar" />
   </library>
-  <library name="Maven: edu.isi:webkarma:0.0.1-SNAPSHOT" />
   <library name="Maven: com.fasterxml.jackson.core:jackson-core:2.5.3">
     <archive path="C:/Users/Marco/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.5.3/jackson-core-2.5.3.jar" />
   </library>
@@ -436,8 +435,8 @@
   <library name="Maven: org.bouncycastle:bcprov-jdk15:1.45">
     <archive path="C:/Users/Marco/.m2/repository/org/bouncycastle/bcprov-jdk15/1.45/bcprov-jdk15-1.45.jar" />
   </library>
-  <library name="Maven: net.sf.json-lib:json-lib:jdk15:2.3">
-    <archive path="C:/Users/Marco/.m2/repository/net/sf/json-lib/json-lib/2.3/json-lib-2.3-jdk15.jar" />
+  <library name="Maven: commons-io:commons-io:2.4">
+    <archive path="C:/Users/Marco/.m2/repository/commons-io/commons-io/2.4/commons-io-2.4.jar" />
   </library>
   <library name="Maven: org.openrdf.sesame:sesame-sail-inferencer:2.7.1">
     <archive path="C:/Users/Marco/.m2/repository/org/openrdf/sesame/sesame-sail-inferencer/2.7.1/sesame-sail-inferencer-2.7.1.jar" />
@@ -547,8 +546,8 @@
   <library name="Maven: eu.fusepool.p3.ext.de.fuberlin.wiwiss.silk:silk-jena:2.6.0">
     <archive path="C:/Users/Marco/.m2/repository/eu/fusepool/p3/ext/de/fuberlin/wiwiss/silk/silk-jena/2.6.0/silk-jena-2.6.0.jar" />
   </library>
-  <library name="Maven: org.openrdf.sesame:sesame-repository-manager:2.8.1">
-    <archive path="C:/Users/Marco/.m2/repository/org/openrdf/sesame/sesame-repository-manager/2.8.1/sesame-repository-manager-2.8.1.jar" />
+  <library name="Maven: org.yaml:snakeyaml:1.14">
+    <archive path="C:/Users/Marco/.m2/repository/org/yaml/snakeyaml/1.14/snakeyaml-1.14.jar" />
   </library>
   <library name="Maven: org.openrdf.sesame:sesame-util:2.7.1">
     <archive path="C:/Users/Marco/.m2/repository/org/openrdf/sesame/sesame-util/2.7.1/sesame-util-2.7.1.jar" />
@@ -721,8 +720,8 @@
   <library name="Maven: org.springframework.boot:spring-boot:1.2.3.RELEASE">
     <archive path="C:/Users/Marco/.m2/repository/org/springframework/boot/spring-boot/1.2.3.RELEASE/spring-boot-1.2.3.RELEASE.jar" />
   </library>
-  <library name="Maven: org.apache.commons:commons-csv:1.0">
-    <archive path="C:/Users/Marco/.m2/repository/org/apache/commons/commons-csv/1.0/commons-csv-1.0.jar" />
+  <library name="Maven: org.openrdf.sesame:sesame-repository-manager:2.8.1">
+    <archive path="C:/Users/Marco/.m2/repository/org/openrdf/sesame/sesame-repository-manager/2.8.1/sesame-repository-manager-2.8.1.jar" />
   </library>
   <library name="Maven: org.openrdf.sesame:sesame-repository-api:2.7.1">
     <archive path="C:/Users/Marco/.m2/repository/org/openrdf/sesame/sesame-repository-api/2.7.1/sesame-repository-api-2.7.1.jar" />
@@ -856,6 +855,9 @@
   <library name="Maven: edu.isi:commands-alignment-openrdf:0.0.1-SNAPSHOT">
     <archive path="C:/Users/Marco/.m2/repository/edu/isi/commands-alignment-openrdf/0.0.1-SNAPSHOT/commands-alignment-openrdf-0.0.1-SNAPSHOT.jar" />
   </library>
+  <library name="Maven: org.codehaus.jettison:jettison:1.1">
+    <archive path="C:/Users/Marco/.m2/repository/org/codehaus/jettison/jettison/1.1/jettison-1.1.jar" />
+  </library>
   <library name="Maven: eu.fusepool.p3.ext.de.fuberlin.wiwiss.silk:silk-core:2.6.0">
     <archive path="C:/Users/Marco/.m2/repository/eu/fusepool/p3/ext/de/fuberlin/wiwiss/silk/silk-core/2.6.0/silk-core-2.6.0.jar" />
   </library>
@@ -937,8 +939,8 @@
   <library name="Maven: com.thoughtworks.paranamer:paranamer:2.5.7">
     <archive path="C:/Users/Marco/.m2/repository/com/thoughtworks/paranamer/paranamer/2.5.7/paranamer-2.5.7.jar" />
   </library>
-  <library name="Maven: org.yaml:snakeyaml:1.14">
-    <archive path="C:/Users/Marco/.m2/repository/org/yaml/snakeyaml/1.14/snakeyaml-1.14.jar" />
+  <library name="Maven: org.apache.commons:commons-csv:1.0">
+    <archive path="C:/Users/Marco/.m2/repository/org/apache/commons/commons-csv/1.0/commons-csv-1.0.jar" />
   </library>
   <library name="Maven: org.openrdf.sesame:sesame-rio-binary:2.8.1">
     <archive path="C:/Users/Marco/.m2/repository/org/openrdf/sesame/sesame-rio-binary/2.8.1/sesame-rio-binary-2.8.1.jar" />
@@ -985,56 +987,11 @@
   <library name="Maven: org.openrdf.sesame:sesame-repository-http:2.8.1">
     <archive path="C:/Users/Marco/.m2/repository/org/openrdf/sesame/sesame-repository-http/2.8.1/sesame-repository-http-2.8.1.jar" />
   </library>
-  <library name="gate_8_nospring">
-    <archive path="C:/Users/Marco/Documents/GitHub/LIB/lib_gate_nospring/ant-launcher.jar" />
-    <archive path="C:/Users/Marco/Documents/GitHub/LIB/lib_gate_nospring/ant.jar" />
-    <archive path="C:/Users/Marco/Documents/GitHub/LIB/lib_gate_nospring/aopalliance.jar" />
-    <archive path="C:/Users/Marco/Documents/GitHub/LIB/lib_gate_nospring/apache-mime4j-core.jar" />
-    <archive path="C:/Users/Marco/Documents/GitHub/LIB/lib_gate_nospring/apache-mime4j-dom.jar" />
-    <archive path="C:/Users/Marco/Documents/GitHub/LIB/lib_gate_nospring/bcmail-jdk15.jar" />
-    <archive path="C:/Users/Marco/Documents/GitHub/LIB/lib_gate_nospring/bcprov-jdk15.jar" />
-    <archive path="C:/Users/Marco/Documents/GitHub/LIB/lib_gate_nospring/commons-compress.jar" />
-    <archive path="C:/Users/Marco/Documents/GitHub/LIB/lib_gate_nospring/commons-io.jar" />
-    <archive path="C:/Users/Marco/Documents/GitHub/LIB/lib_gate_nospring/commons-lang.jar" />
-    <archive path="C:/Users/Marco/Documents/GitHub/LIB/lib_gate_nospring/dom4j.jar" />
-    <archive path="C:/Users/Marco/Documents/GitHub/LIB/lib_gate_nospring/flying-saucer-core.jar" />
-    <archive path="C:/Users/Marco/Documents/GitHub/LIB/lib_gate_nospring/fontbox.jar" />
-    <archive path="C:/Users/Marco/Documents/GitHub/LIB/lib_gate_nospring/gate-asm.jar" />
-    <archive path="C:/Users/Marco/Documents/GitHub/LIB/lib_gate_nospring/gate-compiler-jdt.jar" />
-    <archive path="C:/Users/Marco/Documents/GitHub/LIB/lib_gate_nospring/gate.jar" />
-    <archive path="C:/Users/Marco/Documents/GitHub/LIB/lib_gate_nospring/ivy.jar" />
-    <archive path="C:/Users/Marco/Documents/GitHub/LIB/lib_gate_nospring/java-getopt.jar" />
-    <archive path="C:/Users/Marco/Documents/GitHub/LIB/lib_gate_nospring/jaxen.jar" />
-    <archive path="C:/Users/Marco/Documents/GitHub/LIB/lib_gate_nospring/jdom.jar" />
-    <archive path="C:/Users/Marco/Documents/GitHub/LIB/lib_gate_nospring/jempbox.jar" />
-    <archive path="C:/Users/Marco/Documents/GitHub/LIB/lib_gate_nospring/junit.jar" />
-    <archive path="C:/Users/Marco/Documents/GitHub/LIB/lib_gate_nospring/log4j.jar" />
-    <archive path="C:/Users/Marco/Documents/GitHub/LIB/lib_gate_nospring/lucene-core.jar" />
-    <archive path="C:/Users/Marco/Documents/GitHub/LIB/lib_gate_nospring/metadata-extractor.jar" />
-    <archive path="C:/Users/Marco/Documents/GitHub/LIB/lib_gate_nospring/nekohtml.jar" />
-    <archive path="C:/Users/Marco/Documents/GitHub/LIB/lib_gate_nospring/pdfbox.jar" />
-    <archive path="C:/Users/Marco/Documents/GitHub/LIB/lib_gate_nospring/poi-ooxml-schemas.jar" />
-    <archive path="C:/Users/Marco/Documents/GitHub/LIB/lib_gate_nospring/poi-ooxml.jar" />
-    <archive path="C:/Users/Marco/Documents/GitHub/LIB/lib_gate_nospring/poi-scratchpad.jar" />
-    <archive path="C:/Users/Marco/Documents/GitHub/LIB/lib_gate_nospring/poi.jar" />
-    <archive path="C:/Users/Marco/Documents/GitHub/LIB/lib_gate_nospring/stax2-api.jar" />
-    <archive path="C:/Users/Marco/Documents/GitHub/LIB/lib_gate_nospring/tika-core.jar" />
-    <archive path="C:/Users/Marco/Documents/GitHub/LIB/lib_gate_nospring/tika-parsers.jar" />
-    <archive path="C:/Users/Marco/Documents/GitHub/LIB/lib_gate_nospring/woodstox-core-lgpl.jar" />
-    <archive path="C:/Users/Marco/Documents/GitHub/LIB/lib_gate_nospring/xercesImpl.jar" />
-    <archive path="C:/Users/Marco/Documents/GitHub/LIB/lib_gate_nospring/xmlbeans.jar" />
-    <archive path="C:/Users/Marco/Documents/GitHub/LIB/lib_gate_nospring/xmlunit.jar" />
-    <archive path="C:/Users/Marco/Documents/GitHub/LIB/lib_gate_nospring/xpp3.jar" />
-    <archive path="C:/Users/Marco/Documents/GitHub/LIB/lib_gate_nospring/xstream.jar" />
-  </library>
   <library name="Maven: net.sf.ezmorph:ezmorph:1.0.6">
     <archive path="C:/Users/Marco/.m2/repository/net/sf/ezmorph/ezmorph/1.0.6/ezmorph-1.0.6.jar" />
   </library>
   <library name="Maven: edu.isi:commands-common:0.0.1-SNAPSHOT">
     <archive path="C:/Users/Marco/.m2/repository/edu/isi/commands-common/0.0.1-SNAPSHOT/commands-common-0.0.1-SNAPSHOT.jar" />
-  </library>
-  <library name="Maven: commons-io:commons-io:2.4">
-    <archive path="C:/Users/Marco/.m2/repository/commons-io/commons-io/2.4/commons-io-2.4.jar" />
   </library>
   <library name="Maven: mysql:mysql-connector-java:5.1.6">
     <archive path="C:/Users/Marco/.m2/repository/mysql/mysql-connector-java/5.1.6/mysql-connector-java-5.1.6.jar" />

@@ -31,13 +31,14 @@ public class ManageJsonWithGoogleMaps {
     private static LatLng coord;
     public ManageJsonWithGoogleMaps() throws  JSONException{}
     public ManageJsonWithGoogleMaps(String API_KEY_GM){
-        this.API_KEY_GM=API_KEY_GM;
+        API_KEY_GM=API_KEY_GM;
     }
     /**
      * Metodo per la connessione all'API Google Maps e al suo utilizzo
-     * @param g il geodocument fornito di input
+     * @param g il geodocument fornito di input.
      * @return le coordinate GPS ricavate attraverso le informazioni ricavate dalle
      *         annotazioni di Gate con lt'utilizzo dell'API Google Maps.
+     * @throws URISyntaxException error.
      */
     public GeoDocument connection(GeoDocument g) throws URISyntaxException{
          JSONObject json = null;       
@@ -182,6 +183,7 @@ public class ManageJsonWithGoogleMaps {
      * @param g il geodocument fornito di input
      * @return le coordinate GPS ricavate attraverso le informazioni ricavate dalle
      *         annotazioni di Gate con lt'utilizzo dell'API Google Maps.
+     * @throws URISyntaxException error.
      */
     public LatLng getCoords(GeoDocument g) throws URISyntaxException{
         JSONObject json = null;
@@ -339,8 +341,9 @@ public class ManageJsonWithGoogleMaps {
      * all'API Google Maps per evitare di superare il numero di query giornaliere
      * disponibili con la licenza freeware, è un semplice ritardo random tra una
      * richiesta e lt'altra verso lt'API Google Maps.
-     * @param url identifica la richiesta all'API Google Maps 
-     * @return ritorna il risultato della richiesta ma con un ritardo
+     * @param url identifica la richiesta all'API Google Maps .
+     * @return ritorna il risultato della richiesta ma con un ritardo.
+     * @throws IOException error.
      */
     public JSONObject temporizzatorePerGoogleMaps(URL url) throws IOException{
          ManageJsonWithGoogleMaps mgm = new ManageJsonWithGoogleMaps(API_KEY_GM);            
@@ -396,10 +399,10 @@ public class ManageJsonWithGoogleMaps {
    
     
     /**
-     * Semplice metodo che estare il domino org.p4535992.mvc.webapp di appartenenza dell'url analizzato
-     * @param u url di ingresso in fromato stringa
-     * @return il dominio org.p4535992.mvc.webapp dell'url in formato stringa
-     * @throws URISyntaxException 
+     * Semplice metodo che estare il domino di appartenenza dell'url analizzato.
+     * @param u url di ingresso in fromato stringa.
+     * @return il dominio dell'url in formato stringa.
+     * @throws URISyntaxException error.
      */
     public String getDomainName(String u) throws URISyntaxException {     
             URI uri = new URI(u);

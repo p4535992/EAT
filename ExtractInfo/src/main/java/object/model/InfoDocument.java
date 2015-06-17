@@ -65,7 +65,7 @@ public class InfoDocument {
     
     public InfoDocument (){}
    
-    /**
+    /*
      * Geodocument da inserire nella tabella GeoDocument
      * @param doc_id
      * @param url
@@ -82,7 +82,7 @@ public class InfoDocument {
     }
     
     
-    /**
+    /*
      * GeoDocument da inserire nella tabrella InfoDocument
      * @param url
      * @param regione

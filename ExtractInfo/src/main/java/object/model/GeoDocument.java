@@ -12,10 +12,12 @@ import extractor.hibernate.interceptor.SelfDirtyCheckingEntity;
 import java.io.Serializable;
 import java.net.MalformedURLException;
 import java.net.URL;
+import javassist.SerialVersionUID;
 import javax.persistence.*;
 @Entity
 @Table(name = "geodocument")
 public class GeoDocument extends SelfDirtyCheckingEntity implements Serializable{
+    private static final long serialVersionUID = 11L;
     @Id @GeneratedValue
     @Column(name = "doc_id")
     private Integer doc_id;
@@ -59,7 +61,7 @@ public class GeoDocument extends SelfDirtyCheckingEntity implements Serializable
 
     public GeoDocument (){}
 
-    /**
+    /*
      * GeoDocument da inserire nella tabrella InfoDocument
      * @param url
      * @param regione

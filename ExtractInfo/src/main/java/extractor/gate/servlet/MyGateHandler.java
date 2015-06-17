@@ -1,4 +1,4 @@
-package extractor.gate.servlet;;
+package extractor.gate.servlet;
 
 import extractor.gate.GateCorpusKit;
 import gate.Corpus;
@@ -44,7 +44,10 @@ public class MyGateHandler implements HttpRequestHandler {
   private CorpusController application;
   /**A corpus that will be used to hold the document being processed.*/
   private Corpus corpus;
-  /**Set the application that will be run over the documents.*/
+  /**
+   * Method to Set the application that will be run over the documents.
+   * @param application corpus controller gate.
+   */
   public void setApplication(CorpusController application) {this.application = application; }
 
   /**
@@ -52,6 +55,7 @@ public class MyGateHandler implements HttpRequestHandler {
    * method will be called by spring once the handler object has been
    * constructed and its properties (i.e. the application) have been
    * set.
+   * @throws Exception error.
    */
   @PostConstruct
   public void init() throws Exception {
@@ -84,7 +88,7 @@ public class MyGateHandler implements HttpRequestHandler {
      }
   }
 
-  /**
+  /*
    * Clean-up method. The PreDestroy annotation means that Spring will
    * call the method when the object is no longer required.
    */
@@ -97,6 +101,10 @@ public class MyGateHandler implements HttpRequestHandler {
 
   /**
    * Handle a request.
+   * @param request request http.
+   * @param response response htttp.
+   * @throws ServletException error.
+   * @throws IOException error.
    */
   public void handleRequest(HttpServletRequest request,
           HttpServletResponse response) throws ServletException, IOException {
@@ -147,6 +155,9 @@ public class MyGateHandler implements HttpRequestHandler {
   
   /**
    * Render the document's features in an HTML table.
+   * @param doc document gate.
+   * @param response response http.
+   * @throws IOException error.
    */
   private void successMessage(Document doc, HttpServletResponse response)
           throws IOException {
@@ -170,8 +181,12 @@ public class MyGateHandler implements HttpRequestHandler {
   }
 
   /**
-   * Simple org.p4535992.mvc.error handler - you would obviously use something more
+   * Simple error handler - you would obviously use something more
    * sophisticated in a real application.
+   * @param message string messsage.
+   * @param e exception to print. 
+   * @param response response http.
+   * @throws IOException error.
    */
   private void failureMessage(String message, Exception e,
           HttpServletResponse response) throws IOException {

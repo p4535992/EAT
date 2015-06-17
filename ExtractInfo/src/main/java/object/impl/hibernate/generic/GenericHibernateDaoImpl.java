@@ -54,10 +54,11 @@ public class GenericHibernateDaoImpl<T> implements IGenericHibernateDao<T> {
     protected String beanIdSessionFactory;
     protected String beanIdSpringContext;
 
-    protected Hibernate4Kit hbs;
+    protected Hibernate4Kit<T> hbs;
     protected File contextFile;
 
     //CONSTRUCTOR
+    @SuppressWarnings({"unchecked","rawtypes"})
     public GenericHibernateDaoImpl() {
         java.lang.reflect.Type t = getClass().getGenericSuperclass();
         java.lang.reflect.ParameterizedType pt = (java.lang.reflect.ParameterizedType) t;
@@ -65,7 +66,7 @@ public class GenericHibernateDaoImpl<T> implements IGenericHibernateDao<T> {
         this.clName = cl.getSimpleName();
         this.hbs = new Hibernate4Kit(cl);
     }
-
+   @SuppressWarnings({"unchecked","rawtypes"})
    public GenericHibernateDaoImpl(Object s) throws FileNotFoundException {
        //super(s); //extend test case????
        this.hbs = new Hibernate4Kit(cl);
@@ -309,11 +310,11 @@ public class GenericHibernateDaoImpl<T> implements IGenericHibernateDao<T> {
         return list;
     }
 
-    @Override
+    @Override  
     public T selectRow(Serializable serial){
         setNewHibernateTemplate(sessionFactory);
         doInHibernate();
-        return (T) hbs.selectRow(serial);
+        return hbs.selectRow(serial);
     }
 
     @Override

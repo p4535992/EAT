@@ -23,9 +23,7 @@ public class GenerationOfTriple {
     private String MODEL_TURTLE_KARMA,SOURCETYPE_KARMA,TRIPLE_OUTPUT_KARMA,
             DBTYPE_KARMA,HOSTNAME_KARMA,USERNAME_KARMA,PASSWORD_KARMA,
             PORTNUMBER_KARMA,DBNAME_KARMA,TABLENAME_KARMA,OUTPUT_FORMAT_KARMA,KARMA_HOME;
-
-    private JenaInfoDocument jInfo = new JenaInfoDocument();
-    
+ 
     private PrepareCommand rte = new PrepareCommand();
     public GenerationOfTriple(
             String SOURCETYPE_KARMA,
@@ -106,7 +104,8 @@ public class GenerationOfTriple {
             //RIPULIAMO LETRIPLE DALLE LOCATION SENZA COORDINATE CON JENA
             SystemLog.message("Re-clean infodocument triples from the Location information  without coordinates from the file:" + output);
             SystemLog.message(FileUtil.filenameNoExt(f)+","+FileUtil.path(f)+","+FileUtil.filenameNoExt(f) + "-c" + "," + FileUtil.extension(f));
-            jInfo.readQueryAndCleanTripleInfoDocument(
+           
+            JenaInfoDocument.readQueryAndCleanTripleInfoDocument(
                     FileUtil.filenameNoExt(f), //filenameInput
                     FileUtil.path(f), //filepath
                     FileUtil.filenameNoExt(f) + "-c", //fileNameOutput

@@ -275,11 +275,11 @@ public class SetRegioneEProvincia {
         veneto.add("Vicenza");veneto.add("Villafranca di Verona");veneto.add("Villorba");veneto.add("Vittorio Veneto");
     }
 
-    public static String getProvincia() {
+    public String getProvincia() {
         return provincia;
     }
 
-    public static String getRegione() {
+    public String getRegione() {
         return regione;
     }
 

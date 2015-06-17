@@ -33,15 +33,18 @@ public class GateCorpusKit {
     }
 
     public static Corpus corpus;
+    public static DataStore datastore;
 
 
   public GateCorpusKit(){}
 
     /**
-     * Crea un Corpus di Documenti Gate
-     * @param  url lt'url relativo alla singola pagina org.p4535992.mvc.webapp da convertire in GATE Document
-     * @param  nomeCorpus il nome assegnato al Corpus in esame
-     * @return il corpus "riempito" di GATE
+     * Crea un Corpus di Documenti Gate.
+     * @param  url url to the web document.
+     * @param  nomeCorpus corpus gate to set.
+     * @return corpus gate fulled.
+     * @throws  IOException error.
+     * @throws  ResourceInstantiationException error.
      */
     public static Corpus createCorpusByUrl(URL url,String nomeCorpus)
             throws IOException, ResourceInstantiationException{
@@ -56,12 +59,14 @@ public class GateCorpusKit {
     
   /**
     * Crea un Corpus di Documenti Gate
-    * @param  listUrl la lista degli url prelevati dalla tabella website
-    * @param  nomeCorpus il nome assegnato al Corpus in esame
-    * @return il corpus "riempito" di GATE
+    * @param  listUrl list of url to set of web document.
+    * @param  nomeCorpus name of the corpus gate.
+    * @return corpus gate fulled.
+    * @throws  IOException error.
+    * @throws  ResourceInstantiationException error.
     */  
   public static Corpus createCorpusByListOfUrls(List<URL> listUrl,String nomeCorpus)
-          throws IOException, ResourceInstantiationException, PersistenceException, SecurityException{
+          throws IOException, ResourceInstantiationException{
         corpus = Factory.newCorpus(nomeCorpus);
         Integer indice = 0;
         for(int i = 0; i < listUrl.size(); i++) {
@@ -104,15 +109,16 @@ public class GateCorpusKit {
     }
   
   /**
-     * Metodo che salva un Corpus nel datastore 
-     * @param corpus il corpus da asalvare
-     * @throws IOException
-     * @throws PersistenceException 
+     * Metodo che salva un Corpus nel datastore.
+     * @param corpus corpus to save.
+     * @param datastore datastore gate.
+     * @throws IOException error.
+     * @throws PersistenceException  error.
      */
     public static  void saveCorpusOnDataStoreForOutOfMemory(Corpus corpus,GateDataStoreKit datastore)
-            throws IOException, PersistenceException, SecurityException{
+            throws IOException, PersistenceException{
         datastore.openDataStore();
-        datastore.setDataStoreWithACorpus(corpus);
+        datastore.initDatastoreWithACorpus(corpus);
         datastore.saveACorpusOnTheDataStore(corpus, GateDataStoreKit.getDS_DIR());
         datastore.closeDataStore();
     }
@@ -121,7 +127,7 @@ public class GateCorpusKit {
             throws SecurityException, PersistenceException, ResourceInstantiationException {
         try {
             GateDataStoreKit.openDataStore();
-            GateDataStoreKit.setDataStoreWithACorpus(corpus);
+            GateDataStoreKit.initDatastoreWithACorpus(corpus);
             GateDataStoreKit.saveACorpusOnTheDataStore(corpus, GateDataStoreKit.getDS_DIR());
             //datastore.closeDataStore();
         } catch (Exception e) {
@@ -138,7 +144,7 @@ public class GateCorpusKit {
         } finally {
             //CODICE CHE FA IL MERGE DI TUTTI I CORPUS PRESENTI NEL DATASTORE
             GateDataStoreKit.openDataStore();
-            ArrayList<Corpus> listCorpus = GateDataStoreKit.loadAllCorpusOnTheDataStore();
+            List<Corpus> listCorpus = GateDataStoreKit.loadAllCorpusOnTheDataStore();
             if (listCorpus.size() > 1) {
                 String nome_corpus_2 = "GeoDocuments_Corpus_" + "[]";
                 corpus = GateDataStoreKit.mergeDocumentsOfMultipleCorpusWithChooseOfCorpusOnTheDataStore(nome_corpus_2, listCorpus);
@@ -165,10 +171,7 @@ public class GateCorpusKit {
             doc = (Document) Factory.createResource("gate.corpora.DocumentImpl",
                     params,feats,"doc_"+i+"_"+url);
 
-            //doc = Factory.newDocument(url, "utf-8");
-
-        } catch (GateException gex) {
-            SystemLog.warning("Documento " + url + " non più disponibile o raggiungibile.");
+            //doc = Factory.newDocument(url, "utf-8");          
         } catch (ArrayIndexOutOfBoundsException ax) {
             SystemLog.warning("Documento " + url + " non più disponibile o raggiungibile.");
         }
@@ -194,13 +197,10 @@ public class GateCorpusKit {
             feats.put("date", new Date());
             //creazione del documento
             doc = (Document) Factory.createResource("gate.corpora.DocumentImpl",
-                    params, feats, "doc_" + url);
-        } catch (GateException gex) {
-            SystemLog.warning("Documento " + url + " non più disponibile o raggiungibile.");
+                    params, feats, "doc_" + url);      
         } catch (ArrayIndexOutOfBoundsException ax) {
             SystemLog.warning("Documento " + url + " non più disponibile o raggiungibile.");
-        }
-        catch (NullPointerException ne){
+        }catch (NullPointerException ne){
             SystemLog.exception(ne);
             doc = null;
         }
@@ -231,7 +231,7 @@ public class GateCorpusKit {
 
     public static void printXML(File docFile,Document doc)
             throws IOException,FileNotFoundException,UnsupportedEncodingException{
-        String docXMLString = null;
+        String docXMLString;
         docXMLString = doc.toXml();
         String outputFileName = doc.getName() + ".out.xml";
         File outputFile = new File(docFile.getParentFile(), outputFileName);

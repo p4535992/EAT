@@ -39,8 +39,8 @@ public class GateDataStoreKit {
       //DS_DIR = rep.toString();
       SystemLog.message("Datastore directory:" + DS_DIR);
       //System.out.println(NOME_DATASTORE);     
-      this.DS_DIR = DS_DIR;
-      this.NOME_DATASTORE = NOME_DATASTORE;    
+      GateDataStoreKit.DS_DIR = DS_DIR;
+      GateDataStoreKit.NOME_DATASTORE = NOME_DATASTORE;    
   }
 
     public static void setDataStore(String DS_DIR,String NOME_DATASTORE){
@@ -50,8 +50,8 @@ public class GateDataStoreKit {
         //DS_DIR = rep.toString();
         SystemLog.message("Datastore directory is located on :" + DS_DIR);
         //System.out.println(NOME_DATASTORE);
-        DS_DIR = DS_DIR;
-        NOME_DATASTORE = NOME_DATASTORE;
+        GateDataStoreKit.DS_DIR = DS_DIR;
+        GateDataStoreKit.NOME_DATASTORE = NOME_DATASTORE;
     }
 
     public static GateDataStoreKit getNewDataStore(){
@@ -60,12 +60,12 @@ public class GateDataStoreKit {
     }
   
   /**
-   * Operazioni CRUD nel Datastore
-   * @param corp il Corpus di GATE  da salvare nel DataStore
-   * @throws IOException
-   * @throws PersistenceException 
+   * Method to import a corpus to a datastore.
+   * @param corp corpus gate to save on the datastore gate.
+   * @throws IOException error.
+   * @throws PersistenceException error.
    */
-  public static void setDataStoreWithACorpus(Corpus corp) throws IOException, PersistenceException, SecurityException {
+  public static void initDatastoreWithACorpus(Corpus corp) throws IOException, PersistenceException, SecurityException {
     //Inizializzazione di GATE avvenuta 
     //gate.init() --- Gate.init()
     //Creazione e settaggio del Corpus avvenuta
@@ -93,14 +93,27 @@ public class GateDataStoreKit {
     }finally{   
     }
   }
-   /**change name to the corpus and sync it with the datastore. */
+  
+  /**
+   * Method to change name to the corpus and sync it with the datastore.
+   * @param persistCorp corpus gate to change the name.
+   * @param nameCorpus new name corpus.
+   * @throws PersistenceException error.
+   * @throws SecurityException error.
+   */
    public static void changeNameCorpus(Corpus persistCorp,String nameCorpus) throws PersistenceException, SecurityException{
       persistCorp.setName(nameCorpus);      
       persistCorp.sync();    
       SystemLog.message("Change name of the Corpus:" + persistCorp.getName() + " on the datastoe with name " + nameCorpus);
    }
-   /**Load corpus from datastore using its persistent ID. */
-   public static Corpus loadCorpusDataStoreById(Object corpusID) throws ResourceInstantiationException, PersistenceException {
+   /**
+    * Method to Load corpus from datastore using its persistent ID. 
+    * @param corpusID string id of the corpus.
+    * @return corpus gate.
+    * @throws ResourceInstantiationException error.
+    * @throws PersistenceException error.
+    */
+   public static Corpus loadCorpusFromDataStoreById(Object corpusID) throws ResourceInstantiationException, PersistenceException {
       openDataStore(DS_DIR);     
       Corpus persistCorp = null;
       FeatureMap corpFeatures = Factory.newFeatureMap();
@@ -112,27 +125,39 @@ public class GateDataStoreKit {
       return persistCorp;
       
    }
-   /**Remove corpus from datastore. */
-   public static void removeCorpusDataStoreById(Corpus persistCorp,Object corpusID) throws PersistenceException {
+   /**
+    * Metho to delete corpus from datastore. 
+    * @param persistCorp corpus gate to delete.
+    * @param corpusID id of the corpus.
+    * @throws PersistenceException error.
+    */
+   public static void deleteCorpusFromDataStoreById(Corpus persistCorp,Object corpusID) throws PersistenceException {
       sds.delete("gate.corpora.SerialCorpusImpl", corpusID);
       SystemLog.message("Corpus " + persistCorp.getName() + " deleted from the datastore " + sds.getName() + "!!!");
       persistCorp = null;
    }
    
-   /**Close the DataStore. */
+   /**Close the DataStore.
+    * @throws PersistenceException error.
+    */
    public static void closeDataStore() throws PersistenceException{
       sds.close();
       //sds = null;
       SystemLog.message("Datastore " + sds.getName() + " closed!!!");
    }
    
-   /**Delete the DataStore. */
+   /**
+    * Delete the DataStore.
+    * @throws PersistenceException error.
+    */
    public static void deleteDataStore() throws PersistenceException{
       sds.delete();    
       SystemLog.message("Datastore " + sds.getName() + " deleted!!!");
    }
    
-   /** open-reopen DataStore. */
+   /** open-reopen DataStore. 
+    * @param absolutePathDirectory string file to the folder datastore on local.
+    */
    public static void openDataStore(String absolutePathDirectory) {
       try{
        if((absolutePathDirectory!=null) || (sds==null)){
@@ -181,8 +206,15 @@ public class GateDataStoreKit {
     }
    }
 
-   /**Save Document on the DataStore. */
-   public static Document saveDocumentOnDataStore(Document persistDoc,Document doc) throws PersistenceException, SecurityException{
+   /**
+    * Method to Import/Save Document on the DataStore. 
+    * @param persistDoc document to import.
+    * @param doc document to support.
+    * @return document you have saved.
+    * @throws PersistenceException error.
+    * @throws SecurityException error.
+    */
+   public static Document importDocumentToDataStore(Document persistDoc,Document doc) throws PersistenceException, SecurityException{
       //SecurityInfo is ingored for SerialDataStore - just pass null
       persistDoc = (Document)sds.adopt(doc);
       sds.sync(persistDoc);
@@ -190,16 +222,29 @@ public class GateDataStoreKit {
       return persistDoc;
    }
 
-   /**Change the name of the Document doc on the DataStore. */
-   public static void changeDocumentNameWithTheDataStore(Document persistDoc,String newName) throws PersistenceException, SecurityException{
+   /**
+    * Method to update/Change the name of the Document doc on the DataStore.
+    * @param persistDoc document to update.
+    * @param newName new name of the document.
+    * @throws PersistenceException error.
+    * @throws SecurityException  error.
+    */
+   public static void updateDocumentNameOnTheDataStore(Document persistDoc,String newName) throws PersistenceException, SecurityException{
        String oldName = persistDoc.getName();
        persistDoc.setName(newName);
        persistDoc.sync();
        SystemLog.message("Document: " + oldName + " on the Datastore has a new name: " + persistDoc.getName());
    }
    
-   /** Load document from datastore. */
-   public static Document loadDocumentFromDataStore(Document persistDoc,Object docID) throws ResourceInstantiationException{
+   /**
+    * Method to Load document from datastore.
+    * @param persistDoc document to load.
+    * @param docID id of the document.
+    * @return document gate.
+    * @throws ResourceInstantiationException error.
+    */
+   public static Document loadDocumentFromDataStore(Document persistDoc,Object docID) 
+           throws ResourceInstantiationException{
       //persistDoc = (Document)sds.adopt(doc,securityInfo);
       //sds.sync(persistDoc);
       FeatureMap docFeatures = Factory.newFeatureMap();
@@ -210,7 +255,11 @@ public class GateDataStoreKit {
       return persistDoc;
    }
    
-   /**Delete document from the DataStore. */
+   /**
+    * Method to Delete document from the DataStore. *
+    * @param persistDoc document to delete.
+    * @throws PersistenceException error.
+    */
    public static void deleteDocumentFromDataStore(Document persistDoc) throws PersistenceException{
       Object docID  = persistDoc.getLRPersistenceId();
       sds.delete("gate.corpora.DocumentImpl", docID);
@@ -218,12 +267,17 @@ public class GateDataStoreKit {
       persistDoc = null;
    }
    
-   /**Load all the corpus on the DataStore. */
-   public static ArrayList<Corpus> loadAllCorpusOnTheDataStore() throws PersistenceException, ResourceInstantiationException{
+   /**
+    * Method to Load all the corpus on the DataStore. 
+    * @return list of corpus
+    * @throws PersistenceException error.
+    * @throws ResourceInstantiationException error.
+    */
+   public static List<Corpus> loadAllCorpusOnTheDataStore() throws PersistenceException, ResourceInstantiationException{
        // list the corpora/documents in the DS       
        openDataStore(DS_DIR);
-       List corpusIds = sds.getLrIds("gate.corpora.SerialCorpusImpl");
-       ArrayList<Corpus> listCorpus = new ArrayList<Corpus>();
+       List<String> corpusIds = sds.getLrIds("gate.corpora.SerialCorpusImpl");
+       List<Corpus> listCorpus = new ArrayList<Corpus>();
 //       FeatureMap fm = Factory.newFeatureMap();
 //       fm.put(DataStore.DATASTORE_FEATURE_NAME, sds);
 //       fm.put(DataStore.LR_ID_FEATURE_NAME, corpusIds.get(0));
@@ -247,8 +301,15 @@ public class GateDataStoreKit {
        // similarly for documents, just use gate.corpora.DocumentImpl as the class name
    }       
    
-   /**Copy all document on a corpus to another corpus. */
-   public static Corpus mergeDocumentsOfMultipleCorpusWithChooseOfCorpusOnTheDataStore(String nome_merge_corpus,ArrayList<Corpus> listCorpus) throws PersistenceException, ResourceInstantiationException{
+   /**
+    * Method to Copy all document on a corpus to another corpus.
+    * @param nome_merge_corpus name of the merged corpus.
+    * @param listCorpus list of corpus in the datastore.
+    * @return corpus gate.
+    * @throws PersistenceException error.
+    * @throws ResourceInstantiationException error.
+    */
+   public static Corpus mergeDocumentsOfMultipleCorpusWithChooseOfCorpusOnTheDataStore(String nome_merge_corpus,List<Corpus> listCorpus) throws PersistenceException, ResourceInstantiationException{
        Corpus finalCorpus = Factory.newCorpus(nome_merge_corpus);
        //listCorpus = loadAllCorpusOnTheDataStore();
        for(Corpus corpus: listCorpus){
@@ -265,10 +326,16 @@ public class GateDataStoreKit {
        return finalCorpus;
    }
    
-   /**Copy all document on a corpus to another corpus. */
+   /**
+    * Method to Copy all document on a corpus to another corpus.
+    * @param nome_merge_corpus name of the merged corpus.
+    * @return corpus gate.
+    * @throws PersistenceException error.
+    * @throws ResourceInstantiationException error.
+    */
    public static Corpus mergeDocumentsOfMultipleCorpusWithoutChooseOfCorpusOnTheDataStore(String nome_merge_corpus) throws PersistenceException, ResourceInstantiationException{
        Corpus finalCorpus = Factory.newCorpus(nome_merge_corpus);
-       ArrayList<Corpus> listCorpus = loadAllCorpusOnTheDataStore();
+       List<Corpus> listCorpus = loadAllCorpusOnTheDataStore();
        for(Corpus corpus: listCorpus){
            String name_corpus = corpus.getName();
            SystemLog.message(name_corpus.toUpperCase());

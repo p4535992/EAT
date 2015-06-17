@@ -1,10 +1,8 @@
 package home;
-
-import extractor.estrattori.ExtractInfoSpring;
-import org.xml.sax.SAXException;
 import com.p4535992.util.file.FileUtil;
 import com.p4535992.util.log.SystemLog;
 import com.p4535992.util.file.SimpleParameters;
+import extractor.estrattori.ExtractInfoSpring;
 import extractor.gate.GateDataStoreKit;
 
 import java.awt.EventQueue;
@@ -12,9 +10,6 @@ import java.io.*;
 import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.Map;
-
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -55,6 +50,7 @@ public class MainEAT {
                                 // + "ExtractInfo" + File.separator +
                                         "src" + File.separator + "main" + File.separator + "resources" + File.separator +
                                         "input.properties", '=', params);
+                    }
                         //VARIABILI ALTRE
                         //PRINT SULLA CONSOLE
                         SystemLog.message("Using parameters:");
@@ -73,23 +69,12 @@ public class MainEAT {
                             SystemLog.message("START EXTRACT");
                             m.Extraction();
                        }
-                    }
+                    
                     //Ouput del tempo di elaborazione del progamma
                          /*System.out.println(String.format(
                                "------------ Processing took %s millis\n\n",
                          System.currentTimeMillis() - start));*/
-                   }catch(InterruptedException ie){
-                           ie.printStackTrace();
-                           SystemLog.error("ERROR:" + ie.getMessage());
-                           Logger.getLogger(MainExtractInfo.class.getName()).log(Level.SEVERE, null, ie);
-                   }catch(InvocationTargetException iie){
-                        iie.printStackTrace();
-                        SystemLog.error("ERROR:" + iie.getMessage());
-                        Logger.getLogger(MainExtractInfo.class.getName()).log(Level.SEVERE, null, iie);
-                   } catch (IOException e) {
-                       e.printStackTrace();
-                   } catch (SAXException e) {
-                       e.printStackTrace();
+                   
                    } catch (Exception e) {
                        e.printStackTrace();
                    }

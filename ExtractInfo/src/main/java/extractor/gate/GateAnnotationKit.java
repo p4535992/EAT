@@ -6,11 +6,11 @@ import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 /**
- * ManageAnnotationAndContent.java. Estrai il contenuto dell annotazioni
+ * Estrai il contenuto dell annotazioni
  * semantiche da ogni documento del Corpus Struttura il contenuto in un oggetto
  * Java Keyword Per ogni documento da cui è estratta una Keyword inseriamo la
  * Keyword in una lista da utilizzare successivamente per lt'inserimento nel
- * database
+ * database.
  */
 public class GateAnnotationKit {
 
@@ -22,7 +22,7 @@ public class GateAnnotationKit {
     /**
      * Il metodo principale,come dice il nome prende le Keyword dal Corpus di
      * documenti.
-     * @param corpus
+     * @param corpus corpus gate to set.
      * @param language identifica il linguaggio viene inviato come input a null
      * per un verificare una condizione ma niente vieta di invocarlo in questa
      * classe.

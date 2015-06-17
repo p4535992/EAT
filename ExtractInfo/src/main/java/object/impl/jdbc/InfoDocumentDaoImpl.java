@@ -49,7 +49,7 @@ public class InfoDocumentDaoImpl extends GenericDaoImpl<InfoDocument> implements
 
 
     @Override
-    public void create() throws Exception {
+    public void create() {
         String query;
         //Copy the geodocument table
         try {
@@ -92,7 +92,7 @@ public class InfoDocumentDaoImpl extends GenericDaoImpl<InfoDocument> implements
     }
 
     @Override
-    public void create(boolean erase) throws Exception {
+    public void create(boolean erase) {
         if(erase==true){
             query ="DROP TABLE IF EXISTS "+myInsertTable+";";
             jdbcTemplate.execute(query);

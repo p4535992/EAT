@@ -308,6 +308,8 @@
             <artifactId>spring-boot-starter-web</artifactId>
             <version>${springboot.version}</version>
         </dependency>
+        
+        <!-- -->
 
     </dependencies>
 
@@ -315,7 +317,6 @@
         <plugins>
         <!-- How can I create an executable jar with dependencies using Maven?
             mvn clean compile assembly:single-->
-
            <!-- <plugin>
                 <artifactId>maven-assembly-plugin</artifactId>
                 <configuration>
@@ -380,6 +381,10 @@
                         </goals>
                     </execution>
                 </executions>
+                <configuration>
+                    <source>${language-level}</source>
+                    <target>${language-level}</target>                 
+                </configuration>
             </plugin>
 
             <plugin>
@@ -394,6 +399,14 @@
                         </goals>
                     </execution>
                 </executions>
+                <configuration>
+                    <source>${language-level}</source>
+                    <target>${language-level}</target>
+                    <!-- This will tell the javadoc execution to ignore all errors 
+                    and not let the build fail. -->
+                    <!--<additionalparam>-Xdoclint:none</additionalparam>
+                    <failOnError>false</failOnError>-->
+                </configuration>
             </plugin>
         </plugins>
     </build>

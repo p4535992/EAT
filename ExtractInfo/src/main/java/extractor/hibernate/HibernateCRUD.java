@@ -34,6 +34,7 @@ public class HibernateCRUD<T> extends Hibernate4Kit<T> {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unchecked","rawtypes"})
     public <T> T selectRow(Serializable id){
         T object = null;
         try {

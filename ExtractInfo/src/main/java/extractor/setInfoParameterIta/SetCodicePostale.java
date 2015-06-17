@@ -2,6 +2,7 @@ package extractor.setInfoParameterIta;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -19,7 +20,7 @@ import org.jsoup.select.Elements;
  */
 public class SetCodicePostale {
     
-    private static Map<String,SetCodicePostale> lcp = new HashMap<String,SetCodicePostale>(); 
+    private static Map<String,SetCodicePostale> lcp = new HashMap<>(); 
     private int identificativoComune;  
     private String capInizialeComune;
     private String capFinaleComune;
@@ -241,8 +242,8 @@ public class SetCodicePostale {
    
     
     //METODI
-    private ArrayList<String> GetPostalCOdeByWeb(String indirizzo){
-        ArrayList<String> result =new ArrayList<String>();
+    private List<String> GetPostalCOdeByWeb(String indirizzo){
+        List<String> result =new ArrayList<>();
         String expression = "\\d{3,5}";       
         Pattern pattern = Pattern.compile(expression);
         Matcher matcher = pattern.matcher(indirizzo);
@@ -254,8 +255,8 @@ public class SetCodicePostale {
         return result;
     }
     
-    private ArrayList<String> GetCityByWeb(String indirizzo){
-        ArrayList<String> result =new ArrayList<String>();
+    private List<String> GetCityByWeb(String indirizzo){
+        List<String> result =new ArrayList<>();
         String expression = "\\((.*?)\\)";
         String m = "";
         Pattern pattern = Pattern.compile(expression);
@@ -286,8 +287,8 @@ public class SetCodicePostale {
            for(Element e : links){
                if(e.ownText().contains("(")){
                    System.out.println(e.ownText());
-                   ArrayList<String> listCap = GetPostalCOdeByWeb(e.ownText());
-                   ArrayList<String> listCity = GetCityByWeb(e.ownText());
+                   List<String> listCap = GetPostalCOdeByWeb(e.ownText());
+                   List<String> listCity = GetCityByWeb(e.ownText());
                    if(listCap.size() >0){                       
                        for(String s : listCity){                           
                            lcp.put(s.trim(),new SetCodicePostale(identificativoComune,listCap.get(0).toString().trim(),listCap.get(1).toString().trim()));
@@ -301,7 +302,7 @@ public class SetCodicePostale {
                }
            }
            //PRINT FOR COPY TO SETCAP FOR ITALIA
-           for (Map.Entry entry : lcp.entrySet()) {
+           for (Map.Entry<String,SetCodicePostale> entry : lcp.entrySet()) {
                //System.out.println(entry.getKey() + ", " + entry.getValue());
                System.out.println("lcp.put(\""+entry.getKey()+"\",new SetCodicePostale("+entry.getValue()+"));");
            }
@@ -340,7 +341,7 @@ public class SetCodicePostale {
                                city = content.toString();
                                SetCodicePostale ec = new  SetCodicePostale(identificatore, null, cap);
                                Boolean verify = false;
-                                for (Map.Entry entry : lcp.entrySet()) {
+                                for (Map.Entry<String,SetCodicePostale> entry : lcp.entrySet()) {
                                     if(entry.getKey().equals(city)){verify = true;} //Controlla che la città nno sia già presente                                   
                                 }
                                 if(verify==false){
@@ -358,7 +359,7 @@ public class SetCodicePostale {
                 identificatore++;               
             }//for(Element e : links)        
             //PRINT FOR COPY TO SETCAP FOR ITALIA
-            for (Map.Entry entry : lcp.entrySet()) {
+            for (Map.Entry<String,SetCodicePostale> entry : lcp.entrySet()) {
                 //System.out.println(entry.getKey() + ", " + entry.getValue());
                 System.out.println("lcp.put(\""+entry.getKey()+"\",new SetCodicePostale("+entry.getValue()+"));");
             }    
