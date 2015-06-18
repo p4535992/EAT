@@ -7,7 +7,7 @@
     <groupId>com.github.p4535992</groupId>
     <artifactId>EAT</artifactId>
     <version>1.1</version>
-    <packaging>pom</packaging>
+    <packaging>jar</packaging>
     <name>${project.artifactId}</name>
     <url>http://maven.apache.org</url>
 
@@ -189,12 +189,11 @@
                         </goals>
                     </execution>
                 </executions>
-                <!--
+                
                 <configuration>
-                    <mainClass>C:\apache-camel-2.11.0\examples\camel-example-smooks-  
-                  integration\src\main\java\example\Main< /mainClass>
+                    <mainClass>/com/github/p4535992/extractor/home/MainEAT</mainClass>
                 </configuration>
-                -->
+                
             </plugin>
 
             <plugin>

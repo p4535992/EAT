@@ -27,7 +27,7 @@ public class MainEAT {
     // The storage for the command line parameters
     private static Map<String,String> mParameters = new HashMap<String, String>();
     public MainEAT(Map<String, String> mParameters){
-            this.mParameters = mParameters;
+            MainEAT.mParameters = mParameters;
     }
     
     public static void main(final String[] args) throws NullPointerException, InterruptedException, InvocationTargetException{   
