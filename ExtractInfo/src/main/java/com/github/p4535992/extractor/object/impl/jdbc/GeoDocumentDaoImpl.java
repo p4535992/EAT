@@ -95,7 +95,7 @@ public class GeoDocumentDaoImpl extends GenericDaoImpl<GeoDocument> implements I
 
     @Override
     public void insertAndTrim(GeoDocument g) {
-       SQLSupport support = new SQLSupport(g);
+       SQLSupport<GeoDocument> support = new SQLSupport(g);
        try {
            super.insertAndTrim(support.getCOLUMNS(),support.getVALUES(),support.getTYPES());
         }catch(NullPointerException e){

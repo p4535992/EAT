@@ -29,342 +29,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ddc8be51-6c6f-4bbd-b463-02aa428f706b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_p4535992_ExtractInfo_1_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_p4535992_utility_1_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_3_8_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_jcl_over_slf4j_1_6_4.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_6_1.xml" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__commons_logging_commons_logging_1_1_3.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_objenesis_objenesis_1_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\java\bean\BeansKit.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\java\bean\InitBean.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\java\extractor\JenaInfoDocument.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\java\extractor\ManageJsonWithGoogleMaps.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\java\extractor\ManageJsonWithOpenStreetMap.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\java\extractor\estrattori\ExtractInfoSpring.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\java\extractor\estrattori\ExtractInfoWeb.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\java\extractor\estrattori\ExtractorDomain.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\java\extractor\estrattori\ExtractorGeoDocumentSupport.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\java\extractor\estrattori\ExtractorInfoGATE.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\java\extractor\estrattori\ExtractorJSOUP.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\java\extractor\gate\GateAnnotationKit.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\java\extractor\gate\GateCorpusKit.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\java\extractor\gate\GateDataStoreKit.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\java\extractor\gate\GateKit.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\java\extractor\gate\README" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\java\extractor\gate\servlet\GATEProcessor.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\java\extractor\gate\servlet\GateApp.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\java\extractor\gate\servlet\GateHandler.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\java\extractor\gate\servlet\MyGateHandler.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\java\extractor\hibernate\Hibernate4Kit.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\java\extractor\hibernate\HibernateCRUD.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\java\extractor\hibernate\HibernateSupport.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\java\extractor\hibernate\IHibernateKit.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\java\extractor\hibernate\finder.rar" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\java\extractor\hibernate\interceptor\DirtyAware.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\java\extractor\hibernate\interceptor\GeoDocumentInterceptor.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\java\extractor\hibernate\interceptor\SelfDirtyCheckingEntity.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\java\extractor\hibernate\old\cfg.rar" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\java\extractor\hibernate\old\hibernate.cfg.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\java\extractor\hibernate\old\old_hibernate2.rar" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\java\extractor\karma\GenerationOfTriple.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\java\extractor\setInfoParameterIta\Lista-Citta-CAP.txt" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\java\extractor\setInfoParameterIta\Lista-Comuni-CAP.txt" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\java\extractor\setInfoParameterIta\SetCodicePostale.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\java\extractor\setInfoParameterIta\SetNazioneELanguage.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\java\extractor\setInfoParameterIta\SetProvinciaECity.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\java\extractor\setInfoParameterIta\SetRegioneEProvincia.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\java\home\MainExtractInfo.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\java\object\dao\hibernate\IGeoDocumentHibernateDao.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\java\object\dao\hibernate\IWebSiteHibernateDao.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\java\object\dao\hibernate\generic\IGenericHibernateDao.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\java\object\dao\jdbc\IDocumentDao.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\java\object\dao\jdbc\IGeoDocumentDao.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\java\object\dao\jdbc\IGeoDomainDocumentDao.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\java\object\dao\jdbc\IInfoDocumentDao.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\java\object\dao\jdbc\IWebsiteDao.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\java\object\dao\jdbc\generic\IGenericDao.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\java\object\impl\hibernate\GeoDocumentHibernateDaoImpl.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\java\object\impl\hibernate\generic\GenericHibernateDaoImpl.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\java\object\impl\jdbc\DocumentDaoImpl.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\java\object\impl\jdbc\GeoDocumentDaoImpl.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\java\object\impl\jdbc\GeoDomainDocumentDaoImpl.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\java\object\impl\jdbc\InfoDocumentDaoImpl.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\java\object\impl\jdbc\WebsiteDaoImpl.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\java\object\impl\jdbc\generic\GenericDaoImpl.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\java\object\model\Document.hbm.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\java\object\model\Document.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\java\object\model\GeoDocument.hbm.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\java\object\model\GeoDocument.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\java\object\model\GeoDomainDocument.hbm.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\java\object\model\GeoDomainDocument.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\java\object\model\InfoDocument.hbm.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\java\object\model\InfoDocument.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\java\object\model\Website.hbm.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\java\object\model\Website.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\java\object\support\AnnotationInfo.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\java\object\support\DepositFrequencyInfo.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\java\object\support\FrequencyInfo.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\java\object\support\LatLng.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\bean\BeansKit.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\bean\InitBean.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\extractor\JenaInfoDocument.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\extractor\ManageJsonWithGoogleMaps.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\extractor\ManageJsonWithOpenStreetMap.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\extractor\estrattori\ExtractInfoSpring.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\extractor\estrattori\ExtractorDomain.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\extractor\estrattori\ExtractorInfoGATE.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\extractor\estrattori\ExtractorJSOUP.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\extractor\gate\GateAnnotationKit.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\extractor\gate\GateCorpusKit.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\extractor\gate\GateDataStoreKit.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\extractor\gate\GateKit$SortedAnnotationList.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\extractor\gate\GateKit.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\extractor\gate\servlet\GATEProcessor.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\extractor\gate\servlet\GateApp.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\extractor\gate\servlet\GateHandler.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\extractor\gate\servlet\MyGateHandler.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\extractor\hibernate\Hibernate4Kit$1.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\extractor\hibernate\Hibernate4Kit.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\extractor\hibernate\HibernateCRUD.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\extractor\hibernate\HibernateSupport.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\extractor\hibernate\IHibernateKit.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\extractor\hibernate\interceptor\DirtyAware.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\extractor\hibernate\interceptor\GeoDocumentInterceptor.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\extractor\hibernate\interceptor\SelfDirtyCheckingEntity.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\extractor\karma\GenerationOfTriple.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\extractor\setInfoParameterIta\SetCodicePostale.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\extractor\setInfoParameterIta\SetNazioneELanguage.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\extractor\setInfoParameterIta\SetProvinciaECity.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\extractor\setInfoParameterIta\SetRegioneEProvincia.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\home\MainExtractInfo$1.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\home\MainExtractInfo.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\object\dao\hibernate\IGeoDocumentHibernateDao.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\object\dao\hibernate\IWebSiteHibernateDao.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\object\dao\hibernate\generic\IGenericHibernateDao.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\object\dao\jdbc\IDocumentDao.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\object\dao\jdbc\IGeoDocumentDao.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\object\dao\jdbc\IGeoDomainDocumentDao.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\object\dao\jdbc\IInfoDocumentDao.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\object\dao\jdbc\IWebsiteDao.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\object\dao\jdbc\generic\IGenericDao.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\object\impl\hibernate\GeoDocumentHibernateDaoImpl.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\object\impl\hibernate\generic\GenericHibernateDaoImpl.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\object\impl\jdbc\DocumentDaoImpl.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\object\impl\jdbc\GeoDocumentDaoImpl.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\object\impl\jdbc\GeoDomainDocumentDaoImpl$1$1.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\object\impl\jdbc\GeoDomainDocumentDaoImpl$1.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\object\impl\jdbc\GeoDomainDocumentDaoImpl.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\object\impl\jdbc\InfoDocumentDaoImpl.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\object\impl\jdbc\WebsiteDaoImpl.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\object\impl\jdbc\generic\GenericDaoImpl$1.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\object\impl\jdbc\generic\GenericDaoImpl$2.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\object\impl\jdbc\generic\GenericDaoImpl.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\object\model\Document.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\object\model\GeoDocument.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\object\model\GeoDomainDocument.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\object\model\InfoDocument.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\object\model\Website.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\object\support\AnnotationInfo.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\object\support\DepositFrequencyInfo.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\object\support\FrequencyInfo.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\target\classes\object\support\LatLng.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\src\main\java\home\MainEAT.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\target\classes\home\MainEAT$1.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\target\classes\home\MainEAT.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\src\main\java\com\p4535992\util\archive\ZipStreamer.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\src\main\java\com\p4535992\util\cmd\PrepareCommand.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\src\main\java\com\p4535992\util\cmd\[JAVA] CODE FOR INVOKE CMD 2015-01-14v3.txt" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\src\main\java\com\p4535992\util\color\Colors.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\src\main\java\com\p4535992\util\encoding\EncodingUtil.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\src\main\java\com\p4535992\util\encrypt\SimpleCrypto.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\src\main\java\com\p4535992\util\encrypt\Test_Crypto.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\src\main\java\com\p4535992\util\estrattori\OLD_Extractor.rar" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\src\main\java\com\p4535992\util\file\FileUtil.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\src\main\java\com\p4535992\util\file\PropertiesKit.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\src\main\java\com\p4535992\util\file\SimpleParameters.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\src\main\java\com\p4535992\util\geo\GeoDistanceSimple.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\src\main\java\com\p4535992\util\geo\GeoHashUtils.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\src\main\java\com\p4535992\util\geo\GeoPoint.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\src\main\java\com\p4535992\util\hibernate\cfg.rar" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\src\main\java\com\p4535992\util\hibernate\old_hibernate.zip" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\src\main\java\com\p4535992\util\html\HtmlCharacterEntities.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\src\main\java\com\p4535992\util\html\HtmlKit.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\src\main\java\com\p4535992\util\html\JSoupKit.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\src\main\java\com\p4535992\util\html\Test_Html.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\src\main\java\com\p4535992\util\html\Test_Jsoup.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\src\main\java\com\p4535992\util\html\parser\Outliner.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\src\main\java\com\p4535992\util\html\parser\PageSaver.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\src\main\java\com\p4535992\util\html\parser\ParserGetter.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\src\main\java\com\p4535992\util\html\parser\ReportAttributes.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\src\main\java\com\p4535992\util\html\scanner\HtmlScanner.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\src\main\java\com\p4535992\util\html\scanner\Skaner.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\src\main\java\com\p4535992\util\http\DefaultHttpRequestRetryHandler.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\src\main\java\com\p4535992\util\http\HttpUtilApache.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\src\main\java\com\p4535992\util\http\HttpUtilApacheClient.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\src\main\java\com\p4535992\util\http\HttpUtility.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\src\main\java\com\p4535992\util\http\URLUtil.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\src\main\java\com\p4535992\util\http\old_http.rar" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\src\main\java\com\p4535992\util\jenaAndSesame\JenaAndSesame.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\src\main\java\com\p4535992\util\jena\Jena2Kit.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\src\main\java\com\p4535992\util\jena\jena_vocabulary\GoodRelations.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\src\main\java\com\p4535992\util\jena\jena_vocabulary\SchemaOrg.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\src\main\java\com\p4535992\util\jena\jena_vocabulary\SiiMobility1_3_4_WithIndividual.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\src\main\java\com\p4535992\util\jena\jena_vocabulary\SiiMobility1_3_4_WithoutIndividual.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\src\main\java\com\p4535992\util\jena\old_jena.rar" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\src\main\java\com\p4535992\util\json\GsonKit.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\src\main\java\com\p4535992\util\json\JacksonKit.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\src\main\java\com\p4535992\util\log\SystemLog.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\src\main\java\com\p4535992\util\metric\MetricKit.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\src\main\java\com\p4535992\util\object\model 2015-06-09.rar" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\src\main\java\com\p4535992\util\object\model\Document.hbm.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\src\main\java\com\p4535992\util\object\model\Document.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\src\main\java\com\p4535992\util\object\model\GeoDocument.hbm.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\src\main\java\com\p4535992\util\object\model\GeoDocument.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\src\main\java\com\p4535992\util\object\model\GeoDomainDocument.hbm.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\src\main\java\com\p4535992\util\object\model\GeoDomainDocument.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\src\main\java\com\p4535992\util\object\model\InfoDocument.hbm.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\src\main\java\com\p4535992\util\object\model\InfoDocument.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\src\main\java\com\p4535992\util\object\model\Website.hbm.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\src\main\java\com\p4535992\util\object\model\Website.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\src\main\java\com\p4535992\util\reflection\ReflectionKit.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\src\main\java\com\p4535992\util\reflection\old_reflection.rar" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\src\main\java\com\p4535992\util\sesame\SesameManager.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\src\main\java\com\p4535992\util\sesame\SesameManagerException.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\src\main\java\com\p4535992\util\sesame\SesameUtil28.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\src\main\java\com\p4535992\util\sesame\old_sesame.rar" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\src\main\java\com\p4535992\util\sql\SQLHelper.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\src\main\java\com\p4535992\util\sql\SQLKit.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\src\main\java\com\p4535992\util\sql\SQLSupport.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\src\main\java\com\p4535992\util\string\StringKit.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\src\main\java\com\p4535992\util\string\StringOutputStreamKit.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\src\main\java\com\p4535992\util\xml\XMLHibernate.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\src\main\java\com\p4535992\util\xml\XMLKit.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\src\main\java\com\p4535992\util\xml\XMLKitJDOM.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\src\main\java\com\p4535992\util\xml\XML_old.rar" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\classes\com\p4535992\util\archive\ZipStreamer.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\classes\com\p4535992\util\cmd\PrepareCommand$StreamWrapper.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\classes\com\p4535992\util\cmd\PrepareCommand.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\classes\com\p4535992\util\color\Colors.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\classes\com\p4535992\util\encoding\EncodingUtil$ParseState.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\classes\com\p4535992\util\encoding\EncodingUtil.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\classes\com\p4535992\util\encrypt\SimpleCrypto.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\classes\com\p4535992\util\encrypt\Test_Crypto.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\classes\com\p4535992\util\file\FileUtil$FileWalker$1.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\classes\com\p4535992\util\file\FileUtil$FileWalker$Handler.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\classes\com\p4535992\util\file\FileUtil$FileWalker.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\classes\com\p4535992\util\file\FileUtil.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\classes\com\p4535992\util\file\PropertiesKit.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\classes\com\p4535992\util\file\SimpleParameters.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\classes\com\p4535992\util\geo\GeoDistanceSimple.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\classes\com\p4535992\util\geo\GeoHashUtils.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\classes\com\p4535992\util\geo\GeoPoint.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\classes\com\p4535992\util\html\CharacterEntityParser.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\classes\com\p4535992\util\html\HtmlCharacterEntities.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\classes\com\p4535992\util\html\HtmlKit.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\classes\com\p4535992\util\html\JSoupKit.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\classes\com\p4535992\util\html\Test_Html.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\classes\com\p4535992\util\html\Test_Jsoup.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\classes\com\p4535992\util\html\parser\Outliner.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\classes\com\p4535992\util\html\parser\PageSaver.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\classes\com\p4535992\util\html\parser\ParserGetter.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\classes\com\p4535992\util\html\parser\ReportAttributes.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\classes\com\p4535992\util\html\scanner\HtmlScanner$1.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\classes\com\p4535992\util\html\scanner\HtmlScanner$ScannerHTMLEditorKit.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\classes\com\p4535992\util\html\scanner\HtmlScanner$ScannerParserCallback.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\classes\com\p4535992\util\html\scanner\HtmlScanner.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\classes\com\p4535992\util\html\scanner\Skaner$1.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\classes\com\p4535992\util\html\scanner\Skaner$2.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\classes\com\p4535992\util\html\scanner\Skaner$ScannerHTMLEditorKit.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\classes\com\p4535992\util\html\scanner\Skaner$ScannerParserCallback.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\classes\com\p4535992\util\html\scanner\Skaner.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\classes\com\p4535992\util\http\DefaultHttpRequestRetryHandler.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\classes\com\p4535992\util\http\HttpUtilApache.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\classes\com\p4535992\util\http\HttpUtilApacheClient$1$1.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\classes\com\p4535992\util\http\HttpUtilApacheClient$1$2.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\classes\com\p4535992\util\http\HttpUtilApacheClient$1.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\classes\com\p4535992\util\http\HttpUtilApacheClient$2.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\classes\com\p4535992\util\http\HttpUtilApacheClient.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\classes\com\p4535992\util\http\HttpUtility.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\classes\com\p4535992\util\http\URLUtil.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\classes\com\p4535992\util\jenaAndSesame\JenaAndSesame.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\classes\com\p4535992\util\jena\Jena2Kit.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\classes\com\p4535992\util\jena\jena_vocabulary\GoodRelations.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\classes\com\p4535992\util\jena\jena_vocabulary\SchemaOrg.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\classes\com\p4535992\util\jena\jena_vocabulary\SiiMobility1_3_4_WithIndividual.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\classes\com\p4535992\util\jena\jena_vocabulary\SiiMobility1_3_4_WithoutIndividual.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\classes\com\p4535992\util\json\GsonKit.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\classes\com\p4535992\util\json\JacksonKit.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\classes\com\p4535992\util\log\SystemLog$1.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\classes\com\p4535992\util\log\SystemLog$Level.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\classes\com\p4535992\util\log\SystemLog.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\classes\com\p4535992\util\metric\MetricKit.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\classes\com\p4535992\util\object\model\Document.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\classes\com\p4535992\util\object\model\GeoDocument.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\classes\com\p4535992\util\object\model\GeoDomainDocument.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\classes\com\p4535992\util\object\model\InfoDocument.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\classes\com\p4535992\util\object\model\Website.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\classes\com\p4535992\util\reflection\ReflectionKit.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\classes\com\p4535992\util\sesame\SesameManager$SesameManagerException.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\classes\com\p4535992\util\sesame\SesameManager.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\classes\com\p4535992\util\sesame\SesameManagerException.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\classes\com\p4535992\util\sesame\SesameUtil28$1.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\classes\com\p4535992\util\sesame\SesameUtil28$2.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\classes\com\p4535992\util\sesame\SesameUtil28$ChunkCommitter.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\classes\com\p4535992\util\sesame\SesameUtil28.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\classes\com\p4535992\util\sql\SQLHelper.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\classes\com\p4535992\util\sql\SQLKit.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\classes\com\p4535992\util\sql\SQLSupport.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\classes\com\p4535992\util\string\StringKit$ParseState.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\classes\com\p4535992\util\string\StringKit.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\classes\com\p4535992\util\string\StringOutputStreamKit.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\classes\com\p4535992\util\xml\PrefixGrabber.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\classes\com\p4535992\util\xml\XMLHibernate.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\classes\com\p4535992\util\xml\XMLKit$1.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\classes\com\p4535992\util\xml\XMLKit.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\utility\target\classes\com\p4535992\util\xml\XMLKitJDOM.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/test-classes/util/Test_Encoding.class" afterPath="$PROJECT_DIR$/utility/target/test-classes/util/Test_Encoding.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/target/test-classes/util/Test_GraphDB6.class" afterPath="$PROJECT_DIR$/ExtractInfo/target/test-classes/util/Test_GraphDB6.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_1_3.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_objenesis_objenesis_1_2.xml" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__com_p4535992_utility_1_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__junit_junit_3_8_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_slf4j_jcl_over_slf4j_1_6_4.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_slf4j_slf4j_api_1_6_1.xml" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/target/test-classes/util/Test_Hibernate_Spring.class" afterPath="$PROJECT_DIR$/ExtractInfo/target/test-classes/util/Test_Hibernate_Spring.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/test-classes/util/Test_Http.class" afterPath="$PROJECT_DIR$/utility/target/test-classes/util/Test_Http.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/target/test-classes/util/Test_JDBC_util.class" afterPath="$PROJECT_DIR$/ExtractInfo/target/test-classes/util/Test_JDBC_util.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/test-classes/util/Test_Jena.class" afterPath="$PROJECT_DIR$/utility/target/test-classes/util/Test_Jena.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/target/test-classes/util/Test_Karma.class" afterPath="$PROJECT_DIR$/ExtractInfo/target/test-classes/util/Test_Karma.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/test-classes/util/Test_Reflection.class" afterPath="$PROJECT_DIR$/utility/target/test-classes/util/Test_Reflection.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/target/test-classes/util/Test_SILK.class" afterPath="$PROJECT_DIR$/ExtractInfo/target/test-classes/util/Test_SILK.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/test-classes/util/Test_Sesame.class" afterPath="$PROJECT_DIR$/utility/target/test-classes/util/Test_Sesame.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/target/test-classes/spring/Test_Spring_Hibernate$WebsiteService.class" afterPath="$PROJECT_DIR$/ExtractInfo/target/test-classes/spring/Test_Spring_Hibernate$WebsiteService.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/target/test-classes/spring/Test_Spring_Hibernate.class" afterPath="$PROJECT_DIR$/ExtractInfo/target/test-classes/spring/Test_Spring_Hibernate.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/target/test-classes/util/Test_Xml.class" afterPath="$PROJECT_DIR$/utility/target/test-classes/util/Test_Xml.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/.gitignore" afterPath="$PROJECT_DIR$/ExtractInfo/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/.gitignore" afterPath="$PROJECT_DIR$/utility/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitmodules" afterPath="$PROJECT_DIR$/.gitmodules" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/EAT.iml" afterPath="$PROJECT_DIR$/EAT.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/ExtractInfo.iml" afterPath="$PROJECT_DIR$/ExtractInfo/ExtractInfo.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/README.md" afterPath="$PROJECT_DIR$/utility/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/src/test/java/util/Test_Encoding.java" afterPath="$PROJECT_DIR$/utility/src/test/java/util/Test_Encoding.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/test/java/util/Test_GraphDB6.java" afterPath="$PROJECT_DIR$/ExtractInfo/src/test/java/util/Test_GraphDB6.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/test/java/util/Test_Hibernate_Spring.java" afterPath="$PROJECT_DIR$/ExtractInfo/src/test/java/util/Test_Hibernate_Spring.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/src/test/java/util/Test_Http.java" afterPath="$PROJECT_DIR$/utility/src/test/java/util/Test_Http.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/test/java/util/Test_JDBC_util.java" afterPath="$PROJECT_DIR$/ExtractInfo/src/test/java/util/Test_JDBC_util.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/src/test/java/util/Test_Jena.java" afterPath="$PROJECT_DIR$/utility/src/test/java/util/Test_Jena.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/test/java/util/Test_Karma.java" afterPath="$PROJECT_DIR$/ExtractInfo/src/test/java/util/Test_Karma.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/src/test/java/util/Test_Reflection.java" afterPath="$PROJECT_DIR$/utility/src/test/java/util/Test_Reflection.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/src/test/java/util/Test_Sesame.java" afterPath="$PROJECT_DIR$/utility/src/test/java/util/Test_Sesame.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/test/java/spring/Test_Spring_Hibernate.java" afterPath="$PROJECT_DIR$/ExtractInfo/src/test/java/spring/Test_Spring_Hibernate.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/src/test/java/util/Test_Xml.java" afterPath="$PROJECT_DIR$/utility/src/test/java/util/Test_Xml.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/object/impl/jdbc/GeoDocumentDaoImpl.java" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/object/impl/jdbc/GeoDocumentDaoImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_p4535992_ExtractInfo_1_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_p4535992_ExtractInfo_1_1.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/pom.xml" afterPath="$PROJECT_DIR$/ExtractInfo/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/pom.xml" afterPath="$PROJECT_DIR$/utility/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/resources/spring_hibernate/spring-beans-eat.xml" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/resources/spring_hibernate/spring-beans-eat.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/target/classes/spring_hibernate/spring-beans-eat.xml" afterPath="$PROJECT_DIR$/ExtractInfo/target/classes/spring_hibernate/spring-beans-eat.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/resources/META-INF/spring/spring-hibernate4v2.xml" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/resources/META-INF/spring/spring-hibernate4v2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/target/classes/META-INF/spring/spring-hibernate4v2.xml" afterPath="$PROJECT_DIR$/ExtractInfo/target/classes/META-INF/spring/spring-hibernate4v2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/resources/spring_hibernate/spring-sessionFactory.xml" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/resources/spring_hibernate/spring-sessionFactory.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/target/classes/spring_hibernate/spring-sessionFactory.xml" afterPath="$PROJECT_DIR$/ExtractInfo/target/classes/spring_hibernate/spring-sessionFactory.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/utility.iml" afterPath="$PROJECT_DIR$/utility/utility.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="EAT.iws" />
@@ -457,8 +137,8 @@
       <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/utility/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-23.448277">
-              <caret line="40" column="15" selection-start-line="23" selection-start-column="3" selection-end-line="40" selection-end-column="15" />
+            <state vertical-scroll-proportion="-0.0">
+              <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -479,48 +159,48 @@
       </file>
       <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ExtractInfo/README.md">
+          <provider editor-type-id="MarkdownPreviewEditor">
+            <state />
+          </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.793103">
+            <state vertical-scroll-proportion="0.0">
               <caret line="15" column="64" selection-start-line="15" selection-start-column="64" selection-end-line="15" selection-end-column="64" />
               <folding />
             </state>
-          </provider>
-          <provider editor-type-id="MarkdownPreviewEditor">
-            <state />
           </provider>
         </entry>
       </file>
       <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/README.md">
+          <provider editor-type-id="MarkdownPreviewEditor">
+            <state />
+          </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.5862069">
+            <state vertical-scroll-proportion="0.0">
               <caret line="1" column="26" selection-start-line="1" selection-start-column="26" selection-end-line="1" selection-end-column="26" />
               <folding />
             </state>
-          </provider>
-          <provider editor-type-id="MarkdownPreviewEditor">
-            <state />
           </provider>
         </entry>
       </file>
       <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/utility/README.md">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.9310346">
-              <caret line="8" column="8" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
-              <folding />
-            </state>
-          </provider>
           <provider editor-type-id="MarkdownPreviewEditor">
             <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="19" column="82" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="82" />
+              <folding />
+            </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ExtractInfo/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-18.172413">
-              <caret line="31" column="15" selection-start-line="12" selection-start-column="3" selection-end-line="31" selection-end-column="15" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="362" column="10" selection-start-line="362" selection-start-column="10" selection-end-line="362" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -529,16 +209,26 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="2.988658">
-              <caret line="105" column="26" selection-start-line="105" selection-start-column="26" selection-end-line="105" selection-end-column="26" />
+            <state vertical-scroll-proportion="-5.862069">
+              <caret line="172" column="0" selection-start-line="172" selection-start-column="0" selection-end-line="172" selection-end-column="0" />
               <folding />
             </state>
           </provider>
           <provider editor-type-id="MavenHelperPluginDependencyAnalyzer">
             <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainEAT.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/github/p4535992/extractor/home/MainEAT.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-1.1007195">
+              <caret line="22" column="34" selection-start-line="22" selection-start-column="34" selection-end-line="22" selection-end-column="34" />
+              <folding />
+            </state>
           </provider>
         </entry>
       </file>
@@ -552,23 +242,18 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BeansKit.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/bean/BeansKit.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="GeoDocumentDaoImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/object/impl/jdbc/GeoDocumentDaoImpl.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#1139#1140#0" expanded="false" />
+                <element signature="e#1175#1176#0" expanded="false" />
+                <element signature="e#1558#1559#0" expanded="false" />
+                <element signature="e#1607#1608#0" expanded="false" />
+                <element signature="e#1710#1711#0" expanded="false" />
+                <element signature="e#1752#1753#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -678,8 +363,28 @@
           <option name="myItemId" value="" />
           <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
         </PATH_ELEMENT>
+      </PATH>
+      <PATH>
         <PATH_ELEMENT>
-          <option name="myItemId" value="utility" />
+          <option name="myItemId" value="" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="extractInfo" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Dependencies" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$DependenciesNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="extractInfo" />
           <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
         </PATH_ELEMENT>
       </PATH>
@@ -689,12 +394,12 @@
           <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
         </PATH_ELEMENT>
         <PATH_ELEMENT>
-          <option name="myItemId" value="utility" />
+          <option name="myItemId" value="EAT" />
           <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
         </PATH_ELEMENT>
         <PATH_ELEMENT>
-          <option name="myItemId" value="Plugins" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$PluginsNode" />
+          <option name="myItemId" value="Dependencies" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$DependenciesNode" />
         </PATH_ELEMENT>
       </PATH>
       <PATH>
@@ -703,16 +408,16 @@
           <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
         </PATH_ELEMENT>
         <PATH_ELEMENT>
-          <option name="myItemId" value="utility" />
+          <option name="myItemId" value="EAT" />
           <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
         </PATH_ELEMENT>
         <PATH_ELEMENT>
-          <option name="myItemId" value="Plugins" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$PluginsNode" />
+          <option name="myItemId" value="Dependencies" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$DependenciesNode" />
         </PATH_ELEMENT>
         <PATH_ELEMENT>
-          <option name="myItemId" value="compiler" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$PluginNode" />
+          <option name="myItemId" value="com.github.p4535992:ExtractInfo:1.1" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$DependencyNode" />
         </PATH_ELEMENT>
       </PATH>
       <PATH>
@@ -721,36 +426,8 @@
           <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
         </PATH_ELEMENT>
         <PATH_ELEMENT>
-          <option name="myItemId" value="utility" />
+          <option name="myItemId" value="EAT" />
           <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="Plugins" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$PluginsNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="clean" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$PluginNode" />
-        </PATH_ELEMENT>
-      </PATH>
-      <PATH>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="utility" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="Lifecycle" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$LifecycleNode" />
-        </PATH_ELEMENT>
-      </PATH>
-      <PATH>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
         </PATH_ELEMENT>
       </PATH>
     </treeState>
@@ -848,7 +525,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="utility" />
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -862,18 +543,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="ExtractInfo" />
+              <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="Scope">
-        <subPane subId="Project Files">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="home" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -908,6 +591,16 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="EAT" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -1699,12 +1392,13 @@
       <workItem from="1434552089249" duration="2276000" />
       <workItem from="1434554737837" duration="1660000" />
       <workItem from="1434609713089" duration="1242000" />
-      <workItem from="1434631188866" duration="7096000" />
+      <workItem from="1434631188866" duration="8388000" />
+      <workItem from="1434647739623" duration="983000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1046287000" />
+    <option name="totallyTimeSpent" value="1048562000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -1724,39 +1418,39 @@
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37860084" sideWeight="0.52319586" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3281893" sideWeight="0.4883721" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31740615" sideWeight="0.4837067" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31740615" sideWeight="0.4837067" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31569967" sideWeight="0.48774886" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3271605" sideWeight="0.4883721" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2489712" sideWeight="0.4883721" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32871974" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32871974" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32871974" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33788395" sideWeight="0.5416036" order="9" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.40443686" sideWeight="0.4650924" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33788395" sideWeight="0.5416036" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33788395" sideWeight="0.45839638" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32698962" sideWeight="0.4958932" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24205749" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24659607" sideWeight="0.4883721" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24583964" sideWeight="0.4883721" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25642964" sideWeight="0.4766082" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4778157" sideWeight="0.49081165" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32854208" sideWeight="0.5116279" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4778157" sideWeight="0.49081165" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.40443686" sideWeight="0.4650924" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31569967" sideWeight="0.48774886" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33788395" sideWeight="0.45839638" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25514403" sideWeight="0.5233918" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Module Dependencies" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32924962" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3284839" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.322807" sideWeight="0.53369063" order="8" side_tool="true" content_ui="tabs" />
@@ -1777,8 +1471,8 @@
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.322807" sideWeight="0.46630934" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24961714" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24432677" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24432677" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
@@ -2403,14 +2097,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/gate/GateCorpusKit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="39" column="7" selection-start-line="39" selection-start-column="7" selection-end-line="39" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/gate/GateDataStoreKit.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2447,13 +2133,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/silk_files/batch/README.md">
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="1" column="49" selection-start-line="1" selection-start-column="49" selection-end-line="1" selection-end-column="49" />
         </state>
-      </provider>
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/silk_files/batch/run_silk_windows_2015-05-05.bat">
@@ -2625,13 +2311,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/utility/utility.eml">
+      <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
-      </provider>
-      <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
-        <state />
       </provider>
     </entry>
     <entry file="uml://MAVEN/com.p4535992:ExtractInfo:1.0">
@@ -2954,7 +2640,6 @@
             <element signature="e#4633#4634#0" expanded="false" />
             <element signature="e#4754#4755#0" expanded="false" />
             <element signature="e#4791#4792#0" expanded="false" />
-            <marker date="1434636431008" expanded="false" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -2966,38 +2651,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/p4535992/extractor/home/MainEAT.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="49" column="69" selection-start-line="49" selection-start-column="69" selection-end-line="49" selection-end-column="69" />
-          <folding>
-            <element signature="e#932#933#0" expanded="false" />
-            <element signature="e#982#983#0" expanded="false" />
-            <element signature="e#4267#4268#0" expanded="false" />
-            <element signature="e#4303#4304#0" expanded="false" />
-            <element signature="e#4424#4425#0" expanded="false" />
-            <element signature="e#4461#4462#0" expanded="false" />
-            <marker date="1434636431670" expanded="false" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitattributes">
+      <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
-      </provider>
-      <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitmodules">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3021,9 +2688,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3039,9 +2703,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="2" column="35" selection-start-line="2" selection-start-column="35" selection-end-line="2" selection-end-column="35" />
-          <folding>
-            <marker date="1434636431924" expanded="true" signature="-1:-1" placeholder="SELECT missi..missingValue..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3049,7 +2710,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#9373#9374#0" expanded="false" />
+            <element signature="e#9425#9426#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -3058,20 +2722,14 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#1139#1140#0" expanded="false" />
+            <element signature="e#1175#1176#0" expanded="false" />
+            <element signature="e#1558#1559#0" expanded="false" />
+            <element signature="e#1607#1608#0" expanded="false" />
+            <element signature="e#1710#1711#0" expanded="false" />
+            <element signature="e#1752#1753#0" expanded="false" />
           </folding>
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ExtractInfo/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-18.172413">
-          <caret line="31" column="15" selection-start-line="12" selection-start-column="3" selection-end-line="31" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ExtractInfo/.gitignore">
@@ -3091,42 +2749,42 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.5862069">
+        <state vertical-scroll-proportion="0.0">
           <caret line="1" column="26" selection-start-line="1" selection-start-column="26" selection-end-line="1" selection-end-column="26" />
           <folding />
         </state>
       </provider>
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utility/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.9310346">
-          <caret line="8" column="8" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ExtractInfo/README.md">
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.793103">
+        <state vertical-scroll-proportion="0.0">
           <caret line="15" column="64" selection-start-line="15" selection-start-column="64" selection-end-line="15" selection-end-column="64" />
           <folding />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utility/README.md">
       <provider editor-type-id="MarkdownPreviewEditor">
         <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="19" column="82" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="82" />
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/utility/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-23.448277">
-          <caret line="40" column="15" selection-start-line="23" selection-start-column="3" selection-end-line="40" selection-end-column="15" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -3134,15 +2792,361 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
+    <entry file="file://$PROJECT_DIR$/ExtractInfo/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.988658">
-          <caret line="105" column="26" selection-start-line="105" selection-start-column="26" selection-end-line="105" selection-end-column="26" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="362" column="10" selection-start-line="362" selection-start-column="10" selection-end-line="362" selection-end-column="10" />
           <folding />
         </state>
       </provider>
       <provider editor-type-id="MavenHelperPluginDependencyAnalyzer">
         <state />
+      </provider>
+    </entry>
+    <entry file="uml://MAVEN/com.github.p4535992:EAT:1.1">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>MAVEN</ID>
+          <OriginalElement>com.github.p4535992:EAT:1.1</OriginalElement>
+          <nodes>
+            <node x="" y="">com.github.p4535992:EAT:1.1</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/uk.ac.gate:gate-core:jar:8.1</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/uk.ac.gate:gate-core:jar:8.1/uk.ac.gate:gate-asm:jar:5.0.3</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/uk.ac.gate:gate-core:jar:8.1/uk.ac.gate:gate-compiler-jdt:jar:4.3.2-P20140317-1600</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/uk.ac.gate:gate-core:jar:8.1/commons-logging:commons-logging:jar:1.1.3</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/uk.ac.gate:gate-core:jar:8.1/commons-lang:commons-lang:jar:2.6</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/uk.ac.gate:gate-core:jar:8.1/commons-io:commons-io:jar:2.4</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/uk.ac.gate:gate-core:jar:8.1/org.jdom:jdom:jar:1.1.3</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/uk.ac.gate:gate-core:jar:8.1/net.sourceforge.nekohtml:nekohtml:jar:1.9.14</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/uk.ac.gate:gate-core:jar:8.1/org.apache.tika:tika-parsers:jar:1.7</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/uk.ac.gate:gate-core:jar:8.1/org.apache.tika:tika-parsers:jar:1.7/org.apache.james:apache-mime4j-core:jar:0.7.2</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/uk.ac.gate:gate-core:jar:8.1/org.apache.tika:tika-parsers:jar:1.7/org.apache.james:apache-mime4j-dom:jar:0.7.2</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/uk.ac.gate:gate-core:jar:8.1/org.apache.tika:tika-parsers:jar:1.7/org.apache.commons:commons-compress:jar:1.8.1</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/uk.ac.gate:gate-core:jar:8.1/org.apache.tika:tika-parsers:jar:1.7/org.apache.pdfbox:pdfbox:jar:1.8.8</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/uk.ac.gate:gate-core:jar:8.1/org.apache.tika:tika-parsers:jar:1.7/org.apache.pdfbox:pdfbox:jar:1.8.8/org.apache.pdfbox:fontbox:jar:1.8.8</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/uk.ac.gate:gate-core:jar:8.1/org.apache.tika:tika-parsers:jar:1.7/org.apache.pdfbox:pdfbox:jar:1.8.8/org.apache.pdfbox:jempbox:jar:1.8.8</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/uk.ac.gate:gate-core:jar:8.1/org.apache.tika:tika-parsers:jar:1.7/org.bouncycastle:bcmail-jdk15:jar:1.45</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/uk.ac.gate:gate-core:jar:8.1/org.apache.tika:tika-parsers:jar:1.7/org.bouncycastle:bcprov-jdk15:jar:1.45</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/uk.ac.gate:gate-core:jar:8.1/org.apache.tika:tika-parsers:jar:1.7/org.apache.poi:poi:jar:3.11</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/uk.ac.gate:gate-core:jar:8.1/org.apache.tika:tika-parsers:jar:1.7/org.apache.poi:poi-scratchpad:jar:3.11</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/uk.ac.gate:gate-core:jar:8.1/org.apache.tika:tika-parsers:jar:1.7/org.apache.poi:poi-ooxml:jar:3.11</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/uk.ac.gate:gate-core:jar:8.1/org.apache.tika:tika-parsers:jar:1.7/org.apache.poi:poi-ooxml:jar:3.11/org.apache.poi:poi-ooxml-schemas:jar:3.11</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/uk.ac.gate:gate-core:jar:8.1/org.apache.tika:tika-parsers:jar:1.7/org.apache.poi:poi-ooxml:jar:3.11/org.apache.poi:poi-ooxml-schemas:jar:3.11/org.apache.xmlbeans:xmlbeans:jar:2.6.0</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/uk.ac.gate:gate-core:jar:8.1/org.codehaus.woodstox:woodstox-core-lgpl:jar:4.2.0</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/uk.ac.gate:gate-core:jar:8.1/org.codehaus.woodstox:woodstox-core-lgpl:jar:4.2.0/org.codehaus.woodstox:stax2-api:jar:3.1.1</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/uk.ac.gate:gate-core:jar:8.1/org.apache.ivy:ivy:jar:2.3.0</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/uk.ac.gate:gate-core:jar:8.1/org.apache.ant:ant:jar:1.9.3</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/uk.ac.gate:gate-core:jar:8.1/org.apache.ant:ant:jar:1.9.3/org.apache.ant:ant-launcher:jar:1.9.3</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/uk.ac.gate:gate-core:jar:8.1/com.thoughtworks.xstream:xstream:jar:1.4.7</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/uk.ac.gate:gate-core:jar:8.1/xpp3:xpp3:jar:1.1.4c</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/uk.ac.gate:gate-core:jar:8.1/jaxen:jaxen:jar:1.1.6</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/uk.ac.gate:gate-core:jar:8.1/gnu.getopt:java-getopt:jar:1.0.13</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/uk.ac.gate:gate-core:jar:8.1/org.xhtmlrenderer:flying-saucer-core:jar:9.0.4</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/uk.ac.gate:gate-core:jar:8.1/xmlunit:xmlunit:jar:1.5</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/uk.ac.gate:gate-core:jar:8.1/joda-time:joda-time:jar:2.6</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/uk.ac.gate:gate-core:jar:8.1/junit:junit:jar:4.11</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/uk.ac.gate:gate-core:jar:8.1/junit:junit:jar:4.11/org.hamcrest:hamcrest-core:jar:1.3</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/eu.fusepool.p3.ext.de.fuberlin.wiwiss.silk:silk-singlemachine:jar:2.6.0</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/eu.fusepool.p3.ext.de.fuberlin.wiwiss.silk:silk-singlemachine:jar:2.6.0/eu.fusepool.p3.ext.de.fuberlin.wiwiss.silk:silk-core:jar:2.6.0</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/eu.fusepool.p3.ext.de.fuberlin.wiwiss.silk:silk-singlemachine:jar:2.6.0/eu.fusepool.p3.ext.de.fuberlin.wiwiss.silk:silk-core:jar:2.6.0/com.rockymadden.stringmetric:stringmetric-core_2.10:jar:0.27.2</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/eu.fusepool.p3.ext.de.fuberlin.wiwiss.silk:silk-singlemachine:jar:2.6.0/eu.fusepool.p3.ext.de.fuberlin.wiwiss.silk:silk-core:jar:2.6.0/com.thoughtworks.paranamer:paranamer:jar:2.5.7</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/eu.fusepool.p3.ext.de.fuberlin.wiwiss.silk:silk-singlemachine:jar:2.6.0/eu.fusepool.p3.ext.de.fuberlin.wiwiss.silk:silk-core:jar:2.6.0/com.thoughtworks.paranamer:paranamer:jar:2.5.7/org.mockito:mockito-all:jar:1.9.0</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/eu.fusepool.p3.ext.de.fuberlin.wiwiss.silk:silk-singlemachine:jar:2.6.0/eu.fusepool.p3.ext.de.fuberlin.wiwiss.silk:silk-core:jar:2.6.0/org.clapper:classutil_2.10:jar:1.0.3</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/eu.fusepool.p3.ext.de.fuberlin.wiwiss.silk:silk-singlemachine:jar:2.6.0/eu.fusepool.p3.ext.de.fuberlin.wiwiss.silk:silk-core:jar:2.6.0/org.clapper:classutil_2.10:jar:1.0.3/asm:asm:jar:3.3</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/eu.fusepool.p3.ext.de.fuberlin.wiwiss.silk:silk-singlemachine:jar:2.6.0/eu.fusepool.p3.ext.de.fuberlin.wiwiss.silk:silk-core:jar:2.6.0/org.clapper:classutil_2.10:jar:1.0.3/asm:asm-commons:jar:3.3</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/eu.fusepool.p3.ext.de.fuberlin.wiwiss.silk:silk-singlemachine:jar:2.6.0/eu.fusepool.p3.ext.de.fuberlin.wiwiss.silk:silk-core:jar:2.6.0/org.clapper:classutil_2.10:jar:1.0.3/asm:asm-commons:jar:3.3/asm:asm-tree:jar:3.3</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/eu.fusepool.p3.ext.de.fuberlin.wiwiss.silk:silk-singlemachine:jar:2.6.0/eu.fusepool.p3.ext.de.fuberlin.wiwiss.silk:silk-core:jar:2.6.0/org.clapper:classutil_2.10:jar:1.0.3/asm:asm-util:jar:3.3</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/eu.fusepool.p3.ext.de.fuberlin.wiwiss.silk:silk-singlemachine:jar:2.6.0/eu.fusepool.p3.ext.de.fuberlin.wiwiss.silk:silk-core:jar:2.6.0/org.clapper:classutil_2.10:jar:1.0.3/org.clapper:grizzled-scala_2.10:jar:1.1.2</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/eu.fusepool.p3.ext.de.fuberlin.wiwiss.silk:silk-singlemachine:jar:2.6.0/eu.fusepool.p3.ext.de.fuberlin.wiwiss.silk:silk-core:jar:2.6.0/org.clapper:classutil_2.10:jar:1.0.3/org.clapper:grizzled-scala_2.10:jar:1.1.2/jline:jline:jar:2.6</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/eu.fusepool.p3.ext.de.fuberlin.wiwiss.silk:silk-singlemachine:jar:2.6.0/eu.fusepool.p3.ext.de.fuberlin.wiwiss.silk:silk-core:jar:2.6.0/org.clapper:classutil_2.10:jar:1.0.3/org.clapper:grizzled-slf4j_2.10:jar:1.0.1</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/eu.fusepool.p3.ext.de.fuberlin.wiwiss.silk:silk-singlemachine:jar:2.6.0/eu.fusepool.p3.ext.de.fuberlin.wiwiss.silk:silk-jena:jar:2.6.0</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/eu.fusepool.p3.ext.de.fuberlin.wiwiss.silk:silk-singlemachine:jar:2.6.0/org.scala-lang:scala-library:jar:2.10.3</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/org.springframework:spring-core:jar:4.1.6.RELEASE</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/org.springframework:spring-context:jar:4.1.6.RELEASE</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/org.springframework:spring-context:jar:4.1.6.RELEASE/org.springframework:spring-aop:jar:4.1.6.RELEASE</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/org.springframework:spring-context:jar:4.1.6.RELEASE/org.springframework:spring-aop:jar:4.1.6.RELEASE/aopalliance:aopalliance:jar:1.0</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/org.springframework:spring-context:jar:4.1.6.RELEASE/org.springframework:spring-expression:jar:4.1.6.RELEASE</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/org.springframework:spring-tx:jar:4.1.6.RELEASE</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/org.springframework:spring-orm:jar:4.1.6.RELEASE</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/org.springframework:spring-orm:jar:4.1.6.RELEASE/org.springframework:spring-jdbc:jar:4.1.6.RELEASE</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/org.springframework:spring-web:jar:4.1.6.RELEASE</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/org.springframework:spring-webmvc:jar:4.1.6.RELEASE</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/org.slf4j:jcl-over-slf4j:jar:1.7.12</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/org.slf4j:jcl-over-slf4j:jar:1.7.12/org.slf4j:slf4j-api:jar:1.7.12</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/ch.qos.logback:logback-classic:jar:1.0.13</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/ch.qos.logback:logback-classic:jar:1.0.13/ch.qos.logback:logback-core:jar:1.0.13</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:karma-common:jar:0.0.1-SNAPSHOT</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:karma-common:jar:0.0.1-SNAPSHOT/edu.isi:karma-typer:jar:0.0.1-SNAPSHOT</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:karma-common:jar:0.0.1-SNAPSHOT/edu.isi:karma-typer:jar:0.0.1-SNAPSHOT/org.apache.lucene:lucene-analyzers-common:jar:4.8.0</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:karma-common:jar:0.0.1-SNAPSHOT/edu.isi:karma-typer:jar:0.0.1-SNAPSHOT/org.apache.lucene:lucene-core:jar:4.8.0</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:karma-common:jar:0.0.1-SNAPSHOT/edu.isi:karma-typer:jar:0.0.1-SNAPSHOT/org.apache.lucene:lucene-queryparser:jar:4.8.0</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:karma-common:jar:0.0.1-SNAPSHOT/edu.isi:karma-typer:jar:0.0.1-SNAPSHOT/org.apache.lucene:lucene-queryparser:jar:4.8.0/org.apache.lucene:lucene-queries:jar:4.8.0</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:karma-common:jar:0.0.1-SNAPSHOT/edu.isi:karma-typer:jar:0.0.1-SNAPSHOT/org.apache.lucene:lucene-queryparser:jar:4.8.0/org.apache.lucene:lucene-sandbox:jar:4.8.0</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:karma-common:jar:0.0.1-SNAPSHOT/org.apache.hadoop:hadoop-common:jar:2.4.0.2.1.3.0-563</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:karma-common:jar:0.0.1-SNAPSHOT/org.apache.hadoop:hadoop-common:jar:2.4.0.2.1.3.0-563/org.apache.hadoop:hadoop-annotations:jar:2.4.0.2.1.3.0-563</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:karma-common:jar:0.0.1-SNAPSHOT/org.apache.hadoop:hadoop-common:jar:2.4.0.2.1.3.0-563/org.apache.hadoop:hadoop-annotations:jar:2.4.0.2.1.3.0-563/jdk.tools:jdk.tools:jar:1.7</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:karma-common:jar:0.0.1-SNAPSHOT/org.apache.hadoop:hadoop-common:jar:2.4.0.2.1.3.0-563/com.google.guava:guava:jar:11.0.2</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:karma-common:jar:0.0.1-SNAPSHOT/org.apache.hadoop:hadoop-common:jar:2.4.0.2.1.3.0-563/org.apache.commons:commons-math3:jar:3.1.1</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:karma-common:jar:0.0.1-SNAPSHOT/org.apache.hadoop:hadoop-common:jar:2.4.0.2.1.3.0-563/xmlenc:xmlenc:jar:0.52</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:karma-common:jar:0.0.1-SNAPSHOT/org.apache.hadoop:hadoop-common:jar:2.4.0.2.1.3.0-563/commons-net:commons-net:jar:3.1</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:karma-common:jar:0.0.1-SNAPSHOT/org.apache.hadoop:hadoop-common:jar:2.4.0.2.1.3.0-563/commons-collections:commons-collections:jar:3.2.1</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:karma-common:jar:0.0.1-SNAPSHOT/org.apache.hadoop:hadoop-common:jar:2.4.0.2.1.3.0-563/com.sun.jersey:jersey-core:jar:1.9</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:karma-common:jar:0.0.1-SNAPSHOT/org.apache.hadoop:hadoop-common:jar:2.4.0.2.1.3.0-563/com.sun.jersey:jersey-json:jar:1.9</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:karma-common:jar:0.0.1-SNAPSHOT/org.apache.hadoop:hadoop-common:jar:2.4.0.2.1.3.0-563/com.sun.jersey:jersey-json:jar:1.9/org.codehaus.jettison:jettison:jar:1.1</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:karma-common:jar:0.0.1-SNAPSHOT/org.apache.hadoop:hadoop-common:jar:2.4.0.2.1.3.0-563/com.sun.jersey:jersey-json:jar:1.9/org.codehaus.jackson:jackson-jaxrs:jar:1.8.3</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:karma-common:jar:0.0.1-SNAPSHOT/org.apache.hadoop:hadoop-common:jar:2.4.0.2.1.3.0-563/com.sun.jersey:jersey-json:jar:1.9/org.codehaus.jackson:jackson-xc:jar:1.8.3</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:karma-common:jar:0.0.1-SNAPSHOT/org.apache.hadoop:hadoop-common:jar:2.4.0.2.1.3.0-563/com.sun.jersey:jersey-server:jar:1.9</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:karma-common:jar:0.0.1-SNAPSHOT/org.apache.hadoop:hadoop-common:jar:2.4.0.2.1.3.0-563/commons-el:commons-el:jar:1.0</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:karma-common:jar:0.0.1-SNAPSHOT/org.apache.hadoop:hadoop-common:jar:2.4.0.2.1.3.0-563/net.java.dev.jets3t:jets3t:jar:0.9.0</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:karma-common:jar:0.0.1-SNAPSHOT/org.apache.hadoop:hadoop-common:jar:2.4.0.2.1.3.0-563/net.java.dev.jets3t:jets3t:jar:0.9.0/com.jamesmurty.utils:java-xmlbuilder:jar:0.4</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:karma-common:jar:0.0.1-SNAPSHOT/org.apache.hadoop:hadoop-common:jar:2.4.0.2.1.3.0-563/com.microsoft.windowsazure.storage:microsoft-windowsazure-storage-sdk:jar:0.6.0</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:karma-common:jar:0.0.1-SNAPSHOT/org.apache.hadoop:hadoop-common:jar:2.4.0.2.1.3.0-563/commons-configuration:commons-configuration:jar:1.6</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:karma-common:jar:0.0.1-SNAPSHOT/org.apache.hadoop:hadoop-common:jar:2.4.0.2.1.3.0-563/commons-configuration:commons-configuration:jar:1.6/commons-digester:commons-digester:jar:1.8</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:karma-common:jar:0.0.1-SNAPSHOT/org.apache.hadoop:hadoop-common:jar:2.4.0.2.1.3.0-563/commons-configuration:commons-configuration:jar:1.6/commons-beanutils:commons-beanutils-core:jar:1.8.0</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:karma-common:jar:0.0.1-SNAPSHOT/org.apache.hadoop:hadoop-common:jar:2.4.0.2.1.3.0-563/org.codehaus.jackson:jackson-core-asl:jar:1.8.8</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:karma-common:jar:0.0.1-SNAPSHOT/org.apache.hadoop:hadoop-common:jar:2.4.0.2.1.3.0-563/org.codehaus.jackson:jackson-mapper-asl:jar:1.8.8</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:karma-common:jar:0.0.1-SNAPSHOT/org.apache.hadoop:hadoop-common:jar:2.4.0.2.1.3.0-563/com.google.protobuf:protobuf-java:jar:2.5.0</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:karma-common:jar:0.0.1-SNAPSHOT/org.apache.hadoop:hadoop-common:jar:2.4.0.2.1.3.0-563/org.apache.hadoop:hadoop-auth:jar:2.4.0.2.1.3.0-563</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:karma-common:jar:0.0.1-SNAPSHOT/org.apache.hadoop:hadoop-common:jar:2.4.0.2.1.3.0-563/com.google.code.findbugs:jsr305:jar:1.3.9</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:karma-common:jar:0.0.1-SNAPSHOT/org.apache.hadoop:hadoop-common:jar:2.4.0.2.1.3.0-563/org.apache.zookeeper:zookeeper:jar:3.4.5.2.1.3.0-563</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:karma-common:jar:0.0.1-SNAPSHOT/edu.isi:karma-util:jar:0.0.1-SNAPSHOT</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:karma-common:jar:0.0.1-SNAPSHOT/org.apache.commons:commons-lang3:jar:3.1</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:karma-common:jar:0.0.1-SNAPSHOT/com.googlecode.juniversalchardet:juniversalchardet:jar:1.0.3</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:karma-common:jar:0.0.1-SNAPSHOT/net.sf.json-lib:json-lib:jar:jdk15:2.3</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:karma-common:jar:0.0.1-SNAPSHOT/net.sf.json-lib:json-lib:jar:jdk15:2.3/commons-beanutils:commons-beanutils:jar:1.8.0</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:karma-common:jar:0.0.1-SNAPSHOT/net.sf.json-lib:json-lib:jar:jdk15:2.3/net.sf.ezmorph:ezmorph:jar:1.0.6</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:karma-common:jar:0.0.1-SNAPSHOT/com.hp.hpl.jena:arq:jar:2.8.8</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:karma-common:jar:0.0.1-SNAPSHOT/com.hp.hpl.jena:arq:jar:2.8.8/org.codehaus.woodstox:wstx-asl:jar:3.2.9</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:karma-common:jar:0.0.1-SNAPSHOT/com.hp.hpl.jena:arq:jar:2.8.8/org.codehaus.woodstox:wstx-asl:jar:3.2.9/stax:stax-api:jar:1.0.1</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:karma-common:jar:0.0.1-SNAPSHOT/com.hp.hpl.jena:jena:jar:2.6.4</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:karma-common:jar:0.0.1-SNAPSHOT/com.hp.hpl.jena:jena:jar:2.6.4/com.ibm.icu:icu4j:jar:3.4.4</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:karma-common:jar:0.0.1-SNAPSHOT/com.hp.hpl.jena:tdb:jar:0.8.10</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:karma-common:jar:0.0.1-SNAPSHOT/com.hp.hpl.jena:iri:jar:0.8</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:karma-common:jar:0.0.1-SNAPSHOT/commons-fileupload:commons-fileupload:jar:1.2.2</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:karma-common:jar:0.0.1-SNAPSHOT/uk.com.robust-it:cloning:jar:1.8.5</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:karma-common:jar:0.0.1-SNAPSHOT/uk.com.robust-it:cloning:jar:1.8.5/org.objenesis:objenesis:jar:1.2</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:karma-common:jar:0.0.1-SNAPSHOT/net.sf.jgrapht:jgrapht:jar:0.8.3</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:karma-common:jar:0.0.1-SNAPSHOT/org.kohsuke:graphviz-api:jar:1.1</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:karma-common:jar:0.0.1-SNAPSHOT/javax.servlet:javax.servlet-api:jar:3.0.1</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:karma-common:jar:0.0.1-SNAPSHOT/org.reflections:reflections:jar:0.9.8</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:karma-common:jar:0.0.1-SNAPSHOT/org.reflections:reflections:jar:0.9.8/javassist:javassist:jar:3.12.1.GA</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:karma-common:jar:0.0.1-SNAPSHOT/net.sf.opencsv:opencsv:jar:2.3</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:karma-common:jar:0.0.1-SNAPSHOT/commons-httpclient:commons-httpclient:jar:3.1</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:karma-common:jar:0.0.1-SNAPSHOT/org.apache.avro:avro:jar:1.7.7</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:karma-common:jar:0.0.1-SNAPSHOT/org.apache.avro:avro:jar:1.7.7/org.xerial.snappy:snappy-java:jar:1.0.5</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:karma-common:jar:0.0.1-SNAPSHOT/org.apache.avro:avro-compiler:jar:1.7.7</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:karma-common:jar:0.0.1-SNAPSHOT/org.apache.avro:avro-compiler:jar:1.7.7/org.apache.velocity:velocity:jar:1.7</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:karma-common:jar:0.0.1-SNAPSHOT/org.python:jython-standalone:jar:2.5.3</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:commands-include:pom:0.0.1-SNAPSHOT</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:commands-include:pom:0.0.1-SNAPSHOT/edu.isi:commands-alignment:jar:0.0.1-SNAPSHOT</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:commands-include:pom:0.0.1-SNAPSHOT/edu.isi:commands-alignment-openrdf:jar:0.0.1-SNAPSHOT</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:commands-include:pom:0.0.1-SNAPSHOT/edu.isi:commands-alignment-openrdf:jar:0.0.1-SNAPSHOT/org.openrdf.sesame:sesame-repository:pom:2.7.1</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:commands-include:pom:0.0.1-SNAPSHOT/edu.isi:commands-alignment-openrdf:jar:0.0.1-SNAPSHOT/org.openrdf.sesame:sesame-repository-sail:jar:2.7.1</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:commands-include:pom:0.0.1-SNAPSHOT/edu.isi:commands-alignment-openrdf:jar:0.0.1-SNAPSHOT/org.openrdf.sesame:sesame-repository-sail:jar:2.7.1/org.openrdf.sesame:sesame-repository-api:jar:2.7.1</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:commands-include:pom:0.0.1-SNAPSHOT/edu.isi:commands-alignment-openrdf:jar:0.0.1-SNAPSHOT/org.openrdf.sesame:sesame-repository-sail:jar:2.7.1/org.openrdf.sesame:sesame-sail-api:jar:2.7.1</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:commands-include:pom:0.0.1-SNAPSHOT/edu.isi:commands-alignment-openrdf:jar:0.0.1-SNAPSHOT/org.openrdf.sesame:sesame-repository-sail:jar:2.7.1/org.openrdf.sesame:sesame-queryparser-api:jar:2.7.1</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:commands-include:pom:0.0.1-SNAPSHOT/edu.isi:commands-alignment-openrdf:jar:0.0.1-SNAPSHOT/org.openrdf.sesame:sesame-repository-sail:jar:2.7.1/org.openrdf.sesame:sesame-queryalgebra-model:jar:2.7.1</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:commands-include:pom:0.0.1-SNAPSHOT/edu.isi:commands-alignment-openrdf:jar:0.0.1-SNAPSHOT/org.openrdf.sesame:sesame-repository-sail:jar:2.7.1/org.openrdf.sesame:sesame-query:jar:2.7.1</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:commands-include:pom:0.0.1-SNAPSHOT/edu.isi:commands-alignment-openrdf:jar:0.0.1-SNAPSHOT/org.openrdf.sesame:sesame-repository-sail:jar:2.7.1/org.openrdf.sesame:sesame-rio-api:jar:2.7.1</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:commands-include:pom:0.0.1-SNAPSHOT/edu.isi:commands-alignment-openrdf:jar:0.0.1-SNAPSHOT/org.openrdf.sesame:sesame-repository-sail:jar:2.7.1/org.openrdf.sesame:sesame-model:jar:2.7.1</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:commands-include:pom:0.0.1-SNAPSHOT/edu.isi:commands-alignment-openrdf:jar:0.0.1-SNAPSHOT/org.openrdf.sesame:sesame:pom:2.7.1</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:commands-include:pom:0.0.1-SNAPSHOT/edu.isi:commands-alignment-openrdf:jar:0.0.1-SNAPSHOT/org.openrdf.sesame:sesame-sail-memory:jar:2.7.1</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:commands-include:pom:0.0.1-SNAPSHOT/edu.isi:commands-alignment-openrdf:jar:0.0.1-SNAPSHOT/org.openrdf.sesame:sesame-sail-memory:jar:2.7.1/org.openrdf.sesame:sesame-sail-inferencer:jar:2.7.1</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:commands-include:pom:0.0.1-SNAPSHOT/edu.isi:commands-alignment-openrdf:jar:0.0.1-SNAPSHOT/org.openrdf.sesame:sesame-sail-memory:jar:2.7.1/org.openrdf.sesame:sesame-sail-inferencer:jar:2.7.1/org.openrdf.sesame:sesame-queryparser-serql:jar:2.7.1</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:commands-include:pom:0.0.1-SNAPSHOT/edu.isi:commands-alignment-openrdf:jar:0.0.1-SNAPSHOT/org.openrdf.sesame:sesame-sail-memory:jar:2.7.1/org.openrdf.sesame:sesame-queryalgebra-evaluation:jar:2.7.1</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:commands-include:pom:0.0.1-SNAPSHOT/edu.isi:commands-alignment-openrdf:jar:0.0.1-SNAPSHOT/org.openrdf.sesame:sesame-sail-memory:jar:2.7.1/org.openrdf.sesame:sesame-queryalgebra-evaluation:jar:2.7.1/org.openrdf.sesame:sesame-repository-sparql:jar:2.7.1</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:commands-include:pom:0.0.1-SNAPSHOT/edu.isi:commands-alignment-openrdf:jar:0.0.1-SNAPSHOT/org.openrdf.sesame:sesame-sail-memory:jar:2.7.1/org.openrdf.sesame:sesame-queryalgebra-evaluation:jar:2.7.1/org.openrdf.sesame:sesame-repository-sparql:jar:2.7.1/org.openrdf.sesame:sesame-queryparser-sparql:jar:2.7.1</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:commands-include:pom:0.0.1-SNAPSHOT/edu.isi:commands-alignment-openrdf:jar:0.0.1-SNAPSHOT/org.openrdf.sesame:sesame-sail-memory:jar:2.7.1/org.openrdf.sesame:sesame-queryalgebra-evaluation:jar:2.7.1/org.openrdf.sesame:sesame-repository-sparql:jar:2.7.1/org.openrdf.sesame:sesame-queryresultio-sparqlxml:jar:2.7.1</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:commands-include:pom:0.0.1-SNAPSHOT/edu.isi:commands-alignment-openrdf:jar:0.0.1-SNAPSHOT/org.openrdf.sesame:sesame-sail-memory:jar:2.7.1/org.openrdf.sesame:sesame-util:jar:2.7.1</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:commands-include:pom:0.0.1-SNAPSHOT/edu.isi:commands-alignment-openrdf:jar:0.0.1-SNAPSHOT/org.openrdf.sesame:sesame-rio-turtle:jar:2.7.1</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:commands-include:pom:0.0.1-SNAPSHOT/edu.isi:commands-alignment-openrdf:jar:0.0.1-SNAPSHOT/org.openrdf.sesame:sesame-rio-turtle:jar:2.7.1/org.openrdf.sesame:sesame-rio-datatypes:jar:2.7.1</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:commands-include:pom:0.0.1-SNAPSHOT/edu.isi:commands-alignment-openrdf:jar:0.0.1-SNAPSHOT/org.openrdf.sesame:sesame-rio-turtle:jar:2.7.1/org.openrdf.sesame:sesame-rio-languages:jar:2.7.1</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:commands-include:pom:0.0.1-SNAPSHOT/edu.isi:commands-alignment-openrdf:jar:0.0.1-SNAPSHOT/org.openrdf.sesame:sesame-repository-http:jar:2.7.1</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:commands-include:pom:0.0.1-SNAPSHOT/edu.isi:commands-alignment-openrdf:jar:0.0.1-SNAPSHOT/org.openrdf.sesame:sesame-repository-http:jar:2.7.1/org.openrdf.sesame:sesame-http-client:jar:2.7.1</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:commands-include:pom:0.0.1-SNAPSHOT/edu.isi:commands-alignment-openrdf:jar:0.0.1-SNAPSHOT/org.openrdf.sesame:sesame-repository-http:jar:2.7.1/org.openrdf.sesame:sesame-http-protocol:jar:2.7.1</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:commands-include:pom:0.0.1-SNAPSHOT/edu.isi:commands-alignment-openrdf:jar:0.0.1-SNAPSHOT/org.openrdf.sesame:sesame-repository-http:jar:2.7.1/org.openrdf.sesame:sesame-http-protocol:jar:2.7.1/org.openrdf.sesame:sesame-rio-ntriples:jar:2.7.1</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:commands-include:pom:0.0.1-SNAPSHOT/edu.isi:commands-alignment-openrdf:jar:0.0.1-SNAPSHOT/org.openrdf.sesame:sesame-repository-http:jar:2.7.1/org.openrdf.sesame:sesame-queryresultio-api:jar:2.7.1</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:commands-include:pom:0.0.1-SNAPSHOT/edu.isi:commands-common:jar:0.0.1-SNAPSHOT</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:commands-include:pom:0.0.1-SNAPSHOT/edu.isi:commands-publish:jar:0.0.1-SNAPSHOT</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:commands-include:pom:0.0.1-SNAPSHOT/edu.isi:commands-publish:jar:0.0.1-SNAPSHOT/com.healthmarketscience.jackcess:jackcess:jar:1.2.10</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:commands-include:pom:0.0.1-SNAPSHOT/edu.isi:commands-publish-jdbc:jar:0.0.1-SNAPSHOT</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:commands-include:pom:0.0.1-SNAPSHOT/edu.isi:commands-publish-jdbc:jar:0.0.1-SNAPSHOT/edu.isi:karma-jdbc:jar:0.0.1-SNAPSHOT</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:commands-include:pom:0.0.1-SNAPSHOT/edu.isi:commands-publish-jdbc:jar:0.0.1-SNAPSHOT/edu.isi:karma-jdbc:jar:0.0.1-SNAPSHOT/net.sourceforge.jtds:jtds:jar:1.2.6</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:commands-include:pom:0.0.1-SNAPSHOT/edu.isi:commands-python:jar:0.0.1-SNAPSHOT</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:commands-include:pom:0.0.1-SNAPSHOT/edu.isi:commands-publish-alignment-openrdf:jar:0.0.1-SNAPSHOT</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:commands-include:pom:0.0.1-SNAPSHOT/edu.isi:commands-publish-alignment-openrdf:jar:0.0.1-SNAPSHOT/org.mongodb:mongo-java-driver:jar:2.11.4</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:commands-include:pom:0.0.1-SNAPSHOT/edu.isi:commands-update:jar:0.0.1-SNAPSHOT</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:commands-include:pom:0.0.1-SNAPSHOT/edu.isi:commands-update-jdbc:jar:0.0.1-SNAPSHOT</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:commands-include:pom:0.0.1-SNAPSHOT/edu.isi:commands-worksheet:jar:0.0.1-SNAPSHOT</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:commands-include:pom:0.0.1-SNAPSHOT/edu.isi:import-common:jar:0.0.1-SNAPSHOT</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:commands-include:pom:0.0.1-SNAPSHOT/edu.isi:import-csv:jar:0.0.1-SNAPSHOT</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:commands-include:pom:0.0.1-SNAPSHOT/edu.isi:import-database:jar:0.0.1-SNAPSHOT</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:commands-include:pom:0.0.1-SNAPSHOT/edu.isi:import-excel:jar:0.0.1-SNAPSHOT</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:commands-include:pom:0.0.1-SNAPSHOT/edu.isi:import-file:jar:0.0.1-SNAPSHOT</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:commands-include:pom:0.0.1-SNAPSHOT/edu.isi:import-ontology:jar:0.0.1-SNAPSHOT</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:commands-include:pom:0.0.1-SNAPSHOT/edu.isi:import-json:jar:0.0.1-SNAPSHOT</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:commands-include:pom:0.0.1-SNAPSHOT/edu.isi:import-service:jar:0.0.1-SNAPSHOT</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:commands-include:pom:0.0.1-SNAPSHOT/edu.isi:import-spatial:jar:0.0.1-SNAPSHOT</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:commands-include:pom:0.0.1-SNAPSHOT/edu.isi:import-spatial:jar:0.0.1-SNAPSHOT/org.geotools:gt-referencing:jar:9.0-M0</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:commands-include:pom:0.0.1-SNAPSHOT/edu.isi:import-spatial:jar:0.0.1-SNAPSHOT/org.geotools:gt-referencing:jar:9.0-M0/java3d:vecmath:jar:1.3.2</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:commands-include:pom:0.0.1-SNAPSHOT/edu.isi:import-spatial:jar:0.0.1-SNAPSHOT/org.geotools:gt-referencing:jar:9.0-M0/commons-pool:commons-pool:jar:1.5.4</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:commands-include:pom:0.0.1-SNAPSHOT/edu.isi:import-spatial:jar:0.0.1-SNAPSHOT/org.geotools:gt-referencing:jar:9.0-M0/org.geotools:gt-metadata:jar:9.0-M0</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:commands-include:pom:0.0.1-SNAPSHOT/edu.isi:import-spatial:jar:0.0.1-SNAPSHOT/org.geotools:gt-referencing:jar:9.0-M0/org.geotools:gt-metadata:jar:9.0-M0/org.geotools:gt-opengis:jar:9.0-M0</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:commands-include:pom:0.0.1-SNAPSHOT/edu.isi:import-spatial:jar:0.0.1-SNAPSHOT/org.geotools:gt-referencing:jar:9.0-M0/org.geotools:gt-metadata:jar:9.0-M0/org.geotools:gt-opengis:jar:9.0-M0/net.java.dev.jsr-275:jsr-275:jar:1.0-beta-2</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:commands-include:pom:0.0.1-SNAPSHOT/edu.isi:import-spatial:jar:0.0.1-SNAPSHOT/org.geotools:gt-referencing:jar:9.0-M0/jgridshift:jgridshift:jar:1.0</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:commands-include:pom:0.0.1-SNAPSHOT/edu.isi:import-spatial:jar:0.0.1-SNAPSHOT/org.geotools:gt-referencing:jar:9.0-M0/javax.media:jai_core:jar:1.1.3</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:commands-include:pom:0.0.1-SNAPSHOT/edu.isi:import-spatial:jar:0.0.1-SNAPSHOT/org.geotools:gt-epsg-hsql:jar:9.0-M0</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:commands-include:pom:0.0.1-SNAPSHOT/edu.isi:import-spatial:jar:0.0.1-SNAPSHOT/org.geotools:gt-epsg-hsql:jar:9.0-M0/hsqldb:hsqldb:jar:1.8.0.7</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:commands-include:pom:0.0.1-SNAPSHOT/edu.isi:import-spatial:jar:0.0.1-SNAPSHOT/org.geotools:gt-epsg-extension:jar:9.0-M0</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:commands-include:pom:0.0.1-SNAPSHOT/edu.isi:import-spatial:jar:0.0.1-SNAPSHOT/org.geotools:gt-shapefile:jar:9.0-M0</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:commands-include:pom:0.0.1-SNAPSHOT/edu.isi:import-spatial:jar:0.0.1-SNAPSHOT/org.geotools:gt-shapefile:jar:9.0-M0/org.geotools:gt-data:jar:9.0-M0</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:commands-include:pom:0.0.1-SNAPSHOT/edu.isi:import-spatial:jar:0.0.1-SNAPSHOT/org.geotools:gt-shapefile:jar:9.0-M0/org.geotools:gt-data:jar:9.0-M0/org.geotools:gt-main:jar:9.0-M0</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:commands-include:pom:0.0.1-SNAPSHOT/edu.isi:import-spatial:jar:0.0.1-SNAPSHOT/org.geotools:gt-shapefile:jar:9.0-M0/org.geotools:gt-data:jar:9.0-M0/org.geotools:gt-main:jar:9.0-M0/org.geotools:gt-api:jar:9.0-M0</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:commands-include:pom:0.0.1-SNAPSHOT/edu.isi:import-spatial:jar:0.0.1-SNAPSHOT/org.geotools:gt-shapefile:jar:9.0-M0/org.geotools:gt-data:jar:9.0-M0/org.geotools:gt-main:jar:9.0-M0/com.vividsolutions:jts:jar:1.12</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:commands-include:pom:0.0.1-SNAPSHOT/edu.isi:import-spatial:jar:0.0.1-SNAPSHOT/org.geotools:gt-shapefile:jar:9.0-M0/jdom:jdom:jar:1.0</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:commands-include:pom:0.0.1-SNAPSHOT/edu.isi:import-xml:jar:0.0.1-SNAPSHOT</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:commands-include:pom:0.0.1-SNAPSHOT/edu.isi:import-avro:jar:0.0.1-SNAPSHOT</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:commands-include:pom:0.0.1-SNAPSHOT/de.micromata.jak:JavaAPIforKml:jar:2.2.0</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:commands-include:pom:0.0.1-SNAPSHOT/de.micromata.jak:JavaAPIforKml:jar:2.2.0/com.sun.xml.bind:jaxb-impl:jar:2.2</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:commands-include:pom:0.0.1-SNAPSHOT/de.micromata.jak:JavaAPIforKml:jar:2.2.0/com.sun.xml.bind:jaxb-impl:jar:2.2/javax.xml.bind:jaxb-api:jar:2.2</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:commands-include:pom:0.0.1-SNAPSHOT/de.micromata.jak:JavaAPIforKml:jar:2.2.0/com.sun.xml.bind:jaxb-impl:jar:2.2/javax.xml.bind:jaxb-api:jar:2.2/javax.xml.stream:stax-api:jar:1.0-2</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:commands-include:pom:0.0.1-SNAPSHOT/de.micromata.jak:JavaAPIforKml:jar:2.2.0/com.sun.xml.bind:jaxb-impl:jar:2.2/javax.xml.bind:jaxb-api:jar:2.2/javax.activation:activation:jar:1.1</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/edu.isi:commands-include:pom:0.0.1-SNAPSHOT/de.micromata.jak:JavaAPIforKml:jar:2.2.0/com.sun.xml.bind:jaxb-xjc:jar:2.2</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/org.apache.mahout.commons:commons-cli:jar:2.0-mahout</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/org.apache.tika:tika-core:jar:1.5</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/edu.isi:karma-offline:jar:0.0.1-SNAPSHOT/org.json:json:jar:20131018</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/org.springframework.boot:spring-boot-starter:jar:1.2.3.RELEASE</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/org.springframework.boot:spring-boot-starter:jar:1.2.3.RELEASE/org.springframework.boot:spring-boot:jar:1.2.3.RELEASE</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/org.springframework.boot:spring-boot-starter:jar:1.2.3.RELEASE/org.springframework.boot:spring-boot-autoconfigure:jar:1.2.3.RELEASE</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/org.springframework.boot:spring-boot-starter:jar:1.2.3.RELEASE/org.springframework.boot:spring-boot-starter-logging:jar:1.2.3.RELEASE</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/org.springframework.boot:spring-boot-starter:jar:1.2.3.RELEASE/org.springframework.boot:spring-boot-starter-logging:jar:1.2.3.RELEASE/org.slf4j:jul-to-slf4j:jar:1.7.11</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/org.springframework.boot:spring-boot-starter:jar:1.2.3.RELEASE/org.springframework.boot:spring-boot-starter-logging:jar:1.2.3.RELEASE/org.slf4j:log4j-over-slf4j:jar:1.7.11</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/org.springframework.boot:spring-boot-starter:jar:1.2.3.RELEASE/org.yaml:snakeyaml:jar:1.14</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/org.springframework:spring-jms:jar:4.1.6.RELEASE</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/org.springframework:spring-jms:jar:4.1.6.RELEASE/org.springframework:spring-messaging:jar:4.1.6.RELEASE</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/org.springframework.boot:spring-boot-starter-web:jar:1.2.3.RELEASE</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/org.springframework.boot:spring-boot-starter-web:jar:1.2.3.RELEASE/org.springframework.boot:spring-boot-starter-tomcat:jar:1.2.3.RELEASE</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/org.springframework.boot:spring-boot-starter-web:jar:1.2.3.RELEASE/org.springframework.boot:spring-boot-starter-tomcat:jar:1.2.3.RELEASE/org.apache.tomcat.embed:tomcat-embed-core:jar:8.0.20</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/org.springframework.boot:spring-boot-starter-web:jar:1.2.3.RELEASE/org.springframework.boot:spring-boot-starter-tomcat:jar:1.2.3.RELEASE/org.apache.tomcat.embed:tomcat-embed-el:jar:8.0.20</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/org.springframework.boot:spring-boot-starter-web:jar:1.2.3.RELEASE/org.springframework.boot:spring-boot-starter-tomcat:jar:1.2.3.RELEASE/org.apache.tomcat.embed:tomcat-embed-logging-juli:jar:8.0.20</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/org.springframework.boot:spring-boot-starter-web:jar:1.2.3.RELEASE/org.springframework.boot:spring-boot-starter-tomcat:jar:1.2.3.RELEASE/org.apache.tomcat.embed:tomcat-embed-websocket:jar:8.0.20</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/org.springframework.boot:spring-boot-starter-web:jar:1.2.3.RELEASE/org.hibernate:hibernate-validator:jar:5.1.3.Final</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/org.springframework.boot:spring-boot-starter-web:jar:1.2.3.RELEASE/org.hibernate:hibernate-validator:jar:5.1.3.Final/javax.validation:validation-api:jar:1.1.0.Final</node>
+            <node x="" y="">com.github.p4535992:ExtractInfo:jar:1.1/org.springframework.boot:spring-boot-starter-web:jar:1.2.3.RELEASE/org.hibernate:hibernate-validator:jar:5.1.3.Final/com.fasterxml:classmate:jar:1.0.0</node>
+            <node x="" y="">com.github.p4535992:utility:jar:1.1</node>
+            <node x="" y="">com.github.p4535992:utility:jar:1.1/org.springframework:spring-beans:jar:4.1.6.RELEASE</node>
+            <node x="" y="">com.github.p4535992:utility:jar:1.1/org.hibernate:hibernate-core:jar:4.3.8.Final</node>
+            <node x="" y="">com.github.p4535992:utility:jar:1.1/org.hibernate:hibernate-core:jar:4.3.8.Final/org.jboss.logging:jboss-logging:jar:3.1.3.GA</node>
+            <node x="" y="">com.github.p4535992:utility:jar:1.1/org.hibernate:hibernate-core:jar:4.3.8.Final/org.jboss.logging:jboss-logging-annotations:jar:1.2.0.Beta1</node>
+            <node x="" y="">com.github.p4535992:utility:jar:1.1/org.hibernate:hibernate-core:jar:4.3.8.Final/org.jboss.spec.javax.transaction:jboss-transaction-api_1.2_spec:jar:1.0.0.Final</node>
+            <node x="" y="">com.github.p4535992:utility:jar:1.1/org.hibernate:hibernate-core:jar:4.3.8.Final/dom4j:dom4j:jar:1.6.1</node>
+            <node x="" y="">com.github.p4535992:utility:jar:1.1/org.hibernate:hibernate-core:jar:4.3.8.Final/org.hibernate.common:hibernate-commons-annotations:jar:4.0.5.Final</node>
+            <node x="" y="">com.github.p4535992:utility:jar:1.1/org.hibernate:hibernate-core:jar:4.3.8.Final/org.hibernate.javax.persistence:hibernate-jpa-2.1-api:jar:1.0.0.Final</node>
+            <node x="" y="">com.github.p4535992:utility:jar:1.1/org.hibernate:hibernate-core:jar:4.3.8.Final/org.javassist:javassist:jar:3.18.1-GA</node>
+            <node x="" y="">com.github.p4535992:utility:jar:1.1/org.hibernate:hibernate-core:jar:4.3.8.Final/antlr:antlr:jar:2.7.7</node>
+            <node x="" y="">com.github.p4535992:utility:jar:1.1/org.hibernate:hibernate-core:jar:4.3.8.Final/org.jboss:jandex:jar:1.1.0.Final</node>
+            <node x="" y="">com.github.p4535992:utility:jar:1.1/org.hibernate:hibernate-entitymanager:jar:4.3.8.Final</node>
+            <node x="" y="">com.github.p4535992:utility:jar:1.1/org.hibernate:hibernate-osgi:jar:4.3.8.Final</node>
+            <node x="" y="">com.github.p4535992:utility:jar:1.1/org.hibernate:hibernate-osgi:jar:4.3.8.Final/org.osgi:org.osgi.core:jar:4.3.1</node>
+            <node x="" y="">com.github.p4535992:utility:jar:1.1/org.hibernate:hibernate-osgi:jar:4.3.8.Final/org.osgi:org.osgi.compendium:jar:4.3.1</node>
+            <node x="" y="">com.github.p4535992:utility:jar:1.1/org.hibernate:hibernate-envers:jar:4.3.8.Final</node>
+            <node x="" y="">com.github.p4535992:utility:jar:1.1/org.hibernate:hibernate-c3p0:jar:4.3.8.Final</node>
+            <node x="" y="">com.github.p4535992:utility:jar:1.1/org.hibernate:hibernate-c3p0:jar:4.3.8.Final/com.mchange:c3p0:jar:0.9.2.1</node>
+            <node x="" y="">com.github.p4535992:utility:jar:1.1/org.hibernate:hibernate-c3p0:jar:4.3.8.Final/com.mchange:c3p0:jar:0.9.2.1/com.mchange:mchange-commons-java:jar:0.2.3.4</node>
+            <node x="" y="">com.github.p4535992:utility:jar:1.1/org.hibernate:hibernate-proxool:jar:4.3.8.Final</node>
+            <node x="" y="">com.github.p4535992:utility:jar:1.1/org.hibernate:hibernate-proxool:jar:4.3.8.Final/proxool:proxool:jar:0.8.3</node>
+            <node x="" y="">com.github.p4535992:utility:jar:1.1/org.hibernate:hibernate-infinispan:jar:4.3.8.Final</node>
+            <node x="" y="">com.github.p4535992:utility:jar:1.1/org.hibernate:hibernate-infinispan:jar:4.3.8.Final/org.infinispan:infinispan-core:jar:6.0.0.Final</node>
+            <node x="" y="">com.github.p4535992:utility:jar:1.1/org.hibernate:hibernate-infinispan:jar:4.3.8.Final/org.infinispan:infinispan-core:jar:6.0.0.Final/org.infinispan:infinispan-commons:jar:6.0.0.Final</node>
+            <node x="" y="">com.github.p4535992:utility:jar:1.1/org.hibernate:hibernate-infinispan:jar:4.3.8.Final/org.infinispan:infinispan-core:jar:6.0.0.Final/org.jgroups:jgroups:jar:3.4.1.Final</node>
+            <node x="" y="">com.github.p4535992:utility:jar:1.1/org.hibernate:hibernate-infinispan:jar:4.3.8.Final/org.infinispan:infinispan-core:jar:6.0.0.Final/org.jboss.spec.javax.transaction:jboss-transaction-api_1.1_spec:jar:1.0.1.Final</node>
+            <node x="" y="">com.github.p4535992:utility:jar:1.1/org.hibernate:hibernate-infinispan:jar:4.3.8.Final/org.infinispan:infinispan-core:jar:6.0.0.Final/org.jboss.marshalling:jboss-marshalling-river:jar:1.3.18.GA</node>
+            <node x="" y="">com.github.p4535992:utility:jar:1.1/org.hibernate:hibernate-infinispan:jar:4.3.8.Final/org.infinispan:infinispan-core:jar:6.0.0.Final/org.jboss.marshalling:jboss-marshalling:jar:1.3.18.GA</node>
+            <node x="" y="">com.github.p4535992:utility:jar:1.1/org.hibernate:hibernate-infinispan:jar:4.3.8.Final/org.rhq.helpers:rhq-pluginAnnotations:jar:3.0.4</node>
+            <node x="" y="">com.github.p4535992:utility:jar:1.1/org.hibernate:hibernate-ehcache:jar:4.3.8.Final</node>
+            <node x="" y="">com.github.p4535992:utility:jar:1.1/org.hibernate:hibernate-ehcache:jar:4.3.8.Final/net.sf.ehcache:ehcache-core:jar:2.4.3</node>
+            <node x="" y="">com.github.p4535992:utility:jar:1.1/mysql:mysql-connector-java:jar:5.1.6</node>
+            <node x="" y="">com.github.p4535992:utility:jar:1.1/com.fasterxml.jackson.core:jackson-databind:jar:2.5.3</node>
+            <node x="" y="">com.github.p4535992:utility:jar:1.1/com.fasterxml.jackson.core:jackson-annotations:jar:2.5.3</node>
+            <node x="" y="">com.github.p4535992:utility:jar:1.1/com.fasterxml.jackson.core:jackson-core:jar:2.5.3</node>
+            <node x="" y="">com.github.p4535992:utility:jar:1.1/com.google.code.gson:gson:jar:2.3.1</node>
+            <node x="" y="">com.github.p4535992:utility:jar:1.1/org.jdom:jdom2:jar:2.0.6</node>
+            <node x="" y="">com.github.p4535992:utility:jar:1.1/org.jsoup:jsoup:jar:1.8.2</node>
+            <node x="" y="">com.github.p4535992:utility:jar:1.1/com.github.jsonld-java:jsonld-java-jena:jar:0.4.1</node>
+            <node x="" y="">com.github.p4535992:utility:jar:1.1/com.github.jsonld-java:jsonld-java-jena:jar:0.4.1/com.github.jsonld-java:jsonld-java:jar:0.4.1</node>
+            <node x="" y="">com.github.p4535992:utility:jar:1.1/com.github.jsonld-java:jsonld-java-jena:jar:0.4.1/com.github.jsonld-java:jsonld-java:jar:0.4.1/org.apache.httpcomponents:httpclient-cache:jar:4.2.5</node>
+            <node x="" y="">com.github.p4535992:utility:jar:1.1/com.github.jsonld-java:jsonld-java-jena:jar:0.4.1/org.apache.jena:jena-core:jar:2.11.1</node>
+            <node x="" y="">com.github.p4535992:utility:jar:1.1/com.github.jsonld-java:jsonld-java-jena:jar:0.4.1/org.apache.jena:jena-core:jar:2.11.1/org.apache.jena:jena-iri:jar:1.0.1</node>
+            <node x="" y="">com.github.p4535992:utility:jar:1.1/com.github.jsonld-java:jsonld-java-jena:jar:0.4.1/org.apache.jena:jena-arq:jar:2.11.1</node>
+            <node x="" y="">com.github.p4535992:utility:jar:1.1/com.github.jsonld-java:jsonld-java-jena:jar:0.4.1/xerces:xercesImpl:jar:2.11.0</node>
+            <node x="" y="">com.github.p4535992:utility:jar:1.1/com.github.jsonld-java:jsonld-java-jena:jar:0.4.1/xml-apis:xml-apis:jar:1.4.01</node>
+            <node x="" y="">com.github.p4535992:utility:jar:1.1/org.apache.httpcomponents:httpclient:jar:4.4.1</node>
+            <node x="" y="">com.github.p4535992:utility:jar:1.1/org.apache.httpcomponents:httpclient:jar:4.4.1/org.apache.httpcomponents:httpcore:jar:4.4.1</node>
+            <node x="" y="">com.github.p4535992:utility:jar:1.1/org.apache.httpcomponents:httpclient:jar:4.4.1/commons-codec:commons-codec:jar:1.9</node>
+            <node x="" y="">com.github.p4535992:utility:jar:1.1/org.apache.commons:commons-dbcp2:jar:2.0</node>
+            <node x="" y="">com.github.p4535992:utility:jar:1.1/org.apache.commons:commons-dbcp2:jar:2.0/org.apache.commons:commons-pool2:jar:2.2</node>
+            <node x="" y="">com.github.p4535992:utility:jar:1.1/javax.interceptor:javax.interceptor-api:jar:1.2</node>
+            <node x="" y="">org.codehaus.mojo:exec-maven-plugin:jar:1.1.1</node>
+            <node x="" y="">org.codehaus.mojo:exec-maven-plugin:jar:1.1.1/org.apache.maven:maven-toolchain:jar:1.0</node>
+            <node x="" y="">org.codehaus.mojo:exec-maven-plugin:jar:1.1.1/org.apache.maven:maven-project:jar:2.0.6</node>
+            <node x="" y="">org.codehaus.mojo:exec-maven-plugin:jar:1.1.1/org.apache.maven:maven-project:jar:2.0.6/org.apache.maven:maven-settings:jar:2.0.6</node>
+            <node x="" y="">org.codehaus.mojo:exec-maven-plugin:jar:1.1.1/org.apache.maven:maven-project:jar:2.0.6/org.apache.maven:maven-profile:jar:2.0.6</node>
+            <node x="" y="">org.codehaus.mojo:exec-maven-plugin:jar:1.1.1/org.apache.maven:maven-project:jar:2.0.6/org.apache.maven:maven-plugin-registry:jar:2.0.6</node>
+            <node x="" y="">org.codehaus.mojo:exec-maven-plugin:jar:1.1.1/org.apache.maven:maven-model:jar:2.0.6</node>
+            <node x="" y="">org.codehaus.mojo:exec-maven-plugin:jar:1.1.1/org.apache.maven:maven-artifact:jar:2.0.6</node>
+            <node x="" y="">org.codehaus.mojo:exec-maven-plugin:jar:1.1.1/org.apache.maven:maven-artifact-manager:jar:2.0.6</node>
+            <node x="" y="">org.codehaus.mojo:exec-maven-plugin:jar:1.1.1/org.apache.maven:maven-artifact-manager:jar:2.0.6/org.apache.maven:maven-repository-metadata:jar:2.0.6</node>
+            <node x="" y="">org.codehaus.mojo:exec-maven-plugin:jar:1.1.1/org.apache.maven:maven-artifact-manager:jar:2.0.6/org.apache.maven.wagon:wagon-provider-api:jar:1.0-beta-2</node>
+            <node x="" y="">org.codehaus.mojo:exec-maven-plugin:jar:1.1.1/org.apache.maven:maven-core:jar:2.0.6</node>
+            <node x="" y="">org.codehaus.mojo:exec-maven-plugin:jar:1.1.1/org.apache.maven:maven-core:jar:2.0.6/org.apache.maven.wagon:wagon-file:jar:1.0-beta-2</node>
+            <node x="" y="">org.codehaus.mojo:exec-maven-plugin:jar:1.1.1/org.apache.maven:maven-core:jar:2.0.6/org.apache.maven:maven-plugin-parameter-documenter:jar:2.0.6</node>
+            <node x="" y="">org.codehaus.mojo:exec-maven-plugin:jar:1.1.1/org.apache.maven:maven-core:jar:2.0.6/org.apache.maven.wagon:wagon-http-lightweight:jar:1.0-beta-2</node>
+            <node x="" y="">org.codehaus.mojo:exec-maven-plugin:jar:1.1.1/org.apache.maven:maven-core:jar:2.0.6/org.apache.maven.wagon:wagon-http-lightweight:jar:1.0-beta-2/org.apache.maven.wagon:wagon-http-shared:jar:1.0-beta-2</node>
+            <node x="" y="">org.codehaus.mojo:exec-maven-plugin:jar:1.1.1/org.apache.maven:maven-core:jar:2.0.6/org.apache.maven.wagon:wagon-http-lightweight:jar:1.0-beta-2/org.apache.maven.wagon:wagon-http-shared:jar:1.0-beta-2/jtidy:jtidy:jar:4aug2000r7-dev</node>
+            <node x="" y="">org.codehaus.mojo:exec-maven-plugin:jar:1.1.1/org.apache.maven:maven-core:jar:2.0.6/org.apache.maven.reporting:maven-reporting-api:jar:2.0.6</node>
+            <node x="" y="">org.codehaus.mojo:exec-maven-plugin:jar:1.1.1/org.apache.maven:maven-core:jar:2.0.6/org.apache.maven.reporting:maven-reporting-api:jar:2.0.6/org.apache.maven.doxia:doxia-sink-api:jar:1.0-alpha-7</node>
+            <node x="" y="">org.codehaus.mojo:exec-maven-plugin:jar:1.1.1/org.apache.maven:maven-core:jar:2.0.6/org.apache.maven:maven-error-diagnostics:jar:2.0.6</node>
+            <node x="" y="">org.codehaus.mojo:exec-maven-plugin:jar:1.1.1/org.apache.maven:maven-core:jar:2.0.6/commons-cli:commons-cli:jar:1.0</node>
+            <node x="" y="">org.codehaus.mojo:exec-maven-plugin:jar:1.1.1/org.apache.maven:maven-core:jar:2.0.6/org.apache.maven.wagon:wagon-ssh-external:jar:1.0-beta-2</node>
+            <node x="" y="">org.codehaus.mojo:exec-maven-plugin:jar:1.1.1/org.apache.maven:maven-core:jar:2.0.6/org.apache.maven.wagon:wagon-ssh-external:jar:1.0-beta-2/org.apache.maven.wagon:wagon-ssh-common:jar:1.0-beta-2</node>
+            <node x="" y="">org.codehaus.mojo:exec-maven-plugin:jar:1.1.1/org.apache.maven:maven-core:jar:2.0.6/org.apache.maven:maven-plugin-descriptor:jar:2.0.6</node>
+            <node x="" y="">org.codehaus.mojo:exec-maven-plugin:jar:1.1.1/org.apache.maven:maven-core:jar:2.0.6/org.codehaus.plexus:plexus-interactivity-api:jar:1.0-alpha-4</node>
+            <node x="" y="">org.codehaus.mojo:exec-maven-plugin:jar:1.1.1/org.apache.maven:maven-core:jar:2.0.6/org.apache.maven:maven-monitor:jar:2.0.6</node>
+            <node x="" y="">org.codehaus.mojo:exec-maven-plugin:jar:1.1.1/org.apache.maven:maven-core:jar:2.0.6/org.apache.maven.wagon:wagon-ssh:jar:1.0-beta-2</node>
+            <node x="" y="">org.codehaus.mojo:exec-maven-plugin:jar:1.1.1/org.apache.maven:maven-core:jar:2.0.6/org.apache.maven.wagon:wagon-ssh:jar:1.0-beta-2/com.jcraft:jsch:jar:0.1.27</node>
+            <node x="" y="">org.codehaus.mojo:exec-maven-plugin:jar:1.1.1/org.apache.maven:maven-core:jar:2.0.6/classworlds:classworlds:jar:1.1</node>
+            <node x="" y="">org.codehaus.mojo:exec-maven-plugin:jar:1.1.1/org.apache.maven:maven-plugin-api:jar:2.0.6</node>
+            <node x="" y="">org.codehaus.mojo:exec-maven-plugin:jar:1.1.1/org.codehaus.plexus:plexus-utils:jar:1.5.6</node>
+            <node x="" y="">org.codehaus.mojo:exec-maven-plugin:jar:1.1.1/org.codehaus.plexus:plexus-container-default:jar:1.0-alpha-9</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="0.6293532920126299" x="498.75884495317393" y="-85.58895124126647" />
+          <SelectedNodes />
+          <Categories />
+          <VISIBILITY>All</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.862069">
+          <caret line="172" column="0" selection-start-line="172" selection-start-column="0" selection-end-line="172" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/p4535992/extractor/home/MainEAT.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.1007195">
+          <caret line="22" column="34" selection-start-line="22" selection-start-column="34" selection-end-line="22" selection-end-column="34" />
+          <folding />
+        </state>
       </provider>
     </entry>
   </component>
@@ -3199,7 +3203,7 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>utility</last-edited>
+          <last-edited>EAT</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
