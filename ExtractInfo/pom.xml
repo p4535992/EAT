@@ -4,13 +4,32 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.p4535992</groupId>
-    <artifactId>ExtractInfo</artifactId>
-    <version>1.0</version>
+    <groupId>com.github.p4535992</groupId>
+    <artifactId>extractInfo</artifactId>
+    <version>1.1</version>
     <packaging>jar</packaging>
 
     <name>${project.artifactId}</name>
     <url>http://maven.apache.org</url>
+
+    <scm>
+        <developerConnection>scm:git:github.com/p4535992/extractInfo.git</developerConnection>
+        <connection>scm:git:https://github.com/p4535992/extractInfo.git</connection>
+        <url>http://svn.apache.org/viewvc/maven</url>
+    </scm>
+
+    <issueManagement>
+        <system>Github</system>
+        <url>https://github.com/p4535992/extractInfo/issues</url>
+    </issueManagement>
+
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
 
     <!--<parent>
         <groupId>com.p4535992</groupId>
@@ -19,12 +38,6 @@
     </parent>-->
 
     <repositories>
-        <!-- Portable repository of the project -->
-        <!--<repository>
-            <id>localrepository</id>
-            <url>file://${project.basedir}\m2</url>
-        </repository>-->
-        <!-- Github repository of the project org.p4535992.mvc.webapp-karma -->
         <repository>
             <id>Web-Karma</id>
             <url>https://github.com/usc-isi-i2/Web-Karma</url>
@@ -32,6 +45,18 @@
                 <enabled>true</enabled>
                 <updatePolicy>always</updatePolicy>
             </snapshots>
+        </repository>
+        <repository>
+            <id>utility</id>
+            <url>https://github.com/p4535992/utility</url>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
         </repository>
     </repositories>
 
@@ -84,9 +109,9 @@
             <!-- Module utility -->
 
             <dependency>
-                <groupId>4535992.utility</groupId>
+                <groupId>com.github.p4535992.utility</groupId>
                 <artifactId>utility</artifactId>
-                <version>1.0</version>
+                <version>1.1</version>
                 <exclusions>
                     <exclusion>
                         <groupId>org.json</groupId>
@@ -132,9 +157,9 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.p4535992</groupId>
+            <groupId>com.github.p4535992</groupId>
             <artifactId>utility</artifactId>
-            <version>1.0</version>
+            <version>1.1</version>
         </dependency>
 
         <!-- GATE -->
@@ -381,10 +406,10 @@
                         </goals>
                     </execution>
                 </executions>
-                <configuration>
-                    <source>${language-level}</source>
-                    <target>${language-level}</target>                 
-                </configuration>
+                <!--<configuration>-->
+                    <!--<source>${language-level}</source>-->
+                    <!--<target>${language-level}</target>                 -->
+                <!--</configuration>-->
             </plugin>
 
             <plugin>
@@ -400,8 +425,8 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <source>${language-level}</source>
-                    <target>${language-level}</target>
+                    <!--<source>${language-level}</source>
+                    <target>${language-level}</target>-->
                     <!-- This will tell the javadoc execution to ignore all errors 
                     and not let the build fail. -->
                     <!--<additionalparam>-Xdoclint:none</additionalparam>

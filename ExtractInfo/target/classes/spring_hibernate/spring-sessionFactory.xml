@@ -14,11 +14,11 @@
               <property name="dataSource" ref="dataSource" />
               <property name="annotatedClasses">
                      <list>
-                            <value>object.model.Website</value>
-                            <value>object.model.GeoDocument</value>
-                            <value>object.model.GeoDomainDocument</value>
-                            <value>object.model.Document</value>
-                            <value>object.model.InfoDocument</value>
+                            <value>com.github.p4535992.extractor.object.model.Website</value>
+                            <value>com.github.p4535992.extractor.object.model.GeoDocument</value>
+                            <value>com.github.p4535992.extractor.object.model.GeoDomainDocument</value>
+                            <value>com.github.p4535992.extractor.object.model.Document</value>
+                            <value>com.github.p4535992.extractor.object.model.InfoDocument</value>
                      </list>
               </property>
               <property name="hibernateProperties">

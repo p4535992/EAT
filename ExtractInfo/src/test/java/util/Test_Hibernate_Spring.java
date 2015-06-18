@@ -1,11 +1,11 @@
 package util;
 
-import extractor.hibernate.interceptor.GeoDocumentInterceptor;
-import object.dao.hibernate.IGeoDocumentHibernateDao;
-import object.impl.hibernate.GeoDocumentHibernateDaoImpl;
+import com.github.p4535992.extractor.hibernate.interceptor.GeoDocumentInterceptor;
+import com.github.p4535992.extractor.object.dao.hibernate.IGeoDocumentHibernateDao;
+import com.github.p4535992.extractor.object.impl.hibernate.GeoDocumentHibernateDaoImpl;
 import org.hibernate.Session;
 import org.springframework.context.ApplicationContext;
-import object.model.GeoDocument;
+import com.github.p4535992.extractor.object.model.GeoDocument;
 
 import java.net.URL;
 

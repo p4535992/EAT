@@ -1,12 +1,12 @@
 package util;
 
-import object.dao.jdbc.IGeoDocumentDao;
-import object.dao.jdbc.IGeoDomainDocumentDao;
-import object.impl.jdbc.GeoDocumentDaoImpl;
-import object.impl.jdbc.GeoDomainDocumentDaoImpl;
-import object.model.GeoDocument;
-import object.model.GeoDomainDocument;
-import com.p4535992.util.sql.SQLSupport;
+import com.github.p4535992.extractor.object.dao.jdbc.IGeoDocumentDao;
+import com.github.p4535992.extractor.object.dao.jdbc.IGeoDomainDocumentDao;
+import com.github.p4535992.extractor.object.impl.jdbc.GeoDocumentDaoImpl;
+import com.github.p4535992.extractor.object.impl.jdbc.GeoDomainDocumentDaoImpl;
+import com.github.p4535992.extractor.object.model.GeoDocument;
+import com.github.p4535992.extractor.object.model.GeoDomainDocument;
+import com.github.p4535992.util.sql.SQLSupport;
 
 import java.net.URL;
 import java.util.List;

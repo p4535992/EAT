@@ -4,9 +4,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.p4535992</groupId>
+    <groupId>com.github.p4535992</groupId>
     <artifactId>utility</artifactId>
-    <version>1.0</version>
+    <version>1.1</version>
     <packaging>jar</packaging>
 
    <!-- <parent>
@@ -16,19 +16,20 @@
     </parent>-->
 
     <name>${project.artifactId}</name>
+    <url>http://maven.apache.org</url>
     <description>
         Collection of utility classes java for many purpose
     </description>
 
     <scm>
-        <developerConnection>scm:git:github.com/4535992/utility.git</developerConnection>
-        <connection>scm:git:https://github.com/4535992/utility.git</connection>
+        <developerConnection>scm:git:github.com/p4535992/utility.git</developerConnection>
+        <connection>scm:git:https://github.com/p4535992/utility.git</connection>
         <url>http://svn.apache.org/viewvc/maven</url>
     </scm>
 
     <issueManagement>
         <system>Github</system>
-        <url>https://github.com/4535992/utility/issues</url>
+        <url>https://github.com/p4535992/utility/issues</url>
     </issueManagement>
 
     <licenses>

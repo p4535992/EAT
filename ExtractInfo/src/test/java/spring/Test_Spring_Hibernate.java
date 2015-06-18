@@ -1,8 +1,8 @@
 package spring;
 
-import object.dao.jdbc.IGeoDocumentDao;
-import object.impl.jdbc.GeoDocumentDaoImpl;
-import object.model.GeoDocument;
+import com.github.p4535992.extractor.object.dao.jdbc.IGeoDocumentDao;
+import com.github.p4535992.extractor.object.impl.jdbc.GeoDocumentDaoImpl;
+import com.github.p4535992.extractor.object.model.GeoDocument;
 import org.springframework.context.ResourceLoaderAware;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;

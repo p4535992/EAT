@@ -1,6 +1,6 @@
 package util;
 
-import com.p4535992.util.string.StringKit;
+import com.github.p4535992.util.string.StringKit;
 
 import java.io.IOException;
 

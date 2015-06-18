@@ -4,6 +4,7 @@
     <facet type="hibernate" name="Hibernate">
       <configuration>
         <datasource-map>
+          <unit-entry name="com:github:p4535992:extractor:hibernate:old:hibernate.cfg.xml" />
           <unit-entry name="extractor:hibernate:old:hibernate.cfg.xml" />
           <unit-entry name="hibernate3AnnotatedSessionFactory" value="dataSource" />
           <unit-entry name="hibernate4AnnotatedSessionFactory" value="dataSource" />
@@ -12,7 +13,7 @@
           <unit-entry name="util:hibernate.xml" />
         </datasource-map>
         <naming-strategy-map />
-        <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/src/main/java/extractor/hibernate/old/hibernate.cfg.xml" />
+        <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/src/main/java/com/github/p4535992/extractor/hibernate/old/hibernate.cfg.xml" />
         <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/../utility/src/test/java/util/hibernate.xml" />
       </configuration>
     </facet>
