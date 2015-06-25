@@ -258,12 +258,12 @@
         <processorPath useClasspath="true" />
         <module name="ExtractInfo" />
       </profile>
-      <profile default="false" name="Annotation profile for EAT" enabled="true">
+      <profile default="false" name="Annotation profile for gate-basic" enabled="true">
         <sourceOutputDir name="target\generated-sources\annotations" />
         <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="EAT" />
+        <module name="gate-basic" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.7">
@@ -282,6 +282,7 @@
       <module name="commands-worksheet" target="1.7" />
       <module name="EAT" target="1.7" />
       <module name="ExtractInfo" target="1.7" />
+      <module name="gate-basic" target="1.7" />
       <module name="import-avro" target="1.7" />
       <module name="import-common" target="1.7" />
       <module name="import-csv" target="1.7" />

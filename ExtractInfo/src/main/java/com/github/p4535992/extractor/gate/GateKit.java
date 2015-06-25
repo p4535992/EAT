@@ -109,11 +109,15 @@ public class GateKit {
      */
     public static void loadGapp(String base,String fileGapp){
         SystemLog.message("Loading file .gapp/.xgapp...");
+        if(!base.startsWith(File.separator)) base = File.separator + base;
+        if(!base.endsWith(File.separator)) base = base + File.separator;
+        if(fileGapp.startsWith(File.separator)) fileGapp = fileGapp.substring(1,fileGapp.length());
+        if(fileGapp.endsWith(File.separator)) fileGapp = fileGapp.substring(0,fileGapp.length()-1);
         try {
             //File gapp = new File(home.home, "custom/gapp/geoLocationPipelineFast.xgapp");
-            if (new File(Gate.getGateHome() + File.separator + base + File.separator + fileGapp).exists()) {
+            if (new File(Gate.getGateHome() + base + fileGapp).exists()) {
                 controller = (CorpusController) PersistenceManager.loadObjectFromFile(
-                        new File(Gate.getGateHome() + File.separator + base + File.separator + fileGapp));
+                        new File(Gate.getGateHome() + base  + fileGapp));
             } else {
                 throw new IOException("The gapp file not exists");
             }

@@ -2,6 +2,7 @@ package com.github.p4535992.extractor.object.impl.hibernate.generic;
 
 import com.github.p4535992.extractor.hibernate.Hibernate4Kit;
 import com.github.p4535992.extractor.object.dao.hibernate.generic.IGenericHibernateDao;
+import com.github.p4535992.util.bean.BeansKit;
 import org.hibernate.*;
 import org.hibernate.criterion.Criterion;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,11 +10,8 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import com.github.p4535992.util.log.SystemLog;
 import com.github.p4535992.util.string.StringKit;
-import com.github.p4535992.extractor.bean.BeansKit;
-
 import java.io.File;
 import java.io.FileNotFoundException;
-
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.sql.DataSource;
@@ -149,7 +147,7 @@ public class GenericHibernateDaoImpl<T> implements IGenericHibernateDao<T> {
    //@Override
    public void loadSpringContext(String filePathXml){
         try {
-            context = BeansKit.tryGetContextSpring(filePathXml);
+            context = BeansKit.tryGetContextSpring(filePathXml,GenericHibernateDaoImpl.class);
             if(context!=null){
                 setSessionFactory(context);
             }

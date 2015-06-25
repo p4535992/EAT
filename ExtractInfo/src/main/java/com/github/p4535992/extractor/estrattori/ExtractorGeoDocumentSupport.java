@@ -20,10 +20,16 @@ import java.util.List;
 public class ExtractorGeoDocumentSupport {
 
     ManageJsonWithGoogleMaps j = new ManageJsonWithGoogleMaps();
-    public ExtractorGeoDocumentSupport(){
 
+    private static ExtractorGeoDocumentSupport instance = null;
+    protected ExtractorGeoDocumentSupport(){}
+
+    public static ExtractorGeoDocumentSupport getInstance(){
+        if(instance == null) {
+            instance = new ExtractorGeoDocumentSupport();
+        }
+        return instance;
     }
-
 
     public GeoDocument UpgradeTheDocumentWithOtherInfo(GeoDocument geo) throws URISyntaxException {
         try{

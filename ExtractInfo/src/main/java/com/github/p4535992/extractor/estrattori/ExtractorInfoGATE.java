@@ -24,7 +24,8 @@ import java.util.List;
 /**
  * EstrazioneDatiWithGATE.java
  * Classe che utilizza GATE per lt'estrazione di informazione da und eterminato testo
- * @author Utente
+ * @author 4535992
+ * @version 2015-06-25
  */
 public class ExtractorInfoGATE {
 
@@ -155,7 +156,7 @@ public class ExtractorInfoGATE {
     public GeoDocument extractMicrodataWithGATESingleFile(File file,CorpusController controller)
             throws GateException,MalformedURLException, InterruptedException, SQLException, InvocationTargetException {
         GeoDocument g = new GeoDocument();
-        SystemLog.debug(FileUtil.convertFileToUri(file).toURL().toString());
+        //SystemLog.debug(FileUtil.convertFileToUri(file).toURL().toString());
         g = extractorGATE(FileUtil.convertFileToUri(file).toURL(), controller);
         //home = extractorGATE(file.toURL(), home.home.initializer.org.p4535992.mvc.webapp.controller);
         return g;

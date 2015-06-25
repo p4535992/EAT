@@ -1,6 +1,7 @@
 package com.github.p4535992.extractor.object.impl.jdbc.generic;
 
 import com.github.p4535992.extractor.object.dao.jdbc.generic.IGenericDao;
+import com.github.p4535992.util.bean.BeansKit;
 import org.hibernate.SessionFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -9,7 +10,6 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import com.github.p4535992.util.reflection.ReflectionKit;
 import com.github.p4535992.util.sql.SQLSupport;
-import com.github.p4535992.extractor.bean.BeansKit;
 import com.github.p4535992.util.log.SystemLog;
 import com.github.p4535992.util.string.StringKit;
 
@@ -75,12 +75,12 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
 
     @Override
     public void loadSpringConfig(String filePathXml) throws IOException {
-        context = BeansKit.tryGetContextSpring(filePathXml);
+        context = BeansKit.tryGetContextSpring(filePathXml,GenericDaoImpl.class);
     }
 
     @Override
     public void loadSpringConfig(String[] filesPathsXml) throws IOException {
-       context = BeansKit.tryGetContextSpring(filesPathsXml);
+       context = BeansKit.tryGetContextSpring(filesPathsXml,GenericDaoImpl.class);
     }
 
 

@@ -1,7 +1,10 @@
 package com.github.p4535992.extractor.estrattori;
+import com.github.p4535992.gatebasic.gate.gate8.Gate8Kit;
+import com.github.p4535992.gatebasic.gate.gate8.GateSupport;
 import com.github.p4535992.util.log.SystemLog;
-import com.github.p4535992.extractor.gate.GateKit;
 import com.github.p4535992.extractor.karma.GenerationOfTriple;
+import com.github.p4535992.util.string.StringKit;
+import gate.Controller;
 import gate.CorpusController;
 import com.github.p4535992.extractor.object.dao.jdbc.IGeoDocumentDao;
 import com.github.p4535992.extractor.object.impl.jdbc.GeoDocumentDaoImpl;
@@ -14,18 +17,32 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
+
 import com.github.p4535992.extractor.object.dao.jdbc.IInfoDocumentDao;
 import com.github.p4535992.extractor.object.impl.jdbc.InfoDocumentDaoImpl;
+import gate.util.DocumentProcessor;
 
 /**
  * Created by 4535992 on 15/06/2015.
  */
+@SuppressWarnings("unused")
 public class ExtractInfoWeb {
 
     private static int indGDoc;
 
-    private static CorpusController controller;
+    private static Controller controller;
+    private static DocumentProcessor procDoc;
+
+    public static DocumentProcessor getProcDoc() {
+        return procDoc;
+    }
+
+    public static Controller getController() {
+        return controller;
+    }
 
     public ExtractInfoWeb(){}
     private String TABLE_INPUT,TABLE_OUTPUT,DRIVER_DATABASE,DIALECT_DATABASE, HOST_DATABASE, PORT_DATABASE, USER, PASS, DB_OUTPUT;
@@ -39,9 +56,12 @@ public class ExtractInfoWeb {
         this.USER = USER;
         this.PASS = PASS;
         this.DB_OUTPUT=DB_OUTPUT;
-        GateKit.setUpGateEmbedded("gate_files", "plugins", "gate.xml", "user-gate.xml", "gate.session");
-        GateKit.loadGapp("custom/gapp", "geoLocationPipeline06102014v7_fastMode.xgapp");
-        controller = GateKit.getController();
+        Gate8Kit gate8 = Gate8Kit.getInstance();
+        controller = gate8.setUpGateEmbedded("gate_files", "plugins", "gate.xml", "user-gate.xml", "gate.session",
+                "custom/gapp/geoLocationPipeline06102014v7_fastMode.xgapp");
+        //gate8.loadGapp("custom/gapp", "geoLocationPipeline06102014v7_fastMode.xgapp");
+        //procDoc = gate8.setUpGateEmbeddedWithSpring("gate/gate-beans.xml",this.getClass(),"documentProcessor");
+
     }
 
     private GeoDocument ExtractGeoDocumentFromWeb(String url,String TABLE_INPUT,String TABLE_OUTPUT){
@@ -101,7 +121,7 @@ public class ExtractInfoWeb {
             if (ExtractorJSOUP.isEXIST_WEBPAGE()) {
                 try {
                     SystemLog.message("*******************Run GATE**************************");
-                    geoDoc = egate.extractorGATE(url, controller);
+                    geoDoc = egate.extractorGATE(url,(CorpusController) controller);
                     geoDoc = ExtractorGeoDocumentSupport.compareInfo3(geoDoc, geo2);
                     //AGGIUNGIAMO ALTRE INFORMAZIONI AL GEODOCUMENT
                     geoDoc = egs.UpgradeTheDocumentWithOtherInfo(geoDoc);
@@ -159,4 +179,99 @@ public class ExtractInfoWeb {
             SystemLog.exception(ex);
         }
     }
+
+    public GeoDocument convertGateSupportToGeoDocument(GateSupport support,String url,Integer index){
+        GeoDocument geoDoc = new GeoDocument();
+        String[] anntotations = new String[]{"MyRegione","MyPhone","MyFax","MyEmail","MyPartitaIVA",
+                "MyLocalita","MyIndirizzo","MyEdificio","MyProvincia"};
+        try {
+            geoDoc.setUrl(new URL(url));
+            for(String nameAnnotation: anntotations ){
+                //get list of all annotation set...
+                List<Map<String,Map<String,String>>> list = new ArrayList<>(support.getMapDocs().values());
+                //for each annotation set....
+                //boolean flag1 = false;
+                //for(int i=0; i< list.size(); i++){
+                    boolean flag2 = false;
+                    for(int j=0; j < list.get(index).size(); j++){
+                        String content = new String(support.getContent(index,j,nameAnnotation));
+                        switch (nameAnnotation){
+                            case "MyRegione": {
+                                if (!StringKit.isNullOrEmpty(content) &&
+                                        StringKit.isNullOrEmpty(geoDoc.getRegione())) {
+                                    geoDoc.setRegione(content);
+                                    flag2 = true;
+                                }
+                                break;
+                            }
+                            case "MyPhone": {
+                                if (!StringKit.isNullOrEmpty(content) &&
+                                        StringKit.isNullOrEmpty(geoDoc.getTelefono())) {
+                                    geoDoc.setTelefono(content);
+                                    flag2 = true;
+                                }
+                                break;
+                            }
+                            case "MyFax": {
+                                if (!StringKit.isNullOrEmpty(content) &&
+                                        StringKit.isNullOrEmpty(geoDoc.getFax())) {
+                                    geoDoc.setFax(content);
+                                    flag2 = true;
+                                }
+                                break;
+                            }
+                            case "MyEmail": {
+                                if (!StringKit.isNullOrEmpty(content) &&
+                                        StringKit.isNullOrEmpty(geoDoc.getEmail())) {
+                                    geoDoc.setEmail(content);
+                                    flag2 = true;
+                                }
+                                break;
+                            }
+                            case "MyPartitaIVA": {
+                                if (!StringKit.isNullOrEmpty(content) &&
+                                        StringKit.isNullOrEmpty(geoDoc.getIva())) {
+                                    geoDoc.setIva(content);
+                                }
+                                break;
+                            }
+                            case "MyLocalita": {
+                                if (!StringKit.isNullOrEmpty(content) &&
+                                        StringKit.isNullOrEmpty(geoDoc.getCity())) {
+                                    geoDoc.setCity(content);
+                                    flag2 = true;
+                                }
+                                break;
+                            }
+                            case "MyIndirizzo": {
+                                if (!StringKit.isNullOrEmpty(content) &&
+                                        StringKit.isNullOrEmpty(geoDoc.getIndirizzo())) {
+                                    geoDoc.setIndirizzo(content);
+                                }
+                                break;
+                            }
+                            case "MyEdificio": {
+                                if (!StringKit.isNullOrEmpty(content) &&
+                                        StringKit.isNullOrEmpty(geoDoc.getEdificio())) {
+                                    geoDoc.setEdificio(content);
+                                    flag2 = true;
+                                }
+                                break;
+                            }
+                        }//switch
+                        if(flag2){
+                            //flag1 = true;
+                            break;
+                        }
+                    }
+                //    if(flag1)break;
+                // }
+            }
+        } catch (MalformedURLException e) {
+            SystemLog.exception(e);
+        }
+        return geoDoc;
+    }
+
+
 }

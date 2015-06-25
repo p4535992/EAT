@@ -81,8 +81,10 @@
         <javax-servlet-jsp-api.version>2.3.1</javax-servlet-jsp-api.version>
         <jstl.version>1.2</jstl.version>
         <webkarma.version>0.0.1-SNAPSHOT</webkarma.version>
+        <!-- Logging -->
         <logback.version>1.0.13</logback.version>
         <org.slf4j.version>1.7.12</org.slf4j.version>
+        <!-- HTML -->
         <jsoup.version>1.8.2</jsoup.version>
 
 
@@ -167,7 +169,7 @@
         <dependency>
           <groupId>uk.ac.gate</groupId>
           <artifactId>gate-core</artifactId>
-          <version>8.1</version>
+          <version>${gate.version}</version>
         </dependency>
 
         <!-- SILK - https://maven-repository.com/artifact/eu.fusepool.p3.ext.de.fuberlin.wiwiss.silk/silk-singlemachine/2.6.0 -->
