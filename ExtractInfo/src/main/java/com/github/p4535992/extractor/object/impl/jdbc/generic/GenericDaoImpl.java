@@ -26,6 +26,8 @@ import java.util.*;
 
 /**
  * Created by 4535992 on 16/04/2015.
+ * @author 4535992
+ * @version 2015-06-26
  */
 public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
     /** {@code org.slf4j.Logger} */
@@ -52,9 +54,10 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
 
     @Override
     public void setDriverManager(String driver, String dialectDB, String host, String port, String user, String pass, String database) {
+        SystemLog.message("DRIVER[:"+driver+"] ,URL[" + dialectDB + "://" + host + ":" + port + "/" + database+"]");
         driverManag = new DriverManagerDataSource();
-        driverManag.setDriverClassName(driver);//"com.sql.jdbc.Driver"
-        driverManag.setUrl("" + dialectDB + "://" + host + ":" + port + "/" + database); //"jdbc:sql://localhost:3306/jdbctest"
+        driverManag.setDriverClassName(driver);//"com.mysql.jdbc.Driver"
+        driverManag.setUrl("" + dialectDB + "://" + host + ":" + port + "/" + database); //"jdbc:mysql://localhost:3306/jdbctest"
         driverManag.setUsername(user);
         driverManag.setPassword(pass);
         this.dataSource = driverManag;

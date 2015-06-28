@@ -1,8 +1,8 @@
 package extractor;
 
 import com.github.p4535992.extractor.estrattori.ExtractInfoWeb;
-import com.github.p4535992.extractor.estrattori.ExtractorInfoGate8;
 import com.github.p4535992.extractor.object.model.GeoDocument;
+import com.github.p4535992.gatebasic.gate.gate8.ExtractorInfoGate8;
 import com.github.p4535992.gatebasic.gate.gate8.GateSupport;
 import gate.CorpusController;
 
@@ -14,21 +14,23 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * Created by Marco on 25/06/2015.
+ * Created by 4535992 on 25/06/2015.
  */
 public class Test_ExtractorInfoWeb {
 
     public static void main(String[] args) throws
             MalformedURLException, InterruptedException, SQLException, InvocationTargetException {
-        ExtractInfoWeb web = new ExtractInfoWeb(
-                "com.sql.jdbc.Driver",
-                "jdbc:sql",
+        ExtractInfoWeb web = ExtractInfoWeb.getInstance(
+                "com.mysql.jdbc.Driver",
+                "jdbc:mysql",
                 "localhost",
                 "3306",
                 "siimobility",
                 "siimobility",
-                "geolocationddb");
+                "geodb"
+                );
 
+        /*
         CorpusController controller = (CorpusController) web.getController();
         //Class for process a document with GATE and get a result with only the st ring value
         //name Document -> name AnnotationSet -> name Annotation -> string content.
@@ -45,13 +47,17 @@ public class Test_ExtractorInfoWeb {
                 eig8.extractorGATE(
                         new URL("http://www.unifi.it"),controller,"corpus_test_1",listAnn,listAnnSet,true)
         );
+        */
+
         //Now you can get the content from a specific document, specific AnnotationSet, specific Annotation.
-        String contnet0 = support.getContent("doc1", "MyAnnSet", "MyIndirizzo");
+       /* String contnet0 = support.getContent("doc1", "MyAnnSet", "MyIndirizzo");
         String content1 = support.getContent(0,"MyAnnSet", "MyIndirizzo");
         String content2 = support.getContent(0,0,"MyIndirizzo");
         String content3 = support.getContent(0,0,0);
 
-        GeoDocument geoDoc = web.convertGateSupportToGeoDocument(support,"http://www.unifi.it",0);
+        GeoDocument geoDoc = web.convertGateSupportToGeoDocument(support,new URL("http://www.unifi.it"),0);*/
+
+        GeoDocument geoDoc = web.ExtractGeoDocumentFromUrl(new URL("http://www.unifi.it"),"test_55","test_55",true);
 
     }
 }

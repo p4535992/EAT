@@ -1,26 +1,22 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package com.github.p4535992.extractor.object.support;
 
 import com.github.p4535992.extractor.object.model.GeoDocument;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
- * @author Utente
+ * @author 4535992
+ * @version 2015-06-26
  */
 public class DepositFrequencyInfo {
     
     private String domain;
-    private ArrayList<GeoDocument> listGeoDoc = new ArrayList<GeoDocument>();
+    private List<GeoDocument> listGeoDoc = new ArrayList<GeoDocument>();
     private Integer frequency;
 
-    public DepositFrequencyInfo(String domain,ArrayList<GeoDocument> listGeoDoc,Integer frequency) {
+    public DepositFrequencyInfo(String domain,List<GeoDocument> listGeoDoc,Integer frequency) {
         this.domain = domain;
         this.listGeoDoc = listGeoDoc;
         this.frequency = frequency;
@@ -35,7 +31,7 @@ public class DepositFrequencyInfo {
         this.domain = domain;
     }
 
-    public ArrayList<GeoDocument> getListGeoDoc() {
+    public List<GeoDocument> getListGeoDoc() {
         return listGeoDoc;
     }
 

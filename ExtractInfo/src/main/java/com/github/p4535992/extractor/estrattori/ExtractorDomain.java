@@ -13,11 +13,11 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import com.github.p4535992.extractor.object.support.LatLng;
-import org.hibernate.SessionFactory;
 import com.github.p4535992.util.string.StringKit;
 
 /**
@@ -30,48 +30,10 @@ import com.github.p4535992.util.string.StringKit;
 public class ExtractorDomain {
     
     //FREQUENZA DEGLI URL PER L'IDENTIFICAZIONE DEL DOMINIO
-    private  Integer FREQUENZA_INTERVALLO_URL;
-    //TABELLA DI INPUT GEODOCUMENT DA CONVERTIRE IN GEODOMAINDOCUMENT
-    private  String TABLE_INPUT_GEODOMAIN; 
-    //TABELLA DI OUTPUT GEODOMAINDOCUMENT
-    private  String TABLE_OUTPUT_GEODOMAIN; 
-    
-    //NOME USER PER L'HOST MYSQL
-    private  String USER;
-    //PASSWORD PER L'HOST MYSQL
-    private  String PASS;
-    //DATABASE DELLA TABELLA DI INPUT
-    private  String DB_INPUT_GEODOMAIN;  
-    //DATABASE DELLA TABELLA DI OUTPUT
-    private  String DB_OUTPUT_GEODOMAIN;
-    
-    private  Integer LIMIT;
-    private  Integer OFFSET;
-
-    private  SessionFactory factory = null;
+    private  Integer FREQUENZA_INTERVALLO_URL,LIMIT,OFFSET;
     private  GeoDomainDocumentDaoImpl geoDomainDocDao;
     
     public ExtractorDomain(){}
-
-     public ExtractorDomain(
-             String USER, String PASS,
-             Integer LIMIT, Integer OFFSET, Integer FREQUENZA_INTERVALLO_URL,
-             String TABLE_INPUT_GEODOMAIN, String TABLE_OUTPUT_GEODOMAIN,
-             String DB_INPUT_GEODOMAIN, String DB_OUTPUT_GEODOMAIN
-     ){
-
-        this.USER = USER;
-        this.PASS = PASS;
-        this.LIMIT = LIMIT;
-        this.OFFSET = OFFSET;
-        this.FREQUENZA_INTERVALLO_URL = FREQUENZA_INTERVALLO_URL;
-        this.TABLE_INPUT_GEODOMAIN = TABLE_INPUT_GEODOMAIN;
-        this.TABLE_OUTPUT_GEODOMAIN = TABLE_OUTPUT_GEODOMAIN;
-        this.DB_INPUT_GEODOMAIN = DB_INPUT_GEODOMAIN;
-        this.DB_OUTPUT_GEODOMAIN= DB_OUTPUT_GEODOMAIN;
-
-    }
-
     public ExtractorDomain(GeoDomainDocumentDaoImpl dao, Integer LIMIT, Integer OFFSET, Integer FREQUENZA_INTERVALLO_URL
     ){
         this.LIMIT = LIMIT;
@@ -80,15 +42,15 @@ public class ExtractorDomain {
         this.geoDomainDocDao = dao;
     }
     //***********************************************************************************************************
-    private static ArrayList<String> listDomains = new ArrayList<String>();
-    private static ArrayList<String> listFinalDomains = new ArrayList<String>();
-    private static ArrayList<DepositFrequencyInfo> listDepositFrequency = new ArrayList<DepositFrequencyInfo>();
+    private static ArrayList<String> listDomains = new ArrayList<>();
+    private static ArrayList<String> listFinalDomains = new ArrayList<>();
+    private static ArrayList<DepositFrequencyInfo> listDepositFrequency = new ArrayList<>();
   
     public void CreateTableOfGeoDomainDocument(String tipo){
         try{
         ExtractorDomain m = new ExtractorDomain();
         List<GeoDocument> listGeoDoc = new ArrayList<>();
-        if(tipo == "sql"){
+        if(tipo.equals("sql")){
             //listGeoDoc = geoDomainDocDao.selectAllGeoDocument("*", LIMIT.toString(), OFFSET.toString());
             listGeoDoc = geoDomainDocDao.selectGeoDocuments("*",LIMIT,OFFSET);
         }
@@ -96,16 +58,16 @@ public class ExtractorDomain {
         for (GeoDocument geoDoc : listGeoDoc) {
              i++;
              //TENTA DI ESTRARRE IL DOMINIO HOST DELL'INDIRIZZO URL
-             try{                                                  
+             try{
                  String domain = m.getDomainName(geoDoc.getUrl().toString());                          
                  SystemLog.message("(" + i + ")" + "DOMAIN:" + domain);
-                 if(listFinalDomains.contains(domain)==false){                                 
+                 if(!listFinalDomains.contains(domain)){
                    m.applyTheMemorizeRecordCordinatesRules(domain,geoDoc,tipo);  
                  }
                  //*********************************************************************************       
-           } catch (URISyntaxException ex) {
-                continue;
-           }
+             } catch (URISyntaxException ex) {
+                 SystemLog.exception(ex);
+             }
          }//for
       } catch (RuntimeException e2) {
               SystemLog.exception(e2);
@@ -133,8 +95,8 @@ public class ExtractorDomain {
     private void applyTheMemorizeRecordCordinatesRules(String domain,GeoDocument geoDoc,String tipo){
         try{                        
         //Se è la prima volta che appare un GeoDocument relativo a questo particalore dominio org.p4535992.mvc.webapp
-        if(listDomains.contains(domain)==false){  
-            ArrayList<GeoDocument> lgd = new ArrayList<GeoDocument>();                                       
+        if(!listDomains.contains(domain)){
+            List<GeoDocument> lgd = new ArrayList<>();
             lgd.add(geoDoc); 
             //Crea un nuovo DepositFreqencyInfo
             DepositFrequencyInfo dfi =new DepositFrequencyInfo(domain,lgd,0);
@@ -142,7 +104,7 @@ public class ExtractorDomain {
             listDepositFrequency.add(dfi);
              
         //Se il Dominio org.p4535992.mvc.webapp di questo geoDocument è già presente
-        }else if(listDomains.contains(domain)==true){
+        }else if(listDomains.contains(domain)){
             for (DepositFrequencyInfo dfi2 : listDepositFrequency) {
                 //Se il dominio dell'url analizzato è lo stesso di quello già
                 //presenta nella lista dei depositi di frequency allora immagazziniamo il record
@@ -163,31 +125,27 @@ public class ExtractorDomain {
             //listDepositFrequency.;
         }//else if
         //PER OGNI DepositFrequencyInfo FINORA PRESENTE......
-        for (DepositFrequencyInfo dfi2 : listDepositFrequency) { 
-            //...VERIFICA SE IL VALORE DI SOGLIA E' SUFFICIENTE E SE 
+        for (DepositFrequencyInfo dfi2 : listDepositFrequency) {
+            //...VERIFICA SE IL VALORE DI SOGLIA E' SUFFICIENTE E SE
             //IL SUO DOMINIO NON E' PRESENTE NELLA LISTA DEI DOMINI GIA' ANALIZZATI
             if(dfi2.getFrequency()>= FREQUENZA_INTERVALLO_URL && !(listFinalDomains.contains(dfi2.getDomain()))){
-                listFinalDomains.add(dfi2.getDomain());                  
+                listFinalDomains.add(dfi2.getDomain());
                 try {
                     GeoDocument geo = prepareTheDomainWebGeoDocumentWithMoreCommonParameter(dfi2);
                     geo.setUrl(new URL("http://"+dfi2.getDomain()));
                     //INSERIAMO I NOSTRI GEODOMAINDOCUMENT NELLA TABELLA DEL DATABASE
                     SystemLog.message("INSERIMENTO GEODOMAINDOCUMENT NELLA TABELLA");
-                    if(tipo == "sql"){
+                    if(Objects.equals(tipo, "sql")){
                         geoDomainDocDao.insertAndTrim(geo);
                     }
-                    
                 } catch (MalformedURLException ex) {
                     Logger.getLogger(ExtractorDomain.class.getName()).log(Level.SEVERE, null, ex);
-                }finally{
-                    
                 }
             }
         }//for
-        }catch(Exception e){ e.printStackTrace();
-        }finally{
-
-        }//finally
+        }catch(Exception e){
+            e.printStackTrace();
+        }
         
     }
     
@@ -201,12 +159,12 @@ public class ExtractorDomain {
      */
     private GeoDocument prepareTheDomainWebGeoDocumentWithMoreCommonParameter(DepositFrequencyInfo dfi) throws MalformedURLException {
         String domain = dfi.getDomain();
-        URL webDomain = null;
+        URL webDomain;
         if(domain.contains("www")){webDomain = new URL("http://"+domain);
         }else{webDomain = new URL("http://www."+domain);}
         GeoDocument geo2 = new GeoDocument(webDomain, null,null, null, null, null, null, null, null, null, null, null,null,null,null,null,null);
         //for each GeoDocument contains ont he relative DepositFrequencyInfo get the more common parameter for eahc field
-        ArrayList<String> al = new ArrayList<String>();
+        List<String> al = new ArrayList<>();
         geo2.setUrl(webDomain);       
         for (GeoDocument geoDoc : dfi.getListGeoDoc()) {al.add(geoDoc.getRegione());}
         geo2.setRegione(StringKit.getMoreCommonParameter(al));
@@ -314,9 +272,7 @@ public class ExtractorDomain {
      */
    private String getDomainName(String u) throws URISyntaxException {     
           URI uri = new URI(u);
-          String domain = uri.getHost();
-          //return domain.startsWith("www.") ? domain.substring(4) : domain;
-          return domain;
+          return uri.getHost();
    }
 
 
@@ -342,9 +298,7 @@ public class ExtractorDomain {
                 }
                 geoDomainDocDao.update(columns, values, "url", geo.getUrl().toString().replace("http://",""));
             }
-        }catch(URISyntaxException e){
-            e.printStackTrace();
-        }catch(MalformedURLException e){
+        }catch(URISyntaxException | MalformedURLException e){
             e.printStackTrace();
         }
     }

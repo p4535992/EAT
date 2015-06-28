@@ -116,9 +116,7 @@ public class GeoDocument extends SelfDirtyCheckingEntity implements Serializable
         return url;
     }
 
-    //@PostRemove
-    @PreUpdate
-    @PrePersist
+
     public void setUrl(URL url) {
         if(url.toString().contains("://")) {
             this.url = url;

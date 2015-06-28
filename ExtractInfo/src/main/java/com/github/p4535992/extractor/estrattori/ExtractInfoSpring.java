@@ -6,7 +6,6 @@ import com.github.p4535992.extractor.setInfoParameterIta.SetProvinciaECity;
 import com.github.p4535992.extractor.setInfoParameterIta.SetRegioneEProvincia;
 import com.github.p4535992.extractor.ManageJsonWithGoogleMaps;
 import com.github.p4535992.util.file.SimpleParameters;
-import com.github.p4535992.extractor.gate.GateKit;
 import com.github.p4535992.util.http.HttpUtilApache;
 import com.github.p4535992.extractor.setInfoParameterIta.SetNazioneELanguage;
 import gate.CorpusController;
@@ -14,7 +13,6 @@ import com.github.p4535992.extractor.object.model.GeoDocument;
 import com.github.p4535992.util.file.FileUtil;
 import com.github.p4535992.util.log.SystemLog;
 import com.github.p4535992.extractor.gate.GateDataStoreKit;
-import com.github.p4535992.extractor.karma.GenerationOfTriple;
 import com.github.p4535992.extractor.setInfoParameterIta.SetCodicePostale;
 import com.github.p4535992.util.string.StringKit;
 
@@ -29,6 +27,7 @@ import java.util.*;
  * da inserire come InfoDocument nel database mySQL
  * @author 4535992
  */
+@SuppressWarnings("unused")
 public class ExtractInfoSpring {
 
      private boolean SAVE_DATASTORE = false;
@@ -55,115 +54,114 @@ public class ExtractInfoSpring {
      private String DIRECTORY_FILES,SILK_SLS_FILE;
 
      //COSTRUTTORI
-     private GenerationOfTriple got = new GenerationOfTriple();
-     private ManageJsonWithGoogleMaps j = new ManageJsonWithGoogleMaps();
-     private ExtractorDomain egd = new ExtractorDomain();
-     private ExtractorInfoGATE egate = new ExtractorInfoGATE();
+//     private GenerationOfTriple got = new GenerationOfTriple();
+       private ManageJsonWithGoogleMaps j = new ManageJsonWithGoogleMaps();
+       private ExtractorDomain egd = new ExtractorDomain();
+//     private ExtractorInfoGATE egate = new ExtractorInfoGATE();
 
-    //OBJECTS
-    //private static IGenericDao gDao;
-    private static CorpusController controller;
-    IDocumentDao Docdao = new DocumentDaoImpl();
-    IWebsiteDao websiteDao = new WebsiteDaoImpl();
-    public static IGeoDocumentDao getGeoDocumentDao() {
+     private static CorpusController controller;
+     IDocumentDao Docdao = new DocumentDaoImpl();
+     IWebsiteDao websiteDao = new WebsiteDaoImpl();
+
+     public static IGeoDocumentDao getGeoDocumentDao() {
         return geoDocumentDao;
     }
 
-    public static IGeoDocumentDao geoDocumentDao = new GeoDocumentDaoImpl();
+     private static IGeoDocumentDao geoDocumentDao = new GeoDocumentDaoImpl();
 
      public ExtractInfoSpring(SimpleParameters par){
-    try {
-        this.TYPE_EXTRACTION = par.getValue("PARAM_TYPE_EXTRACTION");
-        this.PROCESS_PROGAMM = Integer.parseInt(par.getValue("PARAM_PROCESS_PROGAMM"));
+        try {
+            this.TYPE_EXTRACTION = par.getValue("PARAM_TYPE_EXTRACTION");
+            this.PROCESS_PROGAMM = Integer.parseInt(par.getValue("PARAM_PROCESS_PROGAMM"));
 
-        this.CreaNuovaTabellaGeoDocumenti = Boolean.parseBoolean(par.getValue("PARAM_CREA_NUOVA_TABELLA_GEODOCUMENT").toLowerCase());
-        this.ERASE = Boolean.parseBoolean(par.getValue("PARAM_ERASE").toLowerCase());
-        this.LIMIT = Integer.parseInt(par.getValue("PARAM_LIMIT"));
-        this.OFFSET = Integer.parseInt(par.getValue("PARAM_OFFSET"));
+            this.CreaNuovaTabellaGeoDocumenti = Boolean.parseBoolean(par.getValue("PARAM_CREA_NUOVA_TABELLA_GEODOCUMENT").toLowerCase());
+            this.ERASE = Boolean.parseBoolean(par.getValue("PARAM_ERASE").toLowerCase());
+            this.LIMIT = Integer.parseInt(par.getValue("PARAM_LIMIT"));
+            this.OFFSET = Integer.parseInt(par.getValue("PARAM_OFFSET"));
 
-        this.ONTOLOGY_PROGRAMM = Boolean.parseBoolean(par.getValue("PARAM_ONTOLOGY_PROGRAMM").toLowerCase());
-        this.GENERATION_TRIPLE_KARMA_PROGRAMM = Boolean.parseBoolean(par.getValue("PARAM_GENERATION_TRIPLE_KARMA_PROGRAMM").toLowerCase());
-        this.GEODOMAIN_PROGRAMM = Boolean.parseBoolean(par.getValue("PARAM_GEODOMAIN_PROGRAMM").toLowerCase());
+            this.ONTOLOGY_PROGRAMM = Boolean.parseBoolean(par.getValue("PARAM_ONTOLOGY_PROGRAMM").toLowerCase());
+            this.GENERATION_TRIPLE_KARMA_PROGRAMM = Boolean.parseBoolean(par.getValue("PARAM_GENERATION_TRIPLE_KARMA_PROGRAMM").toLowerCase());
+            this.GEODOMAIN_PROGRAMM = Boolean.parseBoolean(par.getValue("PARAM_GEODOMAIN_PROGRAMM").toLowerCase());
 
-        this.FILTER = Boolean.parseBoolean(par.getValue("PARAM_FILTER").toLowerCase());
-        this.API_KEY_GM = par.getValue("PARAM_API_KEY_GM");
+            this.FILTER = Boolean.parseBoolean(par.getValue("PARAM_FILTER").toLowerCase());
+            this.API_KEY_GM = par.getValue("PARAM_API_KEY_GM");
 
-        this.USER = par.getValue("PARAM_USER");
-        this.PASS = par.getValue("PARAM_PASS");
-        this.DB_INPUT = par.getValue("PARAM_DB_INPUT");
-        this.DB_OUTPUT = par.getValue("PARAM_DB_OUTPUT");
-        this.TABLE_INPUT = par.getValue("PARAM_TABLE_INPUT");
-        this.TABLE_OUTPUT = par.getValue("PARAM_TABLE_OUTPUT");
-        this.COLUMN_TABLE_INPUT = par.getValue("PARAM_COLUMN_TABLE_INPUT");
+            this.USER = par.getValue("PARAM_USER");
+            this.PASS = par.getValue("PARAM_PASS");
+            this.DB_INPUT = par.getValue("PARAM_DB_INPUT");
+            this.DB_OUTPUT = par.getValue("PARAM_DB_OUTPUT");
+            this.TABLE_INPUT = par.getValue("PARAM_TABLE_INPUT");
+            this.TABLE_OUTPUT = par.getValue("PARAM_TABLE_OUTPUT");
+            this.COLUMN_TABLE_INPUT = par.getValue("PARAM_COLUMN_TABLE_INPUT");
 
-        this.TABLE_KEYWORD_DOCUMENT = par.getValue("PARAM_TABLE_KEYWORD_DOCUMENT");
-        this.DB_KEYWORD = par.getValue("PARAM_DB_KEYWORD");
+            this.TABLE_KEYWORD_DOCUMENT = par.getValue("PARAM_TABLE_KEYWORD_DOCUMENT");
+            this.DB_KEYWORD = par.getValue("PARAM_DB_KEYWORD");
 
-        this.DRIVER_DATABASE = par.getValue("PARAM_DRIVER_DATABASE");
-        this.DIALECT_DATABASE = par.getValue("PARAM_DIALECT_DATABASE");
-        this.HOST_DATABASE = par.getValue("PARAM_HOST_DATABASE");
-        this.PORT_DATABASE = Integer.parseInt(par.getValue("PARAM_PORT_DATABASE"));
+            this.DRIVER_DATABASE = par.getValue("PARAM_DRIVER_DATABASE");
+            this.DIALECT_DATABASE = par.getValue("PARAM_DIALECT_DATABASE");
+            this.HOST_DATABASE = par.getValue("PARAM_HOST_DATABASE");
+            this.PORT_DATABASE = Integer.parseInt(par.getValue("PARAM_PORT_DATABASE"));
 
-        this.SAVE_DATASTORE = Boolean.parseBoolean(par.getValue("PARAM_SAVE_DATASTORE").toLowerCase());
+            this.SAVE_DATASTORE = Boolean.parseBoolean(par.getValue("PARAM_SAVE_DATASTORE").toLowerCase());
 
-        if(PROCESS_PROGAMM==3){
-            this.DIRECTORY_FILES = par.getValue("PARAM_DIRECTORY_FILES");
+            if(PROCESS_PROGAMM==3){
+                this.DIRECTORY_FILES = par.getValue("PARAM_DIRECTORY_FILES");
+            }
+
+            if (SAVE_DATASTORE) {
+                this.NOME_DATASTORE = par.getValue("PARAM_NOME_DATASTORE");
+                this.DS_DIR = par.getValue("PARAM_DS_DIR");
+                //this.RANGE = Integer.parseInt(par.getValue("PARAM_RANGE"));
+                //this.tentativiOutMemory = Integer.parseInt(par.getValue("PARAM_TENTATIVI_OUT_OF_MEMORY"));
+                GateDataStoreKit.setDataStore(DS_DIR, NOME_DATASTORE);
+            }
+
+            if (GENERATION_TRIPLE_KARMA_PROGRAMM) {
+                this.TYPE_DATABASE_KARMA = par.getValue("PARAM_TYPE_DATABASE_KARMA");//MySQL
+                this.FILE_MAP_TURTLE_KARMA = par.getValue("PARAM_FILE_MAP_TURTLE_KARMA"); //PATH: karma_files/model/
+                this.FILE_OUTPUT_TRIPLE_KARMA = par.getValue("PARAM_FILE_OUTPUT_TRIPLE_KARMA");//PATH: karma_files/output/
+                this.ID_DATABASE_KARMA = par.getValue("PARAM_ID_DATABASE_KARMA");//DB
+                this.TABLE_INPUT_KARMA = par.getValue("PARAM_TABLE_INPUT_KARMA");
+                this.OUTPUT_FORMAT_KARMA = par.getValue("PARAM_OUTPUT_FORMAT_KARMA");
+                this.KARMA_HOME = par.getValue("PARAM_KARMA_HOME");
+            }
+
+
+            this.CREA_NUOVA_TABELLA_INFODOCUMENT_ONTOLOGY = Boolean.parseBoolean(par.getValue("PARAM_CREA_NUOVA_TABELLA_INFODOCUMENT_ONTOLOGY").toLowerCase());
+            this.ERASE_ONTOLOGY = Boolean.parseBoolean(par.getValue("PARAM_ERASE_ONTOLOGY").toLowerCase());
+            this.TABLE_OUTPUT_ONTOLOGY = par.getValue("PARAM_TABLE_OUTPUT_ONTOLOGY");
+            this.TABLE_INPUT_ONTOLOGY = par.getValue("PARAM_TABLE_INPUT_ONTOLOGY");
+
+
+            this.LIMIT_GEODOMAIN = Integer.parseInt(par.getValue("PARAM_LIMIT_GEODOMAIN"));
+            this.OFFSET_GEODOMAIN = Integer.parseInt(par.getValue("PARAM_OFFSET_GEODOMAIN"));
+            this.FREQUENZA_URL_GEODOMAIN = Integer.parseInt(par.getValue("PARAM_FREQUENZA_URL_GEODOMAIN"));
+            this.TABLE_INPUT_GEODOMAIN = par.getValue("PARAM_TABLE_INPUT_GEODOMAIN");
+            this.TABLE_OUTPUT_GEODOMAIN = par.getValue("PARAM_TABLE_OUTPUT_GEODOMAIN");
+            this.DB_INPUT_GEODOMAIN = par.getValue("PARAM_DB_OUTPUT");
+            this.DB_OUTPUT_GEODOMAIN = par.getValue("PARAM_DB_OUTPUT");
+            this.CREA_NUOVA_TABELLA_GEODOMAIN = Boolean.parseBoolean(par.getValue("PARAM_CREA_NUOVA_TABELLA_GEODOMAIN").toLowerCase());
+            this.ERASE_GEODOMAIN = Boolean.parseBoolean(par.getValue("PARAM_ERASE_GEODOMAIN").toLowerCase());
+
+            this.SILK_LINKING_TRIPLE_PROGRAMM = Boolean.parseBoolean(par.getValue("PARAM_SILK_LINKING_TRIPLE_PROGRAMM").toLowerCase());
+            this.SILK_SLS_FILE = par.getValue("PARAM_SILK_SLS_FILE");
+        }catch(java.lang.NullPointerException ne){
+            SystemLog.warning("Attention: make sure all the parameter on the input.properties file are setted correctly");
+            SystemLog.exception(ne);
+            SystemLog.abort(0,"EXIT PROGRAMM");
         }
-
-        if (SAVE_DATASTORE) {
-            this.NOME_DATASTORE = par.getValue("PARAM_NOME_DATASTORE");
-            this.DS_DIR = par.getValue("PARAM_DS_DIR");
-            //this.RANGE = Integer.parseInt(par.getValue("PARAM_RANGE"));
-            //this.tentativiOutMemory = Integer.parseInt(par.getValue("PARAM_TENTATIVI_OUT_OF_MEMORY"));
-            GateDataStoreKit.setDataStore(DS_DIR, NOME_DATASTORE);
-        }
-
-        if (GENERATION_TRIPLE_KARMA_PROGRAMM) {
-            this.TYPE_DATABASE_KARMA = par.getValue("PARAM_TYPE_DATABASE_KARMA");//MySQL
-            this.FILE_MAP_TURTLE_KARMA = par.getValue("PARAM_FILE_MAP_TURTLE_KARMA"); //PATH: karma_files/model/
-            this.FILE_OUTPUT_TRIPLE_KARMA = par.getValue("PARAM_FILE_OUTPUT_TRIPLE_KARMA");//PATH: karma_files/output/
-            this.ID_DATABASE_KARMA = par.getValue("PARAM_ID_DATABASE_KARMA");//DB
-            this.TABLE_INPUT_KARMA = par.getValue("PARAM_TABLE_INPUT_KARMA");
-            this.OUTPUT_FORMAT_KARMA = par.getValue("PARAM_OUTPUT_FORMAT_KARMA");
-            this.KARMA_HOME = par.getValue("PARAM_KARMA_HOME");
-        }
-
-
-        this.CREA_NUOVA_TABELLA_INFODOCUMENT_ONTOLOGY = Boolean.parseBoolean(par.getValue("PARAM_CREA_NUOVA_TABELLA_INFODOCUMENT_ONTOLOGY").toLowerCase());
-        this.ERASE_ONTOLOGY = Boolean.parseBoolean(par.getValue("PARAM_ERASE_ONTOLOGY").toLowerCase());
-        this.TABLE_OUTPUT_ONTOLOGY = par.getValue("PARAM_TABLE_OUTPUT_ONTOLOGY");
-        this.TABLE_INPUT_ONTOLOGY = par.getValue("PARAM_TABLE_INPUT_ONTOLOGY");
-
-
-        this.LIMIT_GEODOMAIN = Integer.parseInt(par.getValue("PARAM_LIMIT_GEODOMAIN"));
-        this.OFFSET_GEODOMAIN = Integer.parseInt(par.getValue("PARAM_OFFSET_GEODOMAIN"));
-        this.FREQUENZA_URL_GEODOMAIN = Integer.parseInt(par.getValue("PARAM_FREQUENZA_URL_GEODOMAIN"));
-        this.TABLE_INPUT_GEODOMAIN = par.getValue("PARAM_TABLE_INPUT_GEODOMAIN");
-        this.TABLE_OUTPUT_GEODOMAIN = par.getValue("PARAM_TABLE_OUTPUT_GEODOMAIN");
-        this.DB_INPUT_GEODOMAIN = par.getValue("PARAM_DB_OUTPUT");
-        this.DB_OUTPUT_GEODOMAIN = par.getValue("PARAM_DB_OUTPUT");
-        this.CREA_NUOVA_TABELLA_GEODOMAIN = Boolean.parseBoolean(par.getValue("PARAM_CREA_NUOVA_TABELLA_GEODOMAIN").toLowerCase());
-        this.ERASE_GEODOMAIN = Boolean.parseBoolean(par.getValue("PARAM_ERASE_GEODOMAIN").toLowerCase());
-
-        this.SILK_LINKING_TRIPLE_PROGRAMM = Boolean.parseBoolean(par.getValue("PARAM_SILK_LINKING_TRIPLE_PROGRAMM").toLowerCase());
-        this.SILK_SLS_FILE = par.getValue("PARAM_SILK_SLS_FILE");
-    }catch(java.lang.NullPointerException ne){
-        SystemLog.warning("Attention: make sure all the parameter on the input.properties file are setted correctly");
-        SystemLog.exception(ne);
-        SystemLog.abort(0,"EXIT PROGRAMM");
-    }
-    j = new ManageJsonWithGoogleMaps(API_KEY_GM);
-
-            //Set the onbjects so we not call them again after each url
-             Docdao.setTableSelect(TABLE_KEYWORD_DOCUMENT);
-             Docdao.setDriverManager(DRIVER_DATABASE, DIALECT_DATABASE, HOST_DATABASE, PORT_DATABASE.toString(), USER, PASS, DB_KEYWORD);
-             geoDocumentDao.setTableInsert(TABLE_OUTPUT);
-             geoDocumentDao.setTableSelect(TABLE_OUTPUT);
-             geoDocumentDao.setDriverManager(DRIVER_DATABASE, DIALECT_DATABASE, HOST_DATABASE, PORT_DATABASE.toString(), USER, PASS, DB_OUTPUT);
-             websiteDao.setTableSelect(TABLE_INPUT);
-             websiteDao.setDriverManager(DRIVER_DATABASE, DIALECT_DATABASE, HOST_DATABASE, PORT_DATABASE.toString(), USER, PASS, DB_INPUT);
-
          par.getParameters().clear();
+         j = new ManageJsonWithGoogleMaps(API_KEY_GM);
+         //Set the onbjects so we not call them again after each url
+         Docdao.setTableSelect(TABLE_KEYWORD_DOCUMENT);
+         Docdao.setDriverManager(DRIVER_DATABASE, DIALECT_DATABASE, HOST_DATABASE, PORT_DATABASE.toString(), USER, PASS, DB_KEYWORD);
+         geoDocumentDao.setTableInsert(TABLE_OUTPUT);
+         geoDocumentDao.setTableSelect(TABLE_OUTPUT);
+         geoDocumentDao.setDriverManager(DRIVER_DATABASE, DIALECT_DATABASE, HOST_DATABASE, PORT_DATABASE.toString(), USER, PASS, DB_OUTPUT);
+         //websiteDao.setTableSelect(TABLE_INPUT);
+         //websiteDao.setDriverManager(DRIVER_DATABASE, DIALECT_DATABASE, HOST_DATABASE, PORT_DATABASE.toString(), USER, PASS, DB_INPUT);
+
+
      }
 
 
@@ -173,106 +171,43 @@ public class ExtractInfoSpring {
      */
     public void Extraction() throws Exception {
         try{
+             ExtractInfoWeb web = ExtractInfoWeb.getInstance(DRIVER_DATABASE,DIALECT_DATABASE,HOST_DATABASE,PORT_DATABASE.toString(),USER,PASS,DB_OUTPUT);
              SystemLog.message("Run the extraction method.");
-             List<URL> listUrl = new ArrayList<>();
+             List<URL> listUrl = ExtractInfoWeb.getInstance().getListURLFromDatabase(DRIVER_DATABASE, DIALECT_DATABASE, HOST_DATABASE,
+                     PORT_DATABASE.toString(), USER, PASS, DB_INPUT, TABLE_INPUT, COLUMN_TABLE_INPUT, LIMIT, OFFSET);
              indGDoc = 0;
              List<GeoDocument> listGeo = new ArrayList<>();
              if(PROCESS_PROGAMM < 4){
-                 if(CreaNuovaTabellaGeoDocumenti){
-                     geoDocumentDao.create(ERASE);
-                 }
-                 //SET GATE FOR THE PROGRAMM
-                 GateKit.setUpGateEmbedded("gate_files", "plugins", "gate.xml", "user-gate.xml", "gate.session");
-                 GateKit.loadGapp("custom/gapp", "geoLocationPipeline06102014v7_fastMode.xgapp");
-                 controller = GateKit.getController();
-                 GeoDocument geo3;
-                 GeoDocument geo2 = new GeoDocument();
                  if(PROCESS_PROGAMM == 1){
-                     try{
-                         SystemLog.message("RUN PROCESS 1: CREATE GATE CORPUS FOR SINGLE URL");
-                         listUrl = websiteDao.selectAllUrl(COLUMN_TABLE_INPUT, LIMIT, OFFSET);
-                         SystemLog.message("Loaded list of URL's with " + listUrl.size() + " elements");
-                         if(listUrl.isEmpty()){SystemLog.abort(0,"Forced Exit from the programm hte list of url was empty!");}
-                         //METODOLOGIE PER SINGOLO URL
-                         for (URL url : listUrl) {
-                             SystemLog.message("(" + indGDoc + ")URL:" + url);
-                             indGDoc++;
-                             SystemLog.message("*******************Run JSOUP**************************");
-                             ExtractorJSOUP j = new ExtractorJSOUP();
-                             geo2 = j.GetTitleAndHeadingTags(url.toString(),geo2);
-                             if(ExtractorJSOUP.isEXIST_WEBPAGE()){
-                                 SystemLog.message("*******************Run GATE**************************");
-                                 //ExtractorInfoGATE egate = new ExtractorInfoGATE();
-                                 geo3 = egate.extractorGATE(url, controller);
-                                 geo3 = compareInfo3(geo3, geo2);
-                                 //AGGIUNGIAMO ALTRE INFORMAZIONI AL GEODOCUMENT
-                                 geo3 = UpgradeTheDocumentWithOtherInfo(geo3);
-                                 geo3 = pulisciDiNuovoGeoDocument(geo3);
-                                 listGeo.add(geo3);
-                                 for(GeoDocument geo: listGeo) {
-                                     if (geo.getUrl() != null) {
-                                         //SystemLog.message("INSERIMENTO");
-                                         SystemLog.message(geo.toString());
-                                         geoDocumentDao.insertAndTrim(geo);
-                                     }//if
-                                 }
-                                 listGeo.clear();
-                             }
-                         }//for each url of the listUrl
-                     }catch(Exception e){
-                         SystemLog.error("ERROR:" + e.getMessage());e.printStackTrace();
+                     SystemLog.message("RUN PROCESS 1: METODOLOGIA PER SINGOLO URL");
+                     for(URL url : listUrl){
+                         GeoDocument geoDoc = web.ExtractGeoDocumentFromUrl(url, TABLE_INPUT, TABLE_OUTPUT, true);
+                         listGeo.add(geoDoc);
                      }
                  }else if(PROCESS_PROGAMM == 2){
                      //METODOLOGIE PER MULTIPLI URL
                      SystemLog.message("RUN PROCESS 2: METODOLOGIA PER MULTIPLI URL");
-                     listUrl = websiteDao.selectAllUrl(COLUMN_TABLE_INPUT, LIMIT, OFFSET);
-                     SystemLog.message("Loaded list of URL's with " + listUrl.size() + " elements");
-                     if(listUrl.isEmpty()){SystemLog.abort(0,"Forced Exit from the programm hte list of url was empty!");}
-                     List<GeoDocument> listGeoFinal = new ArrayList<>();
-                     try{
-                        SystemLog.message("*******************Run GATE**************************");
-                        //ExtractorInfoGATE egate = new ExtractorInfoGATE();
-                        listGeo = egate.extractorGATE(listUrl, controller);
-                        listUrl.clear();
-                        for(GeoDocument geo: listGeo){
-                            SystemLog.message("(" + indGDoc + ")URL:" + geo.getUrl());
-                            indGDoc++;
-                            SystemLog.message("*******************Run JSOUP**************************");
-                            ExtractorJSOUP j = new ExtractorJSOUP();
-                            geo3 = j.GetTitleAndHeadingTags(geo.getUrl().toString(),geo);
-                            geo3 = compareInfo3(geo3, geo);
-                            geo3 = UpgradeTheDocumentWithOtherInfo(geo3);
-                            geo3 = pulisciDiNuovoGeoDocument(geo3);
-                            geoDocumentDao.insertAndTrim(geo3);
-                        }//for each GeoDocument
-                     }//try for
-                     catch(Exception e){
-                        SystemLog.error("ERROR:" + e.getMessage());e.printStackTrace();
-                     }
-//                        }else if(PROCESS_PROGAMM == 3){
-//                           //METODOLOGIE PER MULTIPLI URL CON UTILIZZO DEL DATASTORE
-//                            SystemLog.ticket("RUN PROCESS 3", "OUT");
-//                            listGeo = workWithMultipleUrlsAndDataStore(listUrl);
-//                            if (listGeo == null || listGeo.isEmpty()) {
-//                                SystemLog.ticket("Lista degli URL vuota o di elementi tutti irraggiungibili", "ERROR");
-//                            } else {
-//                                //Richiama il metodo per lt'inserimento dei GeoDocument nellla tabella MySQL
-//                                insertGeoDocumentToMySQLTableMainMethod(listGeo);
-//                            }
+                     web.ExtractGeoDocumentFromListUrls(listUrl, TABLE_INPUT, TABLE_OUTPUT, true);
                 }else if(PROCESS_PROGAMM == 3){
-                     SystemLog.message("RUN PROCESS 3");
+                     SystemLog.message("RUN PROCESS 3: METODOLOGIA PER FILE O DIRECTORY");
                      //String DIRECTORY_FILE = "C:\\Users\\Marco\\Downloads\\parseWebUrls";
-                     String DIRECTORY_FILE = DIRECTORY_FILES;
-                     List<File> files = FileUtil.readDirectory(DIRECTORY_FILE);
-                     List<File> subFiles = new ArrayList<File>();
+                     List<File> files = new ArrayList<>();
+                     List<File> subFiles = new ArrayList<>(); //suppport list...
                      Map<File,String> mapFile = new HashMap<>();
-                     if(OFFSET+LIMIT < files.size())subFiles.addAll(files.subList(OFFSET,OFFSET+LIMIT));
-                     else subFiles.addAll(files.subList(OFFSET, files.size()));
-                     files.clear();
+                     //code for make some verify before go to the extraction...
+                     if(FileUtil.isDirectory(new File(DIRECTORY_FILES))) {
+                         files = FileUtil.readDirectory(DIRECTORY_FILES);
+                         //We use the index of the list like  bookmark for all the files in the directory...
+                         if(OFFSET+LIMIT < files.size())subFiles.addAll(files.subList(OFFSET,OFFSET+LIMIT));
+                         else subFiles.addAll(files.subList(OFFSET, files.size()));
+                         files.clear();
+                     }else{
+                         subFiles.add(new File(DIRECTORY_FILES));
+                     }
+                     //avoid already present on the databse url of the file...
                      for(File file : subFiles){
                         String urlFile =(String) websiteDao.select("url", "file_path", file.getName());
-                        if(!(urlFile == null ||
-                            (urlFile != null && geoDocumentDao.verifyDuplicate("url", urlFile.toString()))
+                        if(!(urlFile == null || (geoDocumentDao.verifyDuplicate("url", urlFile))
                         )){
                             files.add(file);
                             mapFile.put(file,urlFile);
@@ -280,26 +215,14 @@ public class ExtractInfoSpring {
                      }
                      subFiles.clear();
                      subFiles.addAll(files);
+                     files.clear();
                      SystemLog.attention("Loaded a list of: "+subFiles.size()+" files");
-                     List<GeoDocument> geoDocs = new ArrayList<>();
-                     //geoDocs = egate.extractMicrodataWithGATEMultipleFiles(subFiles, home.home.initializer.org.p4535992.mvc.webapp.controller);
-                     for(File file : subFiles){
-                         //SystemLog.debug("File:"+file.getAbsolutePath());
-                         //ExtractorInfoGATE egate = new ExtractorInfoGATE();
-                         GeoDocument g = egate.extractMicrodataWithGATESingleFile(file,controller);
-                         //home.setUrl(new URL(websiteDao.trySelectWithRowMap("url","file_path",file.getName(),String.class).toString()));
-                         g.setUrl(new URL(mapFile.get(file)));
-                         geoDocs.add(g);
+                     if(subFiles.isEmpty()){
+                         SystemLog.error("The url of the list are all all unreachable or unexisting");}
+                     else {
+                         web.ExtractGeoDocumentFromListFiles(subFiles, TABLE_INPUT, TABLE_OUTPUT, true);
                      }
-                     SystemLog.message("Obtained a list of: " + geoDocs.size() + " GeoDocument");
-                     if(subFiles==null || subFiles.isEmpty()){
-                        SystemLog.error("The url of the list are all all unreachable or unexisting");}
-                     else{
-                        //Richiama il metodo per lt'inserimento dei GeoDocument nellla tabella MySQL
-                        for(GeoDocument g : geoDocs){
-                            geoDocumentDao.insertAndTrim(g);
-                        }
-                     }
+                     SystemLog.message("Obtained a list of: " + listGeo.size() + " GeoDocument");
                  }//else lista url non vuota
                  else SystemLog.warning("You are jump the extraction process! (use 1,2 or 3 on the Proces Porgamma Parameter)");
              } //SE PROCESS_PROGRAMM == 4
@@ -307,75 +230,23 @@ public class ExtractInfoSpring {
                 SystemLog.message("RUN PROCESS 4");
                 if (GEODOMAIN_PROGRAMM || ONTOLOGY_PROGRAMM || GENERATION_TRIPLE_KARMA_PROGRAMM) {
                     //CREAZIONE DI UNA TABELLA DI GEODOMAINDOCUMENT
-                    if (GEODOMAIN_PROGRAMM == true) {
+                    if (GEODOMAIN_PROGRAMM) {
                         SystemLog.message("RUN GEODOMAIN PROGRAMM: Create a geodomaindocument table from a geodocument table!");
                         IGeoDomainDocumentDao geoDomainDocumentDao = new GeoDomainDocumentDaoImpl();
                         geoDomainDocumentDao.setTableInsert(TABLE_OUTPUT_GEODOMAIN);
                         geoDomainDocumentDao.setTableSelect(TABLE_INPUT_GEODOMAIN);
                         geoDomainDocumentDao.setDriverManager(DRIVER_DATABASE, DIALECT_DATABASE, HOST_DATABASE, PORT_DATABASE.toString(), USER, PASS, DB_OUTPUT_GEODOMAIN);
-                        if (CREA_NUOVA_TABELLA_GEODOMAIN == true) {
+                        if (CREA_NUOVA_TABELLA_GEODOMAIN) {
                             geoDomainDocumentDao.create(ERASE_GEODOMAIN);
                         }
                         egd = new ExtractorDomain((GeoDomainDocumentDaoImpl) geoDomainDocumentDao, LIMIT_GEODOMAIN, OFFSET_GEODOMAIN, FREQUENZA_URL_GEODOMAIN);
                         egd.CreateTableOfGeoDomainDocument("sql");
                     }
                     //INTEGRIAMO LA TABELLA INFODOCUMENT PER LAVORARE CON UN'ONTOLOGIA
-                    if (ONTOLOGY_PROGRAMM == true) {
+                    if (ONTOLOGY_PROGRAMM || GENERATION_TRIPLE_KARMA_PROGRAMM) {
                         SystemLog.message("RUN ONTOLOGY PROGRAMM: Create Table of infodocument from a geodocument/geodomaindocuemnt table!");
-                        IInfoDocumentDao infoDocumentDao = new InfoDocumentDaoImpl();
-                        infoDocumentDao.setTableInsert(TABLE_OUTPUT_ONTOLOGY);
-                        infoDocumentDao.setTableSelect(TABLE_INPUT_ONTOLOGY);
-                        infoDocumentDao.setDriverManager(DRIVER_DATABASE, DIALECT_DATABASE, HOST_DATABASE, PORT_DATABASE.toString(), USER, PASS, DB_OUTPUT);
-                        if (CREA_NUOVA_TABELLA_INFODOCUMENT_ONTOLOGY == true) {
-                            infoDocumentDao.create(ERASE_ONTOLOGY);
-                        }else {
-                           for(GeoDocument g : listGeo){
-                                infoDocumentDao.insertAndTrim(g);
-                           }
-                        }
-                        //UPDATE INDIRIZZO(OPTIONAL)
-                        /*geoDocumentDao.setTableSelect("geodomaindocument_coord_siimobility_05052014");
-                        List<List<Object[]>> list = geoDocumentDao.select(
-                                new String[]{"doc_id","indirizzoNoCAP","indirizzoHasNumber"},null,null,500,0,null);
-                        for (List<Object[]> g : list) {
-                            try {
-                                String address;
-                                if (g.get(2).length < 2 && g.get(1).length < 2 ) {
-                                    //do nothing
-                                    continue;
-                                }else{
-                                    if (g.get(2) == null || StringKit.isNullOrEmpty(g.get(2)[1].toString())) {
-                                        address = g.get(1)[1].toString();
-                                    } else {
-                                        address = g.get(1)[1].toString() + ", " + g.get(2)[1].toString();
-                                    }
-                                }
-                                infoDocumentDao.setTableUpdate(TABLE_OUTPUT_ONTOLOGY);
-                                infoDocumentDao.update(new String[]{"indirizzo"}, new Object[]{address}, new String[]{"doc_id"}, new Object[]{g.get(0)[1].toString()});
-                            }catch(java.lang.NullPointerException e){
-                                System.err.println(g);
-                            }
-                        }*/
-                        //integrationTableWithAOntology(DB_OUTPUT,USER,PASS,TABLE_OUTPUT,TABLE_OUTPUT_ONTOLOGY);
-                    }
-                    //GENERIAMO IL FILE DI TRIPLE CORRISPONDENTE ALLE INFORMAZIONI ESTRATTE CON KARMA
-                    if (GENERATION_TRIPLE_KARMA_PROGRAMM == true) {
                         SystemLog.message("RUN KARMA PROGRAMM: Generation of triple with org.p4535992.mvc.webapp-karma!!");
-                        got = new GenerationOfTriple(
-                                ID_DATABASE_KARMA,//DB
-                                FILE_MAP_TURTLE_KARMA, //PATH: karma_files/model/
-                                FILE_OUTPUT_TRIPLE_KARMA, //PATH: karma_files/output/
-                                TYPE_DATABASE_KARMA,//MySQL
-                                HOST_DATABASE,
-                                USER,//USER_KARMA
-                                PASS,//PASS_KARMA
-                                PORT_DATABASE.toString(),
-                                DB_OUTPUT,
-                                TABLE_INPUT_KARMA,
-                                OUTPUT_FORMAT_KARMA,
-                                KARMA_HOME
-                        );
-                        got.GenerationOfTripleWithKarmaAPIFromDataBase();
+                        web.triplifyGeoDocument(TABLE_INPUT_ONTOLOGY,TABLE_OUTPUT_ONTOLOGY,OUTPUT_FORMAT_KARMA,true);
                     }
                     if(SILK_LINKING_TRIPLE_PROGRAMM){
                         if(new File(SILK_SLS_FILE).exists()){
@@ -387,7 +258,7 @@ public class ExtractInfoSpring {
                     }
                 }
             }
-            if(PROCESS_PROGAMM == 5){
+           /* if(PROCESS_PROGAMM == 5){
                 SystemLog.message("RUN PROCESS PROGRAMM 5: UPDATE COORDINATES ON GEODOMAIN TABLE");
                 IGeoDomainDocumentDao geoDomainDocumentDao = new GeoDomainDocumentDaoImpl();
                 geoDomainDocumentDao.setTableInsert(TABLE_OUTPUT_GEODOMAIN);
@@ -399,8 +270,8 @@ public class ExtractInfoSpring {
                 }
                 egd = new ExtractorDomain((GeoDomainDocumentDaoImpl) geoDomainDocumentDao, LIMIT_GEODOMAIN, OFFSET_GEODOMAIN, FREQUENZA_URL_GEODOMAIN);
                 egd.reloadNullCoordinates();
-            }
-            if(PROCESS_PROGAMM == 6){
+            }*/
+            /*if(PROCESS_PROGAMM == 6){
                 SystemLog.message("RUN PROCESS PROGRAMM 6:DELETE OVERRRIDE RECORD GEODOMAINDOCUMENT TABLE WITH SIIMOBILITY COORDINATES");
                 IGeoDomainDocumentDao geoDomainDocumentDao = new GeoDomainDocumentDaoImpl();
                 geoDomainDocumentDao.setTableInsert(TABLE_OUTPUT_GEODOMAIN);
@@ -411,8 +282,7 @@ public class ExtractInfoSpring {
                     geoDomainDocumentDao.create(ERASE_GEODOMAIN);
                 }
                 egd = new ExtractorDomain((GeoDomainDocumentDaoImpl) geoDomainDocumentDao, LIMIT_GEODOMAIN, OFFSET_GEODOMAIN, FREQUENZA_URL_GEODOMAIN);
-                List<String> listUrlGM = new ArrayList<>();
-                //List<String> listUrlGM = geoDomainDocumentDao.trySelect("url", 500, 0);
+                List<String> listUrlGM = geoDomainDocumentDao.trySelect("url", 500, 0);
                 Map<String,String> map = new HashMap<>();
                 for(String url: listUrlGM){
                     String ids = (String)geoDomainDocumentDao.select("doc_id", "url", url);
@@ -420,7 +290,7 @@ public class ExtractInfoSpring {
                 }
 
                 egd.deleteOverrideRecord(map);
-            }
+            }*/
         }catch(OutOfMemoryError e) {
             SystemLog.error("java.lang.OutOfMemoryError, Reload the programm please");
         }
@@ -479,7 +349,7 @@ public class ExtractInfoSpring {
                indirizzoNoCAP = indirizzo.replaceAll("\\d{5,6}", "").replace("-", "");
                postalCode = setCap.GetPostalCodeByIndirizzo(indirizzo);
            }//if indrizzo not null
-           if((postalCode == null || postalCode == "")){
+           if((postalCode == null || Objects.equals(postalCode, ""))){
                  postalCode = setCap.checkPostalCodeByCitta(geo.getCity());//work
            }
            geo.setPostalCode(postalCode);
@@ -519,7 +389,7 @@ public class ExtractInfoSpring {
                 set=geo.getEdificio();
                 //set = geo.getEdificio().replaceAll("[^a-zA-Z\\d\\s:]","");
                 //Accetta le lettere accentuate
-                if(set.toLowerCase().contains("http://")==true){
+                if(set.toLowerCase().contains("http://")){
                     set = HttpUtilApache.getAuthorityName(set);
                     set = set.replaceAll("(https?|ftp)://", "");
                     set = set.replaceAll("(www(\\d)?)", "");
@@ -534,7 +404,9 @@ public class ExtractInfoSpring {
                     geo.setEdificio(set.toUpperCase());
                 }
             }
-           }catch(Exception e){}
+        }catch(URISyntaxException e){
+            SystemLog.exception(e);
+        }
         return geo;
     }//pulisciDiNuovoLaStringaEdificio
 
@@ -548,44 +420,41 @@ public class ExtractInfoSpring {
         try{
             String address = geo.getIndirizzo();
            // address = "’Orario di Lavoro - Piazza San Marco, 4 - 50121";
-        if(address != null){
-            if(StringKit.setNullForEmptyString(address)!=null){
-        //Rimuovi gli SpaceToken
-        //set = geo.getIndirizzo().replaceAll("[^a-zA-Z\\d\\s:]","");
-        address = address.replaceAll("\\s+", " ");
-        //set = set.replaceAll("...", "");
+            if(address != null){
+                if(StringKit.setNullForEmptyString(address)!=null){
+                    //Rimuovi gli SpaceToken
+                    //set = geo.getIndirizzo().replaceAll("[^a-zA-Z\\d\\s:]","");
+                    address = address.replaceAll("\\s+", " ");
+                    //set = set.replaceAll("...", "");
 
-        List<String> addressWords = Arrays.asList(
-                "VIA","via","Via","VIALE","viale","Viale","STRADA","strada","Strada","ROAD","road","Road","Piazza","PIAZZA",
-                "piazza","P.zza","p.zza","Piazzale","piazzale","iazza","Corso","Loc.","loc.","loc","Loc","località",
-                "Località","V.","v."
-        );
-        boolean b = false;
-        for(String s : addressWords){
-            //With Split
-            String[] listSplit = address.split(" "+s+" ");
-            if(listSplit.length > 0){
-                for(int i =0; i < listSplit.length; i++){
-                    if(i > 0){
-                        address ="";
-                        address = address + listSplit[i];
-                        address = s+" "+address;
-                        b=true; break;
-                    }
-                    //if(i == listSplit.length-1){indirizzo = s+" "+indirizzo;}
-                }
-            }
-            if(b==true){
-                //"[^a-z0-9\\s]+"
-                address = address.replaceAll("[^A-Za-z0-9\\s]+","");
-                geo.setIndirizzo(address);
-            }
-        }//FOR
-        }//IF indirizzo is not null
-        }//IF NOT NULL
+                    List<String> addressWords = Arrays.asList(
+                            "VIA","via","Via","VIALE","viale","Viale","STRADA","strada","Strada","ROAD","road","Road","Piazza","PIAZZA",
+                            "piazza","P.zza","p.zza","Piazzale","piazzale","iazza","Corso","Loc.","loc.","loc","Loc","località",
+                            "Località","V.","v."
+                    );
+                    boolean b = false;
+                    for(String s : addressWords){
+                        //With Split
+                        String[] listSplit = address.split(" "+s+" ");
+                        if(listSplit.length > 0){
+                            for(int i =0; i < listSplit.length; i++){
+                                if(i > 0){
+                                    address ="";
+                                    address = address + listSplit[i];
+                                    address = s+" "+address;
+                                    b=true; break;
+                                }
+                            }
+                        }
+                        if(b){
+                            //"[^a-z0-9\\s]+"
+                            address = address.replaceAll("[^A-Za-z0-9\\s]+","");
+                            geo.setIndirizzo(address);
+                        }
+                    }//FOR
+                }//IF indirizzo is not null
+            }//IF NOT NULL
         }catch(NullPointerException ne){ne.printStackTrace();}
-
-
         return geo;
     }
 
