@@ -1,5 +1,7 @@
 package util;
 
+import com.github.p4535992.util.collection.CollectionKit;
+import com.github.p4535992.util.log.SystemLog;
 import com.github.p4535992.util.string.StringKit;
 
 import java.io.IOException;
@@ -87,9 +89,9 @@ public class Test_Karma {
         //--sourcename
 
 
-        String[] args2 = new String[20];
+        String[] args2;
         try {
-            args2 = StringKit.mergeArrays(param, value);
+            args2 = CollectionKit.mergeArraysForCommandInput(param, value);
             /*
             int j = 0;
 
@@ -108,7 +110,9 @@ public class Test_Karma {
             //edu.isi.karma.rdf.OfflineRdfGenerator
 
             edu.isi.karma.rdf.OfflineRdfGenerator.main(args2);
-        }catch(Exception ex ){}
+        }catch(Exception ex ){
+            SystemLog.exception(ex);
+        }
     }//main
 
 }

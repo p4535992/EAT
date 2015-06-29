@@ -6,6 +6,7 @@
 
 package com.github.p4535992.extractor.karma;
 import com.github.p4535992.extractor.JenaInfoDocument;
+import com.github.p4535992.util.collection.CollectionKit;
 import com.github.p4535992.util.encoding.EncodingUtil;
 import com.github.p4535992.util.file.FileUtil;
 import com.github.p4535992.util.log.SystemLog;
@@ -79,7 +80,7 @@ public class GenerationOfTriple {
 
         String[] args2;
         try {
-            args2 = StringKit.mergeArrays(param, value);
+            args2 = CollectionKit.mergeArraysForCommandInput(param, value);
             String msg ="";
             for(int i = 0; i < args2.length; i++){ msg+=args2[i]+" ";}
             SystemLog.message("PARAM KARMA:"+ msg);

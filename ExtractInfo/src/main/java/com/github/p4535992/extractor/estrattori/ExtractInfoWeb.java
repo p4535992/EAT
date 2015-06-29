@@ -232,7 +232,9 @@ public class ExtractInfoWeb {
         return geoDoc;
     }
 
-    public void triplifyGeoDocument(String TABLE_INPUT,String TABLE_OUTPUT,String OUTPUT_FORMAT,boolean createNewTable){
+    public void triplifyGeoDocument(
+            String TABLE_INPUT,String TABLE_OUTPUT,String OUTPUT_FORMAT,
+            String MODEL_KARMA,String OUTPUT_KARMA_FILE,boolean createNewTable){
         SystemLog.message("RUN ONTOLOGY PROGRAMM: Create Table of infodocument from a geodocument/geodomaindocuemnt table!");
         IInfoDocumentDao infoDocumentDao = new InfoDocumentDaoImpl();
         infoDocumentDao.setTableInsert(TABLE_OUTPUT);
@@ -245,13 +247,21 @@ public class ExtractInfoWeb {
                 SystemLog.exception(e);
             }
         }
+        //Choose the Karma Driver:
+        String KARMA_DRIVER ="";
+        if(DIALECT_DATABASE.toLowerCase().contains("oracle")) KARMA_DRIVER ="Oracle";
+        else if(DIALECT_DATABASE.toLowerCase().contains("mysql")) KARMA_DRIVER ="MySQL";
+        else if(DIALECT_DATABASE.toLowerCase().contains("sql")) KARMA_DRIVER ="SQLServer";
+        else if(DIALECT_DATABASE.toLowerCase().contains("postgis")) KARMA_DRIVER ="PostGIS";
+        else KARMA_DRIVER ="Sybase";
+
         //GENERIAMO IL FILE DI TRIPLE CORRISPONDENTE ALLE INFORMAZIONI ESTRATTE CON KARMA
         SystemLog.message("RUN KARMA PROGRAMM: Generation of triple with org.p4535992.mvc.webapp-karma!!");
         GenerationOfTriple got = new GenerationOfTriple(
-                "DB", //DB
-                "karma_files/model/", //PATH: karma_files/model/
-                "karma_files/output/", //PATH: karma_files/output/
-                "MySQL",//MySQL
+                "DB", //DB -> A database
+                MODEL_KARMA, //PATH: karma_files/model/
+                OUTPUT_KARMA_FILE, //PATH: karma_files/output/
+                KARMA_DRIVER,//MySQL
                 HOST_DATABASE,
                 USER,//USER_KARMA
                 PASS,//PASS_KARMA

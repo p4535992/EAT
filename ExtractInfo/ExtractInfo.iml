@@ -82,21 +82,14 @@
     <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpclient-cache:4.2.5" level="project" />
     <orderEntry type="library" name="Maven: org.apache.jena:jena-core:2.11.1" level="project" />
     <orderEntry type="library" name="Maven: org.apache.jena:jena-iri:1.0.1" level="project" />
-    <orderEntry type="library" name="Maven: org.slf4j:slf4j-log4j12:1.6.4" level="project" />
-    <orderEntry type="library" name="Maven: log4j:log4j:1.2.16" level="project" />
     <orderEntry type="library" name="Maven: org.apache.jena:jena-arq:2.11.1" level="project" />
     <orderEntry type="library" name="Maven: xerces:xercesImpl:2.11.0" level="project" />
     <orderEntry type="library" name="Maven: xml-apis:xml-apis:1.4.01" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpclient:4.4.1" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpcore:4.4.1" level="project" />
-    <orderEntry type="library" name="Maven: commons-codec:commons-codec:1.9" level="project" />
     <orderEntry type="library" name="Maven: org.apache.commons:commons-dbcp2:2.0" level="project" />
     <orderEntry type="library" name="Maven: org.apache.commons:commons-pool2:2.2" level="project" />
     <orderEntry type="library" name="Maven: javax.interceptor:javax.interceptor-api:1.2" level="project" />
     <orderEntry type="module" module-name="gate-basic" />
     <orderEntry type="library" name="Maven: javax.servlet:servlet-api:2.5" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-aop:4.1.6.RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: aopalliance:aopalliance:1.0" level="project" />
     <orderEntry type="library" name="Maven: uk.ac.gate:gate-core:8.1" level="project" />
     <orderEntry type="library" name="Maven: uk.ac.gate:gate-asm:5.0.3" level="project" />
     <orderEntry type="library" name="Maven: uk.ac.gate:gate-compiler-jdt:4.3.2-P20140317-1600" level="project" />
@@ -108,6 +101,7 @@
     <orderEntry type="library" name="Maven: org.apache.james:apache-mime4j-core:0.7.2" level="project" />
     <orderEntry type="library" name="Maven: org.apache.james:apache-mime4j-dom:0.7.2" level="project" />
     <orderEntry type="library" name="Maven: org.apache.commons:commons-compress:1.8.1" level="project" />
+    <orderEntry type="library" name="Maven: commons-codec:commons-codec:1.9" level="project" />
     <orderEntry type="library" name="Maven: org.apache.pdfbox:pdfbox:1.8.8" level="project" />
     <orderEntry type="library" name="Maven: org.apache.pdfbox:fontbox:1.8.8" level="project" />
     <orderEntry type="library" name="Maven: org.apache.pdfbox:jempbox:1.8.8" level="project" />
@@ -150,6 +144,8 @@
     <orderEntry type="library" name="Maven: org.scala-lang:scala-library:2.10.3" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-core:4.1.6.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-context:4.1.6.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-aop:4.1.6.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: aopalliance:aopalliance:1.0" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-expression:4.1.6.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-tx:4.1.6.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-orm:4.1.6.RELEASE" level="project" />
@@ -229,6 +225,8 @@
     <orderEntry type="library" name="Maven: org.reflections:reflections:0.9.8" level="project" />
     <orderEntry type="library" name="Maven: javassist:javassist:3.12.1.GA" level="project" />
     <orderEntry type="library" name="Maven: net.sf.opencsv:opencsv:2.3" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpclient:4.2.4" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpcore:4.2.4" level="project" />
     <orderEntry type="library" name="Maven: commons-httpclient:commons-httpclient:3.1" level="project" />
     <orderEntry type="library" name="Maven: org.apache.avro:avro:1.7.7" level="project" />
     <orderEntry type="library" name="Maven: org.xerial.snappy:snappy-java:1.0.5" level="project" />
@@ -310,7 +308,5 @@
     <orderEntry type="library" name="Maven: org.apache.mahout.commons:commons-cli:2.0-mahout" level="project" />
     <orderEntry type="library" name="Maven: org.apache.tika:tika-core:1.5" level="project" />
     <orderEntry type="library" name="Maven: org.json:json:20131018" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-jms:4.1.6.RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-messaging:4.1.6.RELEASE" level="project" />
   </component>
 </module>

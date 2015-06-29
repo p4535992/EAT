@@ -244,9 +244,10 @@ public class ExtractInfoSpring {
                     }
                     //INTEGRIAMO LA TABELLA INFODOCUMENT PER LAVORARE CON UN'ONTOLOGIA
                     if (ONTOLOGY_PROGRAMM || GENERATION_TRIPLE_KARMA_PROGRAMM) {
-                        SystemLog.message("RUN ONTOLOGY PROGRAMM: Create Table of infodocument from a geodocument/geodomaindocuemnt table!");
+                        SystemLog.message("RUN ONTOLOGY PROGRAMM: Create Table of infodocument from a geodocument/geodomaindocument table!");
                         SystemLog.message("RUN KARMA PROGRAMM: Generation of triple with org.p4535992.mvc.webapp-karma!!");
-                        web.triplifyGeoDocument(TABLE_INPUT_ONTOLOGY,TABLE_OUTPUT_ONTOLOGY,OUTPUT_FORMAT_KARMA,true);
+                        web.triplifyGeoDocument(
+                                TABLE_INPUT_ONTOLOGY,TABLE_OUTPUT_ONTOLOGY,OUTPUT_FORMAT_KARMA,FILE_MAP_TURTLE_KARMA,FILE_OUTPUT_TRIPLE_KARMA,true);
                     }
                     if(SILK_LINKING_TRIPLE_PROGRAMM){
                         if(new File(SILK_SLS_FILE).exists()){
