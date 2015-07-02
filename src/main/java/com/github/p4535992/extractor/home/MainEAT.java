@@ -3,7 +3,6 @@ import com.github.p4535992.util.file.FileUtil;
 import com.github.p4535992.util.log.SystemLog;
 import com.github.p4535992.util.file.SimpleParameters;
 import com.github.p4535992.extractor.estrattori.ExtractInfoSpring;
-import com.github.p4535992.extractor.gate.GateDataStoreKit;
 
 import java.awt.EventQueue;
 import java.io.*;
@@ -21,7 +20,6 @@ public class MainEAT {
     //ALTRE VARIABILI
     private static Integer LIMIT;
     private static Integer OFFSET;
-    private static GateDataStoreKit datastore;
 //////////////////////////////////////////////////////////////
     public MainEAT(){}
     // The storage for the command line parameters

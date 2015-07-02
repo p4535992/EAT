@@ -83,6 +83,18 @@
             <groupId>com.github.p4535992</groupId>
             <artifactId>ExtractInfo</artifactId>
             <version>${com.github.p4535992.ExtractInfo.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.github.p4535992</groupId>
+                    <artifactId>utility</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.p4535992</groupId>
+            <artifactId>utility</artifactId>
+            <version>${com.github.p4535992.utility.version}</version>
         </dependency>
 
         
