@@ -30,126 +30,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ddc8be51-6c6f-4bbd-b463-02aa428f706b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_classmate_1_0_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_codec_commons_codec_1_10.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_1_3.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_validation_validation_api_1_1_0_Final.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_12.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_lucene_lucene_analyzers_common_5_1_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_lucene_lucene_memory_5_1_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_lucene_lucene_queryparser_5_1_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_infinispan_4_3_10_Final.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_validator_5_1_3_Final.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mapdb_mapdb_1_0_7.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_log4j_over_slf4j_1_7_10.xml" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__ch_qos_logback_logback_classic_1_1_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__com_github_jsonld_java_jsonld_java_0_4_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__com_github_p4535992_gate_basic_1_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__com_google_guava_guava_11_0_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__jakarta_regexp_jakarta_regexp_1_4.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__joda_time_joda_time_2_6.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__log4j_log4j_1_2_16.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_apache_jena_jena_arq_2_11_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_apache_jena_jena_core_2_11_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_apache_jena_jena_iri_1_0_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_hibernate_hibernate_infinispan_4_3_8_Final.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_openrdf_sesame_sesame_http_client_2_7_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_openrdf_sesame_sesame_http_protocol_2_7_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_openrdf_sesame_sesame_queryalgebra_evaluation_2_8_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_openrdf_sesame_sesame_queryalgebra_model_2_8_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_openrdf_sesame_sesame_queryparser_serql_2_8_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_openrdf_sesame_sesame_queryparser_sparql_2_7_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_openrdf_sesame_sesame_queryresultio_sparqlxml_2_7_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_openrdf_sesame_sesame_queryresultio_sparqlxml_2_8_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_openrdf_sesame_sesame_repository_api_2_8_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_openrdf_sesame_sesame_repository_http_2_8_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_openrdf_sesame_sesame_repository_sail_2_8_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_openrdf_sesame_sesame_repository_sparql_2_8_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_openrdf_sesame_sesame_rio_datatypes_2_8_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_openrdf_sesame_sesame_rio_languages_2_8_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_openrdf_sesame_sesame_rio_ntriples_2_8_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_openrdf_sesame_sesame_rio_turtle_2_7_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_openrdf_sesame_sesame_runtime_2_8_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_openrdf_sesame_sesame_sail_api_2_8_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_openrdf_sesame_sesame_sail_inferencer_2_8_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_openrdf_sesame_sesame_sail_lucenesail_2_8_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_openrdf_sesame_sesame_util_2_8_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_slf4j_slf4j_api_1_6_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_slf4j_slf4j_api_1_7_6.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_slf4j_slf4j_log4j12_1_6_4.xml" afterPath="" />
-      <change type="MOVED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__com_google_guava_guava_15_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_guava_18_0.xml" />
-      <change type="MOVED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_apache_httpcomponents_httpclient_cache_4_2_5.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpclient_cache_4_4.xml" />
-      <change type="MOVED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_apache_lucene_lucene_core_3_5_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_lucene_lucene_core_5_1_0.xml" />
-      <change type="MOVED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_apache_lucene_lucene_highlighter_3_5_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_lucene_lucene_highlighter_5_1_0.xml" />
-      <change type="MOVED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_apache_lucene_lucene_memory_3_5_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_lucene_lucene_join_5_1_0.xml" />
-      <change type="MOVED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_apache_lucene_lucene_queries_3_5_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_lucene_lucene_sandbox_5_1_0.xml" />
-      <change type="MOVED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_apache_lucene_lucene_queries_4_8_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_lucene_lucene_queries_5_1_0.xml" />
-      <change type="MOVED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_hibernate_hibernate_c3p0_4_3_8_Final.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_c3p0_4_3_10_Final.xml" />
-      <change type="MOVED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_hibernate_hibernate_core_4_3_8_Final.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_core_4_3_10_Final.xml" />
-      <change type="MOVED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_hibernate_hibernate_ehcache_4_3_8_Final.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_ehcache_4_3_10_Final.xml" />
-      <change type="MOVED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_hibernate_hibernate_entitymanager_4_3_8_Final.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_entitymanager_4_3_10_Final.xml" />
-      <change type="MOVED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_hibernate_hibernate_envers_4_3_8_Final.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_proxool_4_3_10_Final.xml" />
-      <change type="MOVED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_hibernate_hibernate_osgi_4_3_8_Final.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_osgi_4_3_10_Final.xml" />
-      <change type="MOVED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_hibernate_hibernate_proxool_4_3_8_Final.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_envers_4_3_10_Final.xml" />
-      <change type="MOVED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_openrdf_sesame_sesame_config_2_8_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openrdf_sesame_sesame_rio_n3_2_8_4.xml" />
-      <change type="MOVED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_openrdf_sesame_sesame_http_client_2_8_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openrdf_sesame_sesame_http_client_2_8_4.xml" />
-      <change type="MOVED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_openrdf_sesame_sesame_http_protocol_2_8_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openrdf_sesame_sesame_http_protocol_2_8_4.xml" />
-      <change type="MOVED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_openrdf_sesame_sesame_http_server_spring_2_8_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openrdf_sesame_sesame_http_server_spring_2_8_4.xml" />
-      <change type="MOVED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_openrdf_sesame_sesame_model_2_7_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openrdf_sesame_sesame_sail_model_2_8_4.xml" />
-      <change type="MOVED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_openrdf_sesame_sesame_model_2_8_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openrdf_sesame_sesame_query_2_8_4.xml" />
-      <change type="MOVED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_openrdf_sesame_sesame_query_2_7_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openrdf_sesame_sesame_sail_base_2_8_4.xml" />
-      <change type="MOVED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_openrdf_sesame_sesame_query_2_8_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openrdf_sesame_sesame_model_2_8_4.xml" />
-      <change type="MOVED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_openrdf_sesame_sesame_queryalgebra_evaluation_2_7_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openrdf_sesame_sesame_queryalgebra_evaluation_2_8_4.xml" />
-      <change type="MOVED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_openrdf_sesame_sesame_queryalgebra_model_2_7_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openrdf_sesame_sesame_queryalgebra_model_2_8_4.xml" />
-      <change type="MOVED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_openrdf_sesame_sesame_queryparser_api_2_7_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openrdf_sesame_sesame_sail_lucene_api_2_8_4.xml" />
-      <change type="MOVED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_openrdf_sesame_sesame_queryparser_api_2_8_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openrdf_sesame_sesame_queryparser_api_2_8_4.xml" />
-      <change type="MOVED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_openrdf_sesame_sesame_queryparser_serql_2_7_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openrdf_sesame_sesame_queryparser_serql_2_8_4.xml" />
-      <change type="MOVED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_openrdf_sesame_sesame_queryparser_sparql_2_8_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openrdf_sesame_sesame_queryparser_sparql_2_8_4.xml" />
-      <change type="MOVED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_openrdf_sesame_sesame_queryresultio_api_2_7_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openrdf_sesame_sesame_queryresultio_api_2_8_4.xml" />
-      <change type="MOVED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_openrdf_sesame_sesame_queryresultio_api_2_8_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openrdf_sesame_sesame_queryresultio_sparqlxml_2_8_4.xml" />
-      <change type="MOVED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_openrdf_sesame_sesame_queryresultio_binary_2_8_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openrdf_sesame_sesame_queryresultio_binary_2_8_4.xml" />
-      <change type="MOVED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_openrdf_sesame_sesame_queryresultio_sparqljson_2_8_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openrdf_sesame_sesame_queryresultio_sparqljson_2_8_4.xml" />
-      <change type="MOVED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_openrdf_sesame_sesame_queryresultio_text_2_8_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openrdf_sesame_sesame_queryresultio_text_2_8_4.xml" />
-      <change type="MOVED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_openrdf_sesame_sesame_repository_api_2_7_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openrdf_sesame_sesame_repository_api_2_8_4.xml" />
-      <change type="MOVED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_openrdf_sesame_sesame_repository_contextaware_2_8_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openrdf_sesame_sesame_repository_contextaware_2_8_4.xml" />
-      <change type="MOVED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_openrdf_sesame_sesame_repository_dataset_2_8_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openrdf_sesame_sesame_repository_dataset_2_8_4.xml" />
-      <change type="MOVED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_openrdf_sesame_sesame_repository_event_2_8_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openrdf_sesame_sesame_repository_event_2_8_4.xml" />
-      <change type="MOVED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_openrdf_sesame_sesame_repository_http_2_7_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openrdf_sesame_sesame_repository_http_2_8_4.xml" />
-      <change type="MOVED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_openrdf_sesame_sesame_repository_manager_2_8_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openrdf_sesame_sesame_repository_manager_2_8_4.xml" />
-      <change type="MOVED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_openrdf_sesame_sesame_repository_sail_2_7_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openrdf_sesame_sesame_repository_sail_2_8_4.xml" />
-      <change type="MOVED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_openrdf_sesame_sesame_repository_sparql_2_7_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openrdf_sesame_sesame_repository_sparql_2_8_4.xml" />
-      <change type="MOVED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_openrdf_sesame_sesame_rio_api_2_7_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openrdf_sesame_sesame_rio_api_2_8_4.xml" />
-      <change type="MOVED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_openrdf_sesame_sesame_rio_api_2_8_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openrdf_sesame_sesame_runtime_2_8_4.xml" />
-      <change type="MOVED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_openrdf_sesame_sesame_rio_binary_2_8_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openrdf_sesame_sesame_rio_binary_2_8_4.xml" />
-      <change type="MOVED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_openrdf_sesame_sesame_rio_datatypes_2_7_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openrdf_sesame_sesame_rio_datatypes_2_8_4.xml" />
-      <change type="MOVED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_openrdf_sesame_sesame_rio_jsonld_2_8_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openrdf_sesame_sesame_rio_jsonld_2_8_4.xml" />
-      <change type="MOVED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_openrdf_sesame_sesame_rio_languages_2_7_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openrdf_sesame_sesame_rio_languages_2_8_4.xml" />
-      <change type="MOVED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_openrdf_sesame_sesame_rio_n3_2_8_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openrdf_sesame_sesame_config_2_8_4.xml" />
-      <change type="MOVED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_openrdf_sesame_sesame_rio_nquads_2_8_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openrdf_sesame_sesame_rio_nquads_2_8_4.xml" />
-      <change type="MOVED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_openrdf_sesame_sesame_rio_ntriples_2_7_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openrdf_sesame_sesame_rio_ntriples_2_8_4.xml" />
-      <change type="MOVED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_openrdf_sesame_sesame_rio_rdfjson_2_8_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openrdf_sesame_sesame_rio_rdfjson_2_8_4.xml" />
-      <change type="MOVED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_openrdf_sesame_sesame_rio_rdfxml_2_8_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openrdf_sesame_sesame_rio_rdfxml_2_8_4.xml" />
-      <change type="MOVED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_openrdf_sesame_sesame_rio_trig_2_8_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openrdf_sesame_sesame_rio_trig_2_8_4.xml" />
-      <change type="MOVED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_openrdf_sesame_sesame_rio_trix_2_8_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openrdf_sesame_sesame_rio_trix_2_8_4.xml" />
-      <change type="MOVED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_openrdf_sesame_sesame_rio_turtle_2_8_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openrdf_sesame_sesame_rio_turtle_2_8_4.xml" />
-      <change type="MOVED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_openrdf_sesame_sesame_sail_api_2_7_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openrdf_sesame_sesame_sail_api_2_8_4.xml" />
-      <change type="MOVED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_openrdf_sesame_sesame_sail_federation_2_8_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openrdf_sesame_sesame_sail_federation_2_8_4.xml" />
-      <change type="MOVED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_openrdf_sesame_sesame_sail_inferencer_2_7_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openrdf_sesame_sesame_sail_inferencer_2_8_4.xml" />
-      <change type="MOVED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_openrdf_sesame_sesame_sail_memory_2_7_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openrdf_sesame_sesame_sail_lucene_2_8_4.xml" />
-      <change type="MOVED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_openrdf_sesame_sesame_sail_memory_2_8_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openrdf_sesame_sesame_sail_memory_2_8_4.xml" />
-      <change type="MOVED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_openrdf_sesame_sesame_sail_nativerdf_2_8_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openrdf_sesame_sesame_sail_nativerdf_2_8_4.xml" />
-      <change type="MOVED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_openrdf_sesame_sesame_sail_rdbms_2_8_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openrdf_sesame_sesame_sail_rdbms_2_8_4.xml" />
-      <change type="MOVED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_openrdf_sesame_sesame_util_2_7_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openrdf_sesame_sesame_util_2_8_4.xml" />
-      <change type="MOVED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_slf4j_jcl_over_slf4j_1_6_4.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_jcl_over_slf4j_1_7_10.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_openlink_virtuoso_virt_jena2_7_1_0.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_openlink_virtuoso_virtjdbc4_1_7_1_0.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_openlink_virtuoso_virtjena2_develop7_2015_06_25.xml" />
+      <change type="DELETED" beforePath="C:\Users\Marco\Documents\GitHub\EAT\.idea\libraries\Maven__org_slf4j_jcl_over_slf4j_1_7_12.xml" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/EAT.iml" afterPath="$PROJECT_DIR$/EAT.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/gate/gate8/Gate8Kit.java" afterPath="$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/gate/gate8/Gate8Kit.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/github/p4535992/extractor/home/MainEAT.java" afterPath="$PROJECT_DIR$/src/main/java/com/github/p4535992/extractor/home/MainEAT.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/ExtractInfo.iml" afterPath="$PROJECT_DIR$/ExtractInfo/ExtractInfo.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/estrattori/ExtractInfoWeb.java" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/estrattori/ExtractInfoWeb.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/gate/gate8/GateSupport.java" afterPath="$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/gate/gate8/GateSupport.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_p4535992_ExtractInfo_1_3_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_p4535992_ExtractInfo_1_3_1.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gate-basic/gate-basic.iml" afterPath="$PROJECT_DIR$/gate-basic/gate-basic.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gate-basic/pom.xml" afterPath="$PROJECT_DIR$/gate-basic/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/pom.xml" afterPath="$PROJECT_DIR$/utility/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/utility.iml" afterPath="$PROJECT_DIR$/utility/utility.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/input.properties" afterPath="$PROJECT_DIR$/src/main/resources/input.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="EAT.iws" />
@@ -240,76 +131,118 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/utility/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.9310346">
-              <caret line="383" column="22" selection-start-line="383" selection-start-column="22" selection-end-line="383" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="MavenHelperPluginDependencyAnalyzer">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MainEAT.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/github/p4535992/extractor/home/MainEAT.java">
+      <file leaf-file-name="SesameUtil28.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/sesame/SesameUtil28.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="21" column="34" selection-start-line="21" selection-start-column="34" selection-end-line="21" selection-end-column="34" />
+              <caret line="324" column="7" selection-start-line="324" selection-start-column="7" selection-end-line="324" selection-end-column="7" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#1668#1695#0" expanded="true" />
+                <element signature="e#105281#105282#0" expanded="true" />
+                <element signature="e#105331#105332#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ExtractInfo/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.0725552">
-              <caret line="127" column="32" selection-start-line="127" selection-start-column="32" selection-end-line="127" selection-end-column="32" />
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="MavenHelperPluginDependencyAnalyzer">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gate-basic/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="8.206897">
-              <caret line="145" column="0" selection-start-line="145" selection-start-column="0" selection-end-line="145" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="MavenHelperPluginDependencyAnalyzer">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.034483">
-              <caret line="92" column="0" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="MavenHelperPluginDependencyAnalyzer">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Gate8Kit.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/gate/gate8/Gate8Kit.java">
+      <file leaf-file-name="Test_ExtractorInfoWeb.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ExtractInfo/src/test/java/extractor/Test_ExtractorInfoWeb.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="167" column="17" selection-start-line="167" selection-start-column="17" selection-end-line="167" selection-end-column="17" />
+              <caret line="28" column="25" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="input.properties" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/input.properties">
+          <provider editor-type-id="ResourceBundle">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-2.125">
+              <caret line="52" column="34" selection-start-line="52" selection-start-column="21" selection-end-line="52" selection-end-column="34" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Test_Sesame.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/utility/src/test/java/util/Test_Sesame.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="17" column="21" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ExtractInfoSpring.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/estrattori/ExtractInfoSpring.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="173" column="0" selection-start-line="173" selection-start-column="0" selection-end-line="173" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ExtractInfoWeb.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/estrattori/ExtractInfoWeb.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-2.9293785">
+              <caret line="54" column="26" selection-start-line="54" selection-start-column="26" selection-end-line="54" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GateSupport.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/gate/gate8/GateSupport.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="55" column="0" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SesameManager.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/sesame/SesameManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="61" column="33" selection-start-line="61" selection-start-column="33" selection-end-line="61" selection-end-column="33" />
+              <folding>
+                <element signature="e#2296#2323#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SesameManagerException.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/sesame/SesameManagerException.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="8" column="29" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
+              <folding>
+                <element signature="e#130#157#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FileUtil.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/file/FileUtil.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="329" column="77" selection-start-line="329" selection-start-column="50" selection-end-line="329" selection-end-column="77" />
+              <folding>
+                <element signature="e#10441#10442#0" expanded="true" />
+                <element signature="e#10476#10477#0" expanded="true" />
+                <element signature="e#10675#10676#0" expanded="true" />
+                <element signature="e#10728#10729#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -340,14 +273,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/gate-basic/src/test/java/com/github/p4535992/gatebasic/gate/Test_intiGateSpring.java" />
-        <option value="$PROJECT_DIR$/gate-basic/src/main/resources/gate/gate-beans.xml" />
-        <option value="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/bean/BeansKit.java" />
-        <option value="$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/estrattori/ExtractorInfoGATE.java" />
-        <option value="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/file/FileUtil.java" />
-        <option value="$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/gate/GateDataStore8Kit.java" />
-        <option value="$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/gate/servlet/Gate8Handler.java" />
-        <option value="$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/gate/servlet/deprecated/GateHandler.java" />
         <option value="$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/gate/servlet/deprecated/MyGateHandler.java" />
         <option value="$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/gate/jms/GATEProcessor.java" />
         <option value="$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/gate/GateCorpus8Kit.java" />
@@ -355,7 +280,6 @@
         <option value="$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/estrattori/ExtractorGeoDocumentSupport.java" />
         <option value="$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/gate/GateSupport.java" />
         <option value="$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/gate/Gate8Kit.java" />
-        <option value="$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/gate/gate8/GateSupport.java" />
         <option value="$PROJECT_DIR$/gate-basic/.gitignore" />
         <option value="$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/gate/gate8/GateAnnotation8Kit.java" />
         <option value="$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/estrattori/ExtractorInfoGate8.java" />
@@ -377,7 +301,6 @@
         <option value="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/collection/CollectionKit.java" />
         <option value="$PROJECT_DIR$/utility/README.md" />
         <option value="$PROJECT_DIR$/ExtractInfo/src/test/java/util/Test_Karma.java" />
-        <option value="$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/estrattori/ExtractInfoWeb.java" />
         <option value="$PROJECT_DIR$/ExtractInfo/src/test/java/extractor/Test_ExtractorInfoWeb.java" />
         <option value="$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/estrattori/ExtractInfoSpring.java" />
         <option value="$PROJECT_DIR$/README.md" />
@@ -388,9 +311,19 @@
         <option value="$PROJECT_DIR$/ExtractInfo/pom.xml" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/gate-basic/pom.xml" />
-        <option value="$PROJECT_DIR$/utility/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/github/p4535992/extractor/home/MainEAT.java" />
         <option value="$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/gate/gate8/Gate8Kit.java" />
+        <option value="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/jenaAndSesame/JenaAndSesame.java" />
+        <option value="$PROJECT_DIR$/utility/pom.xml" />
+        <option value="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/jenaAndVirtuoso/JenaAndVirtuoso.java" />
+        <option value="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/file/FileUtil.java" />
+        <option value="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/sesame/SesameManager.java" />
+        <option value="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/sesame/SesameManagerException.java" />
+        <option value="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/sesame/SesameUtil28.java" />
+        <option value="$PROJECT_DIR$/utility/src/test/java/util/Test_Sesame.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/input.properties" />
+        <option value="$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/gate/gate8/GateSupport.java" />
+        <option value="$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/estrattori/ExtractInfoWeb.java" />
       </list>
     </option>
   </component>
@@ -588,41 +521,21 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="utility" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EAT" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EAT" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gate-basic" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EAT" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EAT" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gate-basic" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resource Bundle 'input'" />
+              <option name="myItemType" value="com.intellij.lang.properties.projectView.ResourceBundleNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -631,10 +544,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="EAT" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gate-basic" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -645,6 +554,46 @@
               <option name="myItemId" value="main" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="home" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EAT" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EAT" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gate-basic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EAT" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EAT" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gate-basic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="target" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -664,7 +613,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
+              <option name="myItemId" value="test" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -698,15 +647,59 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EAT" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EAT" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gate-basic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="gate" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+          </PATH>
+          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="gate8" />
+              <option name="myItemId" value="EAT" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EAT" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gate-basic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -721,6 +714,182 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="ExtractInfo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EAT" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EAT" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ExtractInfo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EAT" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EAT" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ExtractInfo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="extractor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EAT" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EAT" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ExtractInfo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EAT" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EAT" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ExtractInfo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="extractor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EAT" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EAT" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ExtractInfo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="extractor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="home" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EAT" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EAT" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ExtractInfo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="extractor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="estrattori" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -798,14 +967,7 @@
       <recent name="util" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Test_ExtractorInfoWeb">
-    <configuration default="false" name="GateApp" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.github.p4535992.gatebasic.gate.jms.GateApp" />
-      <module name="gate-basic" />
-      <envs />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="Application.MainExtractInfo">
     <configuration default="false" name="GATEProcessor" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -874,6 +1036,26 @@
         </pattern>
       </extension>
       <option name="MAIN_CLASS_NAME" value="extractor.Test_ExtractorInfoWeb" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="ExtractInfo" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="MainExtractInfo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.github.p4535992.extractor.home.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="com.github.p4535992.extractor.home.MainExtractInfo" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -1296,19 +1478,19 @@
     </configuration>
     <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Application.Test_Hibernate_Spring" />
-      <item index="1" class="java.lang.String" itemvalue="Spring Boot.GateApp" />
-      <item index="2" class="java.lang.String" itemvalue="Application.GATEProcessor" />
-      <item index="3" class="java.lang.String" itemvalue="Application.Test_intiGateSpring" />
-      <item index="4" class="java.lang.String" itemvalue="Application.ExtractInfoWeb" />
-      <item index="5" class="java.lang.String" itemvalue="Application.Test_ExtractorInfoWeb" />
+      <item index="1" class="java.lang.String" itemvalue="Application.GATEProcessor" />
+      <item index="2" class="java.lang.String" itemvalue="Application.Test_intiGateSpring" />
+      <item index="3" class="java.lang.String" itemvalue="Application.ExtractInfoWeb" />
+      <item index="4" class="java.lang.String" itemvalue="Application.Test_ExtractorInfoWeb" />
+      <item index="5" class="java.lang.String" itemvalue="Application.MainExtractInfo" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Application.Test_ExtractorInfoWeb" />
-        <item index="1" class="java.lang.String" itemvalue="Application.ExtractInfoWeb" />
-        <item index="2" class="java.lang.String" itemvalue="Application.Test_intiGateSpring" />
-        <item index="3" class="java.lang.String" itemvalue="Application.GATEProcessor" />
-        <item index="4" class="java.lang.String" itemvalue="Spring Boot.GateApp" />
+        <item index="0" class="java.lang.String" itemvalue="Application.MainExtractInfo" />
+        <item index="1" class="java.lang.String" itemvalue="Application.Test_ExtractorInfoWeb" />
+        <item index="2" class="java.lang.String" itemvalue="Application.ExtractInfoWeb" />
+        <item index="3" class="java.lang.String" itemvalue="Application.Test_intiGateSpring" />
+        <item index="4" class="java.lang.String" itemvalue="Application.GATEProcessor" />
       </list>
     </recent_temporary>
   </component>
@@ -1525,12 +1707,12 @@
       <workItem from="1435397292938" duration="761000" />
       <workItem from="1435561024636" duration="11272000" />
       <workItem from="1435827362038" duration="959000" />
-      <workItem from="1435828597703" duration="9624000" />
+      <workItem from="1435828597703" duration="22987000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1213477000" />
+    <option name="totallyTimeSpent" value="1226840000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -1556,7 +1738,7 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2489712" sideWeight="0.4883721" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32871974" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32871974" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34812286" sideWeight="0.4591528" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34812286" sideWeight="0.4591528" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4770017" sideWeight="0.5151286" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32922536" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
@@ -1566,7 +1748,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.51437217" sideWeight="0.4883721" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25189108" sideWeight="0.4766082" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.36177474" sideWeight="0.48487142" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.36177474" sideWeight="0.48487142" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32854208" sideWeight="0.5116279" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1914,7 +2096,7 @@
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/sesame/SesameUtil28.java</url>
-          <line>581</line>
+          <line>588</line>
           <properties />
           <option name="timeStamp" value="359" />
         </line-breakpoint>
@@ -1938,7 +2120,7 @@
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/sesame/SesameUtil28.java</url>
-          <line>1217</line>
+          <line>1218</line>
           <properties />
           <option name="timeStamp" value="364" />
         </line-breakpoint>
@@ -2111,12 +2293,6 @@
           <option name="timeStamp" value="562" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/estrattori/ExtractInfoSpring.java</url>
-          <line>163</line>
-          <properties />
-          <option name="timeStamp" value="570" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/object/impl/jdbc/generic/GenericDaoImpl.java</url>
           <line>760</line>
           <properties />
@@ -2195,12 +2371,6 @@
           <option name="timeStamp" value="642" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/estrattori/ExtractInfoWeb.java</url>
-          <line>225</line>
-          <properties />
-          <option name="timeStamp" value="644" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/sql/SQLSupport.java</url>
           <line>110</line>
           <properties />
@@ -2212,11 +2382,35 @@
           <properties />
           <option name="timeStamp" value="653" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/estrattori/ExtractInfoSpring.java</url>
+          <line>174</line>
+          <properties />
+          <option name="timeStamp" value="663" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/estrattori/ExtractInfoSpring.java</url>
+          <line>166</line>
+          <properties />
+          <option name="timeStamp" value="664" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/estrattori/ExtractInfoWeb.java</url>
+          <line>331</line>
+          <properties />
+          <option name="timeStamp" value="665" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/estrattori/ExtractInfoWeb.java</url>
+          <line>283</line>
+          <properties />
+          <option name="timeStamp" value="666" />
+        </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="660" />
+      <option name="time" value="667" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -2225,71 +2419,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/utility/src/test/java/util/Test_Reflection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="31" column="10" selection-start-line="31" selection-start-column="10" selection-end-line="31" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gate-basic/src/main/resources/gate/gate-beans.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="91" column="28" selection-start-line="91" selection-start-column="28" selection-end-line="91" selection-end-column="28" />
-          <folding>
-            <element signature="e#2252#2574#0" expanded="false" />
-            <element signature="e#2579#3302#0" expanded="false" />
-            <element signature="e#3392#4258#0" expanded="false" />
-            <element signature="e#4315#5034#0" expanded="false" />
-            <element signature="e#7015#7154#0" expanded="false" />
-            <element signature="e#7159#7354#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/bean/BeansKit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="112" column="24" selection-start-line="112" selection-start-column="24" selection-end-line="112" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/file/FileUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="663" column="34" selection-start-line="663" selection-start-column="34" selection-end-line="663" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/gate/servlet/deprecated/GateHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.6666665">
-          <caret line="30" column="3" selection-start-line="30" selection-start-column="3" selection-end-line="30" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/gate/servlet/deprecated/MyGateHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.5925927">
-          <caret line="33" column="16" selection-start-line="33" selection-start-column="16" selection-end-line="33" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/gate/gate8/GateDataStore8Kit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="25" column="46" selection-start-line="25" selection-start-column="46" selection-end-line="25" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/gate/servlet/Gate8Handler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.296296">
-          <caret line="31" column="25" selection-start-line="31" selection-start-column="25" selection-end-line="31" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/gate/jms/GATEProcessor.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2313,13 +2442,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="665" column="32" selection-start-line="665" selection-start-column="30" selection-end-line="665" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/gate/gate8/GateSupport.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="233" column="0" selection-start-line="233" selection-start-column="0" selection-end-line="233" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -2423,13 +2545,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/jena/Jena2Kit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="771" column="33" selection-start-line="771" selection-start-column="33" selection-end-line="771" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/reflection/ReflectionKit.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2445,14 +2560,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/object/impl/jdbc/generic/GenericDaoImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="628" column="27" selection-start-line="628" selection-start-column="27" selection-end-line="628" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/collection/CollectionKit.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2460,52 +2567,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/karma/GenerationOfTriple.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="79" column="0" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ExtractInfo/src/test/java/util/Test_Karma.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="99" column="30" selection-start-line="99" selection-start-column="30" selection-end-line="99" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/estrattori/ExtractInfoWeb.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="244" column="27" selection-start-line="244" selection-start-column="27" selection-end-line="244" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/input.properties">
-      <provider editor-type-id="ResourceBundle">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.1964285">
-          <caret line="85" column="27" selection-start-line="85" selection-start-column="11" selection-end-line="85" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/estrattori/ExtractInfoSpring.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="254" column="30" selection-start-line="254" selection-start-column="30" selection-end-line="254" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ExtractInfo/src/test/java/extractor/Test_ExtractorInfoWeb.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="64" column="87" selection-start-line="64" selection-start-column="87" selection-end-line="64" selection-end-column="87" />
           <folding />
         </state>
       </provider>
@@ -2599,17 +2664,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utility/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.9310346">
-          <caret line="383" column="22" selection-start-line="383" selection-start-column="22" selection-end-line="383" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gate-basic/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="8.206897">
@@ -2629,23 +2683,192 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/gate/gate8/Gate8Kit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="167" column="17" selection-start-line="167" selection-start-column="17" selection-end-line="167" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ExtractInfo/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.0725552">
+        <state vertical-scroll-proportion="11.724138">
           <caret line="127" column="32" selection-start-line="127" selection-start-column="32" selection-end-line="127" selection-end-column="32" />
           <folding />
         </state>
       </provider>
       <provider editor-type-id="MavenHelperPluginDependencyAnalyzer">
         <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/object/impl/jdbc/generic/GenericDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="901" column="20" selection-start-line="901" selection-start-column="20" selection-end-line="901" selection-end-column="20" />
+          <folding>
+            <marker date="1435827044587" expanded="true" signature="-1:-1" placeholder="DROP TABLE I..." />
+            <marker date="1435827044587" expanded="true" signature="-1:-1" placeholder="SELECT count..missingValue..." />
+            <marker date="1435827044587" expanded="true" signature="-1:-1" placeholder="select count..missingValue..." />
+            <marker date="1435827044587" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1435827044587" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1435827044587" expanded="true" signature="-1:-1" placeholder="SELECT MIN(m..." />
+            <marker date="1435827044587" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1435827044587" expanded="true" signature="-1:-1" placeholder="UPDATE missi..." />
+            <marker date="1435827044587" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..missingValue..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/gate/gate8/Gate8Kit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="52" column="5" selection-start-line="41" selection-start-column="3" selection-end-line="52" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/karma/GenerationOfTriple.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="87" column="0" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/jenaAndSesame/JenaAndSesame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="37" column="5" selection-start-line="29" selection-start-column="4" selection-end-line="37" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utility/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.034483">
+          <caret line="376" column="0" selection-start-line="376" selection-start-column="0" selection-end-line="376" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/openlink/virtuoso/virt_jena2/7.1.0/virt_jena2-7.1.0.jar!/virtuoso/jena/driver/VirtGraph.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.3333334">
+          <caret line="87" column="38" selection-start-line="87" selection-start-column="38" selection-end-line="87" selection-end-column="38" />
+          <folding>
+            <element signature="e#3356#3357#0" expanded="true" />
+            <element signature="e#3415#3416#0" expanded="true" />
+            <marker date="1374248280000" expanded="true" signature="-1:-1" placeholder="delete from ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/jena/Jena2Kit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="179" column="24" selection-start-line="179" selection-start-column="24" selection-end-line="179" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/jenaAndVirtuoso/JenaAndVirtuoso.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="7" column="33" selection-start-line="7" selection-start-column="33" selection-end-line="7" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/file/FileUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="329" column="77" selection-start-line="329" selection-start-column="50" selection-end-line="329" selection-end-column="77" />
+          <folding>
+            <element signature="e#10441#10442#0" expanded="true" />
+            <element signature="e#10476#10477#0" expanded="true" />
+            <element signature="e#10675#10676#0" expanded="true" />
+            <element signature="e#10728#10729#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/sesame/SesameManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="61" column="33" selection-start-line="61" selection-start-column="33" selection-end-line="61" selection-end-column="33" />
+          <folding>
+            <element signature="e#2296#2323#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/sesame/SesameManagerException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="8" column="29" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
+          <folding>
+            <element signature="e#130#157#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/sesame/SesameUtil28.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="324" column="7" selection-start-line="324" selection-start-column="7" selection-end-line="324" selection-end-column="7" />
+          <folding>
+            <element signature="e#1668#1695#0" expanded="true" />
+            <element signature="e#105281#105282#0" expanded="true" />
+            <element signature="e#105331#105332#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ExtractInfo/src/test/java/extractor/Test_ExtractorInfoWeb.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="28" column="25" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utility/src/test/java/util/Test_Sesame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="17" column="21" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/estrattori/ExtractInfoSpring.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="173" column="0" selection-start-line="173" selection-start-column="0" selection-end-line="173" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/input.properties">
+      <provider editor-type-id="ResourceBundle">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.125">
+          <caret line="52" column="34" selection-start-line="52" selection-start-column="21" selection-end-line="52" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/gate/gate8/GateSupport.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="55" column="0" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/estrattori/ExtractInfoWeb.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.9293785">
+          <caret line="54" column="26" selection-start-line="54" selection-start-column="26" selection-end-line="54" selection-end-column="26" />
+          <folding />
+        </state>
       </provider>
     </entry>
   </component>

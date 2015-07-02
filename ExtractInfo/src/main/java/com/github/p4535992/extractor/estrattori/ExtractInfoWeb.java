@@ -113,8 +113,8 @@ public class ExtractInfoWeb {
         Gate8Kit gate8 = Gate8Kit.getInstance();
        /* this.controller = gate8.setUpGateEmbedded("gate_files", "plugins", "gate.xml", "user-gate.xml", "gate.session",
                 "custom/gapp/geoLocationPipeline06102014v7_fastMode.xgapp");*/
-        this.controller = gate8.setUpGateEmbedded(directoryFolderHome,directoryFolderPlugin,
-                configFileGate,configFileUser,configFileSession,gappFile);
+        this.controller = gate8.setUpGateEmbedded(directoryFolderHome, directoryFolderPlugin,
+                configFileGate, configFileUser, configFileSession, gappFile);
         return controller;
     }
 
@@ -223,8 +223,15 @@ public class ExtractInfoWeb {
             //create a list of annotationSet (you know they exists on the gate document,otherwise you get null result).....
             List<String> listAnnSet = new ArrayList<>(Arrays.asList("MyFOOTER", "MyHEAD", "MySpecialID", "MyAnnSet"));
             //Store the result on of the extraction on a GateSupport Object
-            GateSupport support = GateSupport.getInstance(
-                    egate.extractorGATE(listUrls, (CorpusController) controller, "corpus_test_1", listAnn, listAnnSet, true));
+            GateSupport support =GateSupport.getInstance();
+            if(controller!=null) {
+                support = GateSupport.getInstance(
+                        egate.extractorGATE(listUrls, (CorpusController) controller, "corpus_test_1", listAnn, listAnnSet, true));
+            }
+            if(procDoc!=null){
+                support = GateSupport.getInstance(
+                        egate.extractorGATE(listUrls, procDoc, "corpus_test_1", listAnn, listAnnSet, true));
+            }
             Corpus corpus = egate.getCorpus();
             for (Document doc : corpus) {
                 try {
@@ -303,8 +310,15 @@ public class ExtractInfoWeb {
                     String[] anntotationsSet = new String[]{"MyFOOTER","MyHEAD","MySpecialID","MyAnnSet"};
                     List<String> listAnnSet = Arrays.asList(anntotationsSet);
                     //Store the result on of the extraction on a GateSupport Object
-                    GateSupport support = GateSupport.getInstance(
-                            egate.extractorGATE(url,(CorpusController) controller, "corpus_test_1", listAnn, listAnnSet, true));
+                    GateSupport support =GateSupport.getInstance();
+                    if(controller!=null) {
+                        support = GateSupport.getInstance(
+                                egate.extractorGATE(url, (CorpusController) controller, "corpus_test_1", listAnn, listAnnSet, true));
+                    }
+                    if(procDoc!=null){
+                        support = GateSupport.getInstance(
+                                egate.extractorGATE(url, procDoc, "corpus_test_1", listAnn, listAnnSet, true));
+                    }
                     geoDoc = convertGateSupportToGeoDocument(support,url,0); //0 because is just a unique document...
                     SystemLog.message("*******************Run Support GeoDocument**************************");
                     geoDoc = ExtractorGeoDocumentSupport.compareInfo3(geoDoc, geo2);
