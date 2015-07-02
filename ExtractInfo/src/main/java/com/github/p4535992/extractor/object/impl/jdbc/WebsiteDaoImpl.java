@@ -1,9 +1,8 @@
 package com.github.p4535992.extractor.object.impl.jdbc;
 import com.github.p4535992.extractor.object.dao.jdbc.IWebsiteDao;
 import com.github.p4535992.extractor.object.impl.jdbc.generic.GenericDaoImpl;
-import com.github.p4535992.extractor.object.dao.jdbc.IWebsiteDao;
-import com.github.p4535992.extractor.object.impl.jdbc.generic.GenericDaoImpl;
 import com.github.p4535992.extractor.object.model.Website;
+import com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException;
 import org.hibernate.SessionFactory;
 import com.github.p4535992.extractor.estrattori.ExtractInfoSpring;
 
@@ -15,6 +14,8 @@ import java.util.List;
 
 /**
  * Created by Marco on 31/03/2015.
+ * @author 4535992.
+ * @version 2015-06-30.
  */
 @org.springframework.stereotype.Component("WebsiteDao")
 public class WebsiteDaoImpl extends GenericDaoImpl<Website> implements IWebsiteDao {
@@ -55,7 +56,7 @@ public class WebsiteDaoImpl extends GenericDaoImpl<Website> implements IWebsiteD
         List<URL> listUrl = new ArrayList<>();
         for(Object sUrl : listStringUrl){
             URL u;
-            if(!(sUrl.toString().contains("http://"))){
+            if (!sUrl.toString().matches("^(https?|ftp)://.*$")) {
                 u = new URL("http://"+sUrl);
             }else{
                 u = new URL(sUrl.toString());
@@ -73,8 +74,10 @@ public class WebsiteDaoImpl extends GenericDaoImpl<Website> implements IWebsiteD
                 listStringUrl.add(url.toString());
             }
         }
-        for(int i = 0; i < listStringUrl.size(); i++){
-            listUrl.remove(new URL(listStringUrl.get(i).toString()));
+        if(!listStringUrl.isEmpty()) {
+            for (Object aListStringUrl : listStringUrl) {
+                listUrl.remove(new URL(aListStringUrl.toString()));
+            }
         }
         listStringUrl.clear();
         return listUrl;
@@ -93,7 +96,7 @@ public class WebsiteDaoImpl extends GenericDaoImpl<Website> implements IWebsiteD
     }
 
     @Override
-    public boolean verifyDuplicate(String column_where,String value_where){
+    public boolean verifyDuplicate(String column_where,String value_where) throws MySQLSyntaxErrorException {
         return super.verifyDuplicate(column_where, value_where);
     }
 

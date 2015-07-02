@@ -21,11 +21,11 @@ public interface IGeoDomainDocumentDao extends IGenericDao<GeoDomainDocument> {
     void loadSpringConfig(String filePathXml);
     //void loadHibernateConfig(String filePathXml) throws IOException;
 
-    void create(boolean erase) throws Exception;
+    void create(boolean erase);
 
     boolean verifyDuplicate(String columnWhereName, String valueWhereName);
 
-    void insertAndTrim(GeoDocument g);
+    void insertAndTrim(GeoDomainDocument g);
 
     void update(String[] columns,Object[] values,String column_where,String value_where);
     //method to return one of given id

@@ -1,5 +1,6 @@
 package com.github.p4535992.extractor.estrattori;
 
+import com.github.p4535992.extractor.object.support.LatLng;
 import com.github.p4535992.util.http.HttpUtilApache;
 import com.github.p4535992.util.log.SystemLog;
 import com.github.p4535992.util.string.StringKit;
@@ -16,6 +17,8 @@ import java.util.List;
 
 /**
  * Created by 4535992 on 15/06/2015.
+ * @author 4535992
+ * @version 2015-06-30
  */
 public class ExtractorGeoDocumentSupport {
 
@@ -66,7 +69,10 @@ public class ExtractorGeoDocumentSupport {
             }
             geo.setNazione(nazione);
             //INTEGRAZIONE DEI CAMPI DELLE COORDINATE CON GOOGLE MAPS
-            geo =j.connection(geo);
+            //geo =j.connection(geo);
+            LatLng coord = j.getCoords(geo);
+            geo.setLat(coord.getLat());
+            geo.setLng(coord.getLng());
             SystemLog.message("COORD[LAT:" + geo.getLat() + ",LNG:" + geo.getLng() + "]");
             //PULIAMO NUOVAMENTE LA STRINGA EDIFICIO E INDIRIZZO (UTILE NEL CASO DI SearchMonkey e Tika)
             geo = pulisciDiNuovoLaStringaEdificio(geo);
@@ -83,7 +89,7 @@ public class ExtractorGeoDocumentSupport {
                 indirizzoNoCAP = indirizzo.replaceAll("\\d{5,6}", "").replace("-", "");
                 postalCode = setCap.GetPostalCodeByIndirizzo(indirizzo);
             }//if indrizzo not null
-            if((postalCode == null || postalCode == "")){
+            if(StringKit.isNullOrEmpty(postalCode)){
                 postalCode = setCap.checkPostalCodeByCitta(geo.getCity());//work
             }
             geo.setPostalCode(postalCode);
@@ -117,18 +123,22 @@ public class ExtractorGeoDocumentSupport {
     public GeoDocument pulisciDiNuovoLaStringaEdificio(GeoDocument geo){
         //Le seguenti righe di codice aiutano ad evitare un'errore di sintassi
         //in fase di inserimento dei record nel database.
-        try{
+
             String set;
-            if(geo.getEdificio()!=null || StringKit.setNullForEmptyString(geo.getEdificio())!=null ){
+            if(!StringKit.isNullOrEmpty(geo.getEdificio())){
                 set=geo.getEdificio();
                 //set = geo.getEdificio().replaceAll("[^a-zA-Z\\d\\s:]","");
                 //Accetta le lettere accentuate
-                if(set.toLowerCase().contains("http://")==true){
-                    set = HttpUtilApache.getAuthorityName(set);
-                    set = set.replaceAll("(https?|ftp)://", "");
-                    set = set.replaceAll("(www(\\d)?)", "");
-                    set = set.replace("."," ");
-                    set = set.replace("/"," ");
+                if(set.toLowerCase().contains("http://")){
+                    try {
+                        set = HttpUtilApache.getAuthorityName(set);
+                        set = set.replaceAll("(https?|ftp)://", "");
+                        set = set.replaceAll("(www(\\d)?)", "");
+                        set = set.replace(".", " ");
+                        set = set.replace("/", " ");
+                    }catch (URISyntaxException e) {
+                        SystemLog.warning("Edificio is a malformed url:"+set);
+                    }
                 }
                 set = set.replaceAll("[^a-zA-Z\\u00c0-\\u00f6\\u00f8-\\u00FF\\d\\s:]","");
                 set = set.replaceAll("\\s+", " ");
@@ -138,11 +148,10 @@ public class ExtractorGeoDocumentSupport {
                     geo.setEdificio(set.toUpperCase());
                 }
             }
-        }catch(Exception e){}
-        return geo;
-    }//pulisciDiNuovoLaStringaEdificio
+            return geo;
+        }//pulisciDiNuovoLaStringaEdificio
 
-    /**
+        /**
      * Metodo che ripulisce il nome indirizzo da usare come URI da caratteri non
      * non voluti
      * @param geo GeoDocument fornito come input
@@ -179,7 +188,7 @@ public class ExtractorGeoDocumentSupport {
                                 //if(i == listSplit.length-1){indirizzo = s+" "+indirizzo;}
                             }
                         }
-                        if(b==true){
+                        if(b){
                             //"[^a-z0-9\\s]+"
                             address = address.replaceAll("[^A-Za-z0-9\\s]+","");
                             geo.setIndirizzo(address);

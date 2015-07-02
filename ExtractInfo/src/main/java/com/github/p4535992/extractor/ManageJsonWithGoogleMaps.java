@@ -1,19 +1,13 @@
-/**
- * ManageJsonWithGoogleMaps.java.
- * @author Tenti Marco Elaborato Sistemi Distribuiti.
- * Classe per gestire la richiesta tramite url all' L'API Google Maps, e la gestione della
- * risposta della stessa, tramite Json utilizzando la libreria JSONO e creazione dei 
- * GeoDocument.
- */
 package com.github.p4535992.extractor;
+import com.github.p4535992.extractor.object.model.GeoDomainDocument;
 import com.github.p4535992.extractor.setInfoParameterIta.SetNazioneELanguage;
 import com.github.p4535992.util.http.HttpUtilApache;
 import com.github.p4535992.extractor.object.model.GeoDocument;
 import com.github.p4535992.extractor.object.support.LatLng;
+import com.github.p4535992.util.string.StringKit;
 import org.json.JSONException;
 
 import java.io.*;
-import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
@@ -22,31 +16,39 @@ import java.util.*;
 import org.json.JSONObject;
 import com.github.p4535992.util.log.SystemLog;
 
-
+/**
+ * ManageJsonWithGoogleMaps.java.
+ * @author Tenti Marco Elaborato Sistemi Distribuiti.
+ * Classe per gestire la richiesta tramite url all' L'API Google Maps, e la gestione della
+ * risposta della stessa, tramite Json utilizzando la libreria JSONO e creazione dei
+ * GeoDocument.
+ * @author 4535992.
+ * @version 2015-06-30.
+ */
+@SuppressWarnings("unused")
 public class ManageJsonWithGoogleMaps {
     
-    private static String API_KEY_GM;
+    private String API_KEY_GM;
     //private static ManageJsonWithOSMAndJP o = new ManageJsonWithOSMAndJP();
     private static SetNazioneELanguage set = new SetNazioneELanguage();
-    private static LatLng coord;
+
     public ManageJsonWithGoogleMaps() throws  JSONException{}
     public ManageJsonWithGoogleMaps(String API_KEY_GM){
-        API_KEY_GM=API_KEY_GM;
+        this.API_KEY_GM=API_KEY_GM;
     }
-    /**
+    /*
      * Metodo per la connessione all'API Google Maps e al suo utilizzo
      * @param g il geodocument fornito di input.
      * @return le coordinate GPS ricavate attraverso le informazioni ricavate dalle
      *         annotazioni di Gate con lt'utilizzo dell'API Google Maps.
      * @throws URISyntaxException error.
      */
-    public GeoDocument connection(GeoDocument g) throws URISyntaxException{
+ /*   public GeoDocument connection(GeoDocument g) throws URISyntaxException{
          JSONObject json = null;       
          URL url;
          //Final Url Address
-         String fua = "";  
-         
-         ArrayList<String> kContentList = new ArrayList<String>();
+         String fua = "";
+         List<String> kContentList = new ArrayList<String>();
          if(setNullForEmptyString(g.getIndirizzo())!=null){
             kContentList.add(g.getRegione());
             //kContentList.add(a.getProvincia());
@@ -74,10 +76,9 @@ public class ManageJsonWithGoogleMaps {
             }
          }
          fua = removeFirstAndLast(fua, "+");
-         //*********************
+         /*********************
          //IMPORTANTE
          //System.out.println(fua);
-         //**********************
 
          //http://maps.googleapis.com/maps/api/geocode/output?parameters
          //address — The address that you want to geocode.
@@ -116,13 +117,13 @@ public class ManageJsonWithGoogleMaps {
 
         try {   
             url =new URL(prefix+address+region+suffix);
-            //*****************************************
+
             SystemLog.message("URL for GM:" + url.toString());
-            //**************************************
+
             //Questo metodo è più veloce ma non tiene conto
             //del numero limitato di query che fornisce Google Maps
             //json = readJsonFromUrl(url.toString());
-            //***************************************
+
             //Più lento ma ci permette di fare un numero di query
             //indefinito a Google Maps ritardando le richieste
             //fra di loro
@@ -176,7 +177,7 @@ public class ManageJsonWithGoogleMaps {
       fua = "";      
       return g; 
         
-    }
+    }*/
 
     /**
      * Metodo per la connessione all'API Google Maps e al suo utilizzo
@@ -185,24 +186,52 @@ public class ManageJsonWithGoogleMaps {
      *         annotazioni di Gate con lt'utilizzo dell'API Google Maps.
      * @throws URISyntaxException error.
      */
-    public LatLng getCoords(GeoDocument g) throws URISyntaxException{
-        JSONObject json = null;
-        URL url;
-        String fua = "";
-        ArrayList<String> kContentList = new ArrayList<String>();
-        if(setNullForEmptyString(g.getIndirizzo())!=null){
+    public LatLng getCoords(GeoDocument g) throws URISyntaxException {
+        List<String> kContentList = new ArrayList<>();
+        if (setNullForEmptyString(g.getIndirizzo()) != null) {
             kContentList.add(g.getRegione());
             kContentList.add(g.getIndirizzo());
             kContentList.add(g.getCity());
-        }else if(setNullForEmptyString(g.getEdificio())!=null && setNullForEmptyString(g.getIndirizzo())==null){
+        } else if (setNullForEmptyString(g.getEdificio()) != null && setNullForEmptyString(g.getIndirizzo()) == null) {
             kContentList.add(g.getRegione());
             kContentList.add(g.getEdificio());
             kContentList.add(g.getCity());
-        }else{
+        } else {
             kContentList.add(g.getRegione());
             kContentList.add(g.getCity());
         }
+        String n;
+        try{
+            n= set.checkGMRegionByNazione(g.getNazione()).toLowerCase();
+        }catch(java.lang.NullPointerException ne){n="it";}
+        return getCoordinatesFromStringAddress(kContentList,n);
+    }
 
+    public LatLng getCoords(GeoDomainDocument g) throws URISyntaxException {
+        List<String> kContentList = new ArrayList<>();
+        if (setNullForEmptyString(g.getIndirizzo()) != null) {
+            kContentList.add(g.getRegione());
+            kContentList.add(g.getIndirizzo());
+            kContentList.add(g.getCity());
+        } else if (setNullForEmptyString(g.getEdificio()) != null && setNullForEmptyString(g.getIndirizzo()) == null) {
+            kContentList.add(g.getRegione());
+            kContentList.add(g.getEdificio());
+            kContentList.add(g.getCity());
+        } else {
+            kContentList.add(g.getRegione());
+            kContentList.add(g.getCity());
+        }
+        String n;
+        try{
+            n= set.checkGMRegionByNazione(g.getNazione()).toLowerCase();
+        }catch(java.lang.NullPointerException ne){n="it";}
+        return getCoordinatesFromStringAddress(kContentList,n);
+    }
+
+    private LatLng getCoordinatesFromStringAddress(List<String>  kContentList,String nation){
+        JSONObject json;
+        URL url;
+        String fua = "";
         for (String s : kContentList) {
             if(s!=null){
                 String address = manageArrayString(s);
@@ -215,59 +244,47 @@ public class ManageJsonWithGoogleMaps {
         String address= "address="+fua;
         String apiKey = API_KEY_GM;
         String suffix = "&sensor=false";
-        String n = null;
-        try{
-            n= set.checkGMRegionByNazione(g.getNazione()).toLowerCase();
-        }catch(java.lang.NullPointerException ne){n="it";}
-        String region ="&region="+n;
+        String region ="";
+        if(!StringKit.isNullOrEmpty(nation))region ="&region="+nation;
+        LatLng coord;
         try {
             url =new URL(prefix+address+region+suffix);
             SystemLog.message("URL for GM:" + url.toString());
             json =  temporizzatorePerGoogleMaps(url);
-            if(!(json.toString().contains("\"status\":\"ZERO_RESULTS\"")) ||
-                    !(json.toString().contains("\"status\":\"OVER_QUERY_LIMIT\""))||
-                    json!=null){
-                try{
-                    Double lat=(Double) json.getJSONArray("results").getJSONObject(0).getJSONObject("geometry").getJSONObject("location").get("lat");
-                    Double lng=(Double) json.getJSONArray("results").getJSONObject(0).getJSONObject("geometry").getJSONObject("location").get("lng");
-                    if(lat!=null && lng!=null){
-                        coord = new LatLng(lat,lng);
+            if (json != null) {
+                if(!(json.toString().contains("\"status\":\"ZERO_RESULTS\"")) ||
+                        !(json.toString().contains("\"status\":\"OVER_QUERY_LIMIT\""))){
+                    try{
+                        Double lat=(Double) json.getJSONArray("results").getJSONObject(0).getJSONObject("geometry").getJSONObject("location").get("lat");
+                        Double lng=(Double) json.getJSONArray("results").getJSONObject(0).getJSONObject("geometry").getJSONObject("location").get("lng");
+                        if(lat!=null && lng!=null){
+                            return coord = new LatLng(lat,lng);
+                        }
+                    }catch(JSONException je){
+                        SystemLog.warning("JSON:" + json.toString());
                     }
-                }catch(org.json.JSONException je){
-                    SystemLog.warning("JSON:" + json.toString());
-                }catch(Exception ex){
-                    SystemLog.warning("JSON:" + json.toString());
+                    //Se Google Maps ha raggiunto il massimo numero di query possibili
+                    //prova con OpenStreetMap
+    //            }else if(json.toString().contains("\"status\":\"OVER_QUERY_LIMIT\"")){
+    //                 try{
+    //                    LatLng ll = o.tryWithOpenStreetMap(fua);
+    //                    Double lat =(Double) ll.getLat();
+    //                    Double lng =(Double) ll.getLng();
+    //                    if(lat!=null && lng!=null){
+    //                        geoDoc.setLat(lat);
+    //                        geoDoc.setLng(lng);
+    //                    }
+    //                }catch(Exception ex){}
+                }else{
+                    if(json.toString().contains("\"status\":\"OVER_QUERY_LIMIT\"")){
+                        SystemLog.error(json.toString());
+                    }
                 }
-                //Se Google Maps ha raggiunto il massimo numero di query possibili
-                //prova con OpenStreetMap
-//            }else if(json.toString().contains("\"status\":\"OVER_QUERY_LIMIT\"")){
-//                 try{
-//                    LatLng ll = o.tryWithOpenStreetMap(fua);
-//                    Double lat =(Double) ll.getLat();
-//                    Double lng =(Double) ll.getLng();
-//                    if(lat!=null && lng!=null){
-//                        geoDoc.setLat(lat);
-//                        geoDoc.setLng(lng);
-//                    }
-//                }catch(Exception ex){}
-            }else{
-                if(json.toString().contains("\"status\":\"OVER_QUERY_LIMIT\"")){
-                    SystemLog.error(json.toString());
-                }
-            }
-        } catch (JSONException ex) {
-            SystemLog.exception(ex);
-        } catch (java.lang.NullPointerException ex) {
-            SystemLog.exception(ex);
-        } catch (MalformedURLException ex) {
-            SystemLog.exception(ex);
-
-        } catch (Exception ex) {
+            }//json !=null
+        } catch (IOException|java.lang.NullPointerException ex){
             SystemLog.exception(ex);
         }
-        fua = "";
-        if(coord==null) coord = new LatLng(0,0);
-        return coord;
+        return coord = new LatLng(0,0);
     }
 
     /**
@@ -289,7 +306,7 @@ public class ManageJsonWithGoogleMaps {
     */ 
    private String reduceString(String fua){
        String reduce="";
-       ArrayList<String> list = new ArrayList<String>();
+       List<String> list = new ArrayList<>();
 
        //removeFirstAndLast(fua, "+");
 
@@ -309,7 +326,7 @@ public class ManageJsonWithGoogleMaps {
     * @return la stringa del contenuto senza simboli separatori all'inizio e alla fine
     */
    private String removeFirstAndLast(String fua,String symbol){
-       if(fua != ""){
+       if(!StringKit.isNullOrEmpty(fua)){
             fua = fua.replaceAll("(\\"+symbol+")\\1+",symbol); 
             if(fua.substring(0,1).contains(symbol)){                
                 fua = fua.substring(1,fua.length());
@@ -349,47 +366,31 @@ public class ManageJsonWithGoogleMaps {
          ManageJsonWithGoogleMaps mgm = new ManageJsonWithGoogleMaps(API_KEY_GM);            
          //boolean result =false;
          //String last="";
-         JSONObject json = null;
-         String jsonText = null;    
+         JSONObject json = new JSONObject();
+         String jsonText = "";
          try{
             try{
                HttpUtilApache.waiter();
                //FUNZIONA
                jsonText = HttpUtilApache.get(url.toString());
-            }catch(Exception e){
-            }finally{
+            } catch (InterruptedException e) {
+                SystemLog.warning(e.getMessage());
+            } finally{
                 //UN SECONDO TENTATIVO IN CASO DI FALLIMENTO (TIMEOUT,ECC.)
-                if(jsonText ==null || jsonText==""){
+                if(StringKit.isNullOrEmpty(jsonText)){
                     jsonText = HttpUtilApache.GETWithRetry(url.toString());
                 }
             }
-           //NON FUNZIONA (versiona sbagliata slfj4 ma ci server per far lavorare jena)
-           //jsonText = HttpUtil.GETWithRetry(url.toString());
-         /*
-         HttpClient client = new DefaultHttpClient();
-         HttpGet request = new HttpGet(webRequestStringEncoded);       
-         HttpResponse response = client.execute(request);
-         BufferedReader rd = new BufferedReader( new InputStreamReader(response.getEntity().getContent(),Charset.forName("UTF-8")));
-
-         jsonText = readAll(rd);
-         */
-//                System.out.println("\nSending 'GET' request to URL : " + webRequestStringEncoded);
-//                System.out.println("Response Code : "
-//                 + response.getStatusLine().getStatusCode()); 
-           
-        
          json = new JSONObject(jsonText);
-        }catch(Exception ex){
-            
         }finally{
             //SE SUCCEDE QUALUNQUE COSA CON HTTP SI USA JSOUP IN EXTREMIS
             try{
-                if(jsonText ==null || jsonText==""){        
+                if(StringKit.isNullOrEmpty(jsonText)){
                      jsonText = org.jsoup.Jsoup.connect(url.toString()).ignoreContentType(true).execute().body();
                      json = new JSONObject(jsonText);
-                 } 
-            }catch(Exception e){
-                json = null;
+                }
+            }finally{
+                if(StringKit.isNullOrEmpty(json.toString()))json = null;
             }
         }
         return json;
@@ -406,9 +407,7 @@ public class ManageJsonWithGoogleMaps {
      */
     public String getDomainName(String u) throws URISyntaxException {     
             URI uri = new URI(u);
-            String domain = uri.getHost();           
-            //return domain.startsWith("www.") ? domain.substring(4) : domain;
-            return domain;
+            return uri.getHost();
     }//getDomainName
     
 }//ManageJsonWithGoogleMaps.java.

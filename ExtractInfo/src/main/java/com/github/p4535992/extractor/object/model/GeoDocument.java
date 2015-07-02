@@ -1,10 +1,4 @@
-/**
- * GeoDocument.java.
- * @author Tenti Marco Elaborato Sistemi Distribuiti
- * La classe che costruisce lt'oggeto JAVA geoDocument su cui andiamo a
- * inserire i risultati del'elaborazione di GATE e inserirli successivamente
- * come record della tabella geodocument del database geolocationdb
- */
+
 package com.github.p4535992.extractor.object.model;
 
 import com.github.p4535992.extractor.hibernate.interceptor.SelfDirtyCheckingEntity;
@@ -13,10 +7,16 @@ import java.io.Serializable;
 import java.net.MalformedURLException;
 import java.net.URL;
 import javax.persistence.*;
+/**
+ * GeoDocument.java.
+ * La classe che costruisce lt'oggeto JAVA geoDocument su cui andiamo a
+ * inserire i risultati del'elaborazione di GATE e inserirli successivamente
+ * come record della tabella geodocument del database geolocationdb
+ */
 @Entity
 @Table(name = "geodocument")
-public class GeoDocument extends SelfDirtyCheckingEntity implements Serializable{
-    private static final long serialVersionUID = 11L;
+public class GeoDocument extends SelfDirtyCheckingEntity{
+    //private static final long serialVersionUID = 11L;
     @Id @GeneratedValue
     @Column(name = "doc_id")
     private Integer doc_id;

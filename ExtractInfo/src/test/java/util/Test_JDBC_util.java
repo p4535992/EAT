@@ -14,6 +14,7 @@ import java.util.List;
 /**
  * Created by 4535992 on 11/05/2015.
  */
+@SuppressWarnings("rawtypes")
 public class Test_JDBC_util {
 
     public static void main(String[] args) throws Exception {
@@ -27,7 +28,7 @@ public class Test_JDBC_util {
                 "postalCode", "indirizzoNoCAP", "indirizzoHasNumber"
         );
 
-        SQLSupport<GeoDocument> support = new SQLSupport<>(geo);
+        SQLSupport support = SQLSupport.getInstance(geo);
 
         dao.setDriverManager(
                 "com.mysql.jdbc.Driver", "jdbc:mysql",

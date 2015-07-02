@@ -8,7 +8,10 @@ import java.util.List;
 
 /**
  * Created by monica on 15/05/2015.
+ * @author 4535992.
+ * @version 2015-07-01.
  */
+@SuppressWarnings("unused")
 public class HibernateCRUD<T> extends Hibernate4Kit<T> {
 
     @javax.transaction.Transactional
@@ -34,8 +37,8 @@ public class HibernateCRUD<T> extends Hibernate4Kit<T> {
     }
 
     @java.lang.Override
-    @SuppressWarnings({"unchecked","rawtypes"})
-    public <T> T selectRow(Serializable id){
+    @SuppressWarnings("unchecked")
+    public  T selectRow(Serializable id){
         T object = null;
         try {
             openSession();
@@ -64,6 +67,7 @@ public class HibernateCRUD<T> extends Hibernate4Kit<T> {
     }
 
 
+    @SuppressWarnings("unchecked")
     @javax.transaction.Transactional
     @java.lang.Override
     public List<T> selectRows() {
@@ -76,7 +80,7 @@ public class HibernateCRUD<T> extends Hibernate4Kit<T> {
             }else{
                 criteria =specificCriteria;
             }
-            listT = criteria.list();
+            listT =  criteria.list();
             if(listT.size() == 0){
                 SystemLog.warning("[HIBERNATE] The returned list is empty!1");
             }
@@ -89,6 +93,7 @@ public class HibernateCRUD<T> extends Hibernate4Kit<T> {
         return listT;
     }
 
+    @SuppressWarnings("unchecked")
     @javax.transaction.Transactional
     @java.lang.Override
     public List<T> selectRows(String nameColumn,int limit,int offset) {
@@ -115,6 +120,7 @@ public class HibernateCRUD<T> extends Hibernate4Kit<T> {
     }
 
 
+    @SuppressWarnings("unchecked")
     @javax.transaction.Transactional
     @java.lang.Override
     public int getCount() {
@@ -137,6 +143,7 @@ public class HibernateCRUD<T> extends Hibernate4Kit<T> {
     }
 
 
+    @SuppressWarnings("unchecked")
     @javax.transaction.Transactional
     @java.lang.Override
     public Serializable updateRow(String whereColumn, Object whereValue) {
@@ -165,6 +172,7 @@ public class HibernateCRUD<T> extends Hibernate4Kit<T> {
     }
 
 
+    @SuppressWarnings("unchecked")
     @javax.transaction.Transactional
     @java.lang.Override
     public Serializable updateRow(T object) {
@@ -187,6 +195,7 @@ public class HibernateCRUD<T> extends Hibernate4Kit<T> {
         return id;
     }
 
+    @SuppressWarnings("unchecked")
     @javax.transaction.Transactional
     @java.lang.Override
     public Serializable deleteRow(String whereColumn, Object whereValue) {
@@ -213,6 +222,7 @@ public class HibernateCRUD<T> extends Hibernate4Kit<T> {
     }
 
 
+    @SuppressWarnings("unchecked")
     @javax.transaction.Transactional
     @java.lang.Override
     public Serializable deleteRow(T object) {

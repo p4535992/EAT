@@ -55,14 +55,14 @@ public class Test_ExtractorInfoWeb {
         String table_where_select= "test_55";
         // in this case the "select" table is use for avoid the insert of duplicate
         GeoDocument geoDoc2 =
-                web.ExtractGeoDocumentFromUrl(new URL("http://www.unifi.it"),table_where_select,table_where_insert,true);
+                web.ExtractGeoDocumentFromUrl(new URL("http://www.unifi.it"),table_where_select,table_where_insert,true,false);
 
         //METHOD 3: Convert a relational table in a file of triple with a Web-Karma Model:
         String output_format ="ttl";
         String output_karma_file ="c:\\path\\fileOfTriple.n3"; //always given the input in n3 format.
         String karma_model ="c:\\path\\model_R2RML.ttl";
         //This piece of code save a file of triple in a file...
-        web.triplifyGeoDocument(table_where_select,table_where_select,output_format, karma_model,output_karma_file,true);
+        web.triplifyGeoDocumentFromDatabase(table_where_select, table_where_select, output_format, karma_model, output_karma_file, true, false);
 
     }
 }

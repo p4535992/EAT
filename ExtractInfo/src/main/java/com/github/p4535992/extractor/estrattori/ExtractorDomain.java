@@ -1,6 +1,7 @@
 package com.github.p4535992.extractor.estrattori;
 
 import com.github.p4535992.extractor.ManageJsonWithGoogleMaps;
+import com.github.p4535992.extractor.object.model.GeoDomainDocument;
 import com.github.p4535992.extractor.object.support.DepositFrequencyInfo;
 import com.github.p4535992.extractor.object.model.GeoDocument;
 import com.github.p4535992.util.log.SystemLog;
@@ -25,8 +26,10 @@ import com.github.p4535992.util.string.StringKit;
  * Classe per lt'estrazione dei GeoDocument o InfoDocument relativi ai singoli domni org.p4535992.mvc.webapp
  * attraverso un'analisi dei singoli GeoDocument e InfoDocument dei singoli URL segunedo
  * opportuni criteri di scelta e confronto.
- * @author 4535992
+ * @author 4535992.
+ * @version 2015-06-30.
  */
+@SuppressWarnings("unused")
 public class ExtractorDomain {
     
     //FREQUENZA DEGLI URL PER L'IDENTIFICAZIONE DEL DOMINIO
@@ -131,7 +134,7 @@ public class ExtractorDomain {
             if(dfi2.getFrequency()>= FREQUENZA_INTERVALLO_URL && !(listFinalDomains.contains(dfi2.getDomain()))){
                 listFinalDomains.add(dfi2.getDomain());
                 try {
-                    GeoDocument geo = prepareTheDomainWebGeoDocumentWithMoreCommonParameter(dfi2);
+                    GeoDomainDocument geo = prepareTheDomainWebGeoDocumentWithMoreCommonParameter(dfi2);
                     geo.setUrl(new URL("http://"+dfi2.getDomain()));
                     //INSERIAMO I NOSTRI GEODOMAINDOCUMENT NELLA TABELLA DEL DATABASE
                     SystemLog.message("INSERIMENTO GEODOMAINDOCUMENT NELLA TABELLA");
@@ -157,12 +160,12 @@ public class ExtractorDomain {
      * @return il GeoDocument utilizzato per creare i GeoDomainDocument da inserirre nel database mySQL
      * @throws MalformedURLException 
      */
-    private GeoDocument prepareTheDomainWebGeoDocumentWithMoreCommonParameter(DepositFrequencyInfo dfi) throws MalformedURLException {
+    private GeoDomainDocument prepareTheDomainWebGeoDocumentWithMoreCommonParameter(DepositFrequencyInfo dfi) throws MalformedURLException {
         String domain = dfi.getDomain();
         URL webDomain;
         if(domain.contains("www")){webDomain = new URL("http://"+domain);
         }else{webDomain = new URL("http://www."+domain);}
-        GeoDocument geo2 = new GeoDocument(webDomain, null,null, null, null, null, null, null, null, null, null, null,null,null,null,null,null);
+        GeoDomainDocument geo2 = new GeoDomainDocument(webDomain, null,null, null, null, null, null, null, null, null, null, null,null,null,null,null,null);
         //for each GeoDocument contains ont he relative DepositFrequencyInfo get the more common parameter for eahc field
         List<String> al = new ArrayList<>();
         geo2.setUrl(webDomain);       
@@ -207,9 +210,9 @@ public class ExtractorDomain {
         }//for
         String lat2 = StringKit.getMoreCommonParameter(al);
          if(setNullForEmptyString(lat2)==null || lat2.contains("null") || lat2.contains("NULL")|| al.isEmpty()){
-               geo2.setLat(null); 
+               geo2.setLatitude(null);
          } else{
-              geo2.setLat(Double.parseDouble(lat2)); 
+              geo2.setLatitude(Double.parseDouble(lat2));
          }
          al.clear();
            
@@ -225,9 +228,9 @@ public class ExtractorDomain {
         }//for
         String lng2 = StringKit.getMoreCommonParameter(al);
          if(setNullForEmptyString(lng2)==null || lng2.contains("null") || lng2.contains("NULL")|| al.isEmpty()){
-               geo2.setLng(null); 
+               geo2.setLongitude(null);
          } else{
-              geo2.setLng(Double.parseDouble(lng2)); 
+              geo2.setLongitude(Double.parseDouble(lng2));
          }
          al.clear();
 
@@ -278,52 +281,70 @@ public class ExtractorDomain {
 
     public void reloadNullCoordinates(){
         ManageJsonWithGoogleMaps j = new ManageJsonWithGoogleMaps();
-        String[] columns = new String[]{"latitude","longitude"};
-        Object[] values = new Object[]{null,null};
+        String[] columns_where = new String[]{"latitude","longitude"};
+        Object[] values_where = new Object[]{null,null};
         try {
-            List<GeoDocument> listGeoDoc = geoDomainDocDao.selectGeoDomainWihNoCoords(columns, values, LIMIT, OFFSET, "AND");
-            values = new Object[]{"",""};
-            List<GeoDocument> listGeoDoc2 = geoDomainDocDao.selectGeoDomainWihNoCoords(columns, values, LIMIT, OFFSET, "AND");
+            List<GeoDomainDocument> listGeoDoc =
+                    geoDomainDocDao.selectGeoDomainWihNoCoords(new String[]{"*"},columns_where, values_where, LIMIT, OFFSET, "AND");
+
+            values_where = new Object[]{"",""};
+            List<GeoDomainDocument> listGeoDoc2 =
+                    geoDomainDocDao.selectGeoDomainWihNoCoords(new String[]{"*"},columns_where,values_where, LIMIT, OFFSET, "AND");
             listGeoDoc.addAll(listGeoDoc2);
-            values = new Object[]{0,0};
-            listGeoDoc2 = geoDomainDocDao.selectGeoDomainWihNoCoords(columns, values, LIMIT, OFFSET, "AND");
+
+            values_where = new Object[]{0,0};
+            listGeoDoc2 = geoDomainDocDao.selectGeoDomainWihNoCoords(new String[]{"*"},columns_where,values_where, LIMIT, OFFSET, "AND");
             listGeoDoc.addAll(listGeoDoc2);
-            for (GeoDocument geo : listGeoDoc) {
+            for (GeoDomainDocument geo : listGeoDoc) {
                 LatLng coord = j.getCoords(geo);
                 if(coord.getLat() == 0 && coord.getLng()==0){
-                    values = new Object[]{null,null};
+                    values_where = new Object[]{null,null};
                 }else{
-                    values = new Object[]{coord.getLat(),coord.getLng()};
+                    values_where = new Object[]{coord.getLat(),coord.getLng()};
 
                 }
-                geoDomainDocDao.update(columns, values, "url", geo.getUrl().toString().replace("http://",""));
+                geoDomainDocDao.update(columns_where, values_where, "url", geo.getUrl().toString().replace("http://",""));
             }
-        }catch(URISyntaxException | MalformedURLException e){
-            e.printStackTrace();
+        }catch(URISyntaxException e){
+            SystemLog.exception(e);
         }
     }
 
     public void deleteOverrideRecord(Map<String,String> map){
-         String[] columns = new String[]{"url"};
-         Object[] values;
+         String[] columns_where = new String[]{"url"};
+         Object[] values_where;
         try {
-            List<GeoDocument> finalList = new ArrayList <>();
+            List<GeoDomainDocument> finalList = new ArrayList <>();
             for (Map.Entry<String,String> entry: map.entrySet()) {
-                values = new Object[]{entry.getValue()};
+                values_where = new Object[]{entry.getValue()};
                 geoDomainDocDao.setTableSelect("geodomaindocument_h"); //464
-                List<GeoDocument> list = geoDomainDocDao.selectGeoDomainWihNoCoords(columns, values, 1, 0, null);
-                GeoDocument geo = list.get(0);
+                List<GeoDomainDocument> list = geoDomainDocDao.selectGeoDomainWihNoCoords(
+                        new String[]{"*"},columns_where,values_where, 1, 0, null);
+                GeoDomainDocument geo = list.get(0);
                 geo.setDoc_id(Integer.parseInt(entry.getKey()));
                 finalList.add(geo);
             }
             //geodomaindocument_coord_omogeneo_05052014,geodomaindocument_coord_omogeneo_120
             geoDomainDocDao.setTableInsert("geodomaindocument_coord_omogeneo_05052014"); //120
-            for (GeoDocument geoDoc : finalList) {
+            for (GeoDomainDocument geoDoc : finalList) {
                 //geoDoc.setUrl(new URL(geoDoc.getUrl().toString().replace("http://","")));
                 geoDomainDocDao.insertAndTrim(geoDoc);
             }
         }catch(Exception e){
-            e.printStackTrace();
+            SystemLog.exception(e);
+        }
+
+    }
+
+    public void deleteOverrideRecord(String[] columns_where,Object[] values_where){
+        try {
+            geoDomainDocDao.setTableSelect("geodomaindocument_h"); //464
+            List<GeoDomainDocument> list = geoDomainDocDao.selectGeoDomainWihNoCoords(
+                    new String[]{"*"},columns_where,values_where, 1, 0, null);
+            //geodomaindocument_coord_omogeneo_05052014,geodomaindocument_coord_omogeneo_120
+            geoDomainDocDao.setTableInsert("geodomaindocument_coord_omogeneo_05052014"); //120
+        }catch(Exception e){
+            SystemLog.exception(e);
         }
 
     }

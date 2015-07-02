@@ -11,9 +11,12 @@ import java.util.Set;
 
 /**
  * Created by 4535992 on 14/05/2015.
+ * @author 4535992.
+ * @version 2015-07-01.
  */
+@SuppressWarnings("unused")
 public class GeoDocumentInterceptor extends EmptyInterceptor{
-    private static final long serailVersionUID = 13L;
+    private static final long serialVersionUID = 13L;
     Session session;
     SessionFactory sessionFactory;
     private Set<Object> inserts = new HashSet<>();
@@ -59,22 +62,24 @@ public class GeoDocumentInterceptor extends EmptyInterceptor{
      */
 
     //called before commit into database
+    @SuppressWarnings("rawtypes")
     public void preFlush(Iterator entities) {
         System.out.println("preFlush: List of objects to flush... ");
         int i =0;
         while (entities.hasNext()) {
-            Object element = (Object) entities.next();
+            Object element = entities.next();
             System.out.println("preFlush: " + (++i) + " : " + element);
         }
     }
 
     //called after committed into database
+    @SuppressWarnings("rawtypes")
     public void postFlush(Iterator entities) {
         System.out.println("postFlush: List of objects that have been flushed... ");
         try{
             int i =0;
             while (entities.hasNext()) {
-                Object element = (Object) entities.next();
+                Object element = entities.next();
                 System.out.println("postFlush: " + (++i) + " : " + element);
             }
 

@@ -3,6 +3,7 @@ package com.github.p4535992.extractor.object.dao.jdbc;
 import com.github.p4535992.extractor.object.model.Website;
 import com.github.p4535992.extractor.object.dao.jdbc.generic.IGenericDao;
 import com.github.p4535992.extractor.object.model.Website;
+import com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException;
 
 import javax.sql.DataSource;
 import java.net.MalformedURLException;
@@ -19,7 +20,7 @@ public interface IWebsiteDao extends IGenericDao<Website> {
     void setNewJdbcTemplate();
     void setDataSource(DataSource ds);
     void loadSpringConfig(String filePathXml);
-    boolean verifyDuplicate(String columnWhereName, String valueWhereName);
+    boolean verifyDuplicate(String columnWhereName, String valueWhereName) throws MySQLSyntaxErrorException;
     List<URL> selectAllUrl(String column_table_input, Integer limit, Integer offset) throws MalformedURLException;
     URL selectURL(String column, String column_where, String value_where);
 }

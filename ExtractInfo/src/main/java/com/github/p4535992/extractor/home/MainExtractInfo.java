@@ -1,48 +1,36 @@
 package com.github.p4535992.extractor.home;
 
 import com.github.p4535992.extractor.estrattori.ExtractInfoSpring;
-import com.github.p4535992.extractor.gate.GateDataStoreKit;
-import org.xml.sax.SAXException;
 import com.github.p4535992.util.file.FileUtil;
 import com.github.p4535992.util.file.SimpleParameters;
 import com.github.p4535992.util.log.SystemLog;
-
 import java.awt.*;
 import java.io.*;
 import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
- *
+ * The Main Class of the Module ExtractInfo.
+ * You can read hte file input.properties on the rsource folder or given the absolute pato to the file
+ * like arguments on the main method.
  * @author 4535992
+ * @version 2015-06-29
  */
 public class MainExtractInfo {
 
-
-    //ALTRE VARIABILI
-    private static Integer LIMIT;
-    private static Integer OFFSET;
-    private static GateDataStoreKit datastore;
-//////////////////////////////////////////////////////////////
     public MainExtractInfo(){}
-    // The storage for the command line parameters
-    private static Map<String,String> mParameters = new HashMap<String, String>();
-    public MainExtractInfo(Map<String, String> mParameters){
-            this.mParameters = mParameters;
-    }
-    
+
     public static void main(final String[] args) throws NullPointerException, InterruptedException, InvocationTargetException{   
         try{          
             EventQueue.invokeLater(new Runnable() {	 
             //SwingUtilities.invokeAndWait(new Runnable() {
                public void run() {
                    try {
-                       SystemLog LOG = new SystemLog();
                        SystemLog.message("===== START THE PROGRAMM =========");
-                    /*long start = System.currentTimeMillis();*/
+                        /*long start = System.currentTimeMillis();*/
+                       // The storage for the command line parameters
+                       Map<String,String> mParameters = new HashMap<>();
                        // Parse all the parameters
                        SimpleParameters params = new SimpleParameters();
                        if (args.length > 0) {
@@ -60,7 +48,6 @@ public class MainExtractInfo {
                         SystemLog.message("Using parameters:");
                         SystemLog.message(params.toString());
 
-                        String test = params.getValue("PARAM_PATH_FILE_CFG_DB_INPUT_KEYWORD");
                        if(params.getValue("PARAM_TYPE_EXTRACTION").equals("SPRING")){
                             ExtractInfoSpring m = new ExtractInfoSpring(params);
                             SystemLog.message("START EXTRACT");
@@ -71,20 +58,8 @@ public class MainExtractInfo {
                          /*System.out.println(String.format(
                                "------------ Processing took %s millis\n\n",
                          System.currentTimeMillis() - start));*/
-                   }catch(InterruptedException ie){
-                           ie.printStackTrace();
-                           SystemLog.error("ERROR:" + ie.getMessage());
-                           Logger.getLogger(MainExtractInfo.class.getName()).log(Level.SEVERE, null, ie);
-                   }catch(InvocationTargetException iie){
-                        iie.printStackTrace();
-                        SystemLog.error("ERROR:" + iie.getMessage());
-                        Logger.getLogger(MainExtractInfo.class.getName()).log(Level.SEVERE, null, iie);
-                   } catch (IOException e) {
-                       e.printStackTrace();
-                   } catch (SAXException e) {
-                       e.printStackTrace();
-                   } catch (Exception e) {
-                       e.printStackTrace();
+                   }catch(Exception e){
+                           SystemLog.exception(e);
                    }
                }
         });//runnable    
@@ -92,26 +67,6 @@ public class MainExtractInfo {
         //ricarica il programma 
         SystemLog.error("java.lang.OutOfMemoryError, Ricarica il programma modificando LIMIT e OFFSET.\n GATE execute in timeout");
     }
-}//main	  
-
-      /**
-       * GET the value of LIMIT
-       * @return value
-       */
-       public Integer getLIMIT() {
-            return LIMIT;
-        }
-        /**
-         * GET the value of OFFSET
-         * @return value
-         */
-        public Integer getOFFSET() {
-            return OFFSET;
-        }
-
-        public void printOutputConsoleToFile() throws FileNotFoundException{
-            PrintStream out = new PrintStream(new FileOutputStream("output.txt"));
-            System.setOut(out);
-        }
+}//main
 
 }

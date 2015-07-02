@@ -2,7 +2,6 @@ package com.github.p4535992.extractor.object.impl.jdbc;
 
 import com.github.p4535992.extractor.object.model.Document;
 import com.github.p4535992.extractor.object.impl.jdbc.generic.GenericDaoImpl;
-import com.github.p4535992.extractor.object.model.Document;
 import com.github.p4535992.extractor.object.dao.jdbc.IDocumentDao;
 import org.hibernate.SessionFactory;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -10,7 +9,9 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import javax.sql.DataSource;
 
 /**
- * Created by Marco on 01/04/2015.
+ * Created by 4535992 on 01/04/2015.
+ * @author 4535992.
+ * @version 2015-07-01.
  */
 @org.springframework.stereotype.Component("DocumentDao")
 public class DocumentDaoImpl extends GenericDaoImpl<Document> implements IDocumentDao {

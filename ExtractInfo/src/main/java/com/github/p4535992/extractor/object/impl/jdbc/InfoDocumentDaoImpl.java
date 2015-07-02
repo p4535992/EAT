@@ -84,6 +84,7 @@ public class InfoDocumentDaoImpl extends GenericDaoImpl<InfoDocument> implements
             jdbcTemplate.execute(query);
 
         }catch(org.springframework.jdbc.BadSqlGrammarException e){
+            SystemLog.warning("Make sure the tables you try to use exists!!!");
             if(e.getMessage().contains("Table '"+myInsertTable+"' already exists")){
                 SystemLog.warning("Table '"+myInsertTable+"' already exists");
             }else {

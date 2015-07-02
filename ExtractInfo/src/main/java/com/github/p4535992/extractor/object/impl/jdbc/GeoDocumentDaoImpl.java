@@ -3,8 +3,8 @@ package com.github.p4535992.extractor.object.impl.jdbc;
 import com.github.p4535992.extractor.object.impl.jdbc.generic.GenericDaoImpl;
 import com.github.p4535992.extractor.object.model.GeoDocument;
 import com.github.p4535992.extractor.object.dao.jdbc.IGeoDocumentDao;
-import com.github.p4535992.extractor.object.impl.jdbc.generic.GenericDaoImpl;
-import com.github.p4535992.extractor.object.model.GeoDocument;
+import com.github.p4535992.util.collection.CollectionKit;
+import com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException;
 import org.hibernate.SessionFactory;
 import com.github.p4535992.util.log.SystemLog;
 import com.github.p4535992.util.sql.SQLSupport;
@@ -14,6 +14,8 @@ import java.io.IOException;
 
 /**
  * Created by 4535992 on 01/04/2015.
+ * @author 4535992.
+ * @version 2015-06-30.
  */
 @org.springframework.stereotype.Component("GeoDocumentDao")
 public class GeoDocumentDaoImpl extends GenericDaoImpl<GeoDocument> implements IGeoDocumentDao {
@@ -89,14 +91,20 @@ public class GeoDocumentDaoImpl extends GenericDaoImpl<GeoDocument> implements I
 
     @Override
     public boolean verifyDuplicate(String column_where, String value_where) {
-        return super.verifyDuplicate(column_where, value_where);
+        try {
+            return super.verifyDuplicate(column_where, value_where);
+        }catch(MySQLSyntaxErrorException e){
+            return false;
+        }
     }
 
 
     @Override
+    @SuppressWarnings("rawtypes")
     public void insertAndTrim(GeoDocument g) {
-       SQLSupport<GeoDocument> support = new SQLSupport(g);
+       SQLSupport support = SQLSupport.getInstance(g);
        try {
+           //super.insertAndTrim(columns,values,types);
            super.insertAndTrim(support.getCOLUMNS(),support.getVALUES(),support.getTYPES());
         }catch(NullPointerException e){
             SystemLog.throwException(new Throwable("Null pointer on the query:"+query+"",e.getCause()));

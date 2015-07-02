@@ -1,4 +1,5 @@
 package com.github.p4535992.extractor.estrattori;
+import com.github.p4535992.extractor.JenaInfoDocument;
 import com.github.p4535992.extractor.object.dao.jdbc.IWebsiteDao;
 import com.github.p4535992.extractor.object.impl.jdbc.WebsiteDaoImpl;
 import com.github.p4535992.gatebasic.gate.gate8.ExtractorInfoGate8;
@@ -48,10 +49,23 @@ public class ExtractInfoWeb {
     }
 
     private String TABLE_INPUT,TABLE_OUTPUT,DRIVER_DATABASE,DIALECT_DATABASE, HOST_DATABASE, PORT_DATABASE,
-            USER, PASS, DB_OUTPUT;
+            USER, PASS, DB_INPUT, DB_OUTPUT;
 
     private static ExtractInfoWeb instance = null;
     protected ExtractInfoWeb(){}
+
+    private boolean tableAlreadyCreated = true;
+
+    /**
+     * Constructor.
+     * @param DRIVER_DATABASE driver of the database eg: "com.mysql.jdbc.Driver".
+     * @param DIALECT_DATABASE dialect of the databse eg: "jdbc:mysql".
+     * @param HOST_DATABASE host of the database eg: "localhost".
+     * @param PORT_DATABASE port of the databse eg: "3306".
+     * @param USER username of the database eg: "username".
+     * @param PASS passwrod of the database eg: "password".
+     * @param DB_OUTPUT string name of the database eg: "database".
+     */
     protected ExtractInfoWeb(String DRIVER_DATABASE,String DIALECT_DATABASE,String HOST_DATABASE,
                           String PORT_DATABASE,String USER,String PASS,String DB_OUTPUT){
         this.DRIVER_DATABASE = DRIVER_DATABASE;
@@ -61,12 +75,13 @@ public class ExtractInfoWeb {
         this.USER = USER;
         this.PASS = PASS;
         this.DB_OUTPUT=DB_OUTPUT;
-        Gate8Kit gate8 = Gate8Kit.getInstance();
-        this.controller = gate8.setUpGateEmbedded("gate_files", "plugins", "gate.xml", "user-gate.xml", "gate.session",
-                "custom/gapp/geoLocationPipeline06102014v7_fastMode.xgapp");
+        //Gate8Kit gate8 = Gate8Kit.getInstance();
+        //this.controller = gate8.setUpGateEmbedded("gate_files", "plugins", "gate.xml", "user-gate.xml", "gate.session",
+        //        "custom/gapp/geoLocationPipeline06102014v7_fastMode.xgapp");
         //gate8.loadGapp("custom/gapp", "geoLocationPipeline06102014v7_fastMode.xgapp");
         //procDoc = gate8.setUpGateEmbeddedWithSpring("gate/gate-beans.xml",this.getClass(),"documentProcessor");
     }
+
 
     public static ExtractInfoWeb getInstance(){
         if(instance == null) {
@@ -84,21 +99,74 @@ public class ExtractInfoWeb {
         return instance;
     }
 
+    /**
+     * Method to set the GATE Embedded API.
+     * @param directoryFolderHome the root dircetory where all files of gate are stored eg:"gate_files".
+     * @param directoryFolderPlugin  the root directory of all plugin of gate under the directoryFolderHome eg: "plugins".
+     * @param configFileGate the path to the config file of gate under the directoryFolderHome eg:"gate.xml".
+     * @param configFileUser the path to the config file user of gate under the directoryFolderHome eg:"user-gate.xml".
+     * @param configFileSession the path to the config file session of gate under the directoryFolderHome eg:"gate.session".
+     * @param gappFile the path to the gapp file user of gate under the directoryFolderHome eg:"custom/gapp/test.xgapp".
+     */
+    public Controller setGate(String directoryFolderHome,String directoryFolderPlugin,
+                        String configFileGate,String configFileUser,String configFileSession,String gappFile){
+        Gate8Kit gate8 = Gate8Kit.getInstance();
+       /* this.controller = gate8.setUpGateEmbedded("gate_files", "plugins", "gate.xml", "user-gate.xml", "gate.session",
+                "custom/gapp/geoLocationPipeline06102014v7_fastMode.xgapp");*/
+        this.controller = gate8.setUpGateEmbedded(directoryFolderHome,directoryFolderPlugin,
+                configFileGate,configFileUser,configFileSession,gappFile);
+        return controller;
+    }
+
+    /**
+     * Method to set the GATE Embedded API with Spring framework.
+     * @param pathToTheGateContextFile path to the GATE Context File eg: "gate/gate-beans.xml".
+     * @param beanNameOfTheProcessorDocument string name of the bean for the DocumentProcessor class on the
+     *                                       gate context file eg:"documentProcessor".
+     * @param thisClass class here you want invokem this method necessary for avoid exception with spring.
+     */
+    public DocumentProcessor setGateWithSpring(
+            String pathToTheGateContextFile,String beanNameOfTheProcessorDocument,Class<?> thisClass){
+        Gate8Kit gate8 = Gate8Kit.getInstance();
+        this.procDoc = gate8.setUpGateEmbeddedWithSpring(pathToTheGateContextFile,thisClass,beanNameOfTheProcessorDocument);
+        return procDoc;
+    }
+
+
+    /**
+     * Method to Extract GeoDocuments from a string as url.
+     * @param url string of a url address.
+     * @param TABLE_INPUT String name of the table where do the operation of Select.
+     * @param TABLE_OUTPUT String name of the table where insert the geodoucment.
+     * @param createNewTable if true Create a new TABLE_OUTPUT with the same name.
+     * @param dropOldTable if true Drop the old TABLE_OUTPUT with the same name.
+     * @return a List Collection of GeoDocuments, but the geoDocuments are already put in the database.
+     */
     public GeoDocument ExtractGeoDocumentFromString(
-            String url, String TABLE_INPUT,String TABLE_OUTPUT,boolean createNewTable){
+            String url, String TABLE_INPUT,String TABLE_OUTPUT,boolean createNewTable,boolean dropOldTable){
         GeoDocument geoDoc = new GeoDocument();
         try {
             if (!url.matches("^(https?|ftp)://.*$")) {
                 url = "http://" + url;
             }
-            geoDoc = ExtractGeoDocumentFromUrl(new URL(url),TABLE_INPUT,TABLE_OUTPUT,createNewTable);
+            geoDoc = ExtractGeoDocumentFromUrl(new URL(url),TABLE_INPUT,TABLE_OUTPUT,createNewTable,dropOldTable);
         }catch(MalformedURLException e){
             SystemLog.error("You have insert a not valid url for the extraction of information:"+ url+" is not valid!");
         }
         return geoDoc;
     }
 
-    public List<GeoDocument> ExtractGeoDocumentFromListStrings(List<String> urls,String TABLE_INPUT,String TABLE_OUTPUT,boolean createNewTable){
+    /**
+     * Method to Extract GeoDocuments from a List of string as url.
+     * @param urls List Collection of string as url address.
+     * @param TABLE_INPUT String name of the table where do the operation of Select.
+     * @param TABLE_OUTPUT String name of the table where insert the geodoucment.
+     * @param createNewTable if true Create a new TABLE_OUTPUT with the same name.
+     * @param dropOldTable if true Drop the old TABLE_OUTPUT with the same name.
+     * @return a List Collection of GeoDocuments, but the geoDocuments are already put in the database.
+     */
+    public List<GeoDocument> ExtractGeoDocumentFromListStrings(
+            List<String> urls,String TABLE_INPUT,String TABLE_OUTPUT,boolean createNewTable,boolean dropOldTable){
         List<URL> listUrls = new ArrayList<>();
         List<GeoDocument> listGeo;
         for(int i = 0; i < urls.size(); i++) {
@@ -110,71 +178,94 @@ public class ExtractInfoWeb {
                 SystemLog.error("You have insert a not valid url for the extraction of information:"+ urls.get(i)+" is not valid!");
             }
         }
-        listGeo = ExtractGeoDocumentFromListUrls(listUrls,TABLE_INPUT,TABLE_OUTPUT,createNewTable);
+        listGeo = ExtractGeoDocumentFromListUrls(listUrls,TABLE_INPUT,TABLE_OUTPUT,createNewTable,dropOldTable);
         return listGeo;
     }
 
+    /**
+     * Method to Extract GeoDocuments from a List of urls.
+     * @param listUrls List Collection of URLs address.
+     * @param TABLE_INPUT String name of the table where do the operation of Select.
+     * @param TABLE_OUTPUT String name of the table where insert the geodoucment.
+     * @param createNewTable if true Create a new TABLE_OUTPUT with the same name.
+     * @param dropOldTable if true Drop the old TABLE_OUTPUT with the same name.
+     * @return a List Collection of GeoDocuments, but the geoDocuments are already put in the database.
+     */
     public List<GeoDocument> ExtractGeoDocumentFromListUrls(
-            List<URL> listUrls, String TABLE_INPUT,String TABLE_OUTPUT,boolean createNewTable){
-        IGeoDocumentDao geoDocumentDao = new GeoDocumentDaoImpl();
-        geoDocumentDao.setDriverManager(DRIVER_DATABASE, DIALECT_DATABASE, HOST_DATABASE,
-                PORT_DATABASE, USER, PASS, DB_OUTPUT);
-        geoDocumentDao.setTableInsert(TABLE_OUTPUT);
-        geoDocumentDao.setTableSelect(TABLE_INPUT);
-        ExtractorInfoGate8 egate = ExtractorInfoGate8.getInstance();
-        ExtractorGeoDocumentSupport egs  = new ExtractorGeoDocumentSupport();
-        ExtractorJSOUP j = new ExtractorJSOUP();
-        if(createNewTable){
-            try {
-                geoDocumentDao.create(true);
-            } catch (Exception e) {
-                SystemLog.exception(e);
-            }
-        }
-        indGDoc = 0;
-        GeoDocument geo2 = new GeoDocument();
-        GeoDocument geoDoc = new GeoDocument();
+            List<URL> listUrls, String TABLE_INPUT,String TABLE_OUTPUT,boolean createNewTable,boolean dropOldTable){
         List<GeoDocument> listGeo = new ArrayList<>();
-        SystemLog.message("*******************Run GATE**************************");
-        //create a list of annotation (you know they exists on the gate document,otherwise you get null result).....
-        String[] anntotations = new String[]{"MyRegione", "MyPhone", "MyFax", "MyEmail", "MyPartitaIVA",
-                "MyLocalita", "MyIndirizzo", "MyEdificio", "MyProvincia"};
-        List<String> listAnn = Arrays.asList(anntotations);
-        //create a list of annotationSet (you know they exists on the gate document,otherwise you get null result).....
-        String[] anntotationsSet = new String[]{"MyFOOTER", "MyHEAD", "MySpecialID", "MyAnnSet"};
-        List<String> listAnnSet = Arrays.asList(anntotationsSet);
-        //Store the result on of the extraction on a GateSupport Object
-        GateSupport support = GateSupport.getInstance(
-                egate.extractorGATE(listUrls, (CorpusController) controller, "corpus_test_1", listAnn, listAnnSet, true));
-        Corpus corpus = egate.getCorpus();
-        for (Document doc : corpus) {
-            try {
-                SystemLog.message("(" + indGDoc + ")URL:" + doc.getSourceUrl());
-                GeoDocument geo = convertGateSupportToGeoDocument(support, doc.getSourceUrl(), indGDoc);
-                indGDoc++;
-                SystemLog.message("*******************Run JSOUP**************************");
-                geo2 = j.GetTitleAndHeadingTags(doc.getSourceUrl().toString(), geo2);
-                SystemLog.message("*******************Run Support GeoDocument**************************");
-                geoDoc = ExtractorGeoDocumentSupport.compareInfo3(geoDoc, geo2);
-                //AGGIUNGIAMO ALTRE INFORMAZIONI AL GEODOCUMENT
-                geoDoc = egs.UpgradeTheDocumentWithOtherInfo(geoDoc);
-                geoDoc = egs.pulisciDiNuovoGeoDocument(geoDoc);
-                listGeo.add(geoDoc);
-            }catch(IOException|InterruptedException|URISyntaxException e){
-                SystemLog.exception(e);
+        try {
+            IGeoDocumentDao geoDocumentDao = new GeoDocumentDaoImpl();
+            geoDocumentDao.setDriverManager(DRIVER_DATABASE, DIALECT_DATABASE, HOST_DATABASE,
+                    PORT_DATABASE, USER, PASS, DB_OUTPUT);
+            geoDocumentDao.setTableInsert(TABLE_OUTPUT);
+            geoDocumentDao.setTableSelect(TABLE_INPUT);
+            ExtractorInfoGate8 egate = ExtractorInfoGate8.getInstance();
+            ExtractorGeoDocumentSupport egs = new ExtractorGeoDocumentSupport();
+            ExtractorJSOUP j = new ExtractorJSOUP();
+            if (tableAlreadyCreated) {
+                if (createNewTable) {
+                    try {
+                        geoDocumentDao.create(dropOldTable);
+                        tableAlreadyCreated = false;
+                    } catch (Exception e) {
+                        SystemLog.exception(e);
+                    }
+                }
             }
-        }
-        for(GeoDocument geoDoc3: listGeo) {
-            if (geoDoc3.getUrl() != null) {
-                //SystemLog.message("INSERIMENTO");
-                SystemLog.message(geoDoc3.toString());
-                geoDocumentDao.insertAndTrim(geoDoc3);
-            }//if
+            indGDoc = 0;
+            GeoDocument geo2 = new GeoDocument();
+            GeoDocument geoDoc = new GeoDocument();
+            SystemLog.message("*******************Run GATE**************************");
+            //create a list of annotation (you know they exists on the gate document,otherwise you get null result).....
+            List<String> listAnn = new ArrayList<>(Arrays.asList("MyRegione", "MyPhone", "MyFax", "MyEmail", "MyPartitaIVA",
+                    "MyLocalita", "MyIndirizzo", "MyEdificio", "MyProvincia"));
+            //create a list of annotationSet (you know they exists on the gate document,otherwise you get null result).....
+            List<String> listAnnSet = new ArrayList<>(Arrays.asList("MyFOOTER", "MyHEAD", "MySpecialID", "MyAnnSet"));
+            //Store the result on of the extraction on a GateSupport Object
+            GateSupport support = GateSupport.getInstance(
+                    egate.extractorGATE(listUrls, (CorpusController) controller, "corpus_test_1", listAnn, listAnnSet, true));
+            Corpus corpus = egate.getCorpus();
+            for (Document doc : corpus) {
+                try {
+                    SystemLog.message("(" + indGDoc + ")URL:" + doc.getSourceUrl());
+                    GeoDocument geo = convertGateSupportToGeoDocument(support, doc.getSourceUrl(), indGDoc);
+                    indGDoc++;
+                    SystemLog.message("*******************Run JSOUP**************************");
+                    geo2 = j.GetTitleAndHeadingTags(doc.getSourceUrl().toString(), geo2);
+                    SystemLog.message("*******************Run Support GeoDocument**************************");
+                    geoDoc = ExtractorGeoDocumentSupport.compareInfo3(geoDoc, geo2);
+                    //AGGIUNGIAMO ALTRE INFORMAZIONI AL GEODOCUMENT
+                    geoDoc = egs.UpgradeTheDocumentWithOtherInfo(geoDoc);
+                    geoDoc = egs.pulisciDiNuovoGeoDocument(geoDoc);
+                    listGeo.add(geoDoc);
+                } catch (IOException | InterruptedException | URISyntaxException e) {
+                    SystemLog.exception(e);
+                }
+            }
+            for (GeoDocument geoDoc3 : listGeo) {
+                if (geoDoc3.getUrl() != null) {
+                    SystemLog.message(geoDoc3.toString());
+                    geoDocumentDao.insertAndTrim(geoDoc3);
+                }//if
+            }
+        }finally{
+            tableAlreadyCreated = true;
         }
         return listGeo;
     }
 
-    public GeoDocument ExtractGeoDocumentFromUrl(URL url, String TABLE_INPUT,String TABLE_OUTPUT,boolean createNewTable){
+    /**
+     * Method to Extract GeoDocuments from a single url.
+     * @param url url address to a web document.
+     * @param TABLE_INPUT String name of the table where do the operation of Select.
+     * @param TABLE_OUTPUT String name of the table where insert the geodoucment.
+     * @param createNewTable if true Create a new TABLE_OUTPUT with the same name.
+     * @param dropOldTable if true Drop the old TABLE_OUTPUT with the same name.
+     * @return a List Collection of GeoDocuments, but the geoDocuments are already put in the database.
+     */
+    public GeoDocument ExtractGeoDocumentFromUrl(
+            URL url, String TABLE_INPUT,String TABLE_OUTPUT,boolean createNewTable,boolean dropOldTable){
         IGeoDocumentDao geoDocumentDao = new GeoDocumentDaoImpl();
         geoDocumentDao.setDriverManager(DRIVER_DATABASE, DIALECT_DATABASE, HOST_DATABASE,
                 PORT_DATABASE, USER, PASS, DB_OUTPUT);
@@ -183,11 +274,14 @@ public class ExtractInfoWeb {
         ExtractorInfoGate8 egate = ExtractorInfoGate8.getInstance();
         ExtractorGeoDocumentSupport egs  = new ExtractorGeoDocumentSupport();
         ExtractorJSOUP j = new ExtractorJSOUP();
-        if(createNewTable){
-            try {
-                geoDocumentDao.create(true);
-            } catch (Exception e) {
-                SystemLog.exception(e);
+        if(tableAlreadyCreated) {
+            if (createNewTable) {
+                try {
+                    geoDocumentDao.create(dropOldTable);
+                    tableAlreadyCreated = false;
+                } catch (Exception e) {
+                    SystemLog.exception(e);
+                }
             }
         }
         indGDoc = 0;
@@ -216,39 +310,57 @@ public class ExtractInfoWeb {
                     geoDoc = ExtractorGeoDocumentSupport.compareInfo3(geoDoc, geo2);
                     //AGGIUNGIAMO ALTRE INFORMAZIONI AL GEODOCUMENT
                     geoDoc = egs.UpgradeTheDocumentWithOtherInfo(geoDoc);
-                    //geoDoc = egs.pulisciDiNuovoGeoDocument(geoDoc);
                 } catch (URISyntaxException e) {
                     SystemLog.exception(e);
                 }
                 if (geoDoc.getUrl() != null) {
-                    //SystemLog.message("INSERIMENTO");
                     SystemLog.message(geoDoc.toString());
                     geoDocumentDao.insertAndTrim(geoDoc);
                 }//if
             }
         }catch(IOException|InterruptedException e ){
             SystemLog.exception(e);
+        }finally{
+            tableAlreadyCreated = true;
         }
         return geoDoc;
     }
 
-    public void triplifyGeoDocument(
-            String TABLE_INPUT,String TABLE_OUTPUT,String OUTPUT_FORMAT,
-            String MODEL_KARMA,String OUTPUT_KARMA_FILE,boolean createNewTable){
+    public void triplifyGeoDocumentFromLocalFile(File karmaModel,File fileToTriplify){
+        GenerationOfTriple got = GenerationOfTriple.getInstance();
+        got.GenerationOfTripleWithKarmaFromAFile(karmaModel,fileToTriplify);
+    }
+
+    /**
+     * Method to Triplify a Relation Table of GeoDocument.
+     * @param TABLE_INPUT the already existent Relation Table of GeoDocument.
+     * @param TABLE_OUTPUT the new Relation Table of InfoDocument create by TABLE_INPUT.
+     * @param OUTPUT_FORMAT the output format of the triple file eg: "ttl","csv","n3","nt",eec.
+     * @param MODEL_KARMA the string path to the file Model of Karma R2RML.
+     * @param OUTPUT_KARMA_FILE the string path to the folder where save the output triple file generated.
+     * @param createNewTable if true create a new table TABLE_OUTPUT.
+     * @param dropOldTable if true drop the already existent table TABLE_OUTPUT, only if createNewTable is true.
+     */
+    public void triplifyGeoDocumentFromDatabase(
+            String TABLE_INPUT, String TABLE_OUTPUT, String OUTPUT_FORMAT,
+            String MODEL_KARMA, String OUTPUT_KARMA_FILE, boolean createNewTable, boolean dropOldTable){
         SystemLog.message("RUN ONTOLOGY PROGRAMM: Create Table of infodocument from a geodocument/geodomaindocuemnt table!");
         IInfoDocumentDao infoDocumentDao = new InfoDocumentDaoImpl();
         infoDocumentDao.setTableInsert(TABLE_OUTPUT);
         infoDocumentDao.setTableSelect(TABLE_INPUT);
         infoDocumentDao.setDriverManager(DRIVER_DATABASE, DIALECT_DATABASE, HOST_DATABASE, PORT_DATABASE, USER, PASS, DB_OUTPUT);
-        if(createNewTable){
-            try {
-                infoDocumentDao.create(true);
-            } catch (Exception e) {
-                SystemLog.exception(e);
+        if(tableAlreadyCreated) {
+            if (createNewTable) {
+                try {
+                    infoDocumentDao.create(dropOldTable);
+                    tableAlreadyCreated = false;
+                } catch (Exception e) {
+                    SystemLog.exception(e);
+                }
             }
         }
         //Choose the Karma Driver:
-        String KARMA_DRIVER ="";
+        String KARMA_DRIVER;
         if(DIALECT_DATABASE.toLowerCase().contains("oracle")) KARMA_DRIVER ="Oracle";
         else if(DIALECT_DATABASE.toLowerCase().contains("mysql")) KARMA_DRIVER ="MySQL";
         else if(DIALECT_DATABASE.toLowerCase().contains("sql")) KARMA_DRIVER ="SQLServer";
@@ -256,7 +368,7 @@ public class ExtractInfoWeb {
         else KARMA_DRIVER ="Sybase";
 
         //GENERIAMO IL FILE DI TRIPLE CORRISPONDENTE ALLE INFORMAZIONI ESTRATTE CON KARMA
-        SystemLog.message("RUN KARMA PROGRAMM: Generation of triple with org.p4535992.mvc.webapp-karma!!");
+        SystemLog.message("RUN KARMA PROGRAMM: Generation of triple with karma!!");
         GenerationOfTriple got = new GenerationOfTriple(
                 "DB", //DB -> A database
                 MODEL_KARMA, //PATH: karma_files/model/
@@ -272,23 +384,44 @@ public class ExtractInfoWeb {
                 null
         );
         try {
-            got.GenerationOfTripleWithKarmaAPIFromDataBase();
+            File f = got.GenerationOfTripleWithKarmaAPIFromDataBase();
+            //code for clean up the triple file generate from karma.
+            JenaInfoDocument.readQueryAndCleanTripleInfoDocument(
+                    FileUtil.filenameNoExt(f), //filenameInput
+                    FileUtil.path(f), //filepath
+                    FileUtil.filenameNoExt(f) + "-c", //fileNameOutput
+                    FileUtil.extension(f), //inputFormat n3
+                    OUTPUT_FORMAT //outputFormat "ttl"
+            );
+            //delete not filter file of triples
+            f.delete();
         } catch (IOException ex) {
             SystemLog.exception(ex);
         }
     }
 
-    public List<GeoDocument> ExtractGeoDocumentFromFile(File fileOrDirectory, String TABLE_INPUT,String TABLE_OUTPUT,boolean createNewTable) {
+
+    /**
+     * Method to Extract GeoDocuments from a File or Directory.
+     * @param fileOrDirectory file or Directory of Files.
+     * @param TABLE_INPUT String name of the table where do the operation of Select.
+     * @param TABLE_OUTPUT String name of the table where insert the geodoucment.
+     * @param createNewTable if true Create a new TABLE_OUTPUT with the same name.
+     * @param dropOldTable if true Drop the old TABLE_OUTPUT with the same name.
+     * @return a List Collection of GeoDocuments, but the geoDocuments are already put in the database.
+     */
+    public List<GeoDocument> ExtractGeoDocumentFromFile(
+            File fileOrDirectory, String TABLE_INPUT,String TABLE_OUTPUT,boolean createNewTable,boolean dropOldTable) {
         List<GeoDocument> listGeo = new ArrayList<>();
         if(FileUtil.isDirectory(fileOrDirectory)){
             List<File> listFiles = FileUtil.readDirectory(fileOrDirectory);
-            ExtractGeoDocumentFromListFiles(listFiles,TABLE_INPUT,TABLE_OUTPUT,createNewTable);
+            ExtractGeoDocumentFromListFiles(listFiles,TABLE_INPUT,TABLE_OUTPUT,createNewTable,dropOldTable);
         }else{
             //..is a single file
             URL url;
             try {
                 url = FileUtil.convertFileToURL(fileOrDirectory);
-                listGeo.add(ExtractGeoDocumentFromUrl(url,TABLE_INPUT,TABLE_OUTPUT,createNewTable));
+                listGeo.add(ExtractGeoDocumentFromUrl(url,TABLE_INPUT,TABLE_OUTPUT,createNewTable,dropOldTable));
             } catch (MalformedURLException e) {
                 SystemLog.warning(e.getMessage());
                 return null;
@@ -297,21 +430,42 @@ public class ExtractInfoWeb {
         return listGeo;
     }
 
-    public List<GeoDocument> ExtractGeoDocumentFromListFiles(List<File> listFiles, String TABLE_INPUT,String TABLE_OUTPUT,boolean createNewTable) {
+    /**
+     * Method to Extract GeoDocuments from a list of Files.
+     * @param listFiles List Collection of file , all the Direcotry file are ignored with this method.
+     * @param TABLE_INPUT String name of the table where do the operation of Select.
+     * @param TABLE_OUTPUT String name of the table where insert the geodoucment.
+     * @param createNewTable if true Create a new TABLE_OUTPUT with the same name.
+     * @param dropOldTable if true Drop the old TABLE_OUTPUT with the same name.
+     * @return a List Collection of GeoDocuments, but the geoDocuments are already put in the database.
+     */
+    public List<GeoDocument> ExtractGeoDocumentFromListFiles(
+            List<File> listFiles, String TABLE_INPUT,String TABLE_OUTPUT,boolean createNewTable,boolean dropOldTable) {
         List<URL> listUrls = new ArrayList<>();
         for(File file: listFiles) {
             try {
-                URL url = FileUtil.convertFileToURL(file);
-                listUrls.add(url);
+                if(!FileUtil.isDirectory(file)) {
+                    URL url = FileUtil.convertFileToURL(file);
+                    listUrls.add(url);
+                }else{
+                    SystemLog.warning("The file:" + FileUtil.convertFileToURL(file) + " so is ignored!!");
+                }
             } catch (MalformedURLException e) {
                 SystemLog.warning(e.getMessage());
             }
         }
-        return ExtractGeoDocumentFromListUrls(listUrls,TABLE_INPUT,TABLE_OUTPUT,createNewTable);
+        return ExtractGeoDocumentFromListUrls(listUrls,TABLE_INPUT,TABLE_OUTPUT,createNewTable,dropOldTable);
     }
 
 
-
+    /**
+     * Method to Convert the Object Gate Support to a GeoDocument object.
+     * @param support the Gate Support Object.
+     * @param url the URL address to the resource.
+     * @param index we use the index of the Document Gate on the corpus because we can't know the exact nam of
+     *              the document given from the user.
+     * @return a GeoDocument Object.
+     */
     public GeoDocument convertGateSupportToGeoDocument(GateSupport support,URL url,Integer index){
         GeoDocument geoDoc = new GeoDocument();
         String[] anntotations = new String[]{"MyRegione","MyPhone","MyFax","MyEmail","MyPartitaIVA",
@@ -399,6 +553,21 @@ public class ExtractInfoWeb {
         return geoDoc;
     }
 
+    /**
+     * Method to support the Extraction of a List of URLS from a Table of the database.
+     * @param DRIVER_DATABASE driver of the database eg: "com.mysql.jdbc.Driver".
+     * @param DIALECT_DATABASE dialect of the databse eg: "jdbc:mysql".
+     * @param HOST_DATABASE host of the database eg: "localhost".
+     * @param PORT_DATABASE port of the databse eg: "3306".
+     * @param USER username of the database eg: "username".
+     * @param PASS passwrod of the database eg: "password".
+     * @param DB_INPUT strig name of the database eg: "database".
+     * @param TABLE_INPUT string name of the table where make the select  eg: "table".
+     * @param COLUMN_TABLE_INPUT string name of the column of the table where make th select eg:"url".
+     * @param LIMIT LIMIT of the select query SQL.
+     * @param OFFSET OFFSET of the select query SQL.
+     * @return a List Collection of java.net.URL.
+     */
     public List<URL> getListURLFromDatabase(String DRIVER_DATABASE,String DIALECT_DATABASE,String HOST_DATABASE,
            String PORT_DATABASE,String USER,String PASS,String DB_INPUT, String TABLE_INPUT,
                                             String COLUMN_TABLE_INPUT,Integer LIMIT,Integer OFFSET) {
