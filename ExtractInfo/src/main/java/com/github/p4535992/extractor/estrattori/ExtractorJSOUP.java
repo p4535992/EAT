@@ -13,12 +13,9 @@ import java.io.IOException;
 import java.net.SocketTimeoutException;
 import java.net.URISyntaxException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.StringTokenizer;
+import java.util.*;
+
+import com.github.p4535992.util.string.StringKit;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -26,8 +23,10 @@ import org.jsoup.select.Elements;
 
 /**
  *
- * @author Marco
+ * @author 4535992.
+ * @author 2015-07-03.
  */
+@SuppressWarnings("unused")
 public class ExtractorJSOUP {
 
     public static boolean isEXIST_WEBPAGE() {
@@ -56,28 +55,18 @@ public class ExtractorJSOUP {
             }else{
                 tentativi = 0;
             }
-        }catch(SocketTimeoutException e){           
-            tentativi++;
-            HttpUtilApache.waiter();
-            if(tentativi < 3) GetTitleAndHeadingTags(url,geo);
-            else doc = null;
-        }catch(Exception en){        
+        }catch(Exception e){
             tentativi++;
             HttpUtilApache.waiter();
             if(tentativi < 3) GetTitleAndHeadingTags(url,geo);
             else doc = null;
         }
-
         if(doc==null){
             try{
                 String html = HttpUtilApache.get(url);
                 doc = Jsoup.parse(html);
-                if(html!=null || html !=""){
-                    SystemLog.message("HTTP GET HA AVUTO SUCCESSO");
-                    EXIST_WEBPAGE = true;
-                }else{
-                    throw new Exception("HTTP GET HA FALLITO");
-                }
+                SystemLog.message("HTTP GET HA AVUTO SUCCESSO");
+                EXIST_WEBPAGE = true;
             }catch(Exception en){
                 //SystemLog.org.p4535992.mvc.error("HTTP GET HA FALLITO:" + en.getMessage());
                 EXIST_WEBPAGE = false;
@@ -143,13 +132,13 @@ public class ExtractorJSOUP {
             for(String s: tagList){
                 Elements Tags = doc.select(s);
                 for(Element e : Tags){
-                    if(s != "html"){
+                    if(!Objects.equals(s, "html")){
                      result += pulisciStringaEdificio(e.text())+" ";    
                     }
                 }
                 if(setNullForEmptyString(result)==null && doc.select(s).size()>0){   
                        result = doc.select(s).first().attr("lang");               
-                }else if(setNullForEmptyString(result)==null && doc.select(s).size()>0 && s!= "html"){   
+                }else if(setNullForEmptyString(result)==null && doc.select(s).size()>0 && !Objects.equals(s, "html")){
                        result = doc.select(s).first().attr("content");   
                 }
                 if(setNullForEmptyString(result)!=null){break;}
@@ -239,11 +228,11 @@ public class ExtractorJSOUP {
      * @param al lista dei valori per il determianto parametro del GeoDocument
      * @return  il valore più diffuso per tale parametro
      */
-    private String getMoreCommonParameter(ArrayList<String> al){       
-        Map<String,Integer> map = new HashMap<String, Integer>();  
-        for(int i=0;i<al.size();i++){              
-            Integer count = map.get(al.get(i));         
-            map.put(al.get(i), count==null?1:count+1);   //auto boxing and count  
+    private String getMoreCommonParameter(List<String> al){
+        Map<String,Integer> map = new HashMap<>();
+        for (String anAl : al) {
+            Integer count = map.get(anAl);
+            map.put(anAl, count == null ? 1 : count + 1);   //auto boxing and count
         }  
         //System.out.println(map);  
         //ADESSO PER OGNI VALORE POSSIBILE DEL PARAMETRO ABBIAMO INSERITO IL 
@@ -271,10 +260,8 @@ public class ExtractorJSOUP {
      private String getTheFirstTokenOfATokenizer(String content,String symbol){
         StringTokenizer st = new StringTokenizer(content, symbol);                
         while (st.hasMoreTokens()) {
-                content = st.nextToken().toString();
-                if(setNullForEmptyString(content)==null){
-                    continue;              
-                }else{ break;}            
+                content = st.nextToken();
+                if(!StringKit.isNullOrEmpty(content))break;
         }
         return content;
      }
@@ -286,11 +273,10 @@ public class ExtractorJSOUP {
       */
      private GeoDocument littleUpdateEdificio(GeoDocument geo) throws URISyntaxException{
          String edificio = geo.getEdificio();
-         if(edificio.toLowerCase().contains(HttpUtilApache.getAuthorityName(geo.getUrl().toString().toLowerCase()))){
-         } else {
+         if(!(edificio.toLowerCase().contains(HttpUtilApache.getAuthorityName(geo.getUrl().toString().toLowerCase())))){
              edificio = HttpUtilApache.getAuthorityName(geo.getUrl().toString()).toUpperCase()+" - "+edificio;
              geo.setEdificio(edificio);
-        }
+         }
          return geo;
      } 
 }

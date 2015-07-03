@@ -55,6 +55,18 @@ public class ExtractInfoWeb {
     protected ExtractInfoWeb(){}
 
     private boolean tableAlreadyCreated = true;
+    private boolean gateAlreadySetted = true;
+    private boolean connectionToADatabase = true;
+
+    public boolean isConnectionToADatabase() {
+        return connectionToADatabase;
+    }
+
+    public void setConnectionToADatabase(boolean connectionToADatabase) {
+        this.connectionToADatabase = connectionToADatabase;
+    }
+
+
 
     /**
      * Constructor.
@@ -110,12 +122,21 @@ public class ExtractInfoWeb {
      */
     public Controller setGate(String directoryFolderHome,String directoryFolderPlugin,
                         String configFileGate,String configFileUser,String configFileSession,String gappFile){
-        Gate8Kit gate8 = Gate8Kit.getInstance();
-       /* this.controller = gate8.setUpGateEmbedded("gate_files", "plugins", "gate.xml", "user-gate.xml", "gate.session",
-                "custom/gapp/geoLocationPipeline06102014v7_fastMode.xgapp");*/
-        this.controller = gate8.setUpGateEmbedded(directoryFolderHome, directoryFolderPlugin,
-                configFileGate, configFileUser, configFileSession, gappFile);
-        return controller;
+        if(controller==null) {
+            if(gateAlreadySetted) {
+                Gate8Kit gate8 = Gate8Kit.getInstance();
+                this.controller = gate8.setUpGateEmbedded(directoryFolderHome, directoryFolderPlugin,
+                        configFileGate, configFileUser, configFileSession, gappFile);
+                gateAlreadySetted = false;
+                return controller;
+            }else{
+                SystemLog.warning("The GATE embedded API is already set with Spring Framework and ProcessorDocument!!!");
+                return null;
+            }
+        }else{
+            SystemLog.warning("The GATE embedded API is already set with Corpus Controller!!!");
+            return controller;
+        }
     }
 
     /**
@@ -127,9 +148,20 @@ public class ExtractInfoWeb {
      */
     public DocumentProcessor setGateWithSpring(
             String pathToTheGateContextFile,String beanNameOfTheProcessorDocument,Class<?> thisClass){
-        Gate8Kit gate8 = Gate8Kit.getInstance();
-        this.procDoc = gate8.setUpGateEmbeddedWithSpring(pathToTheGateContextFile,thisClass,beanNameOfTheProcessorDocument);
-        return procDoc;
+        if(procDoc ==null) {
+            if(gateAlreadySetted) {
+                Gate8Kit gate8 = Gate8Kit.getInstance();
+                this.procDoc = gate8.setUpGateEmbeddedWithSpring(pathToTheGateContextFile, thisClass, beanNameOfTheProcessorDocument);
+                gateAlreadySetted = false;
+                return procDoc;
+            }else{
+                SystemLog.warning("The GATE embedded API is already set with Corpus Controller!!!");
+                return null;
+            }
+        }else {
+            SystemLog.warning("The GATE embedded API is already set with Spring Framework and ProcessorDocument!!!");
+            return procDoc;
+        }
     }
 
 
@@ -196,23 +228,25 @@ public class ExtractInfoWeb {
         List<GeoDocument> listGeo = new ArrayList<>();
         try {
             IGeoDocumentDao geoDocumentDao = new GeoDocumentDaoImpl();
-            geoDocumentDao.setDriverManager(DRIVER_DATABASE, DIALECT_DATABASE, HOST_DATABASE,
-                    PORT_DATABASE, USER, PASS, DB_OUTPUT);
-            geoDocumentDao.setTableInsert(TABLE_OUTPUT);
-            geoDocumentDao.setTableSelect(TABLE_INPUT);
-            ExtractorInfoGate8 egate = ExtractorInfoGate8.getInstance();
-            ExtractorGeoDocumentSupport egs = new ExtractorGeoDocumentSupport();
-            ExtractorJSOUP j = new ExtractorJSOUP();
-            if (tableAlreadyCreated) {
-                if (createNewTable) {
-                    try {
-                        geoDocumentDao.create(dropOldTable);
-                        tableAlreadyCreated = false;
-                    } catch (Exception e) {
-                        SystemLog.exception(e);
+            if(connectionToADatabase) {
+                geoDocumentDao.setDriverManager(DRIVER_DATABASE, DIALECT_DATABASE, HOST_DATABASE,
+                        PORT_DATABASE, USER, PASS, DB_OUTPUT);
+                geoDocumentDao.setTableInsert(TABLE_OUTPUT);
+                geoDocumentDao.setTableSelect(TABLE_INPUT);
+                if (tableAlreadyCreated) {
+                    if (createNewTable) {
+                        try {
+                            geoDocumentDao.create(dropOldTable);
+                            tableAlreadyCreated = false;
+                        } catch (Exception e) {
+                            SystemLog.exception(e);
+                        }
                     }
                 }
             }
+            ExtractorInfoGate8 egate = ExtractorInfoGate8.getInstance();
+            ExtractorGeoDocumentSupport egs = new ExtractorGeoDocumentSupport();
+            ExtractorJSOUP j = new ExtractorJSOUP();
             indGDoc = 0;
             GeoDocument geo2 = new GeoDocument();
             GeoDocument geoDoc = new GeoDocument();
@@ -250,11 +284,13 @@ public class ExtractInfoWeb {
                     SystemLog.exception(e);
                 }
             }
-            for (GeoDocument geoDoc3 : listGeo) {
-                if (geoDoc3.getUrl() != null) {
-                    SystemLog.message(geoDoc3.toString());
-                    geoDocumentDao.insertAndTrim(geoDoc3);
-                }//if
+            if(connectionToADatabase) {
+                for (GeoDocument geoDoc3 : listGeo) {
+                    if (geoDoc3.getUrl() != null) {
+                        SystemLog.message(geoDoc3.toString());
+                        geoDocumentDao.insertAndTrim(geoDoc3);
+                    }//if
+                }
             }
         }finally{
             tableAlreadyCreated = true;
@@ -274,23 +310,25 @@ public class ExtractInfoWeb {
     public GeoDocument ExtractGeoDocumentFromUrl(
             URL url, String TABLE_INPUT,String TABLE_OUTPUT,boolean createNewTable,boolean dropOldTable){
         IGeoDocumentDao geoDocumentDao = new GeoDocumentDaoImpl();
-        geoDocumentDao.setDriverManager(DRIVER_DATABASE, DIALECT_DATABASE, HOST_DATABASE,
-                PORT_DATABASE, USER, PASS, DB_OUTPUT);
-        geoDocumentDao.setTableInsert(TABLE_OUTPUT);
-        geoDocumentDao.setTableSelect(TABLE_INPUT);
-        ExtractorInfoGate8 egate = ExtractorInfoGate8.getInstance();
-        ExtractorGeoDocumentSupport egs  = new ExtractorGeoDocumentSupport();
-        ExtractorJSOUP j = new ExtractorJSOUP();
-        if(tableAlreadyCreated) {
-            if (createNewTable) {
-                try {
-                    geoDocumentDao.create(dropOldTable);
-                    tableAlreadyCreated = false;
-                } catch (Exception e) {
-                    SystemLog.exception(e);
+        if(connectionToADatabase) {
+            geoDocumentDao.setDriverManager(DRIVER_DATABASE, DIALECT_DATABASE, HOST_DATABASE,
+                    PORT_DATABASE, USER, PASS, DB_OUTPUT);
+            geoDocumentDao.setTableInsert(TABLE_OUTPUT);
+            geoDocumentDao.setTableSelect(TABLE_INPUT);
+            if(tableAlreadyCreated) {
+                if (createNewTable) {
+                    try {
+                        geoDocumentDao.create(dropOldTable);
+                        tableAlreadyCreated = false;
+                    } catch (Exception e) {
+                        SystemLog.exception(e);
+                    }
                 }
             }
         }
+        ExtractorInfoGate8 egate = ExtractorInfoGate8.getInstance();
+        ExtractorGeoDocumentSupport egs  = new ExtractorGeoDocumentSupport();
+        ExtractorJSOUP j = new ExtractorJSOUP();
         indGDoc = 0;
         GeoDocument geo2 = new GeoDocument();
         GeoDocument geoDoc = new GeoDocument();
@@ -327,9 +365,11 @@ public class ExtractInfoWeb {
                 } catch (URISyntaxException e) {
                     SystemLog.exception(e);
                 }
-                if (geoDoc.getUrl() != null) {
-                    SystemLog.message(geoDoc.toString());
-                    geoDocumentDao.insertAndTrim(geoDoc);
+                if(connectionToADatabase) {
+                    if (geoDoc.getUrl() != null) {
+                        SystemLog.message(geoDoc.toString());
+                        geoDocumentDao.insertAndTrim(geoDoc);
+                    }
                 }//if
             }
         }catch(IOException|InterruptedException e ){
@@ -378,7 +418,7 @@ public class ExtractInfoWeb {
         if(DIALECT_DATABASE.toLowerCase().contains("oracle")) KARMA_DRIVER ="Oracle";
         else if(DIALECT_DATABASE.toLowerCase().contains("mysql")) KARMA_DRIVER ="MySQL";
         else if(DIALECT_DATABASE.toLowerCase().contains("sql")) KARMA_DRIVER ="SQLServer";
-        else if(DIALECT_DATABASE.toLowerCase().contains("postgis")) KARMA_DRIVER ="PostGIS";
+        else if(DIALECT_DATABASE.toLowerCase().contains("post")) KARMA_DRIVER ="PostGIS";
         else KARMA_DRIVER ="Sybase";
 
         //GENERIAMO IL FILE DI TRIPLE CORRISPONDENTE ALLE INFORMAZIONI ESTRATTE CON KARMA

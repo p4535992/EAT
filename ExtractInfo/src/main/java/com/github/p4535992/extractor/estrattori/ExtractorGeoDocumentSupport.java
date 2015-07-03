@@ -1,6 +1,7 @@
 package com.github.p4535992.extractor.estrattori;
 
 import com.github.p4535992.extractor.object.support.LatLng;
+import com.github.p4535992.util.http.HttpKit;
 import com.github.p4535992.util.http.HttpUtilApache;
 import com.github.p4535992.util.log.SystemLog;
 import com.github.p4535992.util.string.StringKit;
@@ -59,7 +60,7 @@ public class ExtractorGeoDocumentSupport {
             //INTEGRAZIONE DEL CAMPO LANGUAGE -> NAZIONE
             SetNazioneELanguage set = new SetNazioneELanguage();
             String language = geo.getNazione();
-            String domain = HttpUtilApache.getDomainName(geo.getUrl().toString());
+            String domain = HttpKit.getInstance().getDomainName(geo.getUrl().toString());
             String nazione = set.checkNazioneByDomain(domain);
             geo.setNazione(nazione);
             //con il linguaggio identificato da Tika se fallisce il controllo del

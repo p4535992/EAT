@@ -8,12 +8,15 @@ import java.io.IOException;
 
 /**
  * Created by Marco on 20/04/2015.
+ * @author 4535992.
+ * @version 2015-07-03.
  */
+@SuppressWarnings("unused")
 public class JenaInfoDocument {
     private static org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger(JenaInfoDocument.class);
 
     //Get all the triples on the model without the predicate schema:latitude and schema:longitude
-    private static String SPARQL_NO_SCHEMACOORDS =
+    private static final String SPARQL_NO_SCHEMACOORDS =
               "CONSTRUCT {?s <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/goodrelations/v1#Location>  }"
             + " WHERE { "
             + " ?s <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/goodrelations/v1#Location> ."
@@ -23,7 +26,7 @@ public class JenaInfoDocument {
             + "}";
 
     //Get all the triples on the model without the predicate geo:lat and geo:long
-    private static String SPARQL_NO_WGS84COORDS =
+    private static final String SPARQL_NO_WGS84COORDS =
               "CONSTRUCT {?s <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/goodrelations/v1#Location>  }"
             + " WHERE { "
             + " ?s <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/goodrelations/v1#Location> ."
@@ -32,7 +35,7 @@ public class JenaInfoDocument {
             + " FILTER (!bound(?o))"
             + "}";
 
-    private static String SPARQL_SCHEMACOORDS =
+    private static final String SPARQL_SCHEMACOORDS =
             "SELECT ?location ?lat ?long "
             + " WHERE { "
             + " ?location <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/goodrelations/v1#Location> ;"
@@ -40,7 +43,7 @@ public class JenaInfoDocument {
             + "  <http://schema.org/longitude> ?long ."
             + "}";
 
-    private static String SPARQL_WGS84COORDS =
+    private static final String SPARQL_WGS84COORDS =
             "SELECT ?location ?lat ?long "
             + " WHERE { "
             + " ?location <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/goodrelations/v1#Location> ;"
@@ -66,12 +69,9 @@ public class JenaInfoDocument {
 
         SystemLog.sparql(SPARQL_NO_WGS84COORDS);
         //CREA IL TUO MODELLO DI JENA A PARTIRE DA UN FILE
-        com.hp.hpl.jena.rdf.model.Model model = com.hp.hpl.jena.rdf.model.ModelFactory.createDefaultModel();
-        model = Jena2Kit.loadFileTriple(filenameInput, filepath, inputFormat);
-
+        com.hp.hpl.jena.rdf.model.Model model = Jena2Kit.loadFileTriple(filenameInput, filepath, inputFormat);
         //ESEGUI LA QUERY SPARQL
-        com.hp.hpl.jena.rdf.model.Model myGraph = model;
-        myGraph = Jena2Kit.execSparqlConstructorOnModel(SPARQL_NO_WGS84COORDS, model);
+        com.hp.hpl.jena.rdf.model.Model myGraph = Jena2Kit.execSparqlConstructorOnModel(SPARQL_NO_WGS84COORDS, model);
 
         com.hp.hpl.jena.rdf.model.StmtIterator iter = myGraph.listStatements();
 
@@ -80,20 +80,15 @@ public class JenaInfoDocument {
                 com.hp.hpl.jena.rdf.model.Statement stmt  = iter.nextStatement();  // get next statement
                 model.remove(stmt);
                 SystemLog.sparql("REMOVE 1:<" + stmt.getSubject() + "> <" + stmt.getPredicate() + "> <" + stmt.getObject() + ">.");
-                com.hp.hpl.jena.rdf.model.Resource  subject   = stmt.getSubject();     // get the subject
-
-                com.hp.hpl.jena.rdf.model.RDFNode   object2  =
-                        (com.hp.hpl.jena.rdf.model.RDFNode) subject;      // get the object
+                //com.hp.hpl.jena.rdf.model.Resource  subject   = stmt.getSubject();     // get the subject
+                com.hp.hpl.jena.rdf.model.RDFNode object2  = stmt.getSubject();      // get the object
                 com.hp.hpl.jena.rdf.model.Resource subject2 =
                         new com.hp.hpl.jena.rdf.model.impl.ResourceImpl(object2.toString().replace("Location_",""));
                 com.hp.hpl.jena.rdf.model.Property  predicate2 =
                         new com.hp.hpl.jena.rdf.model.impl.PropertyImpl("http://purl.org/goodrelations/v1#hasPOS");   // get the predicate
 
                 //model.remove(subject2,predicate2,object2);
-                model.removeAll(
-                        (com.hp.hpl.jena.rdf.model.Resource)null,
-                        predicate2,
-                        object2);
+                model.removeAll(null,predicate2,object2);
                 SystemLog.sparql("REMOVE 2:<" + subject2 + "> <" + predicate2 + "> <" + object2 + ">.");
             }catch(Exception e){
                 SystemLog.exception(e);

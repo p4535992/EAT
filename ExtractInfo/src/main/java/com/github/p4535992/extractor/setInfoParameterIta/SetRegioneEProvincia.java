@@ -1,32 +1,36 @@
 package com.github.p4535992.extractor.setInfoParameterIta;
 
 import java.util.ArrayList;
+import java.util.List;
+
 /**
- * Classe che integra in modo completo la relazione Regione-Provincia-Citta
- * @author Marco
+ * Classe che integra in modo completo la relazione Regione-Provincia-Citta.
+ * @author 4535992.
+ * @version 2015-07-03.
  */
+@SuppressWarnings("unused")
 public class SetRegioneEProvincia {
         
-    private static ArrayList<String> abruzzo = new ArrayList<String>(); 
-    private static ArrayList<String> basilicata = new ArrayList<String>(); 
-    private static ArrayList<String> calabria = new ArrayList<String>(); 
-    private static ArrayList<String> campania = new ArrayList<String>();
-    private static ArrayList<String> emiliaromagna = new ArrayList<String>();
-    private static ArrayList<String> friuliveneziagiulia = new ArrayList<String>();
-    private static ArrayList<String> lazio = new ArrayList<String>();
-    private static ArrayList<String> liguria = new ArrayList<String>();
-    private static ArrayList<String> lombardia = new ArrayList<String>();
-    private static ArrayList<String> marche = new ArrayList<String>();
-    private static ArrayList<String> molise = new ArrayList<String>();
-    private static ArrayList<String> piemonte = new ArrayList<String>();
-    private static ArrayList<String> puglia = new ArrayList<String>();
-    private static ArrayList<String> sardegna = new ArrayList<String>();
-    private static ArrayList<String> sicilia = new ArrayList<String>();
-    private static ArrayList<String> toscana = new ArrayList<String>();
-    private static ArrayList<String> trentinoaltoadige = new ArrayList<String>();
-    private static ArrayList<String> umbria = new ArrayList<String>();
-    private static ArrayList<String> valleaosta = new ArrayList<String>();
-    private static ArrayList<String> veneto = new ArrayList<String>();
+    private static List<String> abruzzo = new ArrayList<>();
+    private static List<String> basilicata = new ArrayList<>();
+    private static List<String> calabria = new ArrayList<>();
+    private static List<String> campania = new ArrayList<>();
+    private static List<String> emiliaromagna = new ArrayList<>();
+    private static List<String> friuliveneziagiulia = new ArrayList<>();
+    private static List<String> lazio = new ArrayList<>();
+    private static List<String> liguria = new ArrayList<>();
+    private static List<String> lombardia = new ArrayList<>();
+    private static List<String> marche = new ArrayList<>();
+    private static List<String> molise = new ArrayList<>();
+    private static List<String> piemonte = new ArrayList<>();
+    private static List<String> puglia = new ArrayList<>();
+    private static List<String> sardegna = new ArrayList<>();
+    private static List<String> sicilia = new ArrayList<>();
+    private static List<String> toscana = new ArrayList<>();
+    private static List<String> trentinoaltoadige = new ArrayList<>();
+    private static List<String> umbria = new ArrayList<>();
+    private static List<String> valleaosta = new ArrayList<>();
+    private static List<String> veneto = new ArrayList<>();
     
     private static String provincia;
     private static String regione;
@@ -295,26 +299,26 @@ public class SetRegioneEProvincia {
  
     
     public void checkString(String province){
-        if(checkList(abruzzo , province)==true){setProvincia(province);setRegione("Abruzzo");}
-        else if(checkList(basilicata , province)==true){setProvincia(province);setRegione("Basilicata");}
-        else if(checkList(calabria , province)==true){setProvincia(province);setRegione("Calabria");}
-        else if(checkList(campania , province)==true){setProvincia(province);setRegione("Campania");}
-        else if(checkList(emiliaromagna , province)==true){setProvincia(province);setRegione("Emilia Romagna");}
-        else if(checkList(friuliveneziagiulia , province)==true){setProvincia(province);setRegione("Friuli Venezia Giulia");}
-        else if(checkList(lazio , province)==true){setProvincia(province);setRegione("Lazio");}
-        else if(checkList(liguria , province)==true){setProvincia(province);setRegione("Liguria");}
-        else if(checkList(lombardia , province)==true){setProvincia(province);setRegione("Lombardia");}
-        else if(checkList(marche , province)==true){setProvincia(province);setRegione("Marche");}
-        else if(checkList(molise , province)==true){setProvincia(province);setRegione("Molise");}
-        else if(checkList(piemonte , province)==true){setProvincia(province);setRegione("Piemonte");}
-        else if(checkList(puglia , province)==true){setProvincia(province);setRegione("Puglia");}
-        else if(checkList(sardegna , province)==true){setProvincia(province);setRegione("Sardegna");}
-        else if(checkList(sicilia , province)==true){setProvincia(province);setRegione("Sicilia");}
-        else if(checkList(toscana , province)==true){setProvincia(province);setRegione("Toscana");}
-        else if(checkList(trentinoaltoadige , province)==true){setProvincia(province);setRegione("Trentino Alto Adige");}
-        else if(checkList(umbria , province)==true){setProvincia(province);setRegione("Umbria");}
-        else if(checkList(valleaosta , province)==true){setProvincia(province);setRegione("Valle d'Aosta");}
-        else if(checkList(veneto , province)==true){setProvincia(province);setRegione("Veneto");}
+        if(checkList(abruzzo , province)){setProvincia(province);setRegione("Abruzzo");}
+        else if(checkList(basilicata , province)){setProvincia(province);setRegione("Basilicata");}
+        else if(checkList(calabria , province)){setProvincia(province);setRegione("Calabria");}
+        else if(checkList(campania , province)){setProvincia(province);setRegione("Campania");}
+        else if(checkList(emiliaromagna , province)){setProvincia(province);setRegione("Emilia Romagna");}
+        else if(checkList(friuliveneziagiulia , province)){setProvincia(province);setRegione("Friuli Venezia Giulia");}
+        else if(checkList(lazio , province)){setProvincia(province);setRegione("Lazio");}
+        else if(checkList(liguria , province)){setProvincia(province);setRegione("Liguria");}
+        else if(checkList(lombardia , province)){setProvincia(province);setRegione("Lombardia");}
+        else if(checkList(marche , province)){setProvincia(province);setRegione("Marche");}
+        else if(checkList(molise , province)){setProvincia(province);setRegione("Molise");}
+        else if(checkList(piemonte , province)){setProvincia(province);setRegione("Piemonte");}
+        else if(checkList(puglia , province)){setProvincia(province);setRegione("Puglia");}
+        else if(checkList(sardegna , province)){setProvincia(province);setRegione("Sardegna");}
+        else if(checkList(sicilia , province)){setProvincia(province);setRegione("Sicilia");}
+        else if(checkList(toscana , province)){setProvincia(province);setRegione("Toscana");}
+        else if(checkList(trentinoaltoadige , province)){setProvincia(province);setRegione("Trentino Alto Adige");}
+        else if(checkList(umbria , province)){setProvincia(province);setRegione("Umbria");}
+        else if(checkList(valleaosta , province)){setProvincia(province);setRegione("Valle d'Aosta");}
+        else if(checkList(veneto, province)){setProvincia(province);setRegione("Veneto");}
         else {setProvincia(null);setRegione(null);}
         
         
@@ -342,7 +346,7 @@ public class SetRegioneEProvincia {
     }
     
     
-    private boolean checkList(ArrayList<String> listRegioni,String province){
+    private boolean checkList(List<String> listRegioni,String province){
         boolean b =false;
         for(String s: listRegioni){
             if(s.replaceAll("\\s+","").equalsIgnoreCase(province.replaceAll("\\s+",""))) {
@@ -358,107 +362,84 @@ public class SetRegioneEProvincia {
         }
         return b;
     }
-    
-    
-    
-    
-//    public static void main(String args[]){
-//      EventQueue.invokeLater(new Runnable() {
-//         public void run() {       
-//                try{   
-//                   String s = "Siena";
-//                   SetRegioneEProvincia set = new SetRegioneEProvincia();
-//                   set.checkString(s);
-//                   System.out.println(getProvincia());
-//                   System.out.println(getRegione());                   
-//                 } catch (Exception e2) {
-//                         System.out.println("ECCEZIONE DI QUALCHE TIPO CAUSATA IN FASE DI RUN");
-//                         e2.printStackTrace();                                      
-//                 } finally{
-//                    provincia = null;
-//                    regione = null;
-//                }                 
-//          }//run                 
-//        });//runnable     
-//      }//main      
 
-    public static ArrayList<String> getAbruzzo() {
+    public static List<String> getAbruzzo() {
         return abruzzo;
     }
 
-    public static ArrayList<String> getBasilicata() {
+    public static List<String> getBasilicata() {
         return basilicata;
     }
 
-    public static ArrayList<String> getCalabria() {
+    public static List<String> getCalabria() {
         return calabria;
     }
 
-    public static ArrayList<String> getCampania() {
+    public static List<String> getCampania() {
         return campania;
     }
 
-    public static ArrayList<String> getEmiliaromagna() {
+    public static List<String> getEmiliaromagna() {
         return emiliaromagna;
     }
 
-    public static ArrayList<String> getFriuliveneziagiulia() {
+    public static List<String> getFriuliveneziagiulia() {
         return friuliveneziagiulia;
     }
 
-    public static ArrayList<String> getLazio() {
+    public static List<String> getLazio() {
         return lazio;
     }
 
-    public static ArrayList<String> getLiguria() {
+    public static List<String> getLiguria() {
         return liguria;
     }
 
-    public static ArrayList<String> getLombardia() {
+    public static List<String> getLombardia() {
         return lombardia;
     }
 
-    public static ArrayList<String> getMarche() {
+    public static List<String> getMarche() {
         return marche;
     }
 
-    public static ArrayList<String> getMolise() {
+    public static List<String> getMolise() {
         return molise;
     }
 
-    public static ArrayList<String> getPiemonte() {
+    public static List<String> getPiemonte() {
         return piemonte;
     }
 
-    public static ArrayList<String> getPuglia() {
+    public static List<String> getPuglia() {
         return puglia;
     }
 
-    public static ArrayList<String> getSardegna() {
+    public static List<String> getSardegna() {
         return sardegna;
     }
 
-    public static ArrayList<String> getSicilia() {
+    public static List<String> getSicilia() {
         return sicilia;
     }
 
-    public static ArrayList<String> getToscana() {
+    public static List<String> getToscana() {
         return toscana;
     }
 
-    public static ArrayList<String> getTrentinoaltoadige() {
+    public static List<String> getTrentinoaltoadige() {
         return trentinoaltoadige;
     }
 
-    public static ArrayList<String> getUmbria() {
+    public static List<String> getUmbria() {
         return umbria;
     }
 
-    public static ArrayList<String> getValleaosta() {
+    public static List<String> getValleaosta() {
         return valleaosta;
     }
 
-    public static ArrayList<String> getVeneto() {
+    public static List<String> getVeneto() {
         return veneto;
     }
 }
