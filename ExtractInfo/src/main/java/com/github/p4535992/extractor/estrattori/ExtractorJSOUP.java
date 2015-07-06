@@ -40,8 +40,15 @@ public class ExtractorJSOUP {
     private static boolean EXIST_WEBPAGE;
 
 
-    
-    public ExtractorJSOUP(){}
+    private static ExtractorJSOUP instance = null;
+    protected ExtractorJSOUP(){}
+    public static ExtractorJSOUP getInstance(){
+        if(instance == null){
+            instance = new ExtractorJSOUP();
+        }
+        return instance;
+    }
+
     int tentativi = 0;
     public GeoDocument GetTitleAndHeadingTags(String url,GeoDocument geo) throws IOException, InterruptedException{
         String result = "";

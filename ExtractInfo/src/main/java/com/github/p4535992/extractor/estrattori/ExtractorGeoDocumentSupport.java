@@ -23,7 +23,7 @@ import java.util.List;
  */
 public class ExtractorGeoDocumentSupport {
 
-    ManageJsonWithGoogleMaps j = new ManageJsonWithGoogleMaps();
+    ManageJsonWithGoogleMaps j = ManageJsonWithGoogleMaps.getInstance();
 
     private static ExtractorGeoDocumentSupport instance = null;
     protected ExtractorGeoDocumentSupport(){}

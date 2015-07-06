@@ -49,7 +49,7 @@ public class MainExtractInfo {
                         SystemLog.message(params.toString());
 
                        if(params.getValue("PARAM_TYPE_EXTRACTION").equals("SPRING")){
-                            ExtractInfoSpring m = new ExtractInfoSpring(params);
+                            ExtractInfoSpring m = ExtractInfoSpring.getInstance(params);
                             SystemLog.message("START EXTRACT");
                             m.Extraction();
                        }

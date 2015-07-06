@@ -16,44 +16,50 @@ import java.util.*;
  * Classe con la quale da una lista di url realizziamo una lista di GeoDocument
  * da inserire come InfoDocument nel database mySQL.
  * @author 4535992.
- * @version 2015-07-01.
+ * @version 2015-07-06.
  */
 @SuppressWarnings("unused")
 public class ExtractInfoSpring {
 
      //private boolean SAVE_DATASTORE = false;
      //private String TYPE_EXTRACTION;
-     private Integer PROCESS_PROGAMM;
-     private boolean CREATE_NEW_GEODOCUMENT_TABLE,ERASE;
-     private Integer LIMIT,OFFSET;
-     private boolean ONTOLOGY_PROGRAMM,GENERATION_TRIPLE_KARMA_PROGRAMM,GEODOMAIN_PROGRAMM,
-             SILK_LINKING_TRIPLE_PROGRAMM;
-     private String USER,PASS,DB_INPUT, DB_OUTPUT, TABLE_INPUT,TABLE_OUTPUT,COLUMN_TABLE_INPUT,
+    private Integer PROCESS_PROGAMM,LIMIT,OFFSET;
+    private boolean CREATE_NEW_GEODOCUMENT_TABLE,ERASE;
+    private boolean ONTOLOGY_PROGRAMM,GENERATION_TRIPLE_KARMA_PROGRAMM,GEODOMAIN_PROGRAMM,SILK_LINKING_TRIPLE_PROGRAMM;
+    private String USER,PASS,DB_INPUT, DB_OUTPUT, TABLE_INPUT,TABLE_OUTPUT,COLUMN_TABLE_INPUT,
              TABLE_KEYWORD_DOCUMENT,DB_KEYWORD,DRIVER_DATABASE,DIALECT_DATABASE,HOST_DATABASE;
-     private Integer PORT_DATABASE;
-    private String TABLE_OUTPUT_ONTOLOGY;
-    private String TABLE_INPUT_ONTOLOGY;
+    private Integer PORT_DATABASE;
+    private String TABLE_OUTPUT_ONTOLOGY,TABLE_INPUT_ONTOLOGY;
 
     /*private boolean FILTER,CREA_NUOVA_TABELLA_INFODOCUMENT_ONTOLOGY,ERASE_ONTOLOGY;
     private String API_KEY_GM,TYPE_DATABASE_KARMA,FILE_MAP_TURTLE_KARMA,FILE_OUTPUT_TRIPLE_KARMA,ID_DATABASE_KARMA,
              TABLE_INPUT_KARMA,OUTPUT_FORMAT_KARMA,KARMA_HOME;*/
-     private boolean CREA_NUOVA_TABELLA_INFODOCUMENT_ONTOLOGY,ERASE_ONTOLOGY;
-     private String FILE_MAP_TURTLE_KARMA,FILE_OUTPUT_TRIPLE_KARMA,OUTPUT_FORMAT_KARMA;
+    private boolean CREA_NUOVA_TABELLA_INFODOCUMENT_ONTOLOGY,ERASE_ONTOLOGY;
+    private String FILE_MAP_TURTLE_KARMA,FILE_OUTPUT_TRIPLE_KARMA,OUTPUT_FORMAT_KARMA;
 
-     private Integer LIMIT_GEODOMAIN, OFFSET_GEODOMAIN,FREQUENZA_URL_GEODOMAIN;
-     private String TABLE_INPUT_GEODOMAIN,TABLE_OUTPUT_GEODOMAIN,DB_OUTPUT_GEODOMAIN;
-     private boolean CREA_NUOVA_TABELLA_GEODOMAIN,ERASE_GEODOMAIN;
+    private Integer LIMIT_GEODOMAIN, OFFSET_GEODOMAIN,FREQUENZA_URL_GEODOMAIN;
+    private String TABLE_INPUT_GEODOMAIN,TABLE_OUTPUT_GEODOMAIN,DB_OUTPUT_GEODOMAIN;
+    private boolean CREA_NUOVA_TABELLA_GEODOMAIN,ERASE_GEODOMAIN;
 
-     private String DIRECTORY_FILES,SILK_SLS_FILE;
+    private String DIRECTORY_FILES,SILK_SLS_FILE;
 
-     IDocumentDao Docdao = new DocumentDaoImpl();
-     IWebsiteDao websiteDao = new WebsiteDaoImpl();
-     public static IGeoDocumentDao getGeoDocumentDao() {
+    IDocumentDao Docdao = new DocumentDaoImpl();
+    IWebsiteDao websiteDao = new WebsiteDaoImpl();
+    public static IGeoDocumentDao getGeoDocumentDao() {
         return geoDocumentDao;
     }
-     private static IGeoDocumentDao geoDocumentDao = new GeoDocumentDaoImpl();
+    private static IGeoDocumentDao geoDocumentDao = new GeoDocumentDaoImpl();
 
-     public ExtractInfoSpring(SimpleParameters par){
+    private static ExtractInfoSpring instance = null;
+
+    public static ExtractInfoSpring getInstance(SimpleParameters par){
+        if(instance == null) {
+            instance = new ExtractInfoSpring(par);
+        }
+        return instance;
+    }
+
+     protected ExtractInfoSpring(SimpleParameters par){
         try {
             //this.TYPE_EXTRACTION = par.getValue("PARAM_TYPE_EXTRACTION");
             this.PROCESS_PROGAMM = Integer.parseInt(par.getValue("PARAM_PROCESS_PROGAMM"));

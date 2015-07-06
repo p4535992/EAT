@@ -16,8 +16,10 @@ import org.jsoup.select.Elements;
 
 /**
  *
- * @author Marco
+ * @author 4535992.
+ * @version 2015-07-06.
  */
+@SuppressWarnings("unused")
 public class SetCodicePostale {
     
     private static Map<String,SetCodicePostale> lcp = new HashMap<>(); 

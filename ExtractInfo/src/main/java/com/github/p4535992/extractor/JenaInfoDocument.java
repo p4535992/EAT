@@ -14,6 +14,14 @@ import java.io.IOException;
 @SuppressWarnings("unused")
 public class JenaInfoDocument {
     private static org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger(JenaInfoDocument.class);
+    protected JenaInfoDocument(){}
+    private static JenaInfoDocument instance = null;
+    public static  JenaInfoDocument getInstance(){
+        if(instance == null) {
+            instance = new JenaInfoDocument();
+        }
+        return instance;
+    }
 
     //Get all the triples on the model without the predicate schema:latitude and schema:longitude
     private static final String SPARQL_NO_SCHEMACOORDS =
@@ -51,7 +59,6 @@ public class JenaInfoDocument {
             + "  <http://www.w3.org/2003/01/geo/wgs84_pos#long> ?long ."
             + "}";
 
-    public JenaInfoDocument(){}
 
     /**
      * Method for read,query and clean a specific set of triple.

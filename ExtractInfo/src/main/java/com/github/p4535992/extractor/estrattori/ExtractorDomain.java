@@ -4,6 +4,7 @@ import com.github.p4535992.extractor.ManageJsonWithGoogleMaps;
 import com.github.p4535992.extractor.object.model.GeoDomainDocument;
 import com.github.p4535992.extractor.object.support.DepositFrequencyInfo;
 import com.github.p4535992.extractor.object.model.GeoDocument;
+import com.github.p4535992.util.file.SimpleParameters;
 import com.github.p4535992.util.log.SystemLog;
 import com.github.p4535992.extractor.object.impl.jdbc.GeoDomainDocumentDaoImpl;
 
@@ -35,19 +36,35 @@ public class ExtractorDomain {
     //FREQUENZA DEGLI URL PER L'IDENTIFICAZIONE DEL DOMINIO
     private  Integer FREQUENZA_INTERVALLO_URL,LIMIT,OFFSET;
     private  GeoDomainDocumentDaoImpl geoDomainDocDao;
-    
-    public ExtractorDomain(){}
-    public ExtractorDomain(GeoDomainDocumentDaoImpl dao, Integer LIMIT, Integer OFFSET, Integer FREQUENZA_INTERVALLO_URL
+    private static ExtractorDomain instance = null;
+    protected ExtractorDomain(){}
+
+    protected ExtractorDomain(GeoDomainDocumentDaoImpl dao, Integer LIMIT, Integer OFFSET, Integer FREQUENZA_INTERVALLO_URL
     ){
         this.LIMIT = LIMIT;
         this.OFFSET = OFFSET;
         this.FREQUENZA_INTERVALLO_URL = FREQUENZA_INTERVALLO_URL;
         this.geoDomainDocDao = dao;
     }
+
+    public static ExtractorDomain getInstance(){
+        if(instance == null) {
+            instance = new ExtractorDomain();
+        }
+        return instance;
+    }
+
+    public static ExtractorDomain getInstance(
+            GeoDomainDocumentDaoImpl dao, Integer LIMIT, Integer OFFSET, Integer FREQUENZA_INTERVALLO_URL){
+        if(instance == null) {
+            instance = new ExtractorDomain(dao,LIMIT,OFFSET,FREQUENZA_INTERVALLO_URL);
+    }
+        return instance;
+    }
     //***********************************************************************************************************
-    private static ArrayList<String> listDomains = new ArrayList<>();
-    private static ArrayList<String> listFinalDomains = new ArrayList<>();
-    private static ArrayList<DepositFrequencyInfo> listDepositFrequency = new ArrayList<>();
+    private static List<String> listDomains = new ArrayList<>();
+    private static List<String> listFinalDomains = new ArrayList<>();
+    private static List<DepositFrequencyInfo> listDepositFrequency = new ArrayList<>();
   
     public void CreateTableOfGeoDomainDocument(String tipo){
         try{
@@ -279,8 +296,11 @@ public class ExtractorDomain {
    }
 
 
+    /**
+     * Method for update all record with the Coordinates null or empty.
+     */
     public void reloadNullCoordinates(){
-        ManageJsonWithGoogleMaps j = new ManageJsonWithGoogleMaps();
+        ManageJsonWithGoogleMaps j = ManageJsonWithGoogleMaps.getInstance();
         String[] columns_where = new String[]{"latitude","longitude"};
         Object[] values_where = new Object[]{null,null};
         try {

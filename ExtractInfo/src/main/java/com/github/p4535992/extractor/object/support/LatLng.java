@@ -15,6 +15,11 @@ public class LatLng implements Serializable{
         this.lat = lat;
         this.lng = lng;
     }
+
+    public LatLng(Integer lat,Integer lng) {
+        this.lat = lat;
+        this.lng = lng;
+    }
  
     public double getLat() {
         return lat;

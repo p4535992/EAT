@@ -10,8 +10,10 @@ import java.util.Map;
  * risolverebbe il problema ma rallenterebbe anche di molto il programma
  * lascio a chi riprende il progetto la possibilità di esaminare una soluzione 
  * migliore e più automatica (senza che ci si rimetta mano sopra).
- * @author Marco
+ * @author 4535992-
+ * @version 2015-07-06
  */
+@SuppressWarnings("unused")
 public class SetNazioneELanguage {
     
     private Map<String,SetNazioneELanguage> map = new HashMap<String,SetNazioneELanguage>(); 
@@ -368,10 +370,10 @@ public class SetNazioneELanguage {
             }//if  
             }catch(java.lang.NullPointerException ne){
                 if(nazione2.equalsIgnoreCase(nazione)){
-                 gmregion = entry.getValue().getAlpha_1();
-                 break;
-            }//if  
-            }catch(Exception e){continue;}
+                     gmregion = entry.getValue().getAlpha_1();
+                     break;
+                 }//if
+            }
         }//for
         return gmregion;
     }
