@@ -180,7 +180,7 @@ public class ExtractorJSOUP {
     private String pulisciStringaEdificio(String edificio){
         List<String> badWords = Arrays.asList("INDEX","index", "home/home", "HOME", "homepage","HOMEPAGE",
                 "page","PAGE","Homepage","Page","Home","Chi siamo","Chi Siamo","Portale","portale",
-                "NEWS","News","Benvenuto nel","benvenuto nel","Benvenuto","benvenuto"
+                "NEWS","News","Benvenuto nel","benvenuto nel","Benvenuto","benvenuto","CHI SIAMO"
                 );
         for(String s: badWords){
             if(edificio.contains(s)){

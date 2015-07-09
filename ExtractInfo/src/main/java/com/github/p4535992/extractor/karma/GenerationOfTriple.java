@@ -3,12 +3,14 @@ import com.github.p4535992.util.collection.CollectionKit;
 import com.github.p4535992.util.encoding.EncodingUtil;
 import com.github.p4535992.util.file.FileUtil;
 import com.github.p4535992.util.log.SystemLog;
+import com.github.p4535992.util.string.StringKit;
 import edu.isi.karma.kr2rml.URIFormatter;
 import edu.isi.karma.kr2rml.mapping.R2RMLMappingIdentifier;
 import edu.isi.karma.kr2rml.writer.N3KR2RMLRDFWriter;
 import edu.isi.karma.rdf.GenericRDFGenerator;
 import edu.isi.karma.rdf.RDFGeneratorRequest;
 import edu.isi.karma.webserver.KarmaException;
+import org.json.JSONArray;
 
 import java.io.*;
 import java.util.List;
@@ -59,10 +61,10 @@ public class GenerationOfTriple {
 
     public File GenerationOfTripleWithKarmaAPIFromDataBase() throws IOException {
 
-        String pathModel = MODEL_TURTLE_KARMA+"";
         String pathOut = TRIPLE_OUTPUT_KARMA+"";
         String[] value = new String[]{
-                SOURCETYPE_KARMA,pathModel,pathOut,DBTYPE_KARMA,HOSTNAME_KARMA,USERNAME_KARMA,PASSWORD_KARMA,
+                SOURCETYPE_KARMA,MODEL_TURTLE_KARMA,pathOut,
+                DBTYPE_KARMA,HOSTNAME_KARMA,USERNAME_KARMA,PASSWORD_KARMA,
                 PORTNUMBER_KARMA,DBNAME_KARMA,TABLENAME_KARMA
                 //"UTF-8"
 
@@ -72,7 +74,6 @@ public class GenerationOfTriple {
                 "--username","--password","--portnumber","--dbname","--tablename"
                 //"--encoding"
         };
-
         //Other param options
         //--modelurl --jsonoutputfile --baseuri --selection --root --killtriplemap --stoptriplemap --pomtokill
         //Other param database options
@@ -83,18 +84,24 @@ public class GenerationOfTriple {
         String[] args2;
         try {
             args2 = CollectionKit.mergeArraysForCommandInput(param, value);
-            String msg ="";
-            for (String anArgs2 : args2) {
-                msg += anArgs2 + " ";
-            }
-            SystemLog.message("PARAM KARMA:"+ msg);
+            SystemLog.message("PARAM KARMA:"+ StringKit.convertArrayContentToSingleString(args2));
             SystemLog.message("try to create a file of triples from a relational table with karma...");
+
             edu.isi.karma.rdf.OfflineRdfGenerator.main(args2);
+            //TEST
+            pathOut =
+                    System.getProperty("user.dir")+File.separator+"karma_files"+File.separator+
+                            "output"+File.separator+FileUtil.filenameNoExt(pathOut)+"."+FileUtil.extension(pathOut);
+            SystemLog.message("...file of triples created with name:" + pathOut);
 
-            SystemLog.message("...file of triples created in the path:" + pathOut);
+            String output = System.getProperty("user.dir")+File.separator+"karma_files"+File.separator+"output"+File.separator+
+                    FileUtil.filename(pathOut).replace("." + FileUtil.extension(pathOut), "-UTF8." + FileUtil.extension(pathOut));
 
-            String output = System.getProperty("user.dir")+File.separator+"karma_files"+File.separator+"output"+File.separator+FileUtil.filename(TRIPLE_OUTPUT_KARMA)
-                    .replace("."+FileUtil.extension(TRIPLE_OUTPUT_KARMA), "-UTF8."+FileUtil.extension(TRIPLE_OUTPUT_KARMA));
+            SystemLog.message("...file of triples created in the path:" + output);
+
+           /* String output = System.getProperty("user.dir")+File.separator+"karma_files"+File.separator+"output"+
+                    File.separator+FileUtil.filename(pathOut)
+                    .replace("."+FileUtil.extension(pathOut), "-UTF8." + FileUtil.extension(pathOut));*/
 
 
             File filePathTriple = new File(pathOut);
@@ -108,7 +115,8 @@ public class GenerationOfTriple {
             File f = new File(output);
             //RIPULIAMO LETRIPLE DALLE LOCATION SENZA COORDINATE CON JENA
             SystemLog.message("Re-clean infodocument triples from the Location information  without coordinates from the file:" + output);
-            SystemLog.message(FileUtil.filenameNoExt(f)+","+FileUtil.path(f)+","+FileUtil.filenameNoExt(f) + "-c" + "," + FileUtil.extension(f));
+            SystemLog.message(FileUtil.filenameNoExt(f)+","+FileUtil.path(f)+","+FileUtil.filenameNoExt(f)
+                    + "-c" + "," + FileUtil.extension(f));
 
             /*JenaInfoDocument.readQueryAndCleanTripleInfoDocument(
                     FileUtil.filenameNoExt(f), //filenameInput

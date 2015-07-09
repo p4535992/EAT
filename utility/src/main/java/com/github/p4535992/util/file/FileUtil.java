@@ -7,6 +7,8 @@ import java.io.*;
 import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URL;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.*;
 import java.util.zip.GZIPInputStream;
 
@@ -14,8 +16,8 @@ import static java.util.Arrays.*;
 
 /**
  * Class with many utilities mathod for magage the file object.
- * @author 4535992
- * @version 2015-06-25
+ * @author 4535992.
+ * @version 2015-07-07.
  */
 @SuppressWarnings("unused")
 public class FileUtil {
@@ -116,9 +118,14 @@ public class FileUtil {
      * @param fullPath string of the path to the file
      * @return name of the file
      */
-    public static String filename(String fullPath) {             
-        String name = fullPath.replace(FileUtil.path(fullPath), "");
-        name = name.replace(File.separator,"");
+    public static String filename(String fullPath) {
+        String name="";
+        if (fullPath.contains(File.separator)) {
+            name = fullPath.replace(FileUtil.path(fullPath), "");
+        }else{
+            name = fullPath;
+        }
+        name = name.replace(File.separator, "");
         return name;
     }
 
@@ -272,7 +279,7 @@ public class FileUtil {
      * @return list of files in the directory.
      */
     public static List<File> readDirectory(File directory){
-        return readDirectory( directory.getAbsolutePath());
+        return readDirectory(directory.getAbsolutePath());
     }
 
     /**
@@ -434,26 +441,37 @@ public class FileUtil {
         return dir + ":".toLowerCase();
     }
 
+    public static String convertFileToString(String fullPath){
+    return convertFileToString(new File(fullPath));
+    }
+
+    public static String convertFileToString(File file){
+        return readStringFromFileLineByLine(file);
+    }
 
     public static String readStringFromFileLineByLine(String pathToFile) {
-        StringBuilder stringBuffer = new StringBuilder();
+        return readStringFromFileLineByLine(new File(pathToFile));
+    }
+
+    public static String readStringFromFileLineByLine(File file) {
+        StringBuilder stringBuilder = new StringBuilder();
         try
         {
-            File file = new File(pathToFile);
+            //File file = new File(pathToFile);
             try (FileReader fileReader = new FileReader(file)) {
                 BufferedReader bufferedReader = new BufferedReader(fileReader);
                 String line;
                 while ((line = bufferedReader.readLine()) != null) {
-                    stringBuffer.append(line);
-                    stringBuffer.append("\r\n");
+                    stringBuilder.append(line.trim());
+                    //stringBuilder.append("\r\n");
                 }
             }
-            System.out.println("Contents of file:");
-            System.out.println(stringBuffer.toString());
+            //System.out.println("Contents of file:");
+            System.out.println(stringBuilder.toString());
         }catch( IOException e){
             SystemLog.exception(e);
         }
-        return stringBuffer.toString();
+        return stringBuilder.toString();
     }
 
     public static Map<String,String> readStringFromFileLineByLine(String pathToFile, char separator, SimpleParameters params) {
@@ -512,7 +530,7 @@ public class FileUtil {
         try {
             return new FileInputStream(file);
         }catch(FileNotFoundException e){
-            SystemLog.warning("The file:"+ file.getAbsolutePath() +" not exists!!!");
+            SystemLog.warning("The file:" + file.getAbsolutePath() + " not exists!!!");
             return null;
         }
     }
@@ -640,6 +658,50 @@ public class FileUtil {
             SystemLog.warning("The file:"+file.getAbsolutePath()+" not exists!");
         }
         return false;
+    }
+
+    private static String hashFile(File file, String algorithm){
+        try (FileInputStream inputStream = new FileInputStream(file)) {
+            MessageDigest digest = MessageDigest.getInstance(algorithm);
+            byte[] bytesBuffer = new byte[1024];
+            int bytesRead;//= -1
+            while ((bytesRead = inputStream.read(bytesBuffer)) != -1) {
+                digest.update(bytesBuffer, 0, bytesRead);
+            }
+            byte[] hashedBytes = digest.digest();
+            return StringKit.convertByteArrayToHexString(hashedBytes);
+        } catch (NoSuchAlgorithmException | IOException ex) {
+            SystemLog.error("Could not generate hash from file");
+            SystemLog.exception(ex);
+            return null;
+        }
+    }
+
+    /**
+     * Metho to convet a File to a MD5 hash string.
+     * @param file the input File to codify to hash.
+     * @return the string of the hash.
+     */
+    public static String convertFileToMD5(File file) {
+        return hashFile(file, "MD5");
+    }
+
+    /**
+     * Metho to convet a File to a SHA-1 hash string.
+     * @param file the input File to codify to hash.
+     * @return the string of the hash.
+     */
+    public static String convertFileToSHA1(File file) {
+        return hashFile(file, "SHA-1");
+    }
+
+    /**
+     * Metho to convet a File to a SHA-256 hash string.
+     * @param file the input File to codify to hash.
+     * @return the string of the hash.
+     */
+    public static String convertFileToSHA256(File file)  {
+        return hashFile(file, "SHA-256");
     }
 
 

@@ -23,6 +23,22 @@ public class JenaInfoDocument {
         return instance;
     }
 
+    //Get all service KM4c information
+    private static final String SPARQL_KM4C_SERVICE = "CONSTRUCT {?service ?p ?o.}\n" +
+            "WHERE {\n" +
+            "?service a  <http://www.disit.org/km4city/schema#Service>;\n" +
+            "         ?p ?o .    \n" +
+            "}";
+
+    private static final String SPARQL_GOODRELATIONS_BUSINESS = "CONSTRUCT {?business ?p ?o }\n" +
+            "WHERE { \n" +
+            "   ?business <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/goodrelations/v1#BusinessEntity>;\n" +
+            "               ?p ?o .\n" +
+            "   OPTIONAL{?business <http://purl.org/goodrelations/v1#hasPOS> ?location}\n" +
+            "   OPTIONAL{?location <http://www.w3.org/2003/01/geo/wgs84_pos#lat> ?o}\n" +
+            "   OPTIONAL{?location<http://www.w3.org/2003/01/geo/wgs84_pos#long> ?o}\n" +
+            "}";
+
     //Get all the triples on the model without the predicate schema:latitude and schema:longitude
     private static final String SPARQL_NO_SCHEMACOORDS =
               "CONSTRUCT {?s <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/goodrelations/v1#Location>  }"

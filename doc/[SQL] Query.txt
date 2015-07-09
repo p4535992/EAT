@@ -1,0 +1,4 @@
+UPDATE geodb.infodocument_coord_omogeneo_05052014 SET identifier = MD5(doc_id);
+SELECT identifier FROM geodb.infodocument_coord_omogeneo_05052014;
+UPDATE geodb.infodocument_coord_omogeneo_05052014 SET name_location = identifier;
+UPDATE geodb.infodocument_coord_omogeneo_05052014 SET name_location = CONCAT('Location_',name_location);

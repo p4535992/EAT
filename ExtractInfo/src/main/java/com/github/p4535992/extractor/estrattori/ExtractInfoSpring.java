@@ -162,14 +162,14 @@ public class ExtractInfoSpring {
         try{
              ExtractInfoWeb web = ExtractInfoWeb.getInstance(
                      DRIVER_DATABASE,DIALECT_DATABASE,HOST_DATABASE,PORT_DATABASE.toString(),USER,PASS,DB_OUTPUT);
-             web.setGate("gate_files", "plugins", "gate.xml", "user-gate.xml", "gate.session",
-                     "custom/gapp/geoLocationPipeline06102014v7_fastMode.xgapp");
-             SystemLog.message("Run the extraction method.");
-             List<URL> listUrl = ExtractInfoWeb.getInstance().getListURLFromDatabase(
-                     DRIVER_DATABASE, DIALECT_DATABASE, HOST_DATABASE,
-                     PORT_DATABASE.toString(), USER, PASS, DB_INPUT, TABLE_INPUT, COLUMN_TABLE_INPUT, LIMIT, OFFSET);
-             List<GeoDocument> listGeo = new ArrayList<>();
              if(PROCESS_PROGAMM < 4){
+                 SystemLog.message("Run the extraction method.");
+                 List<URL> listUrl = ExtractInfoWeb.getInstance().getListURLFromDatabase(
+                         DRIVER_DATABASE, DIALECT_DATABASE, HOST_DATABASE,
+                         PORT_DATABASE.toString(), USER, PASS, DB_INPUT, TABLE_INPUT, COLUMN_TABLE_INPUT, LIMIT, OFFSET);
+                 List<GeoDocument> listGeo = new ArrayList<>();
+                 web.setGate("gate_files", "plugins", "gate.xml", "user-gate.xml", "gate.session",
+                         "custom/gapp/geoLocationPipeline06102014v7_fastMode.xgapp");
                  if(PROCESS_PROGAMM == 1){
                      SystemLog.message("RUN PROCESS 1: METODOLOGIA PER SINGOLO URL");
                      if(listUrl.isEmpty()){

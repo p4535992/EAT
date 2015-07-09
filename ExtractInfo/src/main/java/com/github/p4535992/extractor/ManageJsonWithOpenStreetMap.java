@@ -42,7 +42,13 @@ public class ManageJsonWithOpenStreetMap {
     public LatLng getCoords(String rawAddress){
         return parse(rawAddress);
     }
- 
+
+    /**
+     * Method support for parse inputStream with OPenStreetMap.
+     * @param jsonStream inputStream.
+     * @return LatLng object.
+     */
+    @SuppressWarnings({"unchecked","rawtypes"})
     private LatLng parseInputStream(final InputStream jsonStream){
         LatLng coordinate = null;
         final ObjectMapper mapper = new ObjectMapper();

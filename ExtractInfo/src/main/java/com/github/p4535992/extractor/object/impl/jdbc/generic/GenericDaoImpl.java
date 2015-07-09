@@ -347,6 +347,7 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
             query = prepareSelectQuery(new String[]{column},new String[]{column_where},null,null,null,null);
             //query = "SELECT " + column + " FROM " + mySelectTable + " WHERE " + column_where + " = ? LIMIT 1";
             result =  jdbcTemplate.queryForObject(query, new Object[]{value_where},value_where.getClass());
+            SystemLog.query(query + " -> " + result);
         }catch(org.springframework.dao.EmptyResultDataAccessException e){
             SystemLog.warning(query + " ->" + e.getMessage());
             SystemLog.warning("Attention probably the SQL result is empty!");
@@ -358,8 +359,9 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
             SystemLog.warning(query + " ->" + e.getMessage());
             SystemLog.warning("Attention probably the database not exists!");
             return null;
+        }finally{
+            query = "";
         }
-        SystemLog.query(query + " -> " + result);
         return result;
     }
 
@@ -379,19 +381,26 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
 
     @Override
     public void trim(String column){
-        query = "UPDATE " + myInsertTable + " SET " + column + " = LTRIM(RTRIM(" + column + "));";
-        SystemLog.message("SQL:" + query);
-        jdbcTemplate.execute(query);
+        try {
+            query = "UPDATE " + myInsertTable + " SET " + column + " = LTRIM(RTRIM(" + column + "));";
+            //SystemLog.message("SQL:" + query);
+            jdbcTemplate.execute(query);
+        }finally{
+            query ="";
+        }
     }
 
     @Override
     public void insert(String[] columns,Object[] values,int[] types) {
         try {
+            query ="";
             query = prepareInsertIntoQuery(columns, null);
             SystemLog.query(query);
             jdbcTemplate.update(query, values, types);
+            SystemLog.query(prepareInsertIntoQuery(columns, values, types));
+            query ="";
         }catch(org.springframework.dao.TransientDataAccessResourceException e){
-            SystemLog.warning("Attention: probably there is some java.sql.Type not supported from your database");
+            SystemLog.error("Attention: probably there is some java.sql.Type not supported from your database");
             SystemLog.exception(e);
         }catch(org.springframework.jdbc.BadSqlGrammarException e2){
             SystemLog.error(e2.getMessage());
@@ -401,11 +410,14 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
                 SystemLog.query(query);
                 //jdbcTemplate.update(query, values);
                 jdbcTemplate.update(query);
+                SystemLog.query(query);
+                query ="";
             }catch(org.springframework.jdbc.UncategorizedSQLException|org.springframework.jdbc.BadSqlGrammarException e){
                 SystemLog.exception(e);
             }
+        }finally{
+            query ="";
         }
-        SystemLog.query(prepareInsertIntoQuery(columns, values));
     }
 
     @Override
@@ -469,7 +481,7 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
                     bQuery.append("?");
                 } else {
                     if(values[i]== null){
-                        values[i]= " NULL ";
+                        //values[i]= " NULL ";
                     }else if (values[i]!=null && values[i] instanceof String) {
                         values[i] = "'" + values[i].toString().replace("'", "''") + "'";
                     }else if (values[i]!=null && values[i] instanceof java.net.URL) {
@@ -485,11 +497,10 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
             }
             bQuery.append(");");
         }catch (NullPointerException e){
-            SystemLog.warning("Attention: you problably have forgotten to put some column for the SQL query");
+            SystemLog.warning("Attention: you probably have forgotten to put some column for the SQL query");
             SystemLog.exception(e);
         }
-        query = bQuery.toString();
-        return query;
+        return bQuery.toString();
     }
 
     @Override
@@ -519,8 +530,9 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
                 } else {
                     if(values[i]== null || Objects.equals(values[i].toString(), "NULL")){
                         //if(SQLHelper.convertSQLTypes2JavaClass(types[i]).getName().equals(Integer.class.getName())){
-                        values[i] = "NULL";
-                    }else if (values[i]!=null && values[i] instanceof String) {
+                        values[i] = null;
+                    }
+                    else if (values[i]!=null && values[i] instanceof String) {
                         values[i] = "'" + values[i].toString().replace("'", "''") + "'";
                     }else if (values[i]!=null && values[i] instanceof java.net.URL) {
                         values[i] = "'" + values[i].toString().replace("'", "''") + "'";
@@ -535,11 +547,10 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
             }
             bQuery.append(");");
         }catch (NullPointerException e){
-            SystemLog.warning("Attention: you problably have forgotten  to put some column for the SQL query");
+            SystemLog.warning("Attention: you probably have forgotten  to put some column for the SQL query");
             SystemLog.exception(e);
         }
-        query = bQuery.toString();
-        return query;
+        return bQuery.toString();
     }
 
 
@@ -618,8 +629,7 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
         if(limit != null && offset!= null) {
             bQuery.append(" LIMIT ").append(limit).append(" OFFSET ").append(offset);
         }
-        query = bQuery.toString();
-        return query;
+        return bQuery.toString();
     }
 
     @Override
@@ -665,8 +675,7 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
                 }
             }
         }
-        query = bQuery.toString();
-        return query;
+        return  bQuery.toString();
     }
 
     /**
@@ -696,8 +705,7 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
                 }
             }
         }
-        query = bQuery.toString();
-        return query;
+        return bQuery.toString();
     }
 
     @Override
@@ -737,6 +745,8 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
             }
         }catch(Exception e){
             SystemLog.exception(e);
+        }finally{
+            query ="";
         }
         return list;
     }
@@ -810,6 +820,7 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
         }finally{
             if(list.isEmpty()){SystemLog.warning("The result list of:"+query+" is empty!!");}
             else{SystemLog.query(query + " -> return a list with size:"+list.size());}
+            query ="";
         }
         return list;
     }
@@ -898,6 +909,7 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
         }finally{
             if(list.isEmpty()){SystemLog.warning("The result list of:"+query+" is empty!!");}
             else{SystemLog.query(query + " -> return a list with size:"+list.size());}
+            query ="";
         }
         return list;
     }
@@ -924,6 +936,8 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
             }
         }catch(Exception e){
             SystemLog.exception(e);
+        }finally{
+            query ="";
         }
         return listObj;
     }

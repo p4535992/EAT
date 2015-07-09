@@ -1,0 +1,352 @@
+@prefix vann: <http://purl.org/vocab/vann/#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix protege: <http://protege.stanford.edu/plugins/owl/protege#> .
+@prefix km4cr: <http://www.disit.org/km4city/resource#> .
+@prefix km4c: <http://www.disit.org/km4city/schema#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix wot: <http://xmlns.com/wot/0.1/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix daml: <http://www.daml.org/2001/03/daml+oil#> .
+@prefix schema: <http://schema.org/> .
+@prefix gis: <http://www.opengis.net/ont/geosparql#> .
+@prefix tzont: <http://www.w3.org/2006/timezone#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix otn: <http://www.pms.ifi.uni-muenchen.de/OTN#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix gr: <http://purl.org/goodrelations/v1#> .
+@prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcam: <http://purl.org/dc/dcam/> .
+@prefix p1: <http://www.pms.ifi.uni-muenchen.de/OTN#Traditional_Woodland/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix km-dev: <http://isi.edu/integration/karma/dev#> .
+
+_:node19pmo5erfx1 a km-dev:R2RMLMapping ;
+	km-dev:sourceName "infodocument_coord_siimobility_05052014" ;
+	km-dev:modelPublicationTime "1436356361076"^^xsd:long ;
+	km-dev:modelVersion "1.7" ;
+	km-dev:hasModelLabel "infodocument_coord_siimobility_05052014" ;
+	km-dev:hasBaseURI "http://purl.org/goodrelations/v1#" ;
+	km-dev:hasWorksheetHistory "[{\"tags\":[\"Modeling\"],\"inputParameters\":[{\"name\":\"hNodeId\",\"value\":[{\"columnName\":\"nazione\"}],\"type\":\"hNodeId\"},{\"name\":\"SemanticTypesArray\",\"value\":[{\"FullType\":\"http://schema.org/addressCountry\",\"isPrimary\":true,\"DomainLabel\":\"gr:BusinessEntity1 (add)\",\"DomainId\":\"http://purl.org/goodrelations/v1#BusinessEntity1 (add)\",\"DomainUri\":\"http://purl.org/goodrelations/v1#BusinessEntity\"}],\"type\":\"other\"},{\"name\":\"worksheetId\",\"value\":\"W\",\"type\":\"worksheetId\"},{\"name\":\"isKey\",\"value\":false,\"type\":\"other\"},{\"name\":\"trainAndShowUpdates\",\"value\":false,\"type\":\"other\"},{\"name\":\"rdfLiteralType\",\"value\":\"xsd:string\",\"type\":\"other\"},{\"name\":\"inputColumns\",\"value\":\"[{\\\"value\\\":[{\\\"columnName\\\":\\\"nazione\\\"}]}]\",\"type\":\"hNodeIdList\"},{\"name\":\"outputColumns\",\"value\":\"[{\\\"value\\\":[{\\\"columnName\\\":\\\"nazione\\\"}]}]\",\"type\":\"hNodeIdList\"}],\"commandName\":\"SetSemanticTypeCommand\"},{\"tags\":[\"Modeling\"],\"inputParameters\":[{\"name\":\"hNodeId\",\"value\":[{\"columnName\":\"identifier\"}],\"type\":\"hNodeId\"},{\"name\":\"SemanticTypesArray\",\"value\":[{\"FullType\":\"http://purl.org/goodrelations/v1#legalName\",\"isPrimary\":true,\"DomainLabel\":\"gr:BusinessEntity1\",\"DomainId\":\"http://purl.org/goodrelations/v1#BusinessEntity1\",\"DomainUri\":\"http://purl.org/goodrelations/v1#BusinessEntity\"}],\"type\":\"other\"},{\"name\":\"worksheetId\",\"value\":\"W\",\"type\":\"worksheetId\"},{\"name\":\"isKey\",\"value\":true,\"type\":\"other\"},{\"name\":\"trainAndShowUpdates\",\"value\":false,\"type\":\"other\"},{\"name\":\"rdfLiteralType\",\"value\":\"xsd:string\",\"type\":\"other\"},{\"name\":\"inputColumns\",\"value\":\"[{\\\"value\\\":[{\\\"columnName\\\":\\\"identifier\\\"}]}]\",\"type\":\"hNodeIdList\"},{\"name\":\"outputColumns\",\"value\":\"[{\\\"value\\\":[{\\\"columnName\\\":\\\"identifier\\\"}]}]\",\"type\":\"hNodeIdList\"}],\"commandName\":\"SetSemanticTypeCommand\"},{\"tags\":[\"Modeling\"],\"inputParameters\":[{\"name\":\"hNodeId\",\"value\":[{\"columnName\":\"edificio\"}],\"type\":\"hNodeId\"},{\"name\":\"SemanticTypesArray\",\"value\":[{\"FullType\":\"http://purl.org/goodrelations/v1#name\",\"isPrimary\":true,\"DomainLabel\":\"gr:BusinessEntity1\",\"DomainId\":\"http://purl.org/goodrelations/v1#BusinessEntity1\",\"DomainUri\":\"http://purl.org/goodrelations/v1#BusinessEntity\"}],\"type\":\"other\"},{\"name\":\"worksheetId\",\"value\":\"W\",\"type\":\"worksheetId\"},{\"name\":\"isKey\",\"value\":false,\"type\":\"other\"},{\"name\":\"trainAndShowUpdates\",\"value\":false,\"type\":\"other\"},{\"name\":\"rdfLiteralType\",\"value\":\"xsd:string\",\"type\":\"other\"},{\"name\":\"inputColumns\",\"value\":\"[{\\\"value\\\":[{\\\"columnName\\\":\\\"edificio\\\"}]}]\",\"type\":\"hNodeIdList\"},{\"name\":\"outputColumns\",\"value\":\"[{\\\"value\\\":[{\\\"columnName\\\":\\\"edificio\\\"}]}]\",\"type\":\"hNodeIdList\"}],\"commandName\":\"SetSemanticTypeCommand\"},{\"tags\":[\"Modeling\"],\"inputParameters\":[{\"name\":\"hNodeId\",\"value\":[{\"columnName\":\"telefono\"}],\"type\":\"hNodeId\"},{\"name\":\"SemanticTypesArray\",\"value\":[{\"FullType\":\"http://schema.org/telephone\",\"isPrimary\":true,\"DomainLabel\":\"gr:BusinessEntity1\",\"DomainId\":\"http://purl.org/goodrelations/v1#BusinessEntity1\",\"DomainUri\":\"http://purl.org/goodrelations/v1#BusinessEntity\"}],\"type\":\"other\"},{\"name\":\"worksheetId\",\"value\":\"W\",\"type\":\"worksheetId\"},{\"name\":\"isKey\",\"value\":false,\"type\":\"other\"},{\"name\":\"trainAndShowUpdates\",\"value\":false,\"type\":\"other\"},{\"name\":\"rdfLiteralType\",\"value\":\"xsd:string\",\"type\":\"other\"},{\"name\":\"inputColumns\",\"value\":\"[{\\\"value\\\":[{\\\"columnName\\\":\\\"telefono\\\"}]}]\",\"type\":\"hNodeIdList\"},{\"name\":\"outputColumns\",\"value\":\"[{\\\"value\\\":[{\\\"columnName\\\":\\\"telefono\\\"}]}]\",\"type\":\"hNodeIdList\"}],\"commandName\":\"SetSemanticTypeCommand\"},{\"tags\":[\"Modeling\"],\"inputParameters\":[{\"name\":\"hNodeId\",\"value\":[{\"columnName\":\"email\"}],\"type\":\"hNodeId\"},{\"name\":\"SemanticTypesArray\",\"value\":[{\"FullType\":\"http://schema.org/email\",\"isPrimary\":true,\"DomainLabel\":\"gr:BusinessEntity1\",\"DomainId\":\"http://purl.org/goodrelations/v1#BusinessEntity1\",\"DomainUri\":\"http://purl.org/goodrelations/v1#BusinessEntity\"}],\"type\":\"other\"},{\"name\":\"worksheetId\",\"value\":\"W\",\"type\":\"worksheetId\"},{\"name\":\"isKey\",\"value\":false,\"type\":\"other\"},{\"name\":\"trainAndShowUpdates\",\"value\":false,\"type\":\"other\"},{\"name\":\"rdfLiteralType\",\"value\":\"xsd:string\",\"type\":\"other\"},{\"name\":\"inputColumns\",\"value\":\"[{\\\"value\\\":[{\\\"columnName\\\":\\\"email\\\"}]}]\",\"type\":\"hNodeIdList\"},{\"name\":\"outputColumns\",\"value\":\"[{\\\"value\\\":[{\\\"columnName\\\":\\\"email\\\"}]}]\",\"type\":\"hNodeIdList\"}],\"commandName\":\"SetSemanticTypeCommand\"},{\"tags\":[\"Modeling\"],\"inputParameters\":[{\"name\":\"hNodeId\",\"value\":[{\"columnName\":\"iva\"}],\"type\":\"hNodeId\"},{\"name\":\"SemanticTypesArray\",\"value\":[{\"FullType\":\"http://purl.org/goodrelations/v1#vatID\",\"isPrimary\":true,\"DomainLabel\":\"gr:BusinessEntity1\",\"DomainId\":\"http://purl.org/goodrelations/v1#BusinessEntity1\",\"DomainUri\":\"http://purl.org/goodrelations/v1#BusinessEntity\"}],\"type\":\"other\"},{\"name\":\"worksheetId\",\"value\":\"W\",\"type\":\"worksheetId\"},{\"name\":\"isKey\",\"value\":false,\"type\":\"other\"},{\"name\":\"trainAndShowUpdates\",\"value\":false,\"type\":\"other\"},{\"name\":\"rdfLiteralType\",\"value\":\"xsd:string\",\"type\":\"other\"},{\"name\":\"inputColumns\",\"value\":\"[{\\\"value\\\":[{\\\"columnName\\\":\\\"iva\\\"}]}]\",\"type\":\"hNodeIdList\"},{\"name\":\"outputColumns\",\"value\":\"[{\\\"value\\\":[{\\\"columnName\\\":\\\"iva\\\"}]}]\",\"type\":\"hNodeIdList\"}],\"commandName\":\"SetSemanticTypeCommand\"},{\"tags\":[\"Modeling\"],\"inputParameters\":[{\"name\":\"hNodeId\",\"value\":[{\"columnName\":\"indirizzo\"}],\"type\":\"hNodeId\"},{\"name\":\"SemanticTypesArray\",\"value\":[{\"FullType\":\"http://schema.org/address\",\"isPrimary\":true,\"DomainLabel\":\"gr:BusinessEntity1\",\"DomainId\":\"http://purl.org/goodrelations/v1#BusinessEntity1\",\"DomainUri\":\"http://purl.org/goodrelations/v1#BusinessEntity\"}],\"type\":\"other\"},{\"name\":\"worksheetId\",\"value\":\"W\",\"type\":\"worksheetId\"},{\"name\":\"isKey\",\"value\":false,\"type\":\"other\"},{\"name\":\"trainAndShowUpdates\",\"value\":false,\"type\":\"other\"},{\"name\":\"rdfLiteralType\",\"value\":\"xsd:string\",\"type\":\"other\"},{\"name\":\"inputColumns\",\"value\":\"[{\\\"value\\\":[{\\\"columnName\\\":\\\"indirizzo\\\"}]}]\",\"type\":\"hNodeIdList\"},{\"name\":\"outputColumns\",\"value\":\"[{\\\"value\\\":[{\\\"columnName\\\":\\\"indirizzo\\\"}]}]\",\"type\":\"hNodeIdList\"}],\"commandName\":\"SetSemanticTypeCommand\"},{\"tags\":[\"Modeling\"],\"inputParameters\":[{\"name\":\"hNodeId\",\"value\":[{\"columnName\":\"city\"}],\"type\":\"hNodeId\"},{\"name\":\"SemanticTypesArray\",\"value\":[{\"FullType\":\"http://schema.org/addressLocality\",\"isPrimary\":true,\"DomainLabel\":\"gr:BusinessEntity1\",\"DomainId\":\"http://purl.org/goodrelations/v1#BusinessEntity1\",\"DomainUri\":\"http://purl.org/goodrelations/v1#BusinessEntity\"}],\"type\":\"other\"},{\"name\":\"worksheetId\",\"value\":\"W\",\"type\":\"worksheetId\"},{\"name\":\"isKey\",\"value\":false,\"type\":\"other\"},{\"name\":\"trainAndShowUpdates\",\"value\":false,\"type\":\"other\"},{\"name\":\"rdfLiteralType\",\"value\":\"xsd:string\",\"type\":\"other\"},{\"name\":\"inputColumns\",\"value\":\"[{\\\"value\\\":[{\\\"columnName\\\":\\\"city\\\"}]}]\",\"type\":\"hNodeIdList\"},{\"name\":\"outputColumns\",\"value\":\"[{\\\"value\\\":[{\\\"columnName\\\":\\\"city\\\"}]}]\",\"type\":\"hNodeIdList\"}],\"commandName\":\"SetSemanticTypeCommand\"},{\"tags\":[\"Modeling\"],\"inputParameters\":[{\"name\":\"hNodeId\",\"value\":[{\"columnName\":\"provincia\"}],\"type\":\"hNodeId\"},{\"name\":\"SemanticTypesArray\",\"value\":[{\"FullType\":\"http://schema.org/addressRegion\",\"isPrimary\":true,\"DomainLabel\":\"gr:BusinessEntity1\",\"DomainId\":\"http://purl.org/goodrelations/v1#BusinessEntity1\",\"DomainUri\":\"http://purl.org/goodrelations/v1#BusinessEntity\"}],\"type\":\"other\"},{\"name\":\"worksheetId\",\"value\":\"W\",\"type\":\"worksheetId\"},{\"name\":\"isKey\",\"value\":false,\"type\":\"other\"},{\"name\":\"trainAndShowUpdates\",\"value\":false,\"type\":\"other\"},{\"name\":\"rdfLiteralType\",\"value\":\"xsd:string\",\"type\":\"other\"},{\"name\":\"inputColumns\",\"value\":\"[{\\\"value\\\":[{\\\"columnName\\\":\\\"provincia\\\"}]}]\",\"type\":\"hNodeIdList\"},{\"name\":\"outputColumns\",\"value\":\"[{\\\"value\\\":[{\\\"columnName\\\":\\\"provincia\\\"}]}]\",\"type\":\"hNodeIdList\"}],\"commandName\":\"SetSemanticTypeCommand\"},{\"tags\":[\"Modeling\"],\"inputParameters\":[{\"name\":\"hNodeId\",\"value\":[{\"columnName\":\"url\"}],\"type\":\"hNodeId\"},{\"name\":\"SemanticTypesArray\",\"value\":[{\"FullType\":\"http://schema.org/email\",\"isPrimary\":true,\"DomainLabel\":\"gr:BusinessEntity1\",\"DomainId\":\"http://purl.org/goodrelations/v1#BusinessEntity1\",\"DomainUri\":\"http://purl.org/goodrelations/v1#BusinessEntity\"}],\"type\":\"other\"},{\"name\":\"worksheetId\",\"value\":\"W\",\"type\":\"worksheetId\"},{\"name\":\"isKey\",\"value\":false,\"type\":\"other\"},{\"name\":\"trainAndShowUpdates\",\"value\":false,\"type\":\"other\"},{\"name\":\"rdfLiteralType\",\"value\":\"xsd:string\",\"type\":\"other\"},{\"name\":\"inputColumns\",\"value\":\"[{\\\"value\\\":[{\\\"columnName\\\":\\\"url\\\"}]}]\",\"type\":\"hNodeIdList\"},{\"name\":\"outputColumns\",\"value\":\"[{\\\"value\\\":[{\\\"columnName\\\":\\\"url\\\"}]}]\",\"type\":\"hNodeIdList\"}],\"commandName\":\"SetSemanticTypeCommand\"},{\"tags\":[\"Modeling\"],\"inputParameters\":[{\"name\":\"hNodeId\",\"value\":[{\"columnName\":\"url\"}],\"type\":\"hNodeId\"},{\"name\":\"SemanticTypesArray\",\"value\":[{\"FullType\":\"http://schema.org/url\",\"isPrimary\":true,\"DomainLabel\":\"gr:BusinessEntity1\",\"DomainId\":\"http://purl.org/goodrelations/v1#BusinessEntity1\",\"DomainUri\":\"http://purl.org/goodrelations/v1#BusinessEntity\"}],\"type\":\"other\"},{\"name\":\"worksheetId\",\"value\":\"W\",\"type\":\"worksheetId\"},{\"name\":\"isKey\",\"value\":false,\"type\":\"other\"},{\"name\":\"trainAndShowUpdates\",\"value\":false,\"type\":\"other\"},{\"name\":\"rdfLiteralType\",\"value\":\"xsd:string\",\"type\":\"other\"},{\"name\":\"inputColumns\",\"value\":\"[{\\\"value\\\":[{\\\"columnName\\\":\\\"url\\\"}]}]\",\"type\":\"hNodeIdList\"},{\"name\":\"outputColumns\",\"value\":\"[{\\\"value\\\":[{\\\"columnName\\\":\\\"url\\\"}]}]\",\"type\":\"hNodeIdList\"}],\"commandName\":\"SetSemanticTypeCommand\"},{\"tags\":[\"Modeling\"],\"inputParameters\":[{\"name\":\"hNodeId\",\"value\":[{\"columnName\":\"latitude\"}],\"type\":\"hNodeId\"},{\"name\":\"SemanticTypesArray\",\"value\":[{\"FullType\":\"http://schema.org/latitude\",\"isPrimary\":true,\"DomainLabel\":\"gr:Location1 (add)\",\"DomainId\":\"http://purl.org/goodrelations/v1#Location1 (add)\",\"DomainUri\":\"http://purl.org/goodrelations/v1#Location\"}],\"type\":\"other\"},{\"name\":\"worksheetId\",\"value\":\"W\",\"type\":\"worksheetId\"},{\"name\":\"isKey\",\"value\":false,\"type\":\"other\"},{\"name\":\"trainAndShowUpdates\",\"value\":false,\"type\":\"other\"},{\"name\":\"rdfLiteralType\",\"value\":\"xsd:string\",\"type\":\"other\"},{\"name\":\"inputColumns\",\"value\":\"[{\\\"value\\\":[{\\\"columnName\\\":\\\"latitude\\\"}]}]\",\"type\":\"hNodeIdList\"},{\"name\":\"outputColumns\",\"value\":\"[{\\\"value\\\":[{\\\"columnName\\\":\\\"latitude\\\"}]}]\",\"type\":\"hNodeIdList\"}],\"commandName\":\"SetSemanticTypeCommand\"},{\"tags\":[\"Modeling\"],\"inputParameters\":[{\"name\":\"hNodeId\",\"value\":[{\"columnName\":\"longitude\"}],\"type\":\"hNodeId\"},{\"name\":\"SemanticTypesArray\",\"value\":[{\"FullType\":\"http://schema.org/longitude\",\"isPrimary\":true,\"DomainLabel\":\"gr:Location1\",\"DomainId\":\"http://purl.org/goodrelations/v1#Location1\",\"DomainUri\":\"http://purl.org/goodrelations/v1#Location\"}],\"type\":\"other\"},{\"name\":\"worksheetId\",\"value\":\"W\",\"type\":\"worksheetId\"},{\"name\":\"isKey\",\"value\":false,\"type\":\"other\"},{\"name\":\"trainAndShowUpdates\",\"value\":false,\"type\":\"other\"},{\"name\":\"rdfLiteralType\",\"value\":\"xsd:string\",\"type\":\"other\"},{\"name\":\"inputColumns\",\"value\":\"[{\\\"value\\\":[{\\\"columnName\\\":\\\"longitude\\\"}]}]\",\"type\":\"hNodeIdList\"},{\"name\":\"outputColumns\",\"value\":\"[{\\\"value\\\":[{\\\"columnName\\\":\\\"longitude\\\"}]}]\",\"type\":\"hNodeIdList\"}],\"commandName\":\"SetSemanticTypeCommand\"},{\"tags\":[\"Modeling\"],\"inputParameters\":[{\"name\":\"metaPropertyName\",\"value\":\"isUriOfClass\",\"type\":\"other\"},{\"name\":\"metaPropertyValue\",\"value\":\"http://purl.org/goodrelations/v1#Location1\",\"type\":\"other\"},{\"name\":\"hNodeId\",\"value\":[{\"columnName\":\"name_location\"}],\"type\":\"hNodeId\"},{\"name\":\"SemanticTypesArray\",\"value\":[{\"FullType\":\"http://isi.edu/integration/karma/dev#classLink\",\"isPrimary\":true,\"DomainLabel\":\"gr:Location1\",\"DomainId\":\"http://purl.org/goodrelations/v1#Location1\",\"DomainUri\":\"http://purl.org/goodrelations/v1#Location\"}],\"type\":\"other\"},{\"name\":\"worksheetId\",\"value\":\"W\",\"type\":\"worksheetId\"},{\"name\":\"isKey\",\"value\":false,\"type\":\"other\"},{\"name\":\"trainAndShowUpdates\",\"value\":false,\"type\":\"other\"},{\"name\":\"rdfLiteralType\",\"value\":\"xsd:string\",\"type\":\"other\"},{\"name\":\"inputColumns\",\"value\":\"[{\\\"value\\\":[{\\\"columnName\\\":\\\"name_location\\\"}]}]\",\"type\":\"hNodeIdList\"},{\"name\":\"outputColumns\",\"value\":\"[{\\\"value\\\":[{\\\"columnName\\\":\\\"name_location\\\"}]}]\",\"type\":\"hNodeIdList\"}],\"commandName\":\"SetMetaPropertyCommand\"},{\"tags\":[\"Modeling\"],\"inputParameters\":[{\"name\":\"worksheetId\",\"value\":\"W\",\"type\":\"worksheetId\"},{\"name\":\"properties\",\"value\":{\"hasServiceProperties\":false,\"hasPrefix\":true,\"prefix\":\"gr\",\"graphLabel\":\"\",\"hasBaseURI\":false},\"type\":\"other\"},{\"name\":\"inputColumns\",\"value\":\"[]\",\"type\":\"hNodeIdList\"},{\"name\":\"outputColumns\",\"value\":\"[]\",\"type\":\"hNodeIdList\"}],\"commandName\":\"SetWorksheetPropertiesCommand\"},{\"tags\":[\"Modeling\"],\"inputParameters\":[{\"name\":\"worksheetId\",\"value\":\"W\",\"type\":\"worksheetId\"},{\"name\":\"properties\",\"value\":{\"hasServiceProperties\":false,\"hasPrefix\":false,\"graphLabel\":\"\",\"hasBaseURI\":true,\"baseURI\":\"http://purl.org/goodrelations/v1#\"},\"type\":\"other\"},{\"name\":\"inputColumns\",\"value\":\"[]\",\"type\":\"hNodeIdList\"},{\"name\":\"outputColumns\",\"value\":\"[]\",\"type\":\"hNodeIdList\"}],\"commandName\":\"SetWorksheetPropertiesCommand\"},{\"tags\":[\"Modeling\"],\"inputParameters\":[{\"name\":\"metaPropertyName\",\"value\":\"isUriOfClass\",\"type\":\"other\"},{\"name\":\"metaPropertyValue\",\"value\":\"http://purl.org/goodrelations/v1#Location1\",\"type\":\"other\"},{\"name\":\"hNodeId\",\"value\":[{\"columnName\":\"name_location\"}],\"type\":\"hNodeId\"},{\"name\":\"SemanticTypesArray\",\"value\":[{\"FullType\":\"http://isi.edu/integration/karma/dev#classLink\",\"isPrimary\":true,\"DomainLabel\":\"gr:Location1\",\"DomainId\":\"http://purl.org/goodrelations/v1#Location1\",\"DomainUri\":\"http://purl.org/goodrelations/v1#Location\"}],\"type\":\"other\"},{\"name\":\"worksheetId\",\"value\":\"W\",\"type\":\"worksheetId\"},{\"name\":\"isKey\",\"value\":true,\"type\":\"other\"},{\"name\":\"trainAndShowUpdates\",\"value\":false,\"type\":\"other\"},{\"name\":\"rdfLiteralType\",\"value\":\"\",\"type\":\"other\"},{\"name\":\"inputColumns\",\"value\":\"[{\\\"value\\\":[{\\\"columnName\\\":\\\"name_location\\\"}]}]\",\"type\":\"hNodeIdList\"},{\"name\":\"outputColumns\",\"value\":\"[{\\\"value\\\":[{\\\"columnName\\\":\\\"name_location\\\"}]}]\",\"type\":\"hNodeIdList\"}],\"commandName\":\"SetMetaPropertyCommand\"},{\"tags\":[\"Modeling\"],\"inputParameters\":[{\"name\":\"metaPropertyName\",\"value\":\"isUriOfClass\",\"type\":\"other\"},{\"name\":\"metaPropertyValue\",\"value\":\"http://purl.org/goodrelations/v1#Location1\",\"type\":\"other\"},{\"name\":\"hNodeId\",\"value\":[{\"columnName\":\"name_location\"}],\"type\":\"hNodeId\"},{\"name\":\"SemanticTypesArray\",\"value\":[{\"FullType\":\"http://isi.edu/integration/karma/dev#classLink\",\"isPrimary\":true,\"DomainLabel\":\"gr:Location1\",\"DomainId\":\"http://purl.org/goodrelations/v1#Location1\",\"DomainUri\":\"http://purl.org/goodrelations/v1#Location\"}],\"type\":\"other\"},{\"name\":\"worksheetId\",\"value\":\"W\",\"type\":\"worksheetId\"},{\"name\":\"isKey\",\"value\":true,\"type\":\"other\"},{\"name\":\"trainAndShowUpdates\",\"value\":false,\"type\":\"other\"},{\"name\":\"rdfLiteralType\",\"value\":\"xsd:string\",\"type\":\"other\"},{\"name\":\"inputColumns\",\"value\":\"[{\\\"value\\\":[{\\\"columnName\\\":\\\"name_location\\\"}]}]\",\"type\":\"hNodeIdList\"},{\"name\":\"outputColumns\",\"value\":\"[{\\\"value\\\":[{\\\"columnName\\\":\\\"name_location\\\"}]}]\",\"type\":\"hNodeIdList\"}],\"commandName\":\"SetMetaPropertyCommand\"},{\"tags\":[\"Modeling\"],\"inputParameters\":[{\"name\":\"metaPropertyName\",\"value\":\"isUriOfClass\",\"type\":\"other\"},{\"name\":\"metaPropertyValue\",\"value\":\"http://purl.org/goodrelations/v1#Location1\",\"type\":\"other\"},{\"name\":\"hNodeId\",\"value\":[{\"columnName\":\"name_location\"}],\"type\":\"hNodeId\"},{\"name\":\"SemanticTypesArray\",\"value\":[{\"FullType\":\"http://isi.edu/integration/karma/dev#classLink\",\"isPrimary\":true,\"DomainLabel\":\"gr:Location1\",\"DomainId\":\"http://purl.org/goodrelations/v1#Location1\",\"DomainUri\":\"http://purl.org/goodrelations/v1#Location\"}],\"type\":\"other\"},{\"name\":\"worksheetId\",\"value\":\"W\",\"type\":\"worksheetId\"},{\"name\":\"isKey\",\"value\":false,\"type\":\"other\"},{\"name\":\"trainAndShowUpdates\",\"value\":false,\"type\":\"other\"},{\"name\":\"rdfLiteralType\",\"value\":\"xsd:string\",\"type\":\"other\"},{\"name\":\"inputColumns\",\"value\":\"[{\\\"value\\\":[{\\\"columnName\\\":\\\"name_location\\\"}]}]\",\"type\":\"hNodeIdList\"},{\"name\":\"outputColumns\",\"value\":\"[{\\\"value\\\":[{\\\"columnName\\\":\\\"name_location\\\"}]}]\",\"type\":\"hNodeIdList\"}],\"commandName\":\"SetMetaPropertyCommand\"},{\"tags\":[\"Modeling\"],\"inputParameters\":[{\"name\":\"metaPropertyName\",\"value\":\"isUriOfClass\",\"type\":\"other\"},{\"name\":\"metaPropertyValue\",\"value\":\"http://purl.org/goodrelations/v1#BusinessEntity1\",\"type\":\"other\"},{\"name\":\"hNodeId\",\"value\":[{\"columnName\":\"identifier\"}],\"type\":\"hNodeId\"},{\"name\":\"SemanticTypesArray\",\"value\":[{\"FullType\":\"http://isi.edu/integration/karma/dev#classLink\",\"isPrimary\":true,\"DomainLabel\":\"gr:BusinessEntity1\",\"DomainId\":\"http://purl.org/goodrelations/v1#BusinessEntity1\",\"DomainUri\":\"http://purl.org/goodrelations/v1#BusinessEntity\"}],\"type\":\"other\"},{\"name\":\"worksheetId\",\"value\":\"W\",\"type\":\"worksheetId\"},{\"name\":\"isKey\",\"value\":true,\"type\":\"other\"},{\"name\":\"trainAndShowUpdates\",\"value\":false,\"type\":\"other\"},{\"name\":\"rdfLiteralType\",\"value\":\"xsd:string\",\"type\":\"other\"},{\"name\":\"inputColumns\",\"value\":\"[{\\\"value\\\":[{\\\"columnName\\\":\\\"identifier\\\"}]}]\",\"type\":\"hNodeIdList\"},{\"name\":\"outputColumns\",\"value\":\"[{\\\"value\\\":[{\\\"columnName\\\":\\\"identifier\\\"}]}]\",\"type\":\"hNodeIdList\"}],\"commandName\":\"SetMetaPropertyCommand\"},{\"tags\":[\"Modeling\"],\"inputParameters\":[{\"name\":\"hNodeId\",\"value\":[{\"columnName\":\"edificio\"}],\"type\":\"hNodeId\"},{\"name\":\"SemanticTypesArray\",\"value\":[{\"FullType\":\"http://purl.org/goodrelations/v1#legalName\",\"isPrimary\":true,\"DomainLabel\":\"gr:BusinessEntity1\",\"DomainId\":\"http://purl.org/goodrelations/v1#BusinessEntity1\",\"DomainUri\":\"http://purl.org/goodrelations/v1#BusinessEntity\"}],\"type\":\"other\"},{\"name\":\"worksheetId\",\"value\":\"W\",\"type\":\"worksheetId\"},{\"name\":\"isKey\",\"value\":false,\"type\":\"other\"},{\"name\":\"trainAndShowUpdates\",\"value\":false,\"type\":\"other\"},{\"name\":\"rdfLiteralType\",\"value\":\"xsd:string\",\"type\":\"other\"},{\"name\":\"inputColumns\",\"value\":\"[{\\\"value\\\":[{\\\"columnName\\\":\\\"edificio\\\"}]}]\",\"type\":\"hNodeIdList\"},{\"name\":\"outputColumns\",\"value\":\"[{\\\"value\\\":[{\\\"columnName\\\":\\\"edificio\\\"}]}]\",\"type\":\"hNodeIdList\"}],\"commandName\":\"SetSemanticTypeCommand\"},{\"tags\":[\"Modeling\"],\"inputParameters\":[{\"name\":\"metaPropertyName\",\"value\":\"isUriOfClass\",\"type\":\"other\"},{\"name\":\"metaPropertyValue\",\"value\":\"http://purl.org/goodrelations/v1#BusinessEntity1\",\"type\":\"other\"},{\"name\":\"hNodeId\",\"value\":[{\"columnName\":\"identifier\"}],\"type\":\"hNodeId\"},{\"name\":\"SemanticTypesArray\",\"value\":[{\"FullType\":\"http://isi.edu/integration/karma/dev#classLink\",\"isPrimary\":true,\"DomainLabel\":\"gr:BusinessEntity1\",\"DomainId\":\"http://purl.org/goodrelations/v1#BusinessEntity1\",\"DomainUri\":\"http://purl.org/goodrelations/v1#BusinessEntity\"}],\"type\":\"other\"},{\"name\":\"worksheetId\",\"value\":\"W\",\"type\":\"worksheetId\"},{\"name\":\"isKey\",\"value\":true,\"type\":\"other\"},{\"name\":\"trainAndShowUpdates\",\"value\":false,\"type\":\"other\"},{\"name\":\"rdfLiteralType\",\"value\":\"xsd:string\",\"type\":\"other\"},{\"name\":\"inputColumns\",\"value\":\"[{\\\"value\\\":[{\\\"columnName\\\":\\\"identifier\\\"}]}]\",\"type\":\"hNodeIdList\"},{\"name\":\"outputColumns\",\"value\":\"[{\\\"value\\\":[{\\\"columnName\\\":\\\"identifier\\\"}]}]\",\"type\":\"hNodeIdList\"}],\"commandName\":\"SetMetaPropertyCommand\"},{\"tags\":[\"Modeling\"],\"inputParameters\":[{\"name\":\"metaPropertyName\",\"value\":\"isUriOfClass\",\"type\":\"other\"},{\"name\":\"metaPropertyValue\",\"value\":\"http://purl.org/goodrelations/v1#Location1\",\"type\":\"other\"},{\"name\":\"hNodeId\",\"value\":[{\"columnName\":\"name_location\"}],\"type\":\"hNodeId\"},{\"name\":\"SemanticTypesArray\",\"value\":[{\"FullType\":\"http://isi.edu/integration/karma/dev#classLink\",\"isPrimary\":true,\"DomainLabel\":\"gr:Location1\",\"DomainId\":\"http://purl.org/goodrelations/v1#Location1\",\"DomainUri\":\"http://purl.org/goodrelations/v1#Location\"}],\"type\":\"other\"},{\"name\":\"worksheetId\",\"value\":\"W\",\"type\":\"worksheetId\"},{\"name\":\"isKey\",\"value\":false,\"type\":\"other\"},{\"name\":\"trainAndShowUpdates\",\"value\":false,\"type\":\"other\"},{\"name\":\"rdfLiteralType\",\"value\":\"xsd:string\",\"type\":\"other\"},{\"name\":\"inputColumns\",\"value\":\"[{\\\"value\\\":[{\\\"columnName\\\":\\\"name_location\\\"}]}]\",\"type\":\"hNodeIdList\"},{\"name\":\"outputColumns\",\"value\":\"[{\\\"value\\\":[{\\\"columnName\\\":\\\"name_location\\\"}]}]\",\"type\":\"hNodeIdList\"}],\"commandName\":\"SetMetaPropertyCommand\"},{\"tags\":[\"Modeling\"],\"inputParameters\":[{\"name\":\"hNodeId\",\"value\":[{\"columnName\":\"indirizzo\"}],\"type\":\"hNodeId\"},{\"name\":\"SemanticTypesArray\",\"value\":[{\"FullType\":\"http://schema.org/streetAddress\",\"isPrimary\":true,\"DomainLabel\":\"gr:BusinessEntity1\",\"DomainId\":\"http://purl.org/goodrelations/v1#BusinessEntity1\",\"DomainUri\":\"http://purl.org/goodrelations/v1#BusinessEntity\"}],\"type\":\"other\"},{\"name\":\"worksheetId\",\"value\":\"W\",\"type\":\"worksheetId\"},{\"name\":\"isKey\",\"value\":false,\"type\":\"other\"},{\"name\":\"trainAndShowUpdates\",\"value\":false,\"type\":\"other\"},{\"name\":\"rdfLiteralType\",\"value\":\"xsd:string\",\"type\":\"other\"},{\"name\":\"inputColumns\",\"value\":\"[{\\\"value\\\":[{\\\"columnName\\\":\\\"indirizzo\\\"}]}]\",\"type\":\"hNodeIdList\"},{\"name\":\"outputColumns\",\"value\":\"[{\\\"value\\\":[{\\\"columnName\\\":\\\"indirizzo\\\"}]}]\",\"type\":\"hNodeIdList\"}],\"commandName\":\"SetSemanticTypeCommand\"},{\"tags\":[\"Modeling\"],\"inputParameters\":[{\"name\":\"hNodeId\",\"value\":[{\"columnName\":\"indirizzo\"}],\"type\":\"hNodeId\"},{\"name\":\"worksheetId\",\"value\":\"W\",\"type\":\"worksheetId\"},{\"name\":\"selectionName\",\"value\":\"DEFAULT_TEST\",\"type\":\"other\"},{\"name\":\"SemanticTypesArray\",\"value\":[],\"type\":\"other\"},{\"name\":\"isKey\",\"value\":false,\"type\":\"other\"},{\"name\":\"trainAndShowUpdates\",\"value\":true,\"type\":\"other\"},{\"name\":\"rdfLiteralType\",\"value\":\"xsd:string\",\"type\":\"other\"},{\"name\":\"inputColumns\",\"value\":\"[{\\\"value\\\":[{\\\"columnName\\\":\\\"indirizzo\\\"}]}]\",\"type\":\"hNodeIdList\"},{\"name\":\"outputColumns\",\"value\":\"[{\\\"value\\\":[{\\\"columnName\\\":\\\"indirizzo\\\"}]}]\",\"type\":\"hNodeIdList\"}],\"commandName\":\"UnassignSemanticTypeCommand\"},{\"tags\":[\"Modeling\"],\"inputParameters\":[{\"name\":\"hNodeId\",\"value\":[{\"columnName\":\"indirizzoNoCAP\"}],\"type\":\"hNodeId\"},{\"name\":\"worksheetId\",\"value\":\"W\",\"type\":\"worksheetId\"},{\"name\":\"selectionName\",\"value\":\"DEFAULT_TEST\",\"type\":\"other\"},{\"name\":\"SemanticTypesArray\",\"value\":[{\"FullType\":\"http://schema.org/streetAddress\",\"isPrimary\":true,\"DomainLabel\":\"gr:BusinessEntity1\",\"DomainId\":\"http://purl.org/goodrelations/v1#BusinessEntity1\",\"DomainUri\":\"http://purl.org/goodrelations/v1#BusinessEntity\"}],\"type\":\"other\"},{\"name\":\"isKey\",\"value\":false,\"type\":\"other\"},{\"name\":\"trainAndShowUpdates\",\"value\":false,\"type\":\"other\"},{\"name\":\"rdfLiteralType\",\"value\":\"xsd:string\",\"type\":\"other\"},{\"name\":\"inputColumns\",\"value\":\"[{\\\"value\\\":[{\\\"columnName\\\":\\\"indirizzoNoCAP\\\"}]}]\",\"type\":\"hNodeIdList\"},{\"name\":\"outputColumns\",\"value\":\"[{\\\"value\\\":[{\\\"columnName\\\":\\\"indirizzoNoCAP\\\"}]}]\",\"type\":\"hNodeIdList\"}],\"commandName\":\"SetSemanticTypeCommand\"},{\"tags\":[\"Modeling\"],\"inputParameters\":[{\"name\":\"hNodeId\",\"value\":[{\"columnName\":\"postalCode\"}],\"type\":\"hNodeId\"},{\"name\":\"worksheetId\",\"value\":\"W\",\"type\":\"worksheetId\"},{\"name\":\"selectionName\",\"value\":\"DEFAULT_TEST\",\"type\":\"other\"},{\"name\":\"SemanticTypesArray\",\"value\":[{\"FullType\":\"http://schema.org/postalCode\",\"isPrimary\":true,\"DomainLabel\":\"gr:BusinessEntity1\",\"DomainId\":\"http://purl.org/goodrelations/v1#BusinessEntity1\",\"DomainUri\":\"http://purl.org/goodrelations/v1#BusinessEntity\"}],\"type\":\"other\"},{\"name\":\"isKey\",\"value\":false,\"type\":\"other\"},{\"name\":\"trainAndShowUpdates\",\"value\":false,\"type\":\"other\"},{\"name\":\"rdfLiteralType\",\"value\":\"xsd:string\",\"type\":\"other\"},{\"name\":\"inputColumns\",\"value\":\"[{\\\"value\\\":[{\\\"columnName\\\":\\\"postalCode\\\"}]}]\",\"type\":\"hNodeIdList\"},{\"name\":\"outputColumns\",\"value\":\"[{\\\"value\\\":[{\\\"columnName\\\":\\\"postalCode\\\"}]}]\",\"type\":\"hNodeIdList\"}],\"commandName\":\"SetSemanticTypeCommand\"},{\"tags\":[\"Modeling\"],\"inputParameters\":[{\"name\":\"hNodeId\",\"value\":[{\"columnName\":\"fax\"}],\"type\":\"hNodeId\"},{\"name\":\"worksheetId\",\"value\":\"W\",\"type\":\"worksheetId\"},{\"name\":\"selectionName\",\"value\":\"DEFAULT_TEST\",\"type\":\"other\"},{\"name\":\"SemanticTypesArray\",\"value\":[{\"FullType\":\"http://schema.org/faxNumber\",\"isPrimary\":true,\"DomainLabel\":\"gr:BusinessEntity1\",\"DomainId\":\"http://purl.org/goodrelations/v1#BusinessEntity1\",\"DomainUri\":\"http://purl.org/goodrelations/v1#BusinessEntity\"}],\"type\":\"other\"},{\"name\":\"isKey\",\"value\":false,\"type\":\"other\"},{\"name\":\"trainAndShowUpdates\",\"value\":false,\"type\":\"other\"},{\"name\":\"rdfLiteralType\",\"value\":\"xsd:string\",\"type\":\"other\"},{\"name\":\"inputColumns\",\"value\":\"[{\\\"value\\\":[{\\\"columnName\\\":\\\"fax\\\"}]}]\",\"type\":\"hNodeIdList\"},{\"name\":\"outputColumns\",\"value\":\"[{\\\"value\\\":[{\\\"columnName\\\":\\\"fax\\\"}]}]\",\"type\":\"hNodeIdList\"}],\"commandName\":\"SetSemanticTypeCommand\"},{\"tags\":[\"Modeling\"],\"inputParameters\":[{\"name\":\"hNodeId\",\"value\":[{\"columnName\":\"description\"}],\"type\":\"hNodeId\"},{\"name\":\"worksheetId\",\"value\":\"W\",\"type\":\"worksheetId\"},{\"name\":\"selectionName\",\"value\":\"DEFAULT_TEST\",\"type\":\"other\"},{\"name\":\"SemanticTypesArray\",\"value\":[{\"FullType\":\"http://www.w3.org/2004/02/skos/core#note\",\"isPrimary\":true,\"DomainLabel\":\"gr:BusinessEntity1\",\"DomainId\":\"http://purl.org/goodrelations/v1#BusinessEntity1\",\"DomainUri\":\"http://purl.org/goodrelations/v1#BusinessEntity\"}],\"type\":\"other\"},{\"name\":\"isKey\",\"value\":false,\"type\":\"other\"},{\"name\":\"trainAndShowUpdates\",\"value\":false,\"type\":\"other\"},{\"name\":\"rdfLiteralType\",\"value\":\"xsd:string\",\"type\":\"other\"},{\"name\":\"inputColumns\",\"value\":\"[{\\\"value\\\":[{\\\"columnName\\\":\\\"description\\\"}]}]\",\"type\":\"hNodeIdList\"},{\"name\":\"outputColumns\",\"value\":\"[{\\\"value\\\":[{\\\"columnName\\\":\\\"description\\\"}]}]\",\"type\":\"hNodeIdList\"}],\"commandName\":\"SetSemanticTypeCommand\"},{\"tags\":[\"Modeling\"],\"inputParameters\":[{\"name\":\"hNodeId\",\"value\":[{\"columnName\":\"indirizzoHasNumber\"}],\"type\":\"hNodeId\"},{\"name\":\"worksheetId\",\"value\":\"W\",\"type\":\"worksheetId\"},{\"name\":\"selectionName\",\"value\":\"DEFAULT_TEST\",\"type\":\"other\"},{\"name\":\"SemanticTypesArray\",\"value\":[{\"FullType\":\"http://schema.org/serialNumber\",\"isPrimary\":true,\"DomainLabel\":\"gr:BusinessEntity1\",\"DomainId\":\"http://purl.org/goodrelations/v1#BusinessEntity1\",\"DomainUri\":\"http://purl.org/goodrelations/v1#BusinessEntity\"}],\"type\":\"other\"},{\"name\":\"isKey\",\"value\":false,\"type\":\"other\"},{\"name\":\"trainAndShowUpdates\",\"value\":false,\"type\":\"other\"},{\"name\":\"rdfLiteralType\",\"value\":\"xsd:string\",\"type\":\"other\"},{\"name\":\"inputColumns\",\"value\":\"[{\\\"value\\\":[{\\\"columnName\\\":\\\"indirizzoHasNumber\\\"}]}]\",\"type\":\"hNodeIdList\"},{\"name\":\"outputColumns\",\"value\":\"[{\\\"value\\\":[{\\\"columnName\\\":\\\"indirizzoHasNumber\\\"}]}]\",\"type\":\"hNodeIdList\"}],\"commandName\":\"SetSemanticTypeCommand\"},{\"tags\":[\"Transformation\"],\"inputParameters\":[{\"name\":\"worksheetId\",\"value\":\"W\",\"type\":\"worksheetId\"},{\"name\":\"selectionName\",\"value\":\"DEFAULT_TEST\",\"type\":\"other\"},{\"name\":\"inputColumns\",\"value\":\"[]\",\"type\":\"hNodeIdList\"},{\"name\":\"outputColumns\",\"value\":\"[]\",\"type\":\"hNodeIdList\"}],\"commandName\":\"RefreshSuperSelectionCommand\"},{\"tags\":[\"Modeling\"],\"inputParameters\":[{\"name\":\"hNodeId\",\"value\":[{\"columnName\":\"indirizzoHasNumber\"}],\"type\":\"hNodeId\"},{\"name\":\"worksheetId\",\"value\":\"W\",\"type\":\"worksheetId\"},{\"name\":\"selectionName\",\"value\":\"DEFAULT_TEST\",\"type\":\"other\"},{\"name\":\"SemanticTypesArray\",\"value\":[{\"FullType\":\"http://schema.org/postOfficeBoxNumber\",\"isPrimary\":true,\"DomainLabel\":\"gr:BusinessEntity1\",\"DomainId\":\"http://purl.org/goodrelations/v1#BusinessEntity1\",\"DomainUri\":\"http://purl.org/goodrelations/v1#BusinessEntity\"}],\"type\":\"other\"},{\"name\":\"isKey\",\"value\":false,\"type\":\"other\"},{\"name\":\"trainAndShowUpdates\",\"value\":false,\"type\":\"other\"},{\"name\":\"rdfLiteralType\",\"value\":\"xsd:string\",\"type\":\"other\"},{\"name\":\"inputColumns\",\"value\":\"[{\\\"value\\\":[{\\\"columnName\\\":\\\"indirizzoHasNumber\\\"}]}]\",\"type\":\"hNodeIdList\"},{\"name\":\"outputColumns\",\"value\":\"[{\\\"value\\\":[{\\\"columnName\\\":\\\"indirizzoHasNumber\\\"}]}]\",\"type\":\"hNodeIdList\"}],\"commandName\":\"SetSemanticTypeCommand\"},{\"tags\":[\"Modeling\"],\"inputParameters\":[{\"name\":\"hNodeId\",\"value\":[{\"columnName\":\"indirizzoHasNumber\"}],\"type\":\"hNodeId\"},{\"name\":\"worksheetId\",\"value\":\"W\",\"type\":\"worksheetId\"},{\"name\":\"selectionName\",\"value\":\"DEFAULT_TEST\",\"type\":\"other\"},{\"name\":\"SemanticTypesArray\",\"value\":[{\"FullType\":\"http://www.disit.org/km4city/schema#houseNumber\",\"isPrimary\":true,\"DomainLabel\":\"gr:BusinessEntity1\",\"DomainId\":\"http://purl.org/goodrelations/v1#BusinessEntity1\",\"DomainUri\":\"http://purl.org/goodrelations/v1#BusinessEntity\"}],\"type\":\"other\"},{\"name\":\"isKey\",\"value\":false,\"type\":\"other\"},{\"name\":\"trainAndShowUpdates\",\"value\":false,\"type\":\"other\"},{\"name\":\"rdfLiteralType\",\"value\":\"xsd:string\",\"type\":\"other\"},{\"name\":\"inputColumns\",\"value\":\"[{\\\"value\\\":[{\\\"columnName\\\":\\\"indirizzoHasNumber\\\"}]}]\",\"type\":\"hNodeIdList\"},{\"name\":\"outputColumns\",\"value\":\"[{\\\"value\\\":[{\\\"columnName\\\":\\\"indirizzoHasNumber\\\"}]}]\",\"type\":\"hNodeIdList\"}],\"commandName\":\"SetSemanticTypeCommand\"},{\"tags\":[\"Modeling\"],\"inputParameters\":[{\"name\":\"hNodeId\",\"value\":[{\"columnName\":\"latitude\"}],\"type\":\"hNodeId\"},{\"name\":\"worksheetId\",\"value\":\"W\",\"type\":\"worksheetId\"},{\"name\":\"selectionName\",\"value\":\"DEFAULT_TEST\",\"type\":\"other\"},{\"name\":\"SemanticTypesArray\",\"value\":[{\"FullType\":\"http://schema.org/latitude\",\"isPrimary\":true,\"DomainLabel\":\"gr:Location1\",\"DomainId\":\"http://purl.org/goodrelations/v1#Location1\",\"DomainUri\":\"http://purl.org/goodrelations/v1#Location\"}],\"type\":\"other\"},{\"name\":\"isKey\",\"value\":false,\"type\":\"other\"},{\"name\":\"trainAndShowUpdates\",\"value\":false,\"type\":\"other\"},{\"name\":\"rdfLiteralType\",\"value\":\"xsd:float\",\"type\":\"other\"},{\"name\":\"inputColumns\",\"value\":\"[{\\\"value\\\":[{\\\"columnName\\\":\\\"latitude\\\"}]}]\",\"type\":\"hNodeIdList\"},{\"name\":\"outputColumns\",\"value\":\"[{\\\"value\\\":[{\\\"columnName\\\":\\\"latitude\\\"}]}]\",\"type\":\"hNodeIdList\"}],\"commandName\":\"SetSemanticTypeCommand\"},{\"tags\":[\"Modeling\"],\"inputParameters\":[{\"name\":\"hNodeId\",\"value\":[{\"columnName\":\"longitude\"}],\"type\":\"hNodeId\"},{\"name\":\"worksheetId\",\"value\":\"W\",\"type\":\"worksheetId\"},{\"name\":\"selectionName\",\"value\":\"DEFAULT_TEST\",\"type\":\"other\"},{\"name\":\"SemanticTypesArray\",\"value\":[{\"FullType\":\"http://schema.org/longitude\",\"isPrimary\":true,\"DomainLabel\":\"gr:Location1\",\"DomainId\":\"http://purl.org/goodrelations/v1#Location1\",\"DomainUri\":\"http://purl.org/goodrelations/v1#Location\"}],\"type\":\"other\"},{\"name\":\"isKey\",\"value\":false,\"type\":\"other\"},{\"name\":\"trainAndShowUpdates\",\"value\":false,\"type\":\"other\"},{\"name\":\"rdfLiteralType\",\"value\":\"xsd:float\",\"type\":\"other\"},{\"name\":\"inputColumns\",\"value\":\"[{\\\"value\\\":[{\\\"columnName\\\":\\\"longitude\\\"}]}]\",\"type\":\"hNodeIdList\"},{\"name\":\"outputColumns\",\"value\":\"[{\\\"value\\\":[{\\\"columnName\\\":\\\"longitude\\\"}]}]\",\"type\":\"hNodeIdList\"}],\"commandName\":\"SetSemanticTypeCommand\"},{\"tags\":[\"Modeling\"],\"inputParameters\":[{\"name\":\"hNodeId\",\"value\":[{\"columnName\":\"latitude\"}],\"type\":\"hNodeId\"},{\"name\":\"worksheetId\",\"value\":\"W\",\"type\":\"worksheetId\"},{\"name\":\"selectionName\",\"value\":\"DEFAULT_TEST\",\"type\":\"other\"},{\"name\":\"SemanticTypesArray\",\"value\":[{\"FullType\":\"http://www.w3.org/2003/01/geo/wgs84_pos#lat\",\"isPrimary\":true,\"DomainLabel\":\"gr:Location1\",\"DomainId\":\"http://purl.org/goodrelations/v1#Location1\",\"DomainUri\":\"http://purl.org/goodrelations/v1#Location\"}],\"type\":\"other\"},{\"name\":\"isKey\",\"value\":false,\"type\":\"other\"},{\"name\":\"trainAndShowUpdates\",\"value\":false,\"type\":\"other\"},{\"name\":\"rdfLiteralType\",\"value\":\"xsd:float\",\"type\":\"other\"},{\"name\":\"inputColumns\",\"value\":\"[{\\\"value\\\":[{\\\"columnName\\\":\\\"latitude\\\"}]}]\",\"type\":\"hNodeIdList\"},{\"name\":\"outputColumns\",\"value\":\"[{\\\"value\\\":[{\\\"columnName\\\":\\\"latitude\\\"}]}]\",\"type\":\"hNodeIdList\"}],\"commandName\":\"SetSemanticTypeCommand\"},{\"tags\":[\"Modeling\"],\"inputParameters\":[{\"name\":\"hNodeId\",\"value\":[{\"columnName\":\"longitude\"}],\"type\":\"hNodeId\"},{\"name\":\"worksheetId\",\"value\":\"W\",\"type\":\"worksheetId\"},{\"name\":\"selectionName\",\"value\":\"DEFAULT_TEST\",\"type\":\"other\"},{\"name\":\"SemanticTypesArray\",\"value\":[{\"FullType\":\"http://www.w3.org/2003/01/geo/wgs84_pos#long\",\"isPrimary\":true,\"DomainLabel\":\"gr:Location1\",\"DomainId\":\"http://purl.org/goodrelations/v1#Location1\",\"DomainUri\":\"http://purl.org/goodrelations/v1#Location\"}],\"type\":\"other\"},{\"name\":\"isKey\",\"value\":false,\"type\":\"other\"},{\"name\":\"trainAndShowUpdates\",\"value\":false,\"type\":\"other\"},{\"name\":\"rdfLiteralType\",\"value\":\"xsd:float\",\"type\":\"other\"},{\"name\":\"inputColumns\",\"value\":\"[{\\\"value\\\":[{\\\"columnName\\\":\\\"longitude\\\"}]}]\",\"type\":\"hNodeIdList\"},{\"name\":\"outputColumns\",\"value\":\"[{\\\"value\\\":[{\\\"columnName\\\":\\\"longitude\\\"}]}]\",\"type\":\"hNodeIdList\"}],\"commandName\":\"SetSemanticTypeCommand\"},{\"tags\":[\"Modeling\"],\"inputParameters\":[{\"name\":\"hNodeId\",\"value\":[{\"columnName\":\"indirizzoHasNumber\"}],\"type\":\"hNodeId\"},{\"name\":\"worksheetId\",\"value\":\"W\",\"type\":\"worksheetId\"},{\"name\":\"selectionName\",\"value\":\"DEFAULT_TEST\",\"type\":\"other\"},{\"name\":\"SemanticTypesArray\",\"value\":[],\"type\":\"other\"},{\"name\":\"isKey\",\"value\":false,\"type\":\"other\"},{\"name\":\"trainAndShowUpdates\",\"value\":true,\"type\":\"other\"},{\"name\":\"rdfLiteralType\",\"value\":\"xsd:string\",\"type\":\"other\"},{\"name\":\"inputColumns\",\"value\":\"[{\\\"value\\\":[{\\\"columnName\\\":\\\"indirizzoHasNumber\\\"}]}]\",\"type\":\"hNodeIdList\"},{\"name\":\"outputColumns\",\"value\":\"[{\\\"value\\\":[{\\\"columnName\\\":\\\"indirizzoHasNumber\\\"}]}]\",\"type\":\"hNodeIdList\"}],\"commandName\":\"UnassignSemanticTypeCommand\"},{\"tags\":[\"Modeling\"],\"inputParameters\":[{\"name\":\"hNodeId\",\"value\":[{\"columnName\":\"indirizzoNoCAP\"}],\"type\":\"hNodeId\"},{\"name\":\"worksheetId\",\"value\":\"W\",\"type\":\"worksheetId\"},{\"name\":\"selectionName\",\"value\":\"DEFAULT_TEST\",\"type\":\"other\"},{\"name\":\"SemanticTypesArray\",\"value\":[],\"type\":\"other\"},{\"name\":\"isKey\",\"value\":false,\"type\":\"other\"},{\"name\":\"trainAndShowUpdates\",\"value\":true,\"type\":\"other\"},{\"name\":\"rdfLiteralType\",\"value\":\"xsd:string\",\"type\":\"other\"},{\"name\":\"inputColumns\",\"value\":\"[{\\\"value\\\":[{\\\"columnName\\\":\\\"indirizzoNoCAP\\\"}]}]\",\"type\":\"hNodeIdList\"},{\"name\":\"outputColumns\",\"value\":\"[{\\\"value\\\":[{\\\"columnName\\\":\\\"indirizzoNoCAP\\\"}]}]\",\"type\":\"hNodeIdList\"}],\"commandName\":\"UnassignSemanticTypeCommand\"},{\"tags\":[\"Modeling\"],\"inputParameters\":[{\"name\":\"hNodeId\",\"value\":[{\"columnName\":\"indirizzo\"}],\"type\":\"hNodeId\"},{\"name\":\"worksheetId\",\"value\":\"W\",\"type\":\"worksheetId\"},{\"name\":\"selectionName\",\"value\":\"DEFAULT_TEST\",\"type\":\"other\"},{\"name\":\"SemanticTypesArray\",\"value\":[{\"FullType\":\"http://schema.org/streetAddress\",\"isPrimary\":true,\"DomainLabel\":\"gr:BusinessEntity1\",\"DomainId\":\"http://purl.org/goodrelations/v1#BusinessEntity1\",\"DomainUri\":\"http://purl.org/goodrelations/v1#BusinessEntity\"}],\"type\":\"other\"},{\"name\":\"isKey\",\"value\":false,\"type\":\"other\"},{\"name\":\"trainAndShowUpdates\",\"value\":false,\"type\":\"other\"},{\"name\":\"rdfLiteralType\",\"value\":\"xsd:string\",\"type\":\"other\"},{\"name\":\"inputColumns\",\"value\":\"[{\\\"value\\\":[{\\\"columnName\\\":\\\"indirizzo\\\"}]}]\",\"type\":\"hNodeIdList\"},{\"name\":\"outputColumns\",\"value\":\"[{\\\"value\\\":[{\\\"columnName\\\":\\\"indirizzo\\\"}]}]\",\"type\":\"hNodeIdList\"}],\"commandName\":\"SetSemanticTypeCommand\"}]" .
+
+km-dev:TriplesMap_9f844bc9-587f-46cd-806f-39d6c0006d39 a rr:TriplesMap .
+
+_:node19pmo5erfx1 km-dev:hasTriplesMap km-dev:TriplesMap_9f844bc9-587f-46cd-806f-39d6c0006d39 .
+
+km-dev:TriplesMap_9f844bc9-587f-46cd-806f-39d6c0006d39 km-dev:isPartOfMapping _:node19pmo5erfx1 .
+
+_:node19pmo5erfx2 rr:tableName "infodocument_coord_siimobility_05052014" ;
+	a rr:LogicalTable ;
+	km-dev:isPartOfMapping _:node19pmo5erfx1 .
+
+_:node19pmo5erfx1 km-dev:hasLogicalTable _:node19pmo5erfx2 .
+
+km-dev:TriplesMap_9f844bc9-587f-46cd-806f-39d6c0006d39 rr:logicalTable _:node19pmo5erfx2 ;
+	rr:subjectMap _:node19pmo5erfx3 .
+
+_:node19pmo5erfx1 km-dev:hasSubjectMap _:node19pmo5erfx3 .
+
+_:node19pmo5erfx3 km-dev:isPartOfMapping _:node19pmo5erfx1 ;
+	a rr:SubjectMap ;
+	km-dev:alignmentNodeId "http://purl.org/goodrelations/v1#BusinessEntity1" ;
+	rr:class gr:BusinessEntity ;
+	rr:template "{identifier}" ;
+	a km-dev:steinerTreeRootNode .
+
+km-dev:PredicateObjectMap_adaca32d-9eaa-454d-83b1-e943fe4d8493 rr:predicate gr:hasPOS .
+
+km-dev:RefObjectMap_16db5885-b47b-4cc7-8d3f-e68f3bfaeb3c a rr:RefObjectMap , rr:ObjectMap ;
+	rr:parentTriplesMap km-dev:TriplesMap_39106966-a4cb-409e-a191-9183001bdae2 ;
+	km-dev:isPartOfMapping _:node19pmo5erfx1 .
+
+_:node19pmo5erfx1 km-dev:hasObjectMap km-dev:RefObjectMap_16db5885-b47b-4cc7-8d3f-e68f3bfaeb3c .
+
+km-dev:PredicateObjectMap_adaca32d-9eaa-454d-83b1-e943fe4d8493 rr:objectMap km-dev:RefObjectMap_16db5885-b47b-4cc7-8d3f-e68f3bfaeb3c .
+
+km-dev:TriplesMap_9f844bc9-587f-46cd-806f-39d6c0006d39 rr:predicateObjectMap km-dev:PredicateObjectMap_adaca32d-9eaa-454d-83b1-e943fe4d8493 .
+
+km-dev:PredicateObjectMap_adaca32d-9eaa-454d-83b1-e943fe4d8493 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node19pmo5erfx1 .
+
+_:node19pmo5erfx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_adaca32d-9eaa-454d-83b1-e943fe4d8493 .
+
+km-dev:PredicateObjectMap_59a59543-9d98-4cca-8679-9f32840172a6 rr:predicate gr:legalName .
+
+_:node19pmo5erfx4 rr:column "edificio" ;
+	a rr:ObjectMap ;
+	rr:datatype "http://www.w3.org/2001/XMLSchema#string" ;
+	km-dev:isPartOfMapping _:node19pmo5erfx1 .
+
+_:node19pmo5erfx1 km-dev:hasObjectMap _:node19pmo5erfx4 .
+
+km-dev:PredicateObjectMap_59a59543-9d98-4cca-8679-9f32840172a6 rr:objectMap _:node19pmo5erfx4 .
+
+km-dev:TriplesMap_9f844bc9-587f-46cd-806f-39d6c0006d39 rr:predicateObjectMap km-dev:PredicateObjectMap_59a59543-9d98-4cca-8679-9f32840172a6 .
+
+km-dev:PredicateObjectMap_59a59543-9d98-4cca-8679-9f32840172a6 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node19pmo5erfx1 .
+
+_:node19pmo5erfx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_59a59543-9d98-4cca-8679-9f32840172a6 .
+
+km-dev:PredicateObjectMap_ce7264af-2959-40c3-9bce-94cf7a3f1a9c rr:predicate gr:vatID .
+
+_:node19pmo5erfx5 rr:column "iva" ;
+	a rr:ObjectMap ;
+	rr:datatype "http://www.w3.org/2001/XMLSchema#string" ;
+	km-dev:isPartOfMapping _:node19pmo5erfx1 .
+
+_:node19pmo5erfx1 km-dev:hasObjectMap _:node19pmo5erfx5 .
+
+km-dev:PredicateObjectMap_ce7264af-2959-40c3-9bce-94cf7a3f1a9c rr:objectMap _:node19pmo5erfx5 .
+
+km-dev:TriplesMap_9f844bc9-587f-46cd-806f-39d6c0006d39 rr:predicateObjectMap km-dev:PredicateObjectMap_ce7264af-2959-40c3-9bce-94cf7a3f1a9c .
+
+km-dev:PredicateObjectMap_ce7264af-2959-40c3-9bce-94cf7a3f1a9c a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node19pmo5erfx1 .
+
+_:node19pmo5erfx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_ce7264af-2959-40c3-9bce-94cf7a3f1a9c .
+
+km-dev:PredicateObjectMap_b16ec7db-2e9b-402b-9119-f4ea3eccf741 rr:predicate schema:addressCountry .
+
+_:node19pmo5erfx6 rr:column "nazione" ;
+	a rr:ObjectMap ;
+	rr:datatype "http://www.w3.org/2001/XMLSchema#string" ;
+	km-dev:isPartOfMapping _:node19pmo5erfx1 .
+
+_:node19pmo5erfx1 km-dev:hasObjectMap _:node19pmo5erfx6 .
+
+km-dev:PredicateObjectMap_b16ec7db-2e9b-402b-9119-f4ea3eccf741 rr:objectMap _:node19pmo5erfx6 .
+
+km-dev:TriplesMap_9f844bc9-587f-46cd-806f-39d6c0006d39 rr:predicateObjectMap km-dev:PredicateObjectMap_b16ec7db-2e9b-402b-9119-f4ea3eccf741 .
+
+km-dev:PredicateObjectMap_b16ec7db-2e9b-402b-9119-f4ea3eccf741 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node19pmo5erfx1 .
+
+_:node19pmo5erfx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_b16ec7db-2e9b-402b-9119-f4ea3eccf741 .
+
+km-dev:PredicateObjectMap_572f1189-44d2-495b-b4e6-a78f035e99cd rr:predicate schema:addressLocality .
+
+_:node19pmo5erfx7 rr:column "city" ;
+	a rr:ObjectMap ;
+	rr:datatype "http://www.w3.org/2001/XMLSchema#string" ;
+	km-dev:isPartOfMapping _:node19pmo5erfx1 .
+
+_:node19pmo5erfx1 km-dev:hasObjectMap _:node19pmo5erfx7 .
+
+km-dev:PredicateObjectMap_572f1189-44d2-495b-b4e6-a78f035e99cd rr:objectMap _:node19pmo5erfx7 .
+
+km-dev:TriplesMap_9f844bc9-587f-46cd-806f-39d6c0006d39 rr:predicateObjectMap km-dev:PredicateObjectMap_572f1189-44d2-495b-b4e6-a78f035e99cd .
+
+km-dev:PredicateObjectMap_572f1189-44d2-495b-b4e6-a78f035e99cd a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node19pmo5erfx1 .
+
+_:node19pmo5erfx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_572f1189-44d2-495b-b4e6-a78f035e99cd .
+
+km-dev:PredicateObjectMap_34ea26c0-2c83-4f49-abb0-1622774ce2ac rr:predicate schema:addressRegion .
+
+_:node19pmo5erfx8 rr:column "provincia" ;
+	a rr:ObjectMap ;
+	rr:datatype "http://www.w3.org/2001/XMLSchema#string" ;
+	km-dev:isPartOfMapping _:node19pmo5erfx1 .
+
+_:node19pmo5erfx1 km-dev:hasObjectMap _:node19pmo5erfx8 .
+
+km-dev:PredicateObjectMap_34ea26c0-2c83-4f49-abb0-1622774ce2ac rr:objectMap _:node19pmo5erfx8 .
+
+km-dev:TriplesMap_9f844bc9-587f-46cd-806f-39d6c0006d39 rr:predicateObjectMap km-dev:PredicateObjectMap_34ea26c0-2c83-4f49-abb0-1622774ce2ac .
+
+km-dev:PredicateObjectMap_34ea26c0-2c83-4f49-abb0-1622774ce2ac a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node19pmo5erfx1 .
+
+_:node19pmo5erfx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_34ea26c0-2c83-4f49-abb0-1622774ce2ac .
+
+km-dev:PredicateObjectMap_4b19c70d-f6c0-488a-9ce4-d647d857695b rr:predicate schema:email .
+
+_:node19pmo5erfx9 rr:column "email" ;
+	a rr:ObjectMap ;
+	rr:datatype "http://www.w3.org/2001/XMLSchema#string" ;
+	km-dev:isPartOfMapping _:node19pmo5erfx1 .
+
+_:node19pmo5erfx1 km-dev:hasObjectMap _:node19pmo5erfx9 .
+
+km-dev:PredicateObjectMap_4b19c70d-f6c0-488a-9ce4-d647d857695b rr:objectMap _:node19pmo5erfx9 .
+
+km-dev:TriplesMap_9f844bc9-587f-46cd-806f-39d6c0006d39 rr:predicateObjectMap km-dev:PredicateObjectMap_4b19c70d-f6c0-488a-9ce4-d647d857695b .
+
+km-dev:PredicateObjectMap_4b19c70d-f6c0-488a-9ce4-d647d857695b a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node19pmo5erfx1 .
+
+_:node19pmo5erfx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_4b19c70d-f6c0-488a-9ce4-d647d857695b .
+
+km-dev:PredicateObjectMap_1f0b9843-5f9a-4828-b62c-26a65f90fdf3 rr:predicate schema:faxNumber .
+
+_:node19pmo5erfx10 rr:column "fax" ;
+	a rr:ObjectMap ;
+	rr:datatype "http://www.w3.org/2001/XMLSchema#string" ;
+	km-dev:isPartOfMapping _:node19pmo5erfx1 .
+
+_:node19pmo5erfx1 km-dev:hasObjectMap _:node19pmo5erfx10 .
+
+km-dev:PredicateObjectMap_1f0b9843-5f9a-4828-b62c-26a65f90fdf3 rr:objectMap _:node19pmo5erfx10 .
+
+km-dev:TriplesMap_9f844bc9-587f-46cd-806f-39d6c0006d39 rr:predicateObjectMap km-dev:PredicateObjectMap_1f0b9843-5f9a-4828-b62c-26a65f90fdf3 .
+
+km-dev:PredicateObjectMap_1f0b9843-5f9a-4828-b62c-26a65f90fdf3 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node19pmo5erfx1 .
+
+_:node19pmo5erfx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_1f0b9843-5f9a-4828-b62c-26a65f90fdf3 .
+
+km-dev:PredicateObjectMap_c3a2e8b7-7030-459c-bc95-9ca9023ff89f rr:predicate schema:postalCode .
+
+_:node19pmo5erfx11 rr:column "postalCode" ;
+	a rr:ObjectMap ;
+	rr:datatype "http://www.w3.org/2001/XMLSchema#string" ;
+	km-dev:isPartOfMapping _:node19pmo5erfx1 .
+
+_:node19pmo5erfx1 km-dev:hasObjectMap _:node19pmo5erfx11 .
+
+km-dev:PredicateObjectMap_c3a2e8b7-7030-459c-bc95-9ca9023ff89f rr:objectMap _:node19pmo5erfx11 .
+
+km-dev:TriplesMap_9f844bc9-587f-46cd-806f-39d6c0006d39 rr:predicateObjectMap km-dev:PredicateObjectMap_c3a2e8b7-7030-459c-bc95-9ca9023ff89f .
+
+km-dev:PredicateObjectMap_c3a2e8b7-7030-459c-bc95-9ca9023ff89f a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node19pmo5erfx1 .
+
+_:node19pmo5erfx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_c3a2e8b7-7030-459c-bc95-9ca9023ff89f .
+
+km-dev:PredicateObjectMap_5d3c0bc1-822b-4804-ab83-5aa6e6013f81 rr:predicate schema:streetAddress .
+
+_:node19pmo5erfx12 rr:column "indirizzo" ;
+	a rr:ObjectMap ;
+	rr:datatype "http://www.w3.org/2001/XMLSchema#string" ;
+	km-dev:isPartOfMapping _:node19pmo5erfx1 .
+
+_:node19pmo5erfx1 km-dev:hasObjectMap _:node19pmo5erfx12 .
+
+km-dev:PredicateObjectMap_5d3c0bc1-822b-4804-ab83-5aa6e6013f81 rr:objectMap _:node19pmo5erfx12 .
+
+km-dev:TriplesMap_9f844bc9-587f-46cd-806f-39d6c0006d39 rr:predicateObjectMap km-dev:PredicateObjectMap_5d3c0bc1-822b-4804-ab83-5aa6e6013f81 .
+
+km-dev:PredicateObjectMap_5d3c0bc1-822b-4804-ab83-5aa6e6013f81 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node19pmo5erfx1 .
+
+_:node19pmo5erfx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_5d3c0bc1-822b-4804-ab83-5aa6e6013f81 .
+
+km-dev:PredicateObjectMap_d002957d-845f-4664-8156-d101c69b6c50 rr:predicate schema:telephone .
+
+_:node19pmo5erfx13 rr:column "telefono" ;
+	a rr:ObjectMap ;
+	rr:datatype "http://www.w3.org/2001/XMLSchema#string" ;
+	km-dev:isPartOfMapping _:node19pmo5erfx1 .
+
+_:node19pmo5erfx1 km-dev:hasObjectMap _:node19pmo5erfx13 .
+
+km-dev:PredicateObjectMap_d002957d-845f-4664-8156-d101c69b6c50 rr:objectMap _:node19pmo5erfx13 .
+
+km-dev:TriplesMap_9f844bc9-587f-46cd-806f-39d6c0006d39 rr:predicateObjectMap km-dev:PredicateObjectMap_d002957d-845f-4664-8156-d101c69b6c50 .
+
+km-dev:PredicateObjectMap_d002957d-845f-4664-8156-d101c69b6c50 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node19pmo5erfx1 .
+
+_:node19pmo5erfx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_d002957d-845f-4664-8156-d101c69b6c50 .
+
+km-dev:PredicateObjectMap_af1ecd93-34eb-4812-9135-8a1f7a4b20df rr:predicate schema:url .
+
+_:node19pmo5erfx14 rr:column "url" ;
+	a rr:ObjectMap ;
+	rr:datatype "http://www.w3.org/2001/XMLSchema#string" ;
+	km-dev:isPartOfMapping _:node19pmo5erfx1 .
+
+_:node19pmo5erfx1 km-dev:hasObjectMap _:node19pmo5erfx14 .
+
+km-dev:PredicateObjectMap_af1ecd93-34eb-4812-9135-8a1f7a4b20df rr:objectMap _:node19pmo5erfx14 .
+
+km-dev:TriplesMap_9f844bc9-587f-46cd-806f-39d6c0006d39 rr:predicateObjectMap km-dev:PredicateObjectMap_af1ecd93-34eb-4812-9135-8a1f7a4b20df .
+
+km-dev:PredicateObjectMap_af1ecd93-34eb-4812-9135-8a1f7a4b20df a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node19pmo5erfx1 .
+
+_:node19pmo5erfx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_af1ecd93-34eb-4812-9135-8a1f7a4b20df .
+
+km-dev:PredicateObjectMap_18fbb7ad-5eb6-4803-997b-c4414d507eb0 rr:predicate skos:note .
+
+_:node19pmo5erfx15 rr:column "description" ;
+	a rr:ObjectMap ;
+	rr:datatype "http://www.w3.org/2001/XMLSchema#string" ;
+	km-dev:isPartOfMapping _:node19pmo5erfx1 .
+
+_:node19pmo5erfx1 km-dev:hasObjectMap _:node19pmo5erfx15 .
+
+km-dev:PredicateObjectMap_18fbb7ad-5eb6-4803-997b-c4414d507eb0 rr:objectMap _:node19pmo5erfx15 .
+
+km-dev:TriplesMap_9f844bc9-587f-46cd-806f-39d6c0006d39 rr:predicateObjectMap km-dev:PredicateObjectMap_18fbb7ad-5eb6-4803-997b-c4414d507eb0 .
+
+km-dev:PredicateObjectMap_18fbb7ad-5eb6-4803-997b-c4414d507eb0 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node19pmo5erfx1 .
+
+_:node19pmo5erfx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_18fbb7ad-5eb6-4803-997b-c4414d507eb0 .
+
+km-dev:TriplesMap_39106966-a4cb-409e-a191-9183001bdae2 a rr:TriplesMap .
+
+_:node19pmo5erfx1 km-dev:hasTriplesMap km-dev:TriplesMap_39106966-a4cb-409e-a191-9183001bdae2 .
+
+km-dev:TriplesMap_39106966-a4cb-409e-a191-9183001bdae2 km-dev:isPartOfMapping _:node19pmo5erfx1 .
+
+_:node19pmo5erfx16 rr:tableName "infodocument_coord_siimobility_05052014" ;
+	a rr:LogicalTable ;
+	km-dev:isPartOfMapping _:node19pmo5erfx1 .
+
+_:node19pmo5erfx1 km-dev:hasLogicalTable _:node19pmo5erfx16 .
+
+km-dev:TriplesMap_39106966-a4cb-409e-a191-9183001bdae2 rr:logicalTable _:node19pmo5erfx16 ;
+	rr:subjectMap _:node19pmo5erfx17 .
+
+_:node19pmo5erfx1 km-dev:hasSubjectMap _:node19pmo5erfx17 .
+
+_:node19pmo5erfx17 km-dev:isPartOfMapping _:node19pmo5erfx1 ;
+	a rr:SubjectMap ;
+	km-dev:alignmentNodeId "http://purl.org/goodrelations/v1#Location1" ;
+	rr:class gr:Location ;
+	rr:template "{name_location}" .
+
+km-dev:PredicateObjectMap_f8c285ec-e4e4-4c6c-8848-2258b43de448 rr:predicate geo:lat .
+
+_:node19pmo5erfx18 rr:column "latitude" ;
+	a rr:ObjectMap ;
+	rr:datatype "http://www.w3.org/2001/XMLSchema#float" ;
+	km-dev:isPartOfMapping _:node19pmo5erfx1 .
+
+_:node19pmo5erfx1 km-dev:hasObjectMap _:node19pmo5erfx18 .
+
+km-dev:PredicateObjectMap_f8c285ec-e4e4-4c6c-8848-2258b43de448 rr:objectMap _:node19pmo5erfx18 .
+
+km-dev:TriplesMap_39106966-a4cb-409e-a191-9183001bdae2 rr:predicateObjectMap km-dev:PredicateObjectMap_f8c285ec-e4e4-4c6c-8848-2258b43de448 .
+
+km-dev:PredicateObjectMap_f8c285ec-e4e4-4c6c-8848-2258b43de448 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node19pmo5erfx1 .
+
+_:node19pmo5erfx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_f8c285ec-e4e4-4c6c-8848-2258b43de448 .
+
+km-dev:PredicateObjectMap_16bda0c5-1e4d-434b-b45d-431b1f92c2e8 rr:predicate geo:long .
+
+_:node19pmo5erfx19 rr:column "longitude" ;
+	a rr:ObjectMap ;
+	rr:datatype "http://www.w3.org/2001/XMLSchema#float" ;
+	km-dev:isPartOfMapping _:node19pmo5erfx1 .
+
+_:node19pmo5erfx1 km-dev:hasObjectMap _:node19pmo5erfx19 .
+
+km-dev:PredicateObjectMap_16bda0c5-1e4d-434b-b45d-431b1f92c2e8 rr:objectMap _:node19pmo5erfx19 .
+
+km-dev:TriplesMap_39106966-a4cb-409e-a191-9183001bdae2 rr:predicateObjectMap km-dev:PredicateObjectMap_16bda0c5-1e4d-434b-b45d-431b1f92c2e8 .
+
+km-dev:PredicateObjectMap_16bda0c5-1e4d-434b-b45d-431b1f92c2e8 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node19pmo5erfx1 .
+
+_:node19pmo5erfx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_16bda0c5-1e4d-434b-b45d-431b1f92c2e8 .

@@ -38,6 +38,7 @@ public class ExtractorGeoDocumentSupport {
     public GeoDocument UpgradeTheDocumentWithOtherInfo(GeoDocument geo) throws URISyntaxException {
         try{
             SystemLog.message("**************DOCUMENT*********************");
+            HttpKit http = HttpKit.getInstance();
             //*************************************************************************************
             //INTEGRAZIONE FINALE CON IL DATABASE KEYWORDDB
             //SET CITY IF YOU DON'T HAVE
@@ -59,22 +60,21 @@ public class ExtractorGeoDocumentSupport {
             }
             //INTEGRAZIONE DEL CAMPO LANGUAGE -> NAZIONE
             SetNazioneELanguage set = new SetNazioneELanguage();
-            String language = geo.getNazione();
-            String domain = HttpKit.getInstance().getDomainName(geo.getUrl().toString());
-            String nazione = set.checkNazioneByDomain(domain);
-            geo.setNazione(nazione);
+            String language;
+            if(!StringKit.isNullOrEmpty(geo.getNazione())) {
+               language = geo.getNazione();
+            }else{ language = "it";}
+            String domain = http.getDomainName(geo.getUrl().toString());
+            String nazione="";
+            if(!StringKit.isNullOrEmpty(domain)) {
+                nazione = set.checkNazioneByDomain(domain);
+            }
             //con il linguaggio identificato da Tika se fallisce il controllo del
             //dominio per esempio con estensioni .com,.edu,ecc.
             if(geo.getNazione() == null && language != null){
                 nazione = set.checkNazioneByLanguageIdentificatorByTika(language);
             }
             geo.setNazione(nazione);
-            //INTEGRAZIONE DEI CAMPI DELLE COORDINATE CON GOOGLE MAPS
-            //geo =j.connection(geo);
-            LatLng coord = j.getCoords(geo);
-            geo.setLat(coord.getLat());
-            geo.setLng(coord.getLng());
-            SystemLog.message("COORD[LAT:" + geo.getLat() + ",LNG:" + geo.getLng() + "]");
             //PULIAMO NUOVAMENTE LA STRINGA EDIFICIO E INDIRIZZO (UTILE NEL CASO DI SearchMonkey e Tika)
             geo = pulisciDiNuovoLaStringaEdificio(geo);
             geo = pulisciDiNuovoLaStringaIndirizzo(geo);
@@ -104,13 +104,21 @@ public class ExtractorGeoDocumentSupport {
             }
             geo.setIndirizzoNoCAP(indirizzoNoCAP);
             //UPDATE THE "indirizzo" FIELD TO "indirizzoNoCAP"+","+"indirizzoHasNumber"
-            if(StringKit.isNullOrEmpty(geo.getIndirizzoHasNumber())) {
-                geo.setIndirizzo(geo.getIndirizzoNoCAP());
+            if(StringKit.isNullOrEmpty(geo.getIndirizzoHasNumber()) && !StringKit.isNullOrEmpty(geo.getIndirizzoNoCAP())) {
+                geo.setIndirizzo(geo.getIndirizzoNoCAP().trim());
+            }else if(!StringKit.isNullOrEmpty(geo.getIndirizzoHasNumber()) && !StringKit.isNullOrEmpty(geo.getIndirizzoNoCAP())){
+                geo.setIndirizzo(geo.getIndirizzoNoCAP().trim()+", "+geo.getIndirizzoHasNumber().trim());
             }else{
-                geo.setIndirizzo(geo.getIndirizzoNoCAP()+", "+geo.getIndirizzoHasNumber());
+                geo.setIndirizzo(null);
             }
-
-        }catch(NullPointerException ne){ne.printStackTrace();}
+            //INTEGRAZIONE DEI CAMPI DELLE COORDINATE CON GOOGLE MAPS
+            LatLng coord = j.getCoords(geo);
+            geo.setLat(coord.getLat());
+            geo.setLng(coord.getLng());
+            SystemLog.message("COORD[LAT:" + geo.getLat() + ",LNG:" + geo.getLng() + "]");
+        }catch(NullPointerException ne){
+            ne.printStackTrace();
+        }
         return geo;
     }
 
@@ -152,7 +160,7 @@ public class ExtractorGeoDocumentSupport {
             return geo;
         }//pulisciDiNuovoLaStringaEdificio
 
-        /**
+    /**
      * Metodo che ripulisce il nome indirizzo da usare come URI da caratteri non
      * non voluti
      * @param geo GeoDocument fornito come input
@@ -170,9 +178,10 @@ public class ExtractorGeoDocumentSupport {
                     //set = set.replaceAll("...", "");
 
                     List<String> addressWords = Arrays.asList(
-                            "VIA", "via", "Via", "VIALE", "viale", "Viale", "STRADA", "strada", "Strada", "ROAD", "road", "Road", "Piazza", "PIAZZA",
-                            "piazza", "P.zza", "p.zza", "Piazzale", "piazzale", "iazza", "Corso", "Loc.", "loc.", "loc", "Loc", "località",
-                            "Località", "V.", "v."
+                            "VIA", "via", "Via", "VIALE", "viale", "Viale", "STRADA", "strada", "Strada", "ROAD",
+                            "road", "Road", "Piazza", "PIAZZA",
+                            "piazza", "P.zza", "p.zza", "Piazzale", "piazzale", "iazza", "Corso", "Loc.",
+                            "loc.", "loc", "Loc", "località","Località", "V.", "v."
                     );
                     boolean b = false;
                     for(String s : addressWords){

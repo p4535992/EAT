@@ -102,8 +102,9 @@ public class GeoDocumentDaoImpl extends GenericDaoImpl<GeoDocument> implements I
     @Override
     @SuppressWarnings("rawtypes")
     public void insertAndTrim(GeoDocument g) {
-       SQLSupport support = SQLSupport.getInstance(g);
+       SQLSupport support = SQLSupport.getInstance(g,true);
        try {
+           //support.getInstance(g);
            //super.insertAndTrim(columns,values,types);
            super.insertAndTrim(support.getCOLUMNS(),support.getVALUES(),support.getTYPES());
         }catch(NullPointerException e){
