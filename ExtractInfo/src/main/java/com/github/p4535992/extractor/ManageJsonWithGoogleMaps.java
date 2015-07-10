@@ -1,9 +1,10 @@
 package com.github.p4535992.extractor;
 import com.github.p4535992.extractor.object.model.GeoDomainDocument;
 import com.github.p4535992.extractor.setInfoParameterIta.SetNazioneELanguage;
-import com.github.p4535992.util.http.HttpUtilApache;
+import com.github.p4535992.util.http.HttpUtil;
 import com.github.p4535992.extractor.object.model.GeoDocument;
 import com.github.p4535992.extractor.object.support.LatLng;
+import com.github.p4535992.util.http.HttpUtilApache4;
 import com.github.p4535992.util.string.StringKit;
 import org.json.JSONException;
 
@@ -242,15 +243,15 @@ public class ManageJsonWithGoogleMaps {
          String jsonText = "";
          try{
             try{
-               HttpUtilApache.waiter();
+               HttpUtil.waiter();
                //FUNZIONA
-               jsonText = HttpUtilApache.get(url.toString());
+               jsonText = HttpUtil.get(url.toString());
             } catch (InterruptedException e) {
                 SystemLog.warning(e.getMessage());
             } finally{
                 //UN SECONDO TENTATIVO IN CASO DI FALLIMENTO (TIMEOUT,ECC.)
                 if(StringKit.isNullOrEmpty(jsonText)){
-                    jsonText = HttpUtilApache.GETWithRetry(url.toString());
+                    jsonText = HttpUtilApache4.GETWithRetry(url.toString());
                 }
             }
          json = new JSONObject(jsonText);

@@ -2,7 +2,7 @@ package com.github.p4535992.extractor.estrattori;
 
 import com.github.p4535992.extractor.object.support.LatLng;
 import com.github.p4535992.util.http.HttpKit;
-import com.github.p4535992.util.http.HttpUtilApache;
+import com.github.p4535992.util.http.HttpUtil;
 import com.github.p4535992.util.log.SystemLog;
 import com.github.p4535992.util.string.StringKit;
 import com.github.p4535992.extractor.ManageJsonWithGoogleMaps;
@@ -15,12 +15,14 @@ import com.github.p4535992.extractor.object.model.GeoDocument;
 import java.net.URISyntaxException;
 import java.util.Arrays;
 import java.util.List;
+import java.util.StringTokenizer;
 
 /**
  * Created by 4535992 on 15/06/2015.
  * @author 4535992
  * @version 2015-06-30
  */
+@SuppressWarnings("unused")
 public class ExtractorGeoDocumentSupport {
 
     ManageJsonWithGoogleMaps j = ManageJsonWithGoogleMaps.getInstance();
@@ -32,6 +34,11 @@ public class ExtractorGeoDocumentSupport {
         if(instance == null) {
             instance = new ExtractorGeoDocumentSupport();
         }
+        return instance;
+    }
+
+    public static ExtractorGeoDocumentSupport getNewInstance(){
+        instance = new ExtractorGeoDocumentSupport();
         return instance;
     }
 
@@ -140,7 +147,7 @@ public class ExtractorGeoDocumentSupport {
                 //Accetta le lettere accentuate
                 if(set.toLowerCase().contains("http://")){
                     try {
-                        set = HttpUtilApache.getAuthorityName(set);
+                        set = HttpUtil.getAuthorityName(set);
                         set = set.replaceAll("(https?|ftp)://", "");
                         set = set.replaceAll("(www(\\d)?)", "");
                         set = set.replace(".", " ");
@@ -246,5 +253,66 @@ public class ExtractorGeoDocumentSupport {
         if(geo.getIndirizzoHasNumber()!=null){geo.setIndirizzoHasNumber(geo.getIndirizzoHasNumber().replaceAll("\\r\\n|\\r|\\n","").replace("\\n\\r", "").replace("\\n","").replace("\\r","").trim()); }
         return geo;
 
+    }
+
+
+    /**
+     * Ripulisce la stringa edificio da caratteri non voluti
+     * @param edificio la stringa da "ripulire"
+     * @return la stringa "ripulita"
+     */
+    public String pulisciStringaEdificio(String edificio){
+        List<String> badWords = Arrays.asList("INDEX","index", "home/home", "HOME", "homepage","HOMEPAGE",
+                "page","PAGE","Homepage","Page","Home","Chi siamo","Chi Siamo","Portale","portale",
+                "NEWS","News","Benvenuto nel","benvenuto nel","Benvenuto","benvenuto","CHI SIAMO"
+        );
+        for(String s: badWords){
+            if(edificio.contains(s)){
+                //System.out.println("STAMPA:"+s);
+                edificio = edificio.replaceAll(s," ");
+            }
+        }
+        //if(linkString.contains("|")){st = new StringTokenizer(linkString, "|");}
+        //org.apache.commons.lang3.StringUtils.containsIgnoreCase("ABCDEFGHIJKLMNOP", "gHi");
+//        StringTokenizer st = null;
+//
+//        st = new StringTokenizer(edificio, "|");
+//        while (st.hasMoreTokens()) {
+//                edificio = st.nextToken().toString();
+//                if(setNullForEmptyString(edificio)==null){
+//                    continue;
+//                }else{break;}
+//        }
+
+        if(edificio.contains("...")){edificio = edificio.replace("...", "");}
+        if(edificio.contains(".")){edificio = edificio.replace(".", ""); }
+        if(edificio.contains("::")){edificio = edificio.replace(".", "");}
+        if(edificio.contains(":")){edificio = edificio.replace(".", ""); }
+        //edificio = getTheFirstTokenOfATokenizer(edificio, "|");
+        edificio = getTheFirstTokenOfATokenizer(edificio, "...");
+        //edificio = getTheFirstTokenOfATokenizer(edificio, ",");
+        edificio = getTheFirstTokenOfATokenizer(edificio, ".");
+        edificio = getTheFirstTokenOfATokenizer(edificio, ";");
+        //edificio = getTheFirstTokenOfATokenizer(edificio, "-");
+
+        //System.out.println("TIKA:"+edificio);
+        return edificio;
+    }
+
+    /**
+     * Metodo che "taglia" la descrizione dell'edificio al minimo indispensabile.
+     * @param content stringa del contenuto da tokenizzare.
+     * @param symbol simbolo del tokenizer.
+     * @return la stringa tokenizzata.
+     */
+    public static String getTheFirstTokenOfATokenizer(String content,String symbol){
+        StringTokenizer st = new StringTokenizer(content, symbol);
+        while (st.hasMoreTokens()) {
+            content = st.nextToken();
+            if(!StringKit.isNullOrEmpty(content)){
+                break;
+            }
+        }
+        return content;
     }
 }

@@ -1,17 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package com.github.p4535992.extractor.estrattori;
 
 import com.github.p4535992.extractor.object.model.GeoDocument;
 import com.github.p4535992.util.log.SystemLog;
-import com.github.p4535992.util.http.HttpUtilApache;
+import com.github.p4535992.util.http.HttpUtil;
 import java.io.IOException;
-import java.net.SocketTimeoutException;
-import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.*;
 
@@ -64,13 +56,13 @@ public class ExtractorJSOUP {
             }
         }catch(Exception e){
             tentativi++;
-            HttpUtilApache.waiter();
+            HttpUtil.waiter();
             if(tentativi < 3) GetTitleAndHeadingTags(url,geo);
             else doc = null;
         }
         if(doc==null){
             try{
-                String html = HttpUtilApache.get(url);
+                String html = HttpUtil.get(url);
                 doc = Jsoup.parse(html);
                 SystemLog.message("HTTP GET HA AVUTO SUCCESSO");
                 EXIST_WEBPAGE = true;
@@ -84,6 +76,7 @@ public class ExtractorJSOUP {
         }
 
         if(doc !=null && EXIST_WEBPAGE){
+            ExtractorGeoDocumentSupport egds = ExtractorGeoDocumentSupport.getNewInstance();
             //Elements titleTags = doc.trySelectWithRowMap("h1,h2");
             //SETTIAMO TITLE
             //Elements titleTags = doc.trySelectWithRowMap("title");
@@ -94,19 +87,19 @@ public class ExtractorJSOUP {
             for(String s: tagList){
                 Elements Tags = doc.select(s);
                 for(Element e : Tags){
-                     result += pulisciStringaEdificio(e.text())+" "; 
+                     result += egds.pulisciStringaEdificio(e.text())+" ";
                      if(result.contains("momentaneamente disabilitato")
                        //||result.contains("sito org.p4535992.mvc.webapp") //occupato,non più raggiungibile,nestitente
                              ){break;}
-                     if(setNullForEmptyString(result)!=null)break;
+                     if(StringKit.setNullForEmptyString(result)!=null)break;
                 }
-                if(setNullForEmptyString(result)==null && doc.select(s).size()>0){   
+                if(StringKit.setNullForEmptyString(result)==null && doc.select(s).size()>0){
                        result += doc.select(s).first().attr("content");               
                 }
                 //if(setNullForEmptyString(result)!=null){break;}
             }
       
-            if(setNullForEmptyString(result)==null){
+            if(StringKit.setNullForEmptyString(result)==null){
                 result=null;
             }else
             {
@@ -121,14 +114,14 @@ public class ExtractorJSOUP {
             for(String s: tagList){
                 Elements Tags = doc.select(s);
                 for(Element e : Tags){
-                     result += pulisciStringaEdificio(e.text())+" ";    
+                     result += egds.pulisciStringaEdificio(e.text())+" ";
                 }
-                if(setNullForEmptyString(result)==null && doc.select(s).size()>0){   
+                if(StringKit.setNullForEmptyString(result)==null && doc.select(s).size()>0){
                        result = doc.select(s).first().attr("content");               
                 }
-                if(setNullForEmptyString(result)!=null){break;}
+                if(StringKit.setNullForEmptyString(result)!=null){break;}
             }
-            if(setNullForEmptyString(result)==null){
+            if(StringKit.setNullForEmptyString(result)==null){
                 result=null;
             }
             geo.setDescription(result);
@@ -140,18 +133,18 @@ public class ExtractorJSOUP {
                 Elements Tags = doc.select(s);
                 for(Element e : Tags){
                     if(!Objects.equals(s, "html")){
-                     result += pulisciStringaEdificio(e.text())+" ";    
+                     result += egds.pulisciStringaEdificio(e.text())+" ";
                     }
                 }
-                if(setNullForEmptyString(result)==null && doc.select(s).size()>0){   
+                if(StringKit.setNullForEmptyString(result)==null && doc.select(s).size()>0){
                        result = doc.select(s).first().attr("lang");               
-                }else if(setNullForEmptyString(result)==null && doc.select(s).size()>0 && !Objects.equals(s, "html")){
+                }else if(StringKit.setNullForEmptyString(result)==null && doc.select(s).size()>0 && !Objects.equals(s, "html")){
                        result = doc.select(s).first().attr("content");   
                 }
-                if(setNullForEmptyString(result)!=null){break;}
+                if(StringKit.setNullForEmptyString(result)!=null){break;}
             }
             
-            if(setNullForEmptyString(result)==null){
+            if(StringKit.setNullForEmptyString(result)==null){
                 result="it";
             }
             geo.setNazione(result);    
@@ -172,118 +165,13 @@ public class ExtractorJSOUP {
     }
   
     //METODI DI SUPPORTO EREDIATI DA TIKA
-    /**
-     * Ripulisce la stringa edificio da caratteri non voluti 
-     * @param edificio la stringa da "ripulire"
-     * @return la stringa "ripulita"
-     */
-    private String pulisciStringaEdificio(String edificio){
-        List<String> badWords = Arrays.asList("INDEX","index", "home/home", "HOME", "homepage","HOMEPAGE",
-                "page","PAGE","Homepage","Page","Home","Chi siamo","Chi Siamo","Portale","portale",
-                "NEWS","News","Benvenuto nel","benvenuto nel","Benvenuto","benvenuto","CHI SIAMO"
-                );
-        for(String s: badWords){
-            if(edificio.contains(s)){
-                //System.out.println("STAMPA:"+s);
-                edificio = edificio.replaceAll(s," ");
-            }
-        }
-        //if(linkString.contains("|")){st = new StringTokenizer(linkString, "|");}
-        //org.apache.commons.lang3.StringUtils.containsIgnoreCase("ABCDEFGHIJKLMNOP", "gHi");
-//        StringTokenizer st = null;
-//           
-//        st = new StringTokenizer(edificio, "|");                
-//        while (st.hasMoreTokens()) {
-//                edificio = st.nextToken().toString();
-//                if(setNullForEmptyString(edificio)==null){
-//                    continue;              
-//                }else{break;}            
-//        }
 
-        if(edificio.contains("...")){edificio = edificio.replace("...", "");}
-        if(edificio.contains(".")){edificio = edificio.replace(".", ""); }
-        if(edificio.contains("::")){edificio = edificio.replace(".", "");}    
-        if(edificio.contains(":")){edificio = edificio.replace(".", ""); }
-        //edificio = getTheFirstTokenOfATokenizer(edificio, "|");
-        edificio = getTheFirstTokenOfATokenizer(edificio, "...");
-        //edificio = getTheFirstTokenOfATokenizer(edificio, ",");
-        edificio = getTheFirstTokenOfATokenizer(edificio, ".");
-        edificio = getTheFirstTokenOfATokenizer(edificio, ";");
-        //edificio = getTheFirstTokenOfATokenizer(edificio, "-");
-        
-        //System.out.println("TIKA:"+edificio);
-        return edificio;
-    }
     
-    /**
-     * Setta a null se verifica che la stringa non è
-     * nulla, non è vuota e non è composta da soli spaceToken (white space)
-     * @param s stringa di input
-     * @return  il valore della stringa se null o come è arrivata
-     */
-     private String setNullForEmptyString(String s){     
-         if(s!=null && !s.isEmpty() && !s.trim().isEmpty()){return s;}
-         else{return null;}
-     } //setNullforEmptyString
+
      
      
-     /**
-     * Metodo che assegna attraverso un meccanismo di "mapping" ad ogni valore 
-     * distinto del parametro in questione un numero (la frequenza) prendeno il 
-     * valore con la massima frequenza abbiamo ricavato il valore più diffuso 
-     * per tale parametro
-     * @param al lista dei valori per il determianto parametro del GeoDocument
-     * @return  il valore più diffuso per tale parametro
-     */
-    private String getMoreCommonParameter(List<String> al){
-        Map<String,Integer> map = new HashMap<>();
-        for (String anAl : al) {
-            Integer count = map.get(anAl);
-            map.put(anAl, count == null ? 1 : count + 1);   //auto boxing and count
-        }  
-        //System.out.println(map);  
-        //ADESSO PER OGNI VALORE POSSIBILE DEL PARAMETRO ABBIAMO INSERITO IL 
-        //NUMERO DI VOLTE IN CUI SONO STATI "TROVATI" NEI VARI RECORD ANALIZZATI
-        String keyParameter=null;
-        Integer keyValue =0;
-        for ( Map.Entry<String, Integer> entry : map.entrySet()) {
-            String key = entry.getKey();
-            //System.out.println(key);
-            Integer value = entry.getValue();
-            if(value >= keyValue && setNullForEmptyString(key)!=null && !key.equals("null") && !key.equals("NULL")){
-                keyValue = value;
-                keyParameter = key;
-            }
-        }
-        return keyParameter;
-    }//getMoreCommonParameter
+
      
-     /**
-      * Metodo che "taglia" la descrizione dell'edificio al minimo indispensabile
-      * @param content stringa del contenuto da tokenizzare
-      * @param symbol simbolo del tokenizer
-      * @return la stringa tokenizzata
-      */
-     private String getTheFirstTokenOfATokenizer(String content,String symbol){
-        StringTokenizer st = new StringTokenizer(content, symbol);                
-        while (st.hasMoreTokens()) {
-                content = st.nextToken();
-                if(!StringKit.isNullOrEmpty(content))break;
-        }
-        return content;
-     }
-     /**
-      * Piccola modifica del campo edifico del GeoDocument in esame
-      * @param geo il GeoDocument in esame
-      * @return il GeoDocument in esame
-      * @throws URISyntaxException 
-      */
-     private GeoDocument littleUpdateEdificio(GeoDocument geo) throws URISyntaxException{
-         String edificio = geo.getEdificio();
-         if(!(edificio.toLowerCase().contains(HttpUtilApache.getAuthorityName(geo.getUrl().toString().toLowerCase())))){
-             edificio = HttpUtilApache.getAuthorityName(geo.getUrl().toString()).toUpperCase()+" - "+edificio;
-             geo.setEdificio(edificio);
-         }
-         return geo;
-     } 
+
+
 }
