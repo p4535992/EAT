@@ -287,7 +287,8 @@ public class ExtractInfoSpring {
                 egd.reloadNullCoordinates();
             }*/
             /*if(PROCESS_PROGAMM == 6){
-                SystemLog.message("RUN PROCESS PROGRAMM 6:DELETE OVERRRIDE RECORD GEODOMAINDOCUMENT TABLE WITH SIIMOBILITY COORDINATES");
+                SystemLog.message("RUN PROCESS PROGRAMM 6:
+                DELETE OVERRRIDE RECORD GEODOMAINDOCUMENT TABLE WITH SIIMOBILITY COORDINATES");
                 IGeoDomainDocumentDao geoDomainDocumentDao = new GeoDomainDocumentDaoImpl();
                 geoDomainDocumentDao.setTableInsert(TABLE_OUTPUT_GEODOMAIN);
                 geoDomainDocumentDao.setTableSelect(TABLE_INPUT_GEODOMAIN);

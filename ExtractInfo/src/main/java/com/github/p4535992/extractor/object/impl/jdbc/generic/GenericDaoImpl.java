@@ -288,7 +288,7 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
      */
     @Override
     public void deleteDuplicateRecords(String[] columns,String nameKeyColumn){
-        String cols = StringKit.convertArrayContentToSingleString(columns);
+        String cols = CollectionKit.convertArrayContentToSingleString(columns);
         query = "WHILE EXISTS (SELECT COUNT(*) FROM "+myDeleteTable+" GROUP BY "+cols+" HAVING COUNT(*) > 1)\n" +
                 "BEGIN\n" +
                 "    DELETE FROM "+myDeleteTable+" WHERE "+nameKeyColumn+" IN \n" +
@@ -311,7 +311,7 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
      */
     @Override
     public void deleteDuplicateRecords(String[] columns){
-        String cols = StringKit.convertArrayContentToSingleString(columns);
+        String cols = CollectionKit.convertArrayContentToSingleString(columns);
         query = "WITH "+myDeleteTable+" AS ( " +
                 "SELECT ROW_NUMBER() OVER(PARTITION BY "+cols+" ORDER BY "+cols+") AS ROW " +
                 "FROM "+myDeleteTable+") " +
@@ -329,7 +329,7 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
      */
     @Override
     public void deleteDuplicateRecords(String[] columns,Object[] values,boolean high){
-        String cols = StringKit.convertArrayContentToSingleString(columns);
+        String cols = CollectionKit.convertArrayContentToSingleString(columns);
         if(high) {
             //if you want to keep the row with the lowest id value
             query = "";

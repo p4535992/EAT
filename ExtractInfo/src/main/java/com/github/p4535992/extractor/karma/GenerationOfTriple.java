@@ -84,7 +84,7 @@ public class GenerationOfTriple {
         String[] args2;
         try {
             args2 = CollectionKit.mergeArraysForCommandInput(param, value);
-            SystemLog.message("PARAM KARMA:"+ StringKit.convertArrayContentToSingleString(args2));
+            SystemLog.message("PARAM KARMA:"+ CollectionKit.convertArrayContentToSingleString(args2));
             SystemLog.message("try to create a file of triples from a relational table with karma...");
 
             edu.isi.karma.rdf.OfflineRdfGenerator.main(args2);

@@ -649,4 +649,48 @@ public class ExtractInfoWeb {
         return listUrl;
     }
 
+    /**
+     * Method for update all record with the Coordinates null or empty.
+     */
+    public  List<GeoDocument> reloadGeoDocumentNullColumns(
+            GeoDocument geoDoc,String[] columns_where,Integer LIMIT,Integer OFFSET,boolean isNumeric){
+        IGeoDocumentDao geoDocumentDao = new GeoDocumentDaoImpl();
+        if(connectionToADatabase) {
+            geoDocumentDao.setDriverManager(DRIVER_DATABASE, DIALECT_DATABASE, HOST_DATABASE,
+                    PORT_DATABASE, USER, PASS, DB_OUTPUT);
+            geoDocumentDao.setTableInsert(TABLE_OUTPUT);
+            geoDocumentDao.setTableSelect(TABLE_INPUT);
+        }
+        //ManageJsonWithGoogleMaps j = ManageJsonWithGoogleMaps.getInstance();
+        //String[] columns_where = new String[]{"latitude","longitude"};
+        Object[] values_where = new Object[]{null,null};
+        List<GeoDocument> list;
+
+        list = geoDocumentDao.trySelect(
+                new String[]{"*"}, columns_where, values_where, LIMIT, OFFSET, "AND");
+
+        values_where = new Object[]{"",""};
+        List<GeoDocument> list2 =
+                geoDocumentDao.trySelect(
+                        new String[]{"*"}, columns_where, values_where, LIMIT, OFFSET, "AND");
+        list.addAll(list2);
+        if(isNumeric) {
+            values_where = new Object[]{0, 0};
+            list2 = geoDocumentDao.trySelect(
+                    new String[]{"*"}, columns_where, values_where, LIMIT, OFFSET, "AND");
+            list.addAll(list2);
+        }
+      /*  for (GeoDocument geo : list) {
+            LatLng coord = j.getCoords(geo);
+                    if (coord.getLat() == 0 && coord.getLng() == 0) {
+                        values_where = new Object[]{null, null};
+                    } else {
+                        values_where = new Object[]{coord.getLat(), coord.getLng()};
+
+                    }
+            geoDocumentDao.update(columns_where, values_where, "url", geo.getUrl().toString().replace("http://", ""));
+        }*/
+        return list;
+    }
+
 }
