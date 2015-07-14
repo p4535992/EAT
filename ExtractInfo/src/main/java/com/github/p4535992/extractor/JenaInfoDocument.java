@@ -1,6 +1,6 @@
 package com.github.p4535992.extractor;
 
-import com.github.p4535992.util.jena.Jena2Kit;
+import com.github.p4535992.util.repositoryRDF.jena.Jena2Kit;
 import com.github.p4535992.util.log.SystemLog;
 
 import java.io.File;

@@ -6,7 +6,7 @@ import com.github.p4535992.extractor.object.impl.jdbc.GeoDocumentDaoImpl;
 import com.github.p4535992.extractor.object.impl.jdbc.GeoDomainDocumentDaoImpl;
 import com.github.p4535992.extractor.object.model.GeoDocument;
 import com.github.p4535992.extractor.object.model.GeoDomainDocument;
-import com.github.p4535992.util.sql.SQLSupport;
+import com.github.p4535992.util.database.sql.SQLSupport;
 
 import java.net.URL;
 import java.util.List;

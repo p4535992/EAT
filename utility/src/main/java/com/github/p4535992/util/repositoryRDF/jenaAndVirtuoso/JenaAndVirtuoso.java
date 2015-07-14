@@ -1,4 +1,4 @@
-package com.github.p4535992.util.jenaAndVirtuoso;
+package com.github.p4535992.util.repositoryRDF.jenaAndVirtuoso;
 import com.hp.hpl.jena.graph.Node;
 import com.hp.hpl.jena.graph.NodeFactory;
 import com.hp.hpl.jena.graph.Triple;
@@ -63,7 +63,7 @@ public class JenaAndVirtuoso {
     }
 
     public Model execSparqlSelectAllToRepository(String urlResourceGraph,String rdfFormat){
-        graph.read(urlResourceGraph,rdfFormat);
+        graph.read(urlResourceGraph, rdfFormat);
         Query sparql = QueryFactory.create("SELECT ?s ?p ?o WHERE { ?s ?p ?o }");
         VirtuosoQueryExecution vqe = VirtuosoQueryExecutionFactory.create (sparql, graph);
         ResultSet results = vqe.execSelect();

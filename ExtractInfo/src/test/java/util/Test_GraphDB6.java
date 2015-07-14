@@ -1,6 +1,6 @@
 package util;
 
-import com.github.p4535992.util.sesame.SesameUtil28;
+import com.github.p4535992.util.repositoryRDF.sesame.SesameUtil28;
 
 public class Test_GraphDB6 {
 

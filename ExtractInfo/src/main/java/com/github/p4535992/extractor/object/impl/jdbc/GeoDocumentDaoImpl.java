@@ -3,11 +3,10 @@ package com.github.p4535992.extractor.object.impl.jdbc;
 import com.github.p4535992.extractor.object.impl.jdbc.generic.GenericDaoImpl;
 import com.github.p4535992.extractor.object.model.GeoDocument;
 import com.github.p4535992.extractor.object.dao.jdbc.IGeoDocumentDao;
-import com.github.p4535992.util.collection.CollectionKit;
 import com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException;
 import org.hibernate.SessionFactory;
 import com.github.p4535992.util.log.SystemLog;
-import com.github.p4535992.util.sql.SQLSupport;
+import com.github.p4535992.util.database.sql.SQLSupport;
 
 import javax.sql.DataSource;
 import java.io.IOException;
