@@ -62,8 +62,7 @@ public interface IGenericDao<T> {
 
     Object select(String column, String column_where, Object value_where);
 
-    String prepareDeleteQuery(
-            String[] columns, Object[] values, String[] columns_where, Object[] values_where, String condition);
+
 
     List<T> trySelect(String[] columns,String[] columns_where,Object[] values_where,Integer limit,Integer offset,String condition);
     List<List<Object[]>> select(String[] columns, String[] columns_where, Object[] values_where, Integer limit, Integer offset, String condition);
@@ -100,7 +99,7 @@ public interface IGenericDao<T> {
     //PREPARED STRING QUERY ////
     ////////////////////////////
 
-    String prepareInsertIntoQuery(String[] columns,Object[] values);
+    /*String prepareInsertIntoQuery(String[] columns,Object[] values);
 
     String prepareInsertIntoQuery(String[] columns, Object[] values, Integer[] types);
 
@@ -112,6 +111,7 @@ public interface IGenericDao<T> {
     String prepareUpdateQuery(
             String[] columns, Object[] values, String[] columns_where, Object[] values_where, String condition);
 
-
+    String prepareDeleteQuery(
+            String[] columns, Object[] values, String[] columns_where, Object[] values_where, String condition);*/
 
 }

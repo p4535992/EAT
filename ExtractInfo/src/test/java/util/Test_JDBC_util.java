@@ -41,17 +41,22 @@ public class Test_JDBC_util {
                 "localhost","3306","siimobility","siimobility","geodb");
         dao2.setTableInsert("geodocument2");
         dao2.insertAndTrim(geo);
-        //TEST
-        String q1 = dao.prepareSelectQuery(
+        //OLD TEST
+        ///////////////////////////////////////////////////////////////////////////////////////////////////
+       /* String q1 = dao.prepareSelectQuery(
                 new String[]{columns[0]},new String[]{columns[0]},null,0,18,null);
         String sq1 = dao.prepareSelectQuery(
                 new String[]{columns[0]},new String[]{columns[0]},values,0,18,null);
         String q2 = dao.prepareSelectQuery(columns, columns,values, null, null, "AND");
         String sq2 = dao.prepareSelectQuery(columns,columns,null, null, null, "AND");
+
+
+
         //String q2 ="SELECT * FROM geodocument WHERE doc_id  = '236' AND url  = 'http://4bid.it' ";
 
 
-        String q3 = dao.prepareSelectQuery(new String[]{"url"},null,null,3,0,null);
+        String q3 = dao.prepareSelectQuery(new String[]{"url"},null,null,3,0,null);*/
+        //////////////////////////////////////////////////////////////////////////////////////////
         //WORK
         List<GeoDomainDocument> list = dao.trySelect(columns,columns,values,null,null,"AND");
 

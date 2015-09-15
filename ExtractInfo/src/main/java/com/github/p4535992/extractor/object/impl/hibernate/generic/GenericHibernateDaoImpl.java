@@ -328,7 +328,7 @@ public class GenericHibernateDaoImpl<T> implements IGenericHibernateDao<T> {
 
     //SUPPORT
     /**
-     * Method for prepare the Dao Implement generic class to ork with
+     * Method for prepare the Dao Implement generic class to work with
      * standard Hibernate operational kit
      * @Note: you can just use the hibernate template with a {@code new HibernateCallback()}
      * inner class

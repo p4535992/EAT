@@ -3,9 +3,16 @@ package com.github.p4535992.extractor.object.impl.jdbc.generic;
 import com.github.p4535992.extractor.object.dao.jdbc.generic.IGenericDao;
 import com.github.p4535992.util.bean.BeansKit;
 import com.github.p4535992.util.collection.CollectionKit;
+//import com.github.p4535992.util.database.jooq.SQLJooqKit;
+import com.github.p4535992.util.database.jooq.SQLJooqKit;
+import com.github.p4535992.util.database.sql.SQLHelper;
+import com.github.p4535992.util.database.sql.SQLQuery;
 import com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.hibernate.SessionFactory;
+import org.jooq.Condition;
+import org.jooq.DSLContext;
+import org.jooq.impl.DSL;
 import org.springframework.context.ApplicationContext;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.ResultSetExtractor;
@@ -48,6 +55,7 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
     protected String clName;
     protected String query;
     protected ApplicationContext context;
+    protected DSLContext dslContext;
 
     @SuppressWarnings("unchecked")
     public GenericDaoImpl() {
@@ -67,6 +75,14 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
         driverManag.setPassword(pass);
         this.dataSource = driverManag;
         setNewJdbcTemplate();
+        //NEW TRY WITH JOOQ
+        try {
+            dslContext = DSL.using(driverManag.getConnection(), SQLHelper.convertDialectDBToSQLDialectJOOQ(dialectDB));
+            SQLJooqKit.setDslContext(dslContext);
+            SQLJooqKit.setSqlDialect(SQLHelper.convertDialectDBToSQLDialectJOOQ(dialectDB));
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -225,7 +241,11 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
     @Override
     public void update(String[] columns, Object[] values, String[] columns_where, Object[] values_where){
         try {
-            query = prepareUpdateQuery(columns,null,columns_where,null,"AND");
+            /** if you don't want to use JOOQ */
+            //query = SQLQuery.prepareUpdateQuery(myUpdateTable,columns, null, columns_where, null, "AND");
+            /** if you don't want to use JOOQ */
+            query = SQLJooqKit.update(myUpdateTable,columns,values,true,
+                    SQLJooqKit.convertToListConditionEqualsWithAND(columns_where,values_where));
             Object[] vals = CollectionKit.concatenateArrays(values, values_where);
             if(values_where!=null) {
                 jdbcTemplate.update(query, vals);
@@ -241,7 +261,12 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
     @Override
     public void update(String[] columns,Object[] values,String columns_where,String values_where){
         try {
-            prepareUpdateQuery(columns,values,new String[]{columns_where},new String[]{values_where},null);
+            /** if you don't want to use JOOQ */
+            //query = SQLQuery.prepareUpdateQuery(myUpdateTable,columns,
+            //        values, new String[]{columns_where}, new String[]{values_where},null);
+            /** if you want to use JOOQ */
+            query = SQLJooqKit.update(myUpdateTable,columns,values,true,
+                    SQLJooqKit.convertToListConditionEqualsWithAND(new String[]{columns_where},new Object[]{values_where}));
             SystemLog.query(query);
             if(values_where!=null && !CollectionKit.isArrayEmpty(values)) {
                 jdbcTemplate.update(query, values);
@@ -289,16 +314,7 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
     @Override
     public void deleteDuplicateRecords(String[] columns,String nameKeyColumn){
         String cols = CollectionKit.convertArrayContentToSingleString(columns);
-        query = "WHILE EXISTS (SELECT COUNT(*) FROM "+myDeleteTable+" GROUP BY "+cols+" HAVING COUNT(*) > 1)\n" +
-                "BEGIN\n" +
-                "    DELETE FROM "+myDeleteTable+" WHERE "+nameKeyColumn+" IN \n" +
-                "    (\n" +
-                "        SELECT MIN("+nameKeyColumn+") as [DeleteID]\n" +
-                "        FROM "+myDeleteTable+"\n" +
-                "        GROUP BY "+cols+"\n" +
-                "        HAVING COUNT(*) > 1\n" +
-                "    )\n" +
-                "END";
+        query = SQLQuery.deleteDuplicateRecord(myDeleteTable,nameKeyColumn,columns);
         jdbcTemplate.update(query);
     }
 
@@ -344,8 +360,10 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
     public Object select(String column, String column_where, Object value_where){
         Object result;
         try {
-            query = prepareSelectQuery(new String[]{column},new String[]{column_where},null,null,null,null);
-            //query = "SELECT " + column + " FROM " + mySelectTable + " WHERE " + column_where + " = ? LIMIT 1";
+            /** if you don't want to use JOOQ */
+            //query = SQLQuery.prepareSelectQuery(mySelectTable,new String[]{column}, new String[]{column_where}, null, null, null, null);
+            /** if you  want to use JOOQ */
+            query = SQLJooqKit.select(mySelectTable,new String[]{column},true);
             result =  jdbcTemplate.queryForObject(query, new Object[]{value_where},value_where.getClass());
             SystemLog.query(query + " -> " + result);
         }catch(org.springframework.dao.EmptyResultDataAccessException e){
@@ -394,10 +412,13 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
     public void insert(String[] columns,Object[] values,int[] types) {
         try {
             query ="";
-            query = prepareInsertIntoQuery(columns, null);
+            /** if you don't want to use JOOQ */
+            //query = SQLQuery.prepareInsertIntoQuery(myInsertTable, columns, null);
+            /** if you want to use JOOQ */
+            query = SQLJooqKit.insert(myInsertTable,columns,values,types,true);
             SystemLog.query(query);
             jdbcTemplate.update(query, values, types);
-            SystemLog.query(prepareInsertIntoQuery(columns, values, types));
+            //SystemLog.query(prepareInsertIntoQuery(columns, values, types));
             query ="";
         }catch(org.springframework.dao.TransientDataAccessResourceException e){
             SystemLog.error("Attention: probably there is some java.sql.Type not supported from your database");
@@ -406,7 +427,10 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
             SystemLog.error(e2.getMessage());
             SystemLog.warning("Attention: probably you try to use a Integer[] instead a int[]");
             try {
-                query = prepareInsertIntoQuery(columns, values,types);
+                /** if you don't want to use JOOQ */
+                //query = SQLQuery.prepareInsertIntoQuery(myInsertTable,columns, values,types);
+                /** if you want to use JOOQ */
+                query = SQLJooqKit.insert(myInsertTable, columns, values, types, false);
                 SystemLog.query(query);
                 //jdbcTemplate.update(query, values);
                 jdbcTemplate.update(query);
@@ -460,258 +484,32 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
 //        return list;
 //    }
 
-    @Override
-    public String prepareInsertIntoQuery(String[] columns,Object[] values){
-        StringBuilder bQuery = new StringBuilder();
-        try {
-            boolean statement = false;
-            bQuery.append("INSERT INTO ").append(myInsertTable).append(" (");
-            for (int i = 0; i < columns.length; i++) {
-                bQuery.append(columns[i]);
-                if (i < columns.length - 1) {
-                    bQuery.append(",");
-                }
-            }
-            bQuery.append(") VALUES (");
-            if (values == null) {
-                statement = true;
-            }
-            for (int i = 0; i < columns.length; i++) {
-                if (statement) {
-                    bQuery.append("?");
-                } else {
-                    if(values[i]== null){
-                        //values[i]= " NULL ";
-                    }else if (values[i]!=null && values[i] instanceof String) {
-                        values[i] = "'" + values[i].toString().replace("'", "''") + "'";
-                    }else if (values[i]!=null && values[i] instanceof java.net.URL) {
-                        values[i] = "'" + values[i].toString().replace("'", "''") + "'";
-                    }else{
-                        values[i] = " " + values[i] + " ";
-                    }
-                    bQuery.append(values[i]);
-                }
-                if (i < columns.length - 1) {
-                    bQuery.append(",");
-                }
-            }
-            bQuery.append(");");
-        }catch (NullPointerException e){
-            SystemLog.warning("Attention: you probably have forgotten to put some column for the SQL query");
-            SystemLog.exception(e);
-        }
-        return bQuery.toString();
-    }
-
-    @Override
-    public String prepareInsertIntoQuery(String[] columns, Object[] values, Integer[] types) {
-        return prepareInsertIntoQuery(columns,values,CollectionKit.convertIntegersToInt(types));
-    }
-
-    @Override
-    public String prepareInsertIntoQuery(String[] columns, Object[] values, int[] types){
-        StringBuilder bQuery = new StringBuilder();
-        try {
-            boolean statement = false;
-            bQuery.append("INSERT INTO ").append(myInsertTable).append("  (");
-            for (int i = 0; i < columns.length; i++) {
-                bQuery.append(columns[i]);
-                if (i < columns.length - 1) {
-                    bQuery.append(",");
-                }
-            }
-            bQuery.append(" ) VALUES ( ");
-            if (values == null) {
-                statement = true;
-            }
-            for (int i = 0; i < columns.length; i++) {
-                if (statement) {
-                    bQuery.append("?");
-                } else {
-                    if(values[i]== null || Objects.equals(values[i].toString(), "NULL")){
-                        //if(SQLHelper.convertSQLTypes2JavaClass(types[i]).getName().equals(Integer.class.getName())){
-                        values[i] = null;
-                    }
-                    else if (values[i]!=null && values[i] instanceof String) {
-                        values[i] = "'" + values[i].toString().replace("'", "''") + "'";
-                    }else if (values[i]!=null && values[i] instanceof java.net.URL) {
-                        values[i] = "'" + values[i].toString().replace("'", "''") + "'";
-                    }else{
-                        values[i] = " " + values[i] + " ";
-                    }
-                    bQuery.append(values[i]);
-                }
-                if (i < columns.length - 1) {
-                    bQuery.append(",");
-                }
-            }
-            bQuery.append(");");
-        }catch (NullPointerException e){
-            SystemLog.warning("Attention: you probably have forgotten  to put some column for the SQL query");
-            SystemLog.exception(e);
-        }
-        return bQuery.toString();
-    }
 
 
-//   public Object[] prepareValues(Object[] values,int[] types){
-//        for(int i = 0; i < values.length; i++){
-//            if(values[i]== null){
-//                if(SQLHelper.convertSQLTypes2JavaClass(types[i]).getName().equals(Integer.class.getName())){
-//                    values[i] = "NULL";
-//                    types[i] = Types.NULL;
-//                }
-//                else if(SQLHelper.convertSQLTypes2JavaClass(types[i]).getName().equals(int.class.getName())){
-//                    values[i] = "NULL" ;
-//                    types[i] = Types.NULL;
-//                }
-//                else if(SQLHelper.convertSQLTypes2JavaClass(types[i]).getName().equals(String.class.getName())){
-//                    values[i] = "NULL";
-//                    types[i] = Types.NULL;
-//                }
-//                else {
-//                    values[i] = "NULL";
-//                    types[i] = Types.NULL;
-//                }
-//            }else{
-//                if(SQLHelper.convertSQLTypes2JavaClass(types[i]).getName().equals(String.class.getName())){
-//                    values[i] = values[i].toString();
-//                    types[i] = Types.VARCHAR;
-//                }
-//            }
-//        }
-//        return values;
-//    }
 
-    @Override
-    public String prepareSelectQuery(
-            String[] columns,String[] columns_where,Object[] values_where,Integer limit,Integer offset,String condition){
-        StringBuilder bQuery = new StringBuilder();
-        boolean statement = false;
-        //PREPARE THE QUERY STRING
-        bQuery.append("SELECT ");
-        if(CollectionKit.isArrayEmpty(columns) || (columns.length==1 && columns[0].equals("*"))){
-            bQuery.append(" * ");
-        }else{
-            for(int i = 0; i < columns.length; i++){
-                bQuery.append(" ").append(columns[i]).append("");
-                if(i < columns.length-1){
-                    bQuery.append(", ");
-                }
-            }
-        }
-        bQuery.append(" FROM ").append(mySelectTable).append(" ");
-        if(!CollectionKit.isArrayEmpty(columns_where)) {
-            if(values_where==null){
-                statement = true;
-                //values_where = new Object[columns_where.length];
-                //for(int i = 0; i < columns_where.length; i++){values_where[i]="?";}
-            }
-            bQuery.append(" WHERE ");
-            for (int k = 0; k < columns_where.length; k++) {
-                bQuery.append(columns_where[k]).append(" ");
-                if(statement){
-                    bQuery.append(" = ? ");
-                }else {
-                    if (values_where[k] == null) {
-                        bQuery.append(" IS NULL ");
-                    } else {
-                        bQuery.append(" = '").append(values_where[k]).append("'");
-                    }
-                }
-                if (condition != null && k < columns_where.length - 1) {
-                    bQuery.append(" ").append(condition.toUpperCase()).append(" ");
-                } else {
-                    bQuery.append(" ");
-                }
-            }
-        }
-        if(limit != null && offset!= null) {
-            bQuery.append(" LIMIT ").append(limit).append(" OFFSET ").append(offset);
-        }
-        return bQuery.toString();
-    }
 
-    @Override
-    public String prepareUpdateQuery(
-            String[] columns, Object[] values, String[] columns_where, Object[] values_where, String condition){
-        StringBuilder bQuery = new StringBuilder();
-        boolean statement = false;
-        bQuery.append("UPDATE ").append(myUpdateTable).append(" SET ");
-        int f = 0;
-        for (int k = 0; k < columns.length; k++) {
-            bQuery.append(columns[k]).append("=? ");
-            if(CollectionKit.isArrayEmpty(values)) {
-                if (values[k] == null) {
-                    values[f] = "NULL";
-                    f++;
-                } else {
-                    values[f] = values[k];
-                    f++;
-                }
-            }
-            if (k < columns.length - 1) {
-                bQuery.append(", ");
-            }
-        }
-        if(!CollectionKit.isArrayEmpty(columns_where)) {
-            if(values_where==null){
-                statement = true;
-            }
-            bQuery.append(" WHERE ");
-            for (int k = 0; k < columns_where.length; k++) {
-                bQuery.append(columns_where[k]).append(" ");
-                if(statement){
-                    bQuery.append(" = ? ");
-                }else {
-                    if (values_where[k] == null) {
-                        bQuery.append(" IS NULL ");
-                    } else {
-                        bQuery.append(" = '").append(values_where[k]).append("'");
-                    }
-                }
-                if (condition != null && k < columns_where.length - 1) {
-                    bQuery.append(" ").append(condition.toUpperCase()).append(" ");
-                }
-            }
-        }
-        return  bQuery.toString();
-    }
 
-    /**
-     * Method to create a query string for the delete operation.
-     * http://stackoverflow.com/questions/3311903/remove-duplicate-rows-in-mysql
-     * @param columns string Array of columns name of the record.
-     * @param values string Array of value of the record.
-     * @param columns_where string Array of columns name for where condition of the record.
-     * @param values_where string Array of value for where condition of the record.
-     * @param condition string condition AND,OR.
-     * @return the string for delete a query.
-     */
-    @Override
-    public String prepareDeleteQuery(
-            String[] columns, Object[] values, String[] columns_where, Object[] values_where, String condition){
-       /* query ="ALTER IGNORE TABLE "+mySelectTable+" ADD UNIQUE INDEX idx_name ("+
-                StringKit.convertArrayContentToSingleString(columns) +" );";*/
-        StringBuilder bQuery = new StringBuilder();
-        bQuery.append("DELETE ");
-        bQuery.append("table1 FROM ").append(myDeleteTable).append(" table1,").append(myDeleteTable).append(" table2");
-        bQuery.append(" WHERE ");
-        for(int i=0; i< columns.length; i++){
-            if(Arrays.asList(columns_where).contains(columns[i])){
-                bQuery.append("table1.").append(columns[i]).append("= table2.").append(columns[i]);
-                if (condition != null && i < columns.length - 1) {
-                    bQuery.append(" ").append(condition.toUpperCase()).append(" ");
-                }
-            }
-        }
-        return bQuery.toString();
-    }
+
+
+
+
+
+
+
+
+
+
+
 
     @Override
     public List<T> trySelect(final String[] columns,String[] columns_where,Object[] values_where,Integer limit,Integer offset,String condition) {
         List<T> list = new ArrayList<>();
-        query = prepareSelectQuery(columns,columns_where,values_where,limit,offset,condition);
+        query = SQLQuery.prepareSelectQuery(mySelectTable, columns, columns_where, values_where, limit, offset, condition);
+        List<Condition> conds = new ArrayList<>();
+        /*if(condition == null || condition.toLowerCase().contains("and")){
+            conds = SQLJooqKit.convertToListConditionEqualsWithAND(columns_where,values_where);
+        }
+        query = SQLJooqKit.select(mySelectTable,columns,false,conds,limit.toString(),offset.toString());*/
         List<Map<String, Object>> map = jdbcTemplate.queryForList(query);
         SystemLog.query(query);
         try {
@@ -753,7 +551,11 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
 
     @Override
     public List<T> trySelectWithRowMap(String[] columns,String[] columns_where,Object[] values_where,Integer limit, Integer offset,String condition) {
-        query = prepareSelectQuery(columns,columns_where,values_where,limit,offset,condition);
+        query = SQLQuery.prepareSelectQuery(mySelectTable,columns, columns_where, values_where, limit, offset,condition);
+       /* query = SQLJooqKit.select(mySelectTable,columns,false,
+                SQLJooqKit.convertToListConditionEqualsWithAND(columns_where,values_where),
+                limit.toString(),offset.toString());*/
+
         List<T> list = new ArrayList<>();
         try {
             final String[] columns2;
@@ -828,7 +630,12 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
     @Override
     public List<T> trySelectWithResultSetExtractor(String[] columns,String[] columns_where,Object[] values_where,Integer limit,Integer offset,String condition){
         List<T> list = new ArrayList<>();
-        query = prepareSelectQuery(columns,columns_where,values_where,limit,offset,condition);
+        /** if you don't want to use JOOQ */
+        //query = SQLQuery.prepareSelectQuery(mySelectTable,columns, columns_where, values_where, limit, offset,condition);
+        /** if you want to use JOOQ */
+        query = SQLJooqKit.select(mySelectTable,columns,false,
+                SQLJooqKit.convertToListConditionEqualsWithAND(columns_where,values_where),
+                limit.toString(),offset.toString());
         try {
             //T MyObject = ReflectionKit.invokeConstructor(cl);
             final String[] columns2;
@@ -917,13 +724,19 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
     @Override
     public List<Object> select(String column,String column_where,Object value_where,Integer limit,Integer offset,String condition){
         List<Object> listObj = new ArrayList<>();
-        query = prepareSelectQuery(new String[]{column},new String[]{column_where},null,limit,offset,condition);
+        /** if you don't want to use JOOQ */
+        //query = SQLQuery.prepareSelectQuery(mySelectTable,new String[]{column},new String[]{column_where},null,limit,offset,condition);
         List<Map<String, Object>> list;
         if(value_where != null) {
-            Class<?>[] classes = new Class<?>[]{value_where.getClass()};
-            list = jdbcTemplate.queryForList(query, new Object[]{value_where}, classes);
+            query = SQLJooqKit.select(mySelectTable, new String[]{column}, true,
+                    SQLJooqKit.convertToListConditionEqualsWithAND(new String[]{column_where}, new Object[]{value_where}),
+                    limit.toString(), offset.toString());
+            list = jdbcTemplate.queryForList(query,new Object[]{value_where},new Class<?>[]{value_where.getClass()});
             SystemLog.query(query +" -> Return a list of "+list.size()+" elements!");
         }else{
+            query = SQLJooqKit.select(mySelectTable, new String[]{column}, false,
+                    SQLJooqKit.convertToListConditionEqualsWithAND( new String[]{column_where}, new Object[]{value_where}),
+                    limit.toString(), offset.toString());
             list = jdbcTemplate.queryForList(query);
             SystemLog.query(query +" -> Return a list of "+list.size()+" elements!");
         }
@@ -946,7 +759,12 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
     public List<List<Object[]>> select(
             String[] columns, String[] columns_where, Object[] values_where, Integer limit, Integer offset, String condition){
         List<List<Object[]>> listOfList = new ArrayList<>();
-        query = prepareSelectQuery(columns,columns_where,null,limit,offset,condition);
+        /** if you don't want to use JOOQ */
+        //query = SQLQuery.prepareSelectQuery(mySelectTable,columns, columns_where, null, limit, offset,condition);
+        /** if you want to use JOOQ */
+        query = SQLJooqKit.select(mySelectTable,columns,true,
+                SQLJooqKit.convertToListConditionEqualsWithAND(columns_where,values_where),
+                limit.toString(),offset.toString());
         List<Map<String, Object>> list;
         if(values_where != null) {
             Class<?>[] classes = new Class<?>[]{values_where.getClass()};
@@ -980,7 +798,9 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
     @Override
     public List<Object> select(String column, Integer limit, Integer offset, Class<?> clazz){
         List<Object> listObj = new ArrayList<>();
-        query = prepareSelectQuery(new String[]{column},null,null,limit,offset,null);
+        /** if you don't want to use JOOQ */
+        //query =SQLQuery.prepareSelectQuery(mySelectTable, new String[]{column}, null, null, limit,offset,null);
+        query = SQLJooqKit.select(mySelectTable,new String[]{column},false,null,limit.toString(), offset.toString());
         List<Map<String, Object>> list;
         list = jdbcTemplate.queryForList(query);
         SystemLog.query(query +" -> Return a list of "+list.size()+" elements!");

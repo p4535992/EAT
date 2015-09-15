@@ -54,9 +54,10 @@ public class ExtractInfoWeb {
     private static ExtractInfoWeb instance = null;
     protected ExtractInfoWeb(){}
 
-    private boolean tableAlreadyCreated = true;
-    private boolean gateAlreadySetted = true;
-    private boolean connectionToADatabase = true;
+    private boolean tableAlreadyCreated = true; //la tabella di outpu di default esiste già.
+    private boolean gateAlreadySetted = true; //il settaggio di gate di default è compelto.
+    private boolean connectionToADatabase = true; //la connessione a un database di default è true.
+    private boolean insertValue = true; //inserimento automatico di default è true.
 
     public boolean isConnectionToADatabase() {
         return connectionToADatabase;
@@ -300,6 +301,13 @@ public class ExtractInfoWeb {
         return listGeo;
     }
 
+    public GeoDocument ExtractGeoDocumentFromUrl(
+            URL url, String TABLE_INPUT,String TABLE_OUTPUT,boolean createNewTable,boolean dropOldTable,boolean insertValue) {
+        this.insertValue = insertValue;
+        return ExtractGeoDocumentFromUrl(url,TABLE_INPUT,TABLE_OUTPUT,createNewTable,dropOldTable);
+    }
+
+
     /**
      * Method to Extract GeoDocuments from a single url.
      * @param url url address to a web document.
@@ -369,7 +377,7 @@ public class ExtractInfoWeb {
                 } catch (URISyntaxException e) {
                     SystemLog.exception(e);
                 }
-                if(connectionToADatabase) {
+                if(connectionToADatabase && insertValue) {
                     if (geoDoc.getUrl() != null) {
                         SystemLog.message(geoDoc.toString());
                         geoDocumentDao.insertAndTrim(geoDoc);

@@ -93,6 +93,7 @@ public class ExtractorJSOUP {
                              ){break;}
                      if(StringKit.setNullForEmptyString(result)!=null)break;
                 }
+                if(StringKit.setNullForEmptyString(result)!=null)break;
                 if(StringKit.setNullForEmptyString(result)==null && doc.select(s).size()>0){
                        result += doc.select(s).first().attr("content");               
                 }
@@ -163,15 +164,4 @@ public class ExtractorJSOUP {
         */
         return geo;
     }
-  
-    //METODI DI SUPPORTO EREDIATI DA TIKA
-
-    
-
-     
-     
-
-     
-
-
 }

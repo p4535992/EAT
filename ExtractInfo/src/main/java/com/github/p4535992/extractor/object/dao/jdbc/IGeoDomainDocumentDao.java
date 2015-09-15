@@ -28,9 +28,5 @@ public interface IGeoDomainDocumentDao extends IGenericDao<GeoDomainDocument> {
     void insertAndTrim(GeoDomainDocument g);
 
     void update(String[] columns,Object[] values,String column_where,String value_where);
-    //method to return one of given id
-    //GeoDomainDocument getHByColumn(String column);
-    //List<GeoDocument> getAllH(final String limit, final String offset);
 
-    //String prepareSelectQuery(String[] columns_where,Object[] values_where,Integer limit,Integer offset,String condition);
 }

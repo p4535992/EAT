@@ -236,7 +236,6 @@ public class ExtractInfoSpring {
              } //SE PROCESS_PROGRAMM == 4
             if(PROCESS_PROGAMM == 4) {
                 SystemLog.message("RUN PROCESS 4");
-
                 //CREAZIONE DI UNA TABELLA DI GEODOMAINDOCUMENT
                 if (GEODOMAIN_PROGRAMM) {
                     SystemLog.message("RUN GEODOMAIN PROGRAMM: Create a geodomaindocument table from a geodocument table!");
@@ -269,9 +268,7 @@ public class ExtractInfoSpring {
                     }else{
                         SystemLog.error("The "+new File(SILK_SLS_FILE).getAbsolutePath()+" not exists!!");
                     }
-
                 }
-
             }
            /* if(PROCESS_PROGAMM == 5){
                 SystemLog.message("RUN PROCESS PROGRAMM 5: UPDATE COORDINATES ON GEODOMAIN TABLE");

@@ -64,7 +64,7 @@ public class MainExtractInfo {
                }
         });//runnable    
     }catch(OutOfMemoryError e){
-        //ricarica il programma 
+        //reload the code
         SystemLog.error("java.lang.OutOfMemoryError, Ricarica il programma modificando LIMIT e OFFSET.\n GATE execute in timeout");
     }
 }//main
