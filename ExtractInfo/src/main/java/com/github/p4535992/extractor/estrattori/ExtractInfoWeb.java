@@ -31,7 +31,7 @@ import gate.util.DocumentProcessor;
 /**
  * Created by 4535992 on 15/06/2015.
  * @author 4535992
- * @version  2015-06-25
+ * @version  2015-09-15
  */
 @SuppressWarnings("unused")
 public class ExtractInfoWeb {
@@ -57,7 +57,6 @@ public class ExtractInfoWeb {
     private boolean tableAlreadyCreated = true; //la tabella di outpu di default esiste già.
     private boolean gateAlreadySetted = true; //il settaggio di gate di default è compelto.
     private boolean connectionToADatabase = true; //la connessione a un database di default è true.
-    private boolean insertValue = true; //inserimento automatico di default è true.
 
     public boolean isConnectionToADatabase() {
         return connectionToADatabase;
@@ -165,7 +164,6 @@ public class ExtractInfoWeb {
         }
     }
 
-
     /**
      * Method to Extract GeoDocuments from a string as url.
      * @param url string of a url address.
@@ -188,6 +186,7 @@ public class ExtractInfoWeb {
         }
         return geoDoc;
     }
+
 
     /**
      * Method to Extract GeoDocuments from a List of string as url.
@@ -301,13 +300,6 @@ public class ExtractInfoWeb {
         return listGeo;
     }
 
-    public GeoDocument ExtractGeoDocumentFromUrl(
-            URL url, String TABLE_INPUT,String TABLE_OUTPUT,boolean createNewTable,boolean dropOldTable,boolean insertValue) {
-        this.insertValue = insertValue;
-        return ExtractGeoDocumentFromUrl(url,TABLE_INPUT,TABLE_OUTPUT,createNewTable,dropOldTable);
-    }
-
-
     /**
      * Method to Extract GeoDocuments from a single url.
      * @param url url address to a web document.
@@ -377,7 +369,7 @@ public class ExtractInfoWeb {
                 } catch (URISyntaxException e) {
                     SystemLog.exception(e);
                 }
-                if(connectionToADatabase && insertValue) {
+                if(connectionToADatabase) {
                     if (geoDoc.getUrl() != null) {
                         SystemLog.message(geoDoc.toString());
                         geoDocumentDao.insertAndTrim(geoDoc);
@@ -393,9 +385,43 @@ public class ExtractInfoWeb {
         return geoDoc;
     }
 
-    public void triplifyGeoDocumentFromLocalFile(File karmaModel,File fileToTriplify){
+    /**
+     * Method to Extract GeoDocuments from a single url.
+     * @param url url address to a web document.
+     * @param listAnn list of string Annotations of GATE you want to extract.
+     * @param listAnnSet list of string annotationSets of GATE you want to extract.
+     * @return a List Collection of GeoDocuments, but the geoDocuments are already put in the database.
+     */
+    public GateSupport ExtractSupportGateFromUrl(URL url,List<String> listAnn, List<String> listAnnSet){
+        ExtractorInfoGate8 egate = ExtractorInfoGate8.getInstance();
+        try {
+            //Store the result on of the extraction on a GateSupport Object
+            GateSupport support = null;
+            if(controller!=null) {
+                support = GateSupport.getInstance(
+                        egate.extractorGATE(url, (CorpusController) controller, "corpus_test_1", listAnn, listAnnSet, true),true);
+                return support;
+            }
+            if(procDoc!=null){
+                support = GateSupport.getInstance(
+                        egate.extractorGATE(url, procDoc, "corpus_test_1", listAnn, listAnnSet, true),true);
+                return support;
+            }
+        }catch(Exception e ){
+            SystemLog.exception(e);
+        }
+        return null;
+    }
+
+    /**
+     * Method to Triplify a SQL file from a local file
+     * @param karmaModel file of the Karma model you want to use.
+     * @param fileToTriplify file SQL you want to triplify.
+     * @return new triple file on the same location of the old sql file.
+     */
+    public File triplifyGeoDocumentFromLocalFile(File karmaModel,File fileToTriplify){
         GenerationOfTriple got = GenerationOfTriple.getInstance();
-        got.GenerationOfTripleWithKarmaFromAFile(karmaModel,fileToTriplify);
+        return got.GenerationOfTripleWithKarmaFromAFile(karmaModel,fileToTriplify);
     }
 
     /**
@@ -659,6 +685,12 @@ public class ExtractInfoWeb {
 
     /**
      * Method for update all record with the Coordinates null or empty.
+     * @param geoDoc GeoDocument to update.
+     * @param columns_where the columns on the where clause of the SQL query.
+     * @param LIMIT limit of the SQL query.
+     * @param OFFSET offset of the SQL query.
+     * @param isNumeric if true the value null can be a number.
+     * @return list of all geodocument to update on the database
      */
     public  List<GeoDocument> reloadGeoDocumentNullColumns(
             GeoDocument geoDoc,String[] columns_where,Integer LIMIT,Integer OFFSET,boolean isNumeric){

@@ -1,5 +1,6 @@
 package com.github.p4535992.extractor.object.impl.hibernate.generic;
 
+import com.github.p4535992.extractor.hibernate.Hibernate43Kit;
 import com.github.p4535992.extractor.hibernate.Hibernate4Kit;
 import com.github.p4535992.extractor.object.dao.hibernate.generic.IGenericHibernateDao;
 import com.github.p4535992.util.bean.BeansKit;
@@ -21,7 +22,9 @@ import java.util.List;
 
 /**
  * Created by 4535992 on 23/04/2015.
+ * @version 2015-09-15.
  */
+@SuppressWarnings("unused")
 public class GenericHibernateDaoImpl<T> implements IGenericHibernateDao<T> {
 
     //BASIC FIELD
@@ -52,7 +55,7 @@ public class GenericHibernateDaoImpl<T> implements IGenericHibernateDao<T> {
     protected String beanIdSessionFactory;
     protected String beanIdSpringContext;
 
-    protected Hibernate4Kit<T> hbs;
+    protected Hibernate43Kit<T> hbs;
     protected File contextFile;
 
     //CONSTRUCTOR
@@ -62,12 +65,12 @@ public class GenericHibernateDaoImpl<T> implements IGenericHibernateDao<T> {
         java.lang.reflect.ParameterizedType pt = (java.lang.reflect.ParameterizedType) t;
         this.cl = (Class) pt.getActualTypeArguments()[0];
         this.clName = cl.getSimpleName();
-        this.hbs = new Hibernate4Kit(cl);
+        this.hbs = new Hibernate43Kit(cl);
     }
    @SuppressWarnings({"unchecked","rawtypes"})
    public GenericHibernateDaoImpl(Object s) throws FileNotFoundException {
        //super(s); //extend test case????
-       this.hbs = new Hibernate4Kit(cl);
+       this.hbs = new Hibernate43Kit(cl);
        if(context==null){
            loadSpringContext(contextFile.getAbsolutePath());
        }else{
@@ -329,9 +332,9 @@ public class GenericHibernateDaoImpl<T> implements IGenericHibernateDao<T> {
     //SUPPORT
     /**
      * Method for prepare the Dao Implement generic class to work with
-     * standard Hibernate operational kit
-     * @Note: you can just use the hibernate template with a {@code new HibernateCallback()}
-     * inner class
+     * standard Hibernate operational kit.
+     * Attention: you can just use the hibernate template with a {@code new HibernateCallback()}
+     * inner class.
      */
     private void  doInHibernate(){
         if(hbs.getSession()==null) {

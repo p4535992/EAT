@@ -18,10 +18,12 @@ import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
 
 /**
- * LIttle Class for help with first steps to Hibernate
+ * Little Class for help with first steps to Hibernate
  * @author 4535992
- * @param <T> generci type super class.
+ * @param <T> generic type super class.
+ * @version 2015-09-15.
  */
+@SuppressWarnings("unused")
 public class Hibernate4Kit<T> {
 
     private static org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger(Hibernate4Kit.class);
@@ -37,10 +39,10 @@ public class Hibernate4Kit<T> {
     protected org.hibernate.Criteria criteria;
     protected org.hibernate.Criteria specificCriteria;
     protected org.hibernate.Transaction trns;
-    protected  org.hibernate.SQLQuery SQLQuery;
-    protected  org.hibernate.Query query;
-    protected  Class<T> cl;
-    protected  String clName,sql;
+    protected org.hibernate.SQLQuery SQLQuery;
+    protected org.hibernate.Query query;
+    protected Class<T> cl;
+    protected String clName,sql;
     protected Class<? extends Interceptor> interceptor;
     protected Interceptor inter; //support parameter
     protected static Connection connection;
@@ -70,7 +72,7 @@ public class Hibernate4Kit<T> {
     }
 
     /**
-     * Method for pass a personal Crtieria object to the CRUD operation of Hibernate
+     * Method for pass a personal Criteria object to the CRUD operation of Hibernate
      * @param criterion criterion for the query hibernate.
      */
     public void setNewCriteria(Criterion criterion){
@@ -78,6 +80,11 @@ public class Hibernate4Kit<T> {
         specificCriteria.add(criterion);
     }
 
+    /**
+     * Method to set a interceptor to the current Session.
+     * @param interceptor the class interceptor you want to use.
+     * @return the current session update with a interceptor class.
+     */
     public Session setNewInterceptor(Class<? extends Interceptor> interceptor){
         try {
             /**deprecated on hibernate 4  */
@@ -216,11 +223,18 @@ public class Hibernate4Kit<T> {
         //org.hibernate.Session session = sessionFactory.withOptions().interceptor(new MyInterceptor()).openSession();
     }
 
+    /**
+     * Method to set the current SessionFactory from external resource.
+     * @param sessionFactory the externalSessionFactory.
+     */
     public void setSessionFactory(org.hibernate.SessionFactory sessionFactory)
     {
         this.sessionFactory = sessionFactory;
     }
 
+    /**
+     * Method to create a new SessionFactory from internal resource.
+     */
     public void setNewSessionFactory(){
         buildSessionFactory();
     }
@@ -234,13 +248,17 @@ public class Hibernate4Kit<T> {
     }
 
     /**
-     * Method to Set the Session.
+     * Method to Set the Session from external resource.
      * @param session set the new session for hibernate.
      */
     public void setSession(org.hibernate.Session session){
         this.session = session;
     }
 
+    /**
+     * Method to Set the Session from external resource.
+     * @param entityManager object entitymaanager can use to set a new Session.
+     */
     public void setSession(javax.persistence.EntityManager entityManager){
         session = entityManager.unwrap(org.hibernate.Session.class);
     }
@@ -271,7 +289,7 @@ public class Hibernate4Kit<T> {
                 });
             }
 
-        }catch(SQLException e){}
+        }catch(SQLException e){SystemLog.exception(e);}
         return connection;
     }
 
@@ -335,15 +353,11 @@ public class Hibernate4Kit<T> {
     public void openSession() {
         if(isInterceptor){
             //...avoid the reset of the interceptor
-            if(session.isOpen()){/*...ok continue*/}
-            else{
+            if(!session.isOpen()){
                 throw new HibernateException("The session loaded with the interceptor is not open!!");
             }
         }else {
-            if(session.isOpen()){/*...ok continue*/}
-            else {
-                session = sessionFactory.openSession();
-            }
+            if(!session.isOpen()){session = sessionFactory.openSession();}
         }
     }
 
