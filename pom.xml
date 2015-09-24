@@ -81,7 +81,7 @@
     <dependencies>
         <dependency>
             <groupId>com.github.p4535992</groupId>
-            <artifactId>ExtractInfo</artifactId>
+            <artifactId>extractInfo</artifactId>
             <version>${com.github.p4535992.ExtractInfo.version}</version>
         </dependency>
 

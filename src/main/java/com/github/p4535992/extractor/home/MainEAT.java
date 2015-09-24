@@ -16,7 +16,6 @@ import java.util.Map;
  */
 public class MainEAT {
 
-
     //ALTRE VARIABILI
     private static Integer LIMIT;
     private static Integer OFFSET;

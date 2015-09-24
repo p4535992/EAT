@@ -27,6 +27,8 @@ public class MainExtractInfo {
             //SwingUtilities.invokeAndWait(new Runnable() {
                public void run() {
                    try {
+                       SystemLog.setIsPRINT(false);
+                       SystemLog.setIsLogOff(true);
                        SystemLog.message("===== START THE PROGRAMM =========");
                         /*long start = System.currentTimeMillis();*/
                        // The storage for the command line parameters
@@ -65,7 +67,8 @@ public class MainExtractInfo {
         });//runnable    
     }catch(OutOfMemoryError e){
         //reload the code
-        SystemLog.error("java.lang.OutOfMemoryError, Ricarica il programma modificando LIMIT e OFFSET.\n GATE execute in timeout");
+          e.printStackTrace();
+          SystemLog.error("java.lang.OutOfMemoryError, Ricarica il programma modificando LIMIT e OFFSET.\n GATE execute in timeout");
     }
 }//main
 

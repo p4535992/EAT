@@ -267,51 +267,10 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.7">
-      <module name="commands-alignment" target="1.7" />
-      <module name="commands-alignment-openrdf" target="1.7" />
-      <module name="commands-cleaning" target="1.7" />
-      <module name="commands-common" target="1.7" />
-      <module name="commands-import" target="1.7" />
-      <module name="commands-include" target="1.7" />
-      <module name="commands-publish" target="1.7" />
-      <module name="commands-publish-alignment-openrdf" target="1.7" />
-      <module name="commands-publish-jdbc" target="1.7" />
-      <module name="commands-python" target="1.7" />
-      <module name="commands-update" target="1.7" />
-      <module name="commands-update-jdbc" target="1.7" />
-      <module name="commands-worksheet" target="1.7" />
       <module name="EAT" target="1.7" />
       <module name="ExtractInfo" target="1.7" />
       <module name="gate-basic" target="1.7" />
-      <module name="import-avro" target="1.7" />
-      <module name="import-common" target="1.7" />
-      <module name="import-csv" target="1.7" />
-      <module name="import-database" target="1.7" />
-      <module name="import-excel" target="1.7" />
-      <module name="import-file" target="1.7" />
-      <module name="import-json" target="1.7" />
-      <module name="import-ontology" target="1.7" />
-      <module name="import-service" target="1.7" />
-      <module name="import-spatial" target="1.7" />
-      <module name="import-xml" target="1.7" />
-      <module name="karma-cleaning" target="1.7" />
-      <module name="karma-commands" target="1.7" />
-      <module name="karma-common" target="1.7" />
-      <module name="karma-jdbc" target="1.7" />
-      <module name="karma-mr" target="1.7" />
-      <module name="karma-offline" target="1.7" />
-      <module name="karma-storm" target="1.7" />
-      <module name="karma-typer" target="1.7" />
-      <module name="karma-util" target="1.7" />
-      <module name="karma-web" target="1.7" />
-      <module name="karma-web-services" target="1.7" />
-      <module name="spring-mvc-quickstart" target="1.8" />
       <module name="utility" target="1.7" />
-      <module name="web-services-rdf" target="1.7" />
-      <module name="webControllerInfo" target="1.7" />
-      <module name="webExtractInfo" target="1.7" />
-      <module name="webExtractorInfo" target="1.7" />
-      <module name="webkarma" target="1.7" />
     </bytecodeTargetLevel>
   </component>
 </project>

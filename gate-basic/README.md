@@ -68,11 +68,7 @@ You can the dependency to this github repository With jitpack (https://jitpack.i
  <pre class="prettyprint">&lt;dependency&gt;
   &lt;groupId&gt;com.github.p4535992&lt;/groupId&gt;
   &lt;artifactId&gt;gate-basic&lt;/artifactId&gt;
-<<<<<<< HEAD
   &lt;version&gt;<span id="latest_release">1.4</span>&lt;/version&gt;
-=======
-  &lt;version&gt;<span id="latest_release">1.3.2</span>&lt;/version&gt;
->>>>>>> origin/master
 &lt;/dependency&gt;  </pre>
 
 <!-- Add this script to update "latest_release" span to latest version -->

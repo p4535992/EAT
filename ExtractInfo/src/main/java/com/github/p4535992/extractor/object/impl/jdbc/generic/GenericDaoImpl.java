@@ -800,6 +800,7 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
         List<Object> listObj = new ArrayList<>();
         /** if you don't want to use JOOQ */
         //query =SQLQuery.prepareSelectQuery(mySelectTable, new String[]{column}, null, null, limit,offset,null);
+        /** if you want to use JOOQ */
         query = SQLJooqKit.select(mySelectTable,new String[]{column},false,null,limit.toString(), offset.toString());
         List<Map<String, Object>> list;
         list = jdbcTemplate.queryForList(query);

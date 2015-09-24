@@ -6,6 +6,7 @@ import com.github.p4535992.gatebasic.gate.gate8.ExtractorInfoGate8;
 import com.github.p4535992.gatebasic.gate.gate8.Gate8Kit;
 import com.github.p4535992.gatebasic.gate.gate8.GateSupport;
 import com.github.p4535992.util.file.FileUtil;
+import com.github.p4535992.util.html.JSoupKit;
 import com.github.p4535992.util.log.SystemLog;
 import com.github.p4535992.extractor.karma.GenerationOfTriple;
 import com.github.p4535992.util.string.StringKit;
@@ -352,13 +353,15 @@ public class ExtractInfoWeb {
                     //Store the result on of the extraction on a GateSupport Object
                     GateSupport support = null;
                     if(controller!=null) {
+                        String content = JSoupKit.convertUrlToStringHTML(url.toString());
                         support = GateSupport.getInstance(
                                 egate.extractorGATE(url, (CorpusController) controller, "corpus_test_1", listAnn, listAnnSet, true),true);
                         //geoDoc = convertGateSupportToGeoDocument(support, url, 0); //0 because is just a unique document...
                     }
                     if(procDoc!=null){
+                        String content = JSoupKit.convertUrlToStringHTML(url.toString());
                         support = GateSupport.getInstance(
-                                egate.extractorGATE(url, procDoc, "corpus_test_1", listAnn, listAnnSet, true),true);
+                                egate.extractorGATE(content, procDoc, "corpus_test_1", listAnn, listAnnSet, true),true);
                         //geoDoc = convertGateSupportToGeoDocument(support,url,0); //0 because is just a unique document...
                     }
                     geoDoc = convertGateSupportToGeoDocument(support,url,0); //0 because is just a unique document...

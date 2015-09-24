@@ -59,6 +59,7 @@ public class JenaInfoDocument {
             + " FILTER (!bound(?o))"
             + "}";
 
+    //Get all <http://purl.org/goodrelations/v1#Location> with lat and long not null
     private static final String SPARQL_SCHEMACOORDS =
             "SELECT ?location ?lat ?long "
             + " WHERE { "
