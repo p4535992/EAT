@@ -301,13 +301,25 @@
                 </exclusion>
             </exclusions>
         </dependency>
+        <!-- With Jitpack -->
         <!--<dependency>
             <groupId>com.github.usc-isi-i2</groupId>
             <artifactId>Web-Karma</artifactId>
-            <version>v2.030 Patch 4: Handles cases when input is missing columns in some rows</version>
-        </dependency>-->
-
-      <!-- <dependency>
+            <version>v2.030.4</version>
+            <scope>compile</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-log4j12</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>log4j</groupId>
+                    <artifactId>log4j</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+-->
+       <!--<dependency>
             <groupId>edu.isi</groupId>
             <artifactId>webkarma</artifactId>
             <version>${webkarma.version}</version>

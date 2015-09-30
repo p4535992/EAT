@@ -24,7 +24,7 @@ import com.github.p4535992.util.log.SystemLog;
  * risposta della stessa, tramite Json utilizzando la libreria JSONO e creazione dei
  * GeoDocument.
  * @author 4535992.
- * @version 2015-06-30.
+ * @version 2015-09-29.
  */
 @SuppressWarnings("unused")
 public class ManageJsonWithGoogleMaps {
@@ -135,6 +135,7 @@ public class ManageJsonWithGoogleMaps {
                         }
                     }catch(JSONException je){
                         SystemLog.warning("JSON:" + json.toString());
+                        return new LatLng(null,null);
                     }
                     //Se Google Maps ha raggiunto il massimo numero di query possibili
                     //prova con OpenStreetMap
@@ -259,8 +260,12 @@ public class ManageJsonWithGoogleMaps {
             //SE SUCCEDE QUALUNQUE COSA CON HTTP SI USA JSOUP IN EXTREMIS
             try{
                 if(StringKit.isNullOrEmpty(jsonText)){
-                     jsonText = org.jsoup.Jsoup.connect(url.toString()).ignoreContentType(true).execute().body();
-                     json = new JSONObject(jsonText);
+                    try {
+                        jsonText = org.jsoup.Jsoup.connect(url.toString()).ignoreContentType(true).execute().body();
+                        json = new JSONObject(jsonText);
+                    }catch(org.jsoup.HttpStatusException e){
+                        json = new JSONObject("{\"results\" : [],\"status\" : \"ZERO_RESULTS\"}");
+                    }
                 }
             }finally{
                 if(StringKit.isNullOrEmpty(json.toString()))json = null;

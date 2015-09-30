@@ -22,6 +22,7 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.sql.Types;
 import java.util.*;
 
 import com.github.p4535992.extractor.object.dao.jdbc.IInfoDocumentDao;
@@ -31,8 +32,8 @@ import gate.util.DocumentProcessor;
 
 /**
  * Created by 4535992 on 15/06/2015.
- * @author 4535992
- * @version  2015-09-15
+ * @author 4535992.
+ * @version  2015-09-26.
  */
 @SuppressWarnings("unused")
 public class ExtractInfoWeb {
@@ -55,9 +56,9 @@ public class ExtractInfoWeb {
     private static ExtractInfoWeb instance = null;
     protected ExtractInfoWeb(){}
 
-    private boolean tableAlreadyCreated = true; //la tabella di outpu di default esiste già.
-    private boolean gateAlreadySetted = true; //il settaggio di gate di default è compelto.
-    private boolean connectionToADatabase = true; //la connessione a un database di default è true.
+    private boolean tableAlreadyCreated = true; //la tabella di outpu di default esiste giï¿½.
+    private boolean gateAlreadySetted = true; //il settaggio di gate di default ï¿½ compelto.
+    private boolean connectionToADatabase = true; //la connessione a un database di default ï¿½ true.
 
     public boolean isConnectionToADatabase() {
         return connectionToADatabase;
@@ -252,6 +253,14 @@ public class ExtractInfoWeb {
 
             GeoDocument geo2 = new GeoDocument();
             GeoDocument geoDoc = new GeoDocument();
+            //check if the site is already present like offline or unreachable
+            /*geoDocumentDao.setTableInsert("offlinesite");
+            List<URL> supportList = new ArrayList<>();
+            for(URL url : listUrls) {if (geoDocumentDao.verifyDuplicate("url", url.toString())) {supportList.add(url);} }
+            for(URL url: supportList){SystemLog.warning("The site "+url+" can't be reach..."); listUrls.remove(url);}
+            geoDocumentDao.setTableInsert(TABLE_INPUT);
+            supportList.clear();*/
+
             SystemLog.message("*******************Run GATE**************************");
             //create a list of annotation (you know they exists on the gate document,otherwise you get null result).....
             List<String> listAnn = new ArrayList<>(Arrays.asList("MyRegione", "MyPhone", "MyFax", "MyEmail", "MyPartitaIVA",
@@ -302,7 +311,7 @@ public class ExtractInfoWeb {
     }
 
     /**
-     * Method to Extract GeoDocuments from a single url.
+     * Method to Extract GeoDocuments from a single url. 2015-09-26
      * @param url url address to a web document.
      * @param TABLE_INPUT String name of the table where do the operation of Select.
      * @param TABLE_OUTPUT String name of the table where insert the geodoucment.
@@ -337,55 +346,78 @@ public class ExtractInfoWeb {
         GeoDocument geoDoc = new GeoDocument();
         SystemLog.message("(" + indGDoc + ")URL:" + url);
         indGDoc++;
-        SystemLog.message("*******************Run JSOUP**************************");
-        try {
-            geo2 = j.GetTitleAndHeadingTags(url.toString(), geo2);
-            if (ExtractorJSOUP.isEXIST_WEBPAGE()) {
-                try {
-                    SystemLog.message("*******************Run GATE**************************");
-                    //create a list of annotation (you know they exists on the gate document,otherwise you get null result).....
-                    String[] anntotations = new String[]{"MyRegione","MyPhone","MyFax","MyEmail","MyPartitaIVA",
-                            "MyLocalita","MyIndirizzo","MyEdificio","MyProvincia"};
-                    List<String> listAnn = Arrays.asList(anntotations);
-                    //create a list of annotationSet (you know they exists on the gate document,otherwise you get null result).....
-                    String[] anntotationsSet = new String[]{"MyFOOTER","MyHEAD","MySpecialID","MyAnnSet"};
-                    List<String> listAnnSet = Arrays.asList(anntotationsSet);
-                    //Store the result on of the extraction on a GateSupport Object
-                    GateSupport support = null;
-                    if(controller!=null) {
+        //check if the site is already present like offline or unreachable
+        geoDocumentDao.setTableInsert("offlinesite");
+        if(!geoDocumentDao.verifyDuplicate("url",url.toString())){
+            geoDocumentDao.setTableInsert(TABLE_OUTPUT);
+            SystemLog.message("*******************Run JSOUP**************************");
+            try {
+                geo2 = j.GetTitleAndHeadingTags(url.toString(), geo2);
+                if (ExtractorJSOUP.isEXIST_WEBPAGE()) {
+                    try {
+                        SystemLog.message("*******************Run GATE**************************");
+                        //create a list of annotation (you know they exists on the gate document,otherwise you get null result).....
+                        String[] anntotations = new String[]{"MyRegione", "MyPhone", "MyFax", "MyEmail", "MyPartitaIVA",
+                                "MyLocalita", "MyIndirizzo", "MyEdificio", "MyProvincia"};
+                        List<String> listAnn = Arrays.asList(anntotations);
+                        //create a list of annotationSet (you know they exists on the gate document,otherwise you get null result).....
+                        String[] anntotationsSet = new String[]{"MyFOOTER", "MyHEAD", "MySpecialID", "MyAnnSet"};
+                        List<String> listAnnSet = Arrays.asList(anntotationsSet);
+                        //Store the result on of the extraction on a GateSupport Object
+                        GateSupport support = null;
                         String content = JSoupKit.convertUrlToStringHTML(url.toString());
-                        support = GateSupport.getInstance(
-                                egate.extractorGATE(url, (CorpusController) controller, "corpus_test_1", listAnn, listAnnSet, true),true);
-                        //geoDoc = convertGateSupportToGeoDocument(support, url, 0); //0 because is just a unique document...
+                        if (controller != null) {
+                            if(content!=null){
+                                support = GateSupport.getInstance(
+                                        egate.extractorGATE(content, (CorpusController) controller, "corpus_test_1", listAnn, listAnnSet, true), true);
+                            }else{
+                                support = GateSupport.getInstance(
+                                        egate.extractorGATE(url, (CorpusController) controller, "corpus_test_1", listAnn, listAnnSet, true), true);
+                            }
+                            //geoDoc = convertGateSupportToGeoDocument(support, url, 0); //0 because is just a unique document...
+                        }
+                        if (procDoc != null) {
+                            if(content!=null) {
+                                support = GateSupport.getInstance(
+                                        egate.extractorGATE(content, procDoc, "corpus_test_1", listAnn, listAnnSet, true), true);
+                            }else{
+                                support = GateSupport.getInstance(
+                                        egate.extractorGATE(url, procDoc, "corpus_test_1", listAnn, listAnnSet, true), true);
+                            }
+                            //geoDoc = convertGateSupportToGeoDocument(support,url,0); //0 because is just a unique document...
+                        }
+                        geoDoc = convertGateSupportToGeoDocument(support, url, 0); //0 because is just a unique document...
+                        SystemLog.message("*******************Run Support GeoDocument**************************");
+                        geoDoc = ExtractorGeoDocumentSupport.compareInfo3(geoDoc, geo2);
+                        //AGGIUNGIAMO ALTRE INFORMAZIONI AL GEODOCUMENT
+                        geoDoc = egs.UpgradeTheDocumentWithOtherInfo(geoDoc);
+                    } catch (URISyntaxException e) {
+                        SystemLog.exception(e);
                     }
-                    if(procDoc!=null){
-                        String content = JSoupKit.convertUrlToStringHTML(url.toString());
-                        support = GateSupport.getInstance(
-                                egate.extractorGATE(content, procDoc, "corpus_test_1", listAnn, listAnnSet, true),true);
-                        //geoDoc = convertGateSupportToGeoDocument(support,url,0); //0 because is just a unique document...
-                    }
-                    geoDoc = convertGateSupportToGeoDocument(support,url,0); //0 because is just a unique document...
-                    SystemLog.message("*******************Run Support GeoDocument**************************");
-                    geoDoc = ExtractorGeoDocumentSupport.compareInfo3(geoDoc, geo2);
-                    //AGGIUNGIAMO ALTRE INFORMAZIONI AL GEODOCUMENT
-                    geoDoc = egs.UpgradeTheDocumentWithOtherInfo(geoDoc);
-                } catch (URISyntaxException e) {
-                    SystemLog.exception(e);
+                    if (connectionToADatabase) {
+                        if (geoDoc.getUrl() != null) {
+                            SystemLog.message(geoDoc.toString());
+                            geoDocumentDao.insertAndTrim(geoDoc);
+                        }
+                    }//if
+                } else {
+                    //Try to insert in the offline table
+                    SystemLog.warning("The site "+url+" can't be reach...");
+                    geoDocumentDao.setTableInsert("offlinesite");
+                    geoDocumentDao.insertAndTrim(new String[]{"url"}, new Object[]{url}, new int[]{Types.VARCHAR});
+                    return null;
                 }
-                if(connectionToADatabase) {
-                    if (geoDoc.getUrl() != null) {
-                        SystemLog.message(geoDoc.toString());
-                        geoDocumentDao.insertAndTrim(geoDoc);
-                    }
-                }//if
+            }catch(IOException|InterruptedException e ){
+                SystemLog.exception(e);
+            }finally{
+                tableAlreadyCreated = true;
+                //indGDoc = 0;
             }
-        }catch(IOException|InterruptedException e ){
-            SystemLog.exception(e);
-        }finally{
-            tableAlreadyCreated = true;
-            //indGDoc = 0;
+            return geoDoc;
+        }else{
+            //is already offline
+            return null;
         }
-        return geoDoc;
     }
 
     /**
@@ -710,17 +742,17 @@ public class ExtractInfoWeb {
         List<GeoDocument> list;
 
         list = geoDocumentDao.trySelect(
-                new String[]{"*"}, columns_where, values_where, LIMIT, OFFSET, "AND");
+                new String[]{"*"}, columns_where, values_where, LIMIT, OFFSET, null);
 
         values_where = new Object[]{"",""};
         List<GeoDocument> list2 =
                 geoDocumentDao.trySelect(
-                        new String[]{"*"}, columns_where, values_where, LIMIT, OFFSET, "AND");
+                        new String[]{"*"}, columns_where, values_where, LIMIT, OFFSET, null);
         list.addAll(list2);
         if(isNumeric) {
             values_where = new Object[]{0, 0};
             list2 = geoDocumentDao.trySelect(
-                    new String[]{"*"}, columns_where, values_where, LIMIT, OFFSET, "AND");
+                    new String[]{"*"}, columns_where, values_where, LIMIT, OFFSET, null);
             list.addAll(list2);
         }
       /*  for (GeoDocument geo : list) {

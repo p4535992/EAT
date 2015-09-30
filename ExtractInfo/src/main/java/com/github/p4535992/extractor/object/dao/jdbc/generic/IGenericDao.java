@@ -37,8 +37,6 @@ public interface IGenericDao<T> {
     void setTableSelect(String nameOfTable);
     void setTableUpdate(String nameOfTable);
 
-
-
     /////////
     //JDBC///
     /////////
@@ -48,33 +46,33 @@ public interface IGenericDao<T> {
 
     void create(String SQL) throws Exception;
     void create(String SQL, boolean erase) ;
-    boolean verifyDuplicate(String columnWhereName, String valueWhereName) throws MySQLSyntaxErrorException;
-    int getCount(String nameOfTable);
+
     void deleteAll();
-
-    List<Object> select(String column, String column_where, Object value_where,Integer limit,Integer offset,String condition);
-
     void deleteDuplicateRecords(String[] columns, String nameKeyColumn);
-
     void deleteDuplicateRecords(String[] columns);
-
     void deleteDuplicateRecords(String[] columns, Object[] values, boolean high);
 
     Object select(String column, String column_where, Object value_where);
-
-
-
-    List<T> trySelect(String[] columns,String[] columns_where,Object[] values_where,Integer limit,Integer offset,String condition);
-    List<List<Object[]>> select(String[] columns, String[] columns_where, Object[] values_where, Integer limit, Integer offset, String condition);
-    List<Object> select(String column, Integer limit, Integer offset, Class<?> clazz);
+    List<Object> select(
+            String column, String column_where, Object value_where,List<org.jooq.Condition> condition);
+    List<Object> select(
+            String column, String column_where, Object value_where,Integer limit,Integer offset,List<org.jooq.Condition> condition);
+    List<List<Object[]>> select(
+            String[] columns, String[] columns_where, Object[] values_where,List<org.jooq.Condition> conditions);
+    List<List<Object[]>> select(
+            String[] columns, String[] columns_where, Object[] values_where, Integer limit, Integer offset,List<org.jooq.Condition> condition);
+    List<Object> select(
+            String column, Integer limit, Integer offset, Class<?> clazz);
     List<T> trySelectWithRowMap(
-            String[] columns,String[] columns_where,Object[] values_where,Integer limit, Integer offset,String condition);
+            String[] columns,String[] columns_where,Object[] values_where,Integer limit, Integer offset,List<org.jooq.Condition> condition);
     List<T> trySelectWithResultSetExtractor(
-            String[] columns,String[] columns_where,Object[] values_where,Integer limit,Integer offset,String condition);
+            String[] columns,String[] columns_where,Object[] values_where,Integer limit,Integer offset,List<org.jooq.Condition> condition);
+    List<T> trySelect(
+            String[] columns,String[] columns_where,Object[] values_where,Integer limit,Integer offset,List<org.jooq.Condition> condition);
 
     void insertAndTrim(String[] columns,Object[] params,int[] types);
     void insertAndTrim(String[] columns, Object[] values, Integer[] types);
-    void trim(String column);
+
     void insert(String[] columns,Object[] params,int[] types);
     void insert(String[] columns, Object[] values, Integer[] types);
     void tryInsert(T object);
@@ -82,18 +80,23 @@ public interface IGenericDao<T> {
     void update(String[] columns, Object[] values, String[] columns_where,Object[] values_where);
     void update(String[] columns,Object[] values,String columns_where,String values_where);
     void update(String queryString);
+
     /////////////
     //MANAGER////
     /////////////
     void insert(T object);
     void delete(final Object id);
     void delete(String whereColumn, String whereValue);
-
     T find(final Object id);
     T update(final T t);
 
-
+    /////////////
+    //OTHER////
+    /////////////
+    void trim(String column);
     long countAll(Map<String, Object> params);
+    boolean verifyDuplicate(String columnWhereName, String valueWhereName) throws MySQLSyntaxErrorException;
+    int getCount(String nameOfTable);
 
     ////////////////////////////
     //PREPARED STRING QUERY ////

@@ -305,15 +305,15 @@ public class ExtractorDomain {
         Object[] values_where = new Object[]{null,null};
         try {
             List<GeoDomainDocument> listGeoDoc =
-                    geoDomainDocDao.selectGeoDomainWihNoCoords(new String[]{"*"},columns_where, values_where, LIMIT, OFFSET, "AND");
+                    geoDomainDocDao.selectGeoDomainWihNoCoords(new String[]{"*"},columns_where, values_where, LIMIT, OFFSET, null);
 
             values_where = new Object[]{"",""};
             List<GeoDomainDocument> listGeoDoc2 =
-                    geoDomainDocDao.selectGeoDomainWihNoCoords(new String[]{"*"},columns_where,values_where, LIMIT, OFFSET, "AND");
+                    geoDomainDocDao.selectGeoDomainWihNoCoords(new String[]{"*"},columns_where,values_where, LIMIT, OFFSET, null);
             listGeoDoc.addAll(listGeoDoc2);
 
             values_where = new Object[]{0,0};
-            listGeoDoc2 = geoDomainDocDao.selectGeoDomainWihNoCoords(new String[]{"*"},columns_where,values_where, LIMIT, OFFSET, "AND");
+            listGeoDoc2 = geoDomainDocDao.selectGeoDomainWihNoCoords(new String[]{"*"},columns_where,values_where, LIMIT, OFFSET, null);
             listGeoDoc.addAll(listGeoDoc2);
             for (GeoDomainDocument geo : listGeoDoc) {
                 LatLng coord = j.getCoords(geo);
@@ -323,7 +323,7 @@ public class ExtractorDomain {
                     values_where = new Object[]{coord.getLat(),coord.getLng()};
 
                 }
-                geoDomainDocDao.update(columns_where, values_where, "url", geo.getUrl().toString().replace("http://",""));
+                geoDomainDocDao.update(columns_where, values_where, "url", geo.getUrl().toString());
             }
         }catch(URISyntaxException e){
             SystemLog.exception(e);

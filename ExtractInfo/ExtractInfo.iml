@@ -92,6 +92,7 @@
     <orderEntry type="library" name="Maven: log4j:log4j:1.2.17" level="project" />
     <orderEntry type="library" name="Maven: org.openrdf.sesame:sesame-model:2.8.4" level="project" />
     <orderEntry type="library" name="Maven: org.openrdf.sesame:sesame-util:2.8.4" level="project" />
+    <orderEntry type="library" name="Maven: com.google.guava:guava:18.0" level="project" />
     <orderEntry type="library" name="Maven: org.openrdf.sesame:sesame-sail-memory:2.8.4" level="project" />
     <orderEntry type="library" name="Maven: org.openrdf.sesame:sesame-sail-base:2.8.4" level="project" />
     <orderEntry type="library" name="Maven: org.openrdf.sesame:sesame-sail-inferencer:2.8.4" level="project" />
@@ -99,6 +100,8 @@
     <orderEntry type="library" name="Maven: org.openrdf.sesame:sesame-sail-model:2.8.4" level="project" />
     <orderEntry type="library" name="Maven: org.openrdf.sesame:sesame-queryalgebra-evaluation:2.8.4" level="project" />
     <orderEntry type="library" name="Maven: org.openrdf.sesame:sesame-repository-sparql:2.8.4" level="project" />
+    <orderEntry type="library" name="Maven: org.openrdf.sesame:sesame-queryparser-sparql:2.8.4" level="project" />
+    <orderEntry type="library" name="Maven: org.openrdf.sesame:sesame-queryresultio-sparqlxml:2.8.4" level="project" />
     <orderEntry type="library" name="Maven: org.mapdb:mapdb:1.0.7" level="project" />
     <orderEntry type="library" name="Maven: org.openrdf.sesame:sesame-queryalgebra-model:2.8.4" level="project" />
     <orderEntry type="library" name="Maven: org.openrdf.sesame:sesame-repository-sail:2.8.4" level="project" />
@@ -119,36 +122,6 @@
     <orderEntry type="library" name="Maven: org.openrdf.sesame:sesame-queryresultio-sparqljson:2.8.4" level="project" />
     <orderEntry type="library" name="Maven: org.openrdf.sesame:sesame-repository-manager:2.8.4" level="project" />
     <orderEntry type="library" name="Maven: org.openrdf.sesame:sesame-repository-event:2.8.4" level="project" />
-    <orderEntry type="library" name="Maven: org.openrdf.sesame:sesame-http-server-spring:2.8.4" level="project" />
-    <orderEntry type="library" name="Maven: org.openrdf.sesame:sesame-runtime:2.8.4" level="project" />
-    <orderEntry type="library" name="Maven: org.openrdf.sesame:sesame-repository-contextaware:2.8.4" level="project" />
-    <orderEntry type="library" name="Maven: org.openrdf.sesame:sesame-sail-federation:2.8.4" level="project" />
-    <orderEntry type="library" name="Maven: org.openrdf.sesame:sesame-queryparser-sparql:2.8.4" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: org.openrdf.sesame:sesame-queryresultio-binary:2.8.4" level="project" />
-    <orderEntry type="library" name="Maven: org.openrdf.sesame:sesame-queryresultio-sparqlxml:2.8.4" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: org.openrdf.sesame:sesame-repository-dataset:2.8.4" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: org.openrdf.sesame:sesame-rio-jsonld:2.8.4" level="project" />
-    <orderEntry type="library" name="Maven: com.github.jsonld-java:jsonld-java:0.5.1" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpclient-cache:4.2.5" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: org.openrdf.sesame:sesame-rio-nquads:2.8.4" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: org.openrdf.sesame:sesame-rio-n3:2.8.4" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: org.openrdf.sesame:sesame-rio-rdfjson:2.8.4" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: org.openrdf.sesame:sesame-rio-rdfxml:2.8.4" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: org.openrdf.sesame:sesame-rio-trix:2.8.4" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: org.openrdf.sesame:sesame-sail-lucene:2.8.4" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: org.openrdf.sesame:sesame-sail-lucene-api:2.8.4" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.lucene:lucene-queries:5.1.0" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: org.apache.lucene:lucene-highlighter:5.1.0" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: org.apache.lucene:lucene-join:5.1.0" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: org.apache.lucene:lucene-memory:5.1.0" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: org.openrdf.sesame:sesame-sail-rdbms:2.8.4" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: commons-dbcp:commons-dbcp:1.4" level="project" />
-    <orderEntry type="library" name="Maven: org.openrdf.sesame:sesame-config:2.8.4" level="project" />
-    <orderEntry type="library" name="Maven: javax.servlet:jstl:1.1.2" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: taglibs:standard:1.1.2" level="project" />
-    <orderEntry type="library" name="Maven: cglib:cglib:3.1" level="project" />
-    <orderEntry type="library" name="Maven: org.ow2.asm:asm:4.2" level="project" />
-    <orderEntry type="library" name="Maven: com.google.guava:guava:18.0" level="project" />
     <orderEntry type="library" name="Maven: org.openrdf.sesame:sesame-rio-api:2.8.4" level="project" />
     <orderEntry type="library" name="Maven: org.openrdf.sesame:sesame-repository-api:2.8.4" level="project" />
     <orderEntry type="library" name="Maven: org.openrdf.sesame:sesame-sail-api:2.8.4" level="project" />
@@ -233,32 +206,18 @@
     <orderEntry type="library" name="Maven: org.apache.lucene:lucene-analyzers-common:4.8.0" level="project" />
     <orderEntry type="library" name="Maven: org.apache.lucene:lucene-core:4.8.0" level="project" />
     <orderEntry type="library" name="Maven: org.apache.lucene:lucene-queryparser:4.8.0" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.lucene:lucene-queries:4.8.0" level="project" />
     <orderEntry type="library" name="Maven: org.apache.lucene:lucene-sandbox:4.8.0" level="project" />
-    <orderEntry type="library" name="Maven: edu.isi:karma-cleaning:0.0.1-SNAPSHOT" level="project" />
-    <orderEntry type="library" name="Maven: org.antlr:antlr:3.4" level="project" />
-    <orderEntry type="library" name="Maven: org.antlr:antlr-runtime:3.4" level="project" />
-    <orderEntry type="library" name="Maven: org.antlr:stringtemplate:3.2.1" level="project" />
-    <orderEntry type="library" name="Maven: org.antlr:ST4:4.0.4" level="project" />
-    <orderEntry type="library" name="Maven: org.python:jython-standalone:2.5.3" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.mahout:mahout-core:0.9" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.mahout:mahout-math:0.9" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.mahout.commons:commons-cli:2.0-mahout" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.commons:commons-math3:3.2" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.solr:solr-commons-csv:3.5.0" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.hadoop:hadoop-core:1.2.1" level="project" />
-    <orderEntry type="library" name="Maven: commons-cli:commons-cli:1.2" level="project" />
-    <orderEntry type="library" name="Maven: com.sun.jersey:jersey-core:1.8" level="project" />
-    <orderEntry type="library" name="Maven: com.sun.jersey:jersey-json:1.8" level="project" />
-    <orderEntry type="library" name="Maven: org.codehaus.jettison:jettison:1.1" level="project" />
-    <orderEntry type="library" name="Maven: org.codehaus.jackson:jackson-jaxrs:1.7.1" level="project" />
-    <orderEntry type="library" name="Maven: org.codehaus.jackson:jackson-xc:1.7.1" level="project" />
-    <orderEntry type="library" name="Maven: com.sun.jersey:jersey-server:1.8" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.commons:commons-math:2.1" level="project" />
-    <orderEntry type="library" name="Maven: commons-configuration:commons-configuration:1.6" level="project" />
-    <orderEntry type="library" name="Maven: commons-digester:commons-digester:1.8" level="project" />
-    <orderEntry type="library" name="Maven: commons-beanutils:commons-beanutils-core:1.8.0" level="project" />
-    <orderEntry type="library" name="Maven: commons-net:commons-net:1.4.1" level="project" />
-    <orderEntry type="library" name="Maven: commons-el:commons-el:1.0" level="project" />
+    <orderEntry type="library" name="Maven: org.glassfish.jersey.core:jersey-common:2.4.1" level="project" />
+    <orderEntry type="library" name="Maven: javax.annotation:javax.annotation-api:1.2" level="project" />
+    <orderEntry type="library" name="Maven: org.glassfish.hk2:hk2-api:2.2.0-b21" level="project" />
+    <orderEntry type="library" name="Maven: org.glassfish.hk2:hk2-utils:2.2.0-b21" level="project" />
+    <orderEntry type="library" name="Maven: org.glassfish.hk2.external:javax.inject:2.2.0-b21" level="project" />
+    <orderEntry type="library" name="Maven: org.glassfish.hk2:hk2-locator:2.2.0-b21" level="project" />
+    <orderEntry type="library" name="Maven: org.glassfish.hk2.external:asm-all-repackaged:2.2.0-b21" level="project" />
+    <orderEntry type="library" name="Maven: org.glassfish.hk2.external:cglib:2.2.0-b21" level="project" />
+    <orderEntry type="library" name="Maven: org.glassfish.hk2:osgi-resource-locator:1.0.1" level="project" />
+    <orderEntry type="library" name="Maven: javax.ws.rs:javax.ws.rs-api:2.0" level="project" />
     <orderEntry type="library" name="Maven: edu.isi:karma-util:0.0.1-SNAPSHOT" level="project" />
     <orderEntry type="library" name="Maven: com.googlecode.juniversalchardet:juniversalchardet:1.0.3" level="project" />
     <orderEntry type="library" name="Maven: net.sf.json-lib:json-lib:jdk15:2.3" level="project" />
@@ -290,9 +249,20 @@
     <orderEntry type="library" name="Maven: org.xerial.snappy:snappy-java:1.0.5" level="project" />
     <orderEntry type="library" name="Maven: org.apache.avro:avro-compiler:1.7.7" level="project" />
     <orderEntry type="library" name="Maven: org.apache.velocity:velocity:1.7" level="project" />
+    <orderEntry type="library" name="Maven: org.python:jython-standalone:2.7-b3" level="project" />
+    <orderEntry type="library" name="Maven: edu.isi:commands-cleaning:0.0.1-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Maven: edu.isi:karma-cleaning:0.0.1-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Maven: javax.mail:mail:1.4" level="project" />
+    <orderEntry type="library" name="Maven: javax.activation:activation:1.1" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.commons:commons-math3:3.0" level="project" />
+    <orderEntry type="library" name="Maven: org.antlr:antlr:3.2" level="project" />
+    <orderEntry type="library" name="Maven: org.antlr:antlr-runtime:3.2" level="project" />
+    <orderEntry type="library" name="Maven: org.antlr:stringtemplate:3.2" level="project" />
+    <orderEntry type="library" name="Maven: tw.edu.ntu.csie:libsvm:3.17" level="project" />
+    <orderEntry type="library" name="Maven: org.perf4j:perf4j:0.9.16" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.commons:commons-math:2.2" level="project" />
     <orderEntry type="library" name="Maven: edu.isi:commands-alignment:0.0.1-SNAPSHOT" level="project" />
     <orderEntry type="library" name="Maven: edu.isi:commands-alignment-openrdf:0.0.1-SNAPSHOT" level="project" />
-    <orderEntry type="library" name="Maven: edu.isi:commands-cleaning:0.0.1-SNAPSHOT" level="project" />
     <orderEntry type="library" name="Maven: edu.isi:commands-common:0.0.1-SNAPSHOT" level="project" />
     <orderEntry type="library" name="Maven: edu.isi:commands-publish:0.0.1-SNAPSHOT" level="project" />
     <orderEntry type="library" name="Maven: com.healthmarketscience.jackcess:jackcess:1.2.10" level="project" />
@@ -301,10 +271,10 @@
     <orderEntry type="library" name="Maven: net.sourceforge.jtds:jtds:1.2.6" level="project" />
     <orderEntry type="library" name="Maven: edu.isi:commands-python:0.0.1-SNAPSHOT" level="project" />
     <orderEntry type="library" name="Maven: edu.isi:commands-publish-alignment-openrdf:0.0.1-SNAPSHOT" level="project" />
-    <orderEntry type="library" name="Maven: org.mongodb:mongo-java-driver:2.11.4" level="project" />
     <orderEntry type="library" name="Maven: edu.isi:commands-update:0.0.1-SNAPSHOT" level="project" />
     <orderEntry type="library" name="Maven: edu.isi:commands-update-jdbc:0.0.1-SNAPSHOT" level="project" />
     <orderEntry type="library" name="Maven: edu.isi:commands-worksheet:0.0.1-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Maven: edu.isi.karma.services:entityExtraction:0.0.1" level="project" />
     <orderEntry type="library" name="Maven: edu.isi:import-common:0.0.1-SNAPSHOT" level="project" />
     <orderEntry type="library" name="Maven: edu.isi:import-csv:0.0.1-SNAPSHOT" level="project" />
     <orderEntry type="library" name="Maven: edu.isi:import-database:0.0.1-SNAPSHOT" level="project" />
@@ -336,8 +306,8 @@
     <orderEntry type="library" name="Maven: com.sun.xml.bind:jaxb-impl:2.2" level="project" />
     <orderEntry type="library" name="Maven: javax.xml.bind:jaxb-api:2.2" level="project" />
     <orderEntry type="library" name="Maven: javax.xml.stream:stax-api:1.0-2" level="project" />
-    <orderEntry type="library" name="Maven: javax.activation:activation:1.1" level="project" />
     <orderEntry type="library" name="Maven: com.sun.xml.bind:jaxb-xjc:2.2" level="project" />
+    <orderEntry type="library" name="Maven: commons-cli:commons-cli:1.2" level="project" />
     <orderEntry type="library" name="Maven: org.apache.tika:tika-core:1.5" level="project" />
     <orderEntry type="library" name="Maven: org.apache.tika:tika-parsers:1.5" level="project" />
     <orderEntry type="library" name="Maven: org.gagravarr:vorbis-java-tika:0.1" level="project" />

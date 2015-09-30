@@ -18,7 +18,6 @@ public class Test_GraphDB6 {
 		// see
 		// http://java.sun.com/j2se/1.5.0/docs/guide/xml/jaxp/JAXP-Compatibility_150.html#JAXP_security
 		System.setProperty("entityExpansionLimit", "1000000");
-
 		// Set default values for missing parameters
 		/*
 		params.setDefaultValue(PARAM_CONFIG, "./owlim.ttl");
@@ -61,13 +60,12 @@ public class Test_GraphDB6 {
 		
 		SesameUtil28 s = null;
 		try {
-			long initializationStart = System.currentTimeMillis();
 			// The ontologies and datasets specified in the 'import' parameter
 			// of the Sesame configuration file are loaded during
 			// initialization.
 			// Thus, for large datasets the initialisation could take
 			// considerable time.
-                        /*
+			/*long initializationStart = System.currentTimeMillis();
 			s = new home.home.utils.sesame.SesameUtil(
                                 "http://localhost:8080/openrdf-sesame/", //url
                                 "km4city04", //repositoryid
@@ -83,7 +81,7 @@ public class Test_GraphDB6 {
 					null,
 					null);*/
 			//s.evaluateQueries("queryFile");
-			s.executeSingleQuery(queryString);
+			s.executeQuerySPARQLFromString(queryString);
 			// Demonstrate the basic operations on a repository
 			/*
 			gettingStartedApplication.loadFiles();
@@ -97,15 +95,10 @@ public class Test_GraphDB6 {
 			gettingStartedApplication.connect();
 			gettingStartedApplication.evaluateQueries();
 			*/
-                        
-                        
 		} catch (Throwable ex) {
-			
 			ex.printStackTrace();
-		} finally {
-			if (s != null){}
-//				s.shutdown();
 		}
+		//finally {//if (s != null){}s.shutdown();}
 	}
 
 }

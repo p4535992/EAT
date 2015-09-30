@@ -58,13 +58,13 @@ public class Test_JDBC_util {
         String q3 = dao.prepareSelectQuery(new String[]{"url"},null,null,3,0,null);*/
         //////////////////////////////////////////////////////////////////////////////////////////
         //WORK
-        List<GeoDomainDocument> list = dao.trySelect(columns,columns,values,null,null,"AND");
+        List<GeoDomainDocument> list = dao.trySelect(columns,columns,values,null,null,null);
 
         //WORK
-        List<GeoDomainDocument> list2 = dao.trySelectWithRowMap(columns,columns,values,null,null,"AND");
+        List<GeoDomainDocument> list2 = dao.trySelectWithRowMap(columns,columns,values,null,null,null);
 
         //WORK
-        List<GeoDomainDocument> list3 = dao.trySelectWithResultSetExtractor(columns,columns,values,null,null,"AND");
+        List<GeoDomainDocument> list3 = dao.trySelectWithResultSetExtractor(columns,columns,values,null,null,null);
 
 
     }

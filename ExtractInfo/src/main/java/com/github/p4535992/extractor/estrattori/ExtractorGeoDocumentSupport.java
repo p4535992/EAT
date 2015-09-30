@@ -1,6 +1,9 @@
 package com.github.p4535992.extractor.estrattori;
 
+import com.github.p4535992.extractor.object.dao.jdbc.IGeoDocumentDao;
+import com.github.p4535992.extractor.object.impl.jdbc.GeoDocumentDaoImpl;
 import com.github.p4535992.extractor.object.support.LatLng;
+import com.github.p4535992.util.database.jooq.SQLJooqKit;
 import com.github.p4535992.util.http.HttpKit;
 import com.github.p4535992.util.http.HttpUtil;
 import com.github.p4535992.util.log.SystemLog;
@@ -13,6 +16,7 @@ import com.github.p4535992.extractor.setInfoParameterIta.SetRegioneEProvincia;
 import com.github.p4535992.extractor.object.model.GeoDocument;
 
 import java.net.URISyntaxException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.StringTokenizer;
@@ -315,4 +319,51 @@ public class ExtractorGeoDocumentSupport {
         }
         return content;
     }
+
+    /**
+     * Method for update all record with the Coordinates null or empty.
+     */
+   /* public void reloadNullCoordinatesGeoDocumentOnTheDatabase(
+        GeoDocumentDaoImpl geoDocumentDao,String[] column,String[] columns_where,String tableName){
+        ManageJsonWithGoogleMaps j = ManageJsonWithGoogleMaps.getInstance();
+        //String[] columns_where = new String[]{"latitude","longitude"};
+        Object[] values_where = new Object[]{null,null};
+        List<org.jooq.Condition> conditions = new ArrayList<>();
+        for(String coord : columns_where) {
+            *//*org.jooq.Condition condition1 = SQLJooqKit.createField(coord).isNull(); //is NULL...
+            org.jooq.Condition condition2 = SQLJooqKit.createField(coord).length().eq(0); //is empty
+            org.jooq.Condition condition3 = SQLJooqKit.createField(coord).notEqual("0"); //is not "0"
+            org.jooq.Condition condition4 = SQLJooqKit.createField(coord).greaterOrEqual("1"); //greater than 0*//*
+            conditions.add(SQLJooqKit.createField(coord).isNull());
+            conditions.add(SQLJooqKit.createField(coord).length().eq(0));
+            conditions.add(SQLJooqKit.createField(coord).notEqual("0"));
+            conditions.add(SQLJooqKit.createField(coord).greaterOrEqual("1"));
+        }
+        try {
+            values_where = new Object[]{null,null};
+            List<List<Object[]>> listGeoDoc =
+                    geoDocumentDao.select(new String[]{"*"},columns_where, values_where,conditions);
+
+            values_where = new Object[]{"",""};
+            List<GeoDocument> listGeoDoc2 =
+                    geoDocumentDao.select(new String[]{"*"},columns_where,values_where,conditions );
+            listGeoDoc.addAll(listGeoDoc2);
+
+            values_where = new Object[]{0,0};
+            listGeoDoc2 = geoDocumentDao.select(new String[]{"*"},columns_where,values_where, LIMIT, OFFSET, "AND");
+            listGeoDoc.addAll(listGeoDoc2);
+            for (GeoDocument geo : listGeoDoc) {
+                LatLng coord = j.getCoords(geo);
+                if(coord.getLat() == 0 && coord.getLng()==0){
+                    values_where = new Object[]{null,null};
+                }else{
+                    values_where = new Object[]{coord.getLat(),coord.getLng()};
+
+                }
+                geoDocumentDao.update(columns_where, values_where, "url", geo.getUrl().toString());
+            }
+        }catch(URISyntaxException e){
+            SystemLog.exception(e);
+        }
+    }*/
 }

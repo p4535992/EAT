@@ -1,27 +1,32 @@
 package com.github.p4535992.extractor.object.support;
+import com.github.p4535992.util.string.StringKit;
+
 import java.io.Serializable;
 /**
  * LatLng.java.
- * @author 4535992
+ * @author 4535992.
+ * @version 2015-09-29.
  */
 public class LatLng implements Serializable{
  
     private static final long serialVersionUID = 16549987563L;
  
-    private double lat;
-    private double lng;
+    private Double lat;
+    private Double lng;
  
-    public LatLng(final double lat, final double lng) {
+    public LatLng(double lat, double lng) {
         this.lat = lat;
         this.lng = lng;
     }
 
     public LatLng(Integer lat,Integer lng) {
-        this.lat = lat;
-        this.lng = lng;
+        if(lat==null) this.lat = null;
+        else this.lat = StringKit.convertIntegerToDouble(lat);
+        if(lng==null) this.lng = null;
+        else this.lng = StringKit.convertIntegerToDouble(lng);
     }
  
-    public double getLat() {
+    public Double getLat() {
         return lat;
     }
  
@@ -29,7 +34,7 @@ public class LatLng implements Serializable{
         this.lat = lat;
     }
  
-    public double getLng() {
+    public Double getLng() {
         return lng;
     }
  

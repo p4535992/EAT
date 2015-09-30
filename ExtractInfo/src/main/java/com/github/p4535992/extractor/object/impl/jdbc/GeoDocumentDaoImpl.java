@@ -10,6 +10,7 @@ import com.github.p4535992.util.database.sql.SQLSupport;
 
 import javax.sql.DataSource;
 import java.io.IOException;
+import java.util.List;
 
 /**
  * Created by 4535992 on 01/04/2015.
@@ -111,5 +112,9 @@ public class GeoDocumentDaoImpl extends GenericDaoImpl<GeoDocument> implements I
         }
     }
 
-
+    @Override
+    public List<List<Object[]>> select(
+            String[] columns, String[] columns_where, Object[] values_where,List<org.jooq.Condition> conditions){
+        return  super.select(columns, columns_where, values_where, null, null,conditions);
+    }
 }

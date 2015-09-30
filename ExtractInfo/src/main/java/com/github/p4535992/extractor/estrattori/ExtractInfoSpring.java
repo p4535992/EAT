@@ -167,11 +167,33 @@ public class ExtractInfoSpring {
                  List<URL> listUrl = ExtractInfoWeb.getInstance().getListURLFromDatabase(
                          DRIVER_DATABASE, DIALECT_DATABASE, HOST_DATABASE,
                          PORT_DATABASE.toString(), USER, PASS, DB_INPUT, TABLE_INPUT, COLUMN_TABLE_INPUT, LIMIT, OFFSET);
+
+                 //Filter and remove all unreachable or errate address web...
+                 geoDocumentDao.setTableInsert("offlinesite");
+                 List<URL> supportList = new ArrayList<>();
+                 for(URL url : listUrl) {
+                     if (geoDocumentDao.verifyDuplicate("url", url.toString())) {
+                         supportList.add(url);
+                     }
+                 }
+                 for (URL aSupportList : supportList) {
+                     SystemLog.warning("The site " + aSupportList + " can't be reach...");
+                     for (int j = 0; j < listUrl.size(); j++) {
+                         if (listUrl.get(j) == aSupportList) {
+                             listUrl.remove(j);
+                             break;
+                         }
+                     }
+                 }
+                 geoDocumentDao.setTableInsert(TABLE_INPUT);
+                 supportList.clear();
+
+                 //Initialize GATE...
                  List<GeoDocument> listGeo = new ArrayList<>();
                  web.setGate("gate_files", "plugins", "gate.xml", "user-gate.xml", "gate.session",
                          "custom/gapp/geoLocationPipeline06102014v7_fastMode.xgapp");
                  if(PROCESS_PROGAMM == 1){
-                     SystemLog.message("RUN PROCESS 1: METODOLOGIA PER SINGOLO URL");
+                     SystemLog.message("RUN PROCESS 1: Abilitate for each single url");
                      if(listUrl.isEmpty()){
                          SystemLog.message("The list of urls you get from the table:"+TABLE_INPUT+
                                  " from the columns "+COLUMN_TABLE_INPUT+" empty!!!");
@@ -180,11 +202,11 @@ public class ExtractInfoSpring {
                          for (URL url : listUrl) {
                              GeoDocument geoDoc = web.ExtractGeoDocumentFromUrl(
                                      url, TABLE_OUTPUT, TABLE_OUTPUT, CREATE_NEW_GEODOCUMENT_TABLE,ERASE);
-                             listGeo.add(geoDoc);
+                             if(geoDoc!=null)listGeo.add(geoDoc);
                          }
                      }
                  }else if(PROCESS_PROGAMM == 2){
-                     SystemLog.message("RUN PROCESS 2: METODOLOGIA PER MULTIPLI URL");
+                     SystemLog.message("RUN PROCESS 2: Abilitate for multiple url");
                      if(listUrl.isEmpty()){
                          SystemLog.message("The list of urls you get from the table:"+TABLE_INPUT+
                                  " from the columns "+COLUMN_TABLE_INPUT+" empty!!!");
@@ -194,7 +216,7 @@ public class ExtractInfoSpring {
                                  listUrl, TABLE_INPUT, TABLE_OUTPUT,CREATE_NEW_GEODOCUMENT_TABLE,ERASE);
                      }
                 }else if(PROCESS_PROGAMM == 3){
-                     SystemLog.message("RUN PROCESS 3: METODOLOGIA PER FILE O DIRECTORY");
+                     SystemLog.message("RUN PROCESS 3: Abilitate for single file or for a directory");
                      //String DIRECTORY_FILE = "C:\\Users\\Marco\\Downloads\\parseWebUrls";
                      List<File> files = new ArrayList<>();
                      List<File> subFiles = new ArrayList<>(); //suppport list...
@@ -209,7 +231,7 @@ public class ExtractInfoSpring {
                      }else{
                          subFiles.add(new File(DIRECTORY_FILES));
                      }
-                     //avoid already present on the databse url of the file...
+                     //avoid already present on the database url of the file...
                      for(File file : subFiles){
                         String urlFile =(String) websiteDao.select("url", "file_path", file.getName());
                         if(!(urlFile == null || (geoDocumentDao.verifyDuplicate("url", urlFile))
@@ -233,7 +255,8 @@ public class ExtractInfoSpring {
                      SystemLog.message("Obtained a list of: " + listGeo.size() + " GeoDocument");
                  }//else lista url non vuota
                  else SystemLog.warning("You are jump the extraction process! (use 1,2 or 3 on the Proces Porgamma Parameter)");
-             } //SE PROCESS_PROGRAMM == 4
+             }
+            //Other process after the extraction of the information....
             if(PROCESS_PROGAMM == 4) {
                 SystemLog.message("RUN PROCESS 4");
                 //CREAZIONE DI UNA TABELLA DI GEODOMAINDOCUMENT

@@ -3,7 +3,6 @@ package com.github.p4535992.extractor.object.impl.jdbc.generic;
 import com.github.p4535992.extractor.object.dao.jdbc.generic.IGenericDao;
 import com.github.p4535992.util.bean.BeansKit;
 import com.github.p4535992.util.collection.CollectionKit;
-//import com.github.p4535992.util.database.jooq.SQLJooqKit;
 import com.github.p4535992.util.database.jooq.SQLJooqKit;
 import com.github.p4535992.util.database.sql.SQLHelper;
 import com.github.p4535992.util.database.sql.SQLQuery;
@@ -81,7 +80,9 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
             SQLJooqKit.setDslContext(dslContext);
             SQLJooqKit.setSqlDialect(SQLHelper.convertDialectDBToSQLDialectJOOQ(dialectDB));
         }catch(SQLException e){
-            e.printStackTrace();
+            //e.printStackTrace();
+            SystemLog.error("Can't set the driver manager for JOOQ, maybe some inout name (database,table, ecc. is wrong");
+            SystemLog.exception(e);
         }
     }
 
@@ -180,7 +181,7 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
         boolean b = false;
         try {
             query = "SELECT count(*) FROM " + myInsertTable + " WHERE " + column_where + "='" + value_where.replace("'", "''") + "'";
-            SystemLog.query(query);
+            //SystemLog.query(query);
             int c = this.jdbcTemplate.queryForObject(query, Integer.class);
             if (c > 0) {
                 b = true;
@@ -484,32 +485,16 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
 //        return list;
 //    }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     @Override
-    public List<T> trySelect(final String[] columns,String[] columns_where,Object[] values_where,Integer limit,Integer offset,String condition) {
-        List<T> list = new ArrayList<>();
-        query = SQLQuery.prepareSelectQuery(mySelectTable, columns, columns_where, values_where, limit, offset, condition);
-        List<Condition> conds = new ArrayList<>();
-        /*if(condition == null || condition.toLowerCase().contains("and")){
-            conds = SQLJooqKit.convertToListConditionEqualsWithAND(columns_where,values_where);
+    public List<T> trySelect(final String[] columns,String[] columns_where,Object[] values_where,Integer limit,Integer offset,List<org.jooq.Condition> conditions) {
+        /** if you don't want to use JOOQ */
+        //query = SQLQuery.prepareSelectQuery(mySelectTable, columns, columns_where, values_where, limit, offset, condition);
+        /** if you want to use JOOQ */
+        if(conditions == null || conditions.isEmpty()) {
+            conditions = SQLJooqKit.convertToListConditionEqualsWithAND(columns_where,values_where);
         }
-        query = SQLJooqKit.select(mySelectTable,columns,false,conds,limit.toString(),offset.toString());*/
+        query = SQLJooqKit.select(mySelectTable,columns,false,conditions,limit,offset);
+        List<T> list = new ArrayList<>();
         List<Map<String, Object>> map = jdbcTemplate.queryForList(query);
         SystemLog.query(query);
         try {
@@ -550,11 +535,14 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
     }
 
     @Override
-    public List<T> trySelectWithRowMap(String[] columns,String[] columns_where,Object[] values_where,Integer limit, Integer offset,String condition) {
-        query = SQLQuery.prepareSelectQuery(mySelectTable,columns, columns_where, values_where, limit, offset,condition);
-       /* query = SQLJooqKit.select(mySelectTable,columns,false,
-                SQLJooqKit.convertToListConditionEqualsWithAND(columns_where,values_where),
-                limit.toString(),offset.toString());*/
+    public List<T> trySelectWithRowMap(String[] columns,String[] columns_where,Object[] values_where,Integer limit, Integer offset,List<org.jooq.Condition> conditions) {
+        /** if you don't want to use JOOQ */
+        //query = SQLQuery.prepareSelectQuery(mySelectTable,columns, columns_where, values_where, limit, offset,condition);
+        /** if you want to use JOOQ */
+        if(conditions == null || conditions.isEmpty()) {
+           conditions = SQLJooqKit.convertToListConditionEqualsWithAND(columns_where, values_where);
+        }
+        query = SQLJooqKit.select(mySelectTable, columns, false,conditions, limit, offset);
 
         List<T> list = new ArrayList<>();
         try {
@@ -628,14 +616,17 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
     }
 
     @Override
-    public List<T> trySelectWithResultSetExtractor(String[] columns,String[] columns_where,Object[] values_where,Integer limit,Integer offset,String condition){
+    public List<T> trySelectWithResultSetExtractor(
+            String[] columns,String[] columns_where,Object[] values_where,Integer limit,Integer offset,List<org.jooq.Condition> conditions){
         List<T> list = new ArrayList<>();
         /** if you don't want to use JOOQ */
         //query = SQLQuery.prepareSelectQuery(mySelectTable,columns, columns_where, values_where, limit, offset,condition);
         /** if you want to use JOOQ */
-        query = SQLJooqKit.select(mySelectTable,columns,false,
-                SQLJooqKit.convertToListConditionEqualsWithAND(columns_where,values_where),
-                limit.toString(),offset.toString());
+        if(conditions == null || conditions.isEmpty()) {
+            conditions =SQLJooqKit.convertToListConditionEqualsWithAND(columns_where, values_where);
+        }
+        query = SQLJooqKit.select(mySelectTable, columns, false, conditions,limit, offset);
+
         try {
             //T MyObject = ReflectionKit.invokeConstructor(cl);
             final String[] columns2;
@@ -722,21 +713,27 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
     }
 
     @Override
-    public List<Object> select(String column,String column_where,Object value_where,Integer limit,Integer offset,String condition){
+    public List<Object> select(String column,String column_where,Object value_where,List<org.jooq.Condition> conditions) {
+        return select(column,column_where,value_where,null,null,conditions);
+    }
+
+    @Override
+    public List<Object> select(
+            String column,String column_where,Object value_where,Integer limit,Integer offset,List<org.jooq.Condition> conditions){
         List<Object> listObj = new ArrayList<>();
         /** if you don't want to use JOOQ */
         //query = SQLQuery.prepareSelectQuery(mySelectTable,new String[]{column},new String[]{column_where},null,limit,offset,condition);
         List<Map<String, Object>> list;
+        /** if you want to use JOOQ */
+        if(conditions == null || conditions.isEmpty()) {
+            conditions = SQLJooqKit.convertToListConditionEqualsWithAND(new String[]{column_where}, new Object[]{value_where});
+        }
         if(value_where != null) {
-            query = SQLJooqKit.select(mySelectTable, new String[]{column}, true,
-                    SQLJooqKit.convertToListConditionEqualsWithAND(new String[]{column_where}, new Object[]{value_where}),
-                    limit.toString(), offset.toString());
+            query = SQLJooqKit.select(mySelectTable, new String[]{column}, true,conditions,limit, offset);
             list = jdbcTemplate.queryForList(query,new Object[]{value_where},new Class<?>[]{value_where.getClass()});
             SystemLog.query(query +" -> Return a list of "+list.size()+" elements!");
         }else{
-            query = SQLJooqKit.select(mySelectTable, new String[]{column}, false,
-                    SQLJooqKit.convertToListConditionEqualsWithAND( new String[]{column_where}, new Object[]{value_where}),
-                    limit.toString(), offset.toString());
+            query = SQLJooqKit.select(mySelectTable, new String[]{column}, false,conditions,limit, offset);
             list = jdbcTemplate.queryForList(query);
             SystemLog.query(query +" -> Return a list of "+list.size()+" elements!");
         }
@@ -757,14 +754,22 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
 
     @Override
     public List<List<Object[]>> select(
-            String[] columns, String[] columns_where, Object[] values_where, Integer limit, Integer offset, String condition){
+            String[] columns, String[] columns_where, Object[] values_where,List<org.jooq.Condition> conditions){
+        return  select(columns, columns_where, values_where, null, null,conditions);
+    }
+
+    @Override
+    public List<List<Object[]>> select(
+            String[] columns, String[] columns_where, Object[] values_where, Integer limit, Integer offset,List<org.jooq.Condition> conditions){
         List<List<Object[]>> listOfList = new ArrayList<>();
         /** if you don't want to use JOOQ */
         //query = SQLQuery.prepareSelectQuery(mySelectTable,columns, columns_where, null, limit, offset,condition);
         /** if you want to use JOOQ */
-        query = SQLJooqKit.select(mySelectTable,columns,true,
-                SQLJooqKit.convertToListConditionEqualsWithAND(columns_where,values_where),
-                limit.toString(),offset.toString());
+        if(conditions == null || conditions.isEmpty()) {
+            conditions = SQLJooqKit.convertToListConditionEqualsWithAND(columns_where,values_where);
+        }
+        query = SQLJooqKit.select(mySelectTable,columns,true,conditions, limit,offset);
+
         List<Map<String, Object>> list;
         if(values_where != null) {
             Class<?>[] classes = new Class<?>[]{values_where.getClass()};
@@ -801,7 +806,7 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
         /** if you don't want to use JOOQ */
         //query =SQLQuery.prepareSelectQuery(mySelectTable, new String[]{column}, null, null, limit,offset,null);
         /** if you want to use JOOQ */
-        query = SQLJooqKit.select(mySelectTable,new String[]{column},false,null,limit.toString(), offset.toString());
+        query = SQLJooqKit.select(mySelectTable,new String[]{column},false,null,limit, offset);
         List<Map<String, Object>> list;
         list = jdbcTemplate.queryForList(query);
         SystemLog.query(query +" -> Return a list of "+list.size()+" elements!");

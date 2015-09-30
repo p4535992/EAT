@@ -267,7 +267,7 @@ public class GeoDomainDocumentDaoImpl extends GenericDaoImpl<GeoDomainDocument> 
 
 
     public List<GeoDomainDocument> selectGeoDomainWihNoCoords(String[] columns,String[] columns_where,
-                                    Object[] values_where, Integer limit, Integer offset, String condition) {
-        return super.trySelect(columns, columns_where, values_where, limit, offset, condition);
+                                    Object[] values_where, Integer limit, Integer offset, List<org.jooq.Condition> conditions) {
+        return super.trySelect(columns, columns_where, values_where, limit, offset, conditions);
     }
 }
