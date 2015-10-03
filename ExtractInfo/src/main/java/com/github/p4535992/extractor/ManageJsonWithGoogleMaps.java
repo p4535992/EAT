@@ -24,7 +24,7 @@ import com.github.p4535992.util.log.SystemLog;
  * risposta della stessa, tramite Json utilizzando la libreria JSONO e creazione dei
  * GeoDocument.
  * @author 4535992.
- * @version 2015-09-29.
+ * @version 2015-09-30.
  */
 @SuppressWarnings("unused")
 public class ManageJsonWithGoogleMaps {
@@ -50,9 +50,15 @@ public class ManageJsonWithGoogleMaps {
         return instance;
     }
 
+    private static final String JSON_EMPTY = "{}";
+    private static final String JSON_ZERO_RESULT = "{\n" +
+            "   \"results\" : [],\n" +
+            "   \"status\" : \"ZERO_RESULTS\"\n" +
+            "}";
+
     /**
      * Metodo per la connessione all'API Google Maps e al suo utilizzo
-     * @param g il geodocument fornito di input
+     * @param g il geodocument fornito di input.
      * @return le coordinate GPS ricavate attraverso le informazioni ricavate dalle
      *         annotazioni di Gate con lt'utilizzo dell'API Google Maps.
      * @throws URISyntaxException error.
@@ -78,6 +84,13 @@ public class ManageJsonWithGoogleMaps {
         return getCoordinatesFromStringAddress(kContentList,n);
     }
 
+    /**
+     * Metodo per la connessione all'API Google Maps e al suo utilizzo.
+     * @param g il geodomaindocument fornito di input.
+     * @return le coordinate GPS ricavate attraverso le informazioni ricavate dalle
+     *         annotazioni di Gate con lt'utilizzo dell'API Google Maps.
+     * @throws URISyntaxException error.
+     */
     public LatLng getCoords(GeoDomainDocument g) throws URISyntaxException {
         List<String> kContentList = new ArrayList<>();
         if (setNullForEmptyString(g.getIndirizzo()) != null) {
@@ -99,6 +112,12 @@ public class ManageJsonWithGoogleMaps {
         return getCoordinatesFromStringAddress(kContentList,n);
     }
 
+    /**
+     * Method to prepare tha uri for Google Maps by a list of string information of the location.
+     * @param kContentList a List of String of all information on the location.
+     * @param nation the code of the nation where is situated the location.
+     * @return a string to insert in the uri of the web service of google maps.
+     */
     private String prepareRawAddress(List<String>  kContentList,String nation){
         String fua = "";
         for (String s : kContentList) {
@@ -118,6 +137,12 @@ public class ManageJsonWithGoogleMaps {
         return prefix+address+region+suffix;
     }
 
+    /**
+     * Method to get coordinates with google maps from a list of informations.
+     * @param rawAddress the list of information of the location.
+     * @param nation the code of the nation where is situated the location.
+     * @return the LatLngObject of the geographical coordinates.
+     */
     private LatLng getCoordinatesFromStringAddress(List<String> rawAddress,String nation){
         JSONObject json;
         try {
@@ -134,7 +159,7 @@ public class ManageJsonWithGoogleMaps {
                             return new LatLng(lat,lng);
                         }
                     }catch(JSONException je){
-                        SystemLog.warning("JSON:" + json.toString());
+                        //SystemLog.warning("JSON:" + json.toString());
                         return new LatLng(null,null);
                     }
                     //Se Google Maps ha raggiunto il massimo numero di query possibili
@@ -221,7 +246,7 @@ public class ManageJsonWithGoogleMaps {
         //verifica che la stringa non è nulla, non è vuota e non è composta da soli spaceToken (white space)
         if(s!=null && !s.isEmpty() && !s.trim().isEmpty()){return s;}
         else{return null;}
-    }        
+    }
     
     
     /////////////////////////////////////////////////////////////////////////////////////
@@ -244,31 +269,44 @@ public class ManageJsonWithGoogleMaps {
          String jsonText = "";
          try{
             try{
-               HttpUtil.waiter();
-               //FUNZIONA
-               jsonText = HttpUtil.get(url.toString());
-            } catch (InterruptedException e) {
+                HttpUtil.waiter();
+                jsonText = org.jsoup.Jsoup.connect(url.toString()).ignoreContentType(true).execute().body();
+            } catch (org.jsoup.HttpStatusException e) {
                 SystemLog.warning(e.getMessage());
+            } catch(org.json.JSONException e2){
+                json = new JSONObject(JSON_ZERO_RESULT);
+            } catch(java.net.SocketTimeoutException e3){
+                HttpUtil.waiter();
+                jsonText = HttpUtil.get(url.toString());
             } finally{
-                //UN SECONDO TENTATIVO IN CASO DI FALLIMENTO (TIMEOUT,ECC.)
-                if(StringKit.isNullOrEmpty(jsonText)){
-                    jsonText = HttpUtilApache4.GETWithRetry(url.toString());
-                }
-            }
-         json = new JSONObject(jsonText);
-        }finally{
-            //SE SUCCEDE QUALUNQUE COSA CON HTTP SI USA JSOUP IN EXTREMIS
-            try{
-                if(StringKit.isNullOrEmpty(jsonText)){
-                    try {
-                        jsonText = org.jsoup.Jsoup.connect(url.toString()).ignoreContentType(true).execute().body();
-                        json = new JSONObject(jsonText);
-                    }catch(org.jsoup.HttpStatusException e){
-                        json = new JSONObject("{\"results\" : [],\"status\" : \"ZERO_RESULTS\"}");
+                if(StringKit.isNullOrEmpty(jsonText) ||
+                        Objects.equals(jsonText, JSON_ZERO_RESULT) || Objects.equals(jsonText, JSON_EMPTY)){
+                    HttpUtil.waiter();
+                    //jsonText = org.jsoup.Jsoup.connect(url.toString()).ignoreContentType(true).execute().body();
+                    jsonText = HttpUtil.get(url.toString());
+                    if(StringKit.isNullOrEmpty(jsonText) ||
+                            Objects.equals(jsonText, JSON_ZERO_RESULT) || Objects.equals(jsonText, JSON_EMPTY)) {
+                        HttpUtil.waiter();
+                        //jsonText = HttpUtil.get(url.toString());
+                        jsonText = HttpUtilApache4.GETWithRetry(url.toString());
                     }
+
                 }
-            }finally{
-                if(StringKit.isNullOrEmpty(json.toString()))json = null;
+                json = new JSONObject(jsonText);
+                SystemLog.warning("JSON:" + json.toString());
+            }
+         }catch(InterruptedException e){
+             SystemLog.warning(e.getMessage());
+         } finally{
+             if(StringKit.isNullOrEmpty(jsonText) ||
+                     Objects.equals(jsonText, JSON_ZERO_RESULT) || Objects.equals(jsonText, JSON_EMPTY)){
+                //try {
+                    //jsonText = org.jsoup.Jsoup.connect(url.toString()).ignoreContentType(true).execute().body();
+                    //jsonText = HttpUtilApache4.GETWithRetry(url.toString());
+                    //json = new JSONObject(jsonText);
+                //}catch(Exception e){
+                    json = new JSONObject(JSON_ZERO_RESULT);
+                //}
             }
         }
         return json;
@@ -283,7 +321,7 @@ public class ManageJsonWithGoogleMaps {
      * @return il dominio dell'url in formato stringa.
      * @throws URISyntaxException error.
      */
-    public String getDomainName(String u) throws URISyntaxException {     
+    private String getDomainName(String u) throws URISyntaxException {
             URI uri = new URI(u);
             return uri.getHost();
     }//getDomainName

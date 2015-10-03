@@ -64,14 +64,13 @@ public class ExtractorJSOUP {
             try{
                 String html = HttpUtil.get(url);
                 doc = Jsoup.parse(html);
-                SystemLog.message("HTTP GET HA AVUTO SUCCESSO");
+                SystemLog.message("HTTP GET DONE");
                 EXIST_WEBPAGE = true;
             }catch(Exception en){
-                //SystemLog.org.p4535992.mvc.error("HTTP GET HA FALLITO:" + en.getMessage());
                 EXIST_WEBPAGE = false;
             }
         }else{
-            SystemLog.message("JSOUP GET HA AVUTO SUCCESSO");
+            SystemLog.message("JSOUP GET DONE");
             EXIST_WEBPAGE = true;
         }
 
@@ -107,7 +106,6 @@ public class ExtractorJSOUP {
                 result = result.replaceAll("[\\-\\|\\;\\,\\^]", "").trim();
             }
             geo.setEdificio(result);
-
 
             //SETTTIAMO DESCRIPTION
             result ="";
@@ -153,7 +151,7 @@ public class ExtractorJSOUP {
             SystemLog.message("EDIFICIO:" + geo.getEdificio());
             //SystemLog.message("LANGUAGE:" + geo.getNazione());
         }else{        
-            SystemLog.error("FALLITO IL GET PER LA PAGINA:" + url + " ANDIAMO ALLA SUCESSIVA");
+            SystemLog.error("FAILED the HTTP GET for the web address:" + url);
             geo.setEdificio(null);
         }
         geo.setUrl(new URL(url));

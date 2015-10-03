@@ -20,7 +20,7 @@ import static edu.isi.karma.rdf.GenericRDFGenerator.*;
 /**
  * Class for call the Karma method from the module maven.
  * @author 4535992.
- * @version 2015-07-01.
+ * @version 2015-09-30.
  */
 @SuppressWarnings("unused")
 public class GenerationOfTriple {
@@ -60,7 +60,6 @@ public class GenerationOfTriple {
     }
 
     public File GenerationOfTripleWithKarmaAPIFromDataBase() throws IOException {
-
         String pathOut = TRIPLE_OUTPUT_KARMA+"";
         String[] value = new String[]{
                 SOURCETYPE_KARMA,MODEL_TURTLE_KARMA,pathOut,
@@ -125,6 +124,54 @@ public class GenerationOfTriple {
                     FileUtil.extension(f), //inputFormat n3
                     OUTPUT_FORMAT_KARMA //outputFormat "ttl"
             );*/
+            filePathTriple.delete();
+            return f;
+        }catch(Exception ex){
+            SystemLog.exception(ex);
+        }
+        return null;
+    }
+
+    public File GenerationOfTripleWithKarmaAPIFromDataBase(String sourceTypeKarma,String pathToFileKarmaModel,
+               String pathFileTripleOfOutput,String dbTypeKarma,String hostname,String username,String password,
+               String port,String nameOfDatabase,String nameOfTable) throws IOException {
+        String pathOut = pathFileTripleOfOutput+"";
+        String[] value = new String[]{
+                sourceTypeKarma,pathToFileKarmaModel,pathOut,
+                dbTypeKarma,hostname,username,password,
+                port,nameOfDatabase,nameOfTable
+        };
+        String[] param = new String[]{
+                "--sourcetype", "--modelfilepath","--outputfile", "--dbtype","--hostname",
+                "--username","--password","--portnumber","--dbname","--tablename"
+                //"--encoding"
+        };
+        String[] args2;
+        try {
+            args2 = CollectionKit.mergeArraysForCommandInput(param, value);
+            SystemLog.message("PARAM KARMA:"+ CollectionKit.convertArrayContentToSingleString(args2));
+            SystemLog.message("try to create a file of triples from a relational table with karma...");
+
+            edu.isi.karma.rdf.OfflineRdfGenerator.main(args2);
+            //TEST
+            pathOut =
+                    System.getProperty("user.dir")+File.separator+"karma_files"+File.separator+
+                            "output"+File.separator+FileUtil.filenameNoExt(pathOut)+"."+FileUtil.extension(pathOut);
+            SystemLog.message("...file of triples created with name:" + pathOut);
+            String output =
+                    System.getProperty("user.dir")+File.separator+"karma_files"+File.separator+"output"+File.separator+
+                    FileUtil.filename(pathOut).replace("." + FileUtil.extension(pathOut), "-UTF8." + FileUtil.extension(pathOut));
+            SystemLog.message("...file of triples created in the path:" + output);
+
+            File filePathTriple = new File(pathOut);
+            List<String> lines = EncodingUtil.convertUnicodeEscapeToUTF8(filePathTriple);
+            EncodingUtil.writeLargerTextFileWithReplace2(output, lines);
+
+            File f = new File(output);
+            //RIPULIAMO LETRIPLE DALLE LOCATION SENZA COORDINATE CON JENA
+            SystemLog.message("Re-clean infodocument triples from the Location information  without coordinates from the file:" + output);
+            SystemLog.message(FileUtil.filenameNoExt(f)+","+FileUtil.path(f)+","+FileUtil.filenameNoExt(f)
+                    + "-c" + "," + FileUtil.extension(f));
             filePathTriple.delete();
             return f;
         }catch(Exception ex){

@@ -59,7 +59,7 @@ public class JenaInfoDocument {
             + " FILTER (!bound(?o))"
             + "}";
 
-    //Get all <http://purl.org/goodrelations/v1#Location> with lat and long not null
+    //Get all <http://purl.org/goodrelations/v1#Location> with schema:latitude and schema:longitude not null
     private static final String SPARQL_SCHEMACOORDS =
             "SELECT ?location ?lat ?long "
             + " WHERE { "
@@ -67,7 +67,7 @@ public class JenaInfoDocument {
             + "  <http://schema.org/latitude> ?lat ;"
             + "  <http://schema.org/longitude> ?long ."
             + "}";
-
+    //Get all <http://purl.org/goodrelations/v1#Location> with geo:lat and geo:long not null
     private static final String SPARQL_WGS84COORDS =
             "SELECT ?location ?lat ?long "
             + " WHERE { "
@@ -93,10 +93,9 @@ public class JenaInfoDocument {
 
         SystemLog.sparql(SPARQL_NO_WGS84COORDS);
         //CREA IL TUO MODELLO DI JENA A PARTIRE DA UN FILE
-        com.hp.hpl.jena.rdf.model.Model model = Jena2Kit.loadFileTriple(filenameInput, filepath, inputFormat);
+        com.hp.hpl.jena.rdf.model.Model model = Jena2Kit.loadFileTripleToModel(filenameInput, filepath, inputFormat);
         //ESEGUI LA QUERY SPARQL
         com.hp.hpl.jena.rdf.model.Model myGraph = Jena2Kit.execSparqlConstructorOnModel(SPARQL_NO_WGS84COORDS, model);
-
         com.hp.hpl.jena.rdf.model.StmtIterator iter = myGraph.listStatements();
 
         while (iter.hasNext()) {
