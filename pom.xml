@@ -45,12 +45,6 @@
 
     <repositories>
         <repository>
-            <id>repository.springframework.maven.release</id>
-            <name>Spring Framework Maven Release Repository</name>
-            <url>http://maven.springframework.org/release</url>
-        </repository>
-
-        <repository>
             <id>jitpack.io</id>
             <url>https://jitpack.io</url>
         </repository>
@@ -72,7 +66,7 @@
         <maven-javadoc-plugin.version>2.3</maven-javadoc-plugin.version>
         <maven-exec-plugin.version>1.1.1</maven-exec-plugin.version>
         <maven-dependency-plugin.version>2.10</maven-dependency-plugin.version>
-        <!-- UTILITY -->
+        <!-- UTILITY Github -->
         <com.github.p4535992.utility.version>1.4</com.github.p4535992.utility.version>
         <com.github.p4535992.gate-basic.version>1.4</com.github.p4535992.gate-basic.version>
         <com.github.p4535992.ExtractInfo.version>1.4</com.github.p4535992.ExtractInfo.version>
