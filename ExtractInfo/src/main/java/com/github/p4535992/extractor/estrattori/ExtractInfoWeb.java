@@ -121,6 +121,7 @@ public class ExtractInfoWeb {
      * @param configFileUser the path to the config file user of gate under the directoryFolderHome eg:"user-gate.xml".
      * @param configFileSession the path to the config file session of gate under the directoryFolderHome eg:"gate.session".
      * @param gappFile the path to the gapp file user of gate under the directoryFolderHome eg:"custom/gapp/test.xgapp".
+     * @return the GATE Controller.
      */
     public Controller setGate(String directoryFolderHome,String directoryFolderPlugin,
                         String configFileGate,String configFileUser,String configFileSession,String gappFile){
@@ -147,6 +148,7 @@ public class ExtractInfoWeb {
      * @param beanNameOfTheProcessorDocument string name of the bean for the DocumentProcessor class on the
      *                                       gate context file eg:"documentProcessor".
      * @param thisClass class here you want invokem this method necessary for avoid exception with spring.
+     * @return the GATE DocumentProcessor.
      */
     public DocumentProcessor setGateWithSpring(
             String pathToTheGateContextFile,String beanNameOfTheProcessorDocument,Class<?> thisClass){

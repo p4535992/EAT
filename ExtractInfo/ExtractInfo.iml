@@ -51,9 +51,6 @@
     <orderEntry type="library" name="Maven: antlr:antlr:2.7.7" level="project" />
     <orderEntry type="library" name="Maven: org.jboss:jandex:1.1.0.Final" level="project" />
     <orderEntry type="library" name="Maven: org.hibernate:hibernate-entitymanager:4.3.10.Final" level="project" />
-    <orderEntry type="library" name="Maven: org.hibernate:hibernate-osgi:4.3.10.Final" level="project" />
-    <orderEntry type="library" name="Maven: org.osgi:org.osgi.core:4.3.1" level="project" />
-    <orderEntry type="library" name="Maven: org.osgi:org.osgi.compendium:4.3.1" level="project" />
     <orderEntry type="library" name="Maven: org.hibernate:hibernate-envers:4.3.10.Final" level="project" />
     <orderEntry type="library" name="Maven: org.hibernate:hibernate-c3p0:4.3.10.Final" level="project" />
     <orderEntry type="library" name="Maven: com.mchange:c3p0:0.9.2.1" level="project" />
@@ -240,8 +237,6 @@
     <orderEntry type="library" name="Maven: org.reflections:reflections:0.9.8" level="project" />
     <orderEntry type="library" name="Maven: javassist:javassist:3.12.1.GA" level="project" />
     <orderEntry type="library" name="Maven: net.sf.opencsv:opencsv:2.3" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpclient:4.2.4" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpcore:4.2.4" level="project" />
     <orderEntry type="library" name="Maven: commons-httpclient:commons-httpclient:3.1" level="project" />
     <orderEntry type="library" name="Maven: org.apache.avro:avro:1.7.7" level="project" />
     <orderEntry type="library" name="Maven: org.codehaus.jackson:jackson-core-asl:1.9.13" level="project" />
@@ -344,5 +339,7 @@
     <orderEntry type="library" name="Maven: xerces:xmlParserAPIs:2.6.2" level="project" />
     <orderEntry type="library" name="Maven: xalan:xalan:2.6.0" level="project" />
     <orderEntry type="library" name="Maven: org.json:json:20131018" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpclient:4.5.1" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpcore:4.4.3" level="project" />
   </component>
 </module>
