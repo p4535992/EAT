@@ -115,7 +115,7 @@ public class GeoDomainDocumentDaoImpl extends GenericDaoImpl<GeoDomainDocument> 
         super.insertAndTrim(support.getCOLUMNS(),support.getVALUES(),support.getTYPES());
     }
 
-
+    @SuppressWarnings("rawtypes")
     public List<GeoDocument> selectAllGeoDocument(final String column,String limit, String offset) {
         query = "SELECT * FROM "+mySelectTable+" LIMIT 1 OFFSET 0";
         if(Objects.equals(column, "*")){

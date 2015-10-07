@@ -15,12 +15,9 @@ import java.io.IOException;
  */
 public class MainGenerationTriple {
 
-
-    //TEST
-
-    public static void main(String[] args) throws IOException
-    // , edu.isi.karma.webserver.KarmaException
-    {
+    public static void main(String[] args) throws IOException{
+        SystemLog.setIsPRINT(false);
+        SystemLog.setIsLogOff(true);
         //ExecuteCmdAndPrintOnOutput rte = new ExecuteCmdAndPrintOnOutput();
         /*
         GenerationOfTriple got = new GenerationOfTriple(

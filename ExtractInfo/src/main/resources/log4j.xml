@@ -36,6 +36,23 @@
          <level value="info" />
     </logger>
 
+    <logger name="org.hibernate">
+        <level value="off"/>
+    </logger>
+    <!-- GATE Logging -->
+    <logger name="gate">
+        <level value="info" />
+    </logger>
+    <logger name="gate.jape">
+        <level value="info" />
+    </logger>
+    <logger name="gate.creole.SerialController">
+        <level value="info" />
+    </logger>
+    <logger name="gate.util.profile.Profiler">
+        <level value="info" />
+    </logger>
+
     <!-- Root Logger -->
     <root>
         <priority value="warn" />

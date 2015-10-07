@@ -3,14 +3,12 @@ import com.github.p4535992.util.collection.CollectionKit;
 import com.github.p4535992.util.encoding.EncodingUtil;
 import com.github.p4535992.util.file.FileUtil;
 import com.github.p4535992.util.log.SystemLog;
-import com.github.p4535992.util.string.StringKit;
 import edu.isi.karma.kr2rml.URIFormatter;
 import edu.isi.karma.kr2rml.mapping.R2RMLMappingIdentifier;
 import edu.isi.karma.kr2rml.writer.N3KR2RMLRDFWriter;
 import edu.isi.karma.rdf.GenericRDFGenerator;
 import edu.isi.karma.rdf.RDFGeneratorRequest;
 import edu.isi.karma.webserver.KarmaException;
-import org.json.JSONArray;
 
 import java.io.*;
 import java.util.List;
@@ -184,6 +182,7 @@ public class GenerationOfTriple {
      * Method to generate triple file with Web-KArma API from a local file:JSON,CSV,XML,AVRO.
      * @param karmaModel file Model R2RML of Web-Karma.
      * @param fileToTriplify file JSON,CSV,XML,AVRO to triplify in a .n3 format.
+     * @return the File output of triple (.n3).
      */
     public File GenerationOfTripleWithKarmaFromAFile(File karmaModel,File fileToTriplify){
         try {
@@ -241,6 +240,7 @@ public class GenerationOfTriple {
      * @param karmaModel file Model R2RML of Web-Karma.
      * @param inStream input put like stream.
      * @param fileToTriplify file support where save the .n3 file generated.
+     * @return the File output of triple (.n3).
      */
     public File GenerationOfTripleWithKarmaFromAFile(File karmaModel,InputStream inStream,File fileToTriplify){
         try {
@@ -289,6 +289,7 @@ public class GenerationOfTriple {
      * @param karmaModel file Model R2RML of Web-Karma.
      * @param stringText input put like string.
      * @param fileToTriplify file support where save the .n3 file generated.
+     * @return the File output of triple (.n3).
      */
     public File GenerationOfTripleWithKarmaFromAFile(File karmaModel,String stringText,File fileToTriplify){
         try {

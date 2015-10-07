@@ -1,9 +1,6 @@
 package com.github.p4535992.extractor.estrattori;
 
-import com.github.p4535992.extractor.object.dao.jdbc.IGeoDocumentDao;
-import com.github.p4535992.extractor.object.impl.jdbc.GeoDocumentDaoImpl;
 import com.github.p4535992.extractor.object.support.LatLng;
-import com.github.p4535992.util.database.jooq.SQLJooqKit;
 import com.github.p4535992.util.http.HttpKit;
 import com.github.p4535992.util.http.HttpUtil;
 import com.github.p4535992.util.log.SystemLog;
@@ -16,7 +13,6 @@ import com.github.p4535992.extractor.setInfoParameterIta.SetRegioneEProvincia;
 import com.github.p4535992.extractor.object.model.GeoDocument;
 
 import java.net.URISyntaxException;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.StringTokenizer;

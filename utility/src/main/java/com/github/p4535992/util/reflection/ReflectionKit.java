@@ -7,14 +7,7 @@ import com.github.p4535992.util.log.SystemLog;
 import java.io.File;
 import java.io.IOException;
 import java.lang.annotation.Annotation;
-import java.lang.reflect.Constructor;
-import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.lang.reflect.Modifier;
-import java.lang.reflect.ParameterizedType;
-import java.lang.reflect.Proxy;
-import java.lang.reflect.Type;
+import java.lang.reflect.*;
 import java.net.URL;
 import java.util.*;
 
@@ -34,15 +27,32 @@ import java.util.*;
 @SuppressWarnings("unused")
 public class ReflectionKit{
 
+    public ReflectionKit(){
+        //java.lang.reflect.Type t =getClass().getGenericSuperclass();
+        //java.lang.reflect.ParameterizedType pt = (java.lang.reflect.ParameterizedType) t;
+        //this.cl =  (Class<T>) pt.getActualTypeArguments()[0];
+        //this.clName = cl.getSimpleName();
+    }
+    
+    /** The Map of Wrapper Class */
     private static final Set<Class<?>> WRAPPER_TYPES = getWrapperTypes();
 
     /**
-     * Method to check if a specific class is a primitve class.
+     * Method to check if a specific class is a Wrapper class.
      * @param aClass class of the object you want to test.
      * @return boolean value if is a primite type or not.
      */
     public static boolean isWrapperType(Class<?> aClass) {
         return WRAPPER_TYPES.contains(aClass);
+    }
+
+    /**
+     * Method to check if a specific class is a primitive class.
+     * @param aClass class of the object you want to test.
+     * @return boolean value if is a primite type or not.
+     */
+    public static boolean isPrimitiveType(Class<?> aClass) {
+        return !WRAPPER_TYPES.contains(aClass);
     }
 
     /**
@@ -63,12 +73,40 @@ public class ReflectionKit{
         return ret;
     }
 
-    public ReflectionKit(){
-        //java.lang.reflect.Type t =getClass().getGenericSuperclass();
-        //java.lang.reflect.ParameterizedType pt = (java.lang.reflect.ParameterizedType) t;
-        //this.cl =  (Class<T>) pt.getActualTypeArguments()[0];
-        //this.clName = cl.getSimpleName();
+    /**
+     * Method to convert a primitive lcass to a Wrapper class.
+     * @param clazz the primitive class
+     * @return the Wrapper class.
+     */
+    public static Class<?> convertPrimitiveClassToWrapperClass(Class<?> clazz){
+        return wrapper(clazz);
     }
+
+    /**
+     * Get a wrapper type for a primitive type, or the argument type itself, if
+     * it is not a primitive type.
+     * @param type the primitive class.
+     * @return the wrapper Class.
+     */
+    private static Class<?> wrapper(Class<?> type) {
+        if (type == null) return null;
+        else if (type.isPrimitive()) {
+            if (boolean.class == type) return Boolean.class;
+            else if (int.class == type) return Integer.class;
+            else if (long.class == type) return Long.class;
+            else if (short.class == type) return Short.class;
+            else if (byte.class == type)  return Byte.class;
+            else if (double.class == type) return Double.class;
+            else if (float.class == type) return Float.class;
+            else if (char.class == type)  return Character.class;
+            else if (void.class == type) return Void.class;
+        }
+        return type;
+    }
+
+    ////////////////
+    ///OTHER METHODS
+    ////////////////
 
     /**
      * Method to get all basic information on a method
