@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
-    <excludeFromCompile>
-      <directory url="file://$PROJECT_DIR$/spring-mvc-quickstart-archetype/src2/main/resources/archetype-resources" includeSubdirectories="true" />
-    </excludeFromCompile>
     <resourceExtensions />
     <wildcardResourcePatterns>
       <entry name="!?*.java" />
@@ -20,169 +17,19 @@
       <profile default="true" name="Default" enabled="false">
         <processorPath useClasspath="true" />
       </profile>
-      <profile default="false" name="Maven default annotation processors profile" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-        <module name="silk-server" />
-        <module name="silk-singlemachine" />
-      </profile>
-      <profile default="false" name="Annotation profile for karma-jdbc" enabled="true">
-        <sourceOutputDir name="karma-jdbc\target\generated-sources\annotations" />
-        <sourceTestOutputDir name="karma-jdbc\target\generated-test-sources\test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-      </profile>
-      <profile default="false" name="Annotation profile for commands-alignment-openrdf" enabled="true">
-        <sourceOutputDir name="commands-alignment-openrdf\target\generated-sources\annotations" />
-        <sourceTestOutputDir name="commands-alignment-openrdf\target\generated-test-sources\test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-      </profile>
-      <profile default="false" name="Annotation profile for commands-worksheet" enabled="true">
-        <sourceOutputDir name="commands-worksheet\target\generated-sources\annotations" />
-        <sourceTestOutputDir name="commands-worksheet\target\generated-test-sources\test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-      </profile>
-      <profile default="false" name="Annotation profile for commands-alignment" enabled="true">
-        <sourceOutputDir name="commands-alignment\target\generated-sources\annotations" />
-        <sourceTestOutputDir name="commands-alignment\target\generated-test-sources\test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-      </profile>
-      <profile default="false" name="Annotation profile for karma-mr" enabled="true">
-        <sourceOutputDir name="karma-mr\target\generated-sources\annotations" />
-        <sourceTestOutputDir name="karma-mr\target\generated-test-sources\test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-      </profile>
-      <profile default="false" name="Annotation profile for commands-publish-alignment-openrdf" enabled="true">
-        <sourceOutputDir name="commands-publish-alignment-openrdf\target\generated-sources\annotations" />
-        <sourceTestOutputDir name="commands-publish-alignment-openrdf\target\generated-test-sources\test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-      </profile>
-      <profile default="false" name="Annotation profile for karma-offline" enabled="true">
-        <sourceOutputDir name="karma-offline\target\generated-sources\annotations" />
-        <sourceTestOutputDir name="karma-offline\target\generated-test-sources\test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-      </profile>
-      <profile default="false" name="Annotation profile for commands-cleaning" enabled="true">
-        <sourceOutputDir name="commands-cleaning\target\generated-sources\annotations" />
-        <sourceTestOutputDir name="commands-cleaning\target\generated-test-sources\test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-      </profile>
-      <profile default="false" name="Annotation profile for import-excel" enabled="true">
-        <sourceOutputDir name="import-excel\target\generated-sources\annotations" />
-        <sourceTestOutputDir name="import-excel\target\generated-test-sources\test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-      </profile>
-      <profile default="false" name="Annotation profile for import-xml" enabled="true">
-        <sourceOutputDir name="import-xml\target\generated-sources\annotations" />
-        <sourceTestOutputDir name="import-xml\target\generated-test-sources\test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-      </profile>
-      <profile default="false" name="Annotation profile for import-avro" enabled="true">
-        <sourceOutputDir name="import-avro\target\generated-sources\annotations" />
-        <sourceTestOutputDir name="import-avro\target\generated-test-sources\test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-      </profile>
-      <profile default="false" name="Annotation profile for karma-storm" enabled="true">
-        <sourceOutputDir name="karma-storm\target\generated-sources\annotations" />
-        <sourceTestOutputDir name="karma-storm\target\generated-test-sources\test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-      </profile>
-      <profile default="false" name="Annotation profile for web-services-rdf" enabled="true">
+      <profile default="false" name="Annotation profile for gate-basic" enabled="true">
         <sourceOutputDir name="target\generated-sources\annotations" />
         <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
+        <module name="gate-basic" />
       </profile>
-      <profile default="false" name="Annotation profile for import-file" enabled="true">
-        <sourceOutputDir name="import-file\target\generated-sources\annotations" />
-        <sourceTestOutputDir name="import-file\target\generated-test-sources\test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-      </profile>
-      <profile default="false" name="Annotation profile for import-common" enabled="true">
-        <sourceOutputDir name="import-common\target\generated-sources\annotations" />
-        <sourceTestOutputDir name="import-common\target\generated-test-sources\test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-      </profile>
-      <profile default="false" name="Annotation profile for commands-update" enabled="true">
-        <sourceOutputDir name="commands-update\target\generated-sources\annotations" />
-        <sourceTestOutputDir name="commands-update\target\generated-test-sources\test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-      </profile>
-      <profile default="false" name="Annotation profile for import-json" enabled="true">
-        <sourceOutputDir name="import-json\target\generated-sources\annotations" />
-        <sourceTestOutputDir name="import-json\target\generated-test-sources\test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-      </profile>
-      <profile default="false" name="Annotation profile for karma-cleaning" enabled="true">
-        <sourceOutputDir name="karma-cleaning\target\generated-sources\annotations" />
-        <sourceTestOutputDir name="karma-cleaning\target\generated-test-sources\test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-      </profile>
-      <profile default="false" name="Annotation profile for commands-common" enabled="true">
-        <sourceOutputDir name="commands-common\target\generated-sources\annotations" />
-        <sourceTestOutputDir name="commands-common\target\generated-test-sources\test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-      </profile>
-      <profile default="false" name="Annotation profile for karma-typer" enabled="true">
-        <sourceOutputDir name="karma-typer\target\generated-sources\annotations" />
-        <sourceTestOutputDir name="karma-typer\target\generated-test-sources\test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-      </profile>
-      <profile default="false" name="Annotation profile for import-ontology" enabled="true">
-        <sourceOutputDir name="import-ontology\target\generated-sources\annotations" />
-        <sourceTestOutputDir name="import-ontology\target\generated-test-sources\test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-      </profile>
-      <profile default="false" name="Annotation profile for karma-common" enabled="true">
-        <sourceOutputDir name="karma-common\target\generated-sources\annotations" />
-        <sourceTestOutputDir name="karma-common\target\generated-test-sources\test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-      </profile>
-      <profile default="false" name="Annotation profile for karma-web" enabled="true">
+      <profile default="false" name="Annotation profile for extractInfo" enabled="true">
         <sourceOutputDir name="target\generated-sources\annotations" />
         <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-      </profile>
-      <profile default="false" name="Annotation profile for import-csv" enabled="true">
-        <sourceOutputDir name="import-csv\target\generated-sources\annotations" />
-        <sourceTestOutputDir name="import-csv\target\generated-test-sources\test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-      </profile>
-      <profile default="false" name="Annotation profile for karma-util" enabled="true">
-        <sourceOutputDir name="karma-util\target\generated-sources\annotations" />
-        <sourceTestOutputDir name="karma-util\target\generated-test-sources\test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-      </profile>
-      <profile default="false" name="Annotation profile for import-service" enabled="true">
-        <sourceOutputDir name="import-service\target\generated-sources\annotations" />
-        <sourceTestOutputDir name="import-service\target\generated-test-sources\test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
+        <module name="extractInfo" />
       </profile>
       <profile default="false" name="Annotation profile for utility" enabled="true">
         <sourceOutputDir name="target\generated-sources\annotations" />
@@ -191,83 +38,10 @@
         <processorPath useClasspath="true" />
         <module name="utility" />
       </profile>
-      <profile default="false" name="Annotation profile for commands-publish-jdbc" enabled="true">
-        <sourceOutputDir name="commands-publish-jdbc\target\generated-sources\annotations" />
-        <sourceTestOutputDir name="commands-publish-jdbc\target\generated-test-sources\test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-      </profile>
-      <profile default="false" name="Annotation profile for commands-python" enabled="true">
-        <sourceOutputDir name="commands-python\target\generated-sources\annotations" />
-        <sourceTestOutputDir name="commands-python\target\generated-test-sources\test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-      </profile>
-      <profile default="false" name="Annotation profile for import-database" enabled="true">
-        <sourceOutputDir name="import-database\target\generated-sources\annotations" />
-        <sourceTestOutputDir name="import-database\target\generated-test-sources\test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-      </profile>
-      <profile default="false" name="Annotation profile for commands-publish" enabled="true">
-        <sourceOutputDir name="commands-publish\target\generated-sources\annotations" />
-        <sourceTestOutputDir name="commands-publish\target\generated-test-sources\test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-      </profile>
-      <profile default="false" name="Annotation profile for commands-update-jdbc" enabled="true">
-        <sourceOutputDir name="commands-update-jdbc\target\generated-sources\annotations" />
-        <sourceTestOutputDir name="commands-update-jdbc\target\generated-test-sources\test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-      </profile>
-      <profile default="false" name="Annotation profile for import-spatial" enabled="true">
-        <sourceOutputDir name="import-spatial\target\generated-sources\annotations" />
-        <sourceTestOutputDir name="import-spatial\target\generated-test-sources\test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-      </profile>
-      <profile default="false" name="Annotation profile for webControllerInfo" enabled="true">
-        <sourceOutputDir name="target\generated-sources\annotations" />
-        <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-      </profile>
-      <profile default="false" name="Annotation profile for webExtractorInfo" enabled="true">
-        <sourceOutputDir name="target\generated-sources\annotations" />
-        <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-      </profile>
-      <profile default="false" name="Annotation profile for spring-mvc-quickstart" enabled="true">
-        <sourceOutputDir name="target\generated-sources\annotations" />
-        <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-      </profile>
-      <profile default="false" name="Annotation profile for webExtractInfo" enabled="true">
-        <sourceOutputDir name="target\generated-sources\annotations" />
-        <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-      </profile>
-      <profile default="false" name="Annotation profile for ExtractInfo" enabled="true">
-        <sourceOutputDir name="target\generated-sources\annotations" />
-        <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-        <module name="ExtractInfo" />
-      </profile>
-      <profile default="false" name="Annotation profile for gate-basic" enabled="true">
-        <sourceOutputDir name="target\generated-sources\annotations" />
-        <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-        <module name="gate-basic" />
-      </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="1.7">
+    <bytecodeTargetLevel>
       <module name="EAT" target="1.7" />
+      <module name="extractInfo" target="1.7" />
       <module name="ExtractInfo" target="1.7" />
       <module name="gate-basic" target="1.7" />
       <module name="utility" target="1.7" />
