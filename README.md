@@ -15,9 +15,8 @@ EAT (Extraction and Triplify)
 - Integration with Web-Karma API
 - Integration with GATE Embedded API
 - Integration with SILK API (SIngle Machine)
+- Integration with Sesame OpenrRdf API 
 
-For the future:
+- Integration Spring MVC (in a private project for more info you can contact me)
 
-- Integration Spring MVC
-- Integration with Sesame OpenrRdf API (in progress...)
 

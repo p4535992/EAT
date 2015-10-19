@@ -61,7 +61,7 @@ public class MainExtractInfo {
                                "------------ Processing took %s millis\n\n",
                          System.currentTimeMillis() - start));*/
                    }catch(Exception e){
-                           SystemLog.exception(e);
+                           SystemLog.error(e.getMessage());
                    }
                }
         });//runnable    

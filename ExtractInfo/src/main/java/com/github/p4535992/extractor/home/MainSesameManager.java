@@ -1,8 +1,11 @@
 package com.github.p4535992.extractor.home;
 
 import com.github.p4535992.util.log.SystemLog;
+import com.github.p4535992.util.repositoryRDF.jena.Jena2Kit;
+import com.github.p4535992.util.repositoryRDF.jenaAndSesame.JenaAndSesame;
 import com.github.p4535992.util.repositoryRDF.sesame.Sesame28Kit;
 import com.github.p4535992.util.repositoryRDF.sparql.SparqlKit;
+import com.hp.hpl.jena.rdf.model.Model;
 import org.openrdf.query.*;
 import org.openrdf.repository.Repository;
 import org.openrdf.repository.RepositoryException;
@@ -24,7 +27,7 @@ public class MainSesameManager {
 
     private static String SPARQL_SELECT_KM4C_SERVICE  = "SELECT ?service ?p ?o "
             + "WHERE {?service a <http://www.disit.org/km4city/schema#Service>; "
-            + "       ?p ?o . } LIMIT 600000 OFFSET 0 ";
+            + "       ?p ?o . } LIMIT 600 OFFSET 0 ";
 
     private static String SPARQL_SELECT_Q1 ="SELECT ?location,?lat, ?long "
             +"WHERE ?location   a <http://purl.org/goodrelations/v1#Location> ; "
@@ -80,6 +83,17 @@ public class MainSesameManager {
                 query,
                 "http://www.disit.org/km4city/schema");*/
         Long ss = sesame.getExecutionQueryTime(query);
+        //http://localhost:8080/openrdf-workbench/repositories/repKm4c1/update
+
+//        params = { 'context': '<' + graph + '>' }
+//        String repository
+//        String endpoint = "http://localhost:8080/openrdf-sesame/repositories/%s/statements?%s" % (repository, urllib.urlencode(params))
+        //Model jModel = Jena2Kit.execSparqlOnRemote(query,"http://localhost:8080/openrdf-workbench/repositories/repKm4c1/query");
+
+        org.openrdf.model.Model sModel = sesame.convertRepositoryToModel(rep,100);
+        JenaAndSesame jas = JenaAndSesame.getInstance();
+        com.hp.hpl.jena.rdf.model.Model jModel2 = jas.convertOpenRDFModelToJenaModel(sModel);
+        Long yy = Jena2Kit.getExecutionQueryTime(query,jModel2);
 
 
 
@@ -90,12 +104,14 @@ public class MainSesameManager {
         sesame.shutDownRepository();*/
 
 
-
-        sesame.setOutput(
+        //---------------------------------------------
+        //WORK
+        //---------------------------------------------
+       /* sesame.setOutput(
                 "C:\\Users\\tenti\\Documents\\GitHub\\EAT\\ExtractInfo\\src\\main\\java\\com\\github\\p4535992\\extractor\\home\\testKm4c2"
                 , "csv", true);
         sesame.executeQuerySPARQLFromString(query);
-        sesame.shutDownRepository();
+        sesame.shutDownRepository();*/
 
 
         /*Sesame28Kit sesame2 = Sesame28Kit.getInstance();
