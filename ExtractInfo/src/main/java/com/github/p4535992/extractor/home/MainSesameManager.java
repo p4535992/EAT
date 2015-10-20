@@ -78,17 +78,21 @@ public class MainSesameManager {
                 sparql,
                 query,
                 "http://www.disit.org/km4city/schema");*/
+
+
         /*TupleQuery tq = wrap.prepareTupleQuery(
                 sparql,
                 query,
                 "http://www.disit.org/km4city/schema");*/
+
+
         Long ss = sesame.getExecutionQueryTime(query);
         //http://localhost:8080/openrdf-workbench/repositories/repKm4c1/update
 
 //        params = { 'context': '<' + graph + '>' }
 //        String repository
 //        String endpoint = "http://localhost:8080/openrdf-sesame/repositories/%s/statements?%s" % (repository, urllib.urlencode(params))
-        //Model jModel = Jena2Kit.execSparqlOnRemote(query,"http://localhost:8080/openrdf-workbench/repositories/repKm4c1/query");
+         //Model jModel = Jena2Kit.execSparqlOnRemote(query,"http://localhost:8080/openrdf-workbench/repositories/repKm4c1/query");
 
         org.openrdf.model.Model sModel = sesame.convertRepositoryToModel(rep,100);
         JenaAndSesame jas = JenaAndSesame.getInstance();

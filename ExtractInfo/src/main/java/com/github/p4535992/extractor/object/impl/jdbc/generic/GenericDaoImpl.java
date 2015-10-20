@@ -235,6 +235,7 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
 
     @Override
     public void delete(String whereColumn, String whereValue) {
+        SystemLog.query("DELETE FROM " + myDeleteTable + " WHERE " + whereColumn + "= "+whereValue);
         jdbcTemplate.update("DELETE FROM " + myDeleteTable + " WHERE " + whereColumn + "= ? ", whereValue);
     }
 

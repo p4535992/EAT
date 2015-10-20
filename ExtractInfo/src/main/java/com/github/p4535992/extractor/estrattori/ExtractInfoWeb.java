@@ -474,7 +474,7 @@ public class ExtractInfoWeb {
     public void triplifyGeoDocumentFromDatabase(
             String TABLE_INPUT, String TABLE_OUTPUT, String OUTPUT_FORMAT,
             String MODEL_KARMA, String OUTPUT_KARMA_FILE, boolean createNewTable, boolean dropOldTable){
-        SystemLog.message("RUN ONTOLOGY PROGRAMM: Create Table of infodocument from a geodocument/geodomaindocuemnt table!");
+        SystemLog.message("RUN ONTOLOGY PROGRAMM: Create Table of infoDocument from a geodocument/geodomaindocuemnt table!");
         IInfoDocumentDao infoDocumentDao = new InfoDocumentDaoImpl();
         infoDocumentDao.setTableInsert(TABLE_OUTPUT);
         infoDocumentDao.setTableSelect(TABLE_INPUT);

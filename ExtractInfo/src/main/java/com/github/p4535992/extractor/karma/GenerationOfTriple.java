@@ -57,6 +57,11 @@ public class GenerationOfTriple {
         return instance;
     }
 
+    /**
+     * Method to generate triple file with Web-Karma API from a local file:JSON,CSV,XML,AVRO.
+     * @return the file of triple generated with Web-karma.
+     * @throws IOException throw if any error is occurred.
+     */
     public File GenerationOfTripleWithKarmaAPIFromDataBase() throws IOException {
         String pathOut = TRIPLE_OUTPUT_KARMA+"";
         String[] value = new String[]{
@@ -85,43 +90,34 @@ public class GenerationOfTriple {
             SystemLog.message("try to create a file of triples from a relational table with karma...");
 
             edu.isi.karma.rdf.OfflineRdfGenerator.main(args2);
-            //TEST
+
             pathOut =
                     System.getProperty("user.dir")+File.separator+"karma_files"+File.separator+
                             "output"+File.separator+FileUtil.filenameNoExt(pathOut)+"."+FileUtil.extension(pathOut);
             SystemLog.message("...file of triples created with name:" + pathOut);
 
-            String output = System.getProperty("user.dir")+File.separator+"karma_files"+File.separator+"output"+File.separator+
-                    FileUtil.filename(pathOut).replace("." + FileUtil.extension(pathOut), "-UTF8." + FileUtil.extension(pathOut));
 
-            SystemLog.message("...file of triples created in the path:" + output);
 
            /* String output = System.getProperty("user.dir")+File.separator+"karma_files"+File.separator+"output"+
                     File.separator+FileUtil.filename(pathOut)
                     .replace("."+FileUtil.extension(pathOut), "-UTF8." + FileUtil.extension(pathOut));*/
 
-
+            //MUST CONVERT THE GENERATE TRIPLE TO SPECIFIC UTF8 FORMAT FRO WORK WITH SILK AFTER
+            //HERE WE LOSE SOME TIME :(
+            SystemLog.message("Converting the file of triple to UTF8 Format...");
             File filePathTriple = new File(pathOut);
             List<String> lines = EncodingUtil.convertUnicodeEscapeToUTF8(filePathTriple);
+            String output = System.getProperty("user.dir")+File.separator+"karma_files"+File.separator+"output"+File.separator+
+                    FileUtil.filename(pathOut).replace("." + FileUtil.extension(pathOut), "-UTF8." + FileUtil.extension(pathOut));
+            SystemLog.message("...file of triples created in the path:" + output);
             EncodingUtil.writeLargerTextFileWithReplace2(output, lines);
-
-
-            //TEST
-            //String output = "C:\\Users\\Marco\\Documents\\GitHub\\EAT\\karma_files\\output\\\\output_karma_2015-04-UTF8.n3";
-
+            SystemLog.message("...converted the file of triple to UTF8 Format");
             File f = new File(output);
             //RIPULIAMO LETRIPLE DALLE LOCATION SENZA COORDINATE CON JENA
             SystemLog.message("Re-clean infodocument triples from the Location information  without coordinates from the file:" + output);
             SystemLog.message(FileUtil.filenameNoExt(f)+","+FileUtil.path(f)+","+FileUtil.filenameNoExt(f)
                     + "-c" + "," + FileUtil.extension(f));
 
-            /*JenaInfoDocument.readQueryAndCleanTripleInfoDocument(
-                    FileUtil.filenameNoExt(f), //filenameInput
-                    FileUtil.path(f), //filepath
-                    FileUtil.filenameNoExt(f) + "-c", //fileNameOutput
-                    FileUtil.extension(f), //inputFormat n3
-                    OUTPUT_FORMAT_KARMA //outputFormat "ttl"
-            );*/
             filePathTriple.delete();
             return f;
         }catch(Exception ex){
@@ -130,6 +126,21 @@ public class GenerationOfTriple {
         return null;
     }
 
+    /**
+     * Method to generate triple file with Web-Karma API from a local file:JSON,CSV,XML,AVRO.
+     * @param sourceTypeKarma the Source Type of karma e.g. "DB" -> A database.
+     * @param pathToFileKarmaModel the path to the model R2RML turtle of Karma e.g. "karma_files/model/".
+     * @param pathFileTripleOfOutput the path to the output file of triple e.g. "karma_files/output/".
+     * @param dbTypeKarma the type of databse sue with KARMA e.g. "MySQL","Oracle","SQLServer","PostGIS".
+     * @param hostname the hostname where is allocated the database e.g. "localhost".
+     * @param username the username of the database.
+     * @param password the password of the database.
+     * @param port the port of the database.
+     * @param nameOfDatabase the name of the database.
+     * @param nameOfTable the username of the table of the database.
+     * @return the file of triple generated with Web-karma.
+     * @throws IOException throw if any error is occurred.
+     */
     public File GenerationOfTripleWithKarmaAPIFromDataBase(String sourceTypeKarma,String pathToFileKarmaModel,
                String pathFileTripleOfOutput,String dbTypeKarma,String hostname,String username,String password,
                String port,String nameOfDatabase,String nameOfTable) throws IOException {
@@ -151,20 +162,23 @@ public class GenerationOfTriple {
             SystemLog.message("try to create a file of triples from a relational table with karma...");
 
             edu.isi.karma.rdf.OfflineRdfGenerator.main(args2);
-            //TEST
+
             pathOut =
                     System.getProperty("user.dir")+File.separator+"karma_files"+File.separator+
                             "output"+File.separator+FileUtil.filenameNoExt(pathOut)+"."+FileUtil.extension(pathOut);
             SystemLog.message("...file of triples created with name:" + pathOut);
-            String output =
-                    System.getProperty("user.dir")+File.separator+"karma_files"+File.separator+"output"+File.separator+
-                    FileUtil.filename(pathOut).replace("." + FileUtil.extension(pathOut), "-UTF8." + FileUtil.extension(pathOut));
-            SystemLog.message("...file of triples created in the path:" + output);
 
             File filePathTriple = new File(pathOut);
+            //MUST CONVERT THE GENERATE TRIPLE TO SPECIFIC UTF8 FORMAT FRO WORK WITH SILK AFTER
+            //HERE WE LOSE SOME TIME :(
+            SystemLog.message("Converting the file of triple to UTF8 Format...");
             List<String> lines = EncodingUtil.convertUnicodeEscapeToUTF8(filePathTriple);
+            String output =
+                    System.getProperty("user.dir")+File.separator+"karma_files"+File.separator+"output"+File.separator+
+                            FileUtil.filename(pathOut).replace("." + FileUtil.extension(pathOut), "-UTF8." + FileUtil.extension(pathOut));
+            SystemLog.message("...file of triples created in the path:" + output);
             EncodingUtil.writeLargerTextFileWithReplace2(output, lines);
-
+            SystemLog.message("...converted the file of triple to UTF8 Format");
             File f = new File(output);
             //RIPULIAMO LETRIPLE DALLE LOCATION SENZA COORDINATE CON JENA
             SystemLog.message("Re-clean infodocument triples from the Location information  without coordinates from the file:" + output);

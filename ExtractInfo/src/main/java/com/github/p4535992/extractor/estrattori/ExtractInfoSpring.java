@@ -279,7 +279,7 @@ public class ExtractInfoSpring {
                 //INTEGRIAMO LA TABELLA INFODOCUMENT PER LAVORARE CON UN'ONTOLOGIA
                 if (ONTOLOGY_PROGRAMM || GENERATION_TRIPLE_KARMA_PROGRAMM) {
                     SystemLog.message("RUN ONTOLOGY PROGRAMM: Create Table of infodocument from a geodocument/geodomaindocument table!");
-                    SystemLog.message("RUN KARMA PROGRAMM: Generation of triple with org.p4535992.mvc.webapp-karma!!");
+                    SystemLog.message("RUN KARMA PROGRAMM: Generation of triple with Web-karma!!");
                     web.triplifyGeoDocumentFromDatabase(
                             TABLE_INPUT_ONTOLOGY, TABLE_OUTPUT_ONTOLOGY,
                             OUTPUT_FORMAT_KARMA, FILE_MAP_TURTLE_KARMA, FILE_OUTPUT_TRIPLE_KARMA,

@@ -45,14 +45,14 @@ public class MainGenerationTriple {
 
         String[] value = new String[]{
                 "DB",
-                "C:\\Users\\Marco\\IdeaProjects\\ExtractInfo\\karma_files\\model\\R2RML_infodocument_nadia_10_h-model_2015-03-02.ttl",
-                "C:\\Users\\Marco\\Desktop\\tripla-model-2015-03-30.n3",
+                "C:\\Users\\tenti\\Documents\\GitHub\\EAT\\karma_files\\model\\R2RML_infodocument-model_2015-07-08.ttl",
+                "C:\\Users\\tenti\\Desktop\\tripla-model-2015-09-19.n3",
                 "MySQL",
                 "localhost",
                 "siimobility",
                 "siimobility",
                 "3306",
-                "geolocationdb",
+                "geodb",
                 "infodocument_nadia_10_h"
 
         };

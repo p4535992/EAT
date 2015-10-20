@@ -6,6 +6,7 @@ import com.github.p4535992.extractor.object.dao.jdbc.IInfoDocumentDao;
 import com.github.p4535992.extractor.object.impl.jdbc.generic.GenericDaoImpl;
 import com.github.p4535992.extractor.object.model.GeoDocument;
 import com.github.p4535992.extractor.object.model.InfoDocument;
+import com.github.p4535992.util.database.sql.SQLQuery;
 import org.hibernate.SessionFactory;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import com.github.p4535992.util.log.SystemLog;
@@ -79,9 +80,13 @@ public class InfoDocumentDaoImpl extends GenericDaoImpl<InfoDocument> implements
             query = "UPDATE " + myInsertTable + " SET name_location = identifier;";
             SystemLog.message(query);
             jdbcTemplate.execute(query);
-            query = "UPDATE " + myInsertTable + " SET name_location=CONCAT('Location_',name_location);";
+            query = SQLQuery.updateColumnToMD5Hash(myInsertTable, "url", "identifier",false);
             SystemLog.message(query);
             jdbcTemplate.execute(query);
+            query = "UPDATE " + myInsertTable + " SET name_location=CONCAT('Location_',identifier);";
+            SystemLog.message(query);
+            jdbcTemplate.execute(query);
+
 
         }catch(org.springframework.jdbc.BadSqlGrammarException e){
             SystemLog.warning("Make sure the tables you try to use exists!!!");
