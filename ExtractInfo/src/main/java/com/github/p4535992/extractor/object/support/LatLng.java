@@ -1,5 +1,5 @@
 package com.github.p4535992.extractor.object.support;
-import com.github.p4535992.util.string.StringKit;
+import com.github.p4535992.util.string.impl.StringKit;
 
 import java.io.Serializable;
 /**

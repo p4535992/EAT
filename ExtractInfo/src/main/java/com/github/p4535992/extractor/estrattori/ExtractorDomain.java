@@ -4,7 +4,6 @@ import com.github.p4535992.extractor.ManageJsonWithGoogleMaps;
 import com.github.p4535992.extractor.object.model.GeoDomainDocument;
 import com.github.p4535992.extractor.object.support.DepositFrequencyInfo;
 import com.github.p4535992.extractor.object.model.GeoDocument;
-import com.github.p4535992.util.file.SimpleParameters;
 import com.github.p4535992.util.log.SystemLog;
 import com.github.p4535992.extractor.object.impl.jdbc.GeoDomainDocumentDaoImpl;
 
@@ -20,7 +19,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import com.github.p4535992.extractor.object.support.LatLng;
-import com.github.p4535992.util.string.StringKit;
+import com.github.p4535992.util.string.impl.StringKit;
 
 /**
  * MainEstrazioneGeoDomainDocumentPerElaborato.java

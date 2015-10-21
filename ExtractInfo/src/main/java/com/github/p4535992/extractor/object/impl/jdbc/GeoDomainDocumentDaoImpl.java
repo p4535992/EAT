@@ -6,13 +6,14 @@ import com.github.p4535992.util.log.SystemLog;
 import com.github.p4535992.extractor.object.model.GeoDocument;
 import com.github.p4535992.extractor.object.model.GeoDomainDocument;
 import com.github.p4535992.util.database.sql.SQLSupport;
+import com.github.p4535992.util.string.impl.StringIs;
 import com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException;
 import org.hibernate.SessionFactory;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.RowMapper;
-import com.github.p4535992.util.string.StringKit;
+import com.github.p4535992.util.string.impl.StringKit;
 
 import javax.sql.DataSource;
 import java.net.URL;
@@ -185,11 +186,11 @@ public class GeoDomainDocumentDaoImpl extends GenericDaoImpl<GeoDomainDocument> 
                     if (entry.getValue() != null) value = entry.getValue().toString();
                     switch (entry.getKey()) {
                         case "url":
-                            if(!StringKit.isNullOrEmpty(value))g.setUrl(new URL(value));
+                            if(!StringIs.isNullOrEmpty(value))g.setUrl(new URL(value));
                             else g.setUrl(null);
                             break;
                         case "doc_id":
-                            if (StringKit.isNullOrEmpty(value)) g.setDoc_id(null);
+                            if (StringIs.isNullOrEmpty(value)) g.setDoc_id(null);
                             else g.setDoc_id(Integer.parseInt(value));
                             break;
                         case "city":

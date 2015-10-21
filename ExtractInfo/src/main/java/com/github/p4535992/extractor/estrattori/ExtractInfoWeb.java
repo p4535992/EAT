@@ -9,7 +9,7 @@ import com.github.p4535992.util.file.FileUtil;
 import com.github.p4535992.util.html.JSoupKit;
 import com.github.p4535992.util.log.SystemLog;
 import com.github.p4535992.extractor.karma.GenerationOfTriple;
-import com.github.p4535992.util.string.StringKit;
+import com.github.p4535992.util.string.impl.StringIs;
 import gate.Controller;
 import gate.Corpus;
 import gate.CorpusController;
@@ -616,56 +616,56 @@ public class ExtractInfoWeb {
                             String content = support.getContent(index, j, nameAnnotation);
                             switch (nameAnnotation) {
                                 case "MyRegione": {
-                                    if (!StringKit.isNullOrEmpty(content) && StringKit.isNullOrEmpty(geoDoc.getRegione())) {
+                                    if (!StringIs.isNullOrEmpty(content) && StringIs.isNullOrEmpty(geoDoc.getRegione())) {
                                         geoDoc.setRegione(content);
                                         flag2 = true;
                                     }
                                     break;
                                 }
                                 case "MyPhone": {
-                                    if (!StringKit.isNullOrEmpty(content) && StringKit.isNullOrEmpty(geoDoc.getTelefono())) {
+                                    if (!StringIs.isNullOrEmpty(content) && StringIs.isNullOrEmpty(geoDoc.getTelefono())) {
                                         geoDoc.setTelefono(content);
                                         flag2 = true;
                                     }
                                     break;
                                 }
                                 case "MyFax": {
-                                    if (!StringKit.isNullOrEmpty(content) && StringKit.isNullOrEmpty(geoDoc.getFax())) {
+                                    if (!StringIs.isNullOrEmpty(content) && StringIs.isNullOrEmpty(geoDoc.getFax())) {
                                         geoDoc.setFax(content);
                                         flag2 = true;
                                     }
                                     break;
                                 }
                                 case "MyEmail": {
-                                    if (!StringKit.isNullOrEmpty(content) && StringKit.isNullOrEmpty(geoDoc.getEmail())) {
+                                    if (!StringIs.isNullOrEmpty(content) && StringIs.isNullOrEmpty(geoDoc.getEmail())) {
                                         geoDoc.setEmail(content);
                                         flag2 = true;
                                     }
                                     break;
                                 }
                                 case "MyPartitaIVA": {
-                                    if (!StringKit.isNullOrEmpty(content) && StringKit.isNullOrEmpty(geoDoc.getIva())) {
+                                    if (!StringIs.isNullOrEmpty(content) && StringIs.isNullOrEmpty(geoDoc.getIva())) {
                                         geoDoc.setIva(content);
                                         flag2 = true;
                                     }
                                     break;
                                 }
                                 case "MyLocalita": {
-                                    if (!StringKit.isNullOrEmpty(content) && StringKit.isNullOrEmpty(geoDoc.getCity())) {
+                                    if (!StringIs.isNullOrEmpty(content) && StringIs.isNullOrEmpty(geoDoc.getCity())) {
                                         geoDoc.setCity(content);
                                         flag2 = true;
                                     }
                                     break;
                                 }
                                 case "MyIndirizzo": {
-                                    if (!StringKit.isNullOrEmpty(content) && StringKit.isNullOrEmpty(geoDoc.getIndirizzo())) {
+                                    if (!StringIs.isNullOrEmpty(content) && StringIs.isNullOrEmpty(geoDoc.getIndirizzo())) {
                                         geoDoc.setIndirizzo(content);
                                         flag2 = true;
                                     }
                                     break;
                                 }
                                 case "MyEdificio": {
-                                    if (!StringKit.isNullOrEmpty(content) && StringKit.isNullOrEmpty(geoDoc.getEdificio())) {
+                                    if (!StringIs.isNullOrEmpty(content) && StringIs.isNullOrEmpty(geoDoc.getEdificio())) {
                                         geoDoc.setEdificio(content);
                                         flag2 = true;
                                     }

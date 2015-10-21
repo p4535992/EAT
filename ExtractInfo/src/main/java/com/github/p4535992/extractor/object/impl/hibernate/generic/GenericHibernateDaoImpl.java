@@ -1,16 +1,16 @@
 package com.github.p4535992.extractor.object.impl.hibernate.generic;
 
 import com.github.p4535992.extractor.hibernate.Hibernate43Kit;
-import com.github.p4535992.extractor.hibernate.Hibernate4Kit;
 import com.github.p4535992.extractor.object.dao.hibernate.generic.IGenericHibernateDao;
 import com.github.p4535992.util.bean.BeansKit;
+import com.github.p4535992.util.string.impl.StringIs;
 import org.hibernate.*;
 import org.hibernate.criterion.Criterion;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import com.github.p4535992.util.log.SystemLog;
-import com.github.p4535992.util.string.StringKit;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import javax.persistence.EntityManager;
@@ -179,7 +179,7 @@ public class GenericHibernateDaoImpl<T> implements IGenericHibernateDao<T> {
     //@Override
     public void setSessionFactory(ApplicationContext context) {
         try {
-            if (StringKit.isNullOrEmpty(beanIdSessionFactory)) {
+            if (StringIs.isNullOrEmpty(beanIdSessionFactory)) {
                 throw new java.lang.NullPointerException("The id for the sessionFactory must be not null," +
                         " invoke the method setBeanIdSessionFactory(\"beanIdSesssionFactory\" before invoke " +
                         "the loadSpringContextMethod");

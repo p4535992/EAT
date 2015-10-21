@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.*;
 
-import com.github.p4535992.util.string.StringKit;
+import com.github.p4535992.util.string.impl.StringKit;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;

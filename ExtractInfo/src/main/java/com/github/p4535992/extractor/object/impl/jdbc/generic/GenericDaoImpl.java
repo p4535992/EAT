@@ -19,7 +19,7 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import com.github.p4535992.util.reflection.ReflectionKit;
 import com.github.p4535992.util.database.sql.SQLSupport;
 import com.github.p4535992.util.log.SystemLog;
-import com.github.p4535992.util.string.StringKit;
+import com.github.p4535992.util.string.impl.StringKit;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;

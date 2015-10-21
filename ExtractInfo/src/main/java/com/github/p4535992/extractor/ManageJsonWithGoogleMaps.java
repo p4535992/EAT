@@ -5,7 +5,7 @@ import com.github.p4535992.util.http.HttpUtil;
 import com.github.p4535992.extractor.object.model.GeoDocument;
 import com.github.p4535992.extractor.object.support.LatLng;
 import com.github.p4535992.util.http.HttpUtilApache4;
-import com.github.p4535992.util.string.StringKit;
+import com.github.p4535992.util.string.impl.StringIs;
 import org.json.JSONException;
 
 import java.io.*;
@@ -133,7 +133,7 @@ public class ManageJsonWithGoogleMaps {
         String apiKey = API_KEY_GM;
         String suffix = "&sensor=false";
         String region ="";
-        if(!StringKit.isNullOrEmpty(nation))region ="&region="+nation;
+        if(!StringIs.isNullOrEmpty(nation))region ="&region="+nation;
         return prefix+address+region+suffix;
     }
 
@@ -225,7 +225,7 @@ public class ManageJsonWithGoogleMaps {
     * @return la stringa del contenuto senza simboli separatori all'inizio e alla fine
     */
    private String removeFirstAndLast(String fua,String symbol){
-       if(!StringKit.isNullOrEmpty(fua)){
+       if(!StringIs.isNullOrEmpty(fua)){
             fua = fua.replaceAll("(\\"+symbol+")\\1+",symbol); 
             if(fua.substring(0,1).contains(symbol)){                
                 fua = fua.substring(1,fua.length());
@@ -279,12 +279,12 @@ public class ManageJsonWithGoogleMaps {
                 HttpUtil.waiter();
                 jsonText = HttpUtil.get(url.toString());
             } finally{
-                if(StringKit.isNullOrEmpty(jsonText) ||
+                if(StringIs.isNullOrEmpty(jsonText) ||
                         Objects.equals(jsonText, JSON_ZERO_RESULT) || Objects.equals(jsonText, JSON_EMPTY)){
                     HttpUtil.waiter();
                     //jsonText = org.jsoup.Jsoup.connect(url.toString()).ignoreContentType(true).execute().body();
                     jsonText = HttpUtil.get(url.toString());
-                    if(StringKit.isNullOrEmpty(jsonText) ||
+                    if(StringIs.isNullOrEmpty(jsonText) ||
                             Objects.equals(jsonText, JSON_ZERO_RESULT) || Objects.equals(jsonText, JSON_EMPTY)) {
                         HttpUtil.waiter();
                         //jsonText = HttpUtil.get(url.toString());
@@ -298,7 +298,7 @@ public class ManageJsonWithGoogleMaps {
          }catch(InterruptedException e){
              SystemLog.warning(e.getMessage());
          } finally{
-             if(StringKit.isNullOrEmpty(jsonText) ||
+             if(StringIs.isNullOrEmpty(jsonText) ||
                      Objects.equals(jsonText, JSON_ZERO_RESULT) || Objects.equals(jsonText, JSON_EMPTY)){
                 //try {
                     //jsonText = org.jsoup.Jsoup.connect(url.toString()).ignoreContentType(true).execute().body();

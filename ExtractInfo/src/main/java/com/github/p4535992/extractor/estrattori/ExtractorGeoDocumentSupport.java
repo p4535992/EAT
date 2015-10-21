@@ -4,7 +4,8 @@ import com.github.p4535992.extractor.object.support.LatLng;
 import com.github.p4535992.util.http.HttpKit;
 import com.github.p4535992.util.http.HttpUtil;
 import com.github.p4535992.util.log.SystemLog;
-import com.github.p4535992.util.string.StringKit;
+import com.github.p4535992.util.string.impl.StringIs;
+import com.github.p4535992.util.string.impl.StringKit;
 import com.github.p4535992.extractor.ManageJsonWithGoogleMaps;
 import com.github.p4535992.extractor.setInfoParameterIta.SetCodicePostale;
 import com.github.p4535992.extractor.setInfoParameterIta.SetNazioneELanguage;
@@ -68,12 +69,12 @@ public class ExtractorGeoDocumentSupport {
             //INTEGRAZIONE DEL CAMPO LANGUAGE -> NAZIONE
             SetNazioneELanguage set = new SetNazioneELanguage();
             String language;
-            if(!StringKit.isNullOrEmpty(geo.getNazione())) {
+            if(!StringIs.isNullOrEmpty(geo.getNazione())) {
                language = geo.getNazione();
             }else{ language = "it";}
             String domain = http.getDomainName(geo.getUrl().toString());
             String nazione="";
-            if(!StringKit.isNullOrEmpty(domain)) {
+            if(!StringIs.isNullOrEmpty(domain)) {
                 nazione = set.checkNazioneByDomain(domain);
             }
             //con il linguaggio identificato da Tika se fallisce il controllo del
@@ -97,7 +98,7 @@ public class ExtractorGeoDocumentSupport {
                 indirizzoNoCAP = indirizzo.replaceAll("\\d{5,6}", "").replace("-", "");
                 postalCode = setCap.GetPostalCodeByIndirizzo(indirizzo);
             }//if indrizzo not null
-            if(StringKit.isNullOrEmpty(postalCode)){
+            if(StringIs.isNullOrEmpty(postalCode)){
                 postalCode = setCap.checkPostalCodeByCitta(geo.getCity());//work
             }
             geo.setPostalCode(postalCode);
@@ -111,9 +112,9 @@ public class ExtractorGeoDocumentSupport {
             }
             geo.setIndirizzoNoCAP(indirizzoNoCAP);
             //UPDATE THE "indirizzo" FIELD TO "indirizzoNoCAP"+","+"indirizzoHasNumber"
-            if(StringKit.isNullOrEmpty(geo.getIndirizzoHasNumber()) && !StringKit.isNullOrEmpty(geo.getIndirizzoNoCAP())) {
+            if(StringIs.isNullOrEmpty(geo.getIndirizzoHasNumber()) && !StringIs.isNullOrEmpty(geo.getIndirizzoNoCAP())) {
                 geo.setIndirizzo(geo.getIndirizzoNoCAP().trim());
-            }else if(!StringKit.isNullOrEmpty(geo.getIndirizzoHasNumber()) && !StringKit.isNullOrEmpty(geo.getIndirizzoNoCAP())){
+            }else if(!StringIs.isNullOrEmpty(geo.getIndirizzoHasNumber()) && !StringIs.isNullOrEmpty(geo.getIndirizzoNoCAP())){
                 geo.setIndirizzo(geo.getIndirizzoNoCAP().trim()+", "+geo.getIndirizzoHasNumber().trim());
             }else{
                 geo.setIndirizzo(null);
@@ -141,7 +142,7 @@ public class ExtractorGeoDocumentSupport {
         //in fase di inserimento dei record nel database.
 
             String set;
-            if(!StringKit.isNullOrEmpty(geo.getEdificio())){
+            if(!StringIs.isNullOrEmpty(geo.getEdificio())){
                 set=geo.getEdificio();
                 //set = geo.getEdificio().replaceAll("[^a-zA-Z\\d\\s:]","");
                 //Accetta le lettere accentuate
@@ -309,7 +310,7 @@ public class ExtractorGeoDocumentSupport {
         StringTokenizer st = new StringTokenizer(content, symbol);
         while (st.hasMoreTokens()) {
             content = st.nextToken();
-            if(!StringKit.isNullOrEmpty(content)){
+            if(!StringIs.isNullOrEmpty(content)){
                 break;
             }
         }

@@ -1,10 +1,10 @@
 package com.github.p4535992.extractor.hibernate;
+import com.github.p4535992.util.string.impl.StringIs;
 import org.hibernate.*;
 import org.hibernate.InstantiationException;
 import org.hibernate.criterion.Criterion;
 import com.github.p4535992.util.log.SystemLog;
 import com.github.p4535992.util.reflection.ReflectionKit;
-import com.github.p4535992.util.string.StringKit;
 
 import java.io.File;
 import java.io.IOException;
@@ -431,7 +431,7 @@ public class Hibernate4Kit<T> {
      */
      public void buildSessionFactory(String filePath) {
          try{
-            if(StringKit.isNullOrEmpty(filePath)){
+            if(StringIs.isNullOrEmpty(filePath)){
                File cfgFile = new File(filePath);                   
                if(cfgFile.exists()){
                    PATH_CFG_HIBERNATE = cfgFile;

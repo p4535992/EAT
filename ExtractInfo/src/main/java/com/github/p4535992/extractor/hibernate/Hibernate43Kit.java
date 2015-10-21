@@ -2,7 +2,8 @@ package com.github.p4535992.extractor.hibernate;
 
 import com.github.p4535992.util.log.SystemLog;
 import com.github.p4535992.util.reflection.ReflectionKit;
-import com.github.p4535992.util.string.StringKit;
+import com.github.p4535992.util.string.impl.StringIs;
+import com.github.p4535992.util.string.impl.StringRegex;
 import org.hibernate.*;
 import org.hibernate.InstantiationException;
 import org.hibernate.criterion.Criterion;
@@ -432,7 +433,7 @@ public class Hibernate43Kit<T> {
      */
      public void buildSessionFactory(String filePath) {
          try{
-            if(StringKit.isNullOrEmpty(filePath)){
+            if(StringIs.isNullOrEmpty(filePath)){
                File cfgFile = new File(filePath);                   
                if(cfgFile.exists()){
                    PATH_CFG_HIBERNATE = cfgFile;
@@ -638,7 +639,7 @@ public class Hibernate43Kit<T> {
                 if (trns != null) { trns.rollback();}
                 //retry for specific exception....
                 if(e.getMessage().contains("java.net.MalformedURLException: no protocol")){
-                    String url = StringKit.findWithRegex(e.getMessage(),"\\[(.*?)\\]").replace("[","").replace("]","");
+                    String url = StringRegex.findWithRegex(e.getMessage(), "\\[(.*?)\\]").replace("[","").replace("]","");
                     updateRow("url","http://"+url,"doc_id", id);
                 }
             }
