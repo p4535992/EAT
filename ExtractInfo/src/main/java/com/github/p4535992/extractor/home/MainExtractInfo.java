@@ -1,7 +1,7 @@
 package com.github.p4535992.extractor.home;
 
 import com.github.p4535992.extractor.estrattori.ExtractInfoSpring;
-import com.github.p4535992.util.file.FileUtil;
+import com.github.p4535992.util.file.impl.FileUtil;
 import com.github.p4535992.util.file.SimpleParameters;
 import com.github.p4535992.util.log.SystemLog;
 import java.awt.*;

@@ -4,6 +4,7 @@ import com.github.p4535992.extractor.ManageJsonWithGoogleMaps;
 import com.github.p4535992.extractor.object.model.GeoDomainDocument;
 import com.github.p4535992.extractor.object.support.DepositFrequencyInfo;
 import com.github.p4535992.extractor.object.model.GeoDocument;
+import com.github.p4535992.util.collection.CollectionKit;
 import com.github.p4535992.util.log.SystemLog;
 import com.github.p4535992.extractor.object.impl.jdbc.GeoDomainDocumentDaoImpl;
 
@@ -19,6 +20,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import com.github.p4535992.extractor.object.support.LatLng;
+import com.github.p4535992.util.string.StringUtil;
 import com.github.p4535992.util.string.impl.StringKit;
 
 /**
@@ -186,31 +188,31 @@ public class ExtractorDomain {
         List<String> al = new ArrayList<>();
         geo2.setUrl(webDomain);       
         for (GeoDocument geoDoc : dfi.getListGeoDoc()) {al.add(geoDoc.getRegione());}
-        geo2.setRegione(StringKit.getMoreCommonParameter(al));
+        geo2.setRegione(CollectionKit.getMoreCommonParameter(al));
         al.clear();
         for (GeoDocument geoDoc : dfi.getListGeoDoc()) {al.add(geoDoc.getProvincia());}
-        geo2.setProvincia(StringKit.getMoreCommonParameter(al));
+        geo2.setProvincia(CollectionKit.getMoreCommonParameter(al));
         al.clear();
         for (GeoDocument geoDoc : dfi.getListGeoDoc()) {al.add(geoDoc.getCity());}
-        geo2.setCity(StringKit.getMoreCommonParameter(al));
+        geo2.setCity(CollectionKit.getMoreCommonParameter(al));
         al.clear();
         for (GeoDocument geoDoc : dfi.getListGeoDoc()) {al.add(geoDoc.getIndirizzo());}
-        geo2.setIndirizzo(StringKit.getMoreCommonParameter(al));
+        geo2.setIndirizzo(CollectionKit.getMoreCommonParameter(al));
         al.clear();
         for (GeoDocument geoDoc : dfi.getListGeoDoc()) {al.add(geoDoc.getIva());}
-        geo2.setIva(StringKit.getMoreCommonParameter(al));
+        geo2.setIva(CollectionKit.getMoreCommonParameter(al));
         al.clear();
         for (GeoDocument geoDoc : dfi.getListGeoDoc()) {al.add(geoDoc.getEmail());}
-        geo2.setEmail(StringKit.getMoreCommonParameter(al));
+        geo2.setEmail(CollectionKit.getMoreCommonParameter(al));
         al.clear();
         for (GeoDocument geoDoc : dfi.getListGeoDoc()) {al.add(geoDoc.getTelefono());}
-        geo2.setTelefono(StringKit.getMoreCommonParameter(al));
+        geo2.setTelefono(CollectionKit.getMoreCommonParameter(al));
         al.clear();
         for (GeoDocument geoDoc : dfi.getListGeoDoc()) {al.add(geoDoc.getFax());}
-        geo2.setFax(StringKit.getMoreCommonParameter(al));
+        geo2.setFax(CollectionKit.getMoreCommonParameter(al));
         al.clear();
         for (GeoDocument geoDoc : dfi.getListGeoDoc()) {al.add(geoDoc.getEdificio());}
-        geo2.setEdificio(StringKit.getMoreCommonParameter(al));
+        geo2.setEdificio(CollectionKit.getMoreCommonParameter(al));
         al.clear();
         
         //latitude and longitude neeed a conversion STRING-DOUBLE
@@ -224,7 +226,7 @@ public class ExtractorDomain {
                    al.add(geoDoc.getLat().toString());     
             }
         }//for
-        String lat2 = StringKit.getMoreCommonParameter(al);
+        String lat2 = CollectionKit.getMoreCommonParameter(al);
          if(setNullForEmptyString(lat2)==null || lat2.contains("null") || lat2.contains("NULL")|| al.isEmpty()){
                geo2.setLatitude(null);
          } else{
@@ -242,7 +244,7 @@ public class ExtractorDomain {
                    al.add(geoDoc.getLng().toString());     
             }
         }//for
-        String lng2 = StringKit.getMoreCommonParameter(al);
+        String lng2 = CollectionKit.getMoreCommonParameter(al);
          if(setNullForEmptyString(lng2)==null || lng2.contains("null") || lng2.contains("NULL")|| al.isEmpty()){
                geo2.setLongitude(null);
          } else{
@@ -251,19 +253,19 @@ public class ExtractorDomain {
          al.clear();
 
         for (GeoDocument geoDoc : dfi.getListGeoDoc()) {al.add(geoDoc.getNazione());}
-        geo2.setNazione(StringKit.getMoreCommonParameter(al));
+        geo2.setNazione(CollectionKit.getMoreCommonParameter(al));
         al.clear();
         
         for (GeoDocument geoDoc : dfi.getListGeoDoc()) {al.add(geoDoc.getPostalCode());}
-        geo2.setPostalCode(StringKit.getMoreCommonParameter(al));
+        geo2.setPostalCode(CollectionKit.getMoreCommonParameter(al));
         al.clear();
         
         for (GeoDocument geoDoc : dfi.getListGeoDoc()) {al.add(geoDoc.getIndirizzoNoCAP());}
-        geo2.setIndirizzoNoCAP(StringKit.getMoreCommonParameter(al));
+        geo2.setIndirizzoNoCAP(CollectionKit.getMoreCommonParameter(al));
         al.clear();
         
         for (GeoDocument geoDoc : dfi.getListGeoDoc()) {al.add(geoDoc.getIndirizzoHasNumber());}
-        geo2.setIndirizzoHasNumber(StringKit.getMoreCommonParameter(al));
+        geo2.setIndirizzoHasNumber(CollectionKit.getMoreCommonParameter(al));
         al.clear();
 
         return geo2;

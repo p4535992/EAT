@@ -2,8 +2,7 @@ package com.github.p4535992.extractor.home;
 
 import com.github.p4535992.extractor.JenaInfoDocument;
 import com.github.p4535992.extractor.karma.GenerationOfTriple;
-import com.github.p4535992.util.collection.CollectionKit;
-import com.github.p4535992.util.file.FileUtil;
+import com.github.p4535992.util.file.impl.FileUtil;
 import com.github.p4535992.util.log.SystemLog;
 
 import java.io.File;

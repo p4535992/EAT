@@ -5,7 +5,7 @@ import com.github.p4535992.extractor.object.impl.jdbc.WebsiteDaoImpl;
 import com.github.p4535992.gatebasic.gate.gate8.ExtractorInfoGate8;
 import com.github.p4535992.gatebasic.gate.gate8.Gate8Kit;
 import com.github.p4535992.gatebasic.gate.gate8.GateSupport;
-import com.github.p4535992.util.file.FileUtil;
+import com.github.p4535992.util.file.impl.FileUtil;
 import com.github.p4535992.util.html.JSoupKit;
 import com.github.p4535992.util.log.SystemLog;
 import com.github.p4535992.extractor.karma.GenerationOfTriple;

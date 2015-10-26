@@ -5,7 +5,7 @@ import com.github.p4535992.extractor.object.impl.jdbc.*;
 import com.github.p4535992.gatebasic.gate.gate8.GateDataStore8Kit;
 import com.github.p4535992.util.file.SimpleParameters;
 import com.github.p4535992.extractor.object.model.GeoDocument;
-import com.github.p4535992.util.file.FileUtil;
+import com.github.p4535992.util.file.impl.FileUtil;
 import com.github.p4535992.util.log.SystemLog;
 
 import java.io.File;

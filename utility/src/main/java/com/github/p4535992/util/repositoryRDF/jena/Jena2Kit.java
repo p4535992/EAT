@@ -24,7 +24,7 @@ import com.hp.hpl.jena.vocabulary.RDF;
 import com.hp.hpl.jena.vocabulary.RSS;
 
 import com.github.p4535992.util.string.impl.StringOutputStreamKit;
-import com.github.p4535992.util.file.FileUtil;
+import com.github.p4535992.util.file.impl.FileUtil;
 import com.github.p4535992.util.log.SystemLog;
 import com.github.p4535992.util.xml.XMLKit;
 
@@ -492,8 +492,10 @@ public class Jena2Kit {
     /**
      * A list of com.hp.hpl.jena.datatypes.xsd.XSDDatatype.
      * return all the com.hp.hpl.jena.datatypes.RDFDatatype supported from jena.
+     * @param uri the String of the uri resource.
+     * @return  the RDFDatatype of the uri resource.
      */
-    public static com.hp.hpl.jena.datatypes.RDFDatatype convertStringToRDFDatatype(String uri){
+    public static RDFDatatype convertStringToRDFDatatype(String uri){
         return stringToXSDDatatype(uri);
     }
 
