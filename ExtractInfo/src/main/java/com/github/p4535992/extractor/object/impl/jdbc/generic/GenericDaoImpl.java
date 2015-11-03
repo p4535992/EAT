@@ -75,9 +75,9 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
         setNewJdbcTemplate();
         //NEW TRY WITH JOOQ
         try {
-            dslContext = DSL.using(driverManag.getConnection(), SQLHelper.convertDialectDBToSQLDialectJOOQ(dialectDB));
+            dslContext = DSL.using(driverManag.getConnection(), SQLJooqKit2.convertDialectDBToSQLDialectJOOQ(dialectDB));
             SQLJooqKit2.setDslContext(dslContext);
-            SQLJooqKit2.setSqlDialect(SQLHelper.convertDialectDBToSQLDialectJOOQ(dialectDB));
+            SQLJooqKit2.setSqlDialect(SQLJooqKit2.convertDialectDBToSQLDialectJOOQ(dialectDB));
         }catch(SQLException e){
             //e.printStackTrace();
             SystemLog.error("Can't set the driver manager for JOOQ, maybe some inout name (database,table, ecc. is wrong");

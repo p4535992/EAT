@@ -1,5 +1,6 @@
 package com.github.p4535992.extractor.home;
 
+import com.github.p4535992.util.database.sql.SQLHelper;
 import com.github.p4535992.util.log.SystemLog;
 import com.github.p4535992.util.repositoryRDF.jena.Jena2Kit;
 import com.github.p4535992.util.repositoryRDF.jenaAndSesame.JenaAndSesame;
@@ -13,6 +14,7 @@ import org.openrdf.repository.base.RepositoryConnectionWrapper;
 
 import java.io.File;
 import java.io.UnsupportedEncodingException;
+import java.sql.Connection;
 
 /**
  * Created by 4535992 on 06/10/2015.
@@ -28,6 +30,8 @@ public class MainSesameManager {
     private static String SPARQL_SELECT_KM4C_SERVICE  = "SELECT ?service ?p ?o "
             + "WHERE {?service a <http://www.disit.org/km4city/schema#Service>; "
             + "       ?p ?o . } LIMIT 600 OFFSET 0 ";
+
+    private static String SQL_GET_ALL_SERVICE = "SELECT * FROM geodb.websitehtml ";
 
     private static String SPARQL_SELECT_Q1 ="SELECT ?location,?lat, ?long "
             +"WHERE ?location   a <http://purl.org/goodrelations/v1#Location> ; "
@@ -84,20 +88,28 @@ public class MainSesameManager {
                 sparql,
                 query,
                 "http://www.disit.org/km4city/schema");*/
-
-
-        Long ss = sesame.getExecutionQueryTime(query);
         //http://localhost:8080/openrdf-workbench/repositories/repKm4c1/update
 
 //        params = { 'context': '<' + graph + '>' }
 //        String repository
 //        String endpoint = "http://localhost:8080/openrdf-sesame/repositories/%s/statements?%s" % (repository, urllib.urlencode(params))
-         //Model jModel = Jena2Kit.execSparqlOnRemote(query,"http://localhost:8080/openrdf-workbench/repositories/repKm4c1/query");
+        //Model jModel = Jena2Kit.execSparqlOnRemote(query,"http://localhost:8080/openrdf-workbench/repositories/repKm4c1/query");
 
+
+        //WORK
+        Long ss = sesame.getExecutionQueryTime(query);
         org.openrdf.model.Model sModel = sesame.convertRepositoryToModel(rep,100);
+
         JenaAndSesame jas = JenaAndSesame.getInstance();
         com.hp.hpl.jena.rdf.model.Model jModel2 = jas.convertOpenRDFModelToJenaModel(sModel);
-        Long yy = Jena2Kit.getExecutionQueryTime(query,jModel2);
+        Long yy = Jena2Kit.getExecutionQueryTime(query, jModel2);
+
+        Connection conn = SQLHelper.getMySqlConnection("jdbc:mysql://localhost:3306/geodb?noDatetimeStringSync=true");
+        Long zz = SQLHelper.getExcecutionTime(SQL_GET_ALL_SERVICE,conn);
+
+
+
+        //System.out.println("SESAME:"+ss+"ms, JENA:"+yy+"ms, Virtuoso:"+oo+", SQL:"+zz);
 
 
 
