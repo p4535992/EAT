@@ -1,7 +1,7 @@
 package com.github.p4535992.extractor.home;
 
 import com.github.p4535992.extractor.estrattori.ExtractInfoSpring;
-import com.github.p4535992.util.file.impl.FileUtil;
+import com.github.p4535992.util.file.impl.FileUtilities;
 import com.github.p4535992.util.file.SimpleParameters;
 import com.github.p4535992.util.log.SystemLog;
 import java.awt.*;
@@ -36,11 +36,11 @@ public class MainExtractInfo {
                        // Parse all the parameters
                        SimpleParameters params = new SimpleParameters();
                        if (args.length > 0) {
-                           mParameters = FileUtil.readStringFromFileLineByLine(args[0], '=', params);
+                           mParameters = FileUtilities.readStringFromFileLineByLine(args[0], '=', params);
                        } else{
                            //C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\resources\input.properties
                            // + "ExtractInfo" + File.separator +
-                           mParameters = FileUtil.readStringFromFileLineByLine(
+                           mParameters = FileUtilities.readStringFromFileLineByLine(
                                    System.getProperty("user.dir") + File.separator +
                                            "src" + File.separator + "main" + File.separator + "resources" + File.separator +
                                            "input.properties", '=', params);

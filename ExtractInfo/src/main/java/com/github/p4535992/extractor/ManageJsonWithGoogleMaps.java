@@ -1,7 +1,7 @@
 package com.github.p4535992.extractor;
 import com.github.p4535992.extractor.object.model.GeoDomainDocument;
 import com.github.p4535992.extractor.setInfoParameterIta.SetNazioneELanguage;
-import com.github.p4535992.util.http.HttpUtil;
+import com.github.p4535992.util.http.impl.HttpUtil;
 import com.github.p4535992.extractor.object.model.GeoDocument;
 import com.github.p4535992.extractor.object.support.LatLng;
 import com.github.p4535992.util.http.HttpUtilApache4;

@@ -2,7 +2,7 @@ package com.github.p4535992.extractor.estrattori;
 
 import com.github.p4535992.extractor.object.support.LatLng;
 import com.github.p4535992.util.http.HttpKit;
-import com.github.p4535992.util.http.HttpUtil;
+import com.github.p4535992.util.http.impl.HttpUtil;
 import com.github.p4535992.util.log.SystemLog;
 import com.github.p4535992.util.string.impl.StringIs;
 import com.github.p4535992.util.string.impl.StringKit;

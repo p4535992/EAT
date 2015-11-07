@@ -5,7 +5,7 @@ import com.github.p4535992.extractor.object.impl.jdbc.WebsiteDaoImpl;
 import com.github.p4535992.gatebasic.gate.gate8.ExtractorInfoGate8;
 import com.github.p4535992.gatebasic.gate.gate8.Gate8Kit;
 import com.github.p4535992.gatebasic.gate.gate8.GateSupport;
-import com.github.p4535992.util.file.impl.FileUtil;
+import com.github.p4535992.util.file.impl.FileUtilities;
 import com.github.p4535992.util.html.JSoupKit;
 import com.github.p4535992.util.log.SystemLog;
 import com.github.p4535992.extractor.karma.GenerationOfTriple;
@@ -518,10 +518,10 @@ public class ExtractInfoWeb {
             File f = got.GenerationOfTripleWithKarmaAPIFromDataBase();
             //code for clean up the triple file generate from karma.
             JenaInfoDocument.readQueryAndCleanTripleInfoDocument(
-                    FileUtil.filenameNoExt(f), //filenameInput
-                    FileUtil.path(f), //filepath
-                    FileUtil.filenameNoExt(f) + "-c", //fileNameOutput
-                    FileUtil.extension(f), //inputFormat n3
+                    FileUtilities.getFilenameWithoutExt(f), //filenameInput
+                    FileUtilities.getPath(f), //filepath
+                    FileUtilities.getFilenameWithoutExt(f) + "-c", //fileNameOutput
+                    FileUtilities.getExtension(f), //inputFormat n3
                     OUTPUT_FORMAT //outputFormat "ttl"
             );
             //delete not filter file of triples
@@ -544,14 +544,14 @@ public class ExtractInfoWeb {
     public List<GeoDocument> ExtractGeoDocumentFromFile(
             File fileOrDirectory, String TABLE_INPUT,String TABLE_OUTPUT,boolean createNewTable,boolean dropOldTable) {
         List<GeoDocument> listGeo = new ArrayList<>();
-        if(FileUtil.isDirectory(fileOrDirectory)){
-            List<File> listFiles = FileUtil.readDirectory(fileOrDirectory);
+        if(FileUtilities.isDirectory(fileOrDirectory)){
+            List<File> listFiles = FileUtilities.readDirectory(fileOrDirectory);
             ExtractGeoDocumentFromListFiles(listFiles,TABLE_INPUT,TABLE_OUTPUT,createNewTable,dropOldTable);
         }else{
             //..is a single file
             URL url;
             try {
-                url = FileUtil.convertFileToURL(fileOrDirectory);
+                url = FileUtilities.convertFileToURL(fileOrDirectory);
                 listGeo.add(ExtractGeoDocumentFromUrl(url,TABLE_INPUT,TABLE_OUTPUT,createNewTable,dropOldTable));
             } catch (MalformedURLException e) {
                 SystemLog.warning(e.getMessage());
@@ -575,11 +575,11 @@ public class ExtractInfoWeb {
         List<URL> listUrls = new ArrayList<>();
         for(File file: listFiles) {
             try {
-                if(!FileUtil.isDirectory(file)) {
-                    URL url = FileUtil.convertFileToURL(file);
+                if(!FileUtilities.isDirectory(file)) {
+                    URL url = FileUtilities.convertFileToURL(file);
                     listUrls.add(url);
                 }else{
-                    SystemLog.warning("The file:" + FileUtil.convertFileToURL(file) + " so is ignored!!");
+                    SystemLog.warning("The file:" + FileUtilities.convertFileToURL(file) + " so is ignored!!");
                 }
             } catch (MalformedURLException e) {
                 SystemLog.warning(e.getMessage());

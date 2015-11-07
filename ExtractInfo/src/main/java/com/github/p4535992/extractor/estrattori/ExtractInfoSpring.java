@@ -5,7 +5,7 @@ import com.github.p4535992.extractor.object.impl.jdbc.*;
 import com.github.p4535992.gatebasic.gate.gate8.GateDataStore8Kit;
 import com.github.p4535992.util.file.SimpleParameters;
 import com.github.p4535992.extractor.object.model.GeoDocument;
-import com.github.p4535992.util.file.impl.FileUtil;
+import com.github.p4535992.util.file.impl.FileUtilities;
 import com.github.p4535992.util.log.SystemLog;
 
 import java.io.File;
@@ -222,8 +222,8 @@ public class ExtractInfoSpring {
                      List<File> subFiles = new ArrayList<>(); //suppport list...
                      Map<File,String> mapFile = new HashMap<>();
                      //code for make some verify before go to the extraction...
-                     if(FileUtil.isDirectory(new File(DIRECTORY_FILES))) {
-                         files = FileUtil.readDirectory(DIRECTORY_FILES);
+                     if(FileUtilities.isDirectory(new File(DIRECTORY_FILES))) {
+                         files = FileUtilities.readDirectory(DIRECTORY_FILES);
                          //We use the index of the list like  bookmark for all the files in the directory...
                          if(OFFSET+LIMIT < files.size())subFiles.addAll(files.subList(OFFSET,OFFSET+LIMIT));
                          else subFiles.addAll(files.subList(OFFSET, files.size()));

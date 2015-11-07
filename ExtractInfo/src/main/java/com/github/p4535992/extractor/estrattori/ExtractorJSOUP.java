@@ -2,7 +2,7 @@ package com.github.p4535992.extractor.estrattori;
 
 import com.github.p4535992.extractor.object.model.GeoDocument;
 import com.github.p4535992.util.log.SystemLog;
-import com.github.p4535992.util.http.HttpUtil;
+import com.github.p4535992.util.http.impl.HttpUtil;
 import java.io.IOException;
 import java.net.URL;
 import java.util.*;
