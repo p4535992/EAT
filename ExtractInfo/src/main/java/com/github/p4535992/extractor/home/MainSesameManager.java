@@ -1,5 +1,6 @@
 package com.github.p4535992.extractor.home;
 
+
 import com.github.p4535992.util.database.sql.SQLHelper;
 import com.github.p4535992.util.log.SystemLog;
 import com.github.p4535992.util.repositoryRDF.jena.Jena2Kit;
@@ -105,7 +106,7 @@ public class MainSesameManager {
         Long yy = Jena2Kit.getExecutionQueryTime(query, jModel2);
 
         Connection conn = SQLHelper.getMySqlConnection("jdbc:mysql://localhost:3306/geodb?noDatetimeStringSync=true");
-        Long zz = SQLHelper.getExcecutionTime(SQL_GET_ALL_SERVICE,conn);
+        Long zz = SQLHelper.getExcecutionTime(SQL_GET_ALL_SERVICE, conn);
 
 
 

@@ -1,10 +1,10 @@
 package com.github.p4535992.extractor.hibernate;
-import com.github.p4535992.util.string.impl.StringIs;
+import com.github.p4535992.util.reflection.ReflectionUtilities;
+import com.github.p4535992.util.string.StringUtilities;
 import org.hibernate.*;
 import org.hibernate.InstantiationException;
 import org.hibernate.criterion.Criterion;
 import com.github.p4535992.util.log.SystemLog;
-import com.github.p4535992.util.reflection.ReflectionKit;
 
 import java.io.File;
 import java.io.IOException;
@@ -14,7 +14,6 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
 
-import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
 
 /**
@@ -47,7 +46,7 @@ public class Hibernate4Kit<T> {
     protected Interceptor inter; //support parameter
     protected static Connection connection;
     //@PersistenceContext(unitName=UtilitiesModel.JPA_PERSISTENCE_UNIT)
-    protected EntityManager entityManager;
+    protected javax.persistence.EntityManager entityManager;
 
     @SuppressWarnings({"unchecked","rawtypes"})
     public Hibernate4Kit(){
@@ -107,8 +106,8 @@ public class Hibernate4Kit<T> {
             isInterceptor = true;
             //this.inter = inter2;
             this.interceptor = interceptor;
-            ReflectionKit.invokeSetterClass(inter, "setSession", session,Session.class);
-            ReflectionKit.invokeSetterClass(inter, "setSessionFactory", sessionFactory, SessionFactory.class);
+            ReflectionUtilities.invokeSetter(inter, "setSession", session, Session.class);
+            ReflectionUtilities.invokeSetter(inter, "setSessionFactory", sessionFactory, SessionFactory.class);
             //session = (SessionImpl) ReflectionKit.invokeGetterClass(inter,"getSession");
             //sessionFactory = (SessionFactoryImpl) ReflectionKit.invokeGetterClass(inter,"getSessionFactory");
             //setNewInterceptor(interceptor);
@@ -431,7 +430,7 @@ public class Hibernate4Kit<T> {
      */
      public void buildSessionFactory(String filePath) {
          try{
-            if(StringIs.isNullOrEmpty(filePath)){
+            if(StringUtilities.isNullOrEmpty(filePath)){
                File cfgFile = new File(filePath);                   
                if(cfgFile.exists()){
                    PATH_CFG_HIBERNATE = cfgFile;

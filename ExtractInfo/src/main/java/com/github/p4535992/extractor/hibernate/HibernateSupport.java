@@ -1,7 +1,8 @@
 package com.github.p4535992.extractor.hibernate;
 
 import com.github.p4535992.extractor.object.model.GeoDocument;
-import com.github.p4535992.util.reflection.ReflectionKit;
+import com.github.p4535992.util.reflection.ReflectionUtilities;
+
 
 import java.lang.annotation.Annotation;
 import java.util.List;
@@ -15,27 +16,27 @@ public class HibernateSupport<T> extends Hibernate4Kit<T> {
 
     public  <T> void updateAnnotationEntity(
            String nameOfAttribute, String newValueAttribute) {
-        ReflectionKit.updateAnnotationClassValue(cl, javax.persistence.Entity.class, nameOfAttribute, newValueAttribute);
+        ReflectionUtilities.updateAnnotationClassValue(cl, javax.persistence.Entity.class, nameOfAttribute, newValueAttribute);
     }
 
     public  <T> void updateAnnotationTable(
             String nameOfAttribute, String newValueAttribute){
-        ReflectionKit.updateAnnotationClassValue(cl, javax.persistence.Table.class, nameOfAttribute, newValueAttribute);
+        ReflectionUtilities.updateAnnotationClassValue(cl, javax.persistence.Table.class, nameOfAttribute, newValueAttribute);
     }
 
     public  <T> void updateAnnotationColumn(
             String nameField, String nameOfAttribute, String newValueAttribute) throws NoSuchFieldException {
-        ReflectionKit.updateAnnotationFieldValue(cl, javax.persistence.Column.class, nameField, nameOfAttribute, newValueAttribute);
+        ReflectionUtilities.updateAnnotationFieldValue(cl, javax.persistence.Column.class, nameField, nameOfAttribute, newValueAttribute);
     }
 
     public  <T> void updateAnnotationJoinColumn(
             String nameField, String nameOfAttribute, String newValueAttribute) throws NoSuchFieldException {
-        ReflectionKit.updateAnnotationFieldValue(cl, javax.persistence.JoinColumn.class, nameField, nameOfAttribute, newValueAttribute);
+        ReflectionUtilities.updateAnnotationFieldValue(cl, javax.persistence.JoinColumn.class, nameField, nameOfAttribute, newValueAttribute);
     }
 
     public <T> List<Object[]> getAnnotationTable() {
         Annotation ann = GeoDocument.class.getAnnotation(javax.persistence.Table.class);
-        return ReflectionKit.getAnnotationClass(ann);
+        return (List<Object[]>) ReflectionUtilities.findInfoAnnotationClass(ann);
     }
 
 }

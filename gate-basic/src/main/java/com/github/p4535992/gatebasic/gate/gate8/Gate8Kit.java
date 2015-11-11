@@ -1,7 +1,7 @@
 package com.github.p4535992.gatebasic.gate.gate8;
 
 import com.github.p4535992.util.bean.BeansKit;
-import com.github.p4535992.util.file.impl.FileUtilities;
+import com.github.p4535992.util.file.FileUtilities;
 import com.github.p4535992.util.log.SystemLog;
 import gate.*;
 import gate.corpora.RepositioningInfo;
@@ -19,7 +19,7 @@ import java.util.*;
 /**
  * Created by 4535992 on 17/04/2015.
  * @author 4535992
- * @version 2015-07-02
+ * @version 2015-11-12
  */
 @SuppressWarnings("unused")
 public class Gate8Kit {
@@ -170,7 +170,7 @@ public class Gate8Kit {
             try {
                 FileUtilities.createFile(configFileSession);
                 Gate.init();
-            }catch(GateException|IOException ex){
+            }catch(GateException ex){
                 SystemLog.exception(e);
             }
         }

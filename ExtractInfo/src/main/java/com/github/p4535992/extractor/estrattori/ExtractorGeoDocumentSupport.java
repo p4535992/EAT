@@ -4,14 +4,13 @@ import com.github.p4535992.extractor.object.support.LatLng;
 import com.github.p4535992.util.http.HttpKit;
 import com.github.p4535992.util.http.impl.HttpUtil;
 import com.github.p4535992.util.log.SystemLog;
-import com.github.p4535992.util.string.impl.StringIs;
-import com.github.p4535992.util.string.impl.StringKit;
 import com.github.p4535992.extractor.ManageJsonWithGoogleMaps;
 import com.github.p4535992.extractor.setInfoParameterIta.SetCodicePostale;
 import com.github.p4535992.extractor.setInfoParameterIta.SetNazioneELanguage;
 import com.github.p4535992.extractor.setInfoParameterIta.SetProvinciaECity;
 import com.github.p4535992.extractor.setInfoParameterIta.SetRegioneEProvincia;
 import com.github.p4535992.extractor.object.model.GeoDocument;
+import com.github.p4535992.util.string.StringUtilities;
 
 import java.net.URISyntaxException;
 import java.util.Arrays;
@@ -55,12 +54,12 @@ public class ExtractorGeoDocumentSupport {
 //                geo.setCity(Docdao.selectValueForSpecificColumn("city", "url", geo.getUrl().toString()));
 //            }
             //SET PROVINCIA
-            if(StringKit.setNullForEmptyString(geo.getCity())!=null){
+            if(StringUtilities.setNullForEmptyString(geo.getCity())!=null){
                 SetProvinciaECity set = new SetProvinciaECity();
                 geo.setProvincia(set.checkProvincia(geo.getCity()));
             }
             //INTEGRAZIONE DEI CAMPI CITY-PROVINCIA-REGIONE DEI GEDOCUMENT
-            if(StringKit.setNullForEmptyString(geo.getCity())!=null){
+            if(StringUtilities.setNullForEmptyString(geo.getCity())!=null){
                 SetRegioneEProvincia set = new SetRegioneEProvincia();
                 set.checkString(geo.getCity());
                 geo.setRegione(set.getRegione());
@@ -69,12 +68,12 @@ public class ExtractorGeoDocumentSupport {
             //INTEGRAZIONE DEL CAMPO LANGUAGE -> NAZIONE
             SetNazioneELanguage set = new SetNazioneELanguage();
             String language;
-            if(!StringIs.isNullOrEmpty(geo.getNazione())) {
+            if(!StringUtilities.isNullOrEmpty(geo.getNazione())) {
                language = geo.getNazione();
             }else{ language = "it";}
             String domain = http.getDomainName(geo.getUrl().toString());
             String nazione="";
-            if(!StringIs.isNullOrEmpty(domain)) {
+            if(!StringUtilities.isNullOrEmpty(domain)) {
                 nazione = set.checkNazioneByDomain(domain);
             }
             //con il linguaggio identificato da Tika se fallisce il controllo del
@@ -98,7 +97,7 @@ public class ExtractorGeoDocumentSupport {
                 indirizzoNoCAP = indirizzo.replaceAll("\\d{5,6}", "").replace("-", "");
                 postalCode = setCap.GetPostalCodeByIndirizzo(indirizzo);
             }//if indrizzo not null
-            if(StringIs.isNullOrEmpty(postalCode)){
+            if(StringUtilities.isNullOrEmpty(postalCode)){
                 postalCode = setCap.checkPostalCodeByCitta(geo.getCity());//work
             }
             geo.setPostalCode(postalCode);
@@ -106,15 +105,15 @@ public class ExtractorGeoDocumentSupport {
                 //indirizzoNoCAP = indirizzo.replaceAll("\\d{5,6}", "").replace("-", "");
                 indirizzoHasNumber = setCap.GetNumberByIndirizzo(indirizzoNoCAP);
             }//if indrizzo not null
-            if(indirizzoHasNumber!=null && StringKit.setNullForEmptyString(indirizzoHasNumber)!= null){
+            if(indirizzoHasNumber!=null && StringUtilities.setNullForEmptyString(indirizzoHasNumber)!= null){
                 geo.setIndirizzoHasNumber(indirizzoHasNumber);
                 indirizzoNoCAP = indirizzoNoCAP.replace(indirizzoHasNumber,"").replaceAll("[\\^\\|\\;\\:\\,]","");
             }
             geo.setIndirizzoNoCAP(indirizzoNoCAP);
             //UPDATE THE "indirizzo" FIELD TO "indirizzoNoCAP"+","+"indirizzoHasNumber"
-            if(StringIs.isNullOrEmpty(geo.getIndirizzoHasNumber()) && !StringIs.isNullOrEmpty(geo.getIndirizzoNoCAP())) {
+            if(StringUtilities.isNullOrEmpty(geo.getIndirizzoHasNumber()) && !StringUtilities.isNullOrEmpty(geo.getIndirizzoNoCAP())) {
                 geo.setIndirizzo(geo.getIndirizzoNoCAP().trim());
-            }else if(!StringIs.isNullOrEmpty(geo.getIndirizzoHasNumber()) && !StringIs.isNullOrEmpty(geo.getIndirizzoNoCAP())){
+            }else if(!StringUtilities.isNullOrEmpty(geo.getIndirizzoHasNumber()) && !StringUtilities.isNullOrEmpty(geo.getIndirizzoNoCAP())){
                 geo.setIndirizzo(geo.getIndirizzoNoCAP().trim()+", "+geo.getIndirizzoHasNumber().trim());
             }else{
                 geo.setIndirizzo(null);
@@ -142,7 +141,7 @@ public class ExtractorGeoDocumentSupport {
         //in fase di inserimento dei record nel database.
 
             String set;
-            if(!StringIs.isNullOrEmpty(geo.getEdificio())){
+            if(!StringUtilities.isNullOrEmpty(geo.getEdificio())){
                 set=geo.getEdificio();
                 //set = geo.getEdificio().replaceAll("[^a-zA-Z\\d\\s:]","");
                 //Accetta le lettere accentuate
@@ -179,7 +178,7 @@ public class ExtractorGeoDocumentSupport {
             String address = geo.getIndirizzo();
             // address = "’Orario di Lavoro - Piazza San Marco, 4 - 50121";
             if(address != null){
-                if(StringKit.setNullForEmptyString(address)!=null){
+                if(StringUtilities.setNullForEmptyString(address)!=null){
                     //Rimuovi gli SpaceToken
                     //set = geo.getIndirizzo().replaceAll("[^a-zA-Z\\d\\s:]","");
                     address = address.replaceAll("\\s+", " ");
@@ -228,10 +227,10 @@ public class ExtractorGeoDocumentSupport {
      * @return un geodocument con il meglio dei risultati di entrambe le ricerche
      */
     public static GeoDocument compareInfo3(GeoDocument geo,GeoDocument geo2){
-        if(StringKit.setNullForEmptyString(geo2.getEdificio())!=null){geo.setEdificio(geo2.getEdificio());}
-        else if(StringKit.setNullForEmptyString(geo2.getEdificio())==null){geo.setEdificio(StringKit.setNullForEmptyString(geo.getUrl().toString()));}
-        if(StringKit.setNullForEmptyString(geo2.getDescription())!=null){geo.setDescription(geo2.getDescription());}
-        if(StringKit.setNullForEmptyString(geo2.getNazione())!=null){geo.setNazione(geo2.getNazione());}
+        if(StringUtilities.setNullForEmptyString(geo2.getEdificio())!=null){geo.setEdificio(geo2.getEdificio());}
+        else if(StringUtilities.setNullForEmptyString(geo2.getEdificio())==null){geo.setEdificio(StringUtilities.setNullForEmptyString(geo.getUrl().toString()));}
+        if(StringUtilities.setNullForEmptyString(geo2.getDescription())!=null){geo.setDescription(geo2.getDescription());}
+        if(StringUtilities.setNullForEmptyString(geo2.getNazione())!=null){geo.setNazione(geo2.getNazione());}
         return geo;
     }//compareInfo3
 
@@ -310,7 +309,7 @@ public class ExtractorGeoDocumentSupport {
         StringTokenizer st = new StringTokenizer(content, symbol);
         while (st.hasMoreTokens()) {
             content = st.nextToken();
-            if(!StringIs.isNullOrEmpty(content)){
+            if(!StringUtilities.isNullOrEmpty(content)){
                 break;
             }
         }

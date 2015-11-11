@@ -2,26 +2,29 @@ package com.github.p4535992.extractor.object.impl.jdbc.generic;
 
 import com.github.p4535992.extractor.object.dao.jdbc.generic.IGenericDao;
 import com.github.p4535992.util.bean.BeansKit;
-import com.github.p4535992.util.collection.CollectionKit;
+import com.github.p4535992.util.collection.CollectionUtilities;
 import com.github.p4535992.util.database.jooq.SQLJooqKit2;
-import com.github.p4535992.util.database.sql.SQLHelper;
 import com.github.p4535992.util.database.sql.SQLQuery;
+import com.github.p4535992.util.reflection.ReflectionUtilities;
+import com.github.p4535992.util.string.StringUtilities;
 import com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.hibernate.SessionFactory;
+import org.jooq.Condition;
 import org.jooq.DSLContext;
 import org.jooq.impl.DSL;
 import org.springframework.context.ApplicationContext;
+import org.springframework.jdbc.BadSqlGrammarException;
+import org.springframework.jdbc.UncategorizedSQLException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
-import com.github.p4535992.util.reflection.ReflectionKit;
 import com.github.p4535992.util.database.sql.SQLSupport;
 import com.github.p4535992.util.log.SystemLog;
-import com.github.p4535992.util.string.impl.StringKit;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.Column;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.sql.DataSource;
@@ -248,14 +251,14 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
             query = SQLJooqKit2.update(myUpdateTable, columns, values, true,
                     SQLJooqKit2.convertToListConditionEqualsWithAND(columns_where, values_where));
 
-            Object[] vals = CollectionKit.concatenateArrays(values, values_where);
+            Object[] vals = CollectionUtilities.concatenateArrays(values, values_where);
             if(values_where!=null) {
                 jdbcTemplate.update(query, vals);
             }else{
                 jdbcTemplate.update(query);
             }
             SystemLog.query(query);
-        }catch(org.springframework.jdbc.BadSqlGrammarException e) {
+        }catch(BadSqlGrammarException e) {
             SystemLog.warning(e.getMessage());
         }
     }
@@ -271,7 +274,7 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
                     SQLJooqKit2.convertToListConditionEqualsWithAND(new String[]{columns_where}, new Object[]{values_where}));
 
             SystemLog.query(query);
-            if(values_where!=null && !CollectionKit.isArrayEmpty(values)) {
+            if(values_where!=null && !CollectionUtilities.isEmpty(values)) {
                 jdbcTemplate.update(query, values);
             }else{
                 jdbcTemplate.update(query);
@@ -316,7 +319,7 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
      */
     @Override
     public void deleteDuplicateRecords(String[] columns,String nameKeyColumn){
-        String cols = CollectionKit.convertArrayContentToSingleString(columns);
+        String cols = CollectionUtilities.toString(columns);
         query = SQLQuery.deleteDuplicateRecord(myDeleteTable,nameKeyColumn,columns);
         jdbcTemplate.update(query);
     }
@@ -330,7 +333,7 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
      */
     @Override
     public void deleteDuplicateRecords(String[] columns){
-        String cols = CollectionKit.convertArrayContentToSingleString(columns);
+        String cols = CollectionUtilities.toString(columns);
         query = "WITH "+myDeleteTable+" AS ( " +
                 "SELECT ROW_NUMBER() OVER(PARTITION BY "+cols+" ORDER BY "+cols+") AS ROW " +
                 "FROM "+myDeleteTable+") " +
@@ -348,7 +351,7 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
      */
     @Override
     public void deleteDuplicateRecords(String[] columns,Object[] values,boolean high){
-        String cols = CollectionKit.convertArrayContentToSingleString(columns);
+        String cols = CollectionUtilities.toString(columns);
         if(high) {
             //if you want to keep the row with the lowest id value
             query = "";
@@ -396,7 +399,7 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
 
     @Override
     public void insertAndTrim(String[] columns, Object[] values, Integer[] types) {
-        int[] iTypes = CollectionKit.convertIntegersToInt(types);
+        int[] iTypes = CollectionUtilities.toPrimitive(types);
         insertAndTrim(columns, values, iTypes);
     }
 
@@ -450,7 +453,7 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
 
     @Override
     public void insert(String[] columns, Object[] values, Integer[] types) {
-        int[] iTypes = CollectionKit.convertIntegersToInt(types);
+        int[] iTypes = CollectionUtilities.toPrimitive(types);
         insert(columns,values,iTypes);
     }
 
@@ -502,9 +505,9 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
         SystemLog.query(query);
         try {
             int i = 0;
-            Class<?>[] classes = ReflectionKit.getClassesByFieldsByAnnotation(cl,javax.persistence.Column.class);
+            Class<?>[] classes = ReflectionUtilities.getClassesByFieldsByAnnotation(cl, javax.persistence.Column.class);
             for (Map<String, Object> geoDoc : map) {
-                T iClass =  ReflectionKit.invokeConstructor(cl);
+                T iClass =  ReflectionUtilities.invokeConstructor(cl);
                 for (Map.Entry<String, Object> entry : geoDoc.entrySet()) {
                     //for (Iterator<Map.Entry<String, Object>> it = geoDoc.entrySet().iterator(); it.hasNext(); ) {
                     //    Map.Entry<String, Object> entry = it.next();
@@ -554,21 +557,21 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
 //            final Integer[] types =
 //                    SQLKit.getArrayTypes(cl, javax.persistence.Column.class);
             }else{
-                columns2 = CollectionKit.copyContentArray(columns);
+                columns2 = CollectionUtilities.copy(columns);
             }
             final Class<?>[] classes = SQLSupport.getArrayClassesTypes(cl, javax.persistence.Column.class);
-            final List<Method> setters = ReflectionKit.getSettersClassOrder(cl);
+            final List<Method> setters = (List<Method>) ReflectionUtilities.findSetters(cl, true);
             list = this.jdbcTemplate.query(
                     query, new RowMapper<T>() {
                         @Override
                         public T mapRow(ResultSet rs, int rowNum) throws SQLException {
-                            T MyObject2 = ReflectionKit.invokeConstructor(cl);
+                            T MyObject2 = ReflectionUtilities.invokeConstructor(cl);
                             try {
                                 for (int i = 0; i < columns2.length; i++) {
                                     System.out.println(i+")Class:"+classes[i].getName()+",Column:"+columns2[i]);
                                     if (classes[i].getName()
                                             .equalsIgnoreCase(String.class.getName())) {
-                                        MyObject2 = ReflectionKit.invokeSetterMethodForObject(
+                                        MyObject2 = ReflectionUtilities.invokeSetter(
                                                 MyObject2, setters.get(i), new Object[]{rs.getString(columns2[i])});
                                     }
                                     else if (classes[i].getName()
@@ -579,7 +582,7 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
                                         }else{
                                             url = new URL("http://"+rs.getString(columns2[i]));
                                         }
-                                        MyObject2 = ReflectionKit.invokeSetterMethodForObject(
+                                        MyObject2 = ReflectionUtilities.invokeSetter(
                                                 MyObject2, setters.get(i), new Object[]{url});
 
                                     }
@@ -587,14 +590,14 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
                                             .equalsIgnoreCase(Double.class.getName())) {
                                         String sup = rs.getString(columns2[i]).replace(",",".").replace(" ",".");
                                         Double num = Double.parseDouble(sup);
-                                        MyObject2 = ReflectionKit.invokeSetterMethodForObject(
+                                        MyObject2 = ReflectionUtilities.invokeSetter(
                                                 MyObject2, setters.get(i), new Object[]{num});
 
                                     }else if (classes[i].getName()
                                             .equalsIgnoreCase(Integer.class.getName())) {
                                         String sup = rs.getString(columns2[i]).replace(",", "").replace(".", "").replace(" ", "");
                                         Integer num = Integer.parseInt(sup);
-                                        MyObject2 = ReflectionKit.invokeSetterMethodForObject(
+                                        MyObject2 = ReflectionUtilities.invokeSetter(
                                                 MyObject2, setters.get(i), new Object[]{num});
                                     }
 
@@ -619,7 +622,7 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
 
     @Override
     public List<T> trySelectWithResultSetExtractor(
-            String[] columns,String[] columns_where,Object[] values_where,Integer limit,Integer offset,List<org.jooq.Condition> conditions){
+            String[] columns,String[] columns_where,Object[] values_where,Integer limit,Integer offset,List<Condition> conditions){
         List<T> list = new ArrayList<>();
         /** if you don't want to use JOOQ */
         //query = SQLQuery.prepareSelectQuery(mySelectTable,columns, columns_where, values_where, limit, offset,condition);
@@ -632,21 +635,21 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
             //T MyObject = ReflectionKit.invokeConstructor(cl);
             final String[] columns2;
             if(columns.length==1 && Arrays.asList(columns).contains("*")) {
-              columns2 = SQLSupport.getArrayColumns(cl, javax.persistence.Column.class, "name");
+              columns2 = SQLSupport.getArrayColumns(cl, Column.class, "name");
 //            final Integer[] types =
 //                    SQLKit.getArrayTypes(cl, javax.persistence.Column.class);
             }else{
-                columns2 = CollectionKit.copyContentArray(columns);
+                columns2 = CollectionUtilities.copy(columns);
             }
-            final Class<?>[] classes =SQLSupport.getArrayClassesTypes(cl, javax.persistence.Column.class);
-            final List<Method> setters = ReflectionKit.getSettersClassOrder(cl);
+            final Class<?>[] classes =SQLSupport.getArrayClassesTypes(cl, Column.class);
+            final List<Method> setters = (List<Method>) ReflectionUtilities.findSetters(cl, true);
 
             list = jdbcTemplate.query(query,new ResultSetExtractor<List<T>>() {
                 @Override
                 public List<T> extractData(ResultSet rs) throws SQLException {
                     List<T> list = new ArrayList<>();
                     while(rs.next()){
-                        T MyObject = ReflectionKit.invokeConstructor(cl);
+                        T MyObject = ReflectionUtilities.invokeConstructor(cl);
                         Method method;
                         try {
                             for (int i = 0; i < columns2.length; i++) {
@@ -656,7 +659,7 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
                                 //for(int j = 0; j < rs.getMetaData().getColumnCount(); j++){column2[j] = rs.getMetaData().getColumnName(j);}
                                 try {
                                     if (classes[i].getName().equalsIgnoreCase(String.class.getName())) {
-                                        MyObject = ReflectionKit.invokeSetterMethodForObject(
+                                        MyObject = ReflectionUtilities.invokeSetter(
                                                 MyObject, setters.get(i), new Object[]{rs.getString(columns2[i])});
                                         //map.put(columns[i], rs.getString(columns[i]));
                                     } else if (classes[i].getName().equalsIgnoreCase(URL.class.getName())) {
@@ -666,32 +669,32 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
                                         } else {
                                             url = new URL("http://" + rs.getString(columns2[i]));
                                         }
-                                        MyObject = ReflectionKit.invokeSetterMethodForObject(
+                                        MyObject = ReflectionUtilities.invokeSetter(
                                                 MyObject, setters.get(i), new Object[]{url});
                                         //map.put(columns[i], url);
                                     } else if (classes[i].getName().equalsIgnoreCase(Double.class.getName())) {
                                         String sup = rs.getString(columns2[i]).replace(",", ".").replace(" ", ".");
                                         Double num = Double.parseDouble(sup);
-                                        MyObject = ReflectionKit.invokeSetterMethodForObject(
+                                        MyObject = ReflectionUtilities.invokeSetter(
                                                 MyObject, setters.get(i), new Object[]{num});
                                         //map.put(columns[i], num);
                                     } else if (classes[i].getName().equalsIgnoreCase(Integer.class.getName())) {
                                         String sup = rs.getString(columns2[i]).replace(",", "").replace(".", "").replace(" ", "");
                                         Integer num = Integer.parseInt(sup);
-                                        MyObject = ReflectionKit.invokeSetterMethodForObject(
+                                        MyObject = ReflectionUtilities.invokeSetter(
                                                 MyObject, setters.get(i), new Object[]{num});
                                         //map.put(columns[i], num);
                                     } else if (classes[i].getName().equalsIgnoreCase(int.class.getName())) {
                                         String sup = rs.getString(columns2[i]).replace(",", "").replace(".", "").replace(" ", "");
                                         int num = Integer.parseInt(sup);
-                                        MyObject = ReflectionKit.invokeSetterMethodForObject(
+                                        MyObject = ReflectionUtilities.invokeSetter(
                                                 MyObject, setters.get(i), new Object[]{num});
                                         //map.put(columns[i], num);
                                     }
 
-                                } catch (org.springframework.jdbc.UncategorizedSQLException e) {
+                                } catch (UncategorizedSQLException e) {
                                     SystemLog.warning("... try and failed to get a value of a column not specify  in the query");
-                                    MyObject = ReflectionKit.invokeSetterMethodForObject(MyObject, method, new Object[]{null});
+                                    MyObject = ReflectionUtilities.invokeSetter(MyObject, method, new Object[]{null});
                                 }
                             }
                         } catch (IllegalAccessException | InvocationTargetException
@@ -816,7 +819,7 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
         try {
             for (Map<String, Object> map : list) { //...column already filter from the query
                 for (Map.Entry<String, Object> entry : map.entrySet()) {
-                    Object value = StringKit.convertInstanceOfObject(entry.getValue(), clazz);
+                    Object value = StringUtilities.toInstanceOfObject(entry.getValue(), clazz);
                     listObj.add(value);
                 }
             }

@@ -6,14 +6,13 @@ import com.github.p4535992.util.log.SystemLog;
 import com.github.p4535992.extractor.object.model.GeoDocument;
 import com.github.p4535992.extractor.object.model.GeoDomainDocument;
 import com.github.p4535992.util.database.sql.SQLSupport;
-import com.github.p4535992.util.string.impl.StringIs;
+import com.github.p4535992.util.string.StringUtilities;
 import com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException;
 import org.hibernate.SessionFactory;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.RowMapper;
-import com.github.p4535992.util.string.impl.StringKit;
 
 import javax.sql.DataSource;
 import java.net.URL;
@@ -186,59 +185,59 @@ public class GeoDomainDocumentDaoImpl extends GenericDaoImpl<GeoDomainDocument> 
                     if (entry.getValue() != null) value = entry.getValue().toString();
                     switch (entry.getKey()) {
                         case "url":
-                            if(!StringIs.isNullOrEmpty(value))g.setUrl(new URL(value));
+                            if(!StringUtilities.isNullOrEmpty(value))g.setUrl(new URL(value));
                             else g.setUrl(null);
                             break;
                         case "doc_id":
-                            if (StringIs.isNullOrEmpty(value)) g.setDoc_id(null);
+                            if (StringUtilities.isNullOrEmpty(value)) g.setDoc_id(null);
                             else g.setDoc_id(Integer.parseInt(value));
                             break;
                         case "city":
-                            g.setCity(StringKit.setNullForEmptyString(value));
+                            g.setCity(StringUtilities.setNullForEmptyString(value));
                             break;
                         case "description":
-                            g.setDescription(StringKit.setNullForEmptyString(value));
+                            g.setDescription(StringUtilities.setNullForEmptyString(value));
                             break;
                         case "edificio":
-                            g.setEdificio(StringKit.setNullForEmptyString(value));
+                            g.setEdificio(StringUtilities.setNullForEmptyString(value));
                             break;
                         case "email":
-                            g.setEmail(StringKit.setNullForEmptyString(value));
+                            g.setEmail(StringUtilities.setNullForEmptyString(value));
                             break;
                         case "fax":
-                            g.setFax(StringKit.setNullForEmptyString(value));
+                            g.setFax(StringUtilities.setNullForEmptyString(value));
                             break;
                         case "indirizzo":
-                            g.setIndirizzo(StringKit.setNullForEmptyString(value));
+                            g.setIndirizzo(StringUtilities.setNullForEmptyString(value));
                             break;
                         case "indirizzoHasNumber":
-                            g.setIndirizzoHasNumber(StringKit.setNullForEmptyString(value));
+                            g.setIndirizzoHasNumber(StringUtilities.setNullForEmptyString(value));
                             break;
                         case "indirizzoNoCAP":
-                            g.setIndirizzoNoCAP(StringKit.setNullForEmptyString(value));
+                            g.setIndirizzoNoCAP(StringUtilities.setNullForEmptyString(value));
                             break;
                         case "iva":
-                            g.setIva(StringKit.setNullForEmptyString(value));
+                            g.setIva(StringUtilities.setNullForEmptyString(value));
                             break;
                         case "latitude":
-                            if (StringKit.setNullForEmptyString(value) == null) g.setLat(null);
+                            if (StringUtilities.setNullForEmptyString(value) == null) g.setLat(null);
                             else g.setLat(Double.parseDouble(value));
                             break;
                         case "longitude":
-                            if (StringKit.setNullForEmptyString(value) == null) g.setLng(null);
+                            if (StringUtilities.setNullForEmptyString(value) == null) g.setLng(null);
                             else g.setLng(Double.parseDouble(value));
                             break;
                         case "nazione":
-                            g.setNazione(StringKit.setNullForEmptyString(value));
+                            g.setNazione(StringUtilities.setNullForEmptyString(value));
                             break;
                         case "postalCode":
-                            g.setPostalCode(StringKit.setNullForEmptyString(value));
+                            g.setPostalCode(StringUtilities.setNullForEmptyString(value));
                             break;
                         case "regione":
-                            g.setRegione(StringKit.setNullForEmptyString(value));
+                            g.setRegione(StringUtilities.setNullForEmptyString(value));
                             break;
                         case "provincia":
-                            g.setProvincia(StringKit.setNullForEmptyString(value));
+                            g.setProvincia(StringUtilities.setNullForEmptyString(value));
                             break;
                     }
                 }

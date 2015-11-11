@@ -5,11 +5,11 @@ import com.github.p4535992.extractor.object.impl.jdbc.WebsiteDaoImpl;
 import com.github.p4535992.gatebasic.gate.gate8.ExtractorInfoGate8;
 import com.github.p4535992.gatebasic.gate.gate8.Gate8Kit;
 import com.github.p4535992.gatebasic.gate.gate8.GateSupport;
-import com.github.p4535992.util.file.impl.FileUtilities;
+import com.github.p4535992.util.file.FileUtilities;
 import com.github.p4535992.util.html.JSoupKit;
 import com.github.p4535992.util.log.SystemLog;
 import com.github.p4535992.extractor.karma.GenerationOfTriple;
-import com.github.p4535992.util.string.impl.StringIs;
+import com.github.p4535992.util.string.StringUtilities;
 import gate.Controller;
 import gate.Corpus;
 import gate.CorpusController;
@@ -551,7 +551,7 @@ public class ExtractInfoWeb {
             //..is a single file
             URL url;
             try {
-                url = FileUtilities.convertFileToURL(fileOrDirectory);
+                url = FileUtilities.toURL(fileOrDirectory);
                 listGeo.add(ExtractGeoDocumentFromUrl(url,TABLE_INPUT,TABLE_OUTPUT,createNewTable,dropOldTable));
             } catch (MalformedURLException e) {
                 SystemLog.warning(e.getMessage());
@@ -576,10 +576,10 @@ public class ExtractInfoWeb {
         for(File file: listFiles) {
             try {
                 if(!FileUtilities.isDirectory(file)) {
-                    URL url = FileUtilities.convertFileToURL(file);
+                    URL url = FileUtilities.toURL(file);
                     listUrls.add(url);
                 }else{
-                    SystemLog.warning("The file:" + FileUtilities.convertFileToURL(file) + " so is ignored!!");
+                    SystemLog.warning("The file:" + FileUtilities.toURL(file) + " so is ignored!!");
                 }
             } catch (MalformedURLException e) {
                 SystemLog.warning(e.getMessage());
@@ -616,56 +616,56 @@ public class ExtractInfoWeb {
                             String content = support.getContent(index, j, nameAnnotation);
                             switch (nameAnnotation) {
                                 case "MyRegione": {
-                                    if (!StringIs.isNullOrEmpty(content) && StringIs.isNullOrEmpty(geoDoc.getRegione())) {
+                                    if (!StringUtilities.isNullOrEmpty(content) && StringUtilities.isNullOrEmpty(geoDoc.getRegione())) {
                                         geoDoc.setRegione(content);
                                         flag2 = true;
                                     }
                                     break;
                                 }
                                 case "MyPhone": {
-                                    if (!StringIs.isNullOrEmpty(content) && StringIs.isNullOrEmpty(geoDoc.getTelefono())) {
+                                    if (!StringUtilities.isNullOrEmpty(content) && StringUtilities.isNullOrEmpty(geoDoc.getTelefono())) {
                                         geoDoc.setTelefono(content);
                                         flag2 = true;
                                     }
                                     break;
                                 }
                                 case "MyFax": {
-                                    if (!StringIs.isNullOrEmpty(content) && StringIs.isNullOrEmpty(geoDoc.getFax())) {
+                                    if (!StringUtilities.isNullOrEmpty(content) && StringUtilities.isNullOrEmpty(geoDoc.getFax())) {
                                         geoDoc.setFax(content);
                                         flag2 = true;
                                     }
                                     break;
                                 }
                                 case "MyEmail": {
-                                    if (!StringIs.isNullOrEmpty(content) && StringIs.isNullOrEmpty(geoDoc.getEmail())) {
+                                    if (!StringUtilities.isNullOrEmpty(content) && StringUtilities.isNullOrEmpty(geoDoc.getEmail())) {
                                         geoDoc.setEmail(content);
                                         flag2 = true;
                                     }
                                     break;
                                 }
                                 case "MyPartitaIVA": {
-                                    if (!StringIs.isNullOrEmpty(content) && StringIs.isNullOrEmpty(geoDoc.getIva())) {
+                                    if (!StringUtilities.isNullOrEmpty(content) && StringUtilities.isNullOrEmpty(geoDoc.getIva())) {
                                         geoDoc.setIva(content);
                                         flag2 = true;
                                     }
                                     break;
                                 }
                                 case "MyLocalita": {
-                                    if (!StringIs.isNullOrEmpty(content) && StringIs.isNullOrEmpty(geoDoc.getCity())) {
+                                    if (!StringUtilities.isNullOrEmpty(content) && StringUtilities.isNullOrEmpty(geoDoc.getCity())) {
                                         geoDoc.setCity(content);
                                         flag2 = true;
                                     }
                                     break;
                                 }
                                 case "MyIndirizzo": {
-                                    if (!StringIs.isNullOrEmpty(content) && StringIs.isNullOrEmpty(geoDoc.getIndirizzo())) {
+                                    if (!StringUtilities.isNullOrEmpty(content) && StringUtilities.isNullOrEmpty(geoDoc.getIndirizzo())) {
                                         geoDoc.setIndirizzo(content);
                                         flag2 = true;
                                     }
                                     break;
                                 }
                                 case "MyEdificio": {
-                                    if (!StringIs.isNullOrEmpty(content) && StringIs.isNullOrEmpty(geoDoc.getEdificio())) {
+                                    if (!StringUtilities.isNullOrEmpty(content) && StringUtilities.isNullOrEmpty(geoDoc.getEdificio())) {
                                         geoDoc.setEdificio(content);
                                         flag2 = true;
                                     }
@@ -679,7 +679,7 @@ public class ExtractInfoWeb {
                         }
                         //    if(flag1)break;
                         // }
-                    } catch (java.lang.IndexOutOfBoundsException e) {
+                    } catch (IndexOutOfBoundsException e) {
                         SystemLog.exception(e);
                     }
                 }//if !isEmpty

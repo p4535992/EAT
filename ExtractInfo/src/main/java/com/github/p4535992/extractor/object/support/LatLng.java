@@ -1,5 +1,6 @@
 package com.github.p4535992.extractor.object.support;
-import com.github.p4535992.util.string.impl.StringKit;
+
+import com.github.p4535992.util.string.StringUtilities;
 
 import java.io.Serializable;
 /**
@@ -21,9 +22,9 @@ public class LatLng implements Serializable{
 
     public LatLng(Integer lat,Integer lng) {
         if(lat==null) this.lat = null;
-        else this.lat = StringKit.convertIntegerToDouble(lat);
+        else this.lat = StringUtilities.toDouble(lat);
         if(lng==null) this.lng = null;
-        else this.lng = StringKit.convertIntegerToDouble(lng);
+        else this.lng = StringUtilities.toDouble(lng);
     }
  
     public Double getLat() {

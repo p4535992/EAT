@@ -1,6 +1,5 @@
 package com.github.p4535992.util.file;
 
-import com.github.p4535992.util.file.impl.FileUtilities;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.beans.factory.config.PropertyPlaceholderConfigurer;
@@ -220,7 +219,6 @@ public class PropertiesKit extends PropertyPlaceholderConfigurer {
      * @param bean the Bean Object.
      * @param path String path package to the Class of the Bean.
      * @param value the new Object Value of the property.
-     * @return the Property of the Bean.
      * @throws NoSuchMethodException throw if any error is occurred.
      * @throws IllegalAccessException throw if any error is occurred.
      * @throws InvocationTargetException throw if any error is occurred.

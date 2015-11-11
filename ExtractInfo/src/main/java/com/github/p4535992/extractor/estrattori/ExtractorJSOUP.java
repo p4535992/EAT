@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.*;
 
-import com.github.p4535992.util.string.impl.StringKit;
+import com.github.p4535992.util.string.StringUtilities;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -90,16 +90,16 @@ public class ExtractorJSOUP {
                      if(result.contains("momentaneamente disabilitato")
                        //||result.contains("sito org.p4535992.mvc.webapp") //occupato,non più raggiungibile,nestitente
                              ){break;}
-                     if(StringKit.setNullForEmptyString(result)!=null)break;
+                     if(StringUtilities.setNullForEmptyString(result)!=null)break;
                 }
-                if(StringKit.setNullForEmptyString(result)!=null)break;
-                if(StringKit.setNullForEmptyString(result)==null && doc.select(s).size()>0){
+                if(StringUtilities.setNullForEmptyString(result)!=null)break;
+                if(StringUtilities.setNullForEmptyString(result)==null && doc.select(s).size()>0){
                        result += doc.select(s).first().attr("content");               
                 }
                 //if(setNullForEmptyString(result)!=null){break;}
             }
       
-            if(StringKit.setNullForEmptyString(result)==null){
+            if(StringUtilities.setNullForEmptyString(result)==null){
                 result=null;
             }else
             {
@@ -115,12 +115,12 @@ public class ExtractorJSOUP {
                 for(Element e : Tags){
                      result += egds.pulisciStringaEdificio(e.text())+" ";
                 }
-                if(StringKit.setNullForEmptyString(result)==null && doc.select(s).size()>0){
+                if(StringUtilities.setNullForEmptyString(result)==null && doc.select(s).size()>0){
                        result = doc.select(s).first().attr("content");               
                 }
-                if(StringKit.setNullForEmptyString(result)!=null){break;}
+                if(StringUtilities.setNullForEmptyString(result)!=null){break;}
             }
-            if(StringKit.setNullForEmptyString(result)==null){
+            if(StringUtilities.setNullForEmptyString(result)==null){
                 result=null;
             }
             geo.setDescription(result);
@@ -135,15 +135,15 @@ public class ExtractorJSOUP {
                      result += egds.pulisciStringaEdificio(e.text())+" ";
                     }
                 }
-                if(StringKit.setNullForEmptyString(result)==null && doc.select(s).size()>0){
+                if(StringUtilities.setNullForEmptyString(result)==null && doc.select(s).size()>0){
                        result = doc.select(s).first().attr("lang");               
-                }else if(StringKit.setNullForEmptyString(result)==null && doc.select(s).size()>0 && !Objects.equals(s, "html")){
+                }else if(StringUtilities.setNullForEmptyString(result)==null && doc.select(s).size()>0 && !Objects.equals(s, "html")){
                        result = doc.select(s).first().attr("content");   
                 }
-                if(StringKit.setNullForEmptyString(result)!=null){break;}
+                if(StringUtilities.setNullForEmptyString(result)!=null){break;}
             }
             
-            if(StringKit.setNullForEmptyString(result)==null){
+            if(StringUtilities.setNullForEmptyString(result)==null){
                 result="it";
             }
             geo.setNazione(result);    

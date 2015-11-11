@@ -1,6 +1,7 @@
 package util;
 
-import com.github.p4535992.util.collection.CollectionKit;
+
+import com.github.p4535992.util.collection.CollectionUtilities;
 import com.github.p4535992.util.log.SystemLog;
 
 import java.io.IOException;
@@ -90,7 +91,7 @@ public class Test_Karma {
 
         String[] args2;
         try {
-            args2 = CollectionKit.mergeArraysForCommandInput(param, value);
+            args2 = CollectionUtilities.mergeArraysForInput(param, value);
             /*
             int j = 0;
 

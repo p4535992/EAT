@@ -1,12 +1,13 @@
 package com.github.p4535992.extractor.karma;
-import com.github.p4535992.util.collection.CollectionKit;
-import com.github.p4535992.util.file.impl.EncodingUtil;
-import com.github.p4535992.util.file.impl.FileUtilities;
+import com.github.p4535992.util.collection.CollectionUtilities;
+import com.github.p4535992.util.file.FileUtilities;
 import com.github.p4535992.util.log.SystemLog;
+import com.github.p4535992.util.string.StringUtilities;
 import edu.isi.karma.kr2rml.URIFormatter;
 import edu.isi.karma.kr2rml.mapping.R2RMLMappingIdentifier;
 import edu.isi.karma.kr2rml.writer.N3KR2RMLRDFWriter;
 import edu.isi.karma.rdf.GenericRDFGenerator;
+import edu.isi.karma.rdf.OfflineRdfGenerator;
 import edu.isi.karma.rdf.RDFGeneratorRequest;
 import edu.isi.karma.webserver.KarmaException;
 
@@ -85,15 +86,16 @@ public class GenerationOfTriple {
 
         String[] args2;
         try {
-            args2 = CollectionKit.mergeArraysForCommandInput(param, value);
-            SystemLog.message("PARAM KARMA:"+ CollectionKit.convertArrayContentToSingleString(args2));
+            args2 = CollectionUtilities.mergeArraysForInput(param, value);
+            SystemLog.message("PARAM KARMA:" + CollectionUtilities.toString(args2));
             SystemLog.message("try to create a file of triples from a relational table with karma...");
 
-            edu.isi.karma.rdf.OfflineRdfGenerator.main(args2);
+            OfflineRdfGenerator.main(args2);
 
             pathOut =
                     System.getProperty("user.dir")+File.separator+"karma_files"+File.separator+
-                            "output"+File.separator+ FileUtilities.getFilenameWithoutExt(pathOut)+"."+ FileUtilities.getExtension(pathOut);
+                            "output"+File.separator+ FileUtilities.getFilenameWithoutExt(pathOut)+"."
+                            + FileUtilities.getExtension(pathOut);
             SystemLog.message("...file of triples created with name:" + pathOut);
 
 
@@ -106,17 +108,17 @@ public class GenerationOfTriple {
             //HERE WE LOSE SOME TIME :(
             SystemLog.message("Converting the file of triple to UTF8 Format...");
             File filePathTriple = new File(pathOut);
-            List<String> lines = EncodingUtil.convertUnicodeEscapeToUTF8(filePathTriple);
+            List<String> lines = FileUtilities.toUTF8(filePathTriple);
             String output = System.getProperty("user.dir")+File.separator+"karma_files"+File.separator+"output"+File.separator+
                     FileUtilities.getFilename(pathOut).replace("." + FileUtilities.getExtension(pathOut), "-UTF8."
                             + FileUtilities.getExtension(pathOut));
             SystemLog.message("...file of triples created in the path:" + output);
-            EncodingUtil.writeLargerTextFileWithReplace2(output, lines);
+            FileUtilities.write(lines,new File(output), StringUtilities.UTF_8,StringUtilities.UTF_8);
             SystemLog.message("...converted the file of triple to UTF8 Format");
             File f = new File(output);
             //RIPULIAMO LETRIPLE DALLE LOCATION SENZA COORDINATE CON JENA
             SystemLog.message("Re-clean infodocument triples from the Location information  without coordinates from the file:" + output);
-            SystemLog.message(FileUtilities.getFilenameWithoutExt(f)+","+ FileUtilities.getPath(f)+","+ FileUtilities.getFilenameWithoutExt(f)
+            SystemLog.message(FileUtilities.getFilenameWithoutExt(f) + "," + FileUtilities.getPath(f) + "," + FileUtilities.getFilenameWithoutExt(f)
                     + "-c" + "," + FileUtilities.getExtension(f));
 
             filePathTriple.delete();
@@ -158,33 +160,34 @@ public class GenerationOfTriple {
         };
         String[] args2;
         try {
-            args2 = CollectionKit.mergeArraysForCommandInput(param, value);
-            SystemLog.message("PARAM KARMA:"+ CollectionKit.convertArrayContentToSingleString(args2));
+            args2 = CollectionUtilities.mergeArraysForInput(param, value);
+            SystemLog.message("PARAM KARMA:" + CollectionUtilities.toString(args2));
             SystemLog.message("try to create a file of triples from a relational table with karma...");
 
-            edu.isi.karma.rdf.OfflineRdfGenerator.main(args2);
+            OfflineRdfGenerator.main(args2);
 
             pathOut =
                     System.getProperty("user.dir")+File.separator+"karma_files"+File.separator+
-                            "output"+File.separator+ FileUtilities.getFilenameWithoutExt(pathOut)+"."+ FileUtilities.getExtension(pathOut);
+                            "output"+File.separator+ FileUtilities.getFilenameWithoutExt(pathOut)+"."
+                            + FileUtilities.getExtension(pathOut);
             SystemLog.message("...file of triples created with name:" + pathOut);
 
             File filePathTriple = new File(pathOut);
             //MUST CONVERT THE GENERATE TRIPLE TO SPECIFIC UTF8 FORMAT FRO WORK WITH SILK AFTER
             //HERE WE LOSE SOME TIME :(
             SystemLog.message("Converting the file of triple to UTF8 Format...");
-            List<String> lines = EncodingUtil.convertUnicodeEscapeToUTF8(filePathTriple);
+            List<String> lines = FileUtilities.toUTF8(filePathTriple);
             String output =
                     System.getProperty("user.dir")+File.separator+"karma_files"+File.separator+"output"+File.separator+
                             FileUtilities.getFilename(pathOut).replace("." + FileUtilities.getExtension(pathOut), "-UTF8." +
                                     FileUtilities.getExtension(pathOut));
             SystemLog.message("...file of triples created in the path:" + output);
-            EncodingUtil.writeLargerTextFileWithReplace2(output, lines);
+            FileUtilities.write(lines, new File(output), StringUtilities.UTF_8, StringUtilities.UTF_8);
             SystemLog.message("...converted the file of triple to UTF8 Format");
             File f = new File(output);
             //RIPULIAMO LETRIPLE DALLE LOCATION SENZA COORDINATE CON JENA
             SystemLog.message("Re-clean infodocument triples from the Location information  without coordinates from the file:" + output);
-            SystemLog.message(FileUtilities.getFilenameWithoutExt(f)+","+ FileUtilities.getPath(f)+","+ FileUtilities.getFilenameWithoutExt(f)
+            SystemLog.message(FileUtilities.getFilenameWithoutExt(f) + "," + FileUtilities.getPath(f) + "," + FileUtilities.getFilenameWithoutExt(f)
                     + "-c" + "," + FileUtilities.getExtension(f));
             filePathTriple.delete();
             return f;
@@ -223,7 +226,7 @@ public class GenerationOfTriple {
             //inputStream: Input data as a Stream
             //request.setInputStream(in);
             //inputFile: Input data file
-            request.setInputFile(new File(FileUtilities.convertFileToUri(fileToTriplify)));
+            request.setInputFile(new File(FileUtilities.toUri(fileToTriplify)));
             //addProvenance -> flag to indicate if provenance information should be added to the RDF
             request.setAddProvenance(true);
             //dataType: Valid values: CSV,JSON,XML,AVRO

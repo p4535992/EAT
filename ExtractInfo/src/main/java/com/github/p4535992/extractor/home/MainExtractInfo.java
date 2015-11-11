@@ -1,7 +1,7 @@
 package com.github.p4535992.extractor.home;
 
 import com.github.p4535992.extractor.estrattori.ExtractInfoSpring;
-import com.github.p4535992.util.file.impl.FileUtilities;
+import com.github.p4535992.util.file.FileUtilities;
 import com.github.p4535992.util.file.SimpleParameters;
 import com.github.p4535992.util.log.SystemLog;
 import java.awt.*;
@@ -36,22 +36,22 @@ public class MainExtractInfo {
                        // Parse all the parameters
                        SimpleParameters params = new SimpleParameters();
                        if (args.length > 0) {
-                           mParameters = FileUtilities.readStringFromFileLineByLine(args[0], '=', params);
+                           params = FileUtilities.readFile(new File(args[0]), '=');
                        } else{
                            //C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\resources\input.properties
                            // + "ExtractInfo" + File.separator +
-                           mParameters = FileUtilities.readStringFromFileLineByLine(
-                                   System.getProperty("user.dir") + File.separator +
+                           params = FileUtilities.readFile(
+                                   new File(System.getProperty("user.dir") + File.separator +
                                            "src" + File.separator + "main" + File.separator + "resources" + File.separator +
-                                           "input.properties", '=', params);
+                                           "input.properties"), '=');
                         }
                         //VARIABILI ALTRE
                         //PRINT SULLA CONSOLE
                         SystemLog.message("Using parameters:");
                         SystemLog.message(params.toString());
 
-                       if(params.getValue("PARAM_TYPE_EXTRACTION").equals("SPRING")){
-                            ExtractInfoSpring m = ExtractInfoSpring.getInstance(params);
+                       if(params.getValue("PARAM_TYPE_EXTRACTION").equals("SPRING")) {
+                           ExtractInfoSpring m = ExtractInfoSpring.getInstance(params);
                             SystemLog.message("START EXTRACT");
                             m.Extraction();
                        }

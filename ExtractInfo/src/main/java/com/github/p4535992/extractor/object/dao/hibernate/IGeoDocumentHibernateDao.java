@@ -11,7 +11,7 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * Created by Marco on 02/04/2015.
+ * Created by 4535992 on 02/04/2015.
  */
 public interface IGeoDocumentHibernateDao extends IGenericHibernateDao<GeoDocument> {
     void setDriverManager(String driver, String typeDb, String host, String port, String user, String pass, String database);

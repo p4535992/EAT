@@ -2,7 +2,7 @@
 ### SIMPLE JAVA PROGRAMM FOR EXTRACT INFORMATION FROM WEB PAGE###
 ##############################################################
 #########################
-###Last Update: 2015-09-15
+###Last Update: 2015-11-12
 #########################
 A simple java project where i use GATE (https://gate.ac.uk/) with a my specific library 
 gate-basic (https://github.com/p4535992/gate-basic) for analize web document and extract specific information.
@@ -59,7 +59,7 @@ You can the dependency to this github repository With jitpack (https://jitpack.i
  <pre class="prettyprint">&lt;dependency&gt;
   &lt;groupId&gt;com.github.p4535992&lt;/groupId&gt;
   &lt;artifactId&gt;ExtractInfo&lt;/artifactId&gt;
-  &lt;version&gt;<span id="latest_release">1.4.1</span>&lt;/version&gt;
+  &lt;version&gt;<span id="latest_release">1.4.3</span>&lt;/version&gt;
 &lt;/dependency&gt;  </pre>
 
 <!-- Add this script to update "latest_release" span to latest version -->

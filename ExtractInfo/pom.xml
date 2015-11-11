@@ -6,7 +6,7 @@
 
     <groupId>com.github.p4535992</groupId>
     <artifactId>extractInfo</artifactId>
-    <version>1.4.1</version>
+    <version>1.4.3</version>
     <packaging>jar</packaging>
 
     <name>${project.artifactId}</name>
@@ -107,8 +107,8 @@
         <!-- APACHE HTTP -->
         <org.apache.httpcomponents.httpclient.version>4.5.1</org.apache.httpcomponents.httpclient.version>
         <!-- UTILITY -->
-        <com.github.p4535992.utility.version>1.4.1</com.github.p4535992.utility.version>
-        <com.github.p4535992.gate-basic.version>1.4.1</com.github.p4535992.gate-basic.version>
+        <com.github.p4535992.utility.version>1.4.3</com.github.p4535992.utility.version>
+        <com.github.p4535992.gate-basic.version>1.4.3</com.github.p4535992.gate-basic.version>
     </properties>
 
     <dependencyManagement>
@@ -160,7 +160,7 @@
     </dependencyManagement>
 
     <dependencies>
-        <!-- Module utility -->
+        <!-- Module utility  -->
         <dependency>
             <groupId>com.github.p4535992</groupId>
             <artifactId>utility</artifactId>
@@ -328,6 +328,31 @@
             <version>${org.apache.httpcomponents.httpclient.version}</version>
         </dependency>
 
+       <!-- <dependency>
+            <groupId>javax.persistence</groupId>
+            <artifactId>persistence-api</artifactId>
+            <version>1.0.2</version>
+        </dependency>-->
+        <dependency>
+            <groupId>org.hibernate.javax.persistence</groupId>
+            <artifactId>hibernate-jpa-2.1-api</artifactId>
+            <version>1.0.0.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>4.3.10.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate.javax.persistence</groupId>
+            <artifactId>hibernate-jpa-2.1-api</artifactId>
+            <version>1.0.0.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate.javax.persistence</groupId>
+            <artifactId>hibernate-jpa-2.1-api</artifactId>
+            <version>1.0.0.Final</version>
+        </dependency>
 
 
     </dependencies>
