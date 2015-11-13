@@ -66,7 +66,6 @@ public class MainSesameManager {
             "                    <http://schema.org/streetAddress> \"zzzzzz\". }";
 
     public static void main(String args[]) throws RepositoryException, MalformedQueryException, QueryEvaluationException, UnsupportedEncodingException, UpdateExecutionException {
-        SystemLog.setIsPRINT(false);
         SystemLog.setIsLogOff(true);
 
         Sesame28Kit sesame = Sesame28Kit.getInstance();

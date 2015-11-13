@@ -27,7 +27,6 @@ public class MainExtractInfo {
             //SwingUtilities.invokeAndWait(new Runnable() {
                public void run() {
                    try {
-                       SystemLog.setIsPRINT(false);
                        SystemLog.setIsLogOff(true);
                        SystemLog.message("===== START THE PROGRAMM =========");
                         /*long start = System.currentTimeMillis();*/

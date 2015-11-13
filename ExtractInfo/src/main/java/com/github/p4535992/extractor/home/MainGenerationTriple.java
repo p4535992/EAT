@@ -16,7 +16,6 @@ import java.io.IOException;
 public class MainGenerationTriple {
 
     public static void main(String[] args) throws IOException{
-        SystemLog.setIsPRINT(false);
         SystemLog.setIsLogOff(true);
         //ExecuteCmdAndPrintOnOutput rte = new ExecuteCmdAndPrintOnOutput();
         /*

@@ -1,5 +1,8 @@
 package com.github.p4535992.util.log;
 
+import com.github.p4535992.util.file.FileUtilities;
+import com.github.p4535992.util.string.StringUtilities;
+
 import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -15,53 +18,39 @@ import java.util.logging.Logger;
  * @version 2015-07-14.
  * @param <T> the generic type.
  */
-@SuppressWarnings("unused")
 public class SystemLog<T> extends OutputStream{
 
-    /*SystemLog.t = getClass().getGenericSuperclass();
-      SystemLog.pt = (java.lang.reflect.ParameterizedType) t;
-      SystemLog.cl = (Class) pt.getActualTypeArguments()[0];
-      SystemLog.clName = cl.getSimpleName();*/
-
-    private static java.lang.reflect.Type t;
+   /* private static java.lang.reflect.Type t;
     private static java.lang.reflect.ParameterizedType pt;
     private static Class<?> cl ;
     private static String clName ;
+    private static PrintLog printLog;*/
 
     /** {@code org.slf4j.Logger} */
-    private static final org.slf4j.Logger SLF4JLogger = 
+    private static final org.slf4j.Logger SLF4JLogger =
             org.slf4j.LoggerFactory.getLogger(SystemLog.class);
     private static final org.apache.log4j.Logger LOG4JLogger = 
             org.apache.log4j.Logger.getLogger(SystemLog.class);
     private static final java.util.logging.Logger UTILLogger = 
             java.util.logging.Logger.getLogger(SystemLog.class.getName());
 
-    private static org.slf4j.Logger slf4j ;
-    private static org.apache.log4j.Logger log4j;
-    private static java.util.logging.Logger logUtil;
+    protected static org.slf4j.Logger slf4j;
+    protected static org.apache.log4j.Logger log4j;
+    protected static java.util.logging.Logger logUtil;
 
-    private static Level level;
+    protected static MyLevel myLevel;
+    protected static SimpleDateFormat logTimestamp = new SimpleDateFormat("[HH:mm:ss]");
+    protected static String logTimestampFile = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
+    protected static File logfile;
 
-    private static SimpleDateFormat logTimestamp = new SimpleDateFormat("[HH:mm:ss]");
-    private static DateFormat df;
-    // private static SimpleDateFormat logTimesAndDateStamp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss,SSS");
-    // private static logWriter = new PrintWriter(new BufferedWriter(new FileWriter(logfile.getAbsolutePath(), true)));
-    private static File logfile;
+    protected static boolean isDEBUG,isERROR,isPRINT,isInline, isLogOff = false;
+    protected static boolean isLogUtil ,isLog4j ,isSlf4j =false;
+    protected static boolean logging = false;
 
-    private static Integer LEVEL;
-    private static boolean isDEBUG=false;
-    private static boolean isERROR;
-    private static boolean isPRINT = false;
-    private static boolean isInline = false;
-
-    private static boolean isLogOff = false;
-    private static boolean isLogUtil = false;
-    private static boolean isLog4j = false;
-    private static boolean isSlf4j = false;
-    private static boolean logging = false;
-
+/*
     private static PrintWriter logWriter;
     private static String separator = ": ";
+*/
 
     OutputStream[] outputStreams;
 
@@ -77,17 +66,13 @@ public class SystemLog<T> extends OutputStream{
         return isPRINT;
     }
 
-    public static void setIsPRINT(boolean isPRINT) {
+    /*public static void setIsPRINT(boolean isPRINT) {
         SystemLog.isPRINT = isPRINT;
-    }
+    }*/
 
-    public static boolean isDEBUG() {
-        return isDEBUG;
-    }
+    public static boolean isDEBUG() { return isDEBUG;}
 
-    public static void setIsDEBUG(boolean isDEBUG) {
-        SystemLog.isDEBUG = isDEBUG;
-    }
+    public static void setIsDEBUG(boolean isDEBUG) {SystemLog.isDEBUG = isDEBUG; }
 
     public static boolean isLog4j() {return isLog4j;}
 
@@ -101,36 +86,92 @@ public class SystemLog<T> extends OutputStream{
 
     public static void setIsInline(boolean isInline) { SystemLog.isInline = isInline; }
 
+    private static SystemLog instance = null;
 
-    public SystemLog(){
+    public static SystemLog start(){
+        if(instance == null) {
+            prepareLogFile(null, null, null);
+            instance = new SystemLog();
+        }
+        return instance;
+    }
+
+    public static SystemLog start(File file){
+        if(instance == null){
+            prepareLogFile(
+                    FileUtilities.getFilenameWithoutExt(file),
+                    FileUtilities.getExtension(file),
+                    FileUtilities.getPath(file));
+            instance = new SystemLog();
+        }
+        return instance;
+    }
+
+    public static SystemLog start(String LOGNAME, String SUFFIX){
+        if(instance == null){
+            prepareLogFile(LOGNAME, SUFFIX, null);
+            instance = new SystemLog();
+        }
+        return instance;
+    }
+
+    public static SystemLog startWithLog4J(File fileXML){
+        isLog4j = true;
+        SystemLog4j.configurationLog4j(fileXML);
+        if(instance == null)instance = start();
+        return instance;
+    }
+
+    public static SystemLog startWithLog4J(File fileOutput,File fileXML){
+        isLog4j = true;
+        isPRINT = true;
+        if(instance == null){
+            prepareLogFile(fileOutput);
+            SystemLog4j.configurationLog4j(fileXML);
+            instance = new SystemLog();
+        }
+        return instance ;
+    }
+
+    private static void prepareLogFile(File fileOutput){
+        logfile = fileOutput;
+    }
+
+    private static void prepareLogFile(String LOGNAME, String SUFFIX,String PATHFILE){
+        //Set default value
+        logTimestampFile = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
+        logging = true;
+        if(LOGNAME!=null) {
+            if (StringUtilities.isNullOrEmpty(SUFFIX)) SUFFIX = "log";
+            if (PATHFILE == null) {
+                isPRINT = true;
+                SystemLog.logfile =
+                        new File(System.getProperty("user.dir") + File.separator
+                                + LOGNAME + "_" + logTimestampFile + "." + SUFFIX);
+            } else {
+                isPRINT = true;
+                SystemLog.logfile = new File(
+                        PATHFILE + File.separator + LOGNAME + "_" + logTimestampFile + "." + SUFFIX);
+            }
+        }else{
+            if(isPRINT) {
+                if (logfile == null || !logfile.exists()) {
+                    logfile = new File(System.getProperty("user.dir") + File.separator
+                            + "createdAutomaticLog" + "_" + logTimestampFile + ".log");
+                }
+            }
+        }
+    }
+
+    protected SystemLog(){
         try {
-            String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
-            SystemLog.logging = true;
-            PrintLog.start();
+            if(isLog4j){ /*do nothing*/}
+            else {
+                if (logfile == null) PrintLog.start();
+                else PrintLog.start(logfile);
+            }
         } catch (Exception ex) {
-            java.util.logging.Logger.getLogger(SystemLog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-    }
-
-    public SystemLog(String LOGNAME, String SUFFIX){
-        try {
-            String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
-            SystemLog.logfile =
-                    new File(System.getProperty("user.dir")+File.separator
-                            + LOGNAME + "_" +  timeStamp + "." + SUFFIX);
-            PrintLog.start(logfile.getAbsolutePath());
-        }catch (Exception ex) {
-            java.util.logging.Logger.getLogger(SystemLog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-    }
-
-    public SystemLog(String LOGNAME, String SUFFIX,String PATHFILE){
-        try {
-            String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
-            SystemLog.logfile = new File(PATHFILE + File.separator + LOGNAME + "_" + timeStamp + "." + SUFFIX);
-            PrintLog.start(logfile.getAbsolutePath());
-        }catch (Exception ex) {
-            java.util.logging.Logger.getLogger(SystemLog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            //java.util.logging.Logger.getLogger(SystemLog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
     }
 
@@ -138,139 +179,110 @@ public class SystemLog<T> extends OutputStream{
        this.outputStreams= outputStreams;
     }
 
-
-   /* *//**
-     * Now all data written to System.out should be redirected into the file
-     * "c:\\data\\system.out.txt". Keep in mind though, that you should make
-     * sure to flush System.out and close the file before the JVM shuts down,
-     * to be sure that all data written to System.out is actually flushed to the file.
-     *//*
-    private void setStream(){
-        try{
-            if(isPRINT) {
-                //With Separated File
-                //FileOutputStream fout = new FileOutputStream(logfile);
-                //FileOutputStream ferr = new FileOutputStream(logfile);
-                //Redirect stream to the SystemLog....
-                //multiOut = new SystemLog(System.out, fout);
-                //multiErr = new SystemLog(System.err, ferr);
-                // Create/Open logfile.
-                logStreamFile = new PrintLog(new BufferedOutputStream(new FileOutputStream(logfile)));
-                multiOut = new SystemLog(System.out, logStreamFile);
-                multiErr = new SystemLog(System.err, logStreamFile);
-
-            }else{
-                multiOut = new SystemLog(System.out);
-                multiErr = new SystemLog(System.err);
+    @Override
+    public void  close() throws IOException {
+        if(outputStreams != null) {
+            for (OutputStream out : outputStreams) {
+                if(out!=null)out.close();
             }
-            //Write ont the File...
-            //PrintStream around it to support the println/printf methods.
-            *//*PrintStream stdout= new PrintStream(multiOut);
-            PrintStream stderr= new PrintStream(multiErr);*//*
-
-
-            // redirect standard output stream to the TextAreaOutputStream
-            // redirect standard error stream to the TextAreaOutputStream
-            //System.setErr(new PrintStream(new  SystemLog(System.err)));
-            PrintLog stdout= new PrintLog(multiOut);
-            PrintLog stderr= new PrintLog(multiErr);
-            System.setOut(stdout);
-            System.setErr(stderr);
         }
-        catch (FileNotFoundException ex){
-            //Could not create/open the file
+        if(isLog4j)  SystemLog4j.closeLog4J();
+        PrintLog.stop();
+        // Shut down log4j
+        isDEBUG = false; isERROR = false; isPRINT = false; isInline = false;  isLogOff = false;
+        isLogUtil  = false; isLog4j  = false; isSlf4j =false;
+        logging = false;
+        instance = null;
+    }
+
+    @Override
+    public void flush() throws IOException{
+        for (OutputStream out: outputStreams) {
+            out.flush();
         }
     }
 
-    private void setStream(String fileName) throws FileNotFoundException {
-        // First save the current standard output and standard error print streams.
-        // These print streams will be restored when stop() is called.
-        // Next, the log file is opened. If the log file does not exist, it's created.
-        // Otherwise, the log file is emptied.
-        // Finally, System.setOut() and System.setErr() are called to replace the
-        // standard output and standard error print streams with LogFile print streams.
+    @Override
+    public void write(int b) throws IOException{
+        for (OutputStream out : outputStreams) {
+            if(out!=null){
+                out.write(b);
+                out.flush();
+            }
+        }
 
-        // Create/Open logfile.
-        logStreamFile = new PrintLog(
-                new BufferedOutputStream(
-                        new FileOutputStream(fileName)));
+    }
 
-        multiOut = new SystemLog(System.out, logStreamFile);
-        multiErr = new SystemLog(System.err, logStreamFile);
-        PrintLog.setLogStreamFile(logStreamFile);
+    @Override
+    public void write(byte[] b) throws IOException{
+        for (OutputStream out : outputStreams) {
+            if(out!=null){out.write(b);out.flush();}
+        }
+    }
 
-        // Indicate that output is to be redirected.
-        PrintLog stdout= new PrintLog(multiOut);
-        PrintLog stderr= new PrintLog(multiErr);
-        System.setOut(stdout);
-        System.setErr(stderr);
+    @Override
+    public void write(byte[] b, int off, int len) throws IOException{
+        for (OutputStream out : outputStreams) {
+            if(out!=null) { out.write(b, off, len);out.flush();}
+        }
+    }
 
-    }*/
+    protected static String prepareLogEntry(String logEntry, Class<?> clazz){
+        try {
+            if (logEntry != null) {
+                StringBuilder sb = new StringBuilder();
+                if(!isLogOff) {
+                    if(!(isLog4j || isSlf4j || isLogUtil)) {
+                        if (logTimestamp != null)
+                            sb.append(logTimestamp.format(new Date()));
+                        else {
+                            DateFormat df = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG);
+                            sb.append(df.format(logTimestamp));
+                        }
+                        if (isDEBUG) {
+                            sb.append(MyLevel.DEBUG);
+                        }
+                        sb.append(myLevel.toString());
+                        //Add to the class.....
+                        if(clazz!=null)sb.append(clazz.getName()).append("::");
+                    }
+                }
+                logEntry = StringUtilities.toStringInline(logEntry);//beautify String
+                sb.append(logEntry);
+                return sb.toString();
+            }else{
+                return "[NULL]["+logTimestamp+"]";
+            }
+        }catch(Exception e){
+            return "[SOME ERROR WITH THE CREATION OF THE LOG][" + logTimestamp + "]";
+        }
+    }
 
     /**
      * Writes a message to the log.
      * @param logEntry message to write as a log entry
      */
-    @SuppressWarnings("rawtypes")
     protected static void write(String logEntry) {
-        try {
-            if (logEntry != null) {
-            if (isLogOff) {
-                    if(isInline){
-                        if (isERROR) System.err.print(logEntry);
-                        else System.out.print(logEntry);
-                    }else {
-                        if (isERROR) System.err.println(logEntry);
-                        else System.out.println(logEntry);
-                    }
-                } else {
-                    if (logfile == null || !logfile.exists()) new SystemLog();
-                    //if(!logging){ log = new SystemLog();}
-                    StringBuilder sb = new StringBuilder();
-                    if (logTimestamp != null)
-                        sb.append(logTimestamp.format(new Date()));
-                    else {
-                        if (df == null)
-                            df = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG);
-                        sb.append(df.format(logTimestamp));
-                    }
-
-                    if (isDEBUG) {
-                        sb.append(Level.DEBUG);
-                    }
-                    sb.append(level.toString());
-                    sb.append(logEntry);
-
-                    if(isInline){
-                        if (isERROR) System.err.print(sb.toString());
-                        else System.out.print(sb.toString());
-                    }else {
-                        if (isERROR) System.err.println(sb.toString());
-                        else System.out.println(sb.toString());
-                    }
-
-                    if (isPRINT) {
-                        try (PrintWriter pWriter = new PrintWriter(new BufferedWriter(new FileWriter(logfile.getAbsolutePath(), true)))) {
-                            //try{
-                            pWriter.print(sb.toString() + System.getProperty("line.separator"));
-                            pWriter.flush();
-                            //logWriter.close();
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }//if logOff...
-             }
-        }catch(Exception e){
-            e.printStackTrace();
-        }finally{
+       try{
+            if(isInline){
+                if (isERROR) System.err.print(logEntry);
+                else System.out.print(logEntry);
+            }else {
+                if (isERROR) System.err.println(logEntry);
+                else System.out.println(logEntry);
+            }
+       }finally{
             isERROR=false;
-        }
+       }
     }
+
+    //-----------------------------------------------------------------------------------------------------------------
+    // CUSTOMIZE LOGGING
+    //-----------------------------------------------------------------------------------------------------------------
 
     public static void console(String logEntry){console(logEntry,null);}
     public static void console(String logEntry,Class<?> thisClass){
-        level = Level.VOID;
+        myLevel = MyLevel.VOID;
         if(thisClass!=null) {
             if(isLog4j){ log4j = org.apache.log4j.Logger.getLogger(thisClass); log4j.info(logEntry);}
             if(isSlf4j){
@@ -285,13 +297,29 @@ public class SystemLog<T> extends OutputStream{
     public static void messageInline(String logEntry){isInline=true; message(logEntry, null);}
     public static void message(String logEntry){message(logEntry,null);}
     public static void message(String logEntry,Class<?> thisClass){
-        level = Level.OUT;
+        myLevel = MyLevel.OUT;
+        logEntry = prepareLogEntry(logEntry,thisClass);
         if(thisClass!=null) {
-            if(isLog4j){ log4j = org.apache.log4j.Logger.getLogger(thisClass); log4j.info(logEntry);}
-            if(isSlf4j){ slf4j = org.slf4j.LoggerFactory.getLogger(thisClass); slf4j.info(logEntry);}
+            if(isLog4j){
+                log4j = org.apache.log4j.Logger.getLogger(thisClass);
+                log4j.info(logEntry);
+            }
+            else if(isSlf4j){
+                slf4j = org.slf4j.LoggerFactory.getLogger(thisClass);
+                slf4j.info(logEntry);
+            }
+            else if(isLogUtil){
+                logUtil = Logger.getLogger(thisClass.getName());
+                logUtil.log(java.util.logging.Level.INFO, logEntry);
+            }
             else write(logEntry);
         }
-        else write(logEntry);
+        else{
+            if(isLog4j) LOG4JLogger.info(logEntry);
+            else if(isSlf4j) SLF4JLogger.info(logEntry);
+            else if(isLogUtil)UTILLogger.log(java.util.logging.Level.INFO,logEntry);
+            else write(logEntry);
+        }
     }
 
     public static void error(String logEntry){error(logEntry, new Throwable(logEntry), null);}
@@ -299,22 +327,33 @@ public class SystemLog<T> extends OutputStream{
     public static void error(String logEntry,Exception ex,Class<?> thisClass){error(logEntry, new Throwable(ex.getCause()),thisClass);}
     public static void error(String logEntry,Throwable th){error(logEntry,th,null);}
     public static void error(String logEntry,Throwable th,Class<?> thisClass){
-        level = Level.ERR;
+        myLevel = MyLevel.ERR;
         isERROR=true;
+        logEntry = prepareLogEntry(logEntry,thisClass);
         if(thisClass!=null) {
             if(isLog4j){
                 log4j = org.apache.log4j.Logger.getLogger(thisClass);
                 if(th!=null)log4j.info(logEntry,th);
                 else log4j.info(logEntry);
             }
-            if(isSlf4j) {
+            else if(isSlf4j) {
                 slf4j = org.slf4j.LoggerFactory.getLogger(thisClass);
                 if (th != null) slf4j.info(logEntry, th);
                 else slf4j.info(logEntry);
             }
+            else if(isLogUtil){
+                logUtil = Logger.getLogger(thisClass.getName());
+                if (th != null)  logUtil.log(java.util.logging.Level.WARNING, logEntry,th);
+                else logUtil.log(java.util.logging.Level.WARNING, logEntry);
+            }
             else write(logEntry);
         }
-        else write(logEntry);
+        else{
+            if(isLog4j) LOG4JLogger.error(logEntry);
+            else if(isSlf4j) SLF4JLogger.error(logEntry);
+            else if(isLogUtil)UTILLogger.log(java.util.logging.Level.WARNING,logEntry);
+            else write(logEntry);
+        }
     }
 
     public static void warning(String logEntry){warning(logEntry, null, null);}
@@ -322,27 +361,39 @@ public class SystemLog<T> extends OutputStream{
     public static void warning(Throwable th){warning(th.getMessage() + "," + th.getLocalizedMessage(), th, null);}
     public static void warning(Throwable th,Class<?> thisClass){warning(th.getMessage() + "," + th.getLocalizedMessage(), th, thisClass);}
     public static void warning(String logEntry,Throwable th,Class<?> thisClass){
-        level = Level.WARN;
+        myLevel = MyLevel.WARN;
         isERROR=true;
+        logEntry = prepareLogEntry(logEntry,thisClass);
         if(thisClass!=null) {
             if(isLog4j){
                 log4j = org.apache.log4j.Logger.getLogger(thisClass);
                 if(th!=null)log4j.info(logEntry,th);
                 else log4j.info(logEntry);
             }
-            if(isSlf4j) {
+            else if(isSlf4j) {
                 slf4j = org.slf4j.LoggerFactory.getLogger(thisClass);
                 if (th != null) slf4j.info(logEntry, th);
                 else slf4j.info(logEntry);
             }
+            else if(isLogUtil){
+                logUtil = Logger.getLogger(thisClass.getName());
+                if (th != null)  logUtil.log(java.util.logging.Level.WARNING, logEntry,th);
+                else logUtil.log(java.util.logging.Level.WARNING, logEntry);
+            }
             else write(logEntry);
         }
-        else write(logEntry);
+        else{
+            if(isLog4j) LOG4JLogger.error(logEntry);
+            else if(isSlf4j) SLF4JLogger.error(logEntry);
+            else if(isLogUtil)UTILLogger.log(java.util.logging.Level.WARNING,logEntry);
+            else write(logEntry);
+        }
     }
 
     public static void hibernate(String logEntry) {hibernate(logEntry, null);}
     public static void hibernate(String logEntry,Class<?> thisClass) {
-        level = Level.HIBERNATE;
+        myLevel = MyLevel.HIBERNATE;
+        logEntry = prepareLogEntry(logEntry,thisClass);
         if(thisClass!=null) {
             if(isLog4j){ log4j = org.apache.log4j.Logger.getLogger(thisClass); log4j.info(logEntry);}
             if(isSlf4j){ slf4j = org.slf4j.LoggerFactory.getLogger(thisClass); slf4j.info(logEntry);}
@@ -358,7 +409,8 @@ public class SystemLog<T> extends OutputStream{
     public static void sparql(Exception e) {sparql(e.getMessage(),new Throwable(e.getCause()),null);}
     public static void sparql(Exception e,Class<?> clazz) {sparql(e.getMessage(),new Throwable(e.getCause()),clazz);}
     public static void sparql(String logEntry,Throwable th,Class<?> thisClass){
-        level = Level.SPARQL;
+        myLevel = MyLevel.SPARQL;
+        logEntry = prepareLogEntry(logEntry,thisClass);
         if(thisClass!=null) {
             if(isLog4j){
                 log4j = org.apache.log4j.Logger.getLogger(thisClass);
@@ -378,7 +430,8 @@ public class SystemLog<T> extends OutputStream{
 
     public static void query(String logEntry) { query(logEntry, null);}
     public static void query(String logEntry,Class<?> thisClass){
-        level = Level.QUERY;
+        myLevel = MyLevel.QUERY;
+        logEntry = prepareLogEntry(logEntry,thisClass);
         if(thisClass!=null) {
             if(isLog4j){ log4j = org.apache.log4j.Logger.getLogger(thisClass); log4j.info(logEntry);}
             if(isSlf4j){ slf4j = org.slf4j.LoggerFactory.getLogger(thisClass); slf4j.info(logEntry);}
@@ -389,7 +442,8 @@ public class SystemLog<T> extends OutputStream{
 
     public static void attention(String logEntry) {attention(logEntry, null);}
     public static void attention(String logEntry,Class<?> thisClass) {
-        level = Level.ATTENTION;
+        myLevel = MyLevel.ATTENTION;
+        logEntry = prepareLogEntry(logEntry,thisClass);
         if(thisClass!=null) {
             if(isLog4j){ log4j = org.apache.log4j.Logger.getLogger(thisClass); log4j.info(logEntry);}
             if(isSlf4j){ slf4j = org.slf4j.LoggerFactory.getLogger(thisClass); slf4j.info(logEntry);}
@@ -401,31 +455,51 @@ public class SystemLog<T> extends OutputStream{
     public static void abort(int rc){System.exit(rc);}
     public static void abort(int rc,String logEntry){abort(rc, logEntry, null);}
     public static void abort(int rc, String logEntry,Class<?> thisClass) {
-        level = Level.ABORT;
+        myLevel = MyLevel.ABORT;
+        logEntry = prepareLogEntry(logEntry,thisClass);
         isERROR=true;
         if(thisClass!=null) {
-            if(isLog4j){ log4j = org.apache.log4j.Logger.getLogger(thisClass); log4j.info(logEntry); System.exit(rc);}
-            if(isSlf4j){ slf4j = org.slf4j.LoggerFactory.getLogger(thisClass); slf4j.info(logEntry); System.exit(rc);}
-            else  write(logEntry); System.exit(rc);
-        }
-        else  write(logEntry); System.exit(rc);
-    }
-
-    public static void throwException(Throwable th){ throwException(th.getMessage(), th, null);}
-    public static void throwException(Exception e){throwException(e.getMessage() + "->" + e.getCause().toString(), null, null);}
-    public static void throwException(String logEntry,Throwable th,Class<?> thisClass){
-        level = Level.THROW;
-        isERROR=true;
-        if(thisClass!=null) {
+            if(isLogUtil){
+                logUtil = Logger.getLogger(thisClass.getName());
+                logUtil.log(java.util.logging.Level.SEVERE, logEntry);
+            }
             if(isLog4j){
                 log4j = org.apache.log4j.Logger.getLogger(thisClass);
-                if(th!=null)log4j.info(logEntry,th);
-                else log4j.info(logEntry);
+                log4j.fatal(logEntry);
             }
             if(isSlf4j) {
                 slf4j = org.slf4j.LoggerFactory.getLogger(thisClass);
-                if (th != null) slf4j.info(logEntry, th);
-                else slf4j.info(logEntry);
+                slf4j.error(logEntry);
+            }
+            else  write(logEntry);;
+        }
+        else  write(logEntry);
+        System.exit(rc);
+    }
+
+    public static void throwException(Throwable th){
+        throwException(th.getClass().getName() + ": " + th.getMessage(), new Throwable(th.getCause()), th.getClass());}
+    public static void throwException(Exception e){
+        throwException( e.getClass().getName() + ": " + e.getMessage(), new Throwable(e.getCause()), e.getClass());}
+    public static void throwException(String logEntry,Throwable th,Class<?> thisClass){
+        myLevel = MyLevel.THROW;
+        logEntry = prepareLogEntry(logEntry,thisClass);
+        isERROR=true;
+        if(thisClass!=null) {
+            if(isLogUtil){
+                logUtil = Logger.getLogger(thisClass.getName());
+                if(th!=null)logUtil.log(java.util.logging.Level.SEVERE, logEntry, th);
+                else logUtil.log(java.util.logging.Level.SEVERE, logEntry);
+            }
+            if(isLog4j){
+                log4j = org.apache.log4j.Logger.getLogger(thisClass);
+                if(th!=null)log4j.fatal(logEntry, th);
+                else log4j.fatal(logEntry);
+            }
+            if(isSlf4j) {
+                slf4j = org.slf4j.LoggerFactory.getLogger(thisClass);
+                if (th != null) slf4j.error(logEntry, th);
+                else slf4j.error(logEntry);
             }
             else write(logEntry);
         }
@@ -433,30 +507,31 @@ public class SystemLog<T> extends OutputStream{
     }
 
     public static void exception(Exception e){ exception(
-            e.getClass().getName() + ": " + e.getMessage(), new Throwable(e.getCause()), null);}
+            e.getClass().getName() + ": " + e.getMessage(), new Throwable(e.getCause()), e.getClass());}
     public static void exception(Exception e,Class<?> clazz){ exception(
             e.getClass().getName() + ": " + e.getMessage(), new Throwable(e.getCause()), clazz);}
     public static void exception(String logEntry){ exception(logEntry, new Throwable(logEntry), null);}
     public static void exception(String logEntry,Class<?> clazz){ exception(logEntry, new Throwable(logEntry), clazz);}
     public static void exception(String logEntry,Throwable th,Class<?> thisClass){
-        level = Level.EXCEP;
+        myLevel = MyLevel.EXCEP;
         isERROR=true;
+        logEntry = prepareLogEntry(logEntry,thisClass);
         if(thisClass!=null) {
             if(isLogUtil){
                 logUtil = Logger.getLogger(thisClass.getName());
-                 if(th!=null)logUtil.log(java.util.logging.Level.SEVERE, logEntry, th);
-                 else logUtil.log(java.util.logging.Level.SEVERE, logEntry);           
+                if(th!=null)logUtil.log(java.util.logging.Level.SEVERE, logEntry, th);
+                else logUtil.log(java.util.logging.Level.SEVERE, logEntry);
             }
             if(isLog4j){
                 log4j = org.apache.log4j.Logger.getLogger(thisClass);
-                if(th!=null)log4j.info(logEntry,th);
-                else log4j.info(logEntry);
+                if(th!=null)log4j.fatal(logEntry,th);
+                else log4j.fatal(logEntry);
             }
             if(isSlf4j) {
                 slf4j = org.slf4j.LoggerFactory.getLogger(thisClass);
-                if (th != null) slf4j.info(logEntry, th);
-                else slf4j.info(logEntry);
-            }         
+                if (th != null) slf4j.error(logEntry, th);
+                else slf4j.error(logEntry);
+            }
             else write(logEntry);
         }
         else write(logEntry);
@@ -467,53 +542,10 @@ public class SystemLog<T> extends OutputStream{
         abort(0);
     }
 
-
-    @Override
-    public void close() throws IOException {
-        // Restore the original standard output and standard error.
-        // Then close the log file.
-        /*System.setOut(oldStdout);
-        System.setErr(oldStderr);
-        if(logStreamFile!=null) logStreamFile.close();*/
-        if(outputStreams != null) {
-            for (OutputStream out : outputStreams) {
-                out.close();
-            }
-        }
-        PrintLog.stop();
-    }
-
-    @Override
-    public void flush() throws IOException{
-        for (OutputStream out: outputStreams)
-            out.flush();
-    }
-
-    @Override
-    public void write(int b) throws IOException{
-        for (OutputStream out : outputStreams) {
-            out.write(b);
-        }
-    }
-
-    @Override
-    public void write(byte[] b) throws IOException{
-        for (OutputStream out : outputStreams) {
-            out.write(b);
-        }
-    }
-
-    @Override
-    public void write(byte[] b, int off, int len) throws IOException{
-        for (OutputStream out : outputStreams) {
-            out.write(b, off,len);
-        }
-    }
-
-    public enum Level {
+    public enum MyLevel {
         VOID(0), OUT(1), WARN(2),ERR(3),ABORT(4),HIBERNATE(5),SPARQL(6),QUERY(7),THROW(8),EXCEP(9),ATTENTION(10),DEBUG(11);
         private final Integer value;
-        Level(Integer value) {
+        MyLevel(Integer value) {
             this.value = value;
         }
 
@@ -536,22 +568,23 @@ public class SystemLog<T> extends OutputStream{
         }
     }
 
-        /*public static void logStackTrace(Exception e, org.slf4j.Logger logger) {
-        logger.debug(e.getMessage());
-        for (StackTraceElement stackTrace : e.getStackTrace()) {
-            logger.error(stackTrace.toString());
+    //------------------------------
+    // Utility Method
+    //------------------------------
+    /**
+     * Method to get the name of the current method,.
+     * Input: Thread.currentThread().getStackTrace()
+     * @param e the Array of TraceElement.
+     * @return the String Name of the current Method.
+     */
+    public static String nameOfMethod(StackTraceElement e[]){
+        boolean doNext = false;
+        for (StackTraceElement s : e) {
+            if (doNext) return s.getMethodName();
+            doNext = s.getMethodName().equals("getStackTrace");
         }
+        return null;
     }
-
-    public static void logException(Exception e, org.slf4j.Logger logger) {
-        StringWriter sw = new StringWriter();
-        PrintWriter pw = new PrintWriter(sw);
-        e.printStackTrace(pw);
-        logger.error(sw.toString());
-    }*/
-
-
-        
 }
 
 
