@@ -12,8 +12,6 @@
 	<lib name="Maven: xpp3:xpp3:1.1.4c" scope="RUNTIME"/>
 	<lib name="Maven: org.springframework:spring-test:4.1.6.RELEASE" scope="TEST"/>
 	<levels>
-		<level name="Maven: org.jdom:jdom:1.1.2" value="project"/>
-		<level name="Maven: xmlunit:xmlunit:1.2" value="project"/>
 		<level name="Maven: org.hibernate:hibernate-entitymanager:4.3.10.Final" value="project"/>
 		<level name="Maven: org.hibernate:hibernate-osgi:4.3.10.Final" value="project"/>
 		<level name="Maven: org.osgi:org.osgi.core:4.3.1" value="project"/>
@@ -151,7 +149,6 @@
 		<level name="Maven: xml-apis:xml-apis:1.4.01" value="project"/>
 		<level name="Maven: org.jsoup:jsoup:1.8.2" value="project"/>
 		<level name="Maven: edu.isi:karma-offline:0.0.1-SNAPSHOT" value="project"/>
-		<level name="Maven: edu.isi:karma-common:0.0.1-SNAPSHOT" value="project"/>
 		<level name="Maven: edu.isi:karma-typer:0.0.1-SNAPSHOT" value="project"/>
 		<level name="Maven: org.apache.lucene:lucene-analyzers-common:4.8.0" value="project"/>
 		<level name="Maven: org.apache.lucene:lucene-core:4.8.0" value="project"/>
@@ -168,7 +165,6 @@
 		<level name="Maven: org.glassfish.hk2.external:cglib:2.2.0-b21" value="project"/>
 		<level name="Maven: org.glassfish.hk2:osgi-resource-locator:1.0.1" value="project"/>
 		<level name="Maven: javax.ws.rs:javax.ws.rs-api:2.0" value="project"/>
-		<level name="Maven: edu.isi:karma-util:0.0.1-SNAPSHOT" value="project"/>
 		<level name="Maven: org.apache.commons:commons-lang3:3.1" value="project"/>
 		<level name="Maven: com.googlecode.juniversalchardet:juniversalchardet:1.0.3" value="project"/>
 		<level name="Maven: net.sf.json-lib:json-lib:jdk15:2.3" value="project"/>
@@ -217,7 +213,6 @@
 		<level name="Maven: edu.isi:commands-publish:0.0.1-SNAPSHOT" value="project"/>
 		<level name="Maven: com.healthmarketscience.jackcess:jackcess:1.2.10" value="project"/>
 		<level name="Maven: edu.isi:commands-publish-jdbc:0.0.1-SNAPSHOT" value="project"/>
-		<level name="Maven: edu.isi:karma-jdbc:0.0.1-SNAPSHOT" value="project"/>
 		<level name="Maven: net.sourceforge.jtds:jtds:1.2.6" value="project"/>
 		<level name="Maven: edu.isi:commands-python:0.0.1-SNAPSHOT" value="project"/>
 		<level name="Maven: edu.isi:commands-publish-alignment-openrdf:0.0.1-SNAPSHOT" value="project"/>
@@ -307,5 +302,6 @@
 		<level name="Maven: org.javassist:javassist:3.18.1-GA" value="project"/>
 		<level name="Maven: antlr:antlr:2.7.7" value="project"/>
 		<level name="Maven: org.jboss:jandex:1.1.0.Final" value="project"/>
+		<level name="Maven: edu.isi:karma-common:0.0.1-SNAPSHOT" value="project"/>
 	</levels>
 </component>

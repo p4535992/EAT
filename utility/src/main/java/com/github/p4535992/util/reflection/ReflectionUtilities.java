@@ -18,7 +18,7 @@ import java.util.concurrent.ConcurrentHashMap;
  * Created by 4535992 on 26/10/2015.
  * Class for help with the first impact with java reflection library.
  * I don't own any right on the code, but i want to thank all the piece of code i
- * copied from the internet for help me with this.
+ * copied and modified fro my purpose  from the internet and help me with this.
  * href: http://my.safaribooksonline.com/video/-/9780133038118?cid=2012-3-blog-video-java-socialmedia
  * href: http://www.asgteach.com/blog/?p=559
  * href: http://stackoverflow.com/questions/709961/determining-if-an-object-is-of-primitive-type
@@ -698,7 +698,7 @@ public class ReflectionUtilities {
      * @param types class of the parameter of the constructor of the method you wan to find.
      * @return Method you found.
      */
-    public static Method getMethodByClassAndParam(Class<?> clazz, String nameOfMethod, Class...types)  {
+    public static Method getMethodByClassAndParam(Class<?> clazz, String nameOfMethod, Class<?>...types)  {
         return getMethodByNameAndParam(clazz, nameOfMethod, types); //String.class
     }
 
@@ -2688,16 +2688,28 @@ public class ReflectionUtilities {
      * @throws NoSuchMethodException throw if any error is occurred.
      */
     @SuppressWarnings("unchecked")
-    public static <T> T invokeGetter(T MyObject, Method method)
+    public static <T> Object invokeGetter(T MyObject, Method method)
             throws IllegalAccessException,InvocationTargetException,NoSuchMethodException{
-        T MyObject2;
+        Object MyObject2;
         Class<T> aClazz = (Class<T>) MyObject.getClass();
         try{
             //if the method you try to invoke is static...
-            MyObject2 = aClazz.cast(method.invoke(null));
+            MyObject2 = method.invoke(null);
         }catch(NullPointerException ne) {
             //...The method is not static
-            MyObject2 =  aClazz.cast(method.invoke(MyObject));
+            /*if( method.invoke(MyObject) instanceof URL){
+                URL ee = (URL) method.invoke(MyObject);
+                Class<?> clazz = ee.getClass();
+                MyObject2 = clazz.cast(method.invoke(MyObject));
+            }else{
+                MyObject2 = method.invoke(MyObject);
+            }*/
+            try {
+                Class<?> clazz = method.invoke(MyObject).getClass();
+                MyObject2 = clazz.cast(method.invoke(MyObject));
+            }catch(NullPointerException ne1){
+                MyObject2 = method.invoke(MyObject);
+            }
         }
         return MyObject2;
     }
@@ -2712,7 +2724,7 @@ public class ReflectionUtilities {
      * @throws InvocationTargetException throw if any error is occurred.
      * @throws NoSuchMethodException throw if any error is occurred.
      */
-    /*public static Object invokeGetter(Object MyObject,Method method)
+   /* public static Object invokeGetter2(Object MyObject,Method method)
             throws IllegalAccessException,InvocationTargetException,NoSuchMethodException{
         Object MyObject2;
         try{
@@ -2853,15 +2865,18 @@ public class ReflectionUtilities {
      * Determine if the passed in class (classToCheck) has the annotation (annoClass) on itself,
      * any of its super classes, any of it's interfaces, or any of it's super interfaces.
      * This is a exhaustive check throughout the complete inheritance hierarchy.
+     * @param classToCheck the Class to check.
+     * @param annoClass the Class Annotation to find.
      * @return the Annotation if found, null otherwise.
      */
-    public static Annotation getAnnotationByClass(final Class classToCheck, final Class annoClass){
-        final Set<Class> visited = new HashSet<Class>();
-        final LinkedList<Class> stack = new LinkedList<Class>();
+    public static Annotation getAnnotationByClass(
+            final Class<?> classToCheck, final Class<? extends Annotation> annoClass){
+        final Set<Class<?>> visited = new HashSet<>();
+        final LinkedList<Class<?>> stack = new LinkedList<>();
         stack.add(classToCheck);
 
         while (!stack.isEmpty()) {
-            Class classToChk = stack.pop();
+            Class<?> classToChk = stack.pop();
             if (classToChk == null || visited.contains(classToChk))
             {
                 continue;
@@ -2878,8 +2893,8 @@ public class ReflectionUtilities {
         return null;
     }
 
-    private static void addInterfaces(final Class classToCheck, final LinkedList<Class> stack) {
-        for (Class interFace : classToCheck.getInterfaces()) {
+    private static void addInterfaces(final Class<?> classToCheck, final LinkedList<Class<?>> stack) {
+        for (Class<?> interFace : classToCheck.getInterfaces()) {
             stack.push(interFace);
         }
     }
@@ -2890,12 +2905,13 @@ public class ReflectionUtilities {
      * @param annoClass the Annotation Class to search.
      * @return the Annotation you found.
      */
-    public static Annotation getAnnotationByMethod(final Method method, final Class annoClass) {
-        final Set<Class> visited = new HashSet<Class>();
-        final LinkedList<Class> stack = new LinkedList<Class>();
+    public static Annotation getAnnotationByMethod(
+            final Method method, final Class<? extends Annotation> annoClass) {
+        final Set<Class<?>> visited = new HashSet<>();
+        final LinkedList<Class<?>> stack = new LinkedList<>();
         stack.add(method.getDeclaringClass());
         while (!stack.isEmpty()) {
-            Class classToChk = stack.pop();
+            Class<?> classToChk = stack.pop();
             if (classToChk == null || visited.contains(classToChk))continue;
             visited.add(classToChk);
             Method m = getMethodByClassAndParam(classToChk, method.getName(), method.getParameterTypes());
@@ -2918,13 +2934,13 @@ public class ReflectionUtilities {
      * makes field traversal on a class faster as it does not need to
      * continually process known fields like primitives.
      */
-    public static Collection<Field> getDeepDeclaredFields(Class c){
-        Map<Class, Collection<Field>> _reflectedFields = new ConcurrentHashMap<>();
+    public static Collection<Field> getDeepDeclaredFields(Class<?> c){
+        Map<Class<?>, Collection<Field>> _reflectedFields = new ConcurrentHashMap<>();
         if (_reflectedFields.containsKey(c)) {
             return _reflectedFields.get(c);
         }
         Collection<Field> fields = new ArrayList<>();
-        Class curr = c;
+        Class<?> curr = c;
         while (curr != null) {
             getDeclaredFields(curr, fields);
             curr = curr.getSuperclass();
@@ -2941,10 +2957,12 @@ public class ReflectionUtilities {
      * that would need further processing (reference fields).  This
      * makes field traversal on a class faster as it does not need to
      * continually process known fields like primitives.
+     * @param fields the collection of Fields to search.
+     * @return the Array of declared fields of the Class.
      */
-    public static void getDeclaredFields(Class c, Collection<Field> fields) {
+    public static Field[] getDeclaredFields(Class<?> c, Collection<Field> fields) {
+        Field[] local = c.getDeclaredFields();
         try{
-            Field[] local = c.getDeclaredFields();
             for (Field field : local){
                 if (!field.isAccessible()) {
                     try{
@@ -2964,7 +2982,7 @@ public class ReflectionUtilities {
         }catch (Throwable ignored){
             SystemLog.throwException(ignored);
         }
-
+        return local;
     }
 
     /**
@@ -2974,7 +2992,7 @@ public class ReflectionUtilities {
      * @return Map of all fields on the Class, keyed by String field
      * name to java.lang.reflect.Field.
      */
-    public static Map<String, Field> getDeepDeclaredFieldMap(Class c) {
+    public static Map<String, Field> getDeepDeclaredFieldMap(Class<?> c) {
         Map<String, Field> fieldMap = new HashMap<>();
         Collection<Field> fields = getDeepDeclaredFields(c);
         for (Field field : fields) {

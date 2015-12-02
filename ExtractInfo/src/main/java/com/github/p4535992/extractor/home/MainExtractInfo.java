@@ -60,6 +60,7 @@ public class MainExtractInfo {
                                "------------ Processing took %s millis\n\n",
                          System.currentTimeMillis() - start));*/
                    }catch(Exception e){
+                           e.printStackTrace();
                            SystemLog.error(e.getMessage());
                    }
                }

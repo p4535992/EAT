@@ -6,6 +6,7 @@ import com.github.p4535992.util.database.sql.performance.JDBCLogger;
 import com.github.p4535992.util.file.FileUtilities;
 import com.github.p4535992.util.log.SystemLog;
 import com.github.p4535992.util.string.StringUtilities;
+import com.hp.hpl.jena.datatypes.xsd.XSDDatatype;
 import com.opencsv.CSVReader;
 
 
@@ -15,6 +16,7 @@ import java.io.IOException;
 import java.lang.reflect.Field;
 import java.sql.*;
 import java.util.*;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
@@ -29,6 +31,14 @@ public class SQLHelper {
     private static Statement stmt;
     private static String query;
 
+    public static Connection getCurrentConnection() {
+        return conn;
+    }
+
+    public static void setCurrentConnection(Connection conn) {
+        SQLHelper.conn = conn;
+    }
+
     /**
      * Method to get all JDBC type name of JAVA.
      * @return the Map of all JDBC type present in java.
@@ -39,7 +49,7 @@ public class SQLHelper {
             try {
                 result.put((Integer)field.get(null), field.getName());
             } catch (IllegalAccessException e) {
-                SystemLog.warning(e.getMessage(),e,SQLHelper.class);
+                SystemLog.warning(e.getMessage(), e, SQLHelper.class);
             }
         }
         return result;
@@ -223,6 +233,49 @@ public class SQLHelper {
         return "?";
     }
 
+
+    public static XSDDatatype convertSQLTypesToXDDTypes(int type){
+        switch (type) {
+            case Types.BIT: return XSDDatatype.XSDbyte;
+            case Types.TINYINT: return XSDDatatype.XSDint;
+            case Types.SMALLINT: return XSDDatatype.XSDint;
+            case Types.INTEGER: return XSDDatatype.XSDinteger;
+            case Types.BIGINT: return XSDDatatype.XSDint;
+            case Types.FLOAT: return XSDDatatype.XSDfloat;
+            //case Types.REAL:return ;
+            case Types.DOUBLE:return XSDDatatype.XSDdouble;
+            case Types.NUMERIC:return XSDDatatype.XSDinteger;
+            case Types.DECIMAL:return XSDDatatype.XSDdecimal;
+            case Types.CHAR:return XSDDatatype.XSDstring;
+            case Types.VARCHAR:return  XSDDatatype.XSDstring;
+            case Types.LONGVARCHAR:return  XSDDatatype.XSDstring;
+            case Types.DATE:return  XSDDatatype.XSDdate;
+            case Types.TIME: return  XSDDatatype.XSDtime;
+            case Types.TIMESTAMP:return  XSDDatatype.XSDdateTime;
+            case Types.BINARY:return  XSDDatatype.XSDbase64Binary;
+            case Types.VARBINARY:return XSDDatatype.XSDbase64Binary;
+            case Types.LONGVARBINARY:return XSDDatatype.XSDbase64Binary;
+            case Types.NULL:return XSDDatatype.XSDstring;
+            //case Types.OTHER:return "";
+            //case Types.JAVA_OBJECT:return "JAVA_OBJECT";
+            //case Types.DISTINCT:return "DISTINCT";
+            //case Types.STRUCT:return "STRUCT";
+            //case Types.ARRAY:return "ARRAY";
+            //case Types.BLOB:return "BLOB";
+            //case Types.CLOB:return "CLOB";
+            //case Types.REF:return "REF";
+            //case Types.DATALINK:return "DATALINK";
+            case Types.BOOLEAN: return XSDDatatype.XSDboolean;
+            //case Types.ROWID:return "ROWID";
+            case Types.NCHAR:return XSDDatatype.XSDstring;
+            case Types.NVARCHAR:return XSDDatatype.XSDstring;
+            case Types.LONGNVARCHAR:return XSDDatatype.XSDstring;
+            //case Types.NCLOB:return "NCLOB";
+            //case Types.SQLXML:return "SQLXML";
+            default: return XSDDatatype.XSDstring;
+        }
+    }
+
     /**
      * Method to get a Connection from a List to possible choice.
      * @param dialectDB the String of the dialectDb.
@@ -355,8 +408,8 @@ public class SQLHelper {
 
     public static Connection getMySqlConnection(String fullUrl) {
         //jdbc:mysql://localhost:3306/geodb?user=minty&password=greatsqldb&noDatetimeStringSync=true
-        if(fullUrl.toLowerCase().contains("jdbc:mysql://")) fullUrl = fullUrl.replace("jdbc:mysql://","");
         //localhost:3306/geodb?user=minty&password=greatsqldb&noDatetimeStringSync=true
+        /*if(fullUrl.toLowerCase().contains("jdbc:mysql://")) fullUrl = fullUrl.replace("jdbc:mysql://","");
         String[] split = fullUrl.split("\\?");
         String hostAndDatabase = split[0];//localhost:3306/geodb
         Pattern pat = Pattern.compile("(\\&|\\?)?(user|username)(\\=)(.*?)(\\&|\\?)?", Pattern.CASE_INSENSITIVE);
@@ -372,7 +425,26 @@ public class SQLHelper {
         String port = StringUtilities.findWithRegex(hostAndDatabase, pat);
         if(Objects.equals(port, "?")) port = null;
         else  hostAndDatabase = hostAndDatabase.replace(port, "").replace(":","").replace("/","");
-        return getMySqlConnection(hostAndDatabase,port,database,username,password);
+        return getMySqlConnection(hostAndDatabase,port,database,username,password);*/
+        try {
+            try {
+                Class.forName("com.mysql.jdbc.Driver").newInstance(); //load driver//"com.sql.jdbc.Driver"
+            } catch (ClassNotFoundException e) {
+                Class.forName("org.gjt.mm.mysql.Driver").newInstance();
+            }
+            try {
+                //DriverManager.getConnection("jdbc:mysql://localhost/test?" +"user=minty&password=greatsqldb");
+                conn = DriverManager.getConnection(fullUrl);
+            } catch (com.mysql.jdbc.exceptions.jdbc4.CommunicationsException e) {
+                SystemLog.error("You forgot to turn on your MySQL Server!!!");
+                SystemLog.abort(0);
+            } catch (SQLException e) {
+                SystemLog.error("The URL is not correct", e, SQLHelper.class);
+            }
+        }catch (InstantiationException | IllegalAccessException | ClassNotFoundException e1) {
+            SystemLog.error("The Class.forName is not present on the classpath of the project", e1, SQLHelper.class);
+        }
+        return conn;
     }
 
     /**
@@ -466,8 +538,27 @@ public class SQLHelper {
         while(result.next()){
             String columnName = result.getString(4);
             Integer columnType = result.getInt(5);
+            String type = convertSQLTypes2String(columnType);
             map.put(columnName,columnType);
         }
+        return map;
+    }
+
+    public static Map<String,Integer> getColumns(Connection conn,String tablename) throws SQLException {
+        conn.setAutoCommit(false);
+        Statement stmt = conn.createStatement(ResultSet.TYPE_FORWARD_ONLY,
+                ResultSet.CONCUR_READ_ONLY);
+        //stmt.setFetchSize(DATABASE_TABLE_FETCH_SIZE);
+        String query = "Select * FROM " + tablename;
+        ResultSet r = stmt.executeQuery(query);
+        ResultSetMetaData meta = r.getMetaData();
+        // Get the column names
+        Map<String,Integer> map = new HashMap<>();
+        for (int i = 1; i <= meta.getColumnCount(); i++) {
+            map.put(meta.getColumnName(i), meta.getColumnType(i));
+        }
+        r.close();
+        stmt.close();
         return map;
     }
 
@@ -675,7 +766,7 @@ public class SQLHelper {
      */
     public static void importCsvInsertInto(File fileCSV, boolean firstLine,Character separator,
                                        String nameTable,Connection connection) {
-        String[] columns = FileUtilities.getColumns(fileCSV, firstLine);
+        String[] columns = FileUtilities.CSVGetHeaders(fileCSV, firstLine);
         SQLJooqKit2.setConnection(connection);
         try {
             CSVReader reader = new CSVReader(new FileReader(fileCSV), separator);
@@ -699,6 +790,78 @@ public class SQLHelper {
         } catch (SQLException |IOException e) {
             SystemLog.exception(e,SQLHelper.class);
         } 
+    }
+
+    /**
+     * Method to get the String name of the host by the String URL of the jdbc driver.
+     * @param url the String of the URL of the jdbc driver.
+     * @return the String name of the host.
+     */
+    public static String getHostFromUrl(String url) {
+        String regexForHostAndPort = "[.\\w]+:\\d+";
+        Pattern hostAndPortPattern = Pattern.compile(regexForHostAndPort);
+        Matcher matcher = hostAndPortPattern.matcher(url);
+        matcher.find();
+        int start = matcher.start();
+        int end = matcher.end();
+        if(start >= 0 && end >= 0) {
+            String hostAndPort = url.substring(start, end);
+            String [] array = hostAndPort.split(":");
+            if(array.length >= 2)
+                return array[0];
+        }
+        throw new IllegalArgumentException("couldn't find pattern '" + regexForHostAndPort + "' in '" + url + "'");
+    }
+
+    /**
+     * Method to get the Integer value of the port by the String URL of the jdbc driver.
+     * @param url the String of the URL of the jdbc driver.
+     * @return the String name of the host.
+     */
+    public static Integer getPortFromUrl(String url) {
+        String regexForHostAndPort = "[.\\w]+:\\d+";
+        Pattern hostAndPortPattern = Pattern.compile(regexForHostAndPort);
+        Matcher matcher = hostAndPortPattern.matcher(url);
+        matcher.find();
+        int start = matcher.start();
+        int end = matcher.end();
+        if(start >= 0 && end >= 0) {
+            String hostAndPort = url.substring(start, end);
+            String [] array = hostAndPort.split(":");
+            if(array.length >= 2)
+                return Integer.parseInt(array[1]);
+        }
+        throw new IllegalArgumentException("couldn't find pattern '" + regexForHostAndPort + "' in '" + url + "'");
+    }
+
+    /**
+     * Method to get the String value of the username by the String URL of the jdbc driver.
+     * @param url the String of the URL of the jdbc driver.
+     * @return the String name of the host.
+     */
+    public static String getUsernameFromUrl(String url){
+        Pattern pat = Pattern.compile("(\\&|\\?|\\=|\\/)?(user|username)(\\=)(.*?)(\\&|\\?|\\=|\\/|\\s)+", Pattern.CASE_INSENSITIVE);
+        Matcher matcher = pat.matcher(url  + " ");
+        if(matcher.find())  {
+            String[] find = (matcher.group(0)).split("=");
+            return find[1].substring(0,find[1].length()-1);
+        }
+        throw new IllegalArgumentException("couldn't find pattern '" + pat.toString() + "' in '" + url + "'");
+    }
+
+    /**
+     * Method to get the String value of the password by the String URL of the jdbc driver.
+     * @param url the String of the URL of the jdbc driver.
+     * @return the String name of the host.
+     */
+    public static String getPasswordFromUrl(String url){
+        Pattern pat = Pattern.compile("(\\&|\\?|\\=|\\/)?(pass|password)(\\=)(.*?)(\\&|\\?|\\=|\\/|\\s)+", Pattern.CASE_INSENSITIVE);
+        Matcher matcher = pat.matcher(url + " ");
+        if(matcher.find())  {
+            String[] find = (matcher.group(0)).split("=");
+            return find[1].substring(0,find[1].length()-1);
+        }
+        throw new IllegalArgumentException("couldn't find pattern '" + pat.toString() + "' in '" + url + "'");
     }
 
 

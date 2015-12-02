@@ -45,11 +45,42 @@
         <processorPath useClasspath="true" />
         <module name="gate-basic" />
       </profile>
+      <profile default="false" name="Annotation profile for karma-util" enabled="true">
+        <sourceOutputDir name="target\generated-sources\annotations" />
+        <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="karma-util" />
+      </profile>
+      <profile default="false" name="Annotation profile for karma-offline" enabled="true">
+        <sourceOutputDir name="target\generated-sources\annotations" />
+        <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+      </profile>
+      <profile default="false" name="Annotation profile for karma-jdbc" enabled="true">
+        <sourceOutputDir name="target\generated-sources\annotations" />
+        <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="karma-jdbc" />
+      </profile>
+      <profile default="false" name="Annotation profile for karma-common" enabled="true">
+        <sourceOutputDir name="target\generated-sources\annotations" />
+        <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="karma-common" />
+      </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.7">
       <module name="EAT" target="1.7" />
       <module name="ExtractInfo" target="1.7" />
       <module name="gate-basic" target="1.7" />
+      <module name="karma-common" target="1.7" />
+      <module name="karma-jdbc" target="1.7" />
+      <module name="karma-util" target="1.7" />
+      <module name="modelWebKarma" target="1.5" />
       <module name="utility" target="1.7" />
     </bytecodeTargetLevel>
   </component>

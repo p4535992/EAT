@@ -4,8 +4,6 @@
 	<classpathentry kind="src" path="src/main/java"/>
 	<classpathentry kind="src" path="src/main/resources"/>
 	<classpathentry kind="src" path="src/test/java"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Maven: org.jdom:jdom:1.1.2"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Maven: xmlunit:xmlunit:1.2"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/utility"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Maven: org.hibernate:hibernate-entitymanager:4.3.10.Final"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Maven: org.hibernate:hibernate-osgi:4.3.10.Final"/>
@@ -145,7 +143,7 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Maven: xml-apis:xml-apis:1.4.01"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Maven: org.jsoup:jsoup:1.8.2"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Maven: edu.isi:karma-offline:0.0.1-SNAPSHOT"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Maven: edu.isi:karma-common:0.0.1-SNAPSHOT"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/karma-common"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Maven: edu.isi:karma-typer:0.0.1-SNAPSHOT"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Maven: org.apache.lucene:lucene-analyzers-common:4.8.0"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Maven: org.apache.lucene:lucene-core:4.8.0"/>
@@ -162,7 +160,7 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Maven: org.glassfish.hk2.external:cglib:2.2.0-b21"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Maven: org.glassfish.hk2:osgi-resource-locator:1.0.1"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Maven: javax.ws.rs:javax.ws.rs-api:2.0"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Maven: edu.isi:karma-util:0.0.1-SNAPSHOT"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/karma-util"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Maven: org.apache.commons:commons-lang3:3.1"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Maven: com.googlecode.juniversalchardet:juniversalchardet:1.0.3"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Maven: net.sf.json-lib:json-lib:jdk15:2.3"/>
@@ -211,7 +209,7 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Maven: edu.isi:commands-publish:0.0.1-SNAPSHOT"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Maven: com.healthmarketscience.jackcess:jackcess:1.2.10"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Maven: edu.isi:commands-publish-jdbc:0.0.1-SNAPSHOT"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Maven: edu.isi:karma-jdbc:0.0.1-SNAPSHOT"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/karma-jdbc"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Maven: net.sourceforge.jtds:jtds:1.2.6"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Maven: edu.isi:commands-python:0.0.1-SNAPSHOT"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Maven: edu.isi:commands-publish-alignment-openrdf:0.0.1-SNAPSHOT"/>
@@ -301,5 +299,6 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Maven: org.javassist:javassist:3.18.1-GA"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Maven: antlr:antlr:2.7.7"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Maven: org.jboss:jandex:1.1.0.Final"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Maven: edu.isi:karma-common:0.0.1-SNAPSHOT"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

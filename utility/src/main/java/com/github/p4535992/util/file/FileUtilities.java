@@ -228,7 +228,7 @@ public class FileUtilities {
      * @throws IOException throw if any error is occurrred.
      */
     public static void copy(String fullPathInput, String fullPathOutput) throws IOException {
-       copy(new File(fullPathInput),new File(fullPathOutput));
+       copy(new File(fullPathInput), new File(fullPathOutput));
     }
 
     /**
@@ -984,9 +984,9 @@ public class FileUtilities {
      * @param hasFirstLine if true the first line of CSV File contains the columns name.
      * @return a String Array of the columns.
      */
-    public static String[] getColumns(File fileCSV,boolean hasFirstLine){
+    public static String[] CSVGetHeaders(File fileCSV,boolean hasFirstLine){
         String[] columns = new String[0];
-        try {
+        try{
             com.opencsv.CSVReader reader = new com.opencsv.CSVReader(new FileReader(fileCSV));
             columns = reader.readNext(); // assuming first read
             if(!hasFirstLine){
@@ -997,11 +997,38 @@ public class FileUtilities {
                     columns[i] = "Column#"+i;
                 }
             }
-        } catch (IOException e) {
-            SystemLog.exception(e,FileUtilities.class);
+        }catch(IOException e){
+            SystemLog.exception("Can't find the CSV File", e, FileUtilities.class);
         }
         return columns;
     }
+
+    /**
+     * Method to get the content of a comma separated file (.csv,.input,.txt)
+     * @param CSV the File comma separated.
+     * @param header if true jump the first line of the content.
+     * @return the List of Array of the content of the File comma separated.
+     * @throws IOException throw if the file not exists.
+     */
+    public static List<String[]> CSVGetContent(File CSV,boolean header){
+        List<String[]> content = new ArrayList<>();
+        try {
+            com.opencsv.CSVReader reader1 = new com.opencsv.CSVReader(new FileReader(CSV));
+            content = reader1.readAll();
+            /* List<String[]> myDatas = reader1.readAll();
+            String[] lineI = myDatas.get(i);
+            for (String[] line : myDatas) {
+                for (String value : line) {
+                    //do stuff with value
+                }
+            }*/
+            if (header) content.remove(0);
+        }catch(IOException e){
+            SystemLog.exception("Can't find the CSV File", e, FileUtilities.class);
+        }
+        return content;
+    }
+
 
     /**
      * Method to convert a MultipartFile to a File
@@ -1459,6 +1486,11 @@ public class FileUtilities {
         return fileOutput;
     }
 
+    public static File write(String str, File fileOutput) {
+        write(Collections.singletonList(str), fileOutput, StringUtilities.DEFAULT_ENCODING, StringUtilities.UTF_8);
+        return fileOutput;
+    }
+
     public static boolean write(Collection<String> collectionContent,File fileOutput){
         return write(collectionContent, fileOutput,null,null);
     }
@@ -1477,7 +1509,7 @@ public class FileUtilities {
                 newCol.add(s);
             }
             if(encodingInput.name().equals(StringUtilities.UTF_8.name())) replace = true;
-            collectionContent.clear();
+            collectionContent = new ArrayList<>();
             collectionContent.addAll(newCol);
             newCol.clear();
         }
