@@ -3,7 +3,6 @@ package com.github.p4535992.util.repositoryRDF.jena;
 
 import com.github.p4535992.util.collection.CollectionUtilities;
 import com.github.p4535992.util.file.FileUtilities;
-import com.github.p4535992.util.regex.pattern.Patterns;
 import com.github.p4535992.util.string.StringUtilities;
 
 import com.github.p4535992.util.log.SystemLog;
@@ -378,8 +377,6 @@ public class Jena2Kit {
         return output.toModel(execSparqlSelectOnModel(sparql,model));
     }
 
-
-
      /**
      * Method for execute a ASK SPARQL on a Jena Model.
      * @param sparql sparql query.
@@ -410,19 +407,14 @@ public class Jena2Kit {
         INLANGFORMAT = createToRiotLang(inputFormat);
         INRDFFORMAT = createToRDFFormat(inputFormat);
         INFORMAT = INLANGFORMAT.getLabel().toUpperCase();
-
         // use the FileManager to find the input file
         File fileInput = new File(filepath +File.separator+ filename + "." + inputFormat);
         InputStream in;
-        try {
-            in = com.hp.hpl.jena.util.FileManager.get().open(fileInput.getAbsolutePath());
-        }catch(Exception e){
-            in = new FileInputStream(fileInput);
-        }
+        try { in = com.hp.hpl.jena.util.FileManager.get().open(fileInput.getAbsolutePath());
+        }catch(Exception e){in = new FileInputStream(fileInput); }
 
-        if (in == null || ! fileInput.exists()) {
-            throw new IllegalArgumentException( "File: " +  fileInput + " not found");
-        }
+        if (in == null || ! fileInput.exists()) throw new IllegalArgumentException( "File: " +  fileInput + " not found");
+
         SystemLog.message("Try to read file of triples from the path:" + fileInput.getAbsolutePath()+"...");
         try {
             com.hp.hpl.jena.util.FileManager.get().addLocatorClassLoader(Jena2Kit.class.getClassLoader());
@@ -1108,12 +1100,8 @@ public class Jena2Kit {
     public static Model updateProperty(Model model,Resource subject,Property property,Object value) {
         try {
             /*
-            StmtIterator iterator =
-                    resource.listProperties(property);
-            while (iterator.hasNext()) {
-                    iterator.next();
-                    iterator.remove();
-            }
+            StmtIterator iterator = resource.listProperties(property);
+            while (iterator.hasNext()) {iterator.next(); iterator.remove();}
             */
             //... you must already create the resources
             //subject = model.getResource(redirectionURI);
@@ -1218,15 +1206,6 @@ public class Jena2Kit {
         } catch (Exception e) {
             SystemLog.exception(e);
         }
-    }
-
-    /**
-     * Method to get the title from a ID.
-     * @param title string of the title of the resource.
-     * @return string index of the resource.
-     */
-    public static String convertTitleToID(String title) {
-        return title.replace(' ', '_');
     }
 
     /**
@@ -1535,8 +1514,6 @@ public class Jena2Kit {
         return null;
     }
 
-
-
     /*
      * public static void setPropertyObject( Resource resource, Property
      * property, Resource object) { try { StmtIterator iterator =
@@ -1556,9 +1533,7 @@ public class Jena2Kit {
      */
     public static RDFNode findObject(Resource resource,Property property) {
         RDFNode node = findFirstPropertyValue(resource, property);
-        if (node == null) {
-            return null;
-        }
+        if (node == null)  return null;
         return node;
     }
 
@@ -1722,20 +1697,24 @@ public class Jena2Kit {
                 if(predicateUri!=null){
                     if(isIRI(predicateUri) || isUri(predicateUri) || toString(stringOrModelGraph).isEmpty()) {
                         return new PropertyImpl(toString(predicateUri));
-                    }else{
+                    }else if(isStringNoEmpty(stringOrModelGraph) &&
+                            isIRI(toString(stringOrModelGraph)+"/"+toString(predicateUri))){
                         return new PropertyImpl(toString(stringOrModelGraph), toString(predicateUri));
                     }
+                    else return null;
                 }
-                else return new PropertyImpl(toString(stringOrModelGraph));
+                else return null;
             }else{
                 if(predicateUri!=null) {
                     if (isIRI(predicateUri) || isUri(predicateUri) || toString(stringOrModelGraph).isEmpty()) {
                         return ResourceFactory.createProperty(toString(predicateUri));
-                    }else{
+                    }else if(isStringNoEmpty(stringOrModelGraph) &&
+                            isIRI(toString(stringOrModelGraph)+"/"+toString(predicateUri))){
                         return ResourceFactory.createProperty(toString(stringOrModelGraph), toString(predicateUri));
                     }
+                    else return null;
                 }
-                else return ResourceFactory.createProperty(toString(stringOrModelGraph));
+                else return null;
             }
         }
         else if(stringOrModelGraph instanceof Model && isStringNoEmpty(predicateUri)) {
@@ -1785,19 +1764,60 @@ public class Jena2Kit {
 
     /**
      * Method utility: create new typed literal from uri.
+     * @param model the Model jean where create the Literal.
+     * @param stringOrObject  the value of the Jena Literal.
+     * @param datatype the Jena RDFDatatype of the literal.
+     * @return the Jena Literal.
+     */
+    private static Literal createLiteralBase(Model model,Object stringOrObject,RDFDatatype datatype){
+        if(model == null) {
+            if (isString(stringOrObject)) {
+                if (datatype != null) return ResourceFactory.createTypedLiteral(toString(stringOrObject), datatype);
+                else return ResourceFactory.createPlainLiteral(toString(stringOrObject));
+            } else {
+                if (datatype != null) return ResourceFactory.createTypedLiteral(toString(stringOrObject), datatype);
+                return ResourceFactory.createTypedLiteral(stringOrObject);
+            }
+        }else{
+            if (isString(stringOrObject)) {
+                if (datatype != null) return model.createTypedLiteral(toString(stringOrObject), datatype);
+                else return model.createLiteral(toString(stringOrObject));
+            } else {
+                if (datatype != null) return model.createTypedLiteral(stringOrObject, datatype);
+                return model.createTypedLiteral(stringOrObject);
+            }
+        }
+    }
+
+    /**
+     * Method utility: create new typed literal from uri.
+     * @param stringOrObject  the value of the Jena Literal.
+     * @param datatype the Jena RDFDatatype of the literal.
+     * @return the Jena Literal.
+     */
+    public static Literal createLiteral(Model model,Object stringOrObject,RDFDatatype datatype){
+        return createLiteralBase(model, stringOrObject, datatype);
+    }
+
+
+    /**
+     * Method utility: create new typed literal from uri.
      * @param stringOrObject  the value of the Jena Literal.
      * @param datatype the Jena RDFDatatype of the literal.
      * @return the Jena Literal.
      */
     public static Literal createLiteral(Object stringOrObject,RDFDatatype datatype){
-        if(isString(stringOrObject)){
-            if(datatype!=null)return ResourceFactory.createTypedLiteral(toString(stringOrObject),datatype);
-            else return ResourceFactory.createPlainLiteral(toString(stringOrObject));
-        }
-        else {
-            if(datatype!=null) return ResourceFactory.createTypedLiteral(toString(stringOrObject),datatype);
-            return ResourceFactory.createTypedLiteral(stringOrObject);
-        }
+        return createLiteralBase(null, stringOrObject, datatype);
+    }
+
+    /**
+     * Method utility: create new typed literal from uri.
+     * @param stringOrObject  the value of the Jena Literal.
+     * @param typeUri the Jena RDFDatatype of the literal.
+     * @return the Jena Literal.
+     */
+    public static Literal createLiteral(Object stringOrObject,String typeUri){
+        return createLiteralBase(null, stringOrObject, convertStringToRDFDatatype(typeUri));
     }
 
     /**
@@ -1806,7 +1826,7 @@ public class Jena2Kit {
      * @return the Jena Literal.
      */
     public static Literal createLiteral(Object stringOrObject){
-        return createLiteral(stringOrObject, null);
+        return createLiteralBase(null, stringOrObject, null);
     }
 
     /**
@@ -1815,7 +1835,7 @@ public class Jena2Kit {
      * @return the Jena Literal.
      */
     public static Literal createLiteral(String stringOrObject){
-        return createLiteral(stringOrObject, null);
+        return createLiteralBase(null, stringOrObject, null);
     }
 
     /**
@@ -2218,16 +2238,13 @@ public class Jena2Kit {
     }
 
     /**
+     * Method to convert a URI os String reference to a resource to a good ID.
      * NOTE: URI string: scheme://authority/path?query#fragment
-     * @param uriResource
-     * @return
+     * @param uriResource the String or URI reference Resource.
+     * @return the String id of the Resource.
      */
     private static String toId(Object uriResource){
         return URI.create(toString(uriResource).replaceAll("\\r\\n|\\r|\\n", " ").replaceAll("\\s+", "_").trim()).toString();
-    }
-
-    private static URI toUri(Object uriResource){
-        return URI.create(String.valueOf(uriResource));
     }
 
     private static String toString(Object uriResource){
@@ -2235,15 +2252,10 @@ public class Jena2Kit {
     }
 
     private static boolean isUri(Object uriResource){
-        if(uriResource instanceof URI){
-            return true;
-        }else{
-            try {
-                URI.create(String.valueOf(uriResource));
-                return true;
-            }catch(Exception e){
-                return false;
-            }
+        if(uriResource instanceof URI)return true;
+        else{
+            try { URI.create(String.valueOf(uriResource));return true;
+            }catch(Exception e){ return false;}
         }
     }
 
