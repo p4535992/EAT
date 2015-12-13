@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="MySQL - geodb@localhost" uuid="d7a2e76d-b7da-4e40-a1b0-1cffbeb8bc72">
+      <secret-storage>master_key</secret-storage>
+      <user-name>siimobility</user-name>
+      <schema-pattern>geodb.*</schema-pattern>
+      <default-schemas>geodb.*</default-schemas>
+    </data-source>
+  </component>
+</project>

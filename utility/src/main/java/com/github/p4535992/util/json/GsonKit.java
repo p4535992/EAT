@@ -16,8 +16,7 @@ import java.util.List;
  */
 public class GsonKit {
 
-    public static JsonObject getData(String url)
-    {
+    public static JsonObject getData(String url){
         CloseableHttpClient httpClient = HttpClients.createDefault();
         HttpPost httpPost = new HttpPost(url);
         try
@@ -35,15 +34,11 @@ public class GsonKit {
     }
 
     public static String pojoToJson(Object obj){
-        Gson gson = new Gson();
-        String sJson = gson.toJson(obj);
-        return sJson;
+        return new Gson().toJson(obj);
     }
 
     public static Object jsonToPojo(String sJson,Class<?> clazz){
-        Gson gson = new Gson();
-        Object obj = new Gson().fromJson(sJson, clazz);
-        return obj;
+        return new Gson().fromJson(sJson, clazz);
     }
 
 //    public static <T> List jsontToListPojo(List<T> arrayOfObjectJSON){

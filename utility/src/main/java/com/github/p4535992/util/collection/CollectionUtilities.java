@@ -228,7 +228,7 @@ public class CollectionUtilities {
     @SuppressWarnings("unchecked")
     public static <T> Iterator<T> toIterator(Object collection){
         if(isCollection(collection)) {
-            if (collection instanceof List) return ((List<T>)collection).iterator();
+            if(collection instanceof List) return ((List<T>)collection).iterator();
             if(collection instanceof Set)   return ((Set<T>)collection).iterator();
             else{
                 return new Iterator<T>() {

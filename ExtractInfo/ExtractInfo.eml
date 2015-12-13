@@ -12,6 +12,36 @@
 	<lib name="Maven: xpp3:xpp3:1.1.4c" scope="RUNTIME"/>
 	<lib name="Maven: org.springframework:spring-test:4.1.6.RELEASE" scope="TEST"/>
 	<levels>
+		<level name="Maven: com.fasterxml.jackson.core:jackson-databind:2.3.2" value="project"/>
+		<level name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.3.0" value="project"/>
+		<level name="Maven: joda-time:joda-time:2.6" value="project"/>
+		<level name="Maven: org.slf4j:jcl-over-slf4j:1.6.4" value="project"/>
+		<level name="Maven: com.fasterxml.jackson.core:jackson-core:2.3.3" value="project"/>
+		<level name="Maven: com.google.guava:guava:14.0.1" value="project"/>
+		<level name="Maven: org.openrdf.sesame:sesame-repository-sail:2.7.1" value="project"/>
+		<level name="Maven: org.openrdf.sesame:sesame-repository-api:2.7.1" value="project"/>
+		<level name="Maven: org.openrdf.sesame:sesame-sail-api:2.7.1" value="project"/>
+		<level name="Maven: org.openrdf.sesame:sesame-queryparser-api:2.7.1" value="project"/>
+		<level name="Maven: org.openrdf.sesame:sesame-queryalgebra-model:2.7.1" value="project"/>
+		<level name="Maven: org.openrdf.sesame:sesame-query:2.7.1" value="project"/>
+		<level name="Maven: org.openrdf.sesame:sesame-rio-api:2.7.1" value="project"/>
+		<level name="Maven: org.openrdf.sesame:sesame-model:2.7.1" value="project"/>
+		<level name="Maven: org.openrdf.sesame:sesame-sail-memory:2.7.1" value="project"/>
+		<level name="Maven: org.openrdf.sesame:sesame-sail-inferencer:2.7.1" value="project"/>
+		<level name="Maven: org.openrdf.sesame:sesame-queryparser-serql:2.7.1" value="project"/>
+		<level name="Maven: org.openrdf.sesame:sesame-queryalgebra-evaluation:2.7.1" value="project"/>
+		<level name="Maven: org.openrdf.sesame:sesame-repository-sparql:2.7.1" value="project"/>
+		<level name="Maven: org.openrdf.sesame:sesame-queryparser-sparql:2.7.1" value="project"/>
+		<level name="Maven: org.openrdf.sesame:sesame-queryresultio-sparqlxml:2.7.1" value="project"/>
+		<level name="Maven: org.openrdf.sesame:sesame-util:2.7.1" value="project"/>
+		<level name="Maven: org.openrdf.sesame:sesame-rio-turtle:2.7.1" value="project"/>
+		<level name="Maven: org.openrdf.sesame:sesame-rio-datatypes:2.7.1" value="project"/>
+		<level name="Maven: org.openrdf.sesame:sesame-rio-languages:2.7.1" value="project"/>
+		<level name="Maven: org.openrdf.sesame:sesame-repository-http:2.7.1" value="project"/>
+		<level name="Maven: org.openrdf.sesame:sesame-http-client:2.7.1" value="project"/>
+		<level name="Maven: org.openrdf.sesame:sesame-http-protocol:2.7.1" value="project"/>
+		<level name="Maven: org.openrdf.sesame:sesame-rio-ntriples:2.7.1" value="project"/>
+		<level name="Maven: org.openrdf.sesame:sesame-queryresultio-api:2.7.1" value="project"/>
 		<level name="Maven: org.hibernate:hibernate-entitymanager:4.3.10.Final" value="project"/>
 		<level name="Maven: org.hibernate:hibernate-osgi:4.3.10.Final" value="project"/>
 		<level name="Maven: org.osgi:org.osgi.core:4.3.1" value="project"/>
@@ -45,6 +75,10 @@
 		<level name="Maven: com.fasterxml.jackson.core:jackson-databind:2.5.3" value="project"/>
 		<level name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.5.3" value="project"/>
 		<level name="Maven: com.fasterxml.jackson.core:jackson-core:2.5.3" value="project"/>
+		<level name="Maven: org.apache.jena:apache-jena-libs:2.10.1" value="project"/>
+		<level name="Maven: org.apache.jena:jena-tdb:0.10.1" value="project"/>
+		<level name="Maven: log4j:log4j:1.2.16" value="project"/>
+		<level name="Maven: org.apache.jena:jena-querybuilder:2.13.0" value="project"/>
 		<level name="Maven: org.openrdf.sesame:sesame-model:2.8.4" value="project"/>
 		<level name="Maven: org.openrdf.sesame:sesame-util:2.8.4" value="project"/>
 		<level name="Maven: com.google.guava:guava:18.0" value="project"/>
@@ -82,15 +116,13 @@
 		<level name="Maven: org.openrdf.sesame:sesame-sail-api:2.8.4" value="project"/>
 		<level name="Maven: org.openrdf.sesame:sesame-query:2.8.4" value="project"/>
 		<level name="Maven: javax.interceptor:javax.interceptor-api:1.2" value="project"/>
-		<level name="Maven: org.springframework.boot:spring-boot-starter-logging:1.2.4.RELEASE" value="project"/>
-		<level name="Maven: org.slf4j:jcl-over-slf4j:1.7.12" value="project"/>
-		<level name="Maven: org.slf4j:jul-to-slf4j:1.7.12" value="project"/>
-		<level name="Maven: org.slf4j:log4j-over-slf4j:1.7.12" value="project"/>
-		<level name="Maven: org.apache.logging.log4j:log4j-core:2.3" value="project"/>
-		<level name="Maven: org.apache.logging.log4j:log4j-api:2.3" value="project"/>
-		<level name="Maven: org.slf4j:slf4j-api:1.7.12" value="project"/>
+		<level name="Maven: org.springframework.boot:spring-boot-starter-logging:1.3.0.RELEASE" value="project"/>
 		<level name="Maven: ch.qos.logback:logback-classic:1.1.3" value="project"/>
 		<level name="Maven: ch.qos.logback:logback-core:1.1.3" value="project"/>
+		<level name="Maven: org.slf4j:jcl-over-slf4j:1.7.13" value="project"/>
+		<level name="Maven: org.slf4j:jul-to-slf4j:1.7.13" value="project"/>
+		<level name="Maven: org.slf4j:log4j-over-slf4j:1.7.13" value="project"/>
+		<level name="Maven: uk.org.lidalia:sysout-over-slf4j:1.0.2" value="project"/>
 		<level name="Maven: javax.servlet:servlet-api:2.5" value="project"/>
 		<level name="Maven: uk.ac.gate:gate-core:8.1" value="project"/>
 		<level name="Maven: uk.ac.gate:gate-asm:5.0.3" value="project"/>
@@ -149,6 +181,7 @@
 		<level name="Maven: xml-apis:xml-apis:1.4.01" value="project"/>
 		<level name="Maven: org.jsoup:jsoup:1.8.2" value="project"/>
 		<level name="Maven: edu.isi:karma-offline:0.0.1-SNAPSHOT" value="project"/>
+		<level name="Maven: edu.isi:karma-common:0.0.1-SNAPSHOT" value="project"/>
 		<level name="Maven: edu.isi:karma-typer:0.0.1-SNAPSHOT" value="project"/>
 		<level name="Maven: org.apache.lucene:lucene-analyzers-common:4.8.0" value="project"/>
 		<level name="Maven: org.apache.lucene:lucene-core:4.8.0" value="project"/>
@@ -165,6 +198,7 @@
 		<level name="Maven: org.glassfish.hk2.external:cglib:2.2.0-b21" value="project"/>
 		<level name="Maven: org.glassfish.hk2:osgi-resource-locator:1.0.1" value="project"/>
 		<level name="Maven: javax.ws.rs:javax.ws.rs-api:2.0" value="project"/>
+		<level name="Maven: edu.isi:karma-util:0.0.1-SNAPSHOT" value="project"/>
 		<level name="Maven: org.apache.commons:commons-lang3:3.1" value="project"/>
 		<level name="Maven: com.googlecode.juniversalchardet:juniversalchardet:1.0.3" value="project"/>
 		<level name="Maven: net.sf.json-lib:json-lib:jdk15:2.3" value="project"/>
@@ -213,6 +247,7 @@
 		<level name="Maven: edu.isi:commands-publish:0.0.1-SNAPSHOT" value="project"/>
 		<level name="Maven: com.healthmarketscience.jackcess:jackcess:1.2.10" value="project"/>
 		<level name="Maven: edu.isi:commands-publish-jdbc:0.0.1-SNAPSHOT" value="project"/>
+		<level name="Maven: edu.isi:karma-jdbc:0.0.1-SNAPSHOT" value="project"/>
 		<level name="Maven: net.sourceforge.jtds:jtds:1.2.6" value="project"/>
 		<level name="Maven: edu.isi:commands-python:0.0.1-SNAPSHOT" value="project"/>
 		<level name="Maven: edu.isi:commands-publish-alignment-openrdf:0.0.1-SNAPSHOT" value="project"/>
@@ -252,6 +287,7 @@
 		<level name="Maven: javax.xml.bind:jaxb-api:2.2" value="project"/>
 		<level name="Maven: javax.xml.stream:stax-api:1.0-2" value="project"/>
 		<level name="Maven: com.sun.xml.bind:jaxb-xjc:2.2" value="project"/>
+		<level name="Maven: org.slf4j:slf4j-api:1.6.0" value="project"/>
 		<level name="Maven: commons-cli:commons-cli:1.2" value="project"/>
 		<level name="Maven: org.apache.tika:tika-core:1.5" value="project"/>
 		<level name="Maven: org.apache.tika:tika-parsers:1.5" value="project"/>
@@ -302,6 +338,5 @@
 		<level name="Maven: org.javassist:javassist:3.18.1-GA" value="project"/>
 		<level name="Maven: antlr:antlr:2.7.7" value="project"/>
 		<level name="Maven: org.jboss:jandex:1.1.0.Final" value="project"/>
-		<level name="Maven: edu.isi:karma-common:0.0.1-SNAPSHOT" value="project"/>
 	</levels>
 </component>
