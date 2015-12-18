@@ -5,7 +5,7 @@ import com.github.p4535992.extractor.object.model.GeoDomainDocument;
 import com.github.p4535992.extractor.object.support.DepositFrequencyInfo;
 import com.github.p4535992.extractor.object.model.GeoDocument;
 import com.github.p4535992.util.collection.CollectionUtilities;
-import com.github.p4535992.util.log.SystemLog;
+
 import com.github.p4535992.extractor.object.impl.jdbc.GeoDomainDocumentDaoImpl;
 
 import java.net.MalformedURLException;
@@ -31,6 +31,13 @@ import com.github.p4535992.extractor.object.support.LatLng;
  */
 @SuppressWarnings("unused")
 public class ExtractorDomain {
+
+    private static final org.slf4j.Logger logger =
+            org.slf4j.LoggerFactory.getLogger(ExtractorDomain.class);
+
+    private static String gm() {
+        return Thread.currentThread().getStackTrace()[1].getMethodName()+":: ";
+    }
     
     //FREQUENZA DEGLI URL PER L'IDENTIFICAZIONE DEL DOMINIO
     private  Integer FREQUENZA_INTERVALLO_URL,LIMIT,OFFSET;
@@ -78,24 +85,24 @@ public class ExtractorDomain {
              i++;
              //TENTA DI ESTRARRE IL DOMINIO HOST DELL'INDIRIZZO URL
              try{
-                 String domain = m.getDomainName(geoDoc.getUrl().toString());                          
-                 SystemLog.message("(" + i + ")" + "DOMAIN:" + domain);
+                 String domain = m.getDomainName(geoDoc.getUrl().toString());
+                 logger.info("(" + i + ")" + "DOMAIN:" + domain);
                  if(!listFinalDomains.contains(domain)){
                    m.applyTheMemorizeRecordCordinatesRules(domain,geoDoc,tipo);  
                  }
                  //*********************************************************************************       
-             } catch (URISyntaxException ex) {
-                 SystemLog.exception(ex);
+             } catch (URISyntaxException e) {
+                 logger.error(gm() + e.getMessage(),e);
              }
          }//for
-      } catch (RuntimeException e2) {
-              SystemLog.exception(e2);
-              e2.printStackTrace();                                      
+      } catch (RuntimeException e) {
+            logger.error(gm() + e.getMessage(),e);
+            System.exit(0);
       } finally{
             //MOSTRIAMO I NOSTRI DepositFrequencyInfo CON SUFFICIENTE VALORE DI SOGLIA DA INSERIRE NEL DATABASE
             for (DepositFrequencyInfo dfi2 : listDepositFrequency) {
                 if(dfi2.getFrequency()>=FREQUENZA_INTERVALLO_URL){
-                 SystemLog.message("CONTROL:" + dfi2.toString());
+                 logger.info("CONTROL:" + dfi2.toString());
                 }
             }
             listDomains = null;
@@ -153,7 +160,7 @@ public class ExtractorDomain {
                     GeoDomainDocument geo = prepareTheDomainWebGeoDocumentWithMoreCommonParameter(dfi2);
                     geo.setUrl(new URL("http://"+dfi2.getDomain()));
                     //INSERIAMO I NOSTRI GEODOMAINDOCUMENT NELLA TABELLA DEL DATABASE
-                    SystemLog.message("INSERIMENTO GEODOMAINDOCUMENT NELLA TABELLA");
+                    logger.info("insert geoDomainDocument on the database");
                     if(Objects.equals(tipo, "sql")){
                         geoDomainDocDao.insertAndTrim(geo);
                     }
@@ -325,7 +332,7 @@ public class ExtractorDomain {
                 geoDomainDocDao.update(columns_where, values_where, "url", geo.getUrl().toString());
             }
         }catch(URISyntaxException e){
-            SystemLog.exception(e);
+            logger.error(gm() + e.getMessage(), e);
         }
     }
 
@@ -350,7 +357,7 @@ public class ExtractorDomain {
                 geoDomainDocDao.insertAndTrim(geoDoc);
             }
         }catch(Exception e){
-            SystemLog.exception(e);
+            logger.error(gm() + e.getMessage(), e);
         }
 
     }
@@ -363,7 +370,7 @@ public class ExtractorDomain {
             //geodomaindocument_coord_omogeneo_05052014,geodomaindocument_coord_omogeneo_120
             geoDomainDocDao.setTableInsert("geodomaindocument_coord_omogeneo_05052014"); //120
         }catch(Exception e){
-            SystemLog.exception(e);
+            logger.error(gm() + e.getMessage(),e);
         }
 
     }

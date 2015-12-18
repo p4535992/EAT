@@ -1,7 +1,5 @@
 package com.github.p4535992.extractor.hibernate;
 
-import com.github.p4535992.util.log.SystemLog;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,6 +12,13 @@ import java.util.List;
 @SuppressWarnings("unused")
 public class HibernateCRUD<T> extends Hibernate4Kit<T> {
 
+    private static final org.slf4j.Logger logger =
+            org.slf4j.LoggerFactory.getLogger( HibernateCRUD.class);
+
+    private static String gm() {
+        return Thread.currentThread().getStackTrace()[1].getMethodName()+":: ";
+    }
+
     @javax.transaction.Transactional
     @java.lang.Override
     public <T> Serializable insertRow(T object) {
@@ -24,12 +29,12 @@ public class HibernateCRUD<T> extends Hibernate4Kit<T> {
             session.beginTransaction();
             session.save(object);
             session.getTransaction().commit();
-            SystemLog.message("[HIBERNATE] Insert the item:" + object);
+            logger.info("[HIBERNATE] Insert the item:" + object);
             id = session.getIdentifier(object);
-            SystemLog.message("[HIBERNATE] Get the identifier:" + id);
+            logger.info("[HIBERNATE] Get the identifier:" + id);
         } catch (RuntimeException e) {
             if (trns != null) { trns.rollback();}
-            SystemLog.exception(e);
+            logger.error(gm() + e.getMessage(), e);
         } finally {
             reset();
         }
@@ -48,18 +53,18 @@ public class HibernateCRUD<T> extends Hibernate4Kit<T> {
             try {
                 criteria.add(org.hibernate.criterion.Restrictions.eq("doc_id", id));
                 List<T> results = criteria.list();
-                SystemLog.message("[HIBERNATE] Select the item:" + results.get(0));
+                logger.info("[HIBERNATE] Select the item:" + results.get(0));
             }catch(Exception e) {
-                SystemLog.warning("AAAAAAAAAAAA");
+                logger.error(gm()+e.getMessage(),e);
             }
             //NOT WORK
             //object = (T) criteria.setFirstResult((Integer) id);
             //SystemLog.message("[HIBERNATE] Select the item:" + object.toString());
             object = (T) session.load(cl, id);
-            SystemLog.message("[HIBERNATE] Select the item:" + object.toString());
+            logger.info("[HIBERNATE] Select the item:" + object.toString());
         } catch (RuntimeException e) {
             if (trns != null) { trns.rollback();}
-            SystemLog.exception(e);
+            logger.error(gm() + e.getMessage(), e);
         } finally {
             reset();
         }
@@ -82,11 +87,11 @@ public class HibernateCRUD<T> extends Hibernate4Kit<T> {
             }
             listT =  criteria.list();
             if(listT.size() == 0){
-                SystemLog.warning("[HIBERNATE] The returned list is empty!1");
+                logger.warn("[HIBERNATE] The returned list is empty!1");
             }
         } catch (RuntimeException e) {
             if (trns != null) { trns.rollback();}
-            SystemLog.exception(e);
+            logger.error(gm() + e.getMessage(), e);
         } finally {
             reset();
         }
@@ -108,11 +113,11 @@ public class HibernateCRUD<T> extends Hibernate4Kit<T> {
             criteria = session.createCriteria(cl);
             listT = query.list();
             if(listT.size() == 0){
-                SystemLog.warning("[HIBERNATE] The returned list is empty!1");
+                logger.warn("[HIBERNATE] The returned list is empty!1");
             }
         } catch (RuntimeException e) {
             if (trns != null) { trns.rollback();}
-            SystemLog.exception(e);
+            logger.error(gm() + e.getMessage(), e);
         } finally {
             reset();
         }
@@ -132,10 +137,10 @@ public class HibernateCRUD<T> extends Hibernate4Kit<T> {
             criteria = session.createCriteria(cl);
             criteria.setProjection(org.hibernate.criterion.Projections.rowCount());
             result = criteria.uniqueResult();
-            SystemLog.message("[HIBERNATE] The count of employees is :" + result);
+            logger.info("[HIBERNATE] The count of employees is :" + result);
         } catch (RuntimeException e) {
             if (trns != null) { trns.rollback();}
-            SystemLog.exception(e);
+            logger.error(gm() + e.getMessage(), e);
         } finally {
             reset();
         }
@@ -159,12 +164,12 @@ public class HibernateCRUD<T> extends Hibernate4Kit<T> {
             //t = object;
             session.saveOrUpdate(t);
             session.getTransaction().commit();
-            SystemLog.message("[HIBERNATE] Update the item:" + t.toString());
+            logger.info("[HIBERNATE] Update the item:" + t.toString());
             id = session.getIdentifier(t);
-            SystemLog.message("[HIBERNATE] Get the identifier:" + id);
+            logger.info("[HIBERNATE] Get the identifier:" + id);
         } catch (RuntimeException e) {
             if (trns != null) { trns.rollback();}
-            SystemLog.exception(e);
+            logger.error(gm() + e.getMessage(), e);
         } finally {
             reset();
         }
@@ -183,12 +188,12 @@ public class HibernateCRUD<T> extends Hibernate4Kit<T> {
             //session.beginTransaction();
             session.saveOrUpdate(object);
             session.getTransaction().commit();
-            SystemLog.message("[HIBERNATE] Update the item:" + object.toString());
+            logger.info("[HIBERNATE] Update the item:" + object.toString());
             id = session.getIdentifier(object);
-            SystemLog.message("[HIBERNATE] Get the identifier:" + id);
+            logger.info("[HIBERNATE] Get the identifier:" + id);
         } catch (RuntimeException e) {
             if (trns != null) { trns.rollback();}
-            SystemLog.exception(e);
+            logger.error(gm() + e.getMessage(), e);
         } finally {
             reset();
         }
@@ -209,12 +214,12 @@ public class HibernateCRUD<T> extends Hibernate4Kit<T> {
             T t = (T)criteria.uniqueResult();
             session.delete(t);
             session.getTransaction().commit();
-            SystemLog.message("[HIBERNATE] Delete the item:" + t);
+            logger.info("[HIBERNATE] Delete the item:" + t);
             id = session.getIdentifier(t);
-            SystemLog.message("[HIBERNATE] Get the identifier:" + id);
+            logger.info("[HIBERNATE] Get the identifier:" + id);
         } catch (RuntimeException e) {
             if (trns != null) { trns.rollback();}
-            SystemLog.exception(e);
+            logger.error(gm() + e.getMessage(), e);
         } finally {
             reset();
         }
@@ -233,12 +238,12 @@ public class HibernateCRUD<T> extends Hibernate4Kit<T> {
             //session.beginTransaction();
             session.delete(object);
             session.getTransaction().commit();
-            SystemLog.message("[HIBERNATE] Delete the item:" + object);
+            logger.info("[HIBERNATE] Delete the item:" + object);
             id = session.getIdentifier(object);
-            SystemLog.message("[HIBERNATE] Get the identifier:" + id);
+            logger.info("[HIBERNATE] Get the identifier:" + id);
         } catch (RuntimeException e) {
             if (trns != null) { trns.rollback();}
-            SystemLog.exception(e);
+            logger.error(gm()+e.getMessage(),e);
         } finally {
             reset();
         }

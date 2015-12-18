@@ -1,9 +1,7 @@
 package com.github.p4535992.util.json;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
-import com.google.gson.reflect.TypeToken;
 import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
@@ -15,6 +13,9 @@ import java.util.List;
  * Created by 4535992 on 28/04/2015.
  */
 public class GsonKit {
+
+    private static final org.slf4j.Logger logger =
+            org.slf4j.LoggerFactory.getLogger(GsonKit.class);
 
     public static JsonObject getData(String url){
         CloseableHttpClient httpClient = HttpClients.createDefault();

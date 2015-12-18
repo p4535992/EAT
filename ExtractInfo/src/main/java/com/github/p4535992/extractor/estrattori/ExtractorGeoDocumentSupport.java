@@ -1,9 +1,7 @@
 package com.github.p4535992.extractor.estrattori;
 
 import com.github.p4535992.extractor.object.support.LatLng;
-import com.github.p4535992.util.http.HttpKit;
-import com.github.p4535992.util.http.impl.HttpUtil;
-import com.github.p4535992.util.log.SystemLog;
+import com.github.p4535992.util.http.HttpUtilities;
 import com.github.p4535992.extractor.ManageJsonWithGoogleMaps;
 import com.github.p4535992.extractor.setInfoParameterIta.SetCodicePostale;
 import com.github.p4535992.extractor.setInfoParameterIta.SetNazioneELanguage;
@@ -12,6 +10,7 @@ import com.github.p4535992.extractor.setInfoParameterIta.SetRegioneEProvincia;
 import com.github.p4535992.extractor.object.model.GeoDocument;
 import com.github.p4535992.util.string.StringUtilities;
 
+import java.net.MalformedURLException;
 import java.net.URISyntaxException;
 import java.util.Arrays;
 import java.util.List;
@@ -24,6 +23,13 @@ import java.util.StringTokenizer;
  */
 @SuppressWarnings("unused")
 public class ExtractorGeoDocumentSupport {
+
+    private static final org.slf4j.Logger logger =
+            org.slf4j.LoggerFactory.getLogger(ExtractorDomain.class);
+
+    private static String gm() {
+        return Thread.currentThread().getStackTrace()[1].getMethodName()+":: ";
+    }
 
     ManageJsonWithGoogleMaps j = ManageJsonWithGoogleMaps.getInstance();
 
@@ -44,8 +50,8 @@ public class ExtractorGeoDocumentSupport {
 
     public GeoDocument UpgradeTheDocumentWithOtherInfo(GeoDocument geo) throws URISyntaxException {
         try{
-            SystemLog.message("**************DOCUMENT*********************");
-            HttpKit http = HttpKit.getInstance();
+            logger.info("**************DOCUMENT*********************");
+            HttpUtilities http = HttpUtilities.getInstance();
             //*************************************************************************************
             //INTEGRAZIONE FINALE CON IL DATABASE KEYWORDDB
             //SET CITY IF YOU DON'T HAVE
@@ -107,6 +113,7 @@ public class ExtractorGeoDocumentSupport {
             }//if indrizzo not null
             if(indirizzoHasNumber!=null && StringUtilities.setNullForEmptyString(indirizzoHasNumber)!= null){
                 geo.setIndirizzoHasNumber(indirizzoHasNumber);
+                //clean address
                 indirizzoNoCAP = indirizzoNoCAP.replace(indirizzoHasNumber,"").replaceAll("[\\^\\|\\;\\:\\,]","");
             }
             geo.setIndirizzoNoCAP(indirizzoNoCAP);
@@ -122,8 +129,8 @@ public class ExtractorGeoDocumentSupport {
             LatLng coord = j.getCoords(geo);
             geo.setLat(coord.getLat());
             geo.setLng(coord.getLng());
-            SystemLog.message("COORD[LAT:" + geo.getLat() + ",LNG:" + geo.getLng() + "]");
-        }catch(NullPointerException ne){
+            logger.info("COORD[LAT:" + geo.getLat() + ",LNG:" + geo.getLng() + "]");
+        }catch(NullPointerException|MalformedURLException ne){
             ne.printStackTrace();
         }
         return geo;
@@ -147,13 +154,13 @@ public class ExtractorGeoDocumentSupport {
                 //Accetta le lettere accentuate
                 if(set.toLowerCase().contains("http://")){
                     try {
-                        set = HttpUtil.getAuthorityName(set);
+                        set = HttpUtilities.getAuthorityName(set);
                         set = set.replaceAll("(https?|ftp)://", "");
                         set = set.replaceAll("(www(\\d)?)", "");
                         set = set.replace(".", " ");
                         set = set.replace("/", " ");
                     }catch (URISyntaxException e) {
-                        SystemLog.warning("Edificio is a malformed url:"+set);
+                        logger.warn("Edificio is a malformed url:"+set,e.getMessage(),e);
                     }
                 }
                 set = set.replaceAll("[^a-zA-Z\\u00c0-\\u00f6\\u00f8-\\u00FF\\d\\s:]","");

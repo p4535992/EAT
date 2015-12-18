@@ -1,7 +1,6 @@
 package com.github.p4535992.extractor;
 
 import com.github.p4535992.util.repositoryRDF.jena.Jena2Kit;
-import com.github.p4535992.util.log.SystemLog;
 
 import java.io.File;
 import java.io.IOException;
@@ -13,7 +12,14 @@ import java.io.IOException;
  */
 @SuppressWarnings("unused")
 public class JenaInfoDocument {
-    private static org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger(JenaInfoDocument.class);
+
+    private static final org.slf4j.Logger logger =
+            org.slf4j.LoggerFactory.getLogger(JenaInfoDocument.class);
+
+    private static String gm() {
+        return Thread.currentThread().getStackTrace()[1].getMethodName()+":: ";
+    }
+
     protected JenaInfoDocument(){}
     private static JenaInfoDocument instance = null;
     public static  JenaInfoDocument getInstance(){
@@ -91,7 +97,7 @@ public class JenaInfoDocument {
             throws IOException{
         //Crea la tua query SPARQL
 
-        SystemLog.sparql(SPARQL_NO_WGS84COORDS);
+        logger.info(SPARQL_NO_WGS84COORDS);
         //CREA IL TUO MODELLO DI JENA A PARTIRE DA UN FILE
         com.hp.hpl.jena.rdf.model.Model model = Jena2Kit.loadFileTripleToModel(filenameInput, filepath, inputFormat);
         //ESEGUI LA QUERY SPARQL
@@ -102,7 +108,7 @@ public class JenaInfoDocument {
             try{
                 com.hp.hpl.jena.rdf.model.Statement stmt  = iter.nextStatement();  // get next statement
                 model.remove(stmt);
-                SystemLog.sparql("REMOVE 1:<" + stmt.getSubject() + "> <" + stmt.getPredicate() + "> <" + stmt.getObject() + ">.");
+                logger.info("REMOVE 1:<" + stmt.getSubject() + "> <" + stmt.getPredicate() + "> <" + stmt.getObject() + ">.");
                 //com.hp.hpl.jena.rdf.model.Resource  subject   = stmt.getSubject();     // get the subject
                 com.hp.hpl.jena.rdf.model.RDFNode object2  = stmt.getSubject();      // get the object
                 com.hp.hpl.jena.rdf.model.Resource subject2 =
@@ -112,9 +118,9 @@ public class JenaInfoDocument {
 
                 //model.remove(subject2,predicate2,object2);
                 model.removeAll(null,predicate2,object2);
-                SystemLog.sparql("REMOVE 2:<" + subject2 + "> <" + predicate2 + "> <" + object2 + ">.");
+                logger.info("REMOVE 2:<" + subject2 + "> <" + predicate2 + "> <" + object2 + ">.");
             }catch(Exception e){
-                SystemLog.exception(e);
+                logger.error(gm() + e.getMessage(),e);
             }
             //OPPURE
         }

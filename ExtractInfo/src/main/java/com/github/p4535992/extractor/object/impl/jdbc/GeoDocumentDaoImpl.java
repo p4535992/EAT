@@ -5,7 +5,6 @@ import com.github.p4535992.extractor.object.model.GeoDocument;
 import com.github.p4535992.extractor.object.dao.jdbc.IGeoDocumentDao;
 import com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException;
 import org.hibernate.SessionFactory;
-import com.github.p4535992.util.log.SystemLog;
 import com.github.p4535992.util.database.sql.SQLSupport;
 
 import javax.sql.DataSource;
@@ -19,6 +18,13 @@ import java.util.List;
  */
 @org.springframework.stereotype.Component("GeoDocumentDao")
 public class GeoDocumentDaoImpl extends GenericDaoImpl<GeoDocument> implements IGeoDocumentDao {
+
+    private static final org.slf4j.Logger logger =
+            org.slf4j.LoggerFactory.getLogger( GeoDocumentDaoImpl.class);
+
+    private static String gm() {
+        return Thread.currentThread().getStackTrace()[1].getMethodName()+":: ";
+    }
 
     public GeoDocumentDaoImpl(){}
 
@@ -108,7 +114,7 @@ public class GeoDocumentDaoImpl extends GenericDaoImpl<GeoDocument> implements I
            //super.insertAndTrim(columns,values,types);
            super.insertAndTrim(support.getCOLUMNS(),support.getVALUES(),support.getTYPES());
         }catch(NullPointerException e){
-            SystemLog.throwException(new Throwable("Null pointer on the query:"+query+"",e.getCause()));
+            logger.error("Null pointer on the query:"+query+":"+e.getCause(),e);
         }
     }
 

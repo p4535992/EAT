@@ -1,6 +1,5 @@
 package com.github.p4535992.extractor.hibernate;
 
-import com.github.p4535992.util.log.SystemLog;
 import com.github.p4535992.util.reflection.ReflectionUtilities;
 import com.github.p4535992.util.string.StringUtilities;
 import org.hibernate.*;
@@ -27,7 +26,13 @@ import java.util.List;
 @SuppressWarnings("unused")
 public class Hibernate43Kit<T> {
 
-    private static org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger(Hibernate43Kit.class);
+    private static final org.slf4j.Logger logger =
+            org.slf4j.LoggerFactory.getLogger( Hibernate43Kit.class);
+
+    private static String gm() {
+        return Thread.currentThread().getStackTrace()[1].getMethodName()+":: ";
+    }
+
     protected String myInsertTable,mySelectTable,myUpdateTable;
     protected SessionFactory sessionFactory;
     protected Session session;
@@ -114,7 +119,7 @@ public class Hibernate43Kit<T> {
             //sessionFactory = (SessionFactoryImpl) ReflectionKit.invokeGetterClass(inter,"getSessionFactory");
             //setNewInterceptor(interceptor);
         } catch (InstantiationException|IllegalAccessException|java.lang.InstantiationException e) {
-           SystemLog.exception(e);
+            logger.error(gm() + e.getMessage(), e);
         }
         return session;
     }
@@ -127,7 +132,7 @@ public class Hibernate43Kit<T> {
         //configuration = new Configuration();
         //URL urlStatic = Thread.currentThread().getContextClassLoader().getResource(PATH_CFG_HIBERNATE.getAbsolutePath());
         //configuration.configure(urlStatic);
-        SystemLog.hibernate("Try to set a new configuration...");
+        logger.info("Try to set a new configuration...");
         if(cfgXML) {
             org.hibernate.cfg.Configuration config =  new org.hibernate.cfg.Configuration();
             if(isInterceptor){
@@ -157,9 +162,10 @@ public class Hibernate43Kit<T> {
                             try {
                                 configuration = config;
                                 configuration = config.configure(PATH_CFG_HIBERNATE.getAbsoluteFile());
-                            }catch(HibernateException ex9){
-                                SystemLog.warning("...failed to load the configuration file to the path:"+PATH_CFG_HIBERNATE.getAbsolutePath());
-                                SystemLog.exception(ex9);
+                            }catch(HibernateException e){
+                                logger.warn("...failed to load the configuration file to the path:" +
+                                        PATH_CFG_HIBERNATE.getAbsolutePath());
+                                logger.error(gm() + e.getMessage(), e);
                             }
                         }
                     }
@@ -171,7 +177,7 @@ public class Hibernate43Kit<T> {
                 //configuration = new AnnotationConfiguration();
                 configuration = configuration.configure();
             }catch(HibernateException e){
-                SystemLog.exception(e);
+                logger.error(gm() + e.getMessage(), e);
             }
         }
         return configuration;
@@ -188,7 +194,7 @@ public class Hibernate43Kit<T> {
             serviceRegistry = new org.hibernate.boot.registry.StandardServiceRegistryBuilder()
                     .applySettings(configuration.getProperties()).build();
         }else{
-           SystemLog.warning("Try to set a ServiceRegistry without have configurate the Configuration");
+           logger.warn("Try to set a ServiceRegistry without have configurate the Configuration");
         }
     }
 
@@ -290,7 +296,7 @@ public class Hibernate43Kit<T> {
                 });
             }
 
-        }catch(SQLException e){SystemLog.exception(e);}
+        }catch(SQLException e){logger.error(gm() + e.getMessage(), e);}
         return connection;
     }
 
@@ -309,7 +315,7 @@ public class Hibernate43Kit<T> {
      * Method to Close caches and connection pool.
      */
     public void shutdown() {
-        SystemLog.hibernate("try to closing session ... ");
+        logger.info("try to closing session ... ");
         if (getCurrentSession() != null) {
             getCurrentSession().flush();
             session.flush();
@@ -318,11 +324,11 @@ public class Hibernate43Kit<T> {
                 getCurrentSession().close();
             }
         }
-        SystemLog.hibernate("...session is closed! try to close the SessionFactory ... ");
+        logger.info("...session is closed! try to close the SessionFactory ... ");
         if (sessionFactory != null) {
             sessionFactory.close();
         }
-        SystemLog.hibernate("... the SessionFactory is closed!");
+        logger.info("... the SessionFactory is closed!");
         this.configuration = null;
         this.sessionFactory = null;
         this.session = null;
@@ -403,9 +409,9 @@ public class Hibernate43Kit<T> {
                 setNewServiceRegistry(); //new ServiceRegistry
                 sessionFactory = configuration.buildSessionFactory(serviceRegistry);
             }
-        } catch (Throwable ex) {
-            SystemLog.warning("Initial SessionFactory creation failed.");
-            SystemLog.throwException(ex);
+        } catch (Throwable e) {
+            logger.warn("Initial SessionFactory creation failed.");
+            logger.error(gm() + e.getMessage(), e);
         }
     }
 
@@ -421,8 +427,8 @@ public class Hibernate43Kit<T> {
                 PATH_CFG_HIBERNATE = new File(uri.toString());
                 buildSessionFactory();
             }
-        } catch (Throwable ex) {
-           SystemLog.throwException(ex);
+        } catch (Throwable e) {
+            logger.error(gm() + e.getMessage(), e);
         }
     }
 
@@ -442,7 +448,7 @@ public class Hibernate43Kit<T> {
                 throw new HibernateError("The string path to the file in input is null or empty");
             }
          }catch(HibernateError e){
-             SystemLog.exception(e);
+             logger.error(gm() + e.getMessage(), e);
          }
     }
 
@@ -456,8 +462,8 @@ public class Hibernate43Kit<T> {
                 PATH_CFG_HIBERNATE = cfgFile;
                 buildSessionFactory();
             }
-        } catch (Throwable ex) {
-            SystemLog.throwException(ex);
+        } catch (Throwable e) {
+            logger.error(gm() + e.getMessage(), e);
         }
     }
 
@@ -516,8 +522,8 @@ public class Hibernate43Kit<T> {
                 configuration.addAnnotatedClass(cls);
             }
             buildSessionFactory();
-        } catch (Throwable ex) {
-            SystemLog.throwException(ex);
+        } catch (Throwable e) {
+            logger.error(gm() + e.getMessage(), e);
         }
     }//buildSessionFactory
 
@@ -582,8 +588,8 @@ public class Hibernate43Kit<T> {
                 configuration.addResource(resource.getAbsolutePath());
             }
             buildSessionFactory();
-        }catch (Throwable ex) {
-            SystemLog.throwException(ex);
+        }catch (Throwable e) {
+            logger.error(gm() + e.getMessage(), e);
         }
     }//buildSessionFactory
 
@@ -609,12 +615,12 @@ public class Hibernate43Kit<T> {
             session.beginTransaction();
             session.save(object);
             session.getTransaction().commit();
-            SystemLog.message("[HIBERNATE] Insert the item:" + object);
+            logger.info("[HIBERNATE] Insert the item:" + object);
             id = session.getIdentifier(object);
-            SystemLog.message("[HIBERNATE] Get the identifier:" + id);
+            logger.info("[HIBERNATE] Get the identifier:" + id);
         } catch (RuntimeException e) {
             if (trns != null) { trns.rollback();}
-            SystemLog.exception(e);
+            logger.error(gm() + e.getMessage(), e);
         } finally {
             reset();
         }
@@ -632,9 +638,9 @@ public class Hibernate43Kit<T> {
             try {
                 criteria.add(org.hibernate.criterion.Restrictions.eq("doc_id", id));
                 List<T> results = criteria.list();
-                SystemLog.message("[HIBERNATE] Select the item:" + results.get(0));
+                logger.info("[HIBERNATE] Select the item:" + results.get(0));
             }catch(Exception e) {
-                SystemLog.warning(e.getMessage());
+                logger.warn(gm() + e.getMessage(), e);
                 if (trns != null) { trns.rollback();}
                 //retry for specific exception....
                 if(e.getMessage().contains("java.net.MalformedURLException: no protocol")){
@@ -646,10 +652,10 @@ public class Hibernate43Kit<T> {
             //object = (T) criteria.setFirstResult((Integer) id);
             //SystemLog.message("[HIBERNATE] Select the item:" + object.toString());
             object = (T) session.load(cl, id);
-            SystemLog.message("[HIBERNATE] GeoDocument you find:" + object.toString());
+            logger.info("[HIBERNATE] GeoDocument you find:" + object.toString());
         } catch (RuntimeException e) {
             if (trns != null) { trns.rollback();}
-            SystemLog.exception(e);
+            logger.error(gm() + e.getMessage(), e);
         } finally {
             reset();
         }
@@ -671,11 +677,11 @@ public class Hibernate43Kit<T> {
             }
             listT =  criteria.list();
             if(listT.size() == 0){
-                SystemLog.warning("[HIBERNATE] The returned list is empty!1");
+                logger.warn("[HIBERNATE] The returned list is empty!1");
             }
         } catch (RuntimeException e) {
             if (trns != null) { trns.rollback();}
-            SystemLog.exception(e);
+            logger.error(gm() + e.getMessage(), e);
         } finally {
             reset();
         }
@@ -696,11 +702,11 @@ public class Hibernate43Kit<T> {
             criteria = session.createCriteria(cl);
             listT = query.list();
             if(listT.size() == 0){
-                SystemLog.warning("[HIBERNATE] The returned list is empty!1");
+                logger.warn("[HIBERNATE] The returned list is empty!1");
             }
         } catch (RuntimeException e) {
             if (trns != null) { trns.rollback();}
-            SystemLog.exception(e);
+            logger.error(gm() + e.getMessage(), e);
         } finally {
             reset();
         }
@@ -719,10 +725,10 @@ public class Hibernate43Kit<T> {
             criteria = session.createCriteria(cl);
             criteria.setProjection(org.hibernate.criterion.Projections.rowCount());
             result = criteria.uniqueResult();
-            SystemLog.message("[HIBERNATE] The count of employees is :" + result);
+            logger.info("[HIBERNATE] The count of employees is :" + result);
         } catch (RuntimeException e) {
             if (trns != null) { trns.rollback();}
-            SystemLog.exception(e);
+            logger.error(gm() + e.getMessage(), e);
         } finally {
             reset();
         }
@@ -756,7 +762,7 @@ public class Hibernate43Kit<T> {
             session.getTransaction().commit();
         } catch (RuntimeException e) {
             if (trns != null) { trns.rollback();}
-            SystemLog.exception(e);
+            logger.error(gm() + e.getMessage(), e);
         } finally {
             reset();
         }
@@ -774,12 +780,12 @@ public class Hibernate43Kit<T> {
             //session.beginTransaction();
             session.saveOrUpdate(object);
             session.getTransaction().commit();
-            SystemLog.message("[HIBERNATE] Update the item:" + object.toString());
+            logger.info("[HIBERNATE] Update the item:" + object.toString());
             id = session.getIdentifier(object);
-            SystemLog.message("[HIBERNATE] Get the identifier:" + id);
+            logger.info("[HIBERNATE] Get the identifier:" + id);
         } catch (RuntimeException e) {
             if (trns != null) { trns.rollback();}
-            SystemLog.exception(e);
+            logger.error(gm() + e.getMessage(), e);
         } finally {
             reset();
         }
@@ -799,12 +805,12 @@ public class Hibernate43Kit<T> {
             T t = (T)criteria.uniqueResult();
             session.delete(t);
             session.getTransaction().commit();
-            SystemLog.message("[HIBERNATE] Delete the item:" + t);
+            logger.info("[HIBERNATE] Delete the item:" + t);
             id = session.getIdentifier(t);
-            SystemLog.message("[HIBERNATE] Get the identifier:" + id);
+            logger.info("[HIBERNATE] Get the identifier:" + id);
         } catch (RuntimeException e) {
             if (trns != null) { trns.rollback();}
-            SystemLog.exception(e);
+            logger.error(gm() + e.getMessage(), e);
         } finally {
             reset();
         }
@@ -822,12 +828,12 @@ public class Hibernate43Kit<T> {
             //session.beginTransaction();
             session.delete(object);
             session.getTransaction().commit();
-            SystemLog.message("[HIBERNATE] Delete the item:" + object);
+            logger.info("[HIBERNATE] Delete the item:" + object);
             id = session.getIdentifier(object);
-            SystemLog.message("[HIBERNATE] Get the identifier:" + id);
+            logger.info("[HIBERNATE] Get the identifier:" + id);
         } catch (RuntimeException e) {
             if (trns != null) { trns.rollback();}
-            SystemLog.exception(e);
+            logger.error(gm() + e.getMessage(), e);
         } finally {
             reset();
         }

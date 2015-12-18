@@ -18,7 +18,6 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import com.github.p4535992.util.log.SystemLog;
 import org.codehaus.jackson.map.ObjectMapper;
 
 /**
@@ -26,6 +25,13 @@ import org.codehaus.jackson.map.ObjectMapper;
  */
 @SuppressWarnings("unused")
 public class ManageJsonWithOpenStreetMap {
+
+    private static final org.slf4j.Logger logger =
+            org.slf4j.LoggerFactory.getLogger( ManageJsonWithOpenStreetMap.class);
+
+    private static String gm() {
+        return Thread.currentThread().getStackTrace()[1].getMethodName()+":: ";
+    }
 
     private static final String LATITUDE = "lat";
     private static final String LONGITUDE = "lon";
@@ -62,10 +68,10 @@ public class ManageJsonWithOpenStreetMap {
                     coordinate = new LatLng(lat, lng);
                  }
              } else {
-                SystemLog.warning("NO RESULT");
+                logger.warn(gm() + "NO RESULT");
              }
-         } catch (Exception ex) {
-            SystemLog.exception(ex);
+         } catch (Exception e) {
+            logger.error(gm() + e.getMessage(),e);
          }
     return coordinate;
     }
@@ -77,7 +83,7 @@ public class ManageJsonWithOpenStreetMap {
             try {
                 address = URLEncoder.encode(rawAddress, "utf-8");
             } catch (UnsupportedEncodingException e) {
-                SystemLog.error(e.getMessage());
+                logger.error(gm() + e.getMessage(),e);
                 return null;
             }
             //String geocodeURL = "http://nominatim.openstreetmap.org/search?format=json&amp;limit=1&amp;polygon=0&amp;addressdetails=0&amp;email=contact@EMAIL.ME&amp;countrycodes=us&amp;q=";

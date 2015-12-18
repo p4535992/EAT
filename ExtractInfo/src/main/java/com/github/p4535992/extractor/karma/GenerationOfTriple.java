@@ -1,7 +1,6 @@
 package com.github.p4535992.extractor.karma;
 import com.github.p4535992.util.collection.CollectionUtilities;
 import com.github.p4535992.util.file.FileUtilities;
-import com.github.p4535992.util.log.SystemLog;
 import com.github.p4535992.util.string.StringUtilities;
 import edu.isi.karma.kr2rml.URIFormatter;
 import edu.isi.karma.kr2rml.mapping.R2RMLMappingIdentifier;
@@ -20,10 +19,14 @@ import static edu.isi.karma.rdf.GenericRDFGenerator.*;
  * Class for call the Karma method from the module maven.
  * @author 4535992.
  * @version 2015-09-30.
+ * @deprecated use {@link GenericRDFGenerator} instead.
  */
+@Deprecated
 @SuppressWarnings("unused")
 public class GenerationOfTriple {
+
     private static org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger(GenerationOfTriple.class);
+
     private String MODEL_TURTLE_KARMA, SOURCETYPE_KARMA,TRIPLE_OUTPUT_KARMA,DBTYPE_KARMA,HOSTNAME_KARMA
                     ,USERNAME_KARMA,PASSWORD_KARMA,PORTNUMBER_KARMA,DBNAME_KARMA,TABLENAME_KARMA;
     //private String OUTPUT_FORMAT_KARMA;
@@ -87,8 +90,8 @@ public class GenerationOfTriple {
         String[] args2;
         try {
             args2 = CollectionUtilities.mergeArraysForInput(param, value);
-            SystemLog.message("PARAM KARMA:" + CollectionUtilities.toString(args2));
-            SystemLog.message("try to create a file of triples from a relational table with karma...");
+            logger.info("PARAM KARMA:" + CollectionUtilities.toString(args2));
+            logger.info("try to create a file of triples from a relational table with karma...");
 
             OfflineRdfGenerator.main(args2);
 
@@ -96,7 +99,7 @@ public class GenerationOfTriple {
                     System.getProperty("user.dir")+File.separator+"karma_files"+File.separator+
                             "output"+File.separator+ FileUtilities.getFilenameWithoutExt(pathOut)+"."
                             + FileUtilities.getExtension(pathOut);
-            SystemLog.message("...file of triples created with name:" + pathOut);
+            logger.info("...file of triples created with name:" + pathOut);
 
 
 
@@ -106,25 +109,25 @@ public class GenerationOfTriple {
 
             //MUST CONVERT THE GENERATE TRIPLE TO SPECIFIC UTF8 FORMAT FRO WORK WITH SILK AFTER
             //HERE WE LOSE SOME TIME :(
-            SystemLog.message("Converting the file of triple to UTF8 Format...");
+            logger.info("Converting the file of triple to UTF8 Format...");
             File filePathTriple = new File(pathOut);
             List<String> lines = FileUtilities.toUTF8(filePathTriple);
             String output = System.getProperty("user.dir")+File.separator+"karma_files"+File.separator+"output"+File.separator+
                     FileUtilities.getFilename(pathOut).replace("." + FileUtilities.getExtension(pathOut), "-UTF8."
                             + FileUtilities.getExtension(pathOut));
-            SystemLog.message("...file of triples created in the path:" + output);
+            logger.info("...file of triples created in the path:" + output);
             FileUtilities.write(lines,new File(output), StringUtilities.UTF_8,StringUtilities.UTF_8);
-            SystemLog.message("...converted the file of triple to UTF8 Format");
+            logger.info("...converted the file of triple to UTF8 Format");
             File f = new File(output);
             //RIPULIAMO LETRIPLE DALLE LOCATION SENZA COORDINATE CON JENA
-            SystemLog.message("Re-clean infodocument triples from the Location information  without coordinates from the file:" + output);
-            SystemLog.message(FileUtilities.getFilenameWithoutExt(f) + "," + FileUtilities.getPath(f) + "," + FileUtilities.getFilenameWithoutExt(f)
+            logger.info("Re-clean infodocument triples from the Location information  without coordinates from the file:" + output);
+            logger.info(FileUtilities.getFilenameWithoutExt(f) + "," + FileUtilities.getPath(f) + "," + FileUtilities.getFilenameWithoutExt(f)
                     + "-c" + "," + FileUtilities.getExtension(f));
 
             filePathTriple.delete();
             return f;
-        }catch(Exception ex){
-            SystemLog.exception(ex);
+        }catch(Exception e){
+            logger.error(e.getMessage(),e);
         }
         return null;
     }
@@ -161,8 +164,8 @@ public class GenerationOfTriple {
         String[] args2;
         try {
             args2 = CollectionUtilities.mergeArraysForInput(param, value);
-            SystemLog.message("PARAM KARMA:" + CollectionUtilities.toString(args2));
-            SystemLog.message("try to create a file of triples from a relational table with karma...");
+            logger.info("PARAM KARMA:" + CollectionUtilities.toString(args2));
+            logger.info("try to create a file of triples from a relational table with karma...");
 
             OfflineRdfGenerator.main(args2);
 
@@ -170,29 +173,29 @@ public class GenerationOfTriple {
                     System.getProperty("user.dir")+File.separator+"karma_files"+File.separator+
                             "output"+File.separator+ FileUtilities.getFilenameWithoutExt(pathOut)+"."
                             + FileUtilities.getExtension(pathOut);
-            SystemLog.message("...file of triples created with name:" + pathOut);
+            logger.info("...file of triples created with name:" + pathOut);
 
             File filePathTriple = new File(pathOut);
             //MUST CONVERT THE GENERATE TRIPLE TO SPECIFIC UTF8 FORMAT FRO WORK WITH SILK AFTER
             //HERE WE LOSE SOME TIME :(
-            SystemLog.message("Converting the file of triple to UTF8 Format...");
+            logger.info("Converting the file of triple to UTF8 Format...");
             List<String> lines = FileUtilities.toUTF8(filePathTriple);
             String output =
                     System.getProperty("user.dir")+File.separator+"karma_files"+File.separator+"output"+File.separator+
                             FileUtilities.getFilename(pathOut).replace("." + FileUtilities.getExtension(pathOut), "-UTF8." +
                                     FileUtilities.getExtension(pathOut));
-            SystemLog.message("...file of triples created in the path:" + output);
+            logger.info("...file of triples created in the path:" + output);
             FileUtilities.write(lines, new File(output), StringUtilities.UTF_8, StringUtilities.UTF_8);
-            SystemLog.message("...converted the file of triple to UTF8 Format");
+            logger.info("...converted the file of triple to UTF8 Format");
             File f = new File(output);
             //RIPULIAMO LETRIPLE DALLE LOCATION SENZA COORDINATE CON JENA
-            SystemLog.message("Re-clean infodocument triples from the Location information  without coordinates from the file:" + output);
-            SystemLog.message(FileUtilities.getFilenameWithoutExt(f) + "," + FileUtilities.getPath(f) + "," + FileUtilities.getFilenameWithoutExt(f)
+            logger.info("Re-clean infodocument triples from the Location information  without coordinates from the file:" + output);
+            logger.info(FileUtilities.getFilenameWithoutExt(f) + "," + FileUtilities.getPath(f) + "," + FileUtilities.getFilenameWithoutExt(f)
                     + "-c" + "," + FileUtilities.getExtension(f));
             filePathTriple.delete();
             return f;
-        }catch(Exception ex){
-            SystemLog.exception(ex);
+        }catch(Exception e){
+            logger.error(e.getMessage(), e);
         }
         return null;
     }
@@ -235,7 +238,7 @@ public class GenerationOfTriple {
             if(fileToTriplify.getAbsolutePath().toLowerCase().endsWith(".csv")) request.setDataType(InputType.CSV);
             if(fileToTriplify.getAbsolutePath().toLowerCase().endsWith(".csv")) request.setDataType(InputType.AVRO);
             else{
-                SystemLog.error("This file:" + fileToTriplify.getAbsolutePath() +
+                logger.error("This file:" + fileToTriplify.getAbsolutePath() +
                         " can't be triplify with Web-Karma these are the permittted format JSON.CSV,XML,AVRO");
                 throw  new KarmaException("This file:" + fileToTriplify.getAbsolutePath() +
                         " can't be triplify with Web-Karma these are the permittted format JSON.CSV,XML,AVRO");
@@ -246,10 +249,10 @@ public class GenerationOfTriple {
             //request : Provides all details for the Inputs to the RDF
             // Generator like the input data, setting for provenance etc
             rdfGenerator.generateRDF(request);
-            SystemLog.message("Generated RDF: " + sw.toString());
+            logger.info("Generated RDF: " + sw.toString());
             return fileToTriplify;
         } catch (KarmaException|IOException e) {
-           SystemLog.exception(e);
+            logger.error(e.getMessage(), e);
         }
         return null;
     }
@@ -284,7 +287,7 @@ public class GenerationOfTriple {
                 if(fileToTriplify .getAbsolutePath().toLowerCase().endsWith(".csv")) request.setDataType(InputType.CSV);
                 if(fileToTriplify .getAbsolutePath().toLowerCase().endsWith(".csv")) request.setDataType(InputType.AVRO);
                 else{
-                    SystemLog.error("This file:" + fileToTriplify.getAbsolutePath() +
+                    logger.error("This file:" + fileToTriplify.getAbsolutePath() +
                             " can't be triplify with Web-Karma these are the permittted format JSON.CSV,XML,AVRO");
                     throw  new KarmaException("This file:" + fileToTriplify.getAbsolutePath() +
                             " can't be triplify with Web-Karma these are the permittted format JSON.CSV,XML,AVRO");
@@ -293,12 +296,12 @@ public class GenerationOfTriple {
                 rdfGenerator.generateRDF(request);
             }
             else{
-                SystemLog.error("The InputStream is NULL!!!");
+                logger.error("The InputStream is NULL!!!");
             }
-            SystemLog.message("Generated RDF: " + sw.toString());
+            logger.info("Generated RDF: " + sw.toString());
             return fileToTriplify;
         } catch (KarmaException|IOException e) {
-            SystemLog.exception(e);
+            logger.error(e.getMessage(), e);
         }
         return null;
     }
@@ -333,7 +336,7 @@ public class GenerationOfTriple {
                 if(fileToTriplify .getAbsolutePath().toLowerCase().endsWith(".csv")) request.setDataType(InputType.CSV);
                 if(fileToTriplify .getAbsolutePath().toLowerCase().endsWith(".csv")) request.setDataType(InputType.AVRO);
                 else{
-                    SystemLog.error("This file:" + fileToTriplify.getAbsolutePath() +
+                    logger.error("This file:" + fileToTriplify.getAbsolutePath() +
                             " can't be triplify with Web-Karma these are the permittted format JSON.CSV,XML,AVRO");
                     throw  new KarmaException("This file:" + fileToTriplify.getAbsolutePath() +
                             " can't be triplify with Web-Karma these are the permittted format JSON.CSV,XML,AVRO");
@@ -342,12 +345,12 @@ public class GenerationOfTriple {
                 rdfGenerator.generateRDF(request);
             }
             else{
-                SystemLog.error("The InputStream is NULL!!!");
+                logger.error("The InputStream is NULL!!!");
             }
-            SystemLog.message("Generated RDF: " + sw.toString());
+            logger.info("Generated RDF: " + sw.toString());
             return fileToTriplify;
         } catch (KarmaException|IOException e) {
-            SystemLog.exception(e);
+            logger.error(e.getMessage(), e);
         }
         return null;
     }

@@ -2,18 +2,17 @@ package com.github.p4535992.extractor.home;
 
 
 import com.github.p4535992.util.database.sql.SQLHelper;
-import com.github.p4535992.util.log.SystemLog;
+
+import com.github.p4535992.util.log.logback.LogBackUtil;
 import com.github.p4535992.util.repositoryRDF.jena.Jena2Kit;
-import com.github.p4535992.util.repositoryRDF.jenaAndSesame.JenaAndSesame;
+import com.github.p4535992.util.repositoryRDF.jenaAndSesame.JenaSesameUtilities;
 import com.github.p4535992.util.repositoryRDF.sesame.Sesame28Kit;
-import com.github.p4535992.util.repositoryRDF.sparql.SparqlKit;
-import com.hp.hpl.jena.rdf.model.Model;
+import com.github.p4535992.util.repositoryRDF.sparql.SparqlUtilities;
+
 import org.openrdf.query.*;
 import org.openrdf.repository.Repository;
 import org.openrdf.repository.RepositoryException;
-import org.openrdf.repository.base.RepositoryConnectionWrapper;
 
-import java.io.File;
 import java.io.UnsupportedEncodingException;
 import java.sql.Connection;
 
@@ -66,12 +65,12 @@ public class MainSesameManager {
             "                    <http://schema.org/streetAddress> \"zzzzzz\". }";
 
     public static void main(String args[]) throws RepositoryException, MalformedQueryException, QueryEvaluationException, UnsupportedEncodingException, UpdateExecutionException {
-        SystemLog.setIsLogOff(true);
+        LogBackUtil.init();
 
         Sesame28Kit sesame = Sesame28Kit.getInstance();
         //sesame.setURLRepositoryId("km4city04");
         Repository rep = sesame.connectToHTTPRepository("http://localhost:8080/openrdf-sesame/repositories/repKm4c1");
-        String query = (SparqlKit.preparePrefix()+SPARQL_SELECT_KM4C_SERVICE).trim();
+        String query = (SparqlUtilities.preparePrefix()+SPARQL_SELECT_KM4C_SERVICE).trim();
         //RepositoryConnectionWrapper wrap = sesame.setNewRepositoryConnectionWrappper(rep);
         //QueryLanguage sparql = sesame.stringToQueryLanguage("SPARQL");
 
@@ -100,12 +99,12 @@ public class MainSesameManager {
         Long ss = sesame.getExecutionQueryTime(query);
         org.openrdf.model.Model sModel = sesame.convertRepositoryToModel(rep,100);
 
-        JenaAndSesame jas = JenaAndSesame.getInstance();
+        JenaSesameUtilities jas = JenaSesameUtilities.getInstance();
         com.hp.hpl.jena.rdf.model.Model jModel2 = jas.convertOpenRDFModelToJenaModel(sModel);
         Long yy = Jena2Kit.getExecutionQueryTime(query, jModel2);
 
         Connection conn = SQLHelper.getMySqlConnection("jdbc:mysql://localhost:3306/geodb?noDatetimeStringSync=true");
-        Long zz = SQLHelper.getExcecutionTime(SQL_GET_ALL_SERVICE, conn);
+        Long zz = SQLHelper.getExecutionTime(SQL_GET_ALL_SERVICE, conn);
 
 
 

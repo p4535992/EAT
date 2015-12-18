@@ -4,7 +4,7 @@ import com.github.p4535992.extractor.JenaInfoDocument;
 import com.github.p4535992.extractor.karma.GenerationOfTriple;
 
 import com.github.p4535992.util.file.FileUtilities;
-import com.github.p4535992.util.log.SystemLog;
+import com.github.p4535992.util.log.logback.LogBackUtil;
 
 import java.io.File;
 import java.io.IOException;
@@ -15,8 +15,12 @@ import java.io.IOException;
  */
 public class MainGenerationTriple {
 
+    private static final org.slf4j.Logger logger =
+            org.slf4j.LoggerFactory.getLogger(MainGenerationTriple.class);
+
     public static void main(String[] args) throws IOException{
-        SystemLog.setIsLogOff(true);
+
+        LogBackUtil.init();
         //ExecuteCmdAndPrintOnOutput rte = new ExecuteCmdAndPrintOnOutput();
         /*
         GenerationOfTriple got = new GenerationOfTriple(
@@ -87,10 +91,10 @@ public class MainGenerationTriple {
                 //delete not filter file of triples
                 f.delete();
             } catch (IOException ex) {
-                SystemLog.exception(ex);
+                logger.error(ex.getMessage(),ex);
             }
         }catch(Exception ex ){
-            SystemLog.exception(ex);
+            logger.error(ex.getMessage(), ex);
         }
     }//main
 

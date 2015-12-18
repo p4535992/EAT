@@ -1,7 +1,8 @@
 package com.github.p4535992.extractor;
 import com.github.p4535992.extractor.object.model.GeoDomainDocument;
 import com.github.p4535992.extractor.setInfoParameterIta.SetNazioneELanguage;
-import com.github.p4535992.util.http.impl.HttpUtil;
+import com.github.p4535992.util.http.HttpUtilities;
+
 import com.github.p4535992.extractor.object.model.GeoDocument;
 import com.github.p4535992.extractor.object.support.LatLng;
 import com.github.p4535992.util.http.HttpUtilApache4;
@@ -15,7 +16,7 @@ import java.net.URL;
 import java.util.*;
 
 import org.json.JSONObject;
-import com.github.p4535992.util.log.SystemLog;
+
 
 /**
  * ManageJsonWithGoogleMaps.java.
@@ -28,6 +29,13 @@ import com.github.p4535992.util.log.SystemLog;
  */
 @SuppressWarnings("unused")
 public class ManageJsonWithGoogleMaps {
+
+    private static final org.slf4j.Logger logger =
+            org.slf4j.LoggerFactory.getLogger( ManageJsonWithGoogleMaps.class);
+
+    private static String gm() {
+        return Thread.currentThread().getStackTrace()[1].getMethodName()+":: ";
+    }
     
     private String API_KEY_GM;
     //private static ManageJsonWithOSMAndJP o = new ManageJsonWithOSMAndJP();
@@ -147,7 +155,7 @@ public class ManageJsonWithGoogleMaps {
         JSONObject json;
         try {
             URL url = new URL(prepareRawAddress(rawAddress,nation));
-            SystemLog.message("URL for GM:" + url.toString());
+            logger.info("URL for GM:" + url.toString());
             json =  temporizzatorePerGoogleMaps(url);
             if (json != null) {
                 if(!(json.toString().contains("\"status\":\"ZERO_RESULTS\"")) ||
@@ -176,12 +184,12 @@ public class ManageJsonWithGoogleMaps {
     //                }catch(Exception ex){}
                 }else{
                     if(json.toString().contains("\"status\":\"OVER_QUERY_LIMIT\"")){
-                        SystemLog.error(json.toString());
+                        logger.error(json.toString());
                     }
                 }
             }//json !=null
-        } catch (IOException|java.lang.NullPointerException ex){
-            SystemLog.exception(ex);
+        } catch (IOException|java.lang.NullPointerException e){
+            logger.error(gm()+ e.getMessage(),e);
         }
         return new LatLng(null,null);
     }
@@ -269,34 +277,34 @@ public class ManageJsonWithGoogleMaps {
          String jsonText = "";
          try{
             try{
-                HttpUtil.waiter();
+                HttpUtilities.waiter();
                 jsonText = org.jsoup.Jsoup.connect(url.toString()).ignoreContentType(true).execute().body();
             } catch (org.jsoup.HttpStatusException e) {
-                SystemLog.warning(e.getMessage());
+                logger.warn(gm() + e.getMessage(), e);
             } catch(org.json.JSONException e2){
                 json = new JSONObject(JSON_ZERO_RESULT);
             } catch(java.net.SocketTimeoutException e3){
-                HttpUtil.waiter();
-                jsonText = HttpUtil.get(url.toString());
+                HttpUtilities.waiter();
+                jsonText = HttpUtilities.executeHTTPGetRequest(url.toString());
             } finally{
                 if(StringUtilities.isNullOrEmpty(jsonText) ||
                         Objects.equals(jsonText, JSON_ZERO_RESULT) || Objects.equals(jsonText, JSON_EMPTY)){
-                    HttpUtil.waiter();
+                    HttpUtilities.waiter();
                     //jsonText = org.jsoup.Jsoup.connect(url.toString()).ignoreContentType(true).execute().body();
-                    jsonText = HttpUtil.get(url.toString());
+                    jsonText = HttpUtilities.executeHTTPGetRequest(url.toString());
                     if(StringUtilities.isNullOrEmpty(jsonText) ||
                             Objects.equals(jsonText, JSON_ZERO_RESULT) || Objects.equals(jsonText, JSON_EMPTY)) {
-                        HttpUtil.waiter();
+                        HttpUtilities.waiter();
                         //jsonText = HttpUtil.get(url.toString());
                         jsonText = HttpUtilApache4.getWithRetry(url.toString());
                     }
 
                 }
                 json = new JSONObject(jsonText);
-                SystemLog.warning("JSON:" + json.toString());
+                logger.warn("JSON:" + json.toString());
             }
          }catch(InterruptedException e){
-             SystemLog.warning(e.getMessage());
+             logger.warn(gm()+e.getMessage(),e);
          } finally{
              if(StringUtilities.isNullOrEmpty(jsonText) ||
                      Objects.equals(jsonText, JSON_ZERO_RESULT) || Objects.equals(jsonText, JSON_EMPTY)){

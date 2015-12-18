@@ -6,7 +6,6 @@ import com.github.p4535992.gatebasic.gate.gate8.GateDataStore8Kit;
 import com.github.p4535992.util.file.FileUtilities;
 import com.github.p4535992.util.file.SimpleParameters;
 import com.github.p4535992.extractor.object.model.GeoDocument;
-import com.github.p4535992.util.log.SystemLog;
 
 import java.io.File;
 import java.net.URL;
@@ -20,6 +19,13 @@ import java.util.*;
  */
 @SuppressWarnings("unused")
 public class ExtractInfoSpring {
+
+    private static final org.slf4j.Logger logger =
+            org.slf4j.LoggerFactory.getLogger(ExtractInfoSpring.class);
+
+    private static String gm() {
+        return Thread.currentThread().getStackTrace()[1].getMethodName()+":: ";
+    }
 
      //private boolean SAVE_DATASTORE = false;
      //private String TYPE_EXTRACTION;
@@ -137,9 +143,9 @@ public class ExtractInfoSpring {
             this.SILK_LINKING_TRIPLE_PROGRAMM = Boolean.parseBoolean(par.getValue("PARAM_SILK_LINKING_TRIPLE_PROGRAMM").toLowerCase());
             this.SILK_SLS_FILE = par.getValue("PARAM_SILK_SLS_FILE");
         }catch(java.lang.NullPointerException ne){
-            SystemLog.warning("Attention: make sure all the parameter on the input.properties file are setted correctly");
-            SystemLog.exception(ne);
-            SystemLog.abort(0,"EXIT PROGRAMM");
+            logger.warn(gm() + "Attention: make sure all the parameter on the input.properties file are setted correctly");
+            logger.error(gm() + ne.getMessage(),ne);
+            System.exit(0);
         }
          par.getParameters().clear();
          //Set the onbjects so we not call them again after each url
@@ -163,7 +169,7 @@ public class ExtractInfoSpring {
              ExtractInfoWeb web = ExtractInfoWeb.getInstance(
                      DRIVER_DATABASE,DIALECT_DATABASE,HOST_DATABASE,PORT_DATABASE.toString(),USER,PASS,DB_OUTPUT);
              if(PROCESS_PROGAMM < 4){
-                 SystemLog.message("Run the extraction method.");
+                 logger.info("Run the extraction method.");
                  List<URL> listUrl = ExtractInfoWeb.getInstance().getListURLFromDatabase(
                          DRIVER_DATABASE, DIALECT_DATABASE, HOST_DATABASE,
                          PORT_DATABASE.toString(), USER, PASS, DB_INPUT, TABLE_INPUT, COLUMN_TABLE_INPUT, LIMIT, OFFSET);
@@ -177,7 +183,7 @@ public class ExtractInfoSpring {
                      }
                  }
                  for (URL aSupportList : supportList) {
-                     SystemLog.warning("The site " + aSupportList + " can't be reach...");
+                     logger.warn("The site " + aSupportList + " can't be reach...");
                      for (int j = 0; j < listUrl.size(); j++) {
                          if (listUrl.get(j) == aSupportList) {
                              listUrl.remove(j);
@@ -193,12 +199,12 @@ public class ExtractInfoSpring {
                  web.setGate("gate_files", "plugins", "gate.xml", "user-gate.xml", "gate.session",
                          "custom/gapp/geoLocationPipeline06102014v7_fastMode.xgapp");
                  if(PROCESS_PROGAMM == 1){
-                     SystemLog.message("RUN PROCESS 1: Abilitate for each single url");
+                     logger.info("RUN PROCESS 1: Abilitate for each single url");
                      if(listUrl.isEmpty()){
-                         SystemLog.message("The list of urls you get from the table:"+TABLE_INPUT+
-                                 " from the columns "+COLUMN_TABLE_INPUT+" empty!!!");
+                         logger.info("The list of urls you get from the table:" + TABLE_INPUT +
+                                 " from the columns " + COLUMN_TABLE_INPUT + " empty!!!");
                      }else {
-                         SystemLog.attention("Loaded a list of: "+listUrl.size()+" files");
+                         logger.info("Loaded a list of: " + listUrl.size() + " files");
                          for (URL url : listUrl) {
                              GeoDocument geoDoc = web.ExtractGeoDocumentFromUrl(
                                      url, TABLE_OUTPUT, TABLE_OUTPUT, CREATE_NEW_GEODOCUMENT_TABLE,ERASE);
@@ -206,17 +212,17 @@ public class ExtractInfoSpring {
                          }
                      }
                  }else if(PROCESS_PROGAMM == 2){
-                     SystemLog.message("RUN PROCESS 2: Abilitate for multiple url");
+                     logger.info("RUN PROCESS 2: Abilitate for multiple url");
                      if(listUrl.isEmpty()){
-                         SystemLog.message("The list of urls you get from the table:"+TABLE_INPUT+
-                                 " from the columns "+COLUMN_TABLE_INPUT+" empty!!!");
+                         logger.info("The list of urls you get from the table:" + TABLE_INPUT +
+                                 " from the columns " + COLUMN_TABLE_INPUT + " empty!!!");
                      }else {
-                         SystemLog.attention("Loaded a list of: "+listUrl.size()+" files");
+                         logger.info("Loaded a list of: " + listUrl.size() + " files");
                          web.ExtractGeoDocumentFromListUrls(
                                  listUrl, TABLE_INPUT, TABLE_OUTPUT,CREATE_NEW_GEODOCUMENT_TABLE,ERASE);
                      }
                 }else if(PROCESS_PROGAMM == 3){
-                     SystemLog.message("RUN PROCESS 3: Abilitate for single file or for a directory");
+                     logger.info("RUN PROCESS 3: Abilitate for single file or for a directory");
                      //String DIRECTORY_FILE = "C:\\Users\\Marco\\Downloads\\parseWebUrls";
                      List<File> files = new ArrayList<>();
                      List<File> subFiles = new ArrayList<>(); //suppport list...
@@ -245,23 +251,23 @@ public class ExtractInfoSpring {
                      files.clear();
 
                      if(subFiles.isEmpty()){
-                         SystemLog.message("The list of urls you get from the table:" + TABLE_INPUT +
+                         logger.info("The list of urls you get from the table:" + TABLE_INPUT +
                                  " from the columns " + COLUMN_TABLE_INPUT + " empty!!!");
                      }else {
-                         SystemLog.attention("Loaded a list of: "+subFiles.size()+" files");
+                         logger.info("Loaded a list of: " + subFiles.size() + " files");
                          web.ExtractGeoDocumentFromListFiles(
                                  subFiles, TABLE_INPUT, TABLE_OUTPUT, CREATE_NEW_GEODOCUMENT_TABLE,ERASE);
                      }
-                     SystemLog.message("Obtained a list of: " + listGeo.size() + " GeoDocument");
+                     logger.info("Obtained a list of: " + listGeo.size() + " GeoDocument");
                  }//else lista url non vuota
-                 else SystemLog.warning("You are jump the extraction process! (use 1,2 or 3 on the Proces Porgamma Parameter)");
+                 else logger.warn("You are jump the extraction process! (use 1,2 or 3 on the Proces Porgamma Parameter)");
              }
             //Other process after the extraction of the information....
             if(PROCESS_PROGAMM == 4) {
-                SystemLog.message("RUN PROCESS 4");
+                logger.info("RUN PROCESS 4");
                 //CREAZIONE DI UNA TABELLA DI GEODOMAINDOCUMENT
                 if (GEODOMAIN_PROGRAMM) {
-                    SystemLog.message("RUN GEODOMAIN PROGRAMM: Create a geodomaindocument table from a geodocument table!");
+                    logger.info("RUN GEODOMAIN PROGRAMM: Create a geodomaindocument table from a geodocument table!");
                     IGeoDomainDocumentDao geoDomainDocumentDao = new GeoDomainDocumentDaoImpl();
                     geoDomainDocumentDao.setTableInsert(TABLE_OUTPUT_GEODOMAIN);
                     geoDomainDocumentDao.setTableSelect(TABLE_INPUT_GEODOMAIN);
@@ -278,8 +284,8 @@ public class ExtractInfoSpring {
                 }
                 //INTEGRIAMO LA TABELLA INFODOCUMENT PER LAVORARE CON UN'ONTOLOGIA
                 if (ONTOLOGY_PROGRAMM || GENERATION_TRIPLE_KARMA_PROGRAMM) {
-                    SystemLog.message("RUN ONTOLOGY PROGRAMM: Create Table of infodocument from a geodocument/geodomaindocument table!");
-                    SystemLog.message("RUN KARMA PROGRAMM: Generation of triple with Web-karma!!");
+                    logger.info("RUN ONTOLOGY PROGRAMM: Create Table of infodocument from a geodocument/geodomaindocument table!");
+                    logger.info("RUN KARMA PROGRAMM: Generation of triple with Web-karma!!");
                     web.triplifyGeoDocumentFromDatabase(
                             TABLE_INPUT_ONTOLOGY, TABLE_OUTPUT_ONTOLOGY,
                             OUTPUT_FORMAT_KARMA, FILE_MAP_TURTLE_KARMA, FILE_OUTPUT_TRIPLE_KARMA,
@@ -289,7 +295,7 @@ public class ExtractInfoSpring {
                     if(new File(SILK_SLS_FILE).exists()){
                         de.fuberlin.wiwiss.silk.Silk.executeFile(new File(SILK_SLS_FILE), "interlink_location", 2, true);
                     }else{
-                        SystemLog.error("The "+new File(SILK_SLS_FILE).getAbsolutePath()+" not exists!!");
+                        logger.error(gm() + "The " + new File(SILK_SLS_FILE).getAbsolutePath() + " not exists!!");
                     }
                 }
             }
@@ -328,7 +334,7 @@ public class ExtractInfoSpring {
                 egd.deleteOverrideRecord(map);
             }*/
         }catch(OutOfMemoryError e) {
-            SystemLog.error("java.lang.OutOfMemoryError, Reload the programm please");
+            logger.error("java.lang.OutOfMemoryError, Reload the programm please");
         }
     }//main
 }

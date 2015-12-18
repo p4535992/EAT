@@ -4,7 +4,6 @@ import com.github.p4535992.util.string.StringUtilities;
 import org.hibernate.*;
 import org.hibernate.InstantiationException;
 import org.hibernate.criterion.Criterion;
-import com.github.p4535992.util.log.SystemLog;
 
 import java.io.File;
 import java.io.IOException;
@@ -25,7 +24,13 @@ import javax.transaction.Transactional;
 @SuppressWarnings("unused")
 public class Hibernate4Kit<T> {
 
-    private static org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger(Hibernate4Kit.class);
+    private static final org.slf4j.Logger logger =
+            org.slf4j.LoggerFactory.getLogger(Hibernate4Kit.class);
+
+    private static String gm() {
+        return Thread.currentThread().getStackTrace()[1].getMethodName()+":: ";
+    }
+
     protected String myInsertTable,mySelectTable,myUpdateTable;
     protected org.hibernate.SessionFactory sessionFactory;
     protected org.hibernate.Session session;
@@ -112,7 +117,7 @@ public class Hibernate4Kit<T> {
             //sessionFactory = (SessionFactoryImpl) ReflectionKit.invokeGetterClass(inter,"getSessionFactory");
             //setNewInterceptor(interceptor);
         } catch (InstantiationException|IllegalAccessException|java.lang.InstantiationException e) {
-           SystemLog.exception(e); 
+            logger.error(gm() + e.getMessage(), e);
         } 
         return session;
     }
@@ -125,7 +130,7 @@ public class Hibernate4Kit<T> {
         //configuration = new Configuration();
         //URL urlStatic = Thread.currentThread().getContextClassLoader().getResource(PATH_CFG_HIBERNATE.getAbsolutePath());
         //configuration.configure(urlStatic);
-        SystemLog.hibernate("Try to set a new configuration...");
+        logger.info("Try to set a new configuration...");
         if(cfgXML) {
             org.hibernate.cfg.Configuration config =  new org.hibernate.cfg.Configuration();
             if(isInterceptor){
@@ -155,9 +160,10 @@ public class Hibernate4Kit<T> {
                             try {
                                 configuration = config;
                                 configuration = config.configure(PATH_CFG_HIBERNATE.getAbsoluteFile());
-                            }catch(HibernateException ex9){
-                                SystemLog.warning("...failed to load the configuration file to the path:"+PATH_CFG_HIBERNATE.getAbsolutePath());
-                                SystemLog.exception(ex9);
+                            }catch(HibernateException e){
+                                logger.warn("...failed to load the configuration file to the path:"
+                                        + PATH_CFG_HIBERNATE.getAbsolutePath());
+                                logger.error(gm() + e.getMessage(), e);
                             }
                         }
                     }
@@ -169,7 +175,7 @@ public class Hibernate4Kit<T> {
                 //configuration = new AnnotationConfiguration();
                 configuration = configuration.configure();
             }catch(org.hibernate.HibernateException e){
-                SystemLog.exception(e);
+                logger.error(gm() + e.getMessage(), e);
             }
         }
         return configuration;
@@ -186,7 +192,7 @@ public class Hibernate4Kit<T> {
             serviceRegistry = new org.hibernate.boot.registry.StandardServiceRegistryBuilder()
                     .applySettings(configuration.getProperties()).build();
         }else{
-           SystemLog.warning("Try to set a ServiceRegistry without have configurate the Configuration");
+           logger.warn("Try to set a ServiceRegistry without have configurate the Configuration");
         }
     }
 
@@ -288,7 +294,7 @@ public class Hibernate4Kit<T> {
                 });
             }
 
-        }catch(SQLException e){SystemLog.exception(e);}
+        }catch(SQLException e){logger.error(gm() + e.getMessage(), e);}
         return connection;
     }
 
@@ -307,7 +313,7 @@ public class Hibernate4Kit<T> {
      * Method to Close caches and connection pool.
      */
     public void shutdown() {
-        SystemLog.hibernate("try to closing session ... ");
+        logger.info("try to closing session ... ");
         if (getCurrentSession() != null) {
             getCurrentSession().flush();
             session.flush();
@@ -316,11 +322,11 @@ public class Hibernate4Kit<T> {
                 getCurrentSession().close();
             }
         }
-        SystemLog.hibernate("...session is closed! try to close the SessionFactory ... ");
+        logger.info("...session is closed! try to close the SessionFactory ... ");
         if (sessionFactory != null) {
             sessionFactory.close();
         }
-        SystemLog.hibernate("... the SessionFactory is closed!");
+        logger.info("... the SessionFactory is closed!");
         this.configuration = null;
         this.sessionFactory = null;
         this.session = null;
@@ -401,9 +407,9 @@ public class Hibernate4Kit<T> {
                 setNewServiceRegistry(); //new ServiceRegistry
                 sessionFactory = configuration.buildSessionFactory(serviceRegistry);
             }
-        } catch (Throwable ex) {
-            SystemLog.warning("Initial SessionFactory creation failed.");
-            SystemLog.throwException(ex);
+        } catch (Throwable e) {
+            logger.warn("Initial SessionFactory creation failed.");
+            logger.error(gm() + e.getMessage(), e);
         }
     }
 
@@ -419,8 +425,8 @@ public class Hibernate4Kit<T> {
                 PATH_CFG_HIBERNATE = new File(uri.toString());
                 buildSessionFactory();
             }
-        } catch (Throwable ex) {
-           SystemLog.throwException(ex);
+        } catch (Throwable e) {
+            logger.error(gm() + e.getMessage(), e);
         }
     }
 
@@ -440,7 +446,7 @@ public class Hibernate4Kit<T> {
                 throw new HibernateError("The string path to the file in input is null or empty");
             }
          }catch(HibernateError e){
-             SystemLog.exception(e);
+             logger.error(gm() + e.getMessage(), e);
          }
     }
 
@@ -454,8 +460,8 @@ public class Hibernate4Kit<T> {
                 PATH_CFG_HIBERNATE = cfgFile;
                 buildSessionFactory();
             }
-        } catch (Throwable ex) {
-            SystemLog.throwException(ex);
+        } catch (Throwable e) {
+            logger.error(gm() + e.getMessage(), e);
         }
     }
 
@@ -514,8 +520,8 @@ public class Hibernate4Kit<T> {
                 configuration.addAnnotatedClass(cls);
             }
             buildSessionFactory();
-        } catch (Throwable ex) {
-            SystemLog.throwException(ex);
+        } catch (Throwable e) {
+            logger.error(gm() + e.getMessage(), e);
         }
     }//buildSessionFactory
 
@@ -580,8 +586,8 @@ public class Hibernate4Kit<T> {
                 configuration.addResource(resource.getAbsolutePath());
             }
             buildSessionFactory();
-        }catch (Throwable ex) {
-            SystemLog.throwException(ex);
+        }catch (Throwable e) {
+            logger.error(gm() + e.getMessage(), e);
         }
     }//buildSessionFactory
 

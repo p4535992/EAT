@@ -11,7 +11,7 @@
 
     <groupId>com.github.p4535992</groupId>
     <artifactId>utility</artifactId>
-    <version>1.4.4</version>
+    <version>1.5.0</version>
     <packaging>jar</packaging>
 
     <name>${project.artifactId}</name>
@@ -86,11 +86,6 @@
         <joda-time.version>2.3</joda-time.version>
         <org.jadira.usertype.core.version>3.0.0.CR1</org.jadira.usertype.core.version>
         <!-- JENA and Sesame OpenRDF version used 2.13.0 and 2.10.1 -->
-        <!--<org.apache.jena.jena.version>2.10.1</org.apache.jena.jena.version>-->
-        <!--<org.apache.jena.arq.version>2.13.0</org.apache.jena.arq.version>-->
-        <!--<org.apache.jena.core.version>2.13.0</org.apache.jena.core.version>-->
-        <!--<org.apache.jena.jena-tdb.version>1.1.2</org.apache.jena.jena-tdb.version>-->
-        <!--<org.apache.jena.jena-iri.version>1.1.2</org.apache.jena.jena-iri.version>-->
         <!-- Jena Libraries (Core, ARQ, IRI, and TDB) -->
         <org.apache.jena.apache-jena-libs.version>2.10.1</org.apache.jena.apache-jena-libs.version>
         <!-- Jena Support -->
@@ -103,6 +98,7 @@
         <org.semanticweb.yars.nxparser-api.version>2.2</org.semanticweb.yars.nxparser-api.version>
         <!-- XML -->
         <org.jdom.jdom2.version>2.0.6</org.jdom.jdom2.version>
+        <xml-apis.xml-apis.version>1.4.01</xml-apis.xml-apis.version>
         <!-- HTML -->
         <org.jsoup.jsoup.version>1.8.2</org.jsoup.jsoup.version>
         <!-- JSON -->
@@ -116,25 +112,27 @@
         <!-- SPRING FRAMEWORK -->
         <io.spring.platform-version>1.1.2.RELEASE</io.spring.platform-version>
         <org.springframework.version>4.1.6.RELEASE</org.springframework.version>
-        <commons-fileupload.commons-fileupload.version>1.3.1</commons-fileupload.commons-fileupload.version>
+       <!-- <commons-fileupload.commons-fileupload.version>1.3.1</commons-fileupload.commons-fileupload.version>-->
         <!-- Logging -->
-        <logback.version>1.1.3</logback.version>
         <org.slf4j.version>1.7.12</org.slf4j.version>
-        <commons-logging.version>1.1.1</commons-logging.version>
+        <!-- Logback + log4j + jul -->
         <spring-boot-starter-logging.version>1.3.0.RELEASE</spring-boot-starter-logging.version>
-        <org.apache.logging.log4j.core.version>2.3</org.apache.logging.log4j.core.version>
+       <!-- <org.apache.logging.log4j.core.version>2.3</org.apache.logging.log4j.core.version>-->
+        <org.fusesource.jansi.jansi.version>1.11</org.fusesource.jansi.jansi.version>
         <!-- Apache -->
         <!--<org.apache.httpcomponents.httpclient.version>4.4.1</org.apache.httpcomponents.httpclient.version>-->
         <org.apache.httpcomponents.httpclient.version>4.5.1</org.apache.httpcomponents.httpclient.version>
-        <org.apache.commons.commons-dbcp2.version>2.0</org.apache.commons.commons-dbcp2.version>
+        <!--<org.apache.commons.commons-dbcp2.version>2.0</org.apache.commons.commons-dbcp2.version>
         <org.apache.commons.commons-lang3.version>3.4</org.apache.commons.commons-lang3.version>
-        <org.apache.commons.commons-codec.version>1.10</org.apache.commons.commons-codec.version>
+        <org.apache.commons.commons-codec.version>1.10</org.apache.commons.commons-codec.version>-->
+
         <!-- javax -->
         <javax.interceptor-api.version>1.2</javax.interceptor-api.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
+            <!-- Spring Framework: core + beans + contentxt + web -->
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-framework-bom</artifactId>
@@ -146,8 +144,13 @@
                         <groupId>org.springframework.security</groupId>
                         <artifactId>*</artifactId>
                     </exclusion>
+                    <exclusion>
+                        <groupId>commons-logging</groupId>
+                        <artifactId>commons-logging</artifactId>
+                    </exclusion>
                 </exclusions>
             </dependency>
+            <!-- Open RDF: ***** -->
             <dependency>
                 <groupId>org.openrdf.sesame</groupId>
                 <artifactId>sesame-bom</artifactId>
@@ -165,7 +168,7 @@
             <dependency>
                 <groupId>xml-apis</groupId>
                 <artifactId>xml-apis</artifactId>
-                <version>1.4.01</version>
+                <version>${xml-apis.xml-apis.version}</version>
                 <scope>runtime</scope>
             </dependency>
         </dependencies>
@@ -256,6 +259,11 @@
             <version>5.1.3.Final</version>
         </dependency>
         <!-- SUPPORT HIBERNATE -->
+        <dependency>
+            <groupId>org.hibernate.javax.persistence</groupId>
+            <artifactId>hibernate-jpa-2.1-api</artifactId>
+            <version>1.0.0.Final</version>
+        </dependency>
         <!-- Joda-Time -->
         <dependency>
             <groupId>joda-time</groupId>
@@ -329,7 +337,7 @@
         </dependency>
 
         <!-- =============== -->
-        <!-- XML - JDOM2     -->
+        <!-- XML - JDOM2 + XML API    -->
         <!-- =============== -->
         <dependency>
             <groupId>org.jdom</groupId>
@@ -337,6 +345,13 @@
             <version>${org.jdom.jdom2.version}</version>
             <optional>true</optional>
         </dependency>
+        <!-- Support XML function on SpringFramework and Hibernate -->
+      <!--  <dependency>
+            <groupId>xml-apis</groupId>
+            <artifactId>xml-apis</artifactId>
+            <version>${xml-apis.xml-apis.version}</version>
+            <optional>true</optional>
+        </dependency>-->
 
         <!-- =============== -->
         <!-- HTML - JSOUP    -->
@@ -594,7 +609,8 @@
         <dependency>
             <groupId>org.fusesource.jansi</groupId>
             <artifactId>jansi</artifactId>
-            <version>1.11</version>
+            <version>${org.fusesource.jansi.jansi.version}</version>
+            <optional>true</optional>
         </dependency>
         <!-- The SLF4J - take out because already present in logback classic -->
          <dependency>

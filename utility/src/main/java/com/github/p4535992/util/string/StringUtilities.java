@@ -1,8 +1,6 @@
 package com.github.p4535992.util.string;
 
-import com.github.p4535992.util.log.SystemLog;
 import com.github.p4535992.util.regex.pattern.Patterns;
-import org.apache.commons.lang3.RandomStringUtils;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -18,6 +16,7 @@ import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+
 /**
  * Created by 4535992 on 06/11/2015.
  * href: http://stackoverflow.com/questions/9572795/convert-list-to-array-in-java
@@ -28,14 +27,19 @@ import java.util.regex.Pattern;
  */
 @SuppressWarnings("unused")
 public class StringUtilities {
+    
+    private static final org.slf4j.Logger logger = 
+            org.slf4j.LoggerFactory.getLogger(StringUtilities.class);
 
-     /*public enum special{
+    private static String gm() {
+        return Thread.currentThread().getStackTrace()[1].getMethodName()+":: ";
+    }
+
+     public enum special{
         WHITESPACE(0), NBSP(1),NEWLINE(2),PROJECTDIR(3),LINE_FEED(4),LINE_SEP(5),EMPTY_STR(6),
         LT(7),GT(8),AMP(9),QUAT(10),SINGLE_QUAT(11),ESC_LT(12),ESC_GT(13),ESC_AMP(14),CRLF(15);
         private final Integer value;
-        special(Integer value) {
-            this.value = value;
-        }
+        special(Integer value) {this.value = value;}
         @Override
         public String toString() {
             String svalue="";
@@ -60,19 +64,17 @@ public class StringUtilities {
             }
             return svalue;
         }
-    }*/
+    }
 
     /**
      * A regular expression that matches several kinds of whitespace characters, including and newlines.
      */
     public static final String WHITESPACE = "\\s+";
-
     /**
      * A non-breaking space string. Using this instead of a regular space string (" ") will
      * prevent from applying their normal line-breaking behavior.
      */
     public static final String NBSP = "\u00A0";
-
     /**
      * A non-breaking space character. Using this instead of a regular space character (' ')
      * will prevent from applying their normal line-breaking behavior.
@@ -80,6 +82,8 @@ public class StringUtilities {
     public static final char NBSP_CHAR = '\u00A0';
     public static final String LINE_FEED = "\r\n";
     public static final String LINE_SEP = System.getProperty("line.separator");
+    public static final String LINE_SEPARATOR = System.getProperty("line.separator");
+    public static final String PROJECT_DIR = System.getProperty("user.dir");
     public static final String EMPTY_STR = "";
     public static final String LT = "<";
     public static final String GT = ">";
@@ -91,7 +95,7 @@ public class StringUtilities {
     public static final String ESC_AMP = "&amp;";
     public static final String CRLF = "\r\n";
 
-
+    /*Set of Charset used on java app*/
     public static final Charset ISO_8859_1 = Charset.forName("ISO-8859-1");
     public static final Charset US_ASCII = Charset.forName("US-ASCII");
     public static final Charset UTF_16 = Charset.forName("UTF-16");
@@ -99,9 +103,8 @@ public class StringUtilities {
     public static final Charset UTF_16LE = Charset.forName("UTF-16LE");
     public static final Charset UTF_8 = Charset.forName("UTF-8");
     public static final Charset CP1252 = Charset.forName("Cp1252");
-    public static final String LINE_SEPARATOR = System.getProperty("line.separator");
     public static final Charset DEFAULT_ENCODING = Charset.forName(System.getProperty("file.encoding"));
-    public static final String PROJECT_DIR = System.getProperty("user.dir");
+    
 
     public static Charset toCharset(Charset charset) {
         return charset == null ? Charset.defaultCharset() : charset;
@@ -124,7 +127,6 @@ public class StringUtilities {
     //-------------------------------------------
     /**
      * Uses androids android.util.Patterns.EMAIL_ADDRESS to check if an email address is valid.
-     *
      * @param email Address to check
      * @return true if the <code>email</code> is a valid email address.
      */
@@ -134,7 +136,6 @@ public class StringUtilities {
 
     /**
      * Uses androids android.telephony.PhoneNumberUtils to check if an phone number is valid.
-     *
      * @param number Phone number to check
      * @return true if the <code>number</code> is a valid phone number.
      */
@@ -148,10 +149,10 @@ public class StringUtilities {
      * @param url Address to check
      * @return true if the <code>url</code> is a valid web address.
      */
-    public  static boolean isValidURL(String url) {
+   /* public  static boolean isValidURL(String url) {
         return url != null && Patterns.WEB_URL.matcher(url).matches();
     }
-
+*/
     /**
      * Method to  check if an url is valid.
      * @param url Address to check
@@ -164,10 +165,15 @@ public class StringUtilities {
     /**
      * Method to check if an url has the valid protocol.
      * @param url Address to check
-     * @return true if the <code>url</code> is a valid web address.
+     * @return true if the url is a valid web address.
      */
     public static boolean isURLWithProtocol(String url){
-        return isValidURL(url) && Patterns.Protocol_URL.matcher(url).matches();
+        if(isURL(url)) {
+            return Patterns.Protocol_URL.matcher(url).matches() || url.matches("^(https?|ftp)://.*$");
+        }else{
+            logger.warn(gm() + "This is not a URL:"+url+" return false");
+            return false;
+        }
     }
 
     /**
@@ -176,8 +182,14 @@ public class StringUtilities {
      * @return true if the url is a valid web address.
      */
     public static boolean isURLWithoutProtocol(String url){
-        return Patterns.WEB_URL_NO_PROTOCOL.matcher(url).matches() &&
-                !Patterns.Protocol_URL.matcher(url).matches();
+        if(isURL(url)) {
+            return Patterns.WEB_URL_NO_PROTOCOL.matcher(url).matches() ||
+                    Patterns.WEB_URL_NO_PROTOCOL.matcher(url).matches() &&
+                            !(Patterns.Protocol_URL.matcher(url).matches() || url.matches("^(https?|ftp)://.*$"));
+        }else{
+            logger.warn(gm() + "This is not a URL:"+url+ " return false");
+            return false;
+        }
     }
 
     /**
@@ -186,17 +198,8 @@ public class StringUtilities {
      * @return if tru is a url address web.
      */
     public static boolean isURL(String url){
-        return isValidURL(url);
+        return url != null && Patterns.WEB_URL.matcher(url).matches();
     }
-
-    /**
-     * Method to check if a string is a url address web or not.
-     * @param url the string address web.
-     * @return if tru is a url address web.
-     */
-    /*public static boolean isURLWithProtocol(String url){
-        return url.matches("^(https?|ftp)://.*$");
-    }*/
 
     /**
      * Method for check if a string rappresent a numeric value.
@@ -308,20 +311,12 @@ public class StringUtilities {
      * @param excluded The regular expressions that needs to fail.
      * @return true if the name filtered through correctly; or false otherwise.
      */
-    public static boolean isFindWithRegex(String name, Pattern included, Pattern excluded){
+    public static boolean isMatch(String name, Pattern included, Pattern excluded){
         Pattern[] included_array = null;
-        if (included != null)
-        {
-            included_array = new Pattern[] {included};
-        }
-
+        if (included != null)included_array = new Pattern[] {included};
         Pattern[] excluded_array = null;
-        if (excluded != null)
-        {
-            excluded_array = new Pattern[] {excluded};
-        }
-
-        return isFindWithRegex(name, included_array, excluded_array);
+        if (excluded != null)excluded_array = new Pattern[] {excluded};
+        return isMatch(name, included_array, excluded_array);
     }
 
     /**
@@ -332,7 +327,7 @@ public class StringUtilities {
      * @param excluded An array of regular expressions that need to fail
      * @return true if the name filtered through correctly; or false otherwise.
      */
-    public static boolean isFindWithRegex(String name, Pattern[] included, Pattern[] excluded) {
+    public static boolean isMatch(String name, Pattern[] included, Pattern[] excluded) {
         if (null == name)return false;
         boolean accepted = false;
         // retain only the includes
@@ -517,7 +512,7 @@ public class StringUtilities {
         try {
             return new byte[is.available()];
         }catch (IOException e){
-           SystemLog.exception(e);
+           logger.error(e.getMessage(),e);
            return null;
         }
    }
@@ -653,15 +648,13 @@ public class StringUtilities {
                 sb.append(line);
                 line = br.readLine();
             }
-        } catch (IOException io) {
-            SystemLog.warning("Failed to read from Stream");
-            SystemLog.exception(io);
+        } catch (IOException io) {   
+            logger.error("Failed to read from Stream",io);
         } finally {
             try {
                 br.close();
             } catch (IOException ioex) {
-                System.out.println("Failed to close Streams");
-                SystemLog.exception(ioex);
+                logger.error("Failed to close Streams",ioex);
             }
         }
         return sb.toString();
@@ -691,7 +684,9 @@ public class StringUtilities {
 
     }
 
-    private static final char[] hexChar = {'0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'};
+    private static final char[] hexChar = 
+    {'0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'};
+    
     /**
      * Method for convert a string UTF-8 to HEX
      * @param s string of text you want to convert to HEX
@@ -793,15 +788,24 @@ public class StringUtilities {
      * @return string asuuid.
      */
     public static String createUUID(){ return  java.util.UUID.randomUUID().toString(); }
+    
     /**
      * Metodo che converte una stringa a un'oggetto UUID.
      * @param uuid string uuid.
      * @return java.util.UUID.
      */
     public static java.util.UUID toUUID(String uuid){return java.util.UUID.fromString(uuid); }
+    
+     /**
+     * Metodo che converte una stringa a un'oggetto UUID.
+     * @param uuid Byte array of the uuid.
+     * @return java.util.UUID.
+     */
+    public static java.util.UUID toUUID(byte[] uuid){return java.util.UUID.nameUUIDFromBytes(uuid); }
 
     /**
-     * Methohs remove the symbol if exists in the first and last character of the string
+     * Methohs remove the symbol if exists in the first and last character of the string.
+     * OLD_NAME: removeFirstAndLast;
      * @param stringToUpdate string of input.
      * @param symbol symbol to check.
      * @return the string update.
@@ -859,7 +863,7 @@ public class StringUtilities {
             out.flush();
             //out.close();
         }catch (IOException e) {
-            SystemLog.exception(e,StringUtilities.class);
+            logger.error(e.getMessage(),e);
         }
         return outputPathFileName;
     }
@@ -900,7 +904,7 @@ public class StringUtilities {
                 readFile = sbFile.toString();// this string contains the character sequence
             }
         } catch (IOException e) {
-            SystemLog.exception(e);
+            logger.error(e.getMessage(),e);
         }
         return  readFile;
     }
@@ -911,27 +915,30 @@ public class StringUtilities {
      * @param text the String text to parse.
      * @return string of int where the first element is the number of words,the second is the number of characters
      * and the third is the number of lines.
-     * @throws IOException throw if any error is occurred.
      */
-    public static int[] countElement(String text) throws IOException {
-        int i=0,j=0,k=0;
-        BufferedReader br = new BufferedReader(new InputStreamReader(toStream(text)));
-        String s;
-        s = br.readLine();//Enter File Name:
-        br=new BufferedReader(new FileReader(s));
-        while((s=br.readLine())!=null)
-        {
-            k++;
-            StringTokenizer st=new StringTokenizer(s," .,:;!?");
-            while(st.hasMoreTokens())
+    public static int[] countElement(String text){
+        try {
+            int i=0,j=0,k=0;
+            BufferedReader br = new BufferedReader(new InputStreamReader(toStream(text)));
+            String s;
+            s = br.readLine();//Enter File Name:
+            br=new BufferedReader(new FileReader(s));
+            while((s=br.readLine())!=null)
             {
-                i++;
-                s=st.nextToken();
-                j+=s.length();
-            }
+                k++;
+                StringTokenizer st=new StringTokenizer(s," .,:;!?");
+                while(st.hasMoreTokens())
+                {
+                    i++;
+                    s=st.nextToken();
+                    j+=s.length();
+                }
+            }   br.close();
+            return new int[]{i,j,k}; //Number of Words:,Number of Characters:,Number of Lines:
+        } catch (IOException ex) {
+            logger.error(ex.getMessage(),ex);
+            return new int[3];
         }
-        br.close();
-        return new int[]{i,j,k}; //Number of Words:,Number of Characters:,Number of Lines:
     }
 
 
@@ -947,9 +954,9 @@ public class StringUtilities {
                  ObjectOutputStream out = new ObjectOutputStream(fileOut)) {
                 out.writeObject(object);
             }
-            SystemLog.console("Serialized data is saved in /tmp/" + nameTempSer + ".ser");
+            logger.info("Serialized data is saved in /tmp/" + nameTempSer + ".ser");
         }catch(IOException i){
-            SystemLog.exception(i);
+            logger.error(i.getMessage(),i);
         }
     }
 
@@ -967,14 +974,8 @@ public class StringUtilities {
                  ObjectInputStream in = new ObjectInputStream(fileIn)) {
                 object = (T) in.readObject();
             }
-        }catch(IOException i)
-        {
-            SystemLog.exception(i);
-            return null;
-        }catch(ClassNotFoundException c)
-        {
-            SystemLog.error(""+object.getClass().getName()+" class not found!!!");
-            SystemLog.exception(c);
+        }catch(IOException|ClassNotFoundException i){
+            logger.error(i.getMessage(),i);
             return null;
         }
         return object;
@@ -997,7 +998,7 @@ public class StringUtilities {
                 return (T) objectToCast;
             }
         } catch (ClassCastException e) {
-            SystemLog.exception(e);
+            logger.error(e.getMessage(),e);
             return null;
         }
     }
@@ -1008,15 +1009,19 @@ public class StringUtilities {
      * @param clazz class.
      * @param <T> generic type.
      * @return string.
-     * @throws JAXBException error.
      */
-    public static <T> String toXml(T object, Class<T> clazz)throws JAXBException {
-        JAXBContext context = JAXBContext.newInstance(clazz);
-        Marshaller marshaller = context.createMarshaller();
-        marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-        StringWriter writer = new StringWriter();
-        marshaller.marshal(object, writer);
-        return writer.toString();
+    public static <T> String toXml(T object, Class<T> clazz){
+        try {
+            JAXBContext context = JAXBContext.newInstance(clazz);
+            Marshaller marshaller = context.createMarshaller();
+            marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+            StringWriter writer = new StringWriter();
+            marshaller.marshal(object, writer);
+            return writer.toString();
+        } catch (JAXBException ex) {
+            logger.error(ex.getMessage(),ex);
+            return null;
+        }
     }
 
     /**
@@ -1025,14 +1030,18 @@ public class StringUtilities {
      * @param clazz class.
      * @param <T> generic type.
      * @return object T.
-     * @throws JAXBException error.
      */
     @SuppressWarnings("unchecked")
-    public static <T> T toPojo(String xmlStringData, Class<T> clazz)  throws JAXBException {
-        JAXBContext context = JAXBContext.newInstance(clazz);
-        StringReader reader = new StringReader(xmlStringData);
-        Unmarshaller unmarshaller = context.createUnmarshaller();
-        return (T) unmarshaller.unmarshal(reader);
+    public static <T> T toPojo(String xmlStringData, Class<T> clazz){
+        try {
+            JAXBContext context = JAXBContext.newInstance(clazz);
+            StringReader reader = new StringReader(xmlStringData);
+            Unmarshaller unmarshaller = context.createUnmarshaller();
+            return (T) unmarshaller.unmarshal(reader);
+        } catch (JAXBException ex) {
+            logger.error(ex.getMessage(),ex);
+            return null;
+        }
     }
 
     /**
@@ -1054,10 +1063,17 @@ public class StringUtilities {
             if (!(isURLWithProtocol(url))) {
                 url = "http://" + url;
                 if (isURL(url)) return url;
+                else{
+                   logger.warn("After add the protocol this is not a URL!");
+                   return null; 
+                }
             }
             return url;
+        }else{
+            logger.warn("Before add the protocol this is not a URL!");
+            return null;
         }
-        return null;
+       
     }
 
     /**
@@ -1107,8 +1123,7 @@ public class StringUtilities {
             */
             return toHexString(hashedBytes);
         } catch (NoSuchAlgorithmException ex) {
-            //throw new HashGenerationException("Could not generate hash from String", ex);
-            SystemLog.exception(ex);
+            logger.error("Could not generate hash from String", ex);  
             return null;
         }
     }
@@ -1251,7 +1266,7 @@ public class StringUtilities {
         if(isNumeric(numericText)){
             return Integer.parseInt(numericText);
         }else{
-            SystemLog.warning("The string text:"+numericText+" is not a number!!!");
+            logger.warn("The string text:"+numericText+" is not a number!!!");
             return null;
         }
     }
@@ -1265,7 +1280,7 @@ public class StringUtilities {
         if(isNumeric(numericText)){
             return toInt(Integer.parseInt(numericText));
         }else{
-            SystemLog.warning("The string text:"+numericText+" is not a number!!!");
+            logger.warn("The string text:"+numericText+" is not a number!!!");
             return 0;
         }
     }
@@ -1278,6 +1293,7 @@ public class StringUtilities {
     public static String toString(Object object){
         if(object instanceof URL) return object.toString();
         if(object instanceof URI) return object.toString();
+        //TODO add all the other constructor.
         return String.valueOf(object);
     }
 
@@ -1301,7 +1317,8 @@ public class StringUtilities {
             throw new RuntimeException(e);
         }
         StringBuilder hexString = new StringBuilder();
-        byte[] data = md.digest(RandomStringUtils.randomAlphabetic(lengthToken).getBytes());
+        byte[] data = md.digest(
+                org.apache.commons.lang3.RandomStringUtils.randomAlphabetic(lengthToken).getBytes());
         for (byte aData : data) {
             hexString.append(Integer.toHexString((aData >> 4) & 0x0F));
             hexString.append(Integer.toHexString(aData & 0x0F));
@@ -1324,7 +1341,7 @@ public class StringUtilities {
      * Character objects and the values String objects.
      * @return The encoded String object.
      */
-    private static String encode(String source, HashMap encodingTable) {
+    private static String encode(String source, HashMap<Character,String> encodingTable) {
         if (null == source) return null;
         if (null == encodingTable)return source;
 

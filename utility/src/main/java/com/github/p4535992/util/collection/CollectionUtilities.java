@@ -1,10 +1,7 @@
 package com.github.p4535992.util.collection;
 
-import com.github.p4535992.util.log.SystemLog;
 import com.github.p4535992.util.reflection.ReflectionUtilities;
 import com.github.p4535992.util.string.StringUtilities;
-
-import java.io.IOException;
 import java.lang.reflect.Array;
 import java.util.*;
 
@@ -16,6 +13,13 @@ import java.util.*;
  */
 @SuppressWarnings("unused")
 public class CollectionUtilities {
+
+    private static final org.slf4j.Logger logger =
+            org.slf4j.LoggerFactory.getLogger(CollectionUtilities.class);
+
+    private static String gm() {
+        return Thread.currentThread().getStackTrace()[1].getMethodName()+":: ";
+    }
 
     /**
      * Method to check if a Class is a Collection or not.
@@ -135,7 +139,7 @@ public class CollectionUtilities {
             }
             else return new ArrayList<>();
         }else{
-            SystemLog.error("The object:"+collection+ " is not a Collection");
+            logger.error("The object:"+collection+ " is not a Collection");
             return new ArrayList<>();
         }
     }
@@ -153,7 +157,7 @@ public class CollectionUtilities {
             if(collection instanceof List) return new HashSet<>((List<T>)collection);
             else return new HashSet<>();
         }else{
-            SystemLog.error("The object:"+collection+ " is not a Collection");
+            logger.error("The object:"+collection+ " is not a Collection");
             return new HashSet<>();
         }
     }
@@ -175,7 +179,7 @@ public class CollectionUtilities {
                 public T nextElement() {return null;}
             };
         }else{
-            SystemLog.error("The object:"+collection+ " is not a Collection");
+            logger.error("The object:"+collection+ " is not a Collection");
             return new Enumeration<T>() {
                 @Override
                 public boolean hasMoreElements() {return false;}
@@ -211,7 +215,7 @@ public class CollectionUtilities {
                 };
             }
         }else{
-            SystemLog.error("The object:"+collection+ " is not a Collection");
+            logger.error("The object:"+collection+ " is not a Collection");
             return new Iterable<T>() {
                 @Override
                 public Iterator<T> iterator() {return null;}
@@ -241,7 +245,7 @@ public class CollectionUtilities {
                 };
             }
         }else{
-            SystemLog.error("The object:"+collection+ " is not a Collection");
+            logger.error("The object:"+collection+ " is not a Collection");
             return new Iterator<T>() {
                 @Override
                 public boolean hasNext() { return false;}
@@ -267,7 +271,7 @@ public class CollectionUtilities {
                 T[] array = (T[]) Array.newInstance(list.get(0).getClass(), list.size());
                 if(ReflectionUtilities.isWrapperType(list.get(0).getClass())){ //if is a primitive class
                     for(int i = 0; i < list.size(); i++) array[i] = list.get(i);
-                }else{ //is is not a primitive class
+                }else{ //is is not a primitive class            
                     list.toArray(array);
                 }
                 return array;
@@ -352,7 +356,7 @@ public class CollectionUtilities {
                 array[j] = value[i];
             }
         }else{
-            SystemLog.warning("WARNING: Check your array size");
+            logger.warn("WARNING: Check your array size");
         }
         return array;
     }
@@ -451,7 +455,7 @@ public class CollectionUtilities {
                 array[j] = value[i];
             }
         }else{
-            SystemLog.error("WARNING: Check your array size");
+            logger.error("WARNING: Check your array size");
         }
         return array;
     }
@@ -511,7 +515,7 @@ public class CollectionUtilities {
         if (integerArray == null) return null;
         else if (integerArray.length == 0) return new int[0];
         final int[] result = new int[integerArray.length];
-        for (int i = 0; i < integerArray.length; i++) { result[i] = integerArray[i].intValue();}
+        for (int i = 0; i < integerArray.length; i++) { result[i] = integerArray[i];}
         return result;
     }
 
@@ -947,9 +951,9 @@ public class CollectionUtilities {
     }
 
     public <K,V> V getElementAt(LinkedHashMap<K,V> map, int index) {
-        for (Map.Entry entry : map.entrySet()) {
+        for (Map.Entry<K,V> entry : map.entrySet()) {
             if (index-- == 0) {
-                return (V) entry.getValue();
+                return entry.getValue();
             }
         }
         return null;

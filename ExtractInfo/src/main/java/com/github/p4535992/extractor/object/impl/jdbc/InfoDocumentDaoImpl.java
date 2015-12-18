@@ -3,21 +3,28 @@ package com.github.p4535992.extractor.object.impl.jdbc;
 import com.github.p4535992.extractor.object.impl.jdbc.generic.GenericDaoImpl;
 import com.github.p4535992.extractor.object.model.GeoDocument;
 import com.github.p4535992.extractor.object.dao.jdbc.IInfoDocumentDao;
-import com.github.p4535992.extractor.object.impl.jdbc.generic.GenericDaoImpl;
-import com.github.p4535992.extractor.object.model.GeoDocument;
 import com.github.p4535992.extractor.object.model.InfoDocument;
 import com.github.p4535992.util.database.sql.SQLQuery;
 import org.hibernate.SessionFactory;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import com.github.p4535992.util.log.SystemLog;
+
 
 import java.sql.*;
 
 /**
- * Created by Marco on 01/04/2015.
+ * Created by 4535992 on 01/04/2015.
+ * @author 4535992.
+ * @version 2015-12-18.
  */
 @org.springframework.stereotype.Component("InfoDocumentDao")
 public class InfoDocumentDaoImpl extends GenericDaoImpl<InfoDocument> implements IInfoDocumentDao {
+
+    private static final org.slf4j.Logger logger =
+            org.slf4j.LoggerFactory.getLogger( InfoDocumentDaoImpl.class);
+
+    private static String gm() {
+        return Thread.currentThread().getStackTrace()[1].getMethodName()+":: ";
+    }
 
     @Override
     public void setDriverManager(String driver, String dialectDB, String host,String port, String user, String pass, String database) {
@@ -57,43 +64,43 @@ public class InfoDocumentDaoImpl extends GenericDaoImpl<InfoDocument> implements
         //Copy the geodocument table
         try {
             query = "CREATE TABLE " + myInsertTable + " LIKE " + mySelectTable + ";";
-            SystemLog.message(query);
+            logger.info(query);
             jdbcTemplate.execute(query);
             query = "INSERT " + myInsertTable + " SELECT * FROM " + mySelectTable + ";";
-            SystemLog.message(query);
+            logger.info(query);
             jdbcTemplate.execute(query);
 
             //Add identifier
             query = "ALTER TABLE " + myInsertTable + " ADD identifier varchar(1000);";
-            SystemLog.message(query);
+            logger.info(query);
             jdbcTemplate.execute(query);
             query = "UPDATE " + myInsertTable + " SET identifier = doc_id;";
             jdbcTemplate.execute(query);
 
             //Add name location
             query = " ALTER TABLE " +myInsertTable + " ADD name_location varchar(1000);";
-            SystemLog.message(query);
+            logger.info(query);
             jdbcTemplate.execute(query);
             query = "SELECT identifier FROM " + myInsertTable + ";";
-            SystemLog.message(query);
+            logger.info(query);
             jdbcTemplate.execute(query);
             query = "UPDATE " + myInsertTable + " SET name_location = identifier;";
-            SystemLog.message(query);
+            logger.info(query);
             jdbcTemplate.execute(query);
             query = SQLQuery.updateColumnToMD5Hash(myInsertTable, "url", "identifier",false);
-            SystemLog.message(query);
+            logger.info(query);
             jdbcTemplate.execute(query);
             query = "UPDATE " + myInsertTable + " SET name_location=CONCAT('Location_',identifier);";
-            SystemLog.message(query);
+            logger.info(query);
             jdbcTemplate.execute(query);
 
 
         }catch(org.springframework.jdbc.BadSqlGrammarException e){
-            SystemLog.warning("Make sure the tables you try to use exists!!!");
+            logger.warn(gm() + "Make sure the tables you try to use exists!!!");
             if(e.getMessage().contains("Table '"+myInsertTable+"' already exists")){
-                SystemLog.warning("Table '"+myInsertTable+"' already exists");
+                logger.warn(gm() + "Table '"+myInsertTable+"' already exists",e);
             }else {
-                SystemLog.exception(e);
+                logger.error(gm() +e.getMessage(),e);
             }
         }
 
@@ -167,7 +174,7 @@ public class InfoDocumentDaoImpl extends GenericDaoImpl<InfoDocument> implements
             // get the column names; column indexes start from 1
             for (int i = 1; i < numberOfColumns + 1; i++) {
                 query = "UPDATE `" + myInsertTable + "` SET `" + rsMetaData.getColumnName(i) + "` = LTRIM(RTRIM(`" + rsMetaData.getColumnName(i) + "`));";
-                SystemLog.message(query);
+                logger.info(query);
                 jdbcTemplate.execute(query);
             }
         }catch(Exception e){}

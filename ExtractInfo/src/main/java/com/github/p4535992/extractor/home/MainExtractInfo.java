@@ -3,7 +3,8 @@ package com.github.p4535992.extractor.home;
 import com.github.p4535992.extractor.estrattori.ExtractInfoSpring;
 import com.github.p4535992.util.file.FileUtilities;
 import com.github.p4535992.util.file.SimpleParameters;
-import com.github.p4535992.util.log.SystemLog;
+import com.github.p4535992.util.log.logback.LogBackUtil;
+
 import java.awt.*;
 import java.io.*;
 import java.lang.reflect.InvocationTargetException;
@@ -19,16 +20,19 @@ import java.util.Map;
  */
 public class MainExtractInfo {
 
+    private static final org.slf4j.Logger logger =
+            org.slf4j.LoggerFactory.getLogger(MainExtractInfo.class);
+
     public MainExtractInfo(){}
 
     public static void main(final String[] args) throws NullPointerException, InterruptedException, InvocationTargetException{   
         try{          
             EventQueue.invokeLater(new Runnable() {	 
             //SwingUtilities.invokeAndWait(new Runnable() {
-               public void run() {
-                   try {
-                       SystemLog.setIsLogOff(true);
-                       SystemLog.message("===== START THE PROGRAMM =========");
+            public void run() {
+                try {
+                    LogBackUtil.init();
+                       logger.info("===== START THE PROGRAMM =========");
                         /*long start = System.currentTimeMillis();*/
                        // The storage for the command line parameters
                        Map<String,String> mParameters = new HashMap<>();
@@ -46,12 +50,12 @@ public class MainExtractInfo {
                         }
                         //VARIABILI ALTRE
                         //PRINT SULLA CONSOLE
-                        SystemLog.message("Using parameters:");
-                        SystemLog.message(params.toString());
+                        logger.info("Using parameters:");
+                        logger.info(params.toString());
 
                        if(params.getValue("PARAM_TYPE_EXTRACTION").equals("SPRING")) {
                            ExtractInfoSpring m = ExtractInfoSpring.getInstance(params);
-                            SystemLog.message("START EXTRACT");
+                            logger.info("START EXTRACT");
                             m.Extraction();
                        }
 
@@ -61,14 +65,13 @@ public class MainExtractInfo {
                          System.currentTimeMillis() - start));*/
                    }catch(Exception e){
                            e.printStackTrace();
-                           SystemLog.error(e.getMessage());
+                           logger.error(e.getMessage(),e);
                    }
                }
         });//runnable    
     }catch(OutOfMemoryError e){
-        //reload the code
-          e.printStackTrace();
-          SystemLog.error("java.lang.OutOfMemoryError, Ricarica il programma modificando LIMIT e OFFSET.\n GATE execute in timeout");
+            //reload the code
+            logger.error("java.lang.OutOfMemoryError, Ricarica il programma modificando LIMIT e OFFSET.\n GATE execute in timeout");
     }
 }//main
 

@@ -154,7 +154,7 @@ public class Patterns {
     // input.  This is to stop foo.sure from
     // matching as foo.su
 
-    public static final Pattern Protocol_URL = Pattern.compile("((?:(http|https|Http|Https|rtsp|Rtsp):\\/\\/))");
+    public static final Pattern Protocol_URL = Pattern.compile("((?:(http|https|Http|Https|rtsp|Rtsp|ftp):\\/\\/))");
 
     public static final Pattern EMAIL_ADDRESS
         = Pattern.compile(

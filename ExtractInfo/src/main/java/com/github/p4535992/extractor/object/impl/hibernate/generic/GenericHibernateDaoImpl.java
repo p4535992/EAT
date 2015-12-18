@@ -9,7 +9,7 @@ import org.hibernate.criterion.Criterion;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
-import com.github.p4535992.util.log.SystemLog;
+
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -75,6 +75,7 @@ public class GenericHibernateDaoImpl<T> implements IGenericHibernateDao<T> {
            loadSpringContext(contextFile.getAbsolutePath());
        }else{
            //..do nothing
+           logger.error("Can't load a Sprinc context because the File context is NULL.");
        }
 
    }
@@ -155,7 +156,7 @@ public class GenericHibernateDaoImpl<T> implements IGenericHibernateDao<T> {
                 setSessionFactory(context);
             }
         }catch (Exception e){
-            SystemLog.exception(e);
+            logger.error(e.getMessage(),e);
         }
    }
 
@@ -185,8 +186,8 @@ public class GenericHibernateDaoImpl<T> implements IGenericHibernateDao<T> {
                         "the loadSpringContextMethod");
             }
             this.sessionFactory = (org.hibernate.SessionFactory) context.getBean(beanIdSessionFactory);
-        }catch(java.lang.NullPointerException ne){
-            SystemLog.exception(ne);
+        }catch(java.lang.NullPointerException e){
+            logger.error(e.getMessage(),e);
         }
     }
 

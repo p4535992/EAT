@@ -1,8 +1,7 @@
 package com.github.p4535992.extractor.estrattori;
 
 import com.github.p4535992.extractor.object.model.GeoDocument;
-import com.github.p4535992.util.log.SystemLog;
-import com.github.p4535992.util.http.impl.HttpUtil;
+import com.github.p4535992.util.http.HttpUtilities;
 import java.io.IOException;
 import java.net.URL;
 import java.util.*;
@@ -14,12 +13,19 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 /**
- *
+ * Method utility for get the String content of a WebPage
  * @author 4535992.
  * @author 2015-07-03.
  */
 @SuppressWarnings("unused")
 public class ExtractorJSOUP {
+
+    private static final org.slf4j.Logger logger =
+            org.slf4j.LoggerFactory.getLogger(ExtractorDomain.class);
+
+    private static String gm() {
+        return Thread.currentThread().getStackTrace()[1].getMethodName()+":: ";
+    }
 
     public static boolean isEXIST_WEBPAGE() {
         return EXIST_WEBPAGE;
@@ -56,21 +62,21 @@ public class ExtractorJSOUP {
             }
         }catch(Exception e){
             tentativi++;
-            HttpUtil.waiter();
+            HttpUtilities.waiter();
             if(tentativi < 3) GetTitleAndHeadingTags(url,geo);
             else doc = null;
         }
         if(doc==null){
             try{
-                String html = HttpUtil.get(url);
+                String html = HttpUtilities.executeHTTPGetRequest(url);
                 doc = Jsoup.parse(html);
-                SystemLog.message("HTTP GET DONE");
+                logger.info("HTTP GET DONE");
                 EXIST_WEBPAGE = true;
             }catch(Exception en){
                 EXIST_WEBPAGE = false;
             }
         }else{
-            SystemLog.message("JSOUP GET DONE");
+            logger.info("JSOUP GET DONE");
             EXIST_WEBPAGE = true;
         }
 
@@ -148,10 +154,10 @@ public class ExtractorJSOUP {
             }
             geo.setNazione(result);    
             //SystemLog.message("DESCRIPTION:" + geo.getDescription());
-            SystemLog.message("EDIFICIO:" + geo.getEdificio());
+            logger.info("EDIFICIO:" + geo.getEdificio());
             //SystemLog.message("LANGUAGE:" + geo.getNazione());
         }else{        
-            SystemLog.error("FAILED the HTTP GET for the web address:" + url);
+            logger.error("FAILED the HTTP GET for the web address:" + url);
             geo.setEdificio(null);
         }
         geo.setUrl(new URL(url));

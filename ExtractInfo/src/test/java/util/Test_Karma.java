@@ -2,7 +2,7 @@ package util;
 
 
 import com.github.p4535992.util.collection.CollectionUtilities;
-import com.github.p4535992.util.log.SystemLog;
+
 
 import java.io.IOException;
 
@@ -111,7 +111,7 @@ public class Test_Karma {
 
             edu.isi.karma.rdf.OfflineRdfGenerator.main(args2);
         }catch(Exception ex ){
-            SystemLog.exception(ex);
+            ex.printStackTrace();
         }
     }//main
 

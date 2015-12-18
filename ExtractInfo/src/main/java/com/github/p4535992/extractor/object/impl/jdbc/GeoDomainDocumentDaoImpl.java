@@ -2,7 +2,6 @@ package com.github.p4535992.extractor.object.impl.jdbc;
 
 import com.github.p4535992.extractor.object.dao.jdbc.IGeoDomainDocumentDao;
 import com.github.p4535992.extractor.object.impl.jdbc.generic.GenericDaoImpl;
-import com.github.p4535992.util.log.SystemLog;
 import com.github.p4535992.extractor.object.model.GeoDocument;
 import com.github.p4535992.extractor.object.model.GeoDomainDocument;
 import com.github.p4535992.util.database.sql.SQLSupport;
@@ -27,6 +26,13 @@ import java.util.*;
 @SuppressWarnings("unused")
 @org.springframework.stereotype.Component("GeoDomainDocumentDao")
 public class GeoDomainDocumentDaoImpl extends GenericDaoImpl<GeoDomainDocument> implements IGeoDomainDocumentDao {
+
+    private static final org.slf4j.Logger logger =
+            org.slf4j.LoggerFactory.getLogger( GeoDomainDocumentDaoImpl.class);
+
+    private static String gm() {
+        return Thread.currentThread().getStackTrace()[1].getMethodName()+":: ";
+    }
 
     @Override
     public void setDriverManager(String driver, String dialectDB, String host,String port, String user, String pass, String database) {
@@ -137,7 +143,7 @@ public class GeoDomainDocumentDaoImpl extends GenericDaoImpl<GeoDomainDocument> 
             }
         }
         query += " FROM "+mySelectTable+" LIMIT "+limit+" OFFSET "+offset+"";
-        SystemLog.message(query);
+        logger.info(query);
         return jdbcTemplate.query(query,
                 new RowMapper<GeoDocument>() {
                     @Override
@@ -254,14 +260,14 @@ public class GeoDomainDocumentDaoImpl extends GenericDaoImpl<GeoDomainDocument> 
         try {
             super.update(columns,values,column_where,value_where);
         }catch(org.springframework.jdbc.BadSqlGrammarException e){
-            SystemLog.warning(e.getMessage());
+            logger.warn(e.getMessage());
             if(values[0]==null && values[1]==null) {
                 query = "UPDATE " + myUpdateTable + " SET latitude=NULL, longitude=NULL WHERE url='" + value_where + "'";
             }else{
                 query = "UPDATE " + myUpdateTable + " SET latitude='" + values[0] + "', longitude='" + values[1] + "' WHERE url='" + value_where + "'";
             }
             jdbcTemplate.execute(query);
-            SystemLog.query(query);
+            logger.info(query);
         }
     }
 
