@@ -36,13 +36,16 @@ public interface IGenericDao<T> {
     void setTableInsert(String nameOfTable);
     void setTableSelect(String nameOfTable);
     void setTableUpdate(String nameOfTable);
+    void setTableDelete(String nameOfTable);
+    String getMyInsertTable();
+    String getMySelectTable();
+    String getMyUpdateTable();
+    String getMyDeleteTable();
 
     /////////
     //JDBC///
     /////////
     String[] getColumnsInsertTable(String nameOfTable);
-
-    void setTableDelete(String nameOfTable);
 
     void create(String SQL) throws Exception;
     void create(String SQL, boolean erase) ;

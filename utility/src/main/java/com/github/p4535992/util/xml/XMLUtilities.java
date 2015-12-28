@@ -639,6 +639,7 @@ public class XMLUtilities {
 
     /**
      * Method to Print out the target Document in specified encoding
+     * @param xmlDoc the Document W3C to convert to a File.
      * @param file the target file
      * @throws IOException throw if the File Output directory not exists.
      */
@@ -741,6 +742,7 @@ public class XMLUtilities {
 
     /**
      * Method to convert Document to String.
+     * @param doc the Document W3C to convert to a String.
      * @return the string content of the document.
      */
     public static String toStringXML(Document doc){
@@ -2028,6 +2030,9 @@ public class XMLUtilities {
 
     /**
      * Returns XML text converted from the target DOM
+     * @param document the Document W3C to convert tpo String.
+     * @param nodeFilter the NodeFilter for use a filter on the result of the String.
+     * @param entityReferenceExpansion if true abilitate the Entity refrence Expansion.
      * @return String format XML converted from the target DOM
      */
     public String toXMLString(

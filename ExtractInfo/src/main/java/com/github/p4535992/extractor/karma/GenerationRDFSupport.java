@@ -1,6 +1,7 @@
 package com.github.p4535992.extractor.karma;
 
-import com.github.p4535992.util.file.FileUtilities;
+
+
 import edu.isi.karma.kr2rml.URIFormatter;
 import edu.isi.karma.kr2rml.mapping.R2RMLMappingIdentifier;
 import edu.isi.karma.kr2rml.writer.N3KR2RMLRDFWriter;
@@ -11,6 +12,7 @@ import edu.isi.karma.util.DBType;
 import edu.isi.karma.webserver.KarmaException;
 
 import java.io.*;
+
 import java.lang.reflect.Array;
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
@@ -117,7 +119,7 @@ public class GenerationRDFSupport {
         };
         String[] args2;
         try {
-            args2 = mergeArraysForInput(param, value);
+            args2 = concatenateArraysForInput(param, value);
             logger.info("PARAM KARMA:" + Arrays.toString(args2));
             logger.info("try to create a file of triples from a relational table with karma...");
             OfflineRdfGenerator.main(args2);
@@ -192,7 +194,7 @@ public class GenerationRDFSupport {
             rdfGenerator.addModel(modelIdentifier);
             PrintWriter pw = new PrintWriter(new StringWriter());
             N3KR2RMLRDFWriter writer = new N3KR2RMLRDFWriter(new URIFormatter(), pw);
-            RDFGeneratorRequest request = null;
+            RDFGeneratorRequest request;
 
             if(fileOfTriple == null && inputData instanceof File){
                 request = new RDFGeneratorRequest(
@@ -310,7 +312,7 @@ public class GenerationRDFSupport {
      * @param value array of values.
      * @return merged array.
      */
-    private String[] mergeArraysForInput(String[] param, String[] value) {
+    private String[] concatenateArraysForInput(String[] param, String[] value) {
         String[] array = (String[]) Array.newInstance(param[0].getClass(), param.length + value.length);
         int j = 0;
         if (param.length == value.length) {

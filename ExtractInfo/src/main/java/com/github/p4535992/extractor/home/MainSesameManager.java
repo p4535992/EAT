@@ -1,20 +1,27 @@
 package com.github.p4535992.extractor.home;
 
 
-import com.github.p4535992.util.database.sql.SQLHelper;
+import com.github.p4535992.util.database.sql.SQLUtilities;
 
+import com.github.p4535992.util.file.csv.opencsv.OpenCsvUtilities;
 import com.github.p4535992.util.log.logback.LogBackUtil;
 import com.github.p4535992.util.repositoryRDF.jena.Jena2Kit;
 import com.github.p4535992.util.repositoryRDF.jenaAndSesame.JenaSesameUtilities;
-import com.github.p4535992.util.repositoryRDF.sesame.Sesame28Kit;
+import com.github.p4535992.util.repositoryRDF.sesame.SesameUtilities;
 import com.github.p4535992.util.repositoryRDF.sparql.SparqlUtilities;
 
 import org.openrdf.query.*;
 import org.openrdf.repository.Repository;
 import org.openrdf.repository.RepositoryException;
+import org.openrdf.repository.base.RepositoryConnectionWrapper;
+import org.openrdf.repository.config.RepositoryConfigException;
+import org.openrdf.repository.manager.RepositoryManager;
 
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.sql.Connection;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by 4535992 on 06/10/2015.
@@ -38,6 +45,11 @@ public class MainSesameManager {
             +"              <http://www.w3.org/2003/01/geo/wgs84_pos#lat> ?lat; "
             +"              <http://www.w3.org/2003/01/geo/wgs84_pos#long> ?long. "
             +"FILTER(!isBlank(?lat) && !isLiteral(?lat) && !isBlank(?long) && !isLiteral(?long)) } }";
+
+    private static String SQL_SELECT_Q1 ="SELECT city,latitude,longitude\n" +
+            "FROM geodb.infodocument_2015_09_18\n" +
+            "WHERE  city IS NOT NULL AND TRIM(city) <> '' AND concat('',longitude * 1) = longitude\n" +
+            "AND concat('',latitude *1) = latitude;";
 
     private static String SPARQL_SELECT_Q2 ="SELECT ?indirizzo "
             +"WHERE{ ?business a <http://purl.org/goodrelations/v1#BusinessEntity> ; "
@@ -64,20 +76,50 @@ public class MainSesameManager {
             "                    <http://schema.org/fax> \"yyyyyy\"; " +
             "                    <http://schema.org/streetAddress> \"zzzzzz\". }";
 
-    public static void main(String args[]) throws RepositoryException, MalformedQueryException, QueryEvaluationException, UnsupportedEncodingException, UpdateExecutionException {
-        LogBackUtil.init();
 
-        Sesame28Kit sesame = Sesame28Kit.getInstance();
+    private static List<String> sparqlQueries = new ArrayList<>();
+    private static List<String> sqlQueries = new ArrayList<>();
+
+    private static void initSparqlQueries(){
+        sparqlQueries.add(SPARQL_SELECT_Q1);
+        /*sparqlQueries.add(SPARQL_SELECT_Q2);
+        sparqlQueries.add(SPARQL_SELECT_Q3);
+        sparqlQueries.add(SPARQL_SELECT_Q4);
+        sparqlQueries.add(SPARQL_SELECT_Q5);*/
+    }
+
+    private static void initSqlQueries(){
+        sqlQueries.add(SQL_SELECT_Q1);
+    }
+
+
+    public static void main(String args[]) throws RepositoryException, MalformedQueryException, QueryEvaluationException, IOException, UpdateExecutionException, RepositoryConfigException {
+        LogBackUtil.console();
+        initSparqlQueries();
+        initSqlQueries();
+
+      /*  Connection conn = SQLUtilities.getMySqlConnection(
+                "jdbc:mysql://localhost:3306/geodb?noDatetimeStringSync=true&user=siimobility&password=siimobility");*/
+
+        SesameUtilities sesame = SesameUtilities.getInstance();
         //sesame.setURLRepositoryId("km4city04");
+        //WORK
         Repository rep = sesame.connectToHTTPRepository("http://localhost:8080/openrdf-sesame/repositories/repKm4c1");
+
+        //sesame.setPrefixes();
+
+        /*RepositoryManager manager = sesame.connectToLocation(
+                "C:\\Users\\tenti\\AppData\\Roaming\\Aduna\\OpenRDF Sesame\\repositories");
+        Repository rep = manager.getRepository("repKm4c1");*/
+
         String query = (SparqlUtilities.preparePrefix()+SPARQL_SELECT_KM4C_SERVICE).trim();
-        //RepositoryConnectionWrapper wrap = sesame.setNewRepositoryConnectionWrappper(rep);
+        //RepositoryConnectionWrapper wrap = sesame.setRepositoryConnectionWrapper(rep,rep.getConnection());
         //QueryLanguage sparql = sesame.stringToQueryLanguage("SPARQL");
 
         //QueryLanguage sparql = sesame.checkLanguageOfQuery(query);
 
         //wrap.setDelegate(rep.getConnection());
-        /*GraphQuery gq = wrap.prepareGraphQuery(
+       /* GraphQuery gq = wrap.prepareGraphQuery(
                 sparql,
                 query,
                 "http://www.disit.org/km4city/schema");*/
@@ -95,20 +137,30 @@ public class MainSesameManager {
         //Model jModel = Jena2Kit.execSparqlOnRemote(query,"http://localhost:8080/openrdf-workbench/repositories/repKm4c1/query");
 
 
+        List<String[]> data = new ArrayList<>();
+        data.add(new String[]{"SESAME", "JENA", "SQL"});
         //WORK
-        Long ss = sesame.getExecutionQueryTime(query);
-        org.openrdf.model.Model sModel = sesame.convertRepositoryToModel(rep,100);
+        for(int i = 0; i < sparqlQueries.size(); i++) {
+            query = sparqlQueries.get(i);
+            query = (SparqlUtilities.preparePrefixNoPoint()+SPARQL_SELECT_KM4C_SERVICE).trim();
+            Long ss = sesame.getExecutionQueryTime(query);
+            org.openrdf.model.Model sModel = sesame.convertRepositoryToModel(rep, 100);
 
-        JenaSesameUtilities jas = JenaSesameUtilities.getInstance();
-        com.hp.hpl.jena.rdf.model.Model jModel2 = jas.convertOpenRDFModelToJenaModel(sModel);
-        Long yy = Jena2Kit.getExecutionQueryTime(query, jModel2);
+            JenaSesameUtilities jas = JenaSesameUtilities.getInstance();
+            com.hp.hpl.jena.rdf.model.Model jModel2 = jas.convertOpenRDFModelToJenaModel(sModel);
+            Long yy = Jena2Kit.getExecutionQueryTime(query, jModel2);
 
-        Connection conn = SQLHelper.getMySqlConnection("jdbc:mysql://localhost:3306/geodb?noDatetimeStringSync=true");
-        Long zz = SQLHelper.getExecutionTime(SQL_GET_ALL_SERVICE, conn);
+            query = sqlQueries.get(i);
+            Connection conn3 = SQLUtilities.getMySqlConnection(
+                    "jdbc:mysql://localhost:3306/geodb?noDatetimeStringSync=true&user=siimobility&password=siimobility");
+            Long zz = SQLUtilities.getExecutionTime(query, conn3);
 
-
+            data.add(new String[]{String.valueOf(ss), String.valueOf(yy), String.valueOf(zz)});
+        }
 
         //System.out.println("SESAME:"+ss+"ms, JENA:"+yy+"ms, Virtuoso:"+oo+", SQL:"+zz);
+
+        OpenCsvUtilities.writeCSVDataToConsole(data);
 
 
 

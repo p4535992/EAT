@@ -131,7 +131,7 @@ public class ExtractorGeoDocumentSupport {
             geo.setLng(coord.getLng());
             logger.info("COORD[LAT:" + geo.getLat() + ",LNG:" + geo.getLng() + "]");
         }catch(NullPointerException|MalformedURLException ne){
-            ne.printStackTrace();
+            logger.error(ne.getMessage(),ne);
         }
         return geo;
     }

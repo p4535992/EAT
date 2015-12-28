@@ -9,6 +9,7 @@ import com.github.p4535992.gatebasic.gate.gate8.GateSupport;
 import com.github.p4535992.util.file.FileUtilities;
 import com.github.p4535992.util.html.JSoupKit;
 
+import com.github.p4535992.util.http.HttpUtilities;
 import com.github.p4535992.util.string.StringUtilities;
 import edu.isi.karma.util.DBType;
 import gate.Controller;
@@ -34,18 +35,14 @@ import gate.util.DocumentProcessor;
 /**
  * Created by 4535992 on 15/06/2015.
  * @author 4535992.
- * @version  2015-09-26.
+ * @version  2015-12-21.
  */
 @SuppressWarnings("unused")
 public class ExtractInfoWeb {
 
     private static final org.slf4j.Logger logger =
             org.slf4j.LoggerFactory.getLogger(ExtractInfoWeb.class);
-
-    private static String gm() {
-        return Thread.currentThread().getStackTrace()[1].getMethodName()+":: ";
-    }
-
+    
     private static int  indGDoc = 0;
     private Controller controller;
     private DocumentProcessor procDoc;
@@ -81,11 +78,11 @@ public class ExtractInfoWeb {
     /**
      * Constructor.
      * @param DRIVER_DATABASE driver of the database eg: "com.mysql.jdbc.Driver".
-     * @param DIALECT_DATABASE dialect of the databse eg: "jdbc:mysql".
-     * @param HOST_DATABASE host of the database eg: "localhost".
-     * @param PORT_DATABASE port of the databse eg: "3306".
-     * @param USER username of the database eg: "username".
-     * @param PASS passwrod of the database eg: "password".
+     * @param DIALECT_DATABASE dialect of the database eg: "jdbc:mysql".
+     * @param HOST_DATABASE the String  host of the database eg: "localhost".
+     * @param PORT_DATABASE the String port of the database eg: "3306".
+     * @param USER the String username of the database eg: "username".
+     * @param PASS the String password of the database eg: "password".
      * @param DB_OUTPUT string name of the database eg: "database".
      */
     protected ExtractInfoWeb(String DRIVER_DATABASE,String DIALECT_DATABASE,String HOST_DATABASE,
@@ -123,7 +120,7 @@ public class ExtractInfoWeb {
 
     /**
      * Method to set the GATE Embedded API.
-     * @param directoryFolderHome the root dircetory where all files of gate are stored eg:"gate_files".
+     * @param directoryFolderHome the root diretory where all files of gate are stored eg:"gate_files".
      * @param directoryFolderPlugin  the root directory of all plugin of gate under the directoryFolderHome eg: "plugins".
      * @param configFileGate the path to the config file of gate under the directoryFolderHome eg:"gate.xml".
      * @param configFileUser the path to the config file user of gate under the directoryFolderHome eg:"user-gate.xml".
@@ -141,11 +138,11 @@ public class ExtractInfoWeb {
                 gateAlreadySetted = false;
                 return controller;
             }else{
-                logger.warn(gm() + "The GATE embedded API is already set with Spring Framework and ProcessorDocument!!!");
+                logger.warn("The GATE embedded API is already set with Spring Framework and ProcessorDocument!!!");
                 return null;
             }
         }else{
-            logger.warn(gm() + "The GATE embedded API is already set with Corpus Controller!!!");
+            logger.warn("The GATE embedded API is already set with Corpus Controller!!!");
             return controller;
         }
     }
@@ -155,7 +152,7 @@ public class ExtractInfoWeb {
      * @param pathToTheGateContextFile path to the GATE Context File eg: "gate/gate-beans.xml".
      * @param beanNameOfTheProcessorDocument string name of the bean for the DocumentProcessor class on the
      *                                       gate context file eg:"documentProcessor".
-     * @param thisClass class here you want invokem this method necessary for avoid exception with spring.
+     * @param thisClass class here you want invoke this method necessary for avoid exception with spring.
      * @return the GATE DocumentProcessor.
      */
     public DocumentProcessor setGateWithSpring(
@@ -167,11 +164,11 @@ public class ExtractInfoWeb {
                 gateAlreadySetted = false;
                 return procDoc;
             }else{
-                logger.warn(gm() + "The GATE embedded API is already set with Corpus Controller!!!");
+                logger.warn("The GATE embedded API is already set with Corpus Controller!!!");
                 return null;
             }
         }else {
-            logger.warn(gm() + "The GATE embedded API is already set with Spring Framework and ProcessorDocument!!!");
+            logger.warn("The GATE embedded API is already set with Spring Framework and ProcessorDocument!!!");
             return procDoc;
         }
     }
@@ -194,7 +191,7 @@ public class ExtractInfoWeb {
             }
             geoDoc = ExtractGeoDocumentFromUrl(new URL(url),TABLE_INPUT,TABLE_OUTPUT,createNewTable,dropOldTable);
         }catch(MalformedURLException e){
-            logger.error(gm()+
+            logger.error(
                     "You have insert a not valid url for the extraction of information:"+ url+" is not valid:"
                     + e.getMessage(),e);
         }
@@ -221,7 +218,7 @@ public class ExtractInfoWeb {
                     listUrls.set(i,new URL("http://" + urls.get(i)));
                 }
             }catch(MalformedURLException e){
-                logger.error(gm()+
+                logger.error(
                         "You have insert a not valid url for the extraction of information:"+ urls.get(i)+" is not valid:"
                         + e.getMessage(),e);
             }
@@ -249,31 +246,49 @@ public class ExtractInfoWeb {
                         PORT_DATABASE, USER, PASS, DB_OUTPUT);
                 geoDocumentDao.setTableInsert(TABLE_OUTPUT);
                 geoDocumentDao.setTableSelect(TABLE_INPUT);
-                if (tableAlreadyCreated) {
+                /*if (tableAlreadyCreated) {
                     if (createNewTable) {
                         try {
                             geoDocumentDao.create(dropOldTable);
                         } catch (Exception e) {
-                            logger.error(gm() + e.getMessage(),e);
+                            logger.error(e.getMessage(),e);
                         }finally{
                             tableAlreadyCreated = false;
                         }
                     }
-                }
+                }*/
+                checkIfCreateANewTable(geoDocumentDao,createNewTable,dropOldTable);
             }
             ExtractorInfoGate8 egate = ExtractorInfoGate8.getInstance();
             ExtractorGeoDocumentSupport egs = new ExtractorGeoDocumentSupport();
             ExtractorJSOUP j = new ExtractorJSOUP();
 
             GeoDocument geo2 = new GeoDocument();
-            GeoDocument geoDoc = new GeoDocument();
+            GeoDocument geoDoc;
             //check if the site is already present like offline or unreachable
-            /*geoDocumentDao.setTableInsert("offlinesite");
+
+            geoDocumentDao.setTableInsert("offlinesite");
             List<URL> supportList = new ArrayList<>();
-            for(URL url : listUrls) {if (geoDocumentDao.verifyDuplicate("url", url.toString())) {supportList.add(url);} }
-            for(URL url: supportList){SystemLog.warning("The site "+url+" can't be reach..."); listUrls.remove(url);}
+            for(URL url : listUrls) {
+                //Check is not already present on the table.....
+                if (geoDocumentDao.verifyDuplicate("url", url.toString())) {
+                    supportList.add(url);
+                }
+                //Check if the web page exists....
+                if (!HttpUtilities.isWebPageExists(url.toString())) {
+                    supportList.add(url);
+                }
+            }
+            for(URL url: supportList){
+                //Try to insert in the offline table
+                logger.warn("The site "+url+" can't be reach...");
+                geoDocumentDao.setTableInsert("offlinesite");
+                geoDocumentDao.insertAndTrim(new String[]{"url"}, new Object[]{url}, new int[]{Types.VARCHAR});
+                listUrls.remove(url);
+            }
+            supportList.clear();
+            //re-set the right Table where insert the geodocuments....
             geoDocumentDao.setTableInsert(TABLE_INPUT);
-            supportList.clear();*/
 
             logger.info("*******************Run GATE**************************");
             //create a list of annotation (you know they exists on the gate document,otherwise you get null result).....
@@ -283,36 +298,87 @@ public class ExtractInfoWeb {
             List<String> listAnnSet = new ArrayList<>(Arrays.asList("MyFOOTER", "MyHEAD", "MySpecialID", "MyAnnSet"));
             //Store the result on of the extraction on a GateSupport Object
             GateSupport support = null;
-            if(controller!=null) {
-                support = GateSupport.getInstance(
-                        egate.extractorGATE(listUrls, (CorpusController) controller, "corpus_test_1", listAnn, listAnnSet, true));
-            }
-            if(procDoc!=null){
-                support = GateSupport.getInstance(
-                        egate.extractorGATE(listUrls, procDoc, "corpus_test_1", listAnn, listAnnSet, true));
-            }
-            Corpus corpus = egate.getCorpus();
-            for (Document doc : corpus) {
-                try {
-                    logger.info("(" + indGDoc + ")URL:" + doc.getSourceUrl());
-                    GeoDocument geo = convertGateSupportToGeoDocument(support, doc.getSourceUrl(), indGDoc);
-                    indGDoc++;
-                    logger.info("*******************Run JSOUP**************************");
-                    geo2 = j.GetTitleAndHeadingTags(doc.getSourceUrl().toString(), geo2);
-                    logger.info("*******************Run Support GeoDocument**************************");
-                    geoDoc = ExtractorGeoDocumentSupport.compareInfo3(geoDoc, geo2);
-                    //AGGIUNGIAMO ALTRE INFORMAZIONI AL GEODOCUMENT
-                    geoDoc = egs.UpgradeTheDocumentWithOtherInfo(geoDoc);
-                    geoDoc = egs.pulisciDiNuovoGeoDocument(geoDoc);
-                    listGeo.add(geoDoc);
-                } catch (IOException | InterruptedException | URISyntaxException e) {
-                    logger.error(gm() + e.getMessage(), e);
+            //Use GATE for Extract Information...
+            if(!listUrls.isEmpty()) {
+                if (controller != null) {
+                    if (listUrls.size() == 1) {
+                        //Better performance method for just one url at the time
+                        URL url = listUrls.get(0);
+                        String content = JSoupKit.convertUrlToStringHTML(url.toString());
+                        if (!StringUtilities.isNullOrEmpty(content)) {
+                            support = GateSupport.getInstance(
+                                    egate.extractorGATE(content, (CorpusController) controller, "corpus_test_1", listAnn, listAnnSet, true), true);
+                        } else {
+                            support = GateSupport.getInstance(
+                                    egate.extractorGATE(url, (CorpusController) controller, "corpus_test_1", listAnn, listAnnSet, true), true);
+                        }
+                        //geoDoc = convertGateSupportToGeoDocument(support, url, 0); //0 because is just a unique document...
+                    } else {
+                        support = GateSupport.getInstance(
+                                egate.extractorGATE(listUrls, (CorpusController) controller, "corpus_test_1", listAnn, listAnnSet, true));
+                    }
                 }
+                if (procDoc != null) {
+                    if (listUrls.size() == 1) {
+                        URL url = listUrls.get(0);
+                        String content = JSoupKit.convertUrlToStringHTML(url.toString());
+                        if (content != null) {
+                            support = GateSupport.getInstance(
+                                    egate.extractorGATE(content, procDoc, "corpus_test_1", listAnn, listAnnSet, true), true);
+                        } else {
+                            support = GateSupport.getInstance(
+                                    egate.extractorGATE(url, procDoc, "corpus_test_1", listAnn, listAnnSet, true), true);
+                        }
+                    } else {
+                        support = GateSupport.getInstance(
+                                egate.extractorGATE(listUrls, procDoc, "corpus_test_1", listAnn, listAnnSet, true));
+                    }
+                }
+                if (listUrls.size() == 1) {
+                    try {
+                        logger.info("(" + indGDoc + ")URL:" + listUrls.get(0));
+                        geoDoc = convertGateSupportToGeoDocument(support, listUrls.get(0), 0); //0 because is just a unique document...
+                        indGDoc++;
+                        logger.info("*******************Run JSOUP**************************");
+                        geo2 = j.GetTitleAndHeadingTags(listUrls.get(0).toString(), geo2);
+                        logger.info("*******************Run Support GeoDocument**************************");
+                        geoDoc = ExtractorGeoDocumentSupport.compareInfo3(geoDoc, geo2);
+                        //AGGIUNGIAMO ALTRE INFORMAZIONI AL GEODOCUMENT
+                        geoDoc = egs.UpgradeTheDocumentWithOtherInfo(geoDoc);
+                        geoDoc = egs.pulisciDiNuovoGeoDocument(geoDoc);
+                        listGeo.add(geoDoc);
+                    } catch (IOException | InterruptedException | URISyntaxException e) {
+                        logger.error(e.getMessage(), e);
+                    }
+                } else {
+                    Corpus corpus = egate.getCorpus();
+                    for (Document doc : corpus) {
+                        try {
+                            logger.info("(" + indGDoc + ")URL:" + doc.getSourceUrl());
+                            geoDoc = convertGateSupportToGeoDocument(support, doc.getSourceUrl(), indGDoc);
+                            indGDoc++;
+                            logger.info("*******************Run JSOUP**************************");
+                            geo2 = j.GetTitleAndHeadingTags(doc.getSourceUrl().toString(), geo2);
+                            logger.info("*******************Run Support GeoDocument**************************");
+                            geoDoc = ExtractorGeoDocumentSupport.compareInfo3(geoDoc, geo2);
+                            //AGGIUNGIAMO ALTRE INFORMAZIONI AL GEODOCUMENT
+                            geoDoc = egs.UpgradeTheDocumentWithOtherInfo(geoDoc);
+                            geoDoc = egs.pulisciDiNuovoGeoDocument(geoDoc);
+                            listGeo.add(geoDoc);
+                        } catch (IOException | InterruptedException | URISyntaxException e) {
+                            logger.error(e.getMessage(), e);
+                        }
+                    }
+                }
+            }//id list is empty
+            else{
+                logger.warn("The List of URL to analyze is empty or populate with unreachable or offline site");
+                return listGeo;
             }
             if(connectionToADatabase) {
                 for (GeoDocument geoDoc3 : listGeo) {
                     if (geoDoc3.getUrl() != null) {
-                        logger.info(geoDoc3.toString());
+                        //logger.info(geoDoc3.toString());
                         geoDocumentDao.insertAndTrim(geoDoc3);
                     }//if
                 }
@@ -335,6 +401,20 @@ public class ExtractInfoWeb {
      */
     public GeoDocument ExtractGeoDocumentFromUrl(
             URL url, String TABLE_INPUT,String TABLE_OUTPUT,boolean createNewTable,boolean dropOldTable){
+        try {
+            List<GeoDocument> listGeo = ExtractGeoDocumentFromListUrls(
+                    new ArrayList<>(Collections.singletonList(url)),
+                    TABLE_INPUT, TABLE_OUTPUT, createNewTable, dropOldTable);
+            if(!listGeo.isEmpty()) return listGeo.get(0);
+            else return null;
+        }catch(java.lang.NullPointerException e){
+            logger.error("The URL, is not reachable or already analyzed from a previous process, the return is '"+
+                    e.getMessage()+"'",e);
+            return null;
+        }
+    }
+    /*public GeoDocument ExtractGeoDocumentFromUrl(
+            URL url, String TABLE_INPUT,String TABLE_OUTPUT,boolean createNewTable,boolean dropOldTable){
         IGeoDocumentDao geoDocumentDao = new GeoDocumentDaoImpl();
         if(connectionToADatabase) {
             geoDocumentDao.setDriverManager(DRIVER_DATABASE, DIALECT_DATABASE, HOST_DATABASE,
@@ -346,7 +426,7 @@ public class ExtractInfoWeb {
                     try {
                         geoDocumentDao.create(dropOldTable);
                     } catch (Exception e) {
-                        logger.error(gm() + e.getMessage(), e);
+                        logger.error(e.getMessage(), e);
                     }finally{
                         tableAlreadyCreated = false;
                     }
@@ -406,7 +486,7 @@ public class ExtractInfoWeb {
                         //AGGIUNGIAMO ALTRE INFORMAZIONI AL GEODOCUMENT
                         geoDoc = egs.UpgradeTheDocumentWithOtherInfo(geoDoc);
                     } catch (URISyntaxException e) {
-                        logger.error(gm() + e.getMessage(), e);
+                        logger.error(e.getMessage(), e);
                     }
                     if (connectionToADatabase) {
                         if (geoDoc.getUrl() != null) {
@@ -416,13 +496,13 @@ public class ExtractInfoWeb {
                     }//if
                 } else {
                     //Try to insert in the offline table
-                    logger.warn(gm() + "The site " + url + " can't be reach...");
+                    logger.warn("The site " + url + " can't be reach...");
                     geoDocumentDao.setTableInsert("offlinesite");
                     geoDocumentDao.insertAndTrim(new String[]{"url"}, new Object[]{url}, new int[]{Types.VARCHAR});
                     return null;
                 }
             }catch(IOException|InterruptedException e ){
-                logger.error(gm() + e.getMessage(), e);
+                logger.error(e.getMessage(), e);
             }finally{
                 tableAlreadyCreated = true;
                 //indGDoc = 0;
@@ -432,7 +512,7 @@ public class ExtractInfoWeb {
             //is already offline
             return null;
         }
-    }
+    }*/
 
     /**
      * Method to Extract GeoDocuments from a single url.
@@ -457,7 +537,7 @@ public class ExtractInfoWeb {
                 return support;
             }
         }catch(Exception e ){
-            logger.error(gm() + e.getMessage(), e);
+            logger.error(e.getMessage(), e);
         }
         return null;
     }
@@ -492,17 +572,18 @@ public class ExtractInfoWeb {
         infoDocumentDao.setTableInsert(TABLE_OUTPUT);
         infoDocumentDao.setTableSelect(TABLE_INPUT);
         infoDocumentDao.setDriverManager(DRIVER_DATABASE, DIALECT_DATABASE, HOST_DATABASE, PORT_DATABASE, USER, PASS, DB_OUTPUT);
-        if(tableAlreadyCreated) {
+        /*if(tableAlreadyCreated) {
             if (createNewTable) {
                 try {
                     infoDocumentDao.create(dropOldTable);
                 } catch (Exception e) {
-                    logger.error(gm() + e.getMessage(), e);
+                    logger.error(e.getMessage(), e);
                 }finally{
                     tableAlreadyCreated = false;
                 }
             }
-        }
+        }*/
+        checkIfCreateANewTable(infoDocumentDao,createNewTable,dropOldTable);
         //Choose the Karma Driver:
        /* String KARMA_DRIVER;
         if(DIALECT_DATABASE.toLowerCase().contains("oracle")) KARMA_DRIVER ="Oracle";
@@ -554,7 +635,7 @@ public class ExtractInfoWeb {
             //delete not filter file of triples
             f.delete();
         } catch (IOException ex) {
-            logger.error(gm() + ex.getMessage(), ex);
+            logger.error(ex.getMessage(), ex);
         }
     }
 
@@ -572,7 +653,7 @@ public class ExtractInfoWeb {
             File fileOrDirectory, String TABLE_INPUT,String TABLE_OUTPUT,boolean createNewTable,boolean dropOldTable) {
         List<GeoDocument> listGeo = new ArrayList<>();
         if(FileUtilities.isDirectory(fileOrDirectory)){
-            List<File> listFiles = FileUtilities.readDirectory(fileOrDirectory);
+            List<File> listFiles = FileUtilities.getFilesFromDirectory(fileOrDirectory);
             ExtractGeoDocumentFromListFiles(listFiles,TABLE_INPUT,TABLE_OUTPUT,createNewTable,dropOldTable);
         }else{
             //..is a single file
@@ -581,7 +662,7 @@ public class ExtractInfoWeb {
                 url = FileUtilities.toURL(fileOrDirectory);
                 listGeo.add(ExtractGeoDocumentFromUrl(url,TABLE_INPUT,TABLE_OUTPUT,createNewTable,dropOldTable));
             } catch (MalformedURLException e) {
-                logger.warn(gm() + e.getMessage(), e);
+                logger.warn(e.getMessage(), e);
                 return null;
             }
         }
@@ -606,10 +687,10 @@ public class ExtractInfoWeb {
                     URL url = FileUtilities.toURL(file);
                     listUrls.add(url);
                 } else {
-                    logger.warn(gm() + "The file:" + FileUtilities.toURL(file) + " so is ignored!!");
+                    logger.warn("The file:" + FileUtilities.toURL(file) + " so is ignored!!");
                 }
             } catch (MalformedURLException e) {
-                logger.warn(gm() + e.getMessage(),e);
+                logger.warn(e.getMessage(),e);
             }
         }
         return ExtractGeoDocumentFromListUrls(listUrls,TABLE_INPUT,TABLE_OUTPUT,createNewTable,dropOldTable);
@@ -707,12 +788,12 @@ public class ExtractInfoWeb {
                         //    if(flag1)break;
                         // }
                     } catch (IndexOutOfBoundsException e) {
-                        logger.error(gm() + e.getMessage(), e);
+                        logger.error(e.getMessage(), e);
                     }
                 }//if !isEmpty
             }
         } catch (Exception e) {
-            logger.error(gm() + e.getMessage(), e);
+            logger.error(e.getMessage(), e);
         }
         return geoDoc;
     }
@@ -742,7 +823,7 @@ public class ExtractInfoWeb {
             websiteDao.setDriverManager(DRIVER_DATABASE, DIALECT_DATABASE, HOST_DATABASE, PORT_DATABASE, USER, PASS, DB_INPUT);
             listUrl = websiteDao.selectAllUrl(COLUMN_TABLE_INPUT, LIMIT, OFFSET);
         } catch (MalformedURLException e) {
-            logger.error(gm() + e.getMessage(), e);
+            logger.error(e.getMessage(), e);
         }
         return listUrl;
     }
@@ -795,6 +876,35 @@ public class ExtractInfoWeb {
             geoDocumentDao.update(columns_where, values_where, "url", geo.getUrl().toString().replace("http://", ""));
         }*/
         return list;
+    }
+
+
+    private void checkIfCreateANewTable(Object obj,boolean createNewTable,boolean dropOldTable){
+        IGeoDocumentDao geoDocumentDao = null;
+        IInfoDocumentDao infoDocumentDao = null;
+        //IWebsiteDao iWebsiteDao = null;
+        if(obj instanceof IGeoDocumentDao) geoDocumentDao = (IGeoDocumentDao) obj;
+        else if(obj instanceof IInfoDocumentDao) infoDocumentDao = (IInfoDocumentDao) obj;
+        //else if(obj instanceof IWebsiteDao) iWebsiteDao = (IWebsiteDao) obj;
+        else logger.error("There is no Object support from this method");
+        if (tableAlreadyCreated) {
+            if (createNewTable) {
+                try {
+                    if(geoDocumentDao !=null) {
+                        geoDocumentDao.create(dropOldTable);
+                        logger.info("Create,Update or replace the Table:"+geoDocumentDao.getMyInsertTable());
+                    }
+                    else if(infoDocumentDao != null){
+                        infoDocumentDao.create(dropOldTable);
+                        logger.info("Create,Update or replace the Table:"+infoDocumentDao.getMyInsertTable());
+                    }
+                } catch (Exception e) {
+                    logger.error(e.getMessage(),e);
+                }finally{
+                    tableAlreadyCreated = false;
+                }
+            }
+        }
     }
 
 }

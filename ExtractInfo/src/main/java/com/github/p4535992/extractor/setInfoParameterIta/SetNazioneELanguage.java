@@ -15,6 +15,9 @@ import java.util.Map;
  */
 @SuppressWarnings("unused")
 public class SetNazioneELanguage {
+
+    private static final org.slf4j.Logger logger =
+            org.slf4j.LoggerFactory.getLogger(SetNazioneELanguage.class);
     
     private Map<String,SetNazioneELanguage> map = new HashMap<String,SetNazioneELanguage>(); 
     private String alpha_1;
@@ -296,19 +299,29 @@ public class SetNazioneELanguage {
     public String checkNazioneByDomain(String domain){
         String nazione = null;
          for ( Map.Entry<String, SetNazioneELanguage> entry : map.entrySet()) {
-            //nazione = entry.getKey();
-            //System.out.println(entry.getKey());
-            String domain2 = domain.substring(domain.length()-3);            
-             //String domain2 = getTheLastIdentificator(domain,".");
-            String alpha_1 = entry.getValue().getAlpha_1().replaceAll("\\s+","").toLowerCase();
-            //String alpha_1 = entry.getValue().getAlpha_1().toLowerCase();
-            //System.out.println("[ALPHA_1]:"+alpha_1+"[DOMAIN]:"+domain+"[DOMAIN2]:"+domain2);
-            if((domain.endsWith("."+alpha_1))                 
-             || (domain2.contains("."+alpha_1))){
-                //System.out.println("[1]ALPHA 1:"+alpha_1+" DOMAIN:"+domain);
-                nazione = entry.getKey(); 
-                break;
-            }              
+             try {
+                 //nazione = entry.getKey();
+                 //System.out.println(entry.getKey());
+                 int startIndex;
+                 if(!(domain.length() - 3 < 0))startIndex = domain.length()-3;
+                 else if(!(domain.length() - 2 <0))startIndex = domain.length()-2;
+                 else if(!(domain.length() - 1 <0))startIndex = domain.length()-1;
+                 else startIndex = domain.length();
+
+                 String domain2 = domain.substring(startIndex);
+                 //String domain2 = getTheLastIdentificator(domain,".");
+                 String alpha_1 = entry.getValue().getAlpha_1().replaceAll("\\s+", "").toLowerCase();
+                 //String alpha_1 = entry.getValue().getAlpha_1().toLowerCase();
+                 //System.out.println("[ALPHA_1]:"+alpha_1+"[DOMAIN]:"+domain+"[DOMAIN2]:"+domain2);
+                 if ((domain.endsWith("." + alpha_1))
+                         || (domain2.contains("." + alpha_1))) {
+                     //System.out.println("[1]ALPHA 1:"+alpha_1+" DOMAIN:"+domain);
+                     nazione = entry.getKey();
+                     break;
+                 }
+             }catch(java.lang.StringIndexOutOfBoundsException e){
+                 logger.error("Some problem to check the Nation from domain for the String:"+domain+","+e.getMessage(),e);
+             }
         }//for
         //System.out.println("NAZIONE:"+nazione);
         return nazione;

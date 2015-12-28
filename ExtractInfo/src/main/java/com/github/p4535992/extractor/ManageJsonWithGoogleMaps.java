@@ -135,7 +135,7 @@ public class ManageJsonWithGoogleMaps {
                 fua = reduceString(fua);
             }
         }
-        fua = removeFirstAndLast(fua, "+");
+        fua = StringUtilities.removeFirstAndLast(fua, "+");
         String prefix = "https://maps.googleapis.com/maps/api/geocode/json?";
         String address= "address="+fua;
         String apiKey = API_KEY_GM;
@@ -232,7 +232,7 @@ public class ManageJsonWithGoogleMaps {
     * @param symbol il simbolo separatore del contenuto
     * @return la stringa del contenuto senza simboli separatori all'inizio e alla fine
     */
-   private String removeFirstAndLast(String fua,String symbol){
+   /*private String removeFirstAndLast(String fua,String symbol){
        if(!StringUtilities.isNullOrEmpty(fua)){
             fua = fua.replaceAll("(\\"+symbol+")\\1+",symbol); 
             if(fua.substring(0,1).contains(symbol)){                
@@ -243,7 +243,7 @@ public class ManageJsonWithGoogleMaps {
             }
          }
        return fua;
-   }
+   }*/
    /**
     * Setta a null se verifica che la stringa non è
     * nulla, non è vuota e non è composta da soli spaceToken (white space)

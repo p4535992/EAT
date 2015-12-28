@@ -1,6 +1,7 @@
 package util;
 
 
+import com.github.p4535992.util.collection.ArrayUtilities;
 import com.github.p4535992.util.collection.CollectionUtilities;
 
 
@@ -91,7 +92,7 @@ public class Test_Karma {
 
         String[] args2;
         try {
-            args2 = CollectionUtilities.mergeArraysForInput(param, value);
+            args2 = ArrayUtilities.concatenateArraysForInput(param, value);
             /*
             int j = 0;
 

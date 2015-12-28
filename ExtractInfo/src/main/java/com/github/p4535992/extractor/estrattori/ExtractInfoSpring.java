@@ -205,8 +205,9 @@ public class ExtractInfoSpring {
                                  " from the columns " + COLUMN_TABLE_INPUT + " empty!!!");
                      }else {
                          logger.info("Loaded a list of: " + listUrl.size() + " files");
+                         GeoDocument geoDoc;
                          for (URL url : listUrl) {
-                             GeoDocument geoDoc = web.ExtractGeoDocumentFromUrl(
+                             geoDoc = web.ExtractGeoDocumentFromUrl(
                                      url, TABLE_OUTPUT, TABLE_OUTPUT, CREATE_NEW_GEODOCUMENT_TABLE,ERASE);
                              if(geoDoc!=null)listGeo.add(geoDoc);
                          }
@@ -229,7 +230,7 @@ public class ExtractInfoSpring {
                      Map<File,String> mapFile = new HashMap<>();
                      //code for make some verify before go to the extraction...
                      if(FileUtilities.isDirectory(new File(DIRECTORY_FILES))) {
-                         files = FileUtilities.readDirectory(DIRECTORY_FILES);
+                         files = FileUtilities.getFilesFromDirectory(DIRECTORY_FILES);
                          //We use the index of the list like  bookmark for all the files in the directory...
                          if(OFFSET+LIMIT < files.size())subFiles.addAll(files.subList(OFFSET,OFFSET+LIMIT));
                          else subFiles.addAll(files.subList(OFFSET, files.size()));

@@ -1,4 +1,5 @@
 package com.github.p4535992.extractor.karma;
+import com.github.p4535992.util.collection.ArrayUtilities;
 import com.github.p4535992.util.collection.CollectionUtilities;
 import com.github.p4535992.util.file.FileUtilities;
 import com.github.p4535992.util.string.StringUtilities;
@@ -89,8 +90,8 @@ public class GenerationOfTriple {
 
         String[] args2;
         try {
-            args2 = CollectionUtilities.mergeArraysForInput(param, value);
-            logger.info("PARAM KARMA:" + CollectionUtilities.toString(args2));
+            args2 = ArrayUtilities.concatenateArraysForInput(param, value);
+            logger.info("PARAM KARMA:" + ArrayUtilities.toString(args2));
             logger.info("try to create a file of triples from a relational table with karma...");
 
             OfflineRdfGenerator.main(args2);
@@ -163,8 +164,8 @@ public class GenerationOfTriple {
         };
         String[] args2;
         try {
-            args2 = CollectionUtilities.mergeArraysForInput(param, value);
-            logger.info("PARAM KARMA:" + CollectionUtilities.toString(args2));
+            args2 = ArrayUtilities.concatenateArraysForInput(param, value);
+            logger.info("PARAM KARMA:" + ArrayUtilities.toString(args2));
             logger.info("try to create a file of triples from a relational table with karma...");
 
             OfflineRdfGenerator.main(args2);

@@ -20,6 +20,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import com.github.p4535992.extractor.object.support.LatLng;
+import com.github.p4535992.util.collection.ListUtilities;
 
 /**
  * MainEstrazioneGeoDomainDocumentPerElaborato.java
@@ -193,31 +194,31 @@ public class ExtractorDomain {
         List<String> al = new ArrayList<>();
         geo2.setUrl(webDomain);       
         for (GeoDocument geoDoc : dfi.getListGeoDoc()) {al.add(geoDoc.getRegione());}
-        geo2.setRegione(CollectionUtilities.moreCommon(al));
+        geo2.setRegione(ListUtilities.moreCommon(al));
         al.clear();
         for (GeoDocument geoDoc : dfi.getListGeoDoc()) {al.add(geoDoc.getProvincia());}
-        geo2.setProvincia(CollectionUtilities.moreCommon(al));
+        geo2.setProvincia(ListUtilities.moreCommon(al));
         al.clear();
         for (GeoDocument geoDoc : dfi.getListGeoDoc()) {al.add(geoDoc.getCity());}
-        geo2.setCity(CollectionUtilities.moreCommon(al));
+        geo2.setCity(ListUtilities.moreCommon(al));
         al.clear();
         for (GeoDocument geoDoc : dfi.getListGeoDoc()) {al.add(geoDoc.getIndirizzo());}
-        geo2.setIndirizzo(CollectionUtilities.moreCommon(al));
+        geo2.setIndirizzo(ListUtilities.moreCommon(al));
         al.clear();
         for (GeoDocument geoDoc : dfi.getListGeoDoc()) {al.add(geoDoc.getIva());}
-        geo2.setIva(CollectionUtilities.moreCommon(al));
+        geo2.setIva(ListUtilities.moreCommon(al));
         al.clear();
         for (GeoDocument geoDoc : dfi.getListGeoDoc()) {al.add(geoDoc.getEmail());}
-        geo2.setEmail(CollectionUtilities.moreCommon(al));
+        geo2.setEmail(ListUtilities.moreCommon(al));
         al.clear();
         for (GeoDocument geoDoc : dfi.getListGeoDoc()) {al.add(geoDoc.getTelefono());}
-        geo2.setTelefono(CollectionUtilities.moreCommon(al));
+        geo2.setTelefono(ListUtilities.moreCommon(al));
         al.clear();
         for (GeoDocument geoDoc : dfi.getListGeoDoc()) {al.add(geoDoc.getFax());}
-        geo2.setFax(CollectionUtilities.moreCommon(al));
+        geo2.setFax(ListUtilities.moreCommon(al));
         al.clear();
         for (GeoDocument geoDoc : dfi.getListGeoDoc()) {al.add(geoDoc.getEdificio());}
-        geo2.setEdificio(CollectionUtilities.moreCommon(al));
+        geo2.setEdificio(ListUtilities.moreCommon(al));
         al.clear();
         
         //latitude and longitude neeed a conversion STRING-DOUBLE
@@ -231,7 +232,7 @@ public class ExtractorDomain {
                    al.add(geoDoc.getLat().toString());     
             }
         }//for
-        String lat2 = CollectionUtilities.moreCommon(al);
+        String lat2 = ListUtilities.moreCommon(al);
          if(setNullForEmptyString(lat2)==null || lat2.contains("null") || lat2.contains("NULL")|| al.isEmpty()){
                geo2.setLatitude(null);
          } else{
@@ -249,7 +250,7 @@ public class ExtractorDomain {
                    al.add(geoDoc.getLng().toString());     
             }
         }//for
-        String lng2 = CollectionUtilities.moreCommon(al);
+        String lng2 = ListUtilities.moreCommon(al);
          if(setNullForEmptyString(lng2)==null || lng2.contains("null") || lng2.contains("NULL")|| al.isEmpty()){
                geo2.setLongitude(null);
          } else{
@@ -258,19 +259,19 @@ public class ExtractorDomain {
          al.clear();
 
         for (GeoDocument geoDoc : dfi.getListGeoDoc()) {al.add(geoDoc.getNazione());}
-        geo2.setNazione(CollectionUtilities.moreCommon(al));
+        geo2.setNazione(ListUtilities.moreCommon(al));
         al.clear();
         
         for (GeoDocument geoDoc : dfi.getListGeoDoc()) {al.add(geoDoc.getPostalCode());}
-        geo2.setPostalCode(CollectionUtilities.moreCommon(al));
+        geo2.setPostalCode(ListUtilities.moreCommon(al));
         al.clear();
         
         for (GeoDocument geoDoc : dfi.getListGeoDoc()) {al.add(geoDoc.getIndirizzoNoCAP());}
-        geo2.setIndirizzoNoCAP(CollectionUtilities.moreCommon(al));
+        geo2.setIndirizzoNoCAP(ListUtilities.moreCommon(al));
         al.clear();
         
         for (GeoDocument geoDoc : dfi.getListGeoDoc()) {al.add(geoDoc.getIndirizzoHasNumber());}
-        geo2.setIndirizzoHasNumber(CollectionUtilities.moreCommon(al));
+        geo2.setIndirizzoHasNumber(ListUtilities.moreCommon(al));
         al.clear();
 
         return geo2;

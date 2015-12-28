@@ -2,6 +2,7 @@ package com.github.p4535992.extractor.object.impl.jdbc.generic;
 
 import com.github.p4535992.extractor.object.dao.jdbc.generic.IGenericDao;
 import com.github.p4535992.util.bean.BeansKit;
+import com.github.p4535992.util.collection.ArrayUtilities;
 import com.github.p4535992.util.collection.CollectionUtilities;
 import com.github.p4535992.util.database.jooq.SQLJooqKit2;
 import com.github.p4535992.util.database.sql.SQLQuery;
@@ -122,9 +123,7 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
     }
 
     @Override
-    public void setTableInsert(String nameOfTable) {
-        this.myInsertTable = nameOfTable;
-    }
+    public void setTableInsert(String nameOfTable) { this.myInsertTable = nameOfTable;}
 
     @Override
     public void setTableSelect(String nameOfTable) {
@@ -140,6 +139,18 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
     public void setTableDelete(String nameOfTable) {
         this.myDeleteTable = nameOfTable;
     }
+
+    @Override
+    public String getMyInsertTable() {return myInsertTable;}
+
+    @Override
+    public String getMySelectTable() {return mySelectTable;}
+
+    @Override
+    public String getMyUpdateTable() { return myUpdateTable;}
+
+    @Override
+    public String getMyDeleteTable() {return myDeleteTable;}
 
     @Override
     public void create(String SQL){
@@ -189,6 +200,7 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
             query = "SELECT count(*) FROM " + myInsertTable + " WHERE " + column_where + "='" + value_where.replace("'", "''") + "'";
             //SystemLog.query(query);
             int c = this.jdbcTemplate.queryForObject(query, Integer.class);
+            //int c = this.jdbcTemplate.queryForInt(query);
             if (c > 0) {
                 b = true;
             }
@@ -255,7 +267,7 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
             query = SQLJooqKit2.update(myUpdateTable, columns, values, true,
                     SQLJooqKit2.convertToListConditionEqualsWithAND(columns_where, values_where));
 
-            Object[] vals = CollectionUtilities.concatenateArrays(values, values_where);
+            Object[] vals = ArrayUtilities.concatenateArrays(values, values_where);
             if(values_where!=null) {
                 jdbcTemplate.update(query, vals);
             }else{
@@ -278,7 +290,7 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
                     SQLJooqKit2.convertToListConditionEqualsWithAND(new String[]{columns_where}, new Object[]{values_where}));
 
             logger.info(query);
-            if(values_where!=null && !CollectionUtilities.isEmpty(values)) {
+            if(values_where!=null && !ArrayUtilities.isEmpty(values)) {
                 jdbcTemplate.update(query, values);
             }else{
                 jdbcTemplate.update(query);
@@ -323,7 +335,7 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
      */
     @Override
     public void deleteDuplicateRecords(String[] columns,String nameKeyColumn){
-        String cols = CollectionUtilities.toString(columns);
+        String cols = ArrayUtilities.toString(columns);
         query = SQLQuery.deleteDuplicateRecord(myDeleteTable,nameKeyColumn,columns);
         jdbcTemplate.update(query);
     }
@@ -337,7 +349,7 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
      */
     @Override
     public void deleteDuplicateRecords(String[] columns){
-        String cols = CollectionUtilities.toString(columns);
+        String cols = ArrayUtilities.toString(columns);
         query = "WITH "+myDeleteTable+" AS ( " +
                 "SELECT ROW_NUMBER() OVER(PARTITION BY "+cols+" ORDER BY "+cols+") AS ROW " +
                 "FROM "+myDeleteTable+") " +
@@ -355,7 +367,7 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
      */
     @Override
     public void deleteDuplicateRecords(String[] columns,Object[] values,boolean high){
-        String cols = CollectionUtilities.toString(columns);
+        String cols = ArrayUtilities.toString(columns);
         if(high) {
             //if you want to keep the row with the lowest id value
             query = "";
@@ -561,7 +573,7 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
 //            final Integer[] types =
 //                    SQLKit.getArrayTypes(cl, javax.persistence.Column.class);
             }else{
-                columns2 = CollectionUtilities.copy(columns);
+                columns2 = ArrayUtilities.copy(columns);
             }
             final Class<?>[] classes = SQLSupport.getArrayClassesTypes(cl, javax.persistence.Column.class);
             final List<Method> setters = (List<Method>) ReflectionUtilities.findSetters(cl, true);
@@ -642,7 +654,7 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
 //            final Integer[] types =
 //                    SQLKit.getArrayTypes(cl, javax.persistence.Column.class);
             }else{
-                columns2 = CollectionUtilities.copy(columns);
+                columns2 = ArrayUtilities.copy(columns);
             }
             final Class<?>[] classes =SQLSupport.getArrayClassesTypes(cl, Column.class);
             final List<Method> setters = (List<Method>) ReflectionUtilities.findSetters(cl, true);
