@@ -3,9 +3,10 @@ package com.github.p4535992.extractor.home;
 
 import com.github.p4535992.util.database.sql.SQLUtilities;
 
+import com.github.p4535992.util.database.sql.query.MySQLQuery;
 import com.github.p4535992.util.file.csv.opencsv.OpenCsvUtilities;
 import com.github.p4535992.util.log.logback.LogBackUtil;
-import com.github.p4535992.util.repositoryRDF.jena.Jena2Kit;
+import com.github.p4535992.util.repositoryRDF.jena.JenaUtilities;
 import com.github.p4535992.util.repositoryRDF.jenaAndSesame.JenaSesameUtilities;
 import com.github.p4535992.util.repositoryRDF.sesame.SesameUtilities;
 import com.github.p4535992.util.repositoryRDF.sparql.SparqlUtilities;
@@ -98,8 +99,9 @@ public class MainSesameManager {
         initSparqlQueries();
         initSqlQueries();
 
-      /*  Connection conn = SQLUtilities.getMySqlConnection(
-                "jdbc:mysql://localhost:3306/geodb?noDatetimeStringSync=true&user=siimobility&password=siimobility");*/
+
+        Connection conn = SQLUtilities.getMySqlConnection(
+                "jdbc:mysql://localhost:3306/geodb?noDatetimeStringSync=true&user=siimobility&password=siimobility");
 
         SesameUtilities sesame = SesameUtilities.getInstance();
         //sesame.setURLRepositoryId("km4city04");
@@ -108,6 +110,7 @@ public class MainSesameManager {
 
         //sesame.setPrefixes();
 
+        //NOT WORK WITH OWLIM
         /*RepositoryManager manager = sesame.connectToLocation(
                 "C:\\Users\\tenti\\AppData\\Roaming\\Aduna\\OpenRDF Sesame\\repositories");
         Repository rep = manager.getRepository("repKm4c1");*/
@@ -138,24 +141,28 @@ public class MainSesameManager {
 
 
         List<String[]> data = new ArrayList<>();
-        data.add(new String[]{"SESAME", "JENA", "SQL"});
+        data.add(new String[]{"SESAME", "JENA", "SQL","MYSQL"});
         //WORK
+        //2669,160,44,185
         for(int i = 0; i < sparqlQueries.size(); i++) {
-            query = sparqlQueries.get(i);
+            //query = sparqlQueries.get(i);
             query = (SparqlUtilities.preparePrefixNoPoint()+SPARQL_SELECT_KM4C_SERVICE).trim();
             Long ss = sesame.getExecutionQueryTime(query);
-            org.openrdf.model.Model sModel = sesame.convertRepositoryToModel(rep, 100);
+            org.openrdf.model.Model sModel = sesame.convertRepositoryToModel(rep);
 
             JenaSesameUtilities jas = JenaSesameUtilities.getInstance();
             com.hp.hpl.jena.rdf.model.Model jModel2 = jas.convertOpenRDFModelToJenaModel(sModel);
-            Long yy = Jena2Kit.getExecutionQueryTime(query, jModel2);
+            Long yy = JenaUtilities.getExecutionQueryTime(query, jModel2);
 
             query = sqlQueries.get(i);
-            Connection conn3 = SQLUtilities.getMySqlConnection(
-                    "jdbc:mysql://localhost:3306/geodb?noDatetimeStringSync=true&user=siimobility&password=siimobility");
-            Long zz = SQLUtilities.getExecutionTime(query, conn3);
 
-            data.add(new String[]{String.valueOf(ss), String.valueOf(yy), String.valueOf(zz)});
+          /*  Connection conn3 = SQLUtilities.getMySqlConnection(
+                    "jdbc:mysql://localhost:3306/geodb?noDatetimeStringSync=true&user=siimobility&password=siimobility");*/
+            Long zz = SQLUtilities.getExecutionTime(query, conn);
+
+            Long xx = MySQLQuery.getExecutionTime(SQL_SELECT_Q1,conn);
+
+            data.add(new String[]{String.valueOf(ss), String.valueOf(yy), String.valueOf(zz),String.valueOf(xx)});
         }
 
         //System.out.println("SESAME:"+ss+"ms, JENA:"+yy+"ms, Virtuoso:"+oo+", SQL:"+zz);

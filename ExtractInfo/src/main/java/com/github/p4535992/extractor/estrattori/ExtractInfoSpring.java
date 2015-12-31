@@ -23,10 +23,6 @@ public class ExtractInfoSpring {
     private static final org.slf4j.Logger logger =
             org.slf4j.LoggerFactory.getLogger(ExtractInfoSpring.class);
 
-    private static String gm() {
-        return Thread.currentThread().getStackTrace()[1].getMethodName()+":: ";
-    }
-
      //private boolean SAVE_DATASTORE = false;
      //private String TYPE_EXTRACTION;
     private Integer PROCESS_PROGAMM,LIMIT,OFFSET;
@@ -143,8 +139,8 @@ public class ExtractInfoSpring {
             this.SILK_LINKING_TRIPLE_PROGRAMM = Boolean.parseBoolean(par.getValue("PARAM_SILK_LINKING_TRIPLE_PROGRAMM").toLowerCase());
             this.SILK_SLS_FILE = par.getValue("PARAM_SILK_SLS_FILE");
         }catch(java.lang.NullPointerException ne){
-            logger.warn(gm() + "Attention: make sure all the parameter on the input.properties file are setted correctly");
-            logger.error(gm() + ne.getMessage(),ne);
+            logger.warn("Attention: make sure all the parameter on the input.properties file are setted correctly");
+            logger.error(ne.getMessage(),ne);
             System.exit(0);
         }
          par.getParameters().clear();
@@ -296,7 +292,7 @@ public class ExtractInfoSpring {
                     if(new File(SILK_SLS_FILE).exists()){
                         de.fuberlin.wiwiss.silk.Silk.executeFile(new File(SILK_SLS_FILE), "interlink_location", 2, true);
                     }else{
-                        logger.error(gm() + "The " + new File(SILK_SLS_FILE).getAbsolutePath() + " not exists!!");
+                        logger.error("The " + new File(SILK_SLS_FILE).getAbsolutePath() + " not exists!!");
                     }
                 }
             }

@@ -5,7 +5,7 @@ import com.github.p4535992.util.bean.BeansKit;
 import com.github.p4535992.util.collection.ArrayUtilities;
 import com.github.p4535992.util.collection.CollectionUtilities;
 import com.github.p4535992.util.database.jooq.SQLJooqKit2;
-import com.github.p4535992.util.database.sql.SQLQuery;
+import com.github.p4535992.util.database.sql.query.SQLQuery;
 import com.github.p4535992.util.reflection.ReflectionUtilities;
 import com.github.p4535992.util.string.StringUtilities;
 import com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException;

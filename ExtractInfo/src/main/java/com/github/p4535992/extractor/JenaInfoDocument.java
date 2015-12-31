@@ -1,6 +1,6 @@
 package com.github.p4535992.extractor;
 
-import com.github.p4535992.util.repositoryRDF.jena.Jena2Kit;
+import com.github.p4535992.util.repositoryRDF.jena.JenaUtilities;
 
 import java.io.File;
 import java.io.IOException;
@@ -15,10 +15,6 @@ public class JenaInfoDocument {
 
     private static final org.slf4j.Logger logger =
             org.slf4j.LoggerFactory.getLogger(JenaInfoDocument.class);
-
-    private static String gm() {
-        return Thread.currentThread().getStackTrace()[1].getMethodName()+":: ";
-    }
 
     protected JenaInfoDocument(){}
     private static JenaInfoDocument instance = null;
@@ -99,9 +95,9 @@ public class JenaInfoDocument {
 
         logger.info(SPARQL_NO_WGS84COORDS);
         //CREA IL TUO MODELLO DI JENA A PARTIRE DA UN FILE
-        com.hp.hpl.jena.rdf.model.Model model = Jena2Kit.loadFileTripleToModel(filenameInput, filepath, inputFormat);
+        com.hp.hpl.jena.rdf.model.Model model = JenaUtilities.loadFileTripleToModel(filenameInput, filepath, inputFormat);
         //ESEGUI LA QUERY SPARQL
-        com.hp.hpl.jena.rdf.model.Model myGraph = Jena2Kit.execSparqlConstructorOnModel(SPARQL_NO_WGS84COORDS, model);
+        com.hp.hpl.jena.rdf.model.Model myGraph = JenaUtilities.execSparqlConstructorOnModel(SPARQL_NO_WGS84COORDS, model);
         com.hp.hpl.jena.rdf.model.StmtIterator iter = myGraph.listStatements();
 
         while (iter.hasNext()) {
@@ -120,7 +116,7 @@ public class JenaInfoDocument {
                 model.removeAll(null,predicate2,object2);
                 logger.info("REMOVE 2:<" + subject2 + "> <" + predicate2 + "> <" + object2 + ">.");
             }catch(Exception e){
-                logger.error(gm() + e.getMessage(),e);
+                logger.error(e.getMessage(),e);
             }
             //OPPURE
         }
@@ -214,6 +210,6 @@ public class JenaInfoDocument {
         //Execute the SPARQL_WSG84COORDS and add the geometry statement without modification
         //*************************************************************************************
         String output = filepath + File.separator + fileNameOutput + "." + outputFormat;
-        Jena2Kit.writeModelToFile(output, model2, outputFormat);
+        JenaUtilities.writeModelToFile(output, model2, outputFormat);
     }
 }
