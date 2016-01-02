@@ -1,0 +1,29 @@
+#logback.classic pattern: [%thread] %-5level %logger{52} - %msg%n
+[AWT-EventQueue-0] ERROR com.github.p4535992.util.html.JSoupKit - JSOUP can't convert the url:http://nb9.stumbleupon.netdna-cdn.com/_jvU94RGUsoK4SODCPIAIA to a string maybe the web page not exists anymore or can't be reach
+[AWT-EventQueue-0] ERROR com.github.p4535992.util.html.JSoupKit - JSOUP can't convert the url:http://florinfo.it/component/foxcontact/loader/module/225/components/foxtext/js to a string maybe the web page not exists anymore or can't be reach
+[AWT-EventQueue-0] ERROR com.github.p4535992.util.html.JSoupKit - JSOUP can't convert the url:http://www.maketank.it/it/checkout/cart/delete/id/3990/uenc/aHR0cDovL3d3dy5tYWtldGFuay5pdC9pdC9wcm9kb3R0aS9naW9pZWxsaS9jaW9uZG9saQ,,/ to a string maybe the web page not exists anymore or can't be reach
+[AWT-EventQueue-0] ERROR com.github.p4535992.util.html.JSoupKit - JSOUP can't convert the url:http://www.ctfirenze.it/index.php/tornei/torneo-internazionale-giovanile-citta-di-firenze/storia-del-torneo/2-uncategorised/77-privacy-policy to a string maybe the web page not exists anymore or can't be reach
+[AWT-EventQueue-0] ERROR c.g.p4535992.gatebasic.gate.gate8.GateCorpus8Kit - gm:: DocumentImpl.init: java.io.IOException: Server returned HTTP response code: 509 for URL: http://www.ctfirenze.it/index.php/tornei/torneo-internazionale-giovanile-citta-di-firenze/storia-del-torneo/2-uncategorised/77-privacy-policy
+java.lang.NullPointerException: DocumentImpl.init: java.io.IOException: Server returned HTTP response code: 509 for URL: http://www.ctfirenze.it/index.php/tornei/torneo-internazionale-giovanile-citta-di-firenze/storia-del-torneo/2-uncategorised/77-privacy-policy
+	at com.github.p4535992.gatebasic.gate.gate8.GateCorpus8Kit.createDocByUrl(GateCorpus8Kit.java:256) [classes/:na]
+	at com.github.p4535992.gatebasic.gate.gate8.GateCorpus8Kit.createDocByUrl(GateCorpus8Kit.java:276) [classes/:na]
+	at com.github.p4535992.gatebasic.gate.gate8.GateCorpus8Kit.createCorpusByUrl(GateCorpus8Kit.java:59) [classes/:na]
+	at com.github.p4535992.gatebasic.gate.gate8.ExtractorInfoGate8.extractorGATE(ExtractorInfoGate8.java:114) [classes/:na]
+	at com.github.p4535992.extractor.estrattori.ExtractInfoWeb.ExtractGeoDocumentFromListUrls(ExtractInfoWeb.java:312) [classes/:na]
+	at com.github.p4535992.extractor.estrattori.ExtractInfoWeb.ExtractGeoDocumentFromUrl(ExtractInfoWeb.java:405) [classes/:na]
+	at com.github.p4535992.extractor.estrattori.ExtractInfoSpring.Extraction(ExtractInfoSpring.java:206) [classes/:na]
+	at com.github.p4535992.extractor.home.MainExtractInfo$1.run(MainExtractInfo.java:65) [classes/:na]
+	at java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:312) [na:1.7.0_79]
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:745) [na:1.7.0_79]
+	at java.awt.EventQueue.access$300(EventQueue.java:103) [na:1.7.0_79]
+	at java.awt.EventQueue$3.run(EventQueue.java:706) [na:1.7.0_79]
+	at java.awt.EventQueue$3.run(EventQueue.java:704) [na:1.7.0_79]
+	at java.security.AccessController.doPrivileged(Native Method) [na:1.7.0_79]
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:76) [na:1.7.0_79]
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:715) [na:1.7.0_79]
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:242) [na:1.7.0_79]
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:161) [na:1.7.0_79]
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:150) [na:1.7.0_79]
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:146) [na:1.7.0_79]
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:138) [na:1.7.0_79]
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:91) [na:1.7.0_79]

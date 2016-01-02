@@ -1,3 +1,0 @@
-#logback.classic pattern: [%thread] %-5level %logger{52} - %msg%n
-[AWT-EventQueue-0] ERROR com.github.p4535992.util.html.JSoupKit - JSOUP can't convert the url:http://www.olschki.it/thumbs.php?ID=12&cropsize=184x184&cropX=13&cropY=0 to a string maybe the web page not exists anymore or can't be reach
-[AWT-EventQueue-0] ERROR com.github.p4535992.util.html.JSoupKit - JSOUP can't convert the url:http://www.uisp.it/empoli/index.php?idArea=288&contentId=397 to a string maybe the web page not exists anymore or can't be reach

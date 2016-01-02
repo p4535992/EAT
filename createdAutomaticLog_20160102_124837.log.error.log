@@ -1,0 +1,3 @@
+#logback.classic pattern: [%thread] %-5level %logger{52} - %msg%n
+[AWT-EventQueue-0] ERROR com.github.p4535992.util.html.JSoupKit - JSOUP can't convert the url:http://www.palmigiardini.it/wp/wp-content/plugins/si-captcha-for-wordpress/captcha/securimage_show.php?si_form_id=com&prefix=HGJZNU9vkU2fu84U to a string maybe the web page not exists anymore or can't be reach
+[AWT-EventQueue-0] ERROR com.github.p4535992.util.html.JSoupKit - JSOUP can't convert the url:https://identi.ca/ to a string maybe the web page not exists anymore or can't be reach

@@ -27,10 +27,6 @@ public class ExtractorGeoDocumentSupport {
     private static final org.slf4j.Logger logger =
             org.slf4j.LoggerFactory.getLogger(ExtractorDomain.class);
 
-    private static String gm() {
-        return Thread.currentThread().getStackTrace()[1].getMethodName()+":: ";
-    }
-
     ManageJsonWithGoogleMaps j = ManageJsonWithGoogleMaps.getInstance();
 
     private static ExtractorGeoDocumentSupport instance = null;

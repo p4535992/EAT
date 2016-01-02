@@ -239,7 +239,7 @@ public class GenerationRDFSupport {
             logger.info("Generated RDF: " + pw.toString());
             return fileOfTriple;
         } catch (KarmaException | IOException e) {
-            logger.error(e.getLocalizedMessage(), e);
+            logger.error(e.getMessage(), e);
             return fileOfTriple;
         }
     }

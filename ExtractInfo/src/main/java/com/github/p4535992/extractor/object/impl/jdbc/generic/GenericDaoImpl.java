@@ -5,6 +5,7 @@ import com.github.p4535992.util.bean.BeansKit;
 import com.github.p4535992.util.collection.ArrayUtilities;
 import com.github.p4535992.util.collection.CollectionUtilities;
 import com.github.p4535992.util.database.jooq.SQLJooqKit2;
+import com.github.p4535992.util.database.sql.SQLUtilities;
 import com.github.p4535992.util.database.sql.query.SQLQuery;
 import com.github.p4535992.util.reflection.ReflectionUtilities;
 import com.github.p4535992.util.string.StringUtilities;
@@ -46,11 +47,7 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
     private static final org.slf4j.Logger logger =
             org.slf4j.LoggerFactory.getLogger(GenericDaoImpl.class);
 
-    private static String gm() {
-        return Thread.currentThread().getStackTrace()[1].getMethodName()+":: ";
-    }
-
-    protected DriverManagerDataSource driverManag;
+    //protected DriverManagerDataSource driverManag;
     protected JdbcTemplate jdbcTemplate;
     protected String myInsertTable,mySelectTable,myUpdateTable,myDeleteTable;
     protected DataSource dataSource;
@@ -71,10 +68,24 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
         this.clName = cl.getSimpleName();
     }
 
+
+    public DriverManagerDataSource setDataSourceWithSpring(String driver,String url,String username,String password){
+        DriverManagerDataSource driverManag = new DriverManagerDataSource();
+        driverManag.setDriverClassName(driver);//"com.mysql.jdbc.Driver"
+        driverManag.setUrl(url); //"jdbc:mysql://localhost:3306/jdbctest"
+        driverManag.setUsername(username);
+        driverManag.setPassword(password);
+        return driverManag;
+    }
+
+    public DataSource setDataSource(String driver,String url,String username,String password){
+        return SQLUtilities.getLocalPooledConnection("ds_"+url,url,driver,username,password);
+    }
+
     @Override
     public void setDriverManager(String driver, String dialectDB, String host, String port, String user, String pass, String database) {
         logger.info("DRIVER[:" + driver + "] ,URL[" + dialectDB + "://" + host + ":" + port + "/" + database + "]");
-        driverManag = new DriverManagerDataSource();
+        DriverManagerDataSource driverManag = new DriverManagerDataSource();
         driverManag.setDriverClassName(driver);//"com.mysql.jdbc.Driver"
         driverManag.setUrl("" + dialectDB + "://" + host + ":" + port + "/" + database); //"jdbc:mysql://localhost:3306/jdbctest"
         driverManag.setUsername(user);
@@ -88,8 +99,8 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
             SQLJooqKit2.setSqlDialect(SQLJooqKit2.convertDialectDBToSQLDialectJOOQ(dialectDB));
         }catch(SQLException e){
             //e.printStackTrace();
-            logger.error(gm() +"Can't set the driver manager for JOOQ, maybe some inout name (database,table, ecc. is wrong");
-            logger.error(gm() + e.getMessage(),e);
+            logger.error("Can't set the driver manager for JOOQ, maybe some inout name (database,table, ecc. is wrong");
+            logger.error( e.getMessage(),e);
         }
     }
 
@@ -160,9 +171,9 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
             logger.info(query);
         }catch(Exception e){
             if(e.getMessage().contains("Table '"+myInsertTable+"' already exists")){
-                logger.warn(gm() + "Table '"+myInsertTable+"' already exists");
+                logger.warn( "Table '"+myInsertTable+"' already exists");
             }else {
-                logger.error(gm() + e.getMessage(),e);
+                logger.error( e.getMessage(),e);
             }
         }
     }
@@ -175,7 +186,7 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
     @Override
     public void create(String SQL, boolean erase) {
         if(myInsertTable.isEmpty()) {
-            logger.error(gm() + "Name of the table is empty!!!");
+            logger.error( "Name of the table is empty!!!");
         }
         if(erase) {
             query = "DROP TABLE IF EXISTS "+myInsertTable+";";
@@ -207,10 +218,10 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
             logger.info(query+" -> "+b);
         }catch(org.springframework.jdbc.BadSqlGrammarException e) {
             if(ExceptionUtils.getRootCause(e) instanceof com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException){
-                logger.warn(gm() +"Table :"+myInsertTable+" doesn't exist return false");
+                logger.warn("Table :"+myInsertTable+" doesn't exist return false");
                 throw new com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException("Table :"+myInsertTable+" doesn't exist");
             }else {
-                logger.error(gm() + e.getMessage(), e);
+                logger.error( e.getMessage(), e);
             }
         }
         return b;
@@ -275,7 +286,7 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
             }
             logger.info(query);
         }catch(BadSqlGrammarException e) {
-            logger.error(gm() + e.getMessage(), e);
+            logger.error( e.getMessage(), e);
         }
     }
 
@@ -296,7 +307,7 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
                 jdbcTemplate.update(query);
             }
         }catch(org.springframework.jdbc.BadSqlGrammarException e) {
-            logger.error(gm() + e.getMessage(), e);
+            logger.error( e.getMessage(), e);
         }
     }
 
@@ -306,7 +317,7 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
             query = queryString;
             jdbcTemplate.update(query);
         }catch(org.springframework.jdbc.BadSqlGrammarException e) {
-            logger.error(gm() + e.getMessage(), e);
+            logger.error( e.getMessage(), e);
         }
     }
 
@@ -389,15 +400,15 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
             result =  jdbcTemplate.queryForObject(query, new Object[]{value_where},value_where.getClass());
             logger.info(query + " -> " + result);
         }catch(org.springframework.dao.EmptyResultDataAccessException e){
-            logger.warn(gm() + "Attention probably the SQL result is empty!", e);
-            logger.error(gm() + query + " ->" + e.getMessage(), e);
+            logger.warn( "Attention probably the SQL result is empty!", e);
+            logger.error( query + " ->" + e.getMessage(), e);
             return null;
         }catch (java.lang.NullPointerException e) {
-            logger.error(gm() + query + " ->" + e.getMessage(), e);
+            logger.error( query + " ->" + e.getMessage(), e);
             return null;
         }catch(org.springframework.jdbc.CannotGetJdbcConnectionException e){
-            logger.warn(gm() + "Attention probably the database not exists!", e);
-            logger.error(gm() + query + " ->" + e.getMessage(),e);
+            logger.warn( "Attention probably the database not exists!", e);
+            logger.error( query + " ->" + e.getMessage(),e);
             return null;
         }finally{
             query = "";
@@ -444,11 +455,11 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
             //SystemLog.query(prepareInsertIntoQuery(columns, values, types));
             query ="";
         }catch(org.springframework.dao.TransientDataAccessResourceException e) {
-            logger.warn(gm() + "Attention: probably there is some java.sql.Type not supported from your database",e);
-            logger.error(gm() + e.getMessage(),e);
+            logger.error("Attention: probably there is some java.sql.Type not supported from your database:"+e.getMessage(), e);
+        }catch(org.springframework.dao.DataIntegrityViolationException e){
+            logger.error("Attention: probably you have some value to long for that schema:"+e.getMessage(), e);
         }catch(org.springframework.jdbc.BadSqlGrammarException e){
-            logger.warn(gm() + "Attention: probably you try to use a Integer[] instead a int[]",e);
-            logger.error(gm() + e.getMessage(),e);
+            logger.error( "Attention: probably you try to use a Integer[] instead a int[]"+e.getMessage(),e);
             try {
                 /** if you don't want to use JOOQ */
                 //query = SQLQuery.prepareInsertIntoQuery(myInsertTable,columns, values,types);
@@ -460,7 +471,7 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
                 logger.info(query);
                 query ="";
             }catch(org.springframework.jdbc.UncategorizedSQLException|org.springframework.jdbc.BadSqlGrammarException ex){
-                logger.error(gm() + ex.getMessage(), ex);
+                logger.error( ex.getMessage(), ex);
             }
         }finally{
             query ="";
@@ -549,7 +560,7 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
                 list.add(iClass);
             }
         }catch(Exception e){
-            logger.error(gm() + e.getMessage(),e);
+            logger.error( e.getMessage(),e);
         }finally{
             query ="";
         }
@@ -619,16 +630,16 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
 
                                 }
                             }catch(MalformedURLException e){
-                                logger.error(gm() + e.getMessage(), e);
+                                logger.error( e.getMessage(), e);
                             }
                             return MyObject2;
                         }
                     }
             );
         }catch (Exception e){
-            logger.error(gm() + e.getMessage(), e);
+            logger.error( e.getMessage(), e);
         }finally{
-            if(list.isEmpty()){logger.warn(gm() + "The result list of:" + query + " is empty!!");}
+            if(list.isEmpty()){logger.warn( "The result list of:" + query + " is empty!!");}
             else{logger.info(query + " -> return a list with size:" + list.size());}
             query ="";
         }
@@ -713,7 +724,7 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
                                 }
                             }
                         } catch (MalformedURLException e) {
-                            logger.error(gm() + e.getMessage(), e);
+                            logger.error( e.getMessage(), e);
                         }
                         list.add(MyObject);
                     }
@@ -721,9 +732,9 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
                 }
             });
         }catch (Exception e){
-            logger.error(gm() + e.getMessage(), e);
+            logger.error( e.getMessage(), e);
         }finally{
-            if(list.isEmpty()){logger.warn(gm() + "The result list of:" + query + " is empty!!");}
+            if(list.isEmpty()){logger.warn( "The result list of:" + query + " is empty!!");}
             else{logger.info(query + " -> return a list with size:" + list.size());}
             query ="";
         }
@@ -763,7 +774,7 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
                 }
             }
         }catch(Exception e){
-            logger.error(gm() + e.getMessage(), e);
+            logger.error( e.getMessage(), e);
         }finally{
             query ="";
         }
@@ -815,7 +826,7 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
                 }
                 listOfList.add(listObj);
             }
-        }catch(Exception e){ logger.error(gm() + e.getMessage(), e);}
+        }catch(Exception e){ logger.error( e.getMessage(), e);}
         return listOfList;
     }
 
@@ -837,7 +848,7 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
                     listObj.add(value);
                 }
             }
-        }catch(Exception e){ logger.error(gm() + e.getMessage(), e);}
+        }catch(Exception e){ logger.error( e.getMessage(), e);}
         return listObj;
     }
 
@@ -862,7 +873,7 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
                 columns[i] = rsMetaData.getColumnName(i);
             }
         }catch(SQLException e){
-            logger.error(gm() + e.getMessage(),e);
+            logger.error( e.getMessage(),e);
         }
         return columns;
     }

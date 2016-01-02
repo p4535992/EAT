@@ -7,7 +7,7 @@ import com.github.p4535992.gatebasic.gate.gate8.ExtractorInfoGate8;
 import com.github.p4535992.gatebasic.gate.gate8.Gate8Kit;
 import com.github.p4535992.gatebasic.gate.gate8.GateSupport;
 import com.github.p4535992.util.file.FileUtilities;
-import com.github.p4535992.util.html.JSoupKit;
+import com.github.p4535992.util.html.JSoupUtilities;
 
 import com.github.p4535992.util.http.HttpUtilities;
 import com.github.p4535992.util.string.StringUtilities;
@@ -304,7 +304,7 @@ public class ExtractInfoWeb {
                     if (listUrls.size() == 1) {
                         //Better performance method for just one url at the time
                         URL url = listUrls.get(0);
-                        String content = JSoupKit.convertUrlToStringHTML(url.toString());
+                        String content = JSoupUtilities.getContent(url.toString());
                         if (!StringUtilities.isNullOrEmpty(content)) {
                             support = GateSupport.getInstance(
                                     egate.extractorGATE(content, (CorpusController) controller, "corpus_test_1", listAnn, listAnnSet, true), true);
@@ -321,7 +321,7 @@ public class ExtractInfoWeb {
                 if (procDoc != null) {
                     if (listUrls.size() == 1) {
                         URL url = listUrls.get(0);
-                        String content = JSoupKit.convertUrlToStringHTML(url.toString());
+                        String content = JSoupUtilities.getContent(url.toString());
                         if (content != null) {
                             support = GateSupport.getInstance(
                                     egate.extractorGATE(content, procDoc, "corpus_test_1", listAnn, listAnnSet, true), true);

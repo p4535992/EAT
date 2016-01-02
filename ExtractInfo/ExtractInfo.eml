@@ -5,10 +5,10 @@
 		<testFolder url="file://$MODULE_DIR$/src/test/java"/>
 		<excludeFolder url="file://$MODULE_DIR$/target"/>
 	</contentEntry>
-	<lib name="Maven: org.openrdf.sesame:sesame-queryparser-serql:2.8.4" scope="RUNTIME"/>
-	<lib name="Maven: org.openrdf.sesame:sesame-rio-datatypes:2.8.4" scope="RUNTIME"/>
-	<lib name="Maven: org.openrdf.sesame:sesame-rio-languages:2.8.4" scope="RUNTIME"/>
-	<lib name="Maven: org.openrdf.sesame:sesame-rio-binary:2.8.4" scope="RUNTIME"/>
+	<lib name="Maven: org.openrdf.sesame:sesame-queryparser-serql:2.8.8" scope="RUNTIME"/>
+	<lib name="Maven: org.openrdf.sesame:sesame-rio-datatypes:2.8.8" scope="RUNTIME"/>
+	<lib name="Maven: org.openrdf.sesame:sesame-rio-languages:2.8.8" scope="RUNTIME"/>
+	<lib name="Maven: org.openrdf.sesame:sesame-rio-binary:2.8.8" scope="RUNTIME"/>
 	<lib name="Maven: xpp3:xpp3:1.1.4c" scope="RUNTIME"/>
 	<lib name="Maven: org.springframework:spring-test:4.1.6.RELEASE" scope="TEST"/>
 	<levels>
@@ -56,47 +56,53 @@
 		<level name="Maven: org.jooq:jooq:3.6.2" value="project"/>
 		<level name="Maven: org.jooq:jooq-meta:3.6.2" value="project"/>
 		<level name="Maven: org.jooq:jooq-codegen:3.6.2" value="project"/>
+		<level name="Maven: org.jooq:joor:0.9.5" value="project"/>
 		<level name="Maven: com.fasterxml.jackson.core:jackson-databind:2.5.3" value="project"/>
 		<level name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.5.3" value="project"/>
 		<level name="Maven: com.fasterxml.jackson.core:jackson-core:2.5.3" value="project"/>
 		<level name="Maven: com.google.code.gson:gson:2.3.1" value="project"/>
 		<level name="Maven: org.apache.jena:jena-tdb:0.10.1" value="project"/>
-		<level name="Maven: org.openrdf.sesame:sesame-model:2.8.4" value="project"/>
-		<level name="Maven: org.openrdf.sesame:sesame-util:2.8.4" value="project"/>
+		<level name="Maven: org.openrdf.sesame:sesame-model:2.8.8" value="project"/>
+		<level name="Maven: org.openrdf.sesame:sesame-util:2.8.8" value="project"/>
 		<level name="Maven: com.google.guava:guava:18.0" value="project"/>
-		<level name="Maven: org.openrdf.sesame:sesame-sail-memory:2.8.4" value="project"/>
-		<level name="Maven: org.openrdf.sesame:sesame-sail-base:2.8.4" value="project"/>
-		<level name="Maven: org.openrdf.sesame:sesame-sail-inferencer:2.8.4" value="project"/>
-		<level name="Maven: org.openrdf.sesame:sesame-queryparser-serql:2.8.4" value="project"/>
-		<level name="Maven: org.openrdf.sesame:sesame-sail-model:2.8.4" value="project"/>
-		<level name="Maven: org.openrdf.sesame:sesame-queryalgebra-evaluation:2.8.4" value="project"/>
-		<level name="Maven: org.openrdf.sesame:sesame-repository-sparql:2.8.4" value="project"/>
-		<level name="Maven: org.openrdf.sesame:sesame-queryparser-sparql:2.8.4" value="project"/>
-		<level name="Maven: org.openrdf.sesame:sesame-queryresultio-sparqlxml:2.8.4" value="project"/>
+		<level name="Maven: org.openrdf.sesame:sesame-sail-memory:2.8.8" value="project"/>
+		<level name="Maven: org.openrdf.sesame:sesame-sail-base:2.8.8" value="project"/>
+		<level name="Maven: org.openrdf.sesame:sesame-sail-inferencer:2.8.8" value="project"/>
+		<level name="Maven: org.openrdf.sesame:sesame-queryparser-serql:2.8.8" value="project"/>
+		<level name="Maven: org.openrdf.sesame:sesame-sail-model:2.8.8" value="project"/>
+		<level name="Maven: org.openrdf.sesame:sesame-queryalgebra-evaluation:2.8.8" value="project"/>
+		<level name="Maven: org.openrdf.sesame:sesame-repository-sparql:2.8.8" value="project"/>
+		<level name="Maven: org.openrdf.sesame:sesame-queryparser-sparql:2.8.8" value="project"/>
+		<level name="Maven: org.openrdf.sesame:sesame-queryresultio-sparqlxml:2.8.8" value="project"/>
 		<level name="Maven: org.mapdb:mapdb:1.0.7" value="project"/>
-		<level name="Maven: org.openrdf.sesame:sesame-queryalgebra-model:2.8.4" value="project"/>
-		<level name="Maven: org.openrdf.sesame:sesame-repository-sail:2.8.4" value="project"/>
-		<level name="Maven: org.openrdf.sesame:sesame-http-client:2.8.4" value="project"/>
-		<level name="Maven: org.openrdf.sesame:sesame-queryparser-api:2.8.4" value="project"/>
-		<level name="Maven: org.openrdf.sesame:sesame-rio-trig:2.8.4" value="project"/>
-		<level name="Maven: org.openrdf.sesame:sesame-rio-datatypes:2.8.4" value="project"/>
-		<level name="Maven: org.openrdf.sesame:sesame-rio-languages:2.8.4" value="project"/>
-		<level name="Maven: org.openrdf.sesame:sesame-rio-turtle:2.8.4" value="project"/>
-		<level name="Maven: org.openrdf.sesame:sesame-queryresultio-text:2.8.4" value="project"/>
-		<level name="Maven: org.openrdf.sesame:sesame-queryresultio-api:2.8.4" value="project"/>
+		<level name="Maven: org.openrdf.sesame:sesame-queryalgebra-model:2.8.8" value="project"/>
+		<level name="Maven: org.openrdf.sesame:sesame-repository-sail:2.8.8" value="project"/>
+		<level name="Maven: org.openrdf.sesame:sesame-http-client:2.8.8" value="project"/>
+		<level name="Maven: org.openrdf.sesame:sesame-queryparser-api:2.8.8" value="project"/>
+		<level name="Maven: org.openrdf.sesame:sesame-rio-trig:2.8.8" value="project"/>
+		<level name="Maven: org.openrdf.sesame:sesame-rio-datatypes:2.8.8" value="project"/>
+		<level name="Maven: org.openrdf.sesame:sesame-rio-languages:2.8.8" value="project"/>
+		<level name="Maven: org.openrdf.sesame:sesame-rio-turtle:2.8.8" value="project"/>
+		<level name="Maven: org.openrdf.sesame:sesame-queryresultio-text:2.8.8" value="project"/>
+		<level name="Maven: org.openrdf.sesame:sesame-queryresultio-api:2.8.8" value="project"/>
 		<level name="Maven: com.opencsv:opencsv:3.2" value="project"/>
-		<level name="Maven: org.openrdf.sesame:sesame-sail-nativerdf:2.8.4" value="project"/>
-		<level name="Maven: org.openrdf.sesame:sesame-repository-http:2.8.4" value="project"/>
-		<level name="Maven: org.openrdf.sesame:sesame-http-protocol:2.8.4" value="project"/>
-		<level name="Maven: org.openrdf.sesame:sesame-rio-ntriples:2.8.4" value="project"/>
-		<level name="Maven: org.openrdf.sesame:sesame-rio-binary:2.8.4" value="project"/>
-		<level name="Maven: org.openrdf.sesame:sesame-queryresultio-sparqljson:2.8.4" value="project"/>
-		<level name="Maven: org.openrdf.sesame:sesame-repository-manager:2.8.4" value="project"/>
-		<level name="Maven: org.openrdf.sesame:sesame-repository-event:2.8.4" value="project"/>
-		<level name="Maven: org.openrdf.sesame:sesame-rio-api:2.8.4" value="project"/>
-		<level name="Maven: org.openrdf.sesame:sesame-repository-api:2.8.4" value="project"/>
-		<level name="Maven: org.openrdf.sesame:sesame-sail-api:2.8.4" value="project"/>
-		<level name="Maven: org.openrdf.sesame:sesame-query:2.8.4" value="project"/>
+		<level name="Maven: org.openrdf.sesame:sesame-sail-nativerdf:2.8.8" value="project"/>
+		<level name="Maven: org.openrdf.sesame:sesame-repository-http:2.8.8" value="project"/>
+		<level name="Maven: org.openrdf.sesame:sesame-http-protocol:2.8.8" value="project"/>
+		<level name="Maven: org.openrdf.sesame:sesame-rio-ntriples:2.8.8" value="project"/>
+		<level name="Maven: org.openrdf.sesame:sesame-rio-binary:2.8.8" value="project"/>
+		<level name="Maven: org.openrdf.sesame:sesame-queryresultio-sparqljson:2.8.8" value="project"/>
+		<level name="Maven: org.openrdf.sesame:sesame-repository-manager:2.8.8" value="project"/>
+		<level name="Maven: org.openrdf.sesame:sesame-repository-event:2.8.8" value="project"/>
+		<level name="Maven: org.openrdf.sesame:sesame-rio-api:2.8.8" value="project"/>
+		<level name="Maven: org.openrdf.sesame:sesame-repository-api:2.8.8" value="project"/>
+		<level name="Maven: org.openrdf.sesame:sesame-sail-api:2.8.8" value="project"/>
+		<level name="Maven: org.openrdf.sesame:sesame-query:2.8.8" value="project"/>
+		<level name="Maven: org.apache.poi:poi:3.10-FINAL" value="project"/>
+		<level name="Maven: org.apache.poi:poi-ooxml:3.10-FINAL" value="project"/>
+		<level name="Maven: org.apache.poi:poi-ooxml-schemas:3.10-FINAL" value="project"/>
+		<level name="Maven: org.apache.xmlbeans:xmlbeans:2.3.0" value="project"/>
+		<level name="Maven: stax:stax-api:1.0.1" value="project"/>
 		<level name="Maven: net.sf.sevenzipjbinding:sevenzipjbinding:9.20-2.00beta" value="project"/>
 		<level name="Maven: net.sf.sevenzipjbinding:sevenzipjbinding-all-platforms:9.20-2.00beta" value="project"/>
 		<level name="Maven: javax.interceptor:javax.interceptor-api:1.2" value="project"/>
@@ -192,7 +198,6 @@
 		<level name="Maven: net.sf.ezmorph:ezmorph:1.0.6" value="project"/>
 		<level name="Maven: com.hp.hpl.jena:arq:2.8.8" value="project"/>
 		<level name="Maven: org.codehaus.woodstox:wstx-asl:3.2.9" value="project"/>
-		<level name="Maven: stax:stax-api:1.0.1" value="project"/>
 		<level name="Maven: com.hp.hpl.jena:jena:2.6.4" value="project"/>
 		<level name="Maven: com.ibm.icu:icu4j:3.4.4" value="project"/>
 		<level name="Maven: com.hp.hpl.jena:tdb:0.8.10" value="project"/>
@@ -286,11 +291,7 @@
 		<level name="Maven: org.apache.pdfbox:jempbox:1.8.4" value="project"/>
 		<level name="Maven: org.bouncycastle:bcmail-jdk15:1.45" value="project"/>
 		<level name="Maven: org.bouncycastle:bcprov-jdk15:1.45" value="project"/>
-		<level name="Maven: org.apache.poi:poi:3.10-beta2" value="project"/>
 		<level name="Maven: org.apache.poi:poi-scratchpad:3.10-beta2" value="project"/>
-		<level name="Maven: org.apache.poi:poi-ooxml:3.10-beta2" value="project"/>
-		<level name="Maven: org.apache.poi:poi-ooxml-schemas:3.10-beta2" value="project"/>
-		<level name="Maven: org.apache.xmlbeans:xmlbeans:2.3.0" value="project"/>
 		<level name="Maven: org.apache.geronimo.specs:geronimo-stax-api_1.0_spec:1.0.1" value="project"/>
 		<level name="Maven: org.ccil.cowan.tagsoup:tagsoup:1.2.1" value="project"/>
 		<level name="Maven: org.ow2.asm:asm-debug-all:4.1" value="project"/>
