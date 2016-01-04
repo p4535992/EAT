@@ -1,7 +1,9 @@
 
 package com.github.p4535992.extractor.object.model;
 
-import com.github.p4535992.extractor.hibernate.interceptor.SelfDirtyCheckingEntity;
+
+
+import com.github.p4535992.util.hibernate.interceptor.SelfDirtyCheckingEntity;
 
 import java.io.Serializable;
 import java.net.MalformedURLException;

@@ -1,8 +1,8 @@
-package com.github.p4535992.extractor.object.impl.hibernate;
+package com.github.p4535992.util.hibernate.impl;
 
-import com.github.p4535992.extractor.object.dao.hibernate.IGeoDocumentHibernateDao;
-import com.github.p4535992.extractor.object.impl.hibernate.generic.GenericHibernateDaoImpl;
-import com.github.p4535992.extractor.object.model.GeoDocument;
+import com.github.p4535992.util.hibernate.dao.IGeoDocumentHibernateDao;
+import com.github.p4535992.util.hibernate.impl.generic.GenericHibernateDaoImpl;
+import com.github.p4535992.util.object.GeoDocument;
 import org.hibernate.Interceptor;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -40,7 +40,7 @@ public class GeoDocumentHibernateDaoImpl extends GenericHibernateDaoImpl<GeoDocu
 
     @Override
     public void setDriverManager(String driver, String typeDb, String host,String port, String user, String pass, String database) {
-        super.setDataSourceWithSpring(driver, typeDb, host, port, user, pass, database);
+        super.setDriverManager(driver, typeDb, host, port, user, pass, database);
     }
 
     @Override

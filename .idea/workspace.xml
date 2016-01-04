@@ -5,62 +5,73 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4eed5089-243f-4674-95da-e9b02ca45a2c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jooq_joor_0_9_5.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/createdAutomaticLog_20151229_120511.log.debug.log" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/createdAutomaticLog_20151229_120511.log.error.log" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/createdAutomaticLog_20151229_133519.log.debug.log" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/createdAutomaticLog_20151229_133519.log.error.log" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/createdAutomaticLog_20151229_135938.log.debug.log" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/createdAutomaticLog_20151229_135938.log.error.log" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/createdAutomaticLog_20151229_140633.log.debug.log" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/createdAutomaticLog_20151229_140633.log.error.log" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/createdAutomaticLog_20151229_163600.log.debug.log" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/createdAutomaticLog_20151229_163600.log.error.log" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/createdAutomaticLog_20151229_170422.log.debug.log" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/createdAutomaticLog_20151229_170422.log.error.log" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/createdAutomaticLog_20151229_175622.log.debug.log" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/createdAutomaticLog_20151229_175622.log.error.log" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/createdAutomaticLog_20151229_183303.log.debug.log" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/createdAutomaticLog_20151229_183303.log.error.log" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/createdAutomaticLog_20151229_191657.log.debug.log" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/createdAutomaticLog_20151229_191657.log.error.log" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/calendar/DateKit.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/database/jooq/SQLJooqKit 2015-09-30.rar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/database/jooq/SQLJooqKit 2015-10-17.rar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/database/jooq/spring 2015-12-24.zip" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/database/jooq/spring/application.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/database/jooq/spring/exampleApplicationContext-persistence.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/html/HtmlKit.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/html/JSoupKit.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/reflection/old_reflection.rar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/string/DateUtilities.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/hibernate/Hibernate43Kit.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/hibernate/Hibernate4Kit.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/hibernate/HibernateCRUD.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/hibernate/HibernateSupport.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/hibernate/IHibernateKit.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/hibernate/finder.rar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/hibernate/interceptor/DirtyAware.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/hibernate/interceptor/GeoDocumentInterceptor.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/hibernate/interceptor/SelfDirtyCheckingEntity.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/hibernate/old/cfg.rar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/hibernate/old/hibernate.cfg.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/hibernate/old/old_hibernate2.rar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/hibernate/package-info.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ExtractInfo/src/test/java/util/Test_Hibernate_Spring.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/createdAutomaticLog_20160102_114820.log.debug.log" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/createdAutomaticLog_20160102_114820.log.error.log" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/createdAutomaticLog_20160102_124837.log.debug.log" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/createdAutomaticLog_20160102_124837.log.error.log" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/createdAutomaticLog_20160102_130211.log.debug.log" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/createdAutomaticLog_20160102_130211.log.error.log" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/createdAutomaticLog_20160102_132844.log.debug.log" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/createdAutomaticLog_20160102_132844.log.error.log" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/createdAutomaticLog_20160102_134722.log.debug.log" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/createdAutomaticLog_20160102_134722.log.error.log" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/createdAutomaticLog_20160102_144946.log.debug.log" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/createdAutomaticLog_20160102_144946.log.error.log" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/createdAutomaticLog_20160102_145925.log.debug.log" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/createdAutomaticLog_20160102_145925.log.error.log" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/createdAutomaticLog_20160102_152432.log.debug.log" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/createdAutomaticLog_20160102_152432.log.error.log" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/createdAutomaticLog_20160102_184435.log.debug.log" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/createdAutomaticLog_20160102_184435.log.error.log" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/createdAutomaticLog_20160102_200248.log.debug.log" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/createdAutomaticLog_20160102_200248.log.error.log" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/createdAutomaticLog_20160102_202550.log.debug.log" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/createdAutomaticLog_20160102_202550.log.error.log" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/createdAutomaticLog_20160102_204458.log.debug.log" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/createdAutomaticLog_20160102_204458.log.error.log" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/createdAutomaticLog_20160102_204712.log.debug.log" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/createdAutomaticLog_20160102_204712.log.error.log" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/createdAutomaticLog_20160102_222120.log.debug.log" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/createdAutomaticLog_20160102_222120.log.error.log" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/createdAutomaticLog_20160102_222515.log.debug.log" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/createdAutomaticLog_20160102_222515.log.error.log" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/createdAutomaticLog_20160102_231450.log.debug.log" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/createdAutomaticLog_20160102_231450.log.error.log" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/createdAutomaticLog_20160102_231919.log.debug.log" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/createdAutomaticLog_20160102_231919.log.error.log" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/createdAutomaticLog_20160102_232038.log.debug.log" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/createdAutomaticLog_20160102_232038.log.error.log" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/createdAutomaticLog_20160102_232325.log.debug.log" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/createdAutomaticLog_20160102_232325.log.error.log" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/.classpath" afterPath="$PROJECT_DIR$/ExtractInfo/.classpath" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/ExtractInfo.eml" afterPath="$PROJECT_DIR$/ExtractInfo/ExtractInfo.eml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/estrattori/ExtractInfoWeb.java" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/estrattori/ExtractInfoWeb.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/estrattori/ExtractorGeoDocumentSupport.java" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/estrattori/ExtractorGeoDocumentSupport.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/home/MainSesameManager.java" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/home/MainSesameManager.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/karma/GenerationRDFSupport.java" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/karma/GenerationRDFSupport.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/object/impl/jdbc/generic/GenericDaoImpl.java" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/object/impl/jdbc/generic/GenericDaoImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gate-basic/gate-basic.iml" afterPath="$PROJECT_DIR$/gate-basic/gate-basic.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/object/impl/hibernate/GeoDocumentHibernateDaoImpl.java" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/object/impl/hibernate/GeoDocumentHibernateDaoImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/object/impl/hibernate/generic/GenericHibernateDaoImpl.java" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/object/impl/hibernate/generic/GenericHibernateDaoImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/object/model/GeoDocument.java" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/object/model/GeoDocument.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/input.properties" afterPath="$PROJECT_DIR$/src/main/resources/input.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/pom.xml" afterPath="$PROJECT_DIR$/utility/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/collection/ArrayUtilities.java" afterPath="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/collection/ArrayUtilities.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/database/jooq/JOOQSupport.java" afterPath="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/database/jooq/JOOQSupport.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/database/jooq/SQLJooqKit2.java" afterPath="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/database/jooq/SQLJooqKit2.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/database/jooq/spring/config/PersistenceContext.java" afterPath="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/database/jooq/spring/config/PersistenceContext.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/database/hibernate/SQLQueryHibernate.java" afterPath="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/database/hibernate/SQLQueryHibernate.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/database/sql/SQLUtilities.java" afterPath="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/database/sql/SQLUtilities.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/database/sql/performance/JDBCLogger.java" afterPath="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/database/sql/performance/JDBCLogger.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/database/sql/query/MySQLQuery.java" afterPath="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/database/sql/query/MySQLQuery.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/file/csv/opencsv/OpenCsvUtilities.java" afterPath="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/file/csv/opencsv/OpenCsvUtilities.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/html/Test_Jsoup.java" afterPath="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/html/Test_Jsoup.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/http/HttpUtilApache4.java" afterPath="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/http/HttpUtilApache4.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/http/HttpUtilities.java" afterPath="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/http/HttpUtilities.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/object/RPC.java" afterPath="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/object/RPC.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/reflection/ReflectionUtilities.java" afterPath="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/reflection/ReflectionUtilities.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/repositoryRDF/jena/JenaUtilities.java" afterPath="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/repositoryRDF/jena/JenaUtilities.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/repositoryRDF/sesame/SesameUtilities.java" afterPath="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/repositoryRDF/sesame/SesameUtilities.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/string/StringUtilities.java" afterPath="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/string/StringUtilities.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/utility.iml" afterPath="$PROJECT_DIR$/utility/utility.iml" />
     </list>
     <ignored path="EAT.iws" />
@@ -112,11 +123,133 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="HttpUtilApache4.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/http/HttpUtilApache4.java">
+      <file leaf-file-name="MainSesameManager.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/home/MainSesameManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.93530995">
-              <caret line="300" column="23" selection-start-line="300" selection-start-column="23" selection-end-line="300" selection-end-column="23" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="197" column="42" selection-start-line="197" selection-start-column="42" selection-end-line="197" selection-end-column="42" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SQLUtilities.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/database/sql/SQLUtilities.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="679" column="28" selection-start-line="679" selection-start-column="28" selection-end-line="679" selection-end-column="28" />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#2983#2984#0" expanded="false" />
+                <element signature="e#3010#3011#0" expanded="false" />
+                <element signature="e#3074#3075#0" expanded="false" />
+                <element signature="e#3114#3115#0" expanded="false" />
+                <element signature="e#30237#30238#0" expanded="false" />
+                <element signature="e#30283#30284#0" expanded="false" />
+                <element signature="e#37465#37466#0" expanded="false" />
+                <element signature="e#37514#37515#0" expanded="false" />
+                <element signature="method#importCsvInsertInto#0;class#SQLUtilities#0" expanded="false" />
+                <element signature="e#54099#54100#0" expanded="false" />
+                <element signature="e#54141#54142#0" expanded="false" />
+                <element signature="e#54177#54178#0" expanded="false" />
+                <element signature="e#54218#54219#0" expanded="false" />
+                <element signature="e#54880#54881#0" expanded="false" />
+                <element signature="e#54922#54923#0" expanded="false" />
+                <element signature="e#54961#54962#0" expanded="false" />
+                <element signature="e#55002#55003#0" expanded="false" />
+                <marker date="1451920540906" expanded="true" signature="27506:27520" placeholder="Select * FRO... missingValue" />
+                <marker date="1451920540906" expanded="true" signature="36598:36612" placeholder="SELECT * FRO... missingValue" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MySQLQuery.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/database/sql/query/MySQLQuery.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="95" column="42" selection-start-line="95" selection-start-column="42" selection-end-line="95" selection-end-column="42" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OpenCsvUtilities.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/file/csv/opencsv/OpenCsvUtilities.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="89" column="0" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#6124#6125#0" expanded="false" />
+                <element signature="e#6172#6173#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="testCSV1.csv" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/home/testCSV1.csv">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="302" column="9" selection-start-line="302" selection-start-column="9" selection-end-line="302" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainExtractInfo.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/home/MainExtractInfo.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="JenaUtilities.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/repositoryRDF/jena/JenaUtilities.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="2333" column="35" selection-start-line="2333" selection-start-column="35" selection-end-line="2333" selection-end-column="35" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ManageJsonWithOpenStreetMap.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/ManageJsonWithOpenStreetMap.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GenericDaoImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/object/impl/jdbc/generic/GenericDaoImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="453" column="0" selection-start-line="453" selection-start-column="0" selection-end-line="453" selection-end-column="0" />
+              <folding>
+                <marker date="1451759236752" expanded="true" signature="7099:7120" placeholder="DROP TABLE I... " />
+                <marker date="1451759236752" expanded="true" signature="7908:8018" placeholder="SELECT count... missingValue" />
+                <marker date="1451759236752" expanded="true" signature="9098:9119" placeholder="select count... missingValue" />
+                <marker date="1451759236752" expanded="true" signature="9888:9950" placeholder="DELETE FROM " />
+                <marker date="1451759236752" expanded="true" signature="16765:16843" placeholder="UPDATE missi... " />
+                <marker date="1451759236752" expanded="true" signature="40030:40067" placeholder="SELECT * FRO... missingValue" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="input.properties" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/input.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.41239893">
+              <caret line="24" column="16" selection-start-line="24" selection-start-column="16" selection-end-line="24" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -128,9 +261,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="package-info" />
-        <option value="Interface" />
         <option value="spring-beans.schema" />
         <option value="Singleton" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -146,26 +279,7 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/log/logback/resources/logback.xml" />
-        <option value="$PROJECT_DIR$/ExtractInfo/src/main/resources/logback.xml" />
-        <option value="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/log/logback/resources/logback_base_console.xml" />
-        <option value="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/file/FileUtilities.java" />
-        <option value="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/database/sql/query/SQLQuery.java" />
-        <option value="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/repositoryRDF/sparql/SparqlUtilities.java" />
-        <option value="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/repositoryRDF/jenaAndSesame/JenaSesameUtilities.java" />
-        <option value="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/repositoryRDF/jenaAndVirtuoso/JenaVirtuosoUtilities.java" />
-        <option value="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/gtfs/tordf/transformer/impl/AbstractTransformer.java" />
-        <option value="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/repositoryRDF/jena/FusekiUtilities.java" />
-        <option value="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/gtfs/tordf/gtfsToRdf.java" />
-        <option value="$PROJECT_DIR$/utility/src/test/java/util/Test_Jena.java" />
-        <option value="$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/JenaInfoDocument.java" />
-        <option value="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/collection/EnumerationUtilities.java" />
-        <option value="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/office/excel/ExcelUtilities.java" />
-        <option value="$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/estrattori/ExtractInfoSpring.java" />
-        <option value="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/database/sql/pooling/MiniConnectionPoolManager.java" />
-        <option value="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/string/Timer.java" />
         <option value="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/math/metric/RandomUtilities.java" />
-        <option value="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/repositoryRDF/jena/JenaUtilities.java" />
         <option value="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/database/jooq/spring/config/PersistenceContext.java" />
         <option value="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/spring/doc/README.md" />
         <option value="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/spring/config/jdbc/spring_jdbc.properties" />
@@ -174,22 +288,13 @@
         <option value="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/database/jooq/spring/config/SpringTransactionProvider.java" />
         <option value="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/database/jooq/spring/config/SpringTransaction.java" />
         <option value="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/database/jooq/spring/config/exception/ExceptionTranslator.java" />
-        <option value="$PROJECT_DIR$/utility/pom.xml" />
-        <option value="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/repositoryRDF/sesame/SesameUtilities.java" />
         <option value="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/string/StringUtilities.java" />
-        <option value="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/database/sql/query/MySQLQuery.java" />
-        <option value="$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/home/MainSesameManager.java" />
-        <option value="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/database/sql/performance/JDBCLogger.java" />
-        <option value="$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/karma/GenerationRDFSupport.java" />
         <option value="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/collection/ArrayUtilities.java" />
         <option value="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/file/csv/opencsv/OpenCsvUtilities.java" />
-        <option value="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/reflection/ReflectionUtilities.java" />
         <option value="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/database/jooq/JOOQSupport.java" />
         <option value="$PROJECT_DIR$/createdAutomaticLog_20160102_112051.log.debug.log" />
         <option value="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/database/jooq/SQLJooqKit2.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/input.properties" />
         <option value="$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/object/impl/jdbc/generic/GenericDaoImpl.java" />
-        <option value="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/database/sql/SQLUtilities.java" />
         <option value="$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/estrattori/ExtractorGeoDocumentSupport.java" />
         <option value="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/html/JSoupKit.java" />
         <option value="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/http/HttpUtilApache4.java" />
@@ -197,6 +302,34 @@
         <option value="$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/estrattori/ExtractInfoWeb.java" />
         <option value="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/html/JSoupUtilities.java" />
         <option value="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/calendar/DateUtilities.java" />
+        <option value="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/database/hibernate/SQLQueryHibernate.java" />
+        <option value="$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/karma/GenerationRDFSupport.java" />
+        <option value="$PROJECT_DIR$/utility/pom.xml" />
+        <option value="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/hibernate/HibernateCRUD.java" />
+        <option value="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/hibernate/HibernateSupport.java" />
+        <option value="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/hibernate/interceptor/GeoDocumentInterceptor.java" />
+        <option value="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/hibernate/interceptor/IGenericInterceptor.java" />
+        <option value="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/reflection/ReflectionUtilities.java" />
+        <option value="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/hibernate/interceptor/impl/GeoDocumentInterceptor.java" />
+        <option value="$PROJECT_DIR$/ExtractInfo/src/test/java/util/Test_Hibernate_Spring.java" />
+        <option value="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/hibernate/interceptor/GenericInterceptor.java" />
+        <option value="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/hibernate/dao/IGeoDocumentHibernateDao.java" />
+        <option value="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/hibernate/impl/GeoDocumentHibernateDaoImpl.java" />
+        <option value="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/hibernate/impl/generic/GenericHibernateDaoImpl.java" />
+        <option value="$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/object/model/GeoDocument.java" />
+        <option value="$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/object/impl/hibernate/GeoDocumentHibernateDaoImpl.java" />
+        <option value="$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/object/impl/hibernate/generic/GenericHibernateDaoImpl.java" />
+        <option value="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/hibernate/Hibernate43Utilities.java" />
+        <option value="$PROJECT_DIR$/utility/src/main/resources/spring_hibernate/spring-datasource.xml" />
+        <option value="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/hibernate/Test_Hibernate_Spring.java" />
+        <option value="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/repositoryRDF/sesame/SesameUtilities.java" />
+        <option value="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/database/sql/performance/JDBCLogger.java" />
+        <option value="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/database/sql/SQLUtilities.java" />
+        <option value="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/database/sql/query/MySQLQuery.java" />
+        <option value="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/repositoryRDF/jena/JenaUtilities.java" />
+        <option value="$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/home/testCSV1.csv" />
+        <option value="$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/home/MainSesameManager.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/input.properties" />
       </list>
     </option>
   </component>
@@ -313,7 +446,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -450,7 +582,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="string" />
+              <option name="myItemId" value="hibernate" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -484,287 +616,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="spring" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EAT" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EAT" />
+              <option name="myItemId" value="hibernate" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="utility" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="util" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="repositoryRDF" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EAT" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EAT" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="utility" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="util" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="repositoryRDF" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sparql" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EAT" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EAT" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="utility" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="util" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="reflection" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EAT" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EAT" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="utility" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="util" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="log" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EAT" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EAT" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="utility" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="util" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="http" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EAT" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EAT" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="utility" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="util" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="html" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EAT" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EAT" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="utility" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="util" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="file" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EAT" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EAT" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="utility" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="util" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="file" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="opencsv" />
+              <option name="myItemId" value="impl" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -844,7 +700,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="query" />
+              <option name="myItemId" value="performance" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -879,146 +735,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="database" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jooq" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EAT" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EAT" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="utility" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="util" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="database" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EAT" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EAT" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="utility" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="util" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="collection" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EAT" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EAT" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="utility" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="util" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cmd" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EAT" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EAT" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="utility" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="util" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="calendar" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1100,6 +816,76 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="gate-basic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EAT" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EAT" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gate-basic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gate" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EAT" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EAT" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gate-basic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EAT" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EAT" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="ExtractInfo" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -1119,6 +905,44 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="util" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EAT" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EAT" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ExtractInfo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1141,6 +965,10 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1243,6 +1071,86 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="impl" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EAT" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EAT" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ExtractInfo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="extractor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="object" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="impl" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hibernate" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EAT" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EAT" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ExtractInfo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="extractor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="object" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dao" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -1284,53 +1192,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="impl" />
+              <option name="myItemId" value="dao" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="jdbc" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="generic" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EAT" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EAT" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ExtractInfo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="extractor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="object" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="impl" />
+              <option name="myItemId" value="hibernate" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1440,6 +1306,7 @@
       </pane>
       <pane id="PackagesPane" />
       <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1448,7 +1315,7 @@
     <property name="recentsLimit" value="5" />
     <property name="dynamic.classpath" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15542522" />
@@ -1457,48 +1324,28 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\tenti\Desktop\EAT\utility\src\main\java\com\github\p4535992\util\repositoryRDF\doc" />
-      <recent name="C:\Users\tenti\Desktop\EAT\ExtractInfo\src\main\resources" />
-      <recent name="C:\Users\tenti\Desktop\EAT\utility\src\main\java\com\github\p4535992\util\file\archive" />
       <recent name="C:\Users\tenti\Desktop\EAT\utility\src\main\resources" />
-      <recent name="C:\Users\tenti\Desktop\EAT\utility\src\main\java\com\github\p4535992\util\file\resources" />
+      <recent name="C:\Users\tenti\Desktop\EAT\utility\src\main\java\com\github\p4535992\util\hibernate\interceptor\impl" />
+      <recent name="C:\Users\tenti\Desktop\EAT\utility\src\main\java\com\github\p4535992\util\hibernate" />
+      <recent name="C:\Users\tenti\Desktop\EAT\utility\src\main\java\com\github\p4535992\util" />
+      <recent name="C:\Users\tenti\Desktop\EAT\utility\src\main\java\com\github\p4535992\util\repositoryRDF\doc" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.github.p4535992.util.hibernate.impl" />
+      <recent name="com.github.p4535992.util.hibernate.dao" />
+      <recent name="com.github.p4535992.util.hibernate.impl.generic" />
       <recent name="com.github.p4535992.util.database.sql" />
       <recent name="com.github.p4535992.util.http.helper" />
-      <recent name="com.github.p4535992.util.http.impl" />
-      <recent name="com.github.p4535992.util.reflection" />
-      <recent name="com.github.p4535992.util.repositoryRDF.jenaAndSesame.rdql" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\tenti\Desktop\EAT\ExtractInfo\src\main\java\com\github\p4535992\extractor\hibernate\old" />
       <recent name="C:\Users\tenti\Desktop\EAT\utility\src\main\java\com\github\p4535992\util\log\jul" />
       <recent name="C:\Users\tenti\Desktop\EAT\utility\src\main\java\com\github\p4535992\util\log\log4j" />
       <recent name="C:\Users\tenti\Desktop\EAT\utility\src\main\java\com\github\p4535992\util\log\logback\resources" />
       <recent name="C:\Users\tenti\Desktop\EAT\modelWebKarma" />
-      <recent name="C:\Users\tenti\Documents\GitHub\EAT\utility\src\main\java\com\github\p4535992\util\repositoryRDF\sesame\other" />
     </key>
   </component>
   <component name="RunManager" selected="Application.MainExtractInfo">
-    <configuration default="false" name="MainLogbackTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.github.p4535992.util.log.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="MAIN_CLASS_NAME" value="com.github.p4535992.util.log.MainLogbackTest" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="utility" />
-      <envs />
-      <method />
-    </configuration>
     <configuration default="false" name="MainLogbackTest (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -1522,7 +1369,7 @@
     <configuration default="false" name="Test_JDBC_util" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
-          <option name="PATTERN" value="util.*" />
+          <option name="PATTERN" value="com.github.p4535992.util.hibernate.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -1576,6 +1423,26 @@
       <option name="ENV_VARIABLES" />
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="ExtractInfo" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Test_Hibernate_Spring" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.github.p4535992.util.hibernate.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="com.github.p4535992.util.hibernate.Test_Hibernate_Spring" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="utility" />
       <envs />
       <method />
     </configuration>
@@ -2031,19 +1898,19 @@
     </configuration>
     <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Application.MainExtractInfo" />
-      <item index="1" class="java.lang.String" itemvalue="Application.MainLogbackTest" />
-      <item index="2" class="java.lang.String" itemvalue="Application.MainLogbackTest (1)" />
-      <item index="3" class="java.lang.String" itemvalue="Application.Test_JDBC_util" />
-      <item index="4" class="java.lang.String" itemvalue="Application.SQLUtilities" />
-      <item index="5" class="java.lang.String" itemvalue="Application.MainSesameManager" />
+      <item index="1" class="java.lang.String" itemvalue="Application.MainLogbackTest (1)" />
+      <item index="2" class="java.lang.String" itemvalue="Application.Test_JDBC_util" />
+      <item index="3" class="java.lang.String" itemvalue="Application.SQLUtilities" />
+      <item index="4" class="java.lang.String" itemvalue="Application.MainSesameManager" />
+      <item index="5" class="java.lang.String" itemvalue="Application.Test_Hibernate_Spring" />
     </list>
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Application.MainSesameManager" />
-        <item index="1" class="java.lang.String" itemvalue="Application.SQLUtilities" />
-        <item index="2" class="java.lang.String" itemvalue="Application.Test_JDBC_util" />
-        <item index="3" class="java.lang.String" itemvalue="Application.MainLogbackTest (1)" />
-        <item index="4" class="java.lang.String" itemvalue="Application.MainLogbackTest" />
+        <item index="1" class="java.lang.String" itemvalue="Application.Test_Hibernate_Spring" />
+        <item index="2" class="java.lang.String" itemvalue="Application.SQLUtilities" />
+        <item index="3" class="java.lang.String" itemvalue="Application.Test_JDBC_util" />
+        <item index="4" class="java.lang.String" itemvalue="Application.MainLogbackTest (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -2160,11 +2027,14 @@
       <workItem from="1451639043621" duration="15449000" />
       <workItem from="1451663195709" duration="11867000" />
       <workItem from="1451723080481" duration="29974000" />
+      <workItem from="1451812443122" duration="3222000" />
+      <workItem from="1451896592051" duration="21217000" />
+      <workItem from="1451922949081" duration="5645000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="885971000" />
+    <option name="totallyTimeSpent" value="916055000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="0" width="1364" height="735" extended-state="0" />
@@ -2175,7 +2045,7 @@
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3277439" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32764506" sideWeight="0.49581748" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3263889" sideWeight="0.49581748" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32822084" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32935154" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -2196,36 +2066,38 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Maven-2 Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292402" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32820514" sideWeight="0.4969605" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.328125" sideWeight="0.4969605" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32826748" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32822084" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32935154" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31965813" sideWeight="0.506135" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3125" sideWeight="0.5122699" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32935154" sideWeight="0.4973384" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292683" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25685975" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25383437" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30729166" sideWeight="0.48773006" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31111112" sideWeight="0.49386504" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven-2 Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292402" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32764506" sideWeight="0.49581748" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32847276" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven-2 Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292402" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32820514" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.382906" sideWeight="0.4969325" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3277439" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.328125" sideWeight="0.4969605" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36805555" sideWeight="0.49392098" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32136753" sideWeight="0.48849693" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38185975" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33689025" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2934028" sideWeight="0.4870427" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32055214" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33689025" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
@@ -2318,7 +2190,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/home/MainSesameManager.java</url>
-          <line>187</line>
+          <line>191</line>
           <properties />
           <option name="timeStamp" value="50" />
         </line-breakpoint>
@@ -2372,7 +2244,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/home/MainSesameManager.java</url>
-          <line>223</line>
+          <line>238</line>
           <properties />
           <option name="timeStamp" value="72" />
         </line-breakpoint>
@@ -2498,7 +2370,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/reflection/ReflectionUtilities.java</url>
-          <line>66</line>
+          <line>62</line>
           <properties />
           <option name="timeStamp" value="142" />
         </line-breakpoint>
@@ -2744,19 +2616,19 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/reflection/ReflectionUtilities.java</url>
-          <line>757</line>
+          <line>753</line>
           <properties />
           <option name="timeStamp" value="210" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/database/sql/SQLUtilities.java</url>
-          <line>1039</line>
+          <line>1041</line>
           <properties />
           <option name="timeStamp" value="217" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/database/sql/SQLUtilities.java</url>
-          <line>1206</line>
+          <line>1208</line>
           <properties />
           <option name="timeStamp" value="219" />
         </line-breakpoint>
@@ -2768,43 +2640,43 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/database/sql/SQLUtilities.java</url>
-          <line>1203</line>
+          <line>1205</line>
           <properties />
           <option name="timeStamp" value="227" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/database/sql/SQLUtilities.java</url>
-          <line>1200</line>
+          <line>1202</line>
           <properties />
           <option name="timeStamp" value="229" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/database/sql/SQLUtilities.java</url>
-          <line>1194</line>
+          <line>1196</line>
           <properties />
           <option name="timeStamp" value="230" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/database/sql/SQLUtilities.java</url>
-          <line>1198</line>
+          <line>1200</line>
           <properties />
           <option name="timeStamp" value="231" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/database/sql/SQLUtilities.java</url>
-          <line>1178</line>
+          <line>1180</line>
           <properties />
           <option name="timeStamp" value="233" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/database/sql/SQLUtilities.java</url>
-          <line>1179</line>
+          <line>1181</line>
           <properties />
           <option name="timeStamp" value="234" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/database/sql/SQLUtilities.java</url>
-          <line>1180</line>
+          <line>1182</line>
           <properties />
           <option name="timeStamp" value="235" />
         </line-breakpoint>
@@ -2828,91 +2700,91 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/reflection/ReflectionUtilities.java</url>
-          <line>403</line>
+          <line>399</line>
           <properties />
           <option name="timeStamp" value="248" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/home/MainSesameManager.java</url>
-          <line>124</line>
+          <line>125</line>
           <properties />
           <option name="timeStamp" value="249" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/home/MainSesameManager.java</url>
-          <line>198</line>
+          <line>210</line>
           <properties />
           <option name="timeStamp" value="250" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/repositoryRDF/sesame/SesameUtilities.java</url>
-          <line>2036</line>
+          <line>2044</line>
           <properties />
           <option name="timeStamp" value="254" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/repositoryRDF/sesame/SesameUtilities.java</url>
-          <line>2991</line>
+          <line>2999</line>
           <properties />
           <option name="timeStamp" value="255" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/repositoryRDF/sesame/SesameUtilities.java</url>
-          <line>3009</line>
+          <line>3017</line>
           <properties />
           <option name="timeStamp" value="256" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/repositoryRDF/sesame/SesameUtilities.java</url>
-          <line>784</line>
+          <line>792</line>
           <properties />
           <option name="timeStamp" value="257" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/home/MainSesameManager.java</url>
-          <line>143</line>
+          <line>144</line>
           <properties />
           <option name="timeStamp" value="258" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/home/MainSesameManager.java</url>
-          <line>135</line>
+          <line>136</line>
           <properties />
           <option name="timeStamp" value="263" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/repositoryRDF/sesame/SesameUtilities.java</url>
-          <line>2223</line>
+          <line>2231</line>
           <properties />
           <option name="timeStamp" value="264" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/home/MainSesameManager.java</url>
-          <line>185</line>
+          <line>189</line>
           <properties />
           <option name="timeStamp" value="265" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/home/MainSesameManager.java</url>
-          <line>146</line>
+          <line>147</line>
           <properties />
           <option name="timeStamp" value="266" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/repositoryRDF/sesame/SesameUtilities.java</url>
-          <line>448</line>
+          <line>456</line>
           <properties />
           <option name="timeStamp" value="271" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/repositoryRDF/sesame/SesameUtilities.java</url>
-          <line>780</line>
+          <line>788</line>
           <properties />
           <option name="timeStamp" value="274" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/repositoryRDF/sesame/SesameUtilities.java</url>
-          <line>3554</line>
+          <line>3562</line>
           <properties />
           <option name="timeStamp" value="275" />
         </line-breakpoint>
@@ -2924,31 +2796,31 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/home/MainSesameManager.java</url>
-          <line>189</line>
+          <line>193</line>
           <properties />
           <option name="timeStamp" value="278" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/home/MainSesameManager.java</url>
-          <line>195</line>
+          <line>199</line>
           <properties />
           <option name="timeStamp" value="280" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/database/sql/query/MySQLQuery.java</url>
-          <line>63</line>
+          <line>68</line>
           <properties />
           <option name="timeStamp" value="281" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/database/sql/query/MySQLQuery.java</url>
-          <line>68</line>
+          <line>79</line>
           <properties />
           <option name="timeStamp" value="285" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/repositoryRDF/sesame/SesameUtilities.java</url>
-          <line>3411</line>
+          <line>3419</line>
           <properties />
           <option name="timeStamp" value="286" />
         </line-breakpoint>
@@ -2960,12 +2832,36 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/home/MainSesameManager.java</url>
-          <line>184</line>
+          <line>188</line>
           <properties />
           <option name="timeStamp" value="288" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/hibernate/impl/GeoDocumentHibernateDaoImpl.java</url>
+          <line>145</line>
+          <properties />
+          <option name="timeStamp" value="289" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/hibernate/Test_Hibernate_Spring.java</url>
+          <line>51</line>
+          <properties />
+          <option name="timeStamp" value="290" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/hibernate/Test_Hibernate_Spring.java</url>
+          <line>25</line>
+          <properties />
+          <option name="timeStamp" value="291" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/database/sql/query/MySQLQuery.java</url>
+          <line>91</line>
+          <properties />
+          <option name="timeStamp" value="292" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="289" />
+      <option name="time" value="293" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -2974,153 +2870,444 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/spring/doc/README.md">
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
+    <entry file="file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/html/HtmlUtilities.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.3448277">
-          <caret line="4" column="87" selection-start-line="4" selection-start-column="87" selection-end-line="4" selection-end-column="87" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/spring/config/jdbc/spring_jdbc_jooq_with_exception_handler.xml">
+    <entry file="file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/html/JSoupUtilities.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.5660377">
-          <caret line="14" column="47" selection-start-line="14" selection-start-column="47" selection-end-line="14" selection-end-column="47" />
+        <state vertical-scroll-proportion="-11.793103">
+          <caret line="539" column="0" selection-start-line="539" selection-start-column="0" selection-end-line="539" selection-end-column="0" />
           <folding>
-            <element signature="e#1251#1265#0" expanded="false" />
-            <element signature="e#1307#1318#0" expanded="false" />
-            <element signature="e#1361#1377#0" expanded="false" />
-            <element signature="e#1420#1436#0" expanded="false" />
-            <element signature="n#value#0;n#constructor-arg#5;n#bean#7;n#beans#0;n#!!top" expanded="false" />
-            <element signature="e#3420#3451#0" expanded="false" />
+            <element signature="e#396#423#0" expanded="false" />
+            <element signature="e#20842#20843#0" expanded="false" />
+            <element signature="e#20896#20897#0" expanded="false" />
+            <element signature="e#24739#24740#0" expanded="false" />
+            <element signature="e#24788#24789#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/spring/config/jdbc/spring_jdbc_jooq_minimal.xml">
+    <entry file="file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/calendar/DateKit.java.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.8867924">
-          <caret line="15" column="0" selection-start-line="12" selection-start-column="2" selection-end-line="15" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="232" column="5" selection-start-line="19" selection-start-column="4" selection-end-line="232" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/calendar/DateUtilities.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="348" column="49" selection-start-line="348" selection-start-column="49" selection-end-line="348" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/http/HttpUtilApache4.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="282" column="66" selection-start-line="282" selection-start-column="66" selection-end-line="282" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/database/hibernate/SQLQueryHibernate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="114" column="9" selection-start-line="114" selection-start-column="9" selection-end-line="114" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/karma/GenerationRDFSupport.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="243" column="13" selection-start-line="243" selection-start-column="13" selection-end-line="243" selection-end-column="13" />
           <folding>
-            <element signature="e#1920#1931#0" expanded="false" />
-            <element signature="e#1978#1992#0" expanded="false" />
-            <element signature="e#2036#2052#0" expanded="false" />
-            <element signature="e#2096#2112#0" expanded="false" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#12825#12826#0" expanded="false" />
+            <element signature="e#12890#12891#0" expanded="false" />
+            <element signature="e#13572#13573#0" expanded="false" />
+            <element signature="e#13635#13636#0" expanded="false" />
+            <element signature="e#13907#13908#0" expanded="false" />
+            <element signature="e#13960#13961#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/spring/config/jdbc/spring_jdbc.properties">
+    <entry file="file://$PROJECT_DIR$/gate-basic/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="36" selection-start-line="10" selection-start-column="36" selection-end-line="10" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/database/jooq/spring/common/json/JodaModule.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/database/jooq/spring/common/service/DateTimeService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/database/jooq/spring/common/service/CurrentTimeDateTimeService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/database/jooq/spring/common/DateTimeConstants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/database/jooq/spring/todo/model/Todo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/database/jooq/spring/todo/exception/TodoNotFoundException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/database/jooq/spring/todo/dto/TodoDTO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/database/jooq/spring/config/PersistenceContext.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="29" column="26" selection-start-line="29" selection-start-column="26" selection-end-line="29" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/log/jul/logging.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="15.692307">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/log/jul/test_logging.properties">
+    <entry file="file://$PROJECT_DIR$/ExtractInfo/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/database/jooq/spring/config/SpringTransactionProvider.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="31" column="20" selection-start-line="31" selection-start-column="20" selection-end-line="31" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/database/jooq/spring/config/SpringTransaction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="26" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/database/jooq/spring/config/exception/JOOQToSpringExceptionTransformer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="24" column="71" selection-start-line="24" selection-start-column="57" selection-end-line="24" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/database/jooq/spring/config/exception/ExceptionTranslator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="22" column="65" selection-start-line="22" selection-start-column="65" selection-end-line="22" selection-end-column="65" />
+        <state vertical-scroll-proportion="-4.5272727">
+          <caret line="208" column="31" selection-start-line="206" selection-start-column="11" selection-end-line="211" selection-end-column="25" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/utility/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.6153846">
+          <caret line="207" column="51" selection-start-line="207" selection-start-column="51" selection-end-line="207" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/hibernate/HibernateCRUD.java.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.122807">
+          <caret line="245" column="5" selection-start-line="17" selection-start-column="3" selection-end-line="245" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/hibernate/interceptor/DirtyAware.java">
+      <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="336" column="20" selection-start-line="336" selection-start-column="20" selection-end-line="336" selection-end-column="20" />
+          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/hibernate/interceptor/IGenericInterceptor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/reflection/ReflectionUtilities.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="2547" column="13" selection-start-line="2547" selection-start-column="13" selection-end-line="2547" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/hibernate/Hibernate4Kit.java.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6113139">
+          <caret line="95" column="30" selection-start-line="95" selection-start-column="30" selection-end-line="95" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/http/HttpUtilities.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.43430656">
+          <caret line="58" column="14" selection-start-line="58" selection-start-column="4" selection-end-line="67" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-core/4.3.10.Final/hibernate-core-4.3.10.Final-sources.jar!/org/hibernate/EmptyInterceptor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="88" column="16" selection-start-line="88" selection-start-column="16" selection-end-line="88" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/json/GsonKit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-core/4.3.10.Final/hibernate-core-4.3.10.Final-sources.jar!/org/hibernate/cfg/Configuration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.36313868">
+          <caret line="1950" column="39" selection-start-line="1950" selection-start-column="8" selection-end-line="1950" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/hibernate/HibernateSupport.java.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.59671533">
+          <caret line="38" column="0" selection-start-line="15" selection-start-column="4" selection-end-line="42" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/hibernate/interceptor/impl/GeoDocumentInterceptor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="18" column="51" selection-start-line="18" selection-start-column="51" selection-end-line="18" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/hibernate/interceptor/GenericInterceptor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/object/dao/hibernate/generic/IGenericHibernateDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="17" column="17" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/object/dao/hibernate/IGeoDocumentHibernateDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="15" column="17" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/hibernate/dao/IGeoDocumentHibernateDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/hibernate/impl/GeoDocumentHibernateDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#3882#3883#0" expanded="false" />
+            <element signature="e#3928#3929#0" expanded="false" />
+            <element signature="e#3987#3988#0" expanded="false" />
+            <element signature="e#4028#4029#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/object/model/GeoDocument.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="19" column="56" selection-start-line="19" selection-start-column="56" selection-end-line="19" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/object/impl/jdbc/GeoDocumentDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="19" column="55" selection-start-line="19" selection-start-column="55" selection-end-line="19" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/hibernate/impl/generic/GenericHibernateDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="330" column="30" selection-start-line="330" selection-start-column="30" selection-end-line="330" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/hibernate/dao/generic/IGenericHibernateDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="55" column="9" selection-start-line="55" selection-start-column="9" selection-end-line="55" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/object/impl/hibernate/GeoDocumentHibernateDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="50" column="10" selection-start-line="50" selection-start-column="10" selection-end-line="50" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/object/impl/hibernate/generic/GenericHibernateDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="67" column="28" selection-start-line="67" selection-start-column="28" selection-end-line="67" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/hibernate/Hibernate43Utilities.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="190" column="41" selection-start-line="190" selection-start-column="41" selection-end-line="190" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <marker date="1451913882033" expanded="true" signature="31910:31937" placeholder="SELECT missi... missingValue" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utility/src/main/resources/spring_hibernate/spring-context.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.6037736">
+          <caret line="5" column="40" selection-start-line="5" selection-start-column="40" selection-end-line="5" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-jdbc/4.1.6.RELEASE/spring-jdbc-4.1.6.RELEASE-sources.jar!/org/springframework/jdbc/datasource/DriverManagerDataSource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="65" column="13" selection-start-line="65" selection-start-column="13" selection-end-line="65" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utility/src/main/resources/spring_hibernate/spring-datasource.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.45283">
+          <caret line="27" column="30" selection-start-line="27" selection-start-column="30" selection-end-line="27" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/hibernate/Test_Hibernate_Spring.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="23" column="30" selection-start-line="23" selection-start-column="30" selection-end-line="23" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/database/sql/performance/PreparedStatementWrapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="87" column="15" selection-start-line="87" selection-start-column="15" selection-end-line="87" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/repositoryRDF/sesame/SesameUtilities.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="3775" column="10" selection-start-line="3775" selection-start-column="10" selection-end-line="3775" selection-end-column="10" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#6330#6331#0" expanded="false" />
+            <element signature="e#6371#6372#0" expanded="false" />
+            <element signature="e#6829#6830#0" expanded="false" />
+            <element signature="e#6876#6877#0" expanded="false" />
+            <element signature="e#7289#7290#0" expanded="false" />
+            <element signature="e#7323#7324#0" expanded="false" />
+            <element signature="e#7470#7471#0" expanded="false" />
+            <element signature="e#7510#7511#0" expanded="false" />
+            <element signature="e#7671#7672#0" expanded="false" />
+            <element signature="e#7715#7716#0" expanded="false" />
+            <element signature="e#8109#8110#0" expanded="false" />
+            <element signature="e#8151#8152#0" expanded="false" />
+            <element signature="e#8535#8536#0" expanded="false" />
+            <element signature="e#8573#8574#0" expanded="false" />
+            <element signature="e#8737#8738#0" expanded="false" />
+            <element signature="e#8801#8802#0" expanded="false" />
+            <element signature="e#8954#8955#0" expanded="false" />
+            <element signature="e#8996#8997#0" expanded="false" />
+            <element signature="e#9452#9453#0" expanded="false" />
+            <element signature="e#9503#9504#0" expanded="false" />
+            <element signature="e#11865#11866#0" expanded="false" />
+            <element signature="e#11918#11919#0" expanded="false" />
+            <element signature="e#16786#16787#0" expanded="false" />
+            <element signature="e#16848#16849#0" expanded="false" />
+            <element signature="e#25676#25677#0" expanded="false" />
+            <element signature="e#25748#25749#0" expanded="false" />
+            <element signature="e#27187#27188#0" expanded="false" />
+            <element signature="e#27259#27260#0" expanded="false" />
+            <element signature="e#29193#29194#0" expanded="false" />
+            <element signature="e#29235#29236#0" expanded="false" />
+            <element signature="e#36671#36672#0" expanded="false" />
+            <element signature="e#36712#36713#0" expanded="false" />
+            <element signature="e#85832#85833#0" expanded="false" />
+            <element signature="e#85868#85869#0" expanded="false" />
+            <element signature="e#121892#121893#0" expanded="false" />
+            <element signature="e#121960#121961#0" expanded="false" />
+            <element signature="e#135365#135366#0" expanded="false" />
+            <element signature="e#135427#135428#0" expanded="false" />
+            <element signature="e#135495#135496#0" expanded="false" />
+            <element signature="e#135556#135557#0" expanded="false" />
+            <element signature="e#135610#135611#0" expanded="false" />
+            <element signature="e#135683#135684#0" expanded="false" />
+            <element signature="e#150744#150745#0" expanded="false" />
+            <element signature="e#150808#150809#0" expanded="false" />
+            <element signature="e#154941#154942#0" expanded="false" />
+            <element signature="e#155017#155018#0" expanded="false" />
+            <element signature="e#168296#168297#0" expanded="false" />
+            <element signature="e#168342#168343#0" expanded="false" />
+            <element signature="e#168571#168572#0" expanded="false" />
+            <element signature="e#168635#168636#0" expanded="false" />
+            <element signature="e#169548#169549#0" expanded="false" />
+            <element signature="e#169592#169593#0" expanded="false" />
+            <element signature="e#169829#169830#0" expanded="false" />
+            <element signature="e#169884#169885#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/database/sql/performance/StatementWrapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="62" column="0" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/database/sql/performance/JDBCLogger.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="37" column="106" selection-start-line="37" selection-start-column="106" selection-end-line="37" selection-end-column="106" />
+          <folding>
+            <element signature="e#638#639#0" expanded="false" />
+            <element signature="e#665#666#0" expanded="false" />
+            <element signature="e#710#711#0" expanded="false" />
+            <element signature="e#748#749#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/database/sql/SQLUtilities.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="679" column="28" selection-start-line="679" selection-start-column="28" selection-end-line="679" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#2983#2984#0" expanded="false" />
+            <element signature="e#3010#3011#0" expanded="false" />
+            <element signature="e#3074#3075#0" expanded="false" />
+            <element signature="e#3114#3115#0" expanded="false" />
+            <element signature="e#30237#30238#0" expanded="false" />
+            <element signature="e#30283#30284#0" expanded="false" />
+            <element signature="e#37465#37466#0" expanded="false" />
+            <element signature="e#37514#37515#0" expanded="false" />
+            <element signature="method#importCsvInsertInto#0;class#SQLUtilities#0" expanded="false" />
+            <element signature="e#54099#54100#0" expanded="false" />
+            <element signature="e#54141#54142#0" expanded="false" />
+            <element signature="e#54177#54178#0" expanded="false" />
+            <element signature="e#54218#54219#0" expanded="false" />
+            <element signature="e#54880#54881#0" expanded="false" />
+            <element signature="e#54922#54923#0" expanded="false" />
+            <element signature="e#54961#54962#0" expanded="false" />
+            <element signature="e#55002#55003#0" expanded="false" />
+            <marker date="1451920540906" expanded="true" signature="27506:27520" placeholder="Select * FRO... missingValue" />
+            <marker date="1451920540906" expanded="true" signature="36598:36612" placeholder="SELECT * FRO... missingValue" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/file/csv/opencsv/OpenCsvUtilities.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="89" column="0" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#6124#6125#0" expanded="false" />
+            <element signature="e#6172#6173#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/repositoryRDF/jena/JenaUtilities.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="2333" column="35" selection-start-line="2333" selection-start-column="35" selection-end-line="2333" selection-end-column="35" />
           <folding />
         </state>
       </provider>
@@ -3129,238 +3316,38 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/mysql/mysql-connector-java/5.1.35/mysql-connector-java-5.1.35-sources.jar!/com/mysql/jdbc/ConnectionImpl.java">
+    <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/home/testCSV1.csv">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="2488" column="0" selection-start-line="2488" selection-start-column="0" selection-end-line="2488" selection-end-column="0" />
+          <caret line="302" column="9" selection-start-line="302" selection-start-column="9" selection-end-line="302" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/ManageJsonWithOpenStreetMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/home/MainSesameManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="191" column="43" selection-start-line="191" selection-start-column="43" selection-end-line="191" selection-end-column="43" />
-          <folding>
-            <element signature="e#5859#5860#0" expanded="false" />
-            <element signature="e#5904#5905#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/string/StringUtilities.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="37" column="69" selection-start-line="36" selection-start-column="3" selection-end-line="37" selection-end-column="69" />
+          <caret line="197" column="42" selection-start-line="197" selection-start-column="42" selection-end-line="197" selection-end-column="42" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/opencsv/opencsv/3.5/opencsv-3.5-sources.jar!/com/opencsv/bean/HeaderColumnNameTranslateMappingStrategy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4251825">
-          <caret line="28" column="31" selection-start-line="28" selection-start-column="31" selection-end-line="28" selection-end-column="31" />
-          <folding>
-            <element signature="e#1082#1098#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/database/sql/performance/JDBCLogger.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.310219">
-          <caret line="30" column="34" selection-start-line="30" selection-start-column="34" selection-end-line="30" selection-end-column="34" />
-          <folding>
-            <element signature="e#636#637#0" expanded="false" />
-            <element signature="e#663#664#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/database/sql/query/MySQLQuery.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.31751823">
-          <caret line="76" column="68" selection-start-line="76" selection-start-column="68" selection-end-line="76" selection-end-column="68" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/opencsv/opencsv/3.5/opencsv-3.5-sources.jar!/com/opencsv/bean/HeaderColumnNameMappingStrategy.java">
-      <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="189" column="15" selection-start-line="189" selection-start-column="15" selection-end-line="189" selection-end-column="15" />
-          <folding>
-            <element signature="e#6368#6369#0" expanded="false" />
-            <element signature="e#6397#6398#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/database/sql/performance/StatementWrapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.1766305">
-          <caret line="61" column="0" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/commons/commons-lang3/3.3.2/commons-lang3-3.3.2-sources.jar!/org/apache/commons/lang3/StringUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.23913044">
-          <caret line="5683" column="17" selection-start-line="5683" selection-start-column="17" selection-end-line="5683" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/collection/ListUtilities.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="107" column="25" selection-start-line="107" selection-start-column="25" selection-end-line="107" selection-end-column="25" />
-          <folding>
-            <element signature="e#3098#3099#0" expanded="false" />
-            <element signature="e#3140#3141#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/collection/ArrayUtilities.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="240" column="33" selection-start-line="240" selection-start-column="33" selection-end-line="240" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/repositoryRDF/sesame/SesameUtilities.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="780" column="0" selection-start-line="780" selection-start-column="0" selection-end-line="780" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/file/csv/opencsv/OpenCsvUtilities.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="150" column="65" selection-start-line="150" selection-start-column="65" selection-end-line="150" selection-end-column="65" />
-          <folding>
-            <element signature="e#677#704#0" expanded="false" />
-            <element signature="e#6124#6125#0" expanded="false" />
-            <element signature="e#6172#6173#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/reflection/ReflectionUtilities.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="499" column="27" selection-start-line="499" selection-start-column="27" selection-end-line="499" selection-end-column="27" />
-          <folding>
-            <element signature="e#1859#1886#0" expanded="true" />
-            <element signature="e#4726#4727#0" expanded="true" />
-            <element signature="e#4779#4780#0" expanded="true" />
-            <element signature="e#5074#5075#0" expanded="true" />
-            <element signature="e#5128#5129#0" expanded="true" />
-            <element signature="e#9707#9737#0" expanded="true" />
-            <element signature="e#19935#19978#0" expanded="true" />
-            <element signature="e#20118#21435#0" expanded="true" />
-            <element signature="e#20156#20181#0" expanded="true" />
-            <element signature="e#21434#21435#0" expanded="true" />
-            <element signature="e#33668#33698#0" expanded="true" />
-            <element signature="e#77817#77818#0" expanded="true" />
-            <element signature="e#77880#77881#0" expanded="true" />
-            <element signature="e#80493#80523#0" expanded="true" />
-            <element signature="e#82148#82178#0" expanded="true" />
-            <element signature="e#82534#82564#0" expanded="true" />
-            <element signature="e#85428#85458#0" expanded="true" />
-            <element signature="e#90899#90928#0" expanded="true" />
-            <element signature="e#105073#105103#0" expanded="true" />
-            <element signature="e#109201#109231#0" expanded="true" />
-            <element signature="e#110258#110288#0" expanded="true" />
-            <element signature="e#111184#111214#0" expanded="true" />
-            <element signature="e#111701#111731#0" expanded="true" />
-            <element signature="e#114286#114316#0" expanded="true" />
-            <element signature="e#117432#117433#0" expanded="true" />
-            <element signature="e#117499#117500#0" expanded="true" />
-            <element signature="e#117573#117574#0" expanded="true" />
-            <element signature="e#117631#117632#0" expanded="true" />
-            <element signature="e#117700#117701#0" expanded="true" />
-            <element signature="e#117761#117762#0" expanded="true" />
-            <element signature="e#126279#126280#0" expanded="true" />
-            <element signature="e#126345#126346#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/input.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="87" column="0" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.7.0_79/src.zip!/javax/sql/DataSource.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.2173913">
-          <caret line="73" column="17" selection-start-line="73" selection-start-column="17" selection-end-line="73" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/database/jooq/SQLJooqKit2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="79" column="29" selection-start-line="79" selection-start-column="29" selection-end-line="79" selection-end-column="29" />
-          <folding>
-            <element signature="e#518#545#0" expanded="true" />
-            <element signature="e#5219#5262#0" expanded="true" />
-            <element signature="e#7287#7288#0" expanded="true" />
-            <element signature="e#7343#7344#0" expanded="true" />
-            <element signature="e#10298#10341#0" expanded="true" />
-            <element signature="e#14322#14365#0" expanded="true" />
-            <element signature="e#16515#16516#0" expanded="true" />
-            <element signature="e#16568#16569#0" expanded="true" />
-            <element signature="e#18588#18617#0" expanded="true" />
-            <element signature="e#20251#20280#0" expanded="true" />
-            <element signature="e#21573#21602#0" expanded="true" />
-            <element signature="e#23364#23407#0" expanded="true" />
-            <element signature="e#23811#23854#0" expanded="true" />
-            <element signature="e#24284#24327#0" expanded="true" />
-            <element signature="e#24630#24659#0" expanded="true" />
-            <element signature="e#24948#24991#0" expanded="true" />
-            <element signature="e#25474#25517#0" expanded="true" />
-            <element signature="e#25842#25871#0" expanded="true" />
-            <element signature="e#26182#26225#0" expanded="true" />
-            <element signature="e#28040#28083#0" expanded="true" />
-            <element signature="e#28920#28949#0" expanded="true" />
-            <element signature="e#30308#30338#0" expanded="true" />
-            <element signature="e#31189#31219#0" expanded="true" />
-            <element signature="e#32356#32385#0" expanded="true" />
-            <element signature="e#32936#32979#0" expanded="true" />
-            <element signature="e#33808#33838#0" expanded="true" />
-            <element signature="e#35598#35628#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/database/jooq/JOOQSupport.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="16" column="7" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/karma/GenerationRDFSupport.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="203" column="16" selection-start-line="203" selection-start-column="16" selection-end-line="203" selection-end-column="16" />
+          <caret line="95" column="42" selection-start-line="95" selection-start-column="42" selection-end-line="95" selection-end-column="42" />
           <folding />
         </state>
       </provider>
@@ -3368,32 +3355,8 @@
     <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/object/impl/jdbc/generic/GenericDaoImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="73" column="71" selection-start-line="73" selection-start-column="50" selection-end-line="73" selection-end-column="71" />
+          <caret line="453" column="0" selection-start-line="453" selection-start-column="0" selection-end-line="453" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1762#1789#0" expanded="true" />
-            <element signature="e#2458#2488#0" expanded="true" />
-            <element signature="e#5445#5446#0" expanded="true" />
-            <element signature="e#5478#5479#0" expanded="true" />
-            <element signature="e#5649#5650#0" expanded="true" />
-            <element signature="e#5697#5698#0" expanded="true" />
-            <element signature="e#5765#5766#0" expanded="true" />
-            <element signature="e#5813#5814#0" expanded="true" />
-            <element signature="e#5881#5882#0" expanded="true" />
-            <element signature="e#5929#5930#0" expanded="true" />
-            <element signature="e#9367#9368#0" expanded="true" />
-            <element signature="e#9427#9428#0" expanded="true" />
-            <element signature="e#9498#9499#0" expanded="true" />
-            <element signature="e#9541#9542#0" expanded="true" />
-            <element signature="e#9608#9609#0" expanded="true" />
-            <element signature="e#9647#9648#0" expanded="true" />
-            <element signature="e#12555#12556#0" expanded="true" />
-            <element signature="e#12630#12631#0" expanded="true" />
-            <element signature="e#19109#19139#0" expanded="true" />
-            <element signature="e#24686#27705#0" expanded="true" />
-            <element signature="e#27704#27705#0" expanded="true" />
-            <element signature="e#29477#33966#0" expanded="true" />
-            <element signature="e#33965#33966#0" expanded="true" />
             <marker date="1451759236752" expanded="true" signature="7099:7120" placeholder="DROP TABLE I... " />
             <marker date="1451759236752" expanded="true" signature="7908:8018" placeholder="SELECT count... missingValue" />
             <marker date="1451759236752" expanded="true" signature="9098:9119" placeholder="select count... missingValue" />
@@ -3404,131 +3367,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/repositoryRDF/sparql/SparqlUtilities.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/input.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="44" column="36" selection-start-line="44" selection-start-column="36" selection-end-line="44" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/database/sql/SQLUtilities.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="1216" column="36" selection-start-line="1216" selection-start-column="36" selection-end-line="1216" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2188#2215#0" expanded="true" />
-            <element signature="e#37465#37466#0" expanded="true" />
-            <element signature="e#37514#37515#0" expanded="true" />
-            <element signature="method#importCsvInsertInto#0;class#SQLUtilities#0" expanded="false" />
-            <element signature="e#54034#54035#0" expanded="true" />
-            <element signature="e#54076#54077#0" expanded="true" />
-            <element signature="e#54112#54113#0" expanded="true" />
-            <element signature="e#54153#54154#0" expanded="true" />
-            <element signature="e#54815#54816#0" expanded="true" />
-            <element signature="e#54857#54858#0" expanded="true" />
-            <element signature="e#54896#54897#0" expanded="true" />
-            <element signature="e#54937#54938#0" expanded="true" />
-            <marker date="1451763090064" expanded="true" signature="27506:27520" placeholder="Select * FRO... missingValue" />
-            <marker date="1451763090064" expanded="true" signature="36598:36612" placeholder="SELECT * FRO... missingValue" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-jdbc/4.1.6.RELEASE/spring-jdbc-4.1.6.RELEASE-sources.jar!/org/springframework/jdbc/support/AbstractFallbackSQLExceptionTranslator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="80" column="0" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/estrattori/ExtractorGeoDocumentSupport.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="27" column="69" selection-start-line="27" selection-start-column="69" selection-end-line="27" selection-end-column="69" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/http/HttpUtilities.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="17.103449">
-          <caret line="851" column="30" selection-start-line="851" selection-start-column="30" selection-end-line="851" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/estrattori/ExtractInfoWeb.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="323" column="62" selection-start-line="323" selection-start-column="62" selection-end-line="323" selection-end-column="62" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/html/HtmlUtilities.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/html/JSoupUtilities.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.793103">
-          <caret line="539" column="0" selection-start-line="539" selection-start-column="0" selection-end-line="539" selection-end-column="0" />
-          <folding>
-            <element signature="e#396#423#0" expanded="true" />
-            <element signature="e#20842#20843#0" expanded="true" />
-            <element signature="e#20896#20897#0" expanded="true" />
-            <element signature="e#24739#24740#0" expanded="true" />
-            <element signature="e#24788#24789#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/calendar/DateKit.java.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="232" column="5" selection-start-line="19" selection-start-column="4" selection-end-line="232" selection-end-column="5" />
-          <folding>
-            <marker date="1443117797808" expanded="false" signature="50:190" placeholder="..." />
-            <marker date="1443117797808" expanded="true" signature="191:235" placeholder="/**...*/" />
-            <marker date="1443117797808" expanded="false" signature="236:263" placeholder="/unused/" />
-            <marker date="1443117797808" expanded="true" signature="709:972" placeholder="{...}" />
-            <marker date="1443117797808" expanded="true" signature="1029:1277" placeholder="{...}" />
-            <marker date="1443117797808" expanded="true" signature="1345:1947" placeholder="{...}" />
-            <marker date="1443117797808" expanded="true" signature="2032:2692" placeholder="{...}" />
-            <marker date="1443117797808" expanded="true" signature="2744:2912" placeholder="{...}" />
-            <marker date="1443117797808" expanded="true" signature="2981:3625" placeholder="{...}" />
-            <marker date="1443117797808" expanded="true" signature="3698:4575" placeholder="{...}" />
-            <marker date="1443117797808" expanded="true" signature="4652:5451" placeholder="{...}" />
-            <marker date="1443117797808" expanded="true" signature="5534:5850" placeholder="{...}" />
-            <marker date="1443117797808" expanded="true" signature="5901:6471" placeholder="{...}" />
-            <marker date="1443117797808" expanded="true" signature="6521:7065" placeholder="{...}" />
-            <marker date="1443117797808" expanded="true" signature="7071:7331" placeholder="/**...*/" />
-            <marker date="1443117797808" expanded="true" signature="7380:7793" placeholder="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/calendar/DateUtilities.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="348" column="49" selection-start-line="348" selection-start-column="49" selection-end-line="348" selection-end-column="49" />
-          <folding>
-            <element signature="e#249#276#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/http/HttpUtilApache4.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.93530995">
-          <caret line="300" column="23" selection-start-line="300" selection-start-column="23" selection-end-line="300" selection-end-column="23" />
+        <state vertical-scroll-proportion="0.41239893">
+          <caret line="24" column="16" selection-start-line="24" selection-start-column="16" selection-end-line="24" selection-end-column="16" />
           <folding />
         </state>
       </provider>

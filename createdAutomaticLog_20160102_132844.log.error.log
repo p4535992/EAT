@@ -1,2 +1,0 @@
-#logback.classic pattern: [%thread] %-5level %logger{52} - %msg%n
-[AWT-EventQueue-0] ERROR com.github.p4535992.util.html.JSoupKit - JSOUP can't convert the url:http://www.etracker.de/cnt.php?et=JFszHm&v=3.0&java=n&et_easy=0&et_pagename=Il_Biologico&et_areas=Categories&et_ilevel=1&et_target=,,,0&et_lpage=&et_trig=&et_se=0&et_cust=0&et_basket=&et_url=&et_tag=&et_organisation=&et_demographic= to a string maybe the web page not exists anymore or can't be reach

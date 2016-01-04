@@ -18,6 +18,7 @@ import org.openrdf.repository.base.RepositoryConnectionWrapper;
 import org.openrdf.repository.config.RepositoryConfigException;
 import org.openrdf.repository.manager.RepositoryManager;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.sql.Connection;
@@ -88,7 +89,7 @@ public class MainSesameManager {
             "WHERE{ ?business a <http://purl.org/goodrelations/v1#BusinessEntity> ; " +
             "                   <http://schema.org/telephone> ?tel;  " +
             "                   <http://schema.org/fax> ?fax. " +
-            "FILTER(str(?tel) = str(?fax))" +
+            "FILTER(!isBlank(?lat) && !isLiteral(?lat) && !isBlank(?long) && !isLiteral(?long) && (str(?tel) = str(?fax)))" +
             "}";
 
     private static String SQL_SELECT_Q4 ="SELECT telefono,fax FROM geodb.infodocument_2015_09_18\n" +
@@ -121,7 +122,7 @@ public class MainSesameManager {
     }
 
 
-    public static void main(String args[]) throws RepositoryException, MalformedQueryException, QueryEvaluationException, IOException, UpdateExecutionException, RepositoryConfigException {
+    public static void main(String args[]) throws RepositoryException, MalformedQueryException, QueryEvaluationException, IOException, UpdateExecutionException, RepositoryConfigException, InterruptedException {
         LogBackUtil.console();
         initSparqlQueries();
         initSqlQueries();
@@ -169,7 +170,7 @@ public class MainSesameManager {
 
 
         List<String[]> data = new ArrayList<>();
-        data.add(new String[]{"SESAME", "JENA", "SQL","MYSQL"});
+        //data.add(new String[]{"SESAME", "JENA", "SQL","MYSQL"});
         //WORK
         //2669,160,44,185
         String query ;
@@ -177,26 +178,40 @@ public class MainSesameManager {
         org.openrdf.model.Model sModel = sesame.convertRepositoryToModel(rep);
         JenaSesameUtilities jas = JenaSesameUtilities.getInstance();
         com.hp.hpl.jena.rdf.model.Model jModel2 = jas.convertOpenRDFModelToJenaModel(sModel);
-        for(int i = 0; i < sparqlQueries.size(); i++) {
+        //int count = sparqlQueries.size();
+        int count = 10;
+        int j = 0;
+        for(int i = 0; i < count; i++) {
+            Thread.sleep(3000);
             //query = sparqlQueries.get(i);
             //query = (SparqlUtilities.preparePrefixNoPoint()+SPARQL_SELECT_KM4C_SERVICE).trim();
 
-
-            sparql = (SparqlUtilities.preparePrefixNoPoint()+SPARQL_SELECT_Q2).trim();
+            sparql = (SparqlUtilities.preparePrefixNoPoint()+SPARQL_SELECT_Q4).trim();
             Long ss = sesame.getExecutionQueryTime(sparql);
 
             Long yy = JenaUtilities.getExecutionQueryTime(sparql, jModel2);
 
             //query = sqlQueries.get(i);
-            query = SQL_SELECT_Q2;
+            query = SQL_SELECT_Q4;
             Long zz = SQLUtilities.getExecutionTime(query, conn);
 
             Long xx = MySQLQuery.getExecutionTime(query,conn);
 
             data.add(new String[]{String.valueOf(ss), String.valueOf(yy), String.valueOf(zz),String.valueOf(xx)});
+            j++;
+            if(j >= 20){
+                OpenCsvUtilities.writeCSVDataToFile(data,';',
+                        new File(
+                                "C:\\Users\\tenti\\Desktop\\EAT\\ExtractInfo\\src\\main\\java\\com\\github\\p4535992\\extractor\\home\\testCSV1.csv"));
+                data.clear();
+                j = 0;
+            }
         }
         //System.out.println("SESAME:"+ss+"ms, JENA:"+yy+"ms, Virtuoso:"+oo+", SQL:"+zz);
-        OpenCsvUtilities.writeCSVDataToConsole(data);
+        //OpenCsvUtilities.writeCSVDataToConsole(data);
+        OpenCsvUtilities.writeCSVDataToFile(data,';',
+                new File(
+                        "C:\\Users\\tenti\\Desktop\\EAT\\ExtractInfo\\src\\main\\java\\com\\github\\p4535992\\extractor\\home\\testCSV1.csv"));
 
        /* sesame.setOutput(
                 "C:\\Users\\tenti\\Documents\\GitHub\\EAT\\ExtractInfo\\src\\main\\java\\com\\github\\p4535992\\extractor\\home\\testKm4c2"

@@ -1,7 +1,6 @@
 package com.github.p4535992.extractor.karma;
 
 
-
 import edu.isi.karma.kr2rml.URIFormatter;
 import edu.isi.karma.kr2rml.mapping.R2RMLMappingIdentifier;
 import edu.isi.karma.kr2rml.writer.N3KR2RMLRDFWriter;
@@ -23,6 +22,7 @@ import java.util.regex.Pattern;
 
 /**
  * Created by 4535992 on 30/11/2015.
+ *
  * @author 4535992.
  * @version 2015-11-30.
  */
@@ -146,8 +146,8 @@ public class GenerationRDFSupport {
     /**
      * Method to generate triple file with Web-KArma API from a local file:JSON,CSV,XML,AVRO.
      *
-     * @param karmaModel   file Model R2RML of Web-Karma.
-     * @param inputData    File input data.
+     * @param karmaModel file Model R2RML of Web-Karma.
+     * @param inputData  File input data.
      * @return the File output of triple (.n3,.rdf).
      */
     public File generateRDF(File karmaModel, File inputData) {
@@ -194,49 +194,54 @@ public class GenerationRDFSupport {
             rdfGenerator.addModel(modelIdentifier);
             PrintWriter pw = new PrintWriter(new StringWriter());
             N3KR2RMLRDFWriter writer = new N3KR2RMLRDFWriter(new URIFormatter(), pw);
-            RDFGeneratorRequest request;
+            RDFGeneratorRequest request = null;
 
-            if(fileOfTriple == null && inputData instanceof File){
+            if (fileOfTriple == null && inputData instanceof File) {
                 request = new RDFGeneratorRequest(
                         getFilenameWithoutExt(karmaModel), //"people-model"
-                        getLocalPath(((File)inputData).getAbsolutePath())); //"files/data/people.json"
-            }else {
-                fileOfTriple.createNewFile();
-                request = new RDFGeneratorRequest(
-                        getFilenameWithoutExt(karmaModel), //"people-model"
-                        getLocalPath(fileOfTriple.getAbsolutePath())); //"files/data/people.json"
-            }
-
-            if (inputData instanceof File) request.setInputFile((File) inputData);
-            else if (inputData instanceof String) request.setInputData((String) inputData);
-            else if (inputData instanceof InputStream) request.setInputStream((InputStream) inputData);
-            else {
-                logger.error("The InputData is in a not supported format, must be a File, String or InputStream");
-                return fileOfTriple;
-            }
-            request.setAddProvenance(true);
-            if(fileOfTriple == null){
-                request.setDataType(GenericRDFGenerator.InputType.JSON);
-            }else {
-                if (fileOfTriple.getAbsolutePath().toLowerCase().endsWith(".json"))
-                    request.setDataType(GenericRDFGenerator.InputType.JSON);
-                else if (fileOfTriple.getAbsolutePath().toLowerCase().endsWith(".xml"))
-                    request.setDataType(GenericRDFGenerator.InputType.XML);
-                else if (fileOfTriple.getAbsolutePath().toLowerCase().endsWith(".csv"))
-                    request.setDataType(GenericRDFGenerator.InputType.CSV);
-                else if (fileOfTriple.getAbsolutePath().toLowerCase().endsWith(".avro"))
-                    request.setDataType(GenericRDFGenerator.InputType.AVRO);
-                else {
-                    logger.error("This file:" + fileOfTriple.getAbsolutePath() +
-                            " can't be triplify with Web-Karma these are the permittted format JSON.CSV,XML,AVRO");
-                    throw new KarmaException("This file:" + fileOfTriple.getAbsolutePath() +
-                            " can't be triplify with Web-Karma these are the permittted format JSON.CSV,XML,AVRO");
+                        getLocalPath(((File) inputData).getAbsolutePath())); //"files/data/people.json"
+            } else {
+                if (fileOfTriple != null) {
+                    boolean newFile = fileOfTriple.createNewFile();
+                    request = new RDFGeneratorRequest(
+                            getFilenameWithoutExt(karmaModel), //"people-model"
+                            getLocalPath(fileOfTriple.getAbsolutePath())); //"files/data/people.json"
                 }
             }
-            request.addWriter(writer);
-            rdfGenerator.generateRDF(request);
 
-            logger.info("Generated RDF: " + pw.toString());
+            if(request != null) {
+                if (inputData instanceof File) request.setInputFile((File) inputData);
+                else if (inputData instanceof String) request.setInputData((String) inputData);
+                else if (inputData instanceof InputStream) request.setInputStream((InputStream) inputData);
+                else {
+                    logger.error("The InputData is in a not supported format, must be a File, String or InputStream");
+                    return fileOfTriple;
+                }
+                request.setAddProvenance(true);
+                if (fileOfTriple == null) {
+                    request.setDataType(GenericRDFGenerator.InputType.JSON);
+                } else {
+                    if (fileOfTriple.getAbsolutePath().toLowerCase().endsWith(".json"))
+                        request.setDataType(GenericRDFGenerator.InputType.JSON);
+                    else if (fileOfTriple.getAbsolutePath().toLowerCase().endsWith(".xml"))
+                        request.setDataType(GenericRDFGenerator.InputType.XML);
+                    else if (fileOfTriple.getAbsolutePath().toLowerCase().endsWith(".csv"))
+                        request.setDataType(GenericRDFGenerator.InputType.CSV);
+                    else if (fileOfTriple.getAbsolutePath().toLowerCase().endsWith(".avro"))
+                        request.setDataType(GenericRDFGenerator.InputType.AVRO);
+                    else {
+                        logger.error("This file:" + fileOfTriple.getAbsolutePath() +
+                                " can't be triplify with Web-Karma these are the permittted format JSON.CSV,XML,AVRO");
+                        throw new KarmaException("This file:" + fileOfTriple.getAbsolutePath() +
+                                " can't be triplify with Web-Karma these are the permittted format JSON.CSV,XML,AVRO");
+                    }
+                }
+                request.addWriter(writer);
+                rdfGenerator.generateRDF(request);
+                logger.info("Generated RDF: " + pw.toString());
+            }else{
+                logger.error("Can't create the Karma Request because is NULL");
+            }
             return fileOfTriple;
         } catch (KarmaException | IOException e) {
             logger.error(e.getMessage(), e);
