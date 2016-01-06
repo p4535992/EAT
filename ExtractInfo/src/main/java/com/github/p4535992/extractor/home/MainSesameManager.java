@@ -6,21 +6,19 @@ import com.github.p4535992.util.database.sql.SQLUtilities;
 import com.github.p4535992.util.database.sql.query.MySQLQuery;
 import com.github.p4535992.util.file.csv.opencsv.OpenCsvUtilities;
 import com.github.p4535992.util.log.logback.LogBackUtil;
-import com.github.p4535992.util.repositoryRDF.jena.JenaUtilities;
-import com.github.p4535992.util.repositoryRDF.jenaAndSesame.JenaSesameUtilities;
-import com.github.p4535992.util.repositoryRDF.sesame.SesameUtilities;
+import com.github.p4535992.util.repositoryRDF.jena.Jena3Utilities;
+import com.github.p4535992.util.repositoryRDF.jenaAndSesame.Jena3SesameUtilities;
+import com.github.p4535992.util.repositoryRDF.sesame.Sesame2Utilities;
 import com.github.p4535992.util.repositoryRDF.sparql.SparqlUtilities;
 
+import org.apache.jena.rdf.model.Model;
 import org.openrdf.query.*;
 import org.openrdf.repository.Repository;
 import org.openrdf.repository.RepositoryException;
-import org.openrdf.repository.base.RepositoryConnectionWrapper;
 import org.openrdf.repository.config.RepositoryConfigException;
-import org.openrdf.repository.manager.RepositoryManager;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
@@ -131,7 +129,7 @@ public class MainSesameManager {
         Connection conn = SQLUtilities.getMySqlConnection(
                 "jdbc:mysql://localhost:3306/geodb?noDatetimeStringSync=true&user=siimobility&password=siimobility");
 
-        SesameUtilities sesame = SesameUtilities.getInstance();
+        Sesame2Utilities sesame = Sesame2Utilities.getInstance();
         //sesame.setURLRepositoryId("km4city04");
         //WORK
         Repository rep = sesame.connectToHTTPRepository("http://localhost:8080/openrdf-sesame/repositories/repKm4c1");
@@ -176,8 +174,8 @@ public class MainSesameManager {
         String query ;
         String sparql ;
         org.openrdf.model.Model sModel = sesame.convertRepositoryToModel(rep);
-        JenaSesameUtilities jas = JenaSesameUtilities.getInstance();
-        com.hp.hpl.jena.rdf.model.Model jModel2 = jas.convertOpenRDFModelToJenaModel(sModel);
+        Jena3SesameUtilities jas = Jena3SesameUtilities.getInstance();
+        Model jModel2 = jas.convertOpenRDFModelToJenaModel(sModel);
         //int count = sparqlQueries.size();
         int count = 10;
         int j = 0;
@@ -189,7 +187,7 @@ public class MainSesameManager {
             sparql = (SparqlUtilities.preparePrefixNoPoint()+SPARQL_SELECT_Q4).trim();
             Long ss = sesame.getExecutionQueryTime(sparql);
 
-            Long yy = JenaUtilities.getExecutionQueryTime(sparql, jModel2);
+            Long yy = Jena3Utilities.getExecutionQueryTime(sparql, jModel2);
 
             //query = sqlQueries.get(i);
             query = SQL_SELECT_Q4;
@@ -197,7 +195,7 @@ public class MainSesameManager {
 
             Long xx = MySQLQuery.getExecutionTime(query,conn);
 
-            data.add(new String[]{String.valueOf(ss), String.valueOf(yy), String.valueOf(zz),String.valueOf(xx)});
+            data.add(new String[]{String.valueOf(ss), String.valueOf(0l), String.valueOf(zz),String.valueOf(xx)});
             j++;
             if(j >= 20){
                 OpenCsvUtilities.writeCSVDataToFile(data,';',

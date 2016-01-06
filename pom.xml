@@ -67,9 +67,9 @@
         <maven-exec-plugin.version>1.1.1</maven-exec-plugin.version>
         <maven-dependency-plugin.version>2.10</maven-dependency-plugin.version>
         <!-- UTILITY Github -->
-        <com.github.p4535992.utility.version>1.4</com.github.p4535992.utility.version>
-        <com.github.p4535992.gate-basic.version>1.4</com.github.p4535992.gate-basic.version>
-        <com.github.p4535992.ExtractInfo.version>1.4</com.github.p4535992.ExtractInfo.version>
+        <com.github.p4535992.utility.version>1.6.0</com.github.p4535992.utility.version>
+        <com.github.p4535992.gate-basic.version>1.6.0</com.github.p4535992.gate-basic.version>
+        <com.github.p4535992.ExtractInfo.version>1.6.0</com.github.p4535992.ExtractInfo.version>
     </properties>
 
     <dependencies>

@@ -1,10 +1,12 @@
 package com.github.p4535992.extractor.home;
 
 import com.github.p4535992.extractor.JenaInfoDocument;
-import com.github.p4535992.extractor.karma.GenerationOfTriple;
 
+import com.github.p4535992.extractor.karma.GenerationRDFSupport;
+import com.github.p4535992.util.database.sql.SQLUtilities;
 import com.github.p4535992.util.file.FileUtilities;
 import com.github.p4535992.util.log.logback.LogBackUtil;
+import edu.isi.karma.util.DBType;
 
 import java.io.File;
 import java.io.IOException;
@@ -75,10 +77,15 @@ public class MainGenerationTriple {
         try {
             //String[] args2 = CollectionKit.mergeArraysForCommandInput(param, value);
             //edu.isi.karma.rdf.OfflineRdfGenerator.main(args2);
-            GenerationOfTriple got = GenerationOfTriple.getInstance();
+            /*GenerationOfTriple got = GenerationOfTriple.getInstance();
             File f= got.GenerationOfTripleWithKarmaAPIFromDataBase(
                     value[0],value[1],value[2],value[3],value[4],value[5],value[6],value[7],value[8],value[9]
-            );
+            );*/
+
+            File f = GenerationRDFSupport.getInstance()
+                    .generateRDF(value[0],value[1],value[2],value[3],value[4],value[5],value[6],value[7],value[8],value[9]
+
+                    );
             try {
                 //code for clean up the triple file generate from karma.
                 JenaInfoDocument.readQueryAndCleanTripleInfoDocument(

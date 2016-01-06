@@ -102,7 +102,7 @@ public class GenerationRDFSupport {
      * @return the file of triple generated with Web-karma.
      * @throws IOException throw if any error is occurred.
      */
-    private File generateRDF(String sourceTypeKarma, String pathToFileKarmaModel,
+    public File generateRDF(String sourceTypeKarma, String pathToFileKarmaModel,
                              String pathFileTripleOfOutput, String dbTypeKarma, String hostname, String username, String password,
                              String port, String nameOfDatabase, String nameOfTable) throws IOException {
         String pathOut = pathFileTripleOfOutput + "";
@@ -209,7 +209,7 @@ public class GenerationRDFSupport {
                 }
             }
 
-            if(request != null) {
+            if (request != null) {
                 if (inputData instanceof File) request.setInputFile((File) inputData);
                 else if (inputData instanceof String) request.setInputData((String) inputData);
                 else if (inputData instanceof InputStream) request.setInputStream((InputStream) inputData);
@@ -239,7 +239,7 @@ public class GenerationRDFSupport {
                 request.addWriter(writer);
                 rdfGenerator.generateRDF(request);
                 logger.info("Generated RDF: " + pw.toString());
-            }else{
+            } else {
                 logger.error("Can't create the Karma Request because is NULL");
             }
             return fileOfTriple;

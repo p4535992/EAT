@@ -2,7 +2,7 @@
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" hash="1661155511">
     <data-source source="LOCAL" name="MySQL - urldb_2015@localhost [2]" uuid="b43d6cde-d05b-40a6-908e-a27f7a70efdb">
-      <driver-ref>mysql</driver-ref>
+      <driver-ref>3cf967f6-4f5f-4cc2-a31d-ec321301e9ae</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://localhost:3306/urldb_2015</jdbc-url>
@@ -20,7 +20,7 @@
       </libraries>
     </data-source>
     <data-source source="LOCAL" name="MySQL - geolocationdb@localhost" uuid="8027a6f9-8a2c-4ce5-beb6-2203bd96a251">
-      <driver-ref>mysql</driver-ref>
+      <driver-ref>3cf967f6-4f5f-4cc2-a31d-ec321301e9ae</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://localhost:3306/geolocationdb</jdbc-url>

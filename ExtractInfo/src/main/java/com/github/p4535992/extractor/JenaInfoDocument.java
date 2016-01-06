@@ -1,12 +1,16 @@
 package com.github.p4535992.extractor;
 
-import com.github.p4535992.util.repositoryRDF.jena.JenaUtilities;
+import com.github.p4535992.util.repositoryRDF.jena.Jena3Utilities;
+import org.apache.jena.datatypes.xsd.XSDDatatype;
+import org.apache.jena.rdf.model.*;
+import org.apache.jena.rdf.model.impl.PropertyImpl;
+import org.apache.jena.rdf.model.impl.ResourceImpl;
 
 import java.io.File;
 import java.io.IOException;
 
 /**
- * Created by Marco on 20/04/2015.
+ * Created by 4535992 on 20/04/2015.
  * @author 4535992.
  * @version 2015-07-03.
  */
@@ -95,22 +99,22 @@ public class JenaInfoDocument {
 
         logger.info(SPARQL_NO_WGS84COORDS);
         //CREA IL TUO MODELLO DI JENA A PARTIRE DA UN FILE
-        com.hp.hpl.jena.rdf.model.Model model = JenaUtilities.loadFileTripleToModel(filenameInput, filepath, inputFormat);
+        Model model = Jena3Utilities.loadFileTripleToModel(filenameInput, filepath, inputFormat);
         //ESEGUI LA QUERY SPARQL
-        com.hp.hpl.jena.rdf.model.Model myGraph = JenaUtilities.execSparqlConstructorOnModel(SPARQL_NO_WGS84COORDS, model);
-        com.hp.hpl.jena.rdf.model.StmtIterator iter = myGraph.listStatements();
+        Model myGraph = Jena3Utilities.execSparqlConstructorOnModel(SPARQL_NO_WGS84COORDS, model);
+        StmtIterator iter = myGraph.listStatements();
 
         while (iter.hasNext()) {
             try{
-                com.hp.hpl.jena.rdf.model.Statement stmt  = iter.nextStatement();  // get next statement
+                Statement stmt  = iter.nextStatement();  // get next statement
                 model.remove(stmt);
                 logger.info("REMOVE 1:<" + stmt.getSubject() + "> <" + stmt.getPredicate() + "> <" + stmt.getObject() + ">.");
                 //com.hp.hpl.jena.rdf.model.Resource  subject   = stmt.getSubject();     // get the subject
-                com.hp.hpl.jena.rdf.model.RDFNode object2  = stmt.getSubject();      // get the object
-                com.hp.hpl.jena.rdf.model.Resource subject2 =
-                        new com.hp.hpl.jena.rdf.model.impl.ResourceImpl(object2.toString().replace("Location_",""));
-                com.hp.hpl.jena.rdf.model.Property  predicate2 =
-                        new com.hp.hpl.jena.rdf.model.impl.PropertyImpl("http://purl.org/goodrelations/v1#hasPOS");   // get the predicate
+                RDFNode object2  = stmt.getSubject();      // get the object
+                Resource subject2 =
+                        new ResourceImpl(object2.toString().replace("Location_",""));
+                Property  predicate2 =
+                        new PropertyImpl("http://purl.org/goodrelations/v1#hasPOS");   // get the predicate
 
                 //model.remove(subject2,predicate2,object2);
                 model.removeAll(null,predicate2,object2);
@@ -121,30 +125,30 @@ public class JenaInfoDocument {
             //OPPURE
         }
         //RISCRIVIAMO GLI STATEMENT
-        com.hp.hpl.jena.rdf.model.Model model2 = com.hp.hpl.jena.rdf.model.ModelFactory.createDefaultModel();
+        Model model2 = ModelFactory.createDefaultModel();
 
         //stmt.getPredicate().asResource().getURI().toLowerCase()
         //.contains("http://schema.org/latitude")||
         //stmt.getPredicate().asResource().getURI().toLowerCase()
         //.contains("http://schema.org/longitude")
 
-        com.hp.hpl.jena.rdf.model.StmtIterator stats = model.listStatements();
+        StmtIterator stats = model.listStatements();
         while (stats.hasNext()) {
-            com.hp.hpl.jena.rdf.model.Statement stmt = stats.next();
-            com.hp.hpl.jena.rdf.model.RDFNode x = stmt.getObject();
+            Statement stmt = stats.next();
+            RDFNode x = stmt.getObject();
             if (x.isLiteral()) { //..if is a literal
                 //x.asLiteral().getDatatype().equals(stringToXSDDatatypeToString("string"))){
-                if(x.asLiteral().getDatatype().equals(com.hp.hpl.jena.datatypes.xsd.XSDDatatype.XSDstring)){
+                if(x.asLiteral().getDatatype().equals(XSDDatatype.XSDstring)){
                     //SystemLog.sparql("MODIFY STRING LITERAL:" + x.asLiteral().getLexicalForm());
                     model2.add(stmt.getSubject(),
                             stmt.getPredicate(),
-                            com.hp.hpl.jena.rdf.model.ResourceFactory.createPlainLiteral(x.asLiteral().getLexicalForm() //...not print the ^^XMLString
+                            ResourceFactory.createPlainLiteral(x.asLiteral().getLexicalForm() //...not print the ^^XMLString
                             ));
                 }else{ //...if is a literal but is datatype is not string...
                     model2.add(
                             stmt.getSubject(),
                             stmt.getPredicate(),
-                            com.hp.hpl.jena.rdf.model.ResourceFactory.createTypedLiteral(
+                            ResourceFactory.createTypedLiteral(
                                     stmt.getObject().asLiteral().toString().replace("^^" + stmt.getObject().asLiteral().getDatatype().getURI(), ""),
                                     stmt.getObject().asLiteral().getDatatype()
                             )
@@ -166,7 +170,7 @@ public class JenaInfoDocument {
                     Literal literal = ResourceFactory.createPlainLiteral(object.getLiteralLexicalForm());
                     triple = new Triple(triple.getSubject(), triple.getPredicate(), literal.asNode());
                     com.hp.hpl.jena.rdf.model.Statement s =
-                            ResourceFactory.createStatement(
+                            ResourceFactory.toStatement(
                                     stmt.getSubject(),stmt.getPredicate(),literal);
                     model2.add(s);
             }
@@ -210,6 +214,6 @@ public class JenaInfoDocument {
         //Execute the SPARQL_WSG84COORDS and add the geometry statement without modification
         //*************************************************************************************
         String output = filepath + File.separator + fileNameOutput + "." + outputFormat;
-        JenaUtilities.writeModelToFile(output, model2, outputFormat);
+        Jena3Utilities.writeModelToFile(output, model2, outputFormat);
     }
 }
