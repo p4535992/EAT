@@ -33,10 +33,6 @@ public class ManageJsonWithGoogleMaps {
     private static final org.slf4j.Logger logger =
             org.slf4j.LoggerFactory.getLogger( ManageJsonWithGoogleMaps.class);
 
-    private static String gm() {
-        return Thread.currentThread().getStackTrace()[1].getMethodName()+":: ";
-    }
-    
     private String API_KEY_GM;
     //private static ManageJsonWithOSMAndJP o = new ManageJsonWithOSMAndJP();
     private static SetNazioneELanguage set = new SetNazioneELanguage();
@@ -73,11 +69,12 @@ public class ManageJsonWithGoogleMaps {
      */
     public LatLng getCoords(GeoDocument g) throws URISyntaxException {
         List<String> kContentList = new ArrayList<>();
-        if (setNullForEmptyString(g.getIndirizzo()) != null) {
+        if (StringUtilities.setNullForEmptyString(g.getIndirizzo()) != null) {
             kContentList.add(g.getRegione());
             kContentList.add(g.getIndirizzo());
             kContentList.add(g.getCity());
-        } else if (setNullForEmptyString(g.getEdificio()) != null && setNullForEmptyString(g.getIndirizzo()) == null) {
+        } else if (StringUtilities.setNullForEmptyString(g.getEdificio()) != null
+                && StringUtilities.setNullForEmptyString(g.getIndirizzo()) == null) {
             kContentList.add(g.getRegione());
             kContentList.add(g.getEdificio());
             kContentList.add(g.getCity());
@@ -101,11 +98,12 @@ public class ManageJsonWithGoogleMaps {
      */
     public LatLng getCoords(GeoDomainDocument g) throws URISyntaxException {
         List<String> kContentList = new ArrayList<>();
-        if (setNullForEmptyString(g.getIndirizzo()) != null) {
+        if (StringUtilities.setNullForEmptyString(g.getIndirizzo()) != null) {
             kContentList.add(g.getRegione());
             kContentList.add(g.getIndirizzo());
             kContentList.add(g.getCity());
-        } else if (setNullForEmptyString(g.getEdificio()) != null && setNullForEmptyString(g.getIndirizzo()) == null) {
+        } else if (StringUtilities.setNullForEmptyString(g.getEdificio()) != null
+                && StringUtilities.setNullForEmptyString(g.getIndirizzo()) == null) {
             kContentList.add(g.getRegione());
             kContentList.add(g.getEdificio());
             kContentList.add(g.getCity());
@@ -154,42 +152,48 @@ public class ManageJsonWithGoogleMaps {
     private LatLng getCoordinatesFromStringAddress(List<String> rawAddress,String nation){
         JSONObject json;
         try {
-            URL url = new URL(prepareRawAddress(rawAddress,nation));
+            URL url = new URL(prepareRawAddress(rawAddress, nation));
             logger.info("URL for GM:" + url.toString());
-            json =  temporizzatorePerGoogleMaps(url);
+            json = temporizzatorePerGoogleMaps(url);
             if (json != null) {
-                if(!(json.toString().contains("\"status\":\"ZERO_RESULTS\"")) ||
-                        !(json.toString().contains("\"status\":\"OVER_QUERY_LIMIT\""))){
-                    try{
-                        Double lat=(Double) json.getJSONArray("results").getJSONObject(0).getJSONObject("geometry").getJSONObject("location").get("lat");
-                        Double lng=(Double) json.getJSONArray("results").getJSONObject(0).getJSONObject("geometry").getJSONObject("location").get("lng");
-                        if(lat!=null && lng!=null){
-                            return new LatLng(lat,lng);
+                if (!(json.toString().contains("\"status\":\"ZERO_RESULTS\"")) ||
+                        !(json.toString().contains("\"status\":\"OVER_QUERY_LIMIT\""))) {
+                    try {
+                        Double lat = (Double) json.getJSONArray("results").getJSONObject(0).getJSONObject("geometry").getJSONObject("location").get("lat");
+                        Double lng = (Double) json.getJSONArray("results").getJSONObject(0).getJSONObject("geometry").getJSONObject("location").get("lng");
+                        if (lat != null && lng != null) {
+                            return new LatLng(lat, lng);
                         }
-                    }catch(JSONException je){
+                    } catch (JSONException je) {
                         //SystemLog.warning("JSON:" + json.toString());
-                        return new LatLng(null,null);
+                        return new LatLng(null, null);
                     }
                     //Se Google Maps ha raggiunto il massimo numero di query possibili
                     //prova con OpenStreetMap
-    //            }else if(json.toString().contains("\"status\":\"OVER_QUERY_LIMIT\"")){
-    //                 try{
-    //                    LatLng ll = o.tryWithOpenStreetMap(fua);
-    //                    Double lat =(Double) ll.getLat();
-    //                    Double lng =(Double) ll.getLng();
-    //                    if(lat!=null && lng!=null){
-    //                        geoDoc.setLat(lat);
-    //                        geoDoc.setLng(lng);
-    //                    }
-    //                }catch(Exception ex){}
-                }else{
-                    if(json.toString().contains("\"status\":\"OVER_QUERY_LIMIT\"")){
+                    //            }else if(json.toString().contains("\"status\":\"OVER_QUERY_LIMIT\"")){
+                    //                 try{
+                    //                    LatLng ll = o.tryWithOpenStreetMap(fua);
+                    //                    Double lat =(Double) ll.getLat();
+                    //                    Double lng =(Double) ll.getLng();
+                    //                    if(lat!=null && lng!=null){
+                    //                        geoDoc.setLat(lat);
+                    //                        geoDoc.setLng(lng);
+                    //                    }
+                    //                }catch(Exception ex){}
+                } else {
+                    if (json.toString().contains("\"status\":\"OVER_QUERY_LIMIT\"")) {
                         logger.error(json.toString());
                     }
                 }
             }//json !=null
+        }catch(javax.net.ssl.SSLHandshakeException e){
+            try {
+                HttpUtilities.waiter();
+            } catch (InterruptedException e1) {
+                logger.error(e1.getMessage(),e1);
+            }
         } catch (IOException|java.lang.NullPointerException e){
-            logger.error(gm()+ e.getMessage(),e);
+            logger.error(e.getMessage(),e);
         }
         return new LatLng(null,null);
     }
@@ -201,12 +205,12 @@ public class ManageJsonWithGoogleMaps {
      */
     private String manageArrayString(String address){
          //String sgm="";
-         address = address.replaceAll("\\W","+");
-         address = address.replaceAll("(\\+)\\1+","+");       
+         address = address.replaceAll("\\W","+"); //replace all space to symbol
+         address = address.replaceAll("(\\+)\\1+","+");//replace the multiple symbole to one
          return address;
    }
    /**
-    * Metodo che strttura la stringa fornita per essere utilizzata
+    * Metodo che struttura la stringa fornita per essere utilizzata
     * come input dall'API Google Maps.
     * @param fua la stringa da ridurre
     * @return ritorna la stringa ridotta
@@ -214,48 +218,15 @@ public class ManageJsonWithGoogleMaps {
    private String reduceString(String fua){
        String reduce="";
        List<String> list = new ArrayList<>();
-
        //removeFirstAndLast(fua, "+");
-
        StringTokenizer stringtokenizer = new StringTokenizer(fua, "+");
         while (stringtokenizer.hasMoreElements()) {
              String s= stringtokenizer.nextToken();
-             if(!(list.contains(s)) && setNullForEmptyString(s)!=null){list.add(s);}
+             if(!(list.contains(s)) && StringUtilities.setNullForEmptyString(s)!=null){list.add(s);}
         }
        for (String s : list) { reduce = reduce+"+"+s;}
        return reduce;
    }
-   /**
-    * Rimuove il simbolo separatore del contentuo se presente all'inzio o
-    * alla fine della stringa
-    * @param fua il contentuo dell'annotazione sottoforma di stringa
-    * @param symbol il simbolo separatore del contenuto
-    * @return la stringa del contenuto senza simboli separatori all'inizio e alla fine
-    */
-   /*private String removeFirstAndLast(String fua,String symbol){
-       if(!StringUtilities.isNullOrEmpty(fua)){
-            fua = fua.replaceAll("(\\"+symbol+")\\1+",symbol); 
-            if(fua.substring(0,1).contains(symbol)){                
-                fua = fua.substring(1,fua.length());
-            }
-            if(fua.substring(fua.length()-1,fua.length()).contains(symbol)){                
-                fua = fua.substring(0,fua.length()-1);
-            }
-         }
-       return fua;
-   }*/
-   /**
-    * Setta a null se verifica che la stringa non è
-    * nulla, non è vuota e non è composta da soli spaceToken (white space)
-    * @param s stringa di input
-    * @return  il valore della stringa se null o come è arrivata
-    */
-    private String setNullForEmptyString(String s){
-        //verifica che la stringa non è nulla, non è vuota e non è composta da soli spaceToken (white space)
-        if(s!=null && !s.isEmpty() && !s.trim().isEmpty()){return s;}
-        else{return null;}
-    }
-    
     
     /////////////////////////////////////////////////////////////////////////////////////
     ///// METODI PER INVOCARE UN NUMERO INDEFINITO DI QUERY ALL'API GOOGLE MAPS//////////
@@ -280,7 +251,7 @@ public class ManageJsonWithGoogleMaps {
                 HttpUtilities.waiter();
                 jsonText = org.jsoup.Jsoup.connect(url.toString()).ignoreContentType(true).execute().body();
             } catch (org.jsoup.HttpStatusException e) {
-                logger.warn(gm() + e.getMessage(), e);
+                logger.warn(e.getMessage(), e);
             } catch(org.json.JSONException e2){
                 json = new JSONObject(JSON_ZERO_RESULT);
             } catch(java.net.SocketTimeoutException e3){
@@ -304,34 +275,15 @@ public class ManageJsonWithGoogleMaps {
                 logger.warn("JSON:" + json.toString());
             }
          }catch(InterruptedException e){
-             logger.warn(gm()+e.getMessage(),e);
+             logger.warn(e.getMessage(),e);
          } finally{
              if(StringUtilities.isNullOrEmpty(jsonText) ||
                      Objects.equals(jsonText, JSON_ZERO_RESULT) || Objects.equals(jsonText, JSON_EMPTY)){
-                //try {
-                    //jsonText = org.jsoup.Jsoup.connect(url.toString()).ignoreContentType(true).execute().body();
-                    //jsonText = HttpUtilApache4.GETWithRetry(url.toString());
-                    //json = new JSONObject(jsonText);
-                //}catch(Exception e){
                     json = new JSONObject(JSON_ZERO_RESULT);
-                //}
             }
         }
         return json;
                                  
     }
 
-   
-    
-    /**
-     * Semplice metodo che estare il domino di appartenenza dell'url analizzato.
-     * @param u url di ingresso in fromato stringa.
-     * @return il dominio dell'url in formato stringa.
-     * @throws URISyntaxException error.
-     */
-    private String getDomainName(String u) throws URISyntaxException {
-            URI uri = new URI(u);
-            return uri.getHost();
-    }//getDomainName
-    
 }//ManageJsonWithGoogleMaps.java.

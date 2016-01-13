@@ -36,28 +36,31 @@ public class MainExtractInfo {
                     logger.info("===== START THE PROGRAMM =========");
                     /*long start = System.currentTimeMillis();*/
                     // The storage for the command line parameters
-                    Map<String,String> mParameters = new HashMap<>();
+                    //Map<String,String> mParameters = new HashMap<>();
                     // Parse all the parameters
-                    SimpleParameters params = new SimpleParameters();
+                    SimpleParameters params;
                     if (args.length > 0) {
-                       params = FileUtilities.readFile(new File(args[0]), '=');
+                       //params = FileUtilities.readFile(new File(args[0]), '=');
+                        params = new SimpleParameters(new File(args[0]), '=');
                     } else{
                        //C:\Users\Marco\Documents\GitHub\EAT\ExtractInfo\src\main\resources\input.properties
                        // + "ExtractInfo" + File.separator +
-                       params = FileUtilities.readFile(
+                      /* params = FileUtilities.readFile(
                                new File(System.getProperty("user.dir") + File.separator +
                                        "src" + File.separator + "main" + File.separator + "resources" + File.separator +
-                                       "input.properties"), '=');
+                                       "input.properties"), '=');*/
+                        params = new SimpleParameters(new File(System.getProperty("user.dir") + File.separator +
+                                "src" + File.separator + "main" + File.separator + "resources" + File.separator +
+                                "input.properties"), '=');
                     }
                     //VARIABILI ALTRE
                     //PRINT SULLA CONSOLE
                     logger.info("Using parameters:");
-                    if (params != null) {
-                        logger.info(params.toString());
-                    }else{
-                        logger.error("The file properties is not corrected implememnted, stop the programm");
-                        System.exit(0);
-                    }
+                    logger.info(params.toString());
+
+                    //logger.error("The file properties is not corrected implememnted, stop the programm");
+                    //System.exit(0);
+
 
                     if(params.getValue("PARAM_TYPE_EXTRACTION").equals("SPRING")) {
                        ExtractInfoSpring m = ExtractInfoSpring.getInstance(params);

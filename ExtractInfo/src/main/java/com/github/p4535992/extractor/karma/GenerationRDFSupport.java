@@ -219,8 +219,13 @@ public class GenerationRDFSupport {
                 }
                 request.setAddProvenance(true);
                 if (fileOfTriple == null) {
+                    logger.warn("The parameter 'fileOfTriple' you have set is NULL so byn default the inputType is a JSON.");
                     request.setDataType(GenericRDFGenerator.InputType.JSON);
                 } else {
+                    if(!fileOfTriple.exists()){
+                        boolean b = fileOfTriple.createNewFile();
+                    }
+
                     if (fileOfTriple.getAbsolutePath().toLowerCase().endsWith(".json"))
                         request.setDataType(GenericRDFGenerator.InputType.JSON);
                     else if (fileOfTriple.getAbsolutePath().toLowerCase().endsWith(".xml"))
@@ -240,7 +245,7 @@ public class GenerationRDFSupport {
                 rdfGenerator.generateRDF(request);
                 logger.info("Generated RDF: " + pw.toString());
             } else {
-                logger.error("Can't create the Karma Request because is NULL");
+                logger.error("Can't create the Karma Request because the parameter 'request' is NULL");
             }
             return fileOfTriple;
         } catch (KarmaException | IOException e) {

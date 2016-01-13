@@ -173,9 +173,10 @@ public class MainSesameManager {
         //2669,160,44,185
         String query ;
         String sparql ;
-        org.openrdf.model.Model sModel = sesame.convertRepositoryToModel(rep);
+        org.openrdf.model.Model sModel = sesame.toModel(rep);
         Jena3SesameUtilities jas = Jena3SesameUtilities.getInstance();
-        Model jModel2 = jas.convertOpenRDFModelToJenaModel(sModel);
+        Jena3Utilities j3u = Jena3Utilities.getInstance();
+        Model jModel2 = jas.asJenaModel(sModel);
         //int count = sparqlQueries.size();
         int count = 10;
         int j = 0;
@@ -195,21 +196,28 @@ public class MainSesameManager {
 
             Long xx = MySQLQuery.getExecutionTime(query,conn);
 
-            data.add(new String[]{String.valueOf(ss), String.valueOf(0l), String.valueOf(zz),String.valueOf(xx)});
+            data.add(new String[]{String.valueOf(ss), String.valueOf(yy), String.valueOf(zz),String.valueOf(xx)});
             j++;
-            if(j >= 20){
+          /*  if(j >= 20){
                 OpenCsvUtilities.writeCSVDataToFile(data,';',
                         new File(
                                 "C:\\Users\\tenti\\Desktop\\EAT\\ExtractInfo\\src\\main\\java\\com\\github\\p4535992\\extractor\\home\\testCSV1.csv"));
                 data.clear();
                 j = 0;
-            }
+            }*/
         }
         //System.out.println("SESAME:"+ss+"ms, JENA:"+yy+"ms, Virtuoso:"+oo+", SQL:"+zz);
-        //OpenCsvUtilities.writeCSVDataToConsole(data);
-        OpenCsvUtilities.writeCSVDataToFile(data,';',
+        OpenCsvUtilities.writeCSVDataToConsole(data);
+
+
+      /*  OpenCsvUtilities.writeCSVDataToFile(data,';',
                 new File(
                         "C:\\Users\\tenti\\Desktop\\EAT\\ExtractInfo\\src\\main\\java\\com\\github\\p4535992\\extractor\\home\\testCSV1.csv"));
+
+
+
+        */
+
 
        /* sesame.setOutput(
                 "C:\\Users\\tenti\\Documents\\GitHub\\EAT\\ExtractInfo\\src\\main\\java\\com\\github\\p4535992\\extractor\\home\\testKm4c2"

@@ -106,7 +106,6 @@ public class ExtractInfoSpring {
                 //this.RANGE = Integer.parseInt(par.getValue("PARAM_RANGE"));
                 //this.tentativiOutMemory = Integer.parseInt(par.getValue("PARAM_TENTATIVI_OUT_OF_MEMORY"));
                 GateDataStore8Kit gds8 = GateDataStore8Kit.getInstance(DS_DIR, NOME_DATASTORE);
-
             }
 
             if (GENERATION_TRIPLE_KARMA_PROGRAMM) {

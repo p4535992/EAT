@@ -122,6 +122,7 @@
     <orderEntry type="library" name="Maven: org.openrdf.sesame:sesame-repository-api:2.8.8" level="project" />
     <orderEntry type="library" name="Maven: org.openrdf.sesame:sesame-sail-api:2.8.8" level="project" />
     <orderEntry type="library" name="Maven: org.openrdf.sesame:sesame-query:2.8.8" level="project" />
+    <orderEntry type="library" name="Maven: virtuoso.sesame2:driver:2.7.3-build1.12" level="project" />
     <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpclient:4.5.1" level="project" />
     <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpcore:4.4.3" level="project" />
     <orderEntry type="library" name="Maven: org.apache.poi:poi:3.10-FINAL" level="project" />
@@ -139,8 +140,12 @@
     <orderEntry type="library" name="Maven: org.slf4j:jcl-over-slf4j:1.7.13" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:jul-to-slf4j:1.7.13" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:log4j-over-slf4j:1.7.13" level="project" />
+    <orderEntry type="library" name="Maven: org.fusesource.jansi:jansi:1.11" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.12" level="project" />
     <orderEntry type="library" name="Maven: uk.org.lidalia:sysout-over-slf4j:1.0.2" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.logging.log4j:log4j-slf4j-impl:2.5" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.logging.log4j:log4j-api:2.5" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.logging.log4j:log4j-core:2.5" level="project" />
     <orderEntry type="library" name="Maven: javax.servlet:servlet-api:2.5" level="project" />
     <orderEntry type="library" name="Maven: uk.ac.gate:gate-core:8.1" level="project" />
     <orderEntry type="library" name="Maven: uk.ac.gate:gate-asm:5.0.3" level="project" />

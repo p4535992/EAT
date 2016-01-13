@@ -22,7 +22,7 @@ public class MainGenerationTriple {
 
     public static void main(String[] args) throws IOException{
 
-        LogBackUtil.init();
+        LogBackUtil.console();
         //ExecuteCmdAndPrintOnOutput rte = new ExecuteCmdAndPrintOnOutput();
         /*
         GenerationOfTriple got = new GenerationOfTriple(

@@ -134,13 +134,17 @@
                         <groupId>org.apache.httpcomponents</groupId>
                         <artifactId>httpclient</artifactId>
                     </exclusion>
-                   <!-- <exclusion>
+                    <!--<exclusion>
                         <groupId>org.apache.jena</groupId>
                         <artifactId>apache-jena-libs</artifactId>
                     </exclusion>
                     <exclusion>
                         <groupId>org.apache.jena</groupId>
                         <artifactId>jena-querybuilder</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.apache.jena</groupId>
+                        <artifactId>jena-spatial</artifactId>
                     </exclusion>-->
                 </exclusions>
             </dependency>
@@ -194,11 +198,11 @@
                     <artifactId>log4j</artifactId>
                 </exclusion>
                 <exclusion>
-                    <groupId>corg.apache.jena</groupId>
+                    <groupId>org.apache.jena</groupId>
                     <artifactId>jena-core</artifactId>
                 </exclusion>
                 <exclusion>
-                    <groupId>corg.apache.jena</groupId>
+                    <groupId>org.apache.jena</groupId>
                     <artifactId>jena-arq</artifactId>
                 </exclusion>
             </exclusions>
@@ -439,11 +443,6 @@
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpclient</artifactId>
             <version>${org.apache.httpcomponents.httpclient.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.jena</groupId>
-            <artifactId>jena-core</artifactId>
-            <version>3.0.1</version>
         </dependency>
 
         <!-- <dependency>
