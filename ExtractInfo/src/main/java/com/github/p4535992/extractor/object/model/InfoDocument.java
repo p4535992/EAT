@@ -10,7 +10,7 @@ import java.net.URL;
 
 /**
  * Classe che costruisce lt'ogeeto GeoDocument  per essere utilizzato con una specifica ontologia
- * @author Marco
+ * @author 4535992
  */
 import javax.persistence.*;
 @Entity
