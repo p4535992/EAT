@@ -1,10 +1,8 @@
 package com.github.p4535992.extractor.estrattori;
 
-import com.github.p4535992.extractor.ManageJsonWithGoogleMaps;
 import com.github.p4535992.extractor.object.model.GeoDomainDocument;
 import com.github.p4535992.extractor.object.support.DepositFrequencyInfo;
 import com.github.p4535992.extractor.object.model.GeoDocument;
-import com.github.p4535992.util.collection.CollectionUtilities;
 
 import com.github.p4535992.extractor.object.impl.jdbc.GeoDomainDocumentDaoImpl;
 
@@ -35,10 +33,6 @@ public class ExtractorDomain {
 
     private static final org.slf4j.Logger logger =
             org.slf4j.LoggerFactory.getLogger(ExtractorDomain.class);
-
-    private static String gm() {
-        return Thread.currentThread().getStackTrace()[1].getMethodName()+":: ";
-    }
     
     //FREQUENZA DEGLI URL PER L'IDENTIFICAZIONE DEL DOMINIO
     private  Integer FREQUENZA_INTERVALLO_URL,LIMIT,OFFSET;
@@ -93,11 +87,11 @@ public class ExtractorDomain {
                  }
                  //*********************************************************************************       
              } catch (URISyntaxException e) {
-                 logger.error(gm() + e.getMessage(),e);
+                 logger.error(e.getMessage(),e);
              }
          }//for
       } catch (RuntimeException e) {
-            logger.error(gm() + e.getMessage(),e);
+            logger.error(e.getMessage(),e);
             System.exit(0);
       } finally{
             //MOSTRIAMO I NOSTRI DepositFrequencyInfo CON SUFFICIENTE VALORE DI SOGLIA DA INSERIRE NEL DATABASE
@@ -333,7 +327,7 @@ public class ExtractorDomain {
                 geoDomainDocDao.update(columns_where, values_where, "url", geo.getUrl().toString());
             }
         }catch(URISyntaxException e){
-            logger.error(gm() + e.getMessage(), e);
+            logger.error(e.getMessage(), e);
         }
     }
 
@@ -358,7 +352,7 @@ public class ExtractorDomain {
                 geoDomainDocDao.insertAndTrim(geoDoc);
             }
         }catch(Exception e){
-            logger.error(gm() + e.getMessage(), e);
+            logger.error(e.getMessage(), e);
         }
 
     }
@@ -371,7 +365,7 @@ public class ExtractorDomain {
             //geodomaindocument_coord_omogeneo_05052014,geodomaindocument_coord_omogeneo_120
             geoDomainDocDao.setTableInsert("geodomaindocument_coord_omogeneo_05052014"); //120
         }catch(Exception e){
-            logger.error(gm() + e.getMessage(),e);
+            logger.error(e.getMessage(),e);
         }
 
     }

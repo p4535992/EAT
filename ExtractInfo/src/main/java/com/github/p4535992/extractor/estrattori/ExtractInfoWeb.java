@@ -1,6 +1,5 @@
 package com.github.p4535992.extractor.estrattori;
-import com.github.p4535992.extractor.JenaInfoDocument;
-import com.github.p4535992.extractor.karma.GenerationRDFSupport;
+import com.github.p4535992.extractor.estrattori.karma.GenerationRDFSupport;
 import com.github.p4535992.extractor.object.dao.jdbc.IWebsiteDao;
 import com.github.p4535992.extractor.object.impl.jdbc.WebsiteDaoImpl;
 import com.github.p4535992.gatebasic.gate.gate8.ExtractorInfoGate8;
@@ -11,6 +10,7 @@ import com.github.p4535992.util.html.JSoupUtilities;
 
 import com.github.p4535992.util.http.HttpUtilities;
 import com.github.p4535992.util.string.StringUtilities;
+
 import edu.isi.karma.util.DBType;
 import gate.Controller;
 import gate.Corpus;
@@ -563,8 +563,9 @@ public class ExtractInfoWeb {
      * @param OUTPUT_KARMA_FILE the string path to the folder where save the output triple file generated.
      * @param createNewTable if true create a new table TABLE_OUTPUT.
      * @param dropOldTable if true drop the already existent table TABLE_OUTPUT, only if createNewTable is true.
+     * @return if true all the operation are done.
      */
-    public void triplifyGeoDocumentFromDatabase(
+    public Boolean triplifyGeoDocumentFromDatabase(
             String TABLE_INPUT, String TABLE_OUTPUT, String OUTPUT_FORMAT,
             String MODEL_KARMA, String OUTPUT_KARMA_FILE, boolean createNewTable, boolean dropOldTable){
         logger.info("RUN ONTOLOGY PROGRAMM: Create Table of infoDocument from a geodocument/geodomaindocuemnt table!");
@@ -618,8 +619,9 @@ public class ExtractInfoWeb {
             );
             File f = got.GenerationOfTripleWithKarmaAPIFromDataBase();
             */
+
             File f =  GenerationRDFSupport.getInstance().generateRDF(
-                    new File(OUTPUT_KARMA_FILE), new File(MODEL_KARMA),
+                    new File(MODEL_KARMA),new File(OUTPUT_KARMA_FILE),
                     KARMA_DRIVER,
                     HOST_DATABASE,USER,PASS,PORT_DATABASE,DB_OUTPUT,
                     TABLE_OUTPUT
@@ -633,9 +635,11 @@ public class ExtractInfoWeb {
                     OUTPUT_FORMAT //outputFormat "ttl"
             );
             //delete not filter file of triples
-            f.delete();
+            boolean b = f.delete();
+            return true;
         } catch (IOException ex) {
             logger.error(ex.getMessage(), ex);
+            return false;
         }
     }
 
@@ -880,31 +884,34 @@ public class ExtractInfoWeb {
 
 
     private void checkIfCreateANewTable(Object obj,boolean createNewTable,boolean dropOldTable){
-        IGeoDocumentDao geoDocumentDao = null;
-        IInfoDocumentDao infoDocumentDao = null;
-        //IWebsiteDao iWebsiteDao = null;
-        if(obj instanceof IGeoDocumentDao) geoDocumentDao = (IGeoDocumentDao) obj;
-        else if(obj instanceof IInfoDocumentDao) infoDocumentDao = (IInfoDocumentDao) obj;
-        //else if(obj instanceof IWebsiteDao) iWebsiteDao = (IWebsiteDao) obj;
-        else logger.error("There is no Object support from this method");
-        if (tableAlreadyCreated) {
-            if (createNewTable) {
-                try {
-                    if(geoDocumentDao !=null) {
-                        geoDocumentDao.create(dropOldTable);
-                        logger.info("Create,Update or replace the Table:"+geoDocumentDao.getMyInsertTable());
+        if(createNewTable) {
+            IGeoDocumentDao geoDocumentDao = null;
+            IInfoDocumentDao infoDocumentDao = null;
+            //IWebsiteDao iWebsiteDao = null;
+            if (obj instanceof IGeoDocumentDao) geoDocumentDao = (IGeoDocumentDao) obj;
+            else if (obj instanceof IInfoDocumentDao) infoDocumentDao = (IInfoDocumentDao) obj;
+                //else if(obj instanceof IWebsiteDao) iWebsiteDao = (IWebsiteDao) obj;
+            else logger.error("There is no Object support from this method");
+            if (tableAlreadyCreated) {
+                if (createNewTable) {
+                    try {
+                        if (geoDocumentDao != null) {
+                            geoDocumentDao.create(dropOldTable);
+                            logger.info("Create,Update or replace the Table:" + geoDocumentDao.getMyInsertTable());
+                        } else if (infoDocumentDao != null) {
+                            infoDocumentDao.create(dropOldTable);
+                            logger.info("Create,Update or replace the Table:" + infoDocumentDao.getMyInsertTable());
+                        }
+                    } catch (Exception e) {
+                        logger.error(e.getMessage(), e);
+                    } finally {
+                        tableAlreadyCreated = false;
                     }
-                    else if(infoDocumentDao != null){
-                        infoDocumentDao.create(dropOldTable);
-                        logger.info("Create,Update or replace the Table:"+infoDocumentDao.getMyInsertTable());
-                    }
-                } catch (Exception e) {
-                    logger.error(e.getMessage(),e);
-                }finally{
-                    tableAlreadyCreated = false;
                 }
             }
         }
     }
+
+
 
 }

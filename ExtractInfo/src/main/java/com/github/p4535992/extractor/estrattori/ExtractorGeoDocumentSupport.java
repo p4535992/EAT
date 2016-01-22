@@ -2,7 +2,6 @@ package com.github.p4535992.extractor.estrattori;
 
 import com.github.p4535992.extractor.object.support.LatLng;
 import com.github.p4535992.util.http.HttpUtilities;
-import com.github.p4535992.extractor.ManageJsonWithGoogleMaps;
 import com.github.p4535992.extractor.setInfoParameterIta.SetCodicePostale;
 import com.github.p4535992.extractor.setInfoParameterIta.SetNazioneELanguage;
 import com.github.p4535992.extractor.setInfoParameterIta.SetProvinciaECity;

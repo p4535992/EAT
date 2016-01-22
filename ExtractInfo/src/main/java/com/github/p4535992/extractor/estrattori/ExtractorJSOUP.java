@@ -23,10 +23,6 @@ public class ExtractorJSOUP {
     private static final org.slf4j.Logger logger =
             org.slf4j.LoggerFactory.getLogger(ExtractorDomain.class);
 
-    private static String gm() {
-        return Thread.currentThread().getStackTrace()[1].getMethodName()+":: ";
-    }
-
     public static boolean isEXIST_WEBPAGE() {
         return EXIST_WEBPAGE;
     }
