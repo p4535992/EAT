@@ -72,7 +72,7 @@ public class ExtractorGeoDocumentSupport {
             if(!StringUtilities.isNullOrEmpty(geo.getNazione())) {
                language = geo.getNazione();
             }else{ language = "it";}
-            String domain = http.getDomainName(geo.getUrl().toString());
+            String domain = HttpUtilities.getDomainName(geo.getUrl().toString());
             String nazione="";
             if(!StringUtilities.isNullOrEmpty(domain)) {
                 nazione = set.checkNazioneByDomain(domain);

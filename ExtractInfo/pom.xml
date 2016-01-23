@@ -6,7 +6,7 @@
 
     <groupId>com.github.p4535992</groupId>
     <artifactId>extractInfo</artifactId>
-    <version>1.6.0</version>
+    <version>1.6.5</version>
     <packaging>jar</packaging>
 
     <name>${project.artifactId}</name>
@@ -107,8 +107,8 @@
         <!-- APACHE HTTP -->
         <org.apache.httpcomponents.httpclient.version>4.5.1</org.apache.httpcomponents.httpclient.version>
         <!-- UTILITY -->
-        <com.github.p4535992.utility.version>1.6.0</com.github.p4535992.utility.version>
-        <com.github.p4535992.gate-basic.version>1.6.0</com.github.p4535992.gate-basic.version>
+        <com.github.p4535992.utility.version>1.6.5</com.github.p4535992.utility.version>
+        <com.github.p4535992.gate-basic.version>1.6.5</com.github.p4535992.gate-basic.version>
     </properties>
 
     <dependencyManagement>
