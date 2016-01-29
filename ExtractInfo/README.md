@@ -2,55 +2,70 @@
 ### SIMPLE JAVA PROGRAMM FOR EXTRACT INFORMATION FROM WEB PAGE###
 ##############################################################
 #########################
-###Last Update: 2015-11-12
+###Last Update: 2016-01-28
 #########################
 A simple java project where i use GATE (https://gate.ac.uk/) with a my specific library 
 gate-basic (https://github.com/p4535992/gate-basic) for analize web document and extract specific information.
 
 [![Release](https://img.shields.io/github/release/p4535992/ExtractInfo.svg?label=maven)](https://jitpack.io/p4535992/ExtractInfo)
 
-Example code 1(version 1.3-1.4):
-
+Example extraction code 1(version 1.6.X):
 ```java
+public List<GeoDocument> extractInfoSingleURL(
+        String driverDatabase, String dialectDatabase, String hostDatabase, String portDatabase, String user,
+        String pass, String dbOutput, String dbInput, String tableOutput, String tableInput,
+        String columnTableInput, String limit, String offset, boolean createNewGeodocumentTable, boolean erase) {
 
-        //Set the Driver Manager for a MySQL Database...
-        ExtractInfoWeb web = ExtractInfoWeb.getInstance(
-                "com.mysql.jdbc.Driver","jdbc:mysql","localhost","3306","username","password","nameDatabase");
-        CorpusController controller = (CorpusController) web.getController();
-        //Class for process a document with GATE and get a result with only the st ring value
-        //name Document -> name AnnotationSet -> name Annotation -> string content.
-        ExtractorInfoGate8 eig8 = ExtractorInfoGate8.getInstance();
-        //create a list of annotation (you know they exists on the gate document,otherwise you get null result).....
-        List<String> listAnn =  new ArrayList<>(Arrays.asList("MyRegione","MyPhone","MyFax","MyEmail","MyPartitaIVA",
-                "MyLocalita","MyIndirizzo","MyEdificio","MyProvincia"));
-        //create a list of annotationSet (you know they exists on the gate document,otherwise you get null result).....
-        List<String> listAnnSet = new ArrayList<>(Arrays.asList("MyFOOTER","MyHEAD","MySpecialID","MyAnnSet"));
-        //METHOD 1: extract all the information given from a URL in a specific object GeoDocument,
-        // there are method for works with java.io.File File or Directory
-        //Store the result on of the extraction on a GateSupport Object
-        GateSupport support = GateSupport.getInstance(
-                eig8.extractorGATE(
-                        new URL("http://www.unifi.it"),controller,"corpus_test_1",listAnn,listAnnSet,true)
-        );
-        //Now you can get the content from a specific document, specific AnnotationSet, specific Annotation.
-        String contnet0 = support.getContent("doc1", "MyAnnSet", "MyIndirizzo"); // "P.azza Guido Monaco"
-        String content1 = support.getContent(0,"MyAnnSet", "MyIndirizzo"); // "P.azza Guido Monaco"
-        String content2 = support.getContent(0,0,"MyIndirizzo"); // "P.azza Guido Monaco"
-        String content3 = support.getContent(0,0,0); // "P.azza Guido Monaco"
-        GeoDocument geoDoc = web.convertGateSupportToGeoDocument(support,new URL("http://www.unifi.it"),0);
-        //METHOD 2: and we want to save the geoDocument in a table on the database.
-        String table_where_insert ="test_55";
-        String table_where_select= "test_55";
-        // in this case the "select" table is use for avoid the insert of duplicate
-        GeoDocument geoDoc2 =
-                web.ExtractGeoDocumentFromUrl(new URL("http://www.unifi.it"),table_where_select,table_where_insert,true);
-        //METHOD 3: Convert a relational table in a file of triple with a Web-Karma Model:
-        String output_format ="ttl";
-        String output_karma_file ="c:\\path\\fileOfTriple.n3"; //always given the input in n3 format.
-        String karma_model ="c:\\path\\model_R2RML.ttl";
-        //This piece of code save a file of triple in a file...
-        web.triplifyGeoDocument(table_where_select,table_where_select,output_format, karma_model,output_karma_file,true);
-    
+    List<GeoDocument> listGeo = new ArrayList<>();
+    ExtractInfoWeb web = prepareListAndGATE(
+            driverDatabase, dialectDatabase, hostDatabase, portDatabase, user,
+            pass, dbOutput, dbInput, tableOutput, tableInput,
+            columnTableInput, limit, offset);
+    try {
+        logger.info("RUN PROCESS 1: Abilitate for each single url");
+        if (_listUrl.isEmpty()) {
+            logger.info("The list of urls you get from the table:" + tableInput +
+                    " from the columns " + columnTableInput + " empty!!!");
+        } else {
+            logger.info("Loaded a list of: " + _listUrl.size() + " files");
+            GeoDocument geoDoc;
+            for (URL url : _listUrl) {
+                geoDoc = web.ExtractGeoDocumentFromUrl(
+                        url, tableOutput, tableOutput, createNewGeodocumentTable, erase);
+                if (geoDoc != null) listGeo.add(geoDoc);
+            }
+        }
+    } catch (OutOfMemoryError e) {
+        logger.error("java.lang.OutOfMemoryError, Reload the programm please");
+    }
+    return listGeo;
+}
+
+public List<GeoDocument> extractInfoFile(
+            String directoryFiles, String driverDatabase, String dialectDatabase, String hostDatabase, String portDatabase, String user,
+            String pass, String dbOutput, String tableOutput, String offset, String limit, boolean createNewGeodocumentTable, boolean erase) {
+
+    List<GeoDocument> listGeo = new ArrayList<>();
+    try {
+        logger.info("RUN PROCESS 3: Abilitate for single file or for a directory");
+        //String DIRECTORY_FILE = "C:\\Users\\Marco\\Downloads\\parseWebUrls";
+        ExtractInfoWeb web = prepareListAndGATE(directoryFiles, driverDatabase, dialectDatabase, hostDatabase, portDatabase, user,
+                pass, dbOutput, tableOutput, offset, limit);
+        if (_listFile.isEmpty()) {
+       /* logger.info("The list of urls you get from the table:" + TABLE_INPUT +
+                " from the columns " + COLUMN_TABLE_INPUT + " empty!!!");*/
+            logger.warn("The list of files you get is empty!!");
+        } else {
+            logger.info("Loaded a list of: " + _listFile.size() + " files");
+            web.ExtractGeoDocumentFromListFiles(
+                    _listFile, tableOutput, tableOutput, createNewGeodocumentTable, erase);
+        }
+        logger.info("Obtained a list of: " + listGeo.size() + " GeoDocument");
+    } catch (OutOfMemoryError e) {
+        logger.error("java.lang.OutOfMemoryError, Reload the programm please");
+    }
+    return listGeo;
+}
 ```
 
 You can the dependency to this github repository With jitpack (https://jitpack.io/):
@@ -59,7 +74,7 @@ You can the dependency to this github repository With jitpack (https://jitpack.i
  <pre class="prettyprint">&lt;dependency&gt;
   &lt;groupId&gt;com.github.p4535992&lt;/groupId&gt;
   &lt;artifactId&gt;ExtractInfo&lt;/artifactId&gt;
-  &lt;version&gt;<span id="latest_release">1.4.4</span>&lt;/version&gt;
+  &lt;version&gt;<span id="latest_release">1.6.7</span>&lt;/version&gt;
 &lt;/dependency&gt;  </pre>
 
 <!-- Add this script to update "latest_release" span to latest version -->

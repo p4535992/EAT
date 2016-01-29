@@ -56,6 +56,7 @@ public class GenericHibernateDaoImpl<T> implements IGenericHibernateDao<T> {
     protected File contextFile;
 
     //CONSTRUCTOR
+    @SuppressWarnings("unchecked")
     public GenericHibernateDaoImpl() {
         java.lang.reflect.Type t = getClass().getGenericSuperclass();
         java.lang.reflect.ParameterizedType pt = (java.lang.reflect.ParameterizedType) t;

@@ -186,11 +186,7 @@ public class ManageJsonWithGoogleMaps {
                 }
             }//json !=null
         }catch(javax.net.ssl.SSLHandshakeException e){
-            try {
-                HttpUtilities.waiter();
-            } catch (InterruptedException e1) {
-                logger.error(e1.getMessage(),e1);
-            }
+            HttpUtilities.waiter();
         } catch (IOException|java.lang.NullPointerException e){
             logger.error(e.getMessage(),e);
         }
@@ -273,7 +269,7 @@ public class ManageJsonWithGoogleMaps {
                 json = new JSONObject(jsonText);
                 logger.warn("JSON:" + json.toString());
             }
-         }catch(InterruptedException e){
+         }catch(Exception e){
              logger.warn(e.getMessage(),e);
          } finally{
              if(StringUtilities.isNullOrEmpty(jsonText) ||

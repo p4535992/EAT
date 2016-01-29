@@ -288,7 +288,7 @@ public class ExtractInfoWeb {
             }
             supportList.clear();
             //re-set the right Table where insert the geodocuments....
-            geoDocumentDao.setTableInsert(TABLE_INPUT);
+            geoDocumentDao.setTableInsert(TABLE_OUTPUT);//TABLE_INPUT
 
             logger.info("*******************Run GATE**************************");
             //create a list of annotation (you know they exists on the gate document,otherwise you get null result).....
@@ -318,7 +318,7 @@ public class ExtractInfoWeb {
                                 egate.extractorGATE(listUrls, (CorpusController) controller, "corpus_test_1", listAnn, listAnnSet, true));
                     }
                 }
-                if (procDoc != null) {
+                else if (procDoc != null) {
                     if (listUrls.size() == 1) {
                         URL url = listUrls.get(0);
                         String content = JSoupUtilities.getContent(url.toString());
@@ -656,7 +656,7 @@ public class ExtractInfoWeb {
     public List<GeoDocument> ExtractGeoDocumentFromFile(
             File fileOrDirectory, String TABLE_INPUT,String TABLE_OUTPUT,boolean createNewTable,boolean dropOldTable) {
         List<GeoDocument> listGeo = new ArrayList<>();
-        if(FileUtilities.isDirectory(fileOrDirectory)){
+        if(FileUtilities.isDirectoryExists(fileOrDirectory.getAbsolutePath())){
             List<File> listFiles = FileUtilities.getFilesFromDirectory(fileOrDirectory);
             ExtractGeoDocumentFromListFiles(listFiles,TABLE_INPUT,TABLE_OUTPUT,createNewTable,dropOldTable);
         }else{
@@ -687,7 +687,7 @@ public class ExtractInfoWeb {
         List<URL> listUrls = new ArrayList<>();
         for(File file: listFiles) {
             try {
-                if(!FileUtilities.isDirectory(file)) {
+                if(!FileUtilities.isDirectoryExists(file.getAbsolutePath())) {
                     URL url = FileUtilities.toURL(file);
                     listUrls.add(url);
                 } else {

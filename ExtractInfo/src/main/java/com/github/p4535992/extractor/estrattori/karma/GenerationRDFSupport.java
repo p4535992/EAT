@@ -28,7 +28,6 @@ import java.util.regex.Pattern;
  * @author 4535992.
  * @version 2015-11-30.
  */
-@SuppressWarnings("unused")
 public class GenerationRDFSupport {
 
     private static org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger(GenerationRDFSupport.class);
@@ -132,6 +131,22 @@ public class GenerationRDFSupport {
                 "--username", "--password", "--portnumber", "--dbname", "--tablename"
                 //"--encoding"
         };
+        /*String[] args2;
+        try {
+            args2 = concatenateArraysForInput(param, value);
+            logger.info("PARAM KARMA:" + Arrays.toString(args2));
+            logger.info("try to create a file of triples from a relational table with karma...");
+            OfflineRdfGenerator.main(args2);
+            logger.info("...file of triples created with name:" + pathOut);
+            return new File(pathOut);
+        } catch (Exception ex) {
+            logger.error(ex.getLocalizedMessage(), ex);
+            return new File(pathOut);
+        }*/
+        return runOfflineRdfGenerator(param,value,pathOut);
+    }
+
+    private File runOfflineRdfGenerator(String[] param,String[] value,String pathOut){
         String[] args2;
         try {
             args2 = concatenateArraysForInput(param, value);
@@ -145,6 +160,8 @@ public class GenerationRDFSupport {
             return new File(pathOut);
         }
     }
+
+
 
     /**
      * Method to generate triple file with Web-KArma API from a local file:JSON,CSV,XML,AVRO.
@@ -266,6 +283,47 @@ public class GenerationRDFSupport {
         } catch (KarmaException | IOException e) {
             logger.error(e.getMessage(), e);
             return fileOfTriple;
+        }
+    }
+
+    public File generateRDF(File karmaModel, File fileInput,File fileOfTriple,GenericRDFGenerator.InputType inputType){
+        return generationOfTripleWithKarmaConsole(karmaModel.getAbsolutePath(),inputType,
+                fileInput.getAbsolutePath(),fileOfTriple.getAbsolutePath());
+    }
+
+    private File generationOfTripleWithKarmaConsole(
+            String pathToFileKarmaModel, GenericRDFGenerator.InputType inputType, String pathFileOfInput, String pathFileTripleOfOutput) {
+        try {
+            if (!checkJenaVersionForWorkWithWebKarma(new File(pathToFileKarmaModel).toURI().toURL())) {
+                return null;
+            }
+            //Path path = Paths.get(pathFileTripleOfOutput);
+            if (!FileUtilities.isFileExists(pathFileTripleOfOutput)) {
+                boolean b2 = new File(pathFileTripleOfOutput).createNewFile();
+            }
+            File output = new File(pathFileTripleOfOutput);
+            //String pathOut = pathFileTripleOfOutput + "";
+            String pathOut = output.getAbsolutePath();
+            String[] value = new String[]{
+                    inputType.name(),
+                    pathFileOfInput,
+                    pathToFileKarmaModel,
+                    FileUtilities.getFilenameWithoutExt(pathFileOfInput),
+                    pathFileTripleOfOutput,
+                    FileUtilities.renameExtension(pathFileTripleOfOutput, ".json",false)
+            };
+            String[] param = new String[]{
+                    "--sourcetype", //JSON
+                    "--filepath",// \"/Users/shubhamgupta/Documents/wikipedia.json\"
+                    "--modelfilepath", // \"/Users/shubhamgupta/Documents/model-wikipedia.n3\"
+                    "--sourcename", // wikipedia
+                    "--outputfile", // wikipedia-rdf.n3
+                    "--JSONOutputFile", //wikipedia-rdf.json" -Dexec.classpathScope=compile};
+            };
+            return runOfflineRdfGenerator(param, value, pathOut);
+        } catch (IOException e) {
+            logger.error(e.getMessage(), e);
+            return new File(pathFileTripleOfOutput);
         }
     }
 
@@ -392,7 +450,7 @@ public class GenerationRDFSupport {
      * @param url the String of the URL of the jdbc driver.
      * @return the String name of the host.
      */
-    public static String getHostFromUrl(String url) {
+    private String getHostFromUrl(String url) {
         String regexForHostAndPort = "[.\\w]+:\\d+";
         Pattern hostAndPortPattern = Pattern.compile(regexForHostAndPort);
         Matcher matcher = hostAndPortPattern.matcher(url);
@@ -415,7 +473,7 @@ public class GenerationRDFSupport {
      * @param url the String of the URL of the jdbc driver.
      * @return the String name of the host.
      */
-    public static Integer getPortFromUrl(String url) {
+    private Integer getPortFromUrl(String url) {
         String regexForHostAndPort = "[.\\w]+:\\d+";
         Pattern hostAndPortPattern = Pattern.compile(regexForHostAndPort);
         Matcher matcher = hostAndPortPattern.matcher(url);
@@ -438,7 +496,7 @@ public class GenerationRDFSupport {
      * @param url the String of the URL of the jdbc driver.
      * @return the String name of the host.
      */
-    public static String getUsernameFromUrl(String url) {
+    private String getUsernameFromUrl(String url) {
         Pattern pat = Pattern.compile("(\\&|\\?|\\=|\\/)?(user|username)(\\=)(.*?)(\\&|\\?|\\=|\\/|\\s)+", Pattern.CASE_INSENSITIVE);
         Matcher matcher = pat.matcher(url + " ");
         if (matcher.find()) {
@@ -454,7 +512,7 @@ public class GenerationRDFSupport {
      * @param url the String of the URL of the jdbc driver.
      * @return the String name of the host.
      */
-    public static String getPasswordFromUrl(String url) {
+    private String getPasswordFromUrl(String url) {
         Pattern pat = Pattern.compile("(\\&|\\?|\\=|\\/)?(pass|password)(\\=)(.*?)(\\&|\\?|\\=|\\/|\\s)+", Pattern.CASE_INSENSITIVE);
         Matcher matcher = pat.matcher(url + " ");
         if (matcher.find()) {
@@ -491,15 +549,16 @@ public class GenerationRDFSupport {
 
     //Check the right version jena of karma
     //com.hp.hpl.jena.rdf.model.Model model = loadSourceModelIntoJenaModel(new File(MODEL_KARMA).toURL());
-    public static Boolean checkJenaVersionForWorkWithWebKarma(URL modelURL) throws IOException {
+    private Boolean checkJenaVersionForWorkWithWebKarma(URL modelURL) throws IOException {
         try {
             com.hp.hpl.jena.rdf.model.Model model = com.hp.hpl.jena.rdf.model.ModelFactory.createDefaultModel();
             InputStream s = modelURL.openStream();
-            model.read(s, (String) null, "TURTLE");
+            model.read(s, null, "TURTLE");
             return true;
         }catch(Exception e){
-            logger.error("ATTENTION: You are not using the right version of Jena for work with karma-offline");
+            logger.error("ATTENTION: You are not using the right version of Jena for work with karma-offline",e);
             return false;
         }
     }
+
 }

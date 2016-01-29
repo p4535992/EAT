@@ -19,7 +19,7 @@ public class Test_SILK {
         File file = new File("C:\\Users\\Marco\\Documents\\GitHub\\EAT\\linking\\src\\main\\resources\\km4c-InfoDoc_M-wgs84_COORD_A\\SLS_km4c-InfoDoc_M-wgs84_COORD_A.xml");
         if(file.exists()) {
             //file,id del link, num thread, log
-           //de.fuberlin.wiwiss.silk.Silk.executeFile(file, "interlink_location", 2, true);
+           de.fuberlin.wiwiss.silk.Silk.executeFile(file, "interlink_location", 2, true);
         }else{
             throw new IOException("File not found!!!");
         }

@@ -174,8 +174,10 @@ public class MainSesameManager {
         String query ;
         String sparql ;
         org.openrdf.model.Model sModel = sesame.toModel(rep);
+
         Jena3SesameUtilities jas = Jena3SesameUtilities.getInstance();
         Jena3Utilities j3u = Jena3Utilities.getInstance();
+
         Model jModel2 = jas.asJenaModel(sModel);
         //int count = sparqlQueries.size();
         int count = 10;

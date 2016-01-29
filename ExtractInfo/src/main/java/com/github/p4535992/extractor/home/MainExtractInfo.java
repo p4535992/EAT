@@ -1,15 +1,13 @@
 package com.github.p4535992.extractor.home;
 
 import com.github.p4535992.extractor.estrattori.ExtractInfoSpring;
-import com.github.p4535992.util.file.FileUtilities;
 import com.github.p4535992.util.file.SimpleParameters;
 import com.github.p4535992.util.log.logback.LogBackUtil;
 
 import java.awt.*;
 import java.io.*;
 import java.lang.reflect.InvocationTargetException;
-import java.util.HashMap;
-import java.util.Map;
+
 
 /**
  * The Main Class of the Module ExtractInfo.

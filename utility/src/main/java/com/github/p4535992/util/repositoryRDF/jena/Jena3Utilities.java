@@ -2,7 +2,6 @@ package com.github.p4535992.util.repositoryRDF.jena;
 
 import com.github.p4535992.util.string.StringUtilities;
 
-import jena.schemagen;
 import org.apache.jena.atlas.lib.*;
 import org.apache.jena.atlas.lib.Timer;
 import org.apache.jena.datatypes.RDFDatatype;
@@ -1727,12 +1726,13 @@ public class Jena3Utilities {
      * @return the model jena with the prefix of namespace.
      */
     public static Model setCommonPrefixes(Model model, Map<String, String> namespaces) {
-        //for (Map.Entry<String, String> entry : namespaces.entrySet()) {
-        namespaces.entrySet().stream().forEach((entry) -> {
+        for (Map.Entry<String, String> entry : namespaces.entrySet()) {
+            //namespaces.entrySet().stream().forEach((entry) -> {
             //model.setNsPrefix("dcterms", "http://purl.org/dc/terms/");
             //model.setNsPrefix("vis", "http://ideagraph.org/xmlns/idea/graphic#");
             model.setNsPrefix(String.valueOf(entry.getKey()), String.valueOf(entry.getValue()));
-        });
+            //});
+        }
         return model;
     }
 
@@ -2898,10 +2898,11 @@ public class Jena3Utilities {
     public static Dataset toDataset(Model baseModel, Map<String, Model> listModel) {
         Dataset dataset = DatasetFactory.createGeneral();
         dataset.setDefaultModel(baseModel);
-        // for (Map.Entry<String, Model> entry : listModel.entrySet()) {
-        listModel.entrySet().stream().forEach((entry) -> {
+        for (Map.Entry<String, Model> entry : listModel.entrySet()) {
+        //listModel.entrySet().stream().forEach((entry) -> {
             dataset.addNamedModel(entry.getKey(), entry.getValue());
-        });
+        //});
+        }
         return dataset;
     }
 
@@ -3526,7 +3527,7 @@ public class Jena3Utilities {
      * @param outputJenaVocabulary the {@link File} output Vocabulary class ojava of API Jena.
      * @param alternativeConfig the {@link File} with an alternative configuration.
      */
-    public static void invokeSchemaGen(
+    /*public static void invokeSchemaGen(
             File inputOntology,String baseUri,File outputJenaVocabulary,File alternativeConfig){
         //schemagen.SchemagenUtils.urlCheck("");
         String[] arrayParams = new String[]{
@@ -3537,7 +3538,7 @@ public class Jena3Utilities {
                 "-e",StringUtilities.UTF_8.toString()
         };
         schemagen.main(arrayParams);
-    }
+    }*/
 
     /*public static Collection<String[]> evalutateQueries(String manifestURI,File rqFile, String... excludes)
             throws URISyntaxException, IOException {

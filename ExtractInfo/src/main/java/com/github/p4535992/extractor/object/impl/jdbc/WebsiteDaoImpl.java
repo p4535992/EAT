@@ -2,6 +2,7 @@ package com.github.p4535992.extractor.object.impl.jdbc;
 import com.github.p4535992.extractor.object.dao.jdbc.IWebsiteDao;
 import com.github.p4535992.extractor.object.impl.jdbc.generic.GenericDaoImpl;
 import com.github.p4535992.extractor.object.model.Website;
+import com.github.p4535992.util.string.StringUtilities;
 import com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException;
 import org.hibernate.SessionFactory;
 import com.github.p4535992.extractor.estrattori.ExtractInfoSpring;
@@ -56,7 +57,8 @@ public class WebsiteDaoImpl extends GenericDaoImpl<Website> implements IWebsiteD
         List<URL> listUrl = new ArrayList<>();
         for(Object sUrl : listStringUrl){
             URL u;
-            if (!sUrl.toString().matches("^(https?|ftp)://.*$")) {
+            //if (!sUrl.toString().matches("^(https?|ftp)://.*$")) {
+            if(StringUtilities.isURLWithoutProtocol(String.valueOf(sUrl))){
                 u = new URL("http://"+sUrl);
             }else{
                 u = new URL(sUrl.toString());
