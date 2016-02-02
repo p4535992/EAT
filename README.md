@@ -11,7 +11,7 @@ and triplify MySQL/SQL Table to file of triple with the software [Web-Karma](htt
 Here the database used for the test: [backup_test_1_sql](db/SQL TEST 2016-01.zip)
 
 Example 0: Extract company information using the single properties file, 
-here a example fo the [file properties](input.properties) the documentation is [here](doc/[README] Manuale Utente Elaborato -  ITA 2015-03-06.xls):
+here a example fo the [file properties](https://github.com/p4535992/EAT/blob/master/src/main/resources/input.properties) the documentation is [here](doc/[README] Manuale Utente Elaborato -  ITA 2015-03-06.xls):
 ```java
 public void extractByFileProperties(final File file, final char separator) {
     try {
