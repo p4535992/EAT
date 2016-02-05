@@ -38,6 +38,7 @@
     </parent>-->
 
     <repositories>
+        <!-- Web-Karma repository -->
         <repository>
             <id>Web-Karma</id>
             <url>https://github.com/usc-isi-i2/Web-Karma</url>
@@ -45,7 +46,8 @@
                 <enabled>true</enabled>
                 <updatePolicy>always</updatePolicy>
             </snapshots>
-        </repository>   
+        </repository>
+        <!-- Web-Karma Offline  repository -->
         <repository>
             <id>Karma-offline</id>
             <url>https://github.com/usc-isi-i2/Web-Karma/tree/master/karma-offline</url>
@@ -53,10 +55,50 @@
                 <enabled>true</enabled>
                 <updatePolicy>always</updatePolicy>
             </snapshots>
-        </repository>  
+        </repository>
+        <!-- Jitpack repository -->
         <repository>
             <id>jitpack.io</id>
             <url>https://jitpack.io</url>
+        </repository>
+        <!-- Jena-Sesame-CumulusRDF Driver -->
+        <repository>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+            <id>cumulusrdf-repo</id>
+            <url>http://cumulusrdf.googlecode.com/svn/repository</url>
+        </repository>
+        <!-- Jena-Virtuoso Driver-->
+        <repository>
+            <id>maven.aksw.internal</id>
+            <name>University Leipzig, AKSW Maven2 Repository</name>
+            <url>http://maven.aksw.org/archiva/repository/internal</url>
+        </repository>
+        <repository>
+            <id>maven.aksw.snapshots</id>
+            <name>University Leipzig, AKSW Maven2 Repository</name>
+            <url>http://maven.aksw.org/archiva/repository/snapshots</url>
+        </repository>
+        <!-- Sesame-Virtuoso Driver -->
+        <repository>
+            <id>ldstack</id>
+            <url>http://mvn.linkeddata.org/content/groups/linkeddata.org/</url>
+        </repository>
+        <!-- Alternative repository for import dependency not present on the maven central -->
+        <repository>
+            <id>fortytwo</id>
+            <name>fortytwo.net Maven repository</name>
+            <url>http://fortytwo.net/maven2</url>
+        </repository>
+        <!-- Alternative repository for import dependency not present on the maven central -->
+        <repository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </repository>
+        <repository>
+            <id>ossrh2</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots/com/univocity/univocity-parsers/2.0.0-SNAPSHOT/</url>
         </repository>
     </repositories>
 
@@ -172,7 +214,7 @@
 
     <dependencies>
         <!-- Module databse-basic  -->
-        <dependency>
+       <dependency>
             <groupId>com.github.p4535992</groupId>
             <artifactId>database-basic</artifactId>
             <version>${com.github.p4535992.database-basic.version}</version>

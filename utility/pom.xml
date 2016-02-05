@@ -207,6 +207,12 @@
     <dependencies>
 
         <dependency>
+            <groupId>com.github.p4535992</groupId>
+            <artifactId>database-basic</artifactId>
+            <version>1.6.8</version>
+        </dependency>
+
+        <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>${mysql.version}</version>

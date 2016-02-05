@@ -23,7 +23,7 @@ public class ExtractInfoCompany {
             org.slf4j.LoggerFactory.getLogger(ExtractInfoCompany.class);
 
     public static void main(String[] args) {
-        importFileToSesameRepository();
+        extractByFileProperties(null,'=');
     }
 
     private static ExtractInfoCompany instance = null;
@@ -137,7 +137,7 @@ public class ExtractInfoCompany {
         }
     }
 
-    public void extractByFileProperties(final File file, final char separator) {
+    public static void extractByFileProperties(final File file, final char separator) {
         try {
             EventQueue.invokeLater(new Runnable() {
                 //SwingUtilities.invokeAndWait(new Runnable() {
@@ -147,7 +147,7 @@ public class ExtractInfoCompany {
                         LogBackUtil.init(LogBackUtil.LOGPATTERN.PATTERN_CLASSIC_NOTIME);
                         logger.info("===== START THE PROGRAMM =========");
                         SimpleParameters params;
-                        if (file.exists()) {
+                        if (file != null && file.exists()) {
                             //params = FileUtilities.readFile(new File(args[0]), '=');
                             params = new SimpleParameters(file, separator);
                         } else {
