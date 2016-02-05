@@ -184,7 +184,8 @@ Example 6: Matching triple beetween Sesame repositories with SILK
 + Integration [Spring MVC](http://docs.spring.io/spring/docs/current/spring-framework-reference/html/mvc.html) (in a private project for more info you can contact me)
 + Integration [JSOUP](http://jsoup.org/)
 
-
+######RUN WITH MAVEN COMMAND
+mvn exec:java -Dexec.mainClass="com.github.p4535992.extractor.home.ExtractInfoCompany" -Dexec.args=""
 
 
 

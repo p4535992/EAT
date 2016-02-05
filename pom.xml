@@ -80,7 +80,7 @@
             <version>${com.github.p4535992.ExtractInfo.version}</version>
         </dependency>
 
-        
+
         <!-- MAVEN PLUGIN DEPENDENCY-->
         <dependency>
             <groupId>org.codehaus.mojo</groupId>
@@ -93,14 +93,32 @@
             <artifactId>spring-beans</artifactId>
             <version>4.1.6.RELEASE</version>
         </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.5.1</version>
+        </dependency>
+
 
     </dependencies>
 
-
-
     <build>
         <plugins>
-
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>nbm-maven-plugin</artifactId>
+                <version>3.7</version>
+                <extensions>true</extensions>
+            </plugin>
+            <!-- mvn exec:java -Dexec.mainClass="com.github.p4535992.extractor.home.ExtractInfoCompany"-->
+            <!-- mvn -Dexec.args=\"-classpath %classpath
+            com.github.p4535992.extractor.home.ExtractInfoCompany\"
+            -Dexec.executable=java
+            -Dexec.classpathScope=runtime
+            -Dmaven.ext.class.path=\"C:\\Program Files\\NetBeans 8.1\\java\\maven-nblib\\netbeans-eventspy.jar\"
+            -Dfile.encoding=UTF-8 process-classes org.codehaus.mojo:exec-maven-plugin:1.2.1:exec\""
+-->
+            <!-- mvn exec:java -Dexec.mainClass="com.github.p4535992.extractor.home.ExtractInfoCompany" -->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
@@ -113,7 +131,8 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <mainClass>/com/github/p4535992/extractor/home/MainEAT</mainClass>
+                    <executable>java</executable>
+                    <mainClass>com.github.p4535992.extractor.home.ExtractInfoCompany</mainClass>
                 </configuration>
             </plugin>
 
@@ -144,17 +163,17 @@
                     <showDeprecation>true</showDeprecation>
                     <encoding>${encoding}</encoding>
                     <debug>true</debug>
-                    <debuglevel>lines,vars,source</debuglevel> 
+                    <debuglevel>lines,vars,source</debuglevel>
                     <!-- DO NOT include log4j.properties file in your Jar -->
                     <excludes>
                         <exclude>**/log4j.properties</exclude>
                     </excludes>
-                   <!-- <archive>
-                        <manifest>
-                            &lt;!&ndash; Jar file entry point &ndash;&gt;
-                            <mainClass>home.MainExtractInfo</mainClass>
-                        </manifest>
-                    </archive>-->
+                    <!-- <archive>
+                         <manifest>
+                             &lt;!&ndash; Jar file entry point &ndash;&gt;
+                             <mainClass>home.MainExtractInfo</mainClass>
+                         </manifest>
+                     </archive>-->
                 </configuration>
             </plugin>
 
@@ -216,7 +235,7 @@
                 </executions>
             </plugin>
             -->
-            
+
         </plugins>
     </build>
 </project>
