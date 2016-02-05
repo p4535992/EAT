@@ -6,7 +6,7 @@
 
     <groupId>com.github.p4535992</groupId>
     <artifactId>extractInfo</artifactId>
-    <version>1.6.7</version>
+    <version>1.6.8</version>
     <packaging>jar</packaging>
 
     <name>${project.artifactId}</name>
@@ -66,7 +66,7 @@
         <downloadJavadocs>true</downloadJavadocs>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.build.outputEncoding>UTF-8</project.build.outputEncoding>
-        <java.language.level.version>1.7</java.language.level.version>
+        <java.language.level.version>1.8</java.language.level.version>
         <encoding>UTF-8</encoding>
         <!-- Version of the Maven properties -->
         <maven-eclipse-plugin.version>2.9</maven-eclipse-plugin.version>
@@ -100,16 +100,20 @@
         <commons-logging.version>1.1.1</commons-logging.version>
         <spring-boot-starter-logging.version>1.2.4.RELEASE</spring-boot-starter-logging.version>
         <org.apache.logging.log4j.core.version>2.3</org.apache.logging.log4j.core.version>
-
+        <!-- Version of the libray we used on the project, 4.2.0.Final,-->
+        <org.hibernate.version>4.3.10.Final</org.hibernate.version>
+        <!-- Support Hibernate -->
+        <joda-time.version>2.3</joda-time.version>
+        <org.jadira.usertype.core.version>3.0.0.CR1</org.jadira.usertype.core.version>
         <!-- HTML -->
         <org.jsoup.jsoup.version>1.8.2</org.jsoup.jsoup.version>
 
         <!-- APACHE HTTP -->
         <org.apache.httpcomponents.httpclient.version>4.5.1</org.apache.httpcomponents.httpclient.version>
         <!-- UTILITY -->
-        <com.github.p4535992.utility.version>1.6.7</com.github.p4535992.utility.version>
-        <com.github.p4535992.gate-basic.version>1.6.7</com.github.p4535992.gate-basic.version>
-
+        <com.github.p4535992.utility.version>1.6.8</com.github.p4535992.utility.version>
+        <com.github.p4535992.gate-basic.version>1.6.8</com.github.p4535992.gate-basic.version>
+        <com.github.p4535992.database-basic.version>1.6.8</com.github.p4535992.database-basic.version>
         <!-- SCALA -->
         <scala-library.version>2.10.3</scala-library.version>
     </properties>
@@ -167,6 +171,13 @@
     </dependencyManagement>
 
     <dependencies>
+        <!-- Module databse-basic  -->
+        <dependency>
+            <groupId>com.github.p4535992</groupId>
+            <artifactId>database-basic</artifactId>
+            <version>${com.github.p4535992.database-basic.version}</version>
+        </dependency>
+
         <!-- Module utility  -->
         <dependency>
             <groupId>com.github.p4535992</groupId>
@@ -179,12 +190,70 @@
             <artifactId>gate-basic</artifactId>
         </dependency>
 
-        <!-- MySQL -->
+        <!-- ============= -->
+        <!-- HIBERNATE     -->
+        <!-- ============= -->
         <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>${mysql-connector-java.version}</version>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>${org.hibernate.version}</version>
         </dependency>
+        <!-- for JPA, use hibernate-entitymanager instead of hibernate-core -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>${org.hibernate.version}</version>
+        </dependency>
+        <!-- optional hibernate dependency -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-osgi</artifactId>
+            <version>${org.hibernate.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-envers</artifactId>
+            <version>${org.hibernate.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-c3p0</artifactId>
+            <version>${org.hibernate.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-proxool</artifactId>
+            <version>${org.hibernate.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-infinispan</artifactId>
+            <version>${org.hibernate.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-ehcache</artifactId>
+            <version>${org.hibernate.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>5.1.3.Final</version>
+        </dependency>
+
+        <!-- Joda-Time -->
+       <!-- <dependency>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time</artifactId>
+            <version>${joda-time.version}</version>
+        </dependency>-->
+
+        <!-- To map JodaTime with database type -->
+        <!--<dependency>
+            <groupId>org.jadira.usertype</groupId>
+            <artifactId>usertype.core</artifactId>
+            <version>${org.jadira.usertype.core.version}</version>
+        </dependency>-->
 
         <!-- SILK - https://maven-repository.com/artifact/eu.fusepool.p3.ext.de.fuberlin.wiwiss.silk/silk-singlemachine/2.6.0 -->
         <dependency>
@@ -257,14 +326,6 @@
             <groupId>xml-apis</groupId>
             <artifactId>xml-apis</artifactId>
             <version>1.4.01</version>
-        </dependency>
-
-        <!-- HTML PARSER  -->
-        <dependency>
-            <groupId>org.jsoup</groupId>
-            <artifactId>jsoup</artifactId>
-            <version>${org.jsoup.jsoup.version}</version>
-            <optional>true</optional>
         </dependency>
 
         <!-- Module  WEB-KARMA -->
@@ -354,27 +415,11 @@
         <!-- =============== -->
         <!-- Apache Support -->
         <!-- =============== -->
-        <dependency>
+       <!-- <dependency>
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpclient</artifactId>
             <version>${org.apache.httpcomponents.httpclient.version}</version>
-        </dependency>
-
-        <!-- <dependency>
-             <groupId>javax.persistence</groupId>
-             <artifactId>persistence-api</artifactId>
-             <version>1.0.2</version>
-         </dependency>-->
-       <!-- <dependency>
-            <groupId>org.hibernate.javax.persistence</groupId>
-            <artifactId>hibernate-jpa-2.1-api</artifactId>
-            <version>1.0.0.Final</version>
         </dependency>-->
-       <!-- <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-core</artifactId>
-            <version>4.3.10.Final</version>
-        </dependency>     -->
 
         <dependency>
             <groupId>org.scala-lang</groupId>

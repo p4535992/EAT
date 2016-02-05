@@ -73,11 +73,11 @@
         <module name="karma-common" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="1.7">
-      <module name="EAT" target="1.7" />
-      <module name="extractInfo" target="1.7" />
-      <module name="gate-basic" target="1.7" />
-      <module name="utility" target="1.7" />
+    <bytecodeTargetLevel target="1.8">
+      <module name="EAT" target="1.8" />
+      <module name="extractInfo" target="1.8" />
+      <module name="gate-basic" target="1.8" />
+      <module name="utility" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

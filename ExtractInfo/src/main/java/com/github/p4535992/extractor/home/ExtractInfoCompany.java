@@ -47,7 +47,7 @@ public class ExtractInfoCompany {
     public static void extractBySingleURL() {
             try {
                 LogBackUtil.setLogpatternConsole(LogBackUtil.LOGPATTERN.PATTERN_COLORED1_METHOD_NOTIME);
-                LogBackUtil.init(LogBackUtil.LOGPATTERN.PATTERN_CLASSIC_NOTIME);
+                LogBackUtil.ConsoleAndFile(LogBackUtil.LOGPATTERN.PATTERN_CLASSIC_NOTIME);
                 logger.info("===== START THE PROGRAMM =========");
                 ExtractInfoSpring m = ExtractInfoSpring.getInstance();
                 logger.info("START EXTRACT");
@@ -62,7 +62,7 @@ public class ExtractInfoCompany {
     public static void extractByMultipleURL() {
         try {
             LogBackUtil.setLogpatternConsole(LogBackUtil.LOGPATTERN.PATTERN_COLORED1_METHOD_NOTIME);
-            LogBackUtil.init(LogBackUtil.LOGPATTERN.PATTERN_CLASSIC_NOTIME);
+            LogBackUtil.ConsoleAndFile(LogBackUtil.LOGPATTERN.PATTERN_CLASSIC_NOTIME);
             logger.info("===== START THE PROGRAMM =========");
             ExtractInfoSpring m = ExtractInfoSpring.getInstance();
             logger.info("START EXTRACT");
@@ -77,7 +77,7 @@ public class ExtractInfoCompany {
     public static void extractByFile() {
         try {
             LogBackUtil.setLogpatternConsole(LogBackUtil.LOGPATTERN.PATTERN_COLORED1_METHOD_NOTIME);
-            LogBackUtil.init(LogBackUtil.LOGPATTERN.PATTERN_CLASSIC_NOTIME);
+            LogBackUtil.ConsoleAndFile(LogBackUtil.LOGPATTERN.PATTERN_CLASSIC_NOTIME);
             logger.info("===== START THE PROGRAMM =========");
             ExtractInfoSpring m = ExtractInfoSpring.getInstance();
             logger.info("START EXTRACT");
@@ -93,7 +93,7 @@ public class ExtractInfoCompany {
     public static void extractTripleFromDatabase() {
         try {
             LogBackUtil.setLogpatternConsole(LogBackUtil.LOGPATTERN.PATTERN_COLORED1_METHOD_NOTIME);
-            LogBackUtil.init(LogBackUtil.LOGPATTERN.PATTERN_CLASSIC_NOTIME);
+            LogBackUtil.ConsoleAndFile(LogBackUtil.LOGPATTERN.PATTERN_CLASSIC_NOTIME);
             logger.info("===== START THE PROGRAMM =========");
             logger.info("START TRIPLIFY");
             File r2rml = new File("" +
@@ -115,7 +115,7 @@ public class ExtractInfoCompany {
     public static void importFileToSesameRepository(){
         try {
             LogBackUtil.setLogpatternConsole(LogBackUtil.LOGPATTERN.PATTERN_COLORED1_METHOD_NOTIME);
-            LogBackUtil.init(LogBackUtil.LOGPATTERN.PATTERN_CLASSIC_NOTIME);
+            LogBackUtil.ConsoleAndFile(LogBackUtil.LOGPATTERN.PATTERN_CLASSIC_NOTIME);
             logger.info("===== START THE PROGRAMM =========");
             logger.info("START TRIPLIFY");
             File output = new File("" +
@@ -134,7 +134,7 @@ public class ExtractInfoCompany {
     public static void linkingWithSILK(){
         try {
             LogBackUtil.setLogpatternConsole(LogBackUtil.LOGPATTERN.PATTERN_COLORED1_METHOD_NOTIME);
-            LogBackUtil.init(LogBackUtil.LOGPATTERN.PATTERN_CLASSIC_NOTIME);
+            LogBackUtil.ConsoleAndFile(LogBackUtil.LOGPATTERN.PATTERN_CLASSIC_NOTIME);
             logger.info("===== START THE PROGRAMM =========");
             logger.info("START TRIPLIFY");
             File xmlConfig = new File("" +
@@ -149,7 +149,7 @@ public class ExtractInfoCompany {
     public void extractByFileProperties(final File file, final char separator) {
         try {
             LogBackUtil.setLogpatternConsole(LogBackUtil.LOGPATTERN.PATTERN_COLORED1_METHOD_NOTIME);
-            LogBackUtil.init(LogBackUtil.LOGPATTERN.PATTERN_CLASSIC_NOTIME);
+            LogBackUtil.ConsoleAndFile(LogBackUtil.LOGPATTERN.PATTERN_CLASSIC_NOTIME);
             logger.info("===== START THE PROGRAMM =========");
             SimpleParameters params;
             if (file.exists()) {

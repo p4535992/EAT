@@ -1,11 +1,6 @@
 
 package com.github.p4535992.extractor.object.model;
 
-
-
-import com.github.p4535992.util.hibernate.interceptor.SelfDirtyCheckingEntity;
-
-import java.io.Serializable;
 import java.net.MalformedURLException;
 import java.net.URL;
 import javax.persistence.*;
@@ -17,7 +12,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "geodocument")
-public class GeoDocument extends SelfDirtyCheckingEntity{
+public class GeoDocument {
     //private static final long serialVersionUID = 11L;
     @Id @GeneratedValue
     @Column(name = "doc_id")
@@ -111,7 +106,6 @@ public class GeoDocument extends SelfDirtyCheckingEntity{
 
     public void setDoc_id(Integer doc_id) {
         this.doc_id = doc_id;
-        markDirtyProperty();
     }
 
     public URL getUrl() {
@@ -129,7 +123,6 @@ public class GeoDocument extends SelfDirtyCheckingEntity{
                 e.printStackTrace();
             }
         }
-        markDirtyProperty();
     }
 
 //    @PreUpdate
@@ -156,7 +149,6 @@ public class GeoDocument extends SelfDirtyCheckingEntity{
 
     public void setRegione(String regione) {
         this.regione = regione;
-        markDirtyProperty();
     }
 
     public String getProvincia() {
@@ -165,7 +157,6 @@ public class GeoDocument extends SelfDirtyCheckingEntity{
 
     public void setProvincia(String provincia) {
         this.provincia = provincia;
-        markDirtyProperty();
     }
 
     public String getCity() {
@@ -174,7 +165,6 @@ public class GeoDocument extends SelfDirtyCheckingEntity{
 
     public void setCity(String city) {
         this.city = city;
-        markDirtyProperty();
     }
 
     public String getIndirizzo() {
@@ -183,7 +173,6 @@ public class GeoDocument extends SelfDirtyCheckingEntity{
 
     public void setIndirizzo(String indirizzo) {
         this.indirizzo = indirizzo;
-        markDirtyProperty();
     }
 
     public String getIva() {
@@ -192,7 +181,6 @@ public class GeoDocument extends SelfDirtyCheckingEntity{
 
     public void setIva(String iva) {
         this.iva = iva;
-        markDirtyProperty();
     }
 
     public String getEmail() {
@@ -201,7 +189,6 @@ public class GeoDocument extends SelfDirtyCheckingEntity{
 
     public void setEmail(String email) {
         this.email = email;
-        markDirtyProperty();
     }
 
     public String getTelefono() {
@@ -210,7 +197,6 @@ public class GeoDocument extends SelfDirtyCheckingEntity{
 
     public void setTelefono(String telefono) {
         this.telefono = telefono;
-        markDirtyProperty();
     }
 
     public String getEdificio() {
@@ -219,7 +205,6 @@ public class GeoDocument extends SelfDirtyCheckingEntity{
 
     public void setEdificio(String edificio) {
         this.edificio = edificio;
-        markDirtyProperty();
     }
 
     public String getNazione() {
@@ -228,7 +213,6 @@ public class GeoDocument extends SelfDirtyCheckingEntity{
 
     public void setNazione(String nazione) {
         this.nazione = nazione;
-        markDirtyProperty();
     }
 
     public Double getLat() {
@@ -237,7 +221,6 @@ public class GeoDocument extends SelfDirtyCheckingEntity{
 
     public void setLat(Double lat) {
         this.lat = lat;
-        markDirtyProperty();
     }
 
     public Double getLng() {
@@ -246,7 +229,6 @@ public class GeoDocument extends SelfDirtyCheckingEntity{
 
     public void setLng(Double lng) {
         this.lng = lng;
-        markDirtyProperty();
     }
 
     public String getDescription() {
@@ -255,7 +237,6 @@ public class GeoDocument extends SelfDirtyCheckingEntity{
 
     public void setDescription(String description) {
         this.description = description;
-        markDirtyProperty();
     }
 
     public String getIndirizzoNoCAP() {
@@ -264,7 +245,6 @@ public class GeoDocument extends SelfDirtyCheckingEntity{
 
     public void setIndirizzoNoCAP(String indirizzoNoCAP) {
         this.indirizzoNoCAP = indirizzoNoCAP;
-        markDirtyProperty();
     }
 
     public String getPostalCode() {
@@ -273,7 +253,6 @@ public class GeoDocument extends SelfDirtyCheckingEntity{
 
     public void setPostalCode(String postalCode) {
         this.postalCode = postalCode;
-        markDirtyProperty();
     }
 
     public String getFax() {
@@ -282,7 +261,6 @@ public class GeoDocument extends SelfDirtyCheckingEntity{
 
     public void setFax(String fax) {
         this.fax = fax;
-        markDirtyProperty();
     }
 
     public String getIndirizzoHasNumber() {
@@ -291,7 +269,6 @@ public class GeoDocument extends SelfDirtyCheckingEntity{
 
     public void setIndirizzoHasNumber(String indirizzoHasNumber) {
         this.indirizzoHasNumber = indirizzoHasNumber;
-        markDirtyProperty();
     }
 
     @Override

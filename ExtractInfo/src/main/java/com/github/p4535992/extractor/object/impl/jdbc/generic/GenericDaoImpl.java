@@ -71,7 +71,7 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
     }
 
 
-    public DriverManagerDataSource setDataSourceWithSpring(String driver,String url,String username,String password){
+    /*public DriverManagerDataSource setDataSourceWithSpring(String driver,String url,String username,String password){
         DriverManagerDataSource driverManag = new DriverManagerDataSource();
         driverManag.setDriverClassName(driver);//"com.mysql.jdbc.Driver"
         driverManag.setUrl(url); //"jdbc:mysql://localhost:3306/jdbctest"
@@ -79,10 +79,10 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
         driverManag.setPassword(password);
         return driverManag;
     }
-
-    public DataSource setDataSource(String driver,String url,String username,String password){
+*/
+    /*public DataSource setDataSource(String driver,String url,String username,String password){
         return SQLUtilities.getLocalPooledConnection("ds_"+url,url,driver,username,password);
-    }
+    }*/
 
     @Override
     public void setDriverManager(String driver, String dialectDB, String host, String port, String user, String pass, String database) {

@@ -4,6 +4,7 @@ import com.github.p4535992.util.file.csv.opencsv.OpenCsvUtilities;
 import com.github.p4535992.util.log.logback.LogBackUtil;
 import com.univocity.parsers.common.processor.ColumnProcessor;
 import com.univocity.parsers.common.processor.RowListProcessor;
+import com.univocity.parsers.csv.CsvFormat;
 import com.univocity.parsers.csv.CsvParser;
 import com.univocity.parsers.csv.CsvParserSettings;
 
@@ -50,7 +51,10 @@ public class UnivocityUtilities {
             }else {
                 return rowProcessor.getHeaders();
             }
-        } catch (Exception e) {
+        } catch(java.lang.NullPointerException e){
+            logger.warn("The file:"+fileInputCsv.getAbsolutePath()+" is empty or not exists");
+            return columns;
+        }catch (Exception e) {
             logger.error("Can't find the Headers on the CSV File", e);
         }
         return columns;
@@ -114,20 +118,33 @@ public class UnivocityUtilities {
         return new TreeMap<>(rowProcessor.getColumnValuesAsMapOfNames());
     }
 
+    public static char getDelimiterField(File fileInputCsv){
+        CsvParserSettings parserSettings = new CsvParserSettings();
+        parserSettings.setLineSeparatorDetectionEnabled(true);
+        parserSettings.setHeaderExtractionEnabled(true);
+        parserSettings.setDelimiterDetectionEnabled(true);
+        CsvParser parser = new CsvParser(parserSettings);
+        parser.parse(fileInputCsv);
+        return parser.getDetectedFormat().getDelimiter();
+    }
+
     private void printRows(List<String[]> rows) {
-        logger.info("\nPrinting " + rows.size() + " rows");
+        logger.info("Printing " + rows.size() + " rows:\n");
         int rowCount = 0;
         for (String[] row : rows) {
             logger.info("Row " + ++rowCount + " (length " + row.length + "): " + Arrays.toString(row));
             int valueCount = 0;
             for (String value : row) {
-                logger.info("\tvalue " + ++valueCount + ": " + value);
+                logger.info("\tvalue " + ++valueCount + ": " + value+"\n");
             }
         }
     }
 
     public static void main(String[] args) {
         LogBackUtil.console();
+
+        char c = getDelimiterField(new File("C:\\Users\\tenti\\Documents\\GitHub\\repositoryForTest\\testWitSources\\fileForTest\\data.csv"));
+
         List<String[]> cotnent =
                 OpenCsvUtilities.parseCSVFileAsListWithUnivocity(
                         new File("C:\\Users\\tenti\\Documents\\GitHub\\repositoryForTest\\testWitSources\\fileForTest\\data.csv")

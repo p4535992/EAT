@@ -22,10 +22,6 @@ public class GeoDocumentDaoImpl extends GenericDaoImpl<GeoDocument> implements I
     private static final org.slf4j.Logger logger =
             org.slf4j.LoggerFactory.getLogger( GeoDocumentDaoImpl.class);
 
-    private static String gm() {
-        return Thread.currentThread().getStackTrace()[1].getMethodName()+":: ";
-    }
-
     public GeoDocumentDaoImpl(){}
 
     @Override

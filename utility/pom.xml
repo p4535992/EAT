@@ -11,7 +11,7 @@
 
     <groupId>com.github.p4535992</groupId>
     <artifactId>utility</artifactId>
-    <version>1.6.7</version>
+    <version>1.6.8</version>
     <packaging>jar</packaging>
 
     <name>${project.artifactId}</name>
@@ -89,7 +89,7 @@
         <downloadJavadocs>true</downloadJavadocs>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.build.outputEncoding>UTF-8</project.build.outputEncoding>
-        <java.language.level.version>1.7</java.language.level.version>
+        <java.language.level.version>1.8</java.language.level.version>
         <encoding>UTF-8</encoding>
         <!-- Version of the Maven properties -->
         <maven-eclipse-plugin.version>2.9</maven-eclipse-plugin.version>
@@ -205,6 +205,13 @@
     </dependencyManagement>
 
     <dependencies>
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql.version}</version>
+        </dependency>
+
         <!-- ==================== -->
         <!-- SPRING FRAMEWORK     -->
         <!-- ==================== -->
@@ -265,59 +272,8 @@
             <optional>true</optional>
         </dependency>
 
-
-        <!-- ============= -->
-        <!-- HIBERNATE     -->
-        <!-- ============= -->
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-core</artifactId>
-            <version>${org.hibernate.version}</version>
-        </dependency>
-        <!-- for JPA, use hibernate-entitymanager instead of hibernate-core -->
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-entitymanager</artifactId>
-            <version>${org.hibernate.version}</version>
-        </dependency>
-        <!-- optional hibernate dependency -->
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-osgi</artifactId>
-            <version>${org.hibernate.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-envers</artifactId>
-            <version>${org.hibernate.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-c3p0</artifactId>
-            <version>${org.hibernate.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-proxool</artifactId>
-            <version>${org.hibernate.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-infinispan</artifactId>
-            <version>${org.hibernate.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-ehcache</artifactId>
-            <version>${org.hibernate.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-validator</artifactId>
-            <version>5.1.3.Final</version>
-        </dependency>
         <!-- ================= -->
-        <!-- SUPPORT HIBERNATE -->
+        <!-- SUPPORT JAVAX Persistence -->
         <!-- ================= -->
         <dependency>
             <groupId>org.hibernate.javax.persistence</groupId>
@@ -343,22 +299,10 @@
             <version>${joda-time.version}</version>
         </dependency>
 
-        <!-- To map JodaTime with database type -->
-        <dependency>
-            <groupId>org.jadira.usertype</groupId>
-            <artifactId>usertype.core</artifactId>
-            <version>${org.jadira.usertype.core.version}</version>
-        </dependency>
-
         <!-- ================= -->
         <!-- DATABASE DRIVER   -->
         <!-- ================= -->
-        <!-- MySQL -->
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>${mysql.version}</version>
-        </dependency>
+
         <!-- JOOQ -->
         <dependency>
             <groupId>org.jooq</groupId>
@@ -375,20 +319,6 @@
             <artifactId>jooq-codegen</artifactId>
             <version>${org.jooq.jooq.version}</version>
         </dependency>
-        <dependency>
-            <groupId>org.jooq</groupId>
-            <artifactId>joor</artifactId>
-            <version>${org.jooq.joor.version}</version>
-        </dependency>
-
-        <!-- Pooling database -->
-        <dependency>
-            <groupId>com.jolbox</groupId>
-            <artifactId>bonecp</artifactId>
-            <version>${com.jolbox.bonecp.version}</version>
-            <optional>true</optional>
-        </dependency>
-
 
         <!-- ============= -->
         <!-- JSON PARSER   -->
@@ -432,12 +362,12 @@
             <optional>true</optional>
         </dependency>
         <!-- Support XML function on SpringFramework and Hibernate -->
-      <!--  <dependency>
-            <groupId>xml-apis</groupId>
-            <artifactId>xml-apis</artifactId>
-            <version>${xml-apis.xml-apis.version}</version>
-            <optional>true</optional>
-        </dependency>-->
+        <!--  <dependency>
+              <groupId>xml-apis</groupId>
+              <artifactId>xml-apis</artifactId>
+              <version>${xml-apis.xml-apis.version}</version>
+              <optional>true</optional>
+          </dependency>-->
 
         <!-- =============== -->
         <!-- HTML - JSOUP    -->
@@ -451,35 +381,6 @@
         <!-- =============== -->
         <!-- JENA FRAMEWORK  -->
         <!-- =============== -->
-        <!--<dependency>
-            <groupId>org.apache.jena</groupId>
-            <artifactId>jena-core</artifactId>
-            <version>3.0.1</version>
-        </dependency>-->
-        <!--<dependency>
-            <groupId>org.apache.jena</groupId>
-            <artifactId>apache-jena-libs</artifactId>
-            <type>pom</type>
-            <version>${org.apache.jena.apache-jena-libs.2.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.slf4j</groupId>
-                    <artifactId>slf4j-api</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.slf4j</groupId>
-                    <artifactId>slf4j-log4j12</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.apache.logging.log4j</groupId>
-                    <artifactId>log4j-core</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>log4j</groupId>
-                    <artifactId>log4j</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>-->
         <dependency>
             <groupId>org.apache.jena</groupId>
             <artifactId>apache-jena-libs</artifactId>
@@ -700,31 +601,6 @@
             </exclusions>
             <optional>true</optional>
         </dependency>
-       <!-- <dependency>
-            <groupId>org.visualdataweb.vowl.owl2vowl</groupId>
-            <artifactId>OWL2VOWL</artifactId>
-            <version>0.2.1</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.apache.logging.log4j</groupId>
-                    <artifactId>log4j-core</artifactId>
-                </exclusion>
-            </exclusions>
-            <optional>true</optional>
-        </dependency>-->
-        <!-- Support dependency -->
-        <!--<dependency>
-            <groupId>edu.stanford.protege</groupId>
-            <artifactId>org.semanticweb.owl.owlapi</artifactId>
-            <version>3.4.4</version>
-            <optional>true</optional>
-        </dependency>
-        <dependency>
-            <groupId>org.codehaus.jackson</groupId>
-            <artifactId>jackson-mapper-asl</artifactId>
-            <version>1.9.13</version>
-            <optional>true</optional>
-        </dependency>-->
 
         <!-- =============== -->
         <!-- JDBC4SPARQL     -->
@@ -771,33 +647,16 @@
             <artifactId>httpclient</artifactId>
             <version>${org.apache.httpcomponents.httpclient.version}</version>
         </dependency>
-        <!-- Apache Commons DBCP dependency (for database connection pooling): -->
-       <!-- <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-dbcp2</artifactId>
-            <version>${org.apache.commons.commons-dbcp2.version}</version>
-        </dependency>-->
-       <!-- <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-lang3</artifactId>
-            <version>${org.apache.commons.commons-lang3.version}</version>
-        </dependency>-->
-       <!-- <dependency>
-            <groupId>commons-codec</groupId>
-            <artifactId>commons-codec</artifactId>
-            <version>${org.apache.commons.commons-codec.version}</version>
-        </dependency>-->
+
         <dependency>
             <groupId>org.apache.tika</groupId>
             <artifactId>tika-core</artifactId>
             <version>${org.apache.tika.version}</version>
-            <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>org.apache.tika</groupId>
             <artifactId>tika-parsers</artifactId>
             <version>${org.apache.tika.version}</version>
-            <optional>true</optional>
         </dependency>
         <!-- Excel support -->
         <dependency>
@@ -822,6 +681,12 @@
             <groupId>net.sf.sevenzipjbinding</groupId>
             <artifactId>sevenzipjbinding-all-platforms</artifactId>
             <version>${net.sf.sevenzipjbinding.sevenzipjbinding}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.zeroturnaround</groupId>
+            <artifactId>zt-zip</artifactId>
+            <version>1.9</version>
+            <type>jar</type>
         </dependency>
 
         <!-- ====================== -->

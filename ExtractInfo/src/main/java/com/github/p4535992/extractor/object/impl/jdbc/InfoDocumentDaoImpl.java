@@ -5,6 +5,7 @@ import com.github.p4535992.extractor.object.model.GeoDocument;
 import com.github.p4535992.extractor.object.dao.jdbc.IInfoDocumentDao;
 import com.github.p4535992.extractor.object.model.InfoDocument;
 import com.github.p4535992.util.database.sql.query.SQLQuery;
+
 import org.hibernate.SessionFactory;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 

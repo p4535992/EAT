@@ -1,8 +1,8 @@
 package com.github.p4535992.extractor.object.impl.hibernate.generic;
 
+import com.github.p4535992.database.hibernate.Hibernate43Utilities;
 import com.github.p4535992.extractor.object.dao.hibernate.generic.IGenericHibernateDao;
 import com.github.p4535992.util.bean.BeansKit;
-import com.github.p4535992.util.hibernate.Hibernate43Utilities;
 import com.github.p4535992.util.string.StringUtilities;
 import org.hibernate.*;
 import org.hibernate.criterion.Criterion;

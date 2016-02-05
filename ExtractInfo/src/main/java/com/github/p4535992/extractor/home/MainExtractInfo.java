@@ -30,7 +30,7 @@ public class MainExtractInfo {
             public void run() {
                 try {
                     LogBackUtil.setLogpatternConsole(LogBackUtil.LOGPATTERN.PATTERN_COLORED1_METHOD_NOTIME);
-                    LogBackUtil.init(LogBackUtil.LOGPATTERN.PATTERN_CLASSIC_NOTIME);
+                    LogBackUtil.ConsoleAndFile(LogBackUtil.LOGPATTERN.PATTERN_CLASSIC_NOTIME);
                     logger.info("===== START THE PROGRAMM =========");
                     /*long start = System.currentTimeMillis();*/
                     // The storage for the command line parameters
