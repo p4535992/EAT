@@ -33,7 +33,7 @@
     <orderEntry type="library" name="Maven: joda-time:joda-time:2.9.2" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.jadira.usertype:usertype.core:5.0.0.GA" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.jadira.usertype:usertype.spi:5.0.0.GA" level="project" />
-    <orderEntry type="library" name="Maven: com.github.p4535992:utility:1.6.8" level="project" />
+    <orderEntry type="module" module-name="utility" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.5.3" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.5.3" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-core:2.5.3" level="project" />
