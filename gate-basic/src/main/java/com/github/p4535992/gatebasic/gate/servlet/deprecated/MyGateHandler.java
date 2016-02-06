@@ -6,9 +6,7 @@ import gate.CorpusController;
 import gate.Document;
 import gate.Factory;
 import gate.creole.ExecutionException;
-import org.apache.log4j.Logger;
 import org.springframework.web.HttpRequestHandler;
-
 import javax.annotation.PreDestroy;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -30,7 +28,10 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class MyGateHandler implements HttpRequestHandler {
   
   private static List<URL> listaUrl= new ArrayList<>();
-  private static final Logger log = Logger.getLogger(MyGateHandler.class);
+
+  private static final org.slf4j.Logger logger =
+          org.slf4j.LoggerFactory.getLogger(MyGateHandler.class);
+
   private static GateCorpus8Kit create = GateCorpus8Kit.getInstance();
 
   /**Atomic counter that we use to obtain a unique ID for each handler instance.*/
@@ -91,7 +92,7 @@ public class MyGateHandler implements HttpRequestHandler {
    */
   @PreDestroy
   public void cleanup() {
-    log.info("cleanup() for GateHandler " + handlerId);
+    logger.info("cleanup() for GateHandler " + handlerId);
     Factory.deleteResource(corpus);
     Factory.deleteResource(application);
   }
@@ -105,7 +106,7 @@ public class MyGateHandler implements HttpRequestHandler {
    */
   public void handleRequest(HttpServletRequest request,
           HttpServletResponse response) throws ServletException, IOException {
-    log.info("Handler " + handlerId + " handling request");
+    logger.info("Handler " + handlerId + " handling request");
 //    // we take the text to annotate from a form field
 //    String text = request.getParameter("text");
 //    // the form also allows you to provide a mime type
@@ -119,7 +120,7 @@ public class MyGateHandler implements HttpRequestHandler {
         delay = Integer.parseInt(delayParam);
       }
       catch(NumberFormatException e) {
-        log.warn("Failed to parse delay value " + delayParam + ", ignored", e);
+        logger.warn("Failed to parse delay value " + delayParam + ", ignored", e);
       }
     }
 
@@ -134,7 +135,7 @@ public class MyGateHandler implements HttpRequestHandler {
         // re-interrupt self
         Thread.currentThread().interrupt();
       }
-      log.info("Application completed");
+      logger.info("Application completed");
       successMessage(doc, response);
     }
     catch(ExecutionException e) {
@@ -143,8 +144,8 @@ public class MyGateHandler implements HttpRequestHandler {
     finally {
       // remember to do the clean-up tasks in a finally
       corpus.clear();
-       log.info("Deleting corpus");
-      log.info("Deleting document");
+       logger.info("Deleting corpus");
+      logger.info("Deleting document");
       Factory.deleteResource(doc);
     }
   }

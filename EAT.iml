@@ -18,7 +18,6 @@
     <orderEntry type="module" module-name="ExtractInfo" />
     <orderEntry type="library" name="Maven: com.github.p4535992:database-basic:1.6.8" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.codehaus.groovy:groovy-all:2.3.11" level="project" />
-    <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.14" level="project" />
     <orderEntry type="library" name="Maven: org.jooq:jooq:3.7.2" level="project" />
     <orderEntry type="library" name="Maven: org.jooq:jooq-meta:3.7.2" level="project" />
     <orderEntry type="library" name="Maven: org.jooq:jooq-codegen:3.7.2" level="project" />
@@ -98,7 +97,6 @@
     <orderEntry type="library" name="Maven: org.openrdf.sesame:sesame-repository-api:2.8.8" level="project" />
     <orderEntry type="library" name="Maven: org.openrdf.sesame:sesame-sail-api:2.8.8" level="project" />
     <orderEntry type="library" name="Maven: org.openrdf.sesame:sesame-query:2.8.8" level="project" />
-    <orderEntry type="library" name="Maven: virtuoso.sesame2:driver:2.7.3-build1.12" level="project" />
     <orderEntry type="library" name="Maven: org.apache.tika:tika-core:1.11" level="project" />
     <orderEntry type="library" name="Maven: org.apache.tika:tika-parsers:1.11" level="project" />
     <orderEntry type="library" name="Maven: org.gagravarr:vorbis-java-tika:0.6" level="project" />
@@ -372,6 +370,7 @@
     <orderEntry type="library" name="Maven: xalan:xalan:2.6.0" level="project" />
     <orderEntry type="library" name="Maven: org.json:json:20131018" level="project" />
     <orderEntry type="library" name="Maven: org.scala-lang:scala-library:2.10.3" level="project" />
+    <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.14" level="project" />
     <orderEntry type="library" name="Maven: org.codehaus.mojo:exec-maven-plugin:1.1.1" level="project" />
     <orderEntry type="library" name="Maven: org.apache.maven:maven-toolchain:1.0" level="project" />
     <orderEntry type="library" name="Maven: org.apache.maven:maven-project:2.0.6" level="project" />
