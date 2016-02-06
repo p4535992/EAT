@@ -25,7 +25,7 @@
     <orderEntry type="library" name="Maven: mysql:mysql-connector-java:5.1.38" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: com.jolbox:bonecp:0.8.0.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: com.google.guava:guava:15.0" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: com.github.uniVocity:univocity-parsers:-v1.5.6-g2a37dd7-162" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: com.github.uniVocity:univocity-parsers:-v1.5.6-gda091c1-163" level="project" />
     <orderEntry type="library" name="Maven: org.hibernate.javax.persistence:hibernate-jpa-2.1-api:1.0.0.Final" level="project" />
     <orderEntry type="library" name="Maven: org.eclipse.persistence:eclipselink:2.5.1" level="project" />
     <orderEntry type="library" name="Maven: org.eclipse.persistence:commonj.sdo:2.1.1" level="project" />
@@ -98,7 +98,6 @@
     <orderEntry type="library" name="Maven: org.openrdf.sesame:sesame-repository-api:2.8.8" level="project" />
     <orderEntry type="library" name="Maven: org.openrdf.sesame:sesame-sail-api:2.8.8" level="project" />
     <orderEntry type="library" name="Maven: org.openrdf.sesame:sesame-query:2.8.8" level="project" />
-    <orderEntry type="library" name="Maven: virtuoso.sesame2:driver:2.7.3-build1.12" level="project" />
     <orderEntry type="library" name="Maven: org.apache.tika:tika-core:1.11" level="project" />
     <orderEntry type="library" name="Maven: org.apache.tika:tika-parsers:1.11" level="project" />
     <orderEntry type="library" name="Maven: org.gagravarr:vorbis-java-tika:0.6" level="project" />
