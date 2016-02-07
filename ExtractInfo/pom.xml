@@ -126,32 +126,11 @@
         <!-- Database Driver -->
         <hibernate.version>4.3.8.Final</hibernate.version>
         <mysql-connector-java.version>5.1.35</mysql-connector-java.version>
-
-
-        <gate.version>8.1</gate.version>
         <silk.version>2.6.0</silk.version>
-        <javax-servlet-api.version>3.1.0</javax-servlet-api.version>
-        <javax-servlet-jsp-api.version>2.3.1</javax-servlet-jsp-api.version>
-        <jstl.version>1.2</jstl.version>
         <!-- Web-Karma -->
         <webkarma.version>0.0.1-SNAPSHOT</webkarma.version>
-
-        <!-- Logging -->
-        <logback.version>1.1.3</logback.version>
-        <org.slf4j.version>1.7.12</org.slf4j.version>
-        <commons-logging.version>1.1.1</commons-logging.version>
-        <spring-boot-starter-logging.version>1.2.4.RELEASE</spring-boot-starter-logging.version>
-        <org.apache.logging.log4j.core.version>2.3</org.apache.logging.log4j.core.version>
         <!-- Version of the libray we used on the project, 4.2.0.Final,-->
         <org.hibernate.version>4.3.10.Final</org.hibernate.version>
-        <!-- Support Hibernate -->
-        <joda-time.version>2.3</joda-time.version>
-        <org.jadira.usertype.core.version>3.0.0.CR1</org.jadira.usertype.core.version>
-        <!-- HTML -->
-        <org.jsoup.jsoup.version>1.8.2</org.jsoup.jsoup.version>
-
-        <!-- APACHE HTTP -->
-        <org.apache.httpcomponents.httpclient.version>4.5.1</org.apache.httpcomponents.httpclient.version>
         <!-- UTILITY -->
         <com.github.p4535992.utility.version>1.6.8</com.github.p4535992.utility.version>
         <com.github.p4535992.gate-basic.version>1.6.8</com.github.p4535992.gate-basic.version>
@@ -246,56 +225,6 @@
             <artifactId>hibernate-entitymanager</artifactId>
             <version>${org.hibernate.version}</version>
         </dependency>
-        <!-- optional hibernate dependency -->
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-osgi</artifactId>
-            <version>${org.hibernate.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-envers</artifactId>
-            <version>${org.hibernate.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-c3p0</artifactId>
-            <version>${org.hibernate.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-proxool</artifactId>
-            <version>${org.hibernate.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-infinispan</artifactId>
-            <version>${org.hibernate.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-ehcache</artifactId>
-            <version>${org.hibernate.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-validator</artifactId>
-            <version>5.1.3.Final</version>
-        </dependency>
-
-        <!-- Joda-Time -->
-       <!-- <dependency>
-            <groupId>joda-time</groupId>
-            <artifactId>joda-time</artifactId>
-            <version>${joda-time.version}</version>
-        </dependency>-->
-
-        <!-- To map JodaTime with database type -->
-        <!--<dependency>
-            <groupId>org.jadira.usertype</groupId>
-            <artifactId>usertype.core</artifactId>
-            <version>${org.jadira.usertype.core.version}</version>
-        </dependency>-->
 
         <!-- SILK - https://maven-repository.com/artifact/eu.fusepool.p3.ext.de.fuberlin.wiwiss.silk/silk-singlemachine/2.6.0 -->
         <dependency>
@@ -371,27 +300,11 @@
         </dependency>
 
         <!-- Module  WEB-KARMA -->
-        <!--<dependency>
-            <groupId>edu.isi</groupId>
-            <artifactId>karma-offline</artifactId>
-            <version>${webkarma.version}</version>
-            <scope>compile</scope>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.slf4j</groupId>
-                    <artifactId>slf4j-log4j12</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>log4j</groupId>
-                    <artifactId>log4j</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>-->
         <!-- With Jitpack -->
         <!--<dependency>
             <groupId>com.github.usc-isi-i2</groupId>
             <artifactId>Web-Karma</artifactId>
-            <version>v2.030 Patch 4: Handles cases when input is missing columns in some rows</version>
+            <version>v2.030 Patch 4</version>
             <scope>compile</scope>
             <exclusions>
                 <exclusion>
@@ -454,9 +367,9 @@
             </exclusions>
         </dependency>
 
-        <!-- =============== -->
-        <!-- Apache Support -->
-        <!-- =============== -->
+        <!-- ===============    -->
+        <!-- Support Dependency -->
+        <!-- ===============    -->
        <!-- <dependency>
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpclient</artifactId>
@@ -467,6 +380,30 @@
             <groupId>org.scala-lang</groupId>
             <artifactId>scala-library</artifactId>
             <version>${scala-library.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jooq</groupId>
+            <artifactId>jooq</artifactId>
+            <version>3.7.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jooq</groupId>
+            <artifactId>jooq-meta</artifactId>
+            <version>3.7.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jooq</groupId>
+            <artifactId>jooq-codegen</artifactId>
+            <version>3.7.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jsoup</groupId>
+            <artifactId>jsoup</artifactId>
+            <version>1.8.3</version>
         </dependency>
 
         <dependency>
