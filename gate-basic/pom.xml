@@ -115,6 +115,7 @@
                         <artifactId>spring-aop</artifactId>
                     </exclusion>
                 </exclusions>
+                <scope>provided</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -135,12 +136,12 @@
             <artifactId>gate-core</artifactId>
         </dependency>
 
-        <dependency>
+        <!--<dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>${mysql-connector-java.version}</version>
             <scope>provided</scope>
-        </dependency>
+        </dependency>-->
 
 
         <!-- Spring JMS and Support -->

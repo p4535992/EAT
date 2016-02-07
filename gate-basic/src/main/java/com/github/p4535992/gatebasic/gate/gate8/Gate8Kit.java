@@ -223,11 +223,11 @@ public class Gate8Kit {
     } // initAnnie()
 
     /**
-     * Method for setup the GATE API in EMbedded mode with spring configuration.
+     * Method for setup the GATE API in Embedded mode with spring configuration.
      * @param referencePathResourceFile string reference path to the resource file spring for gate context
      *                                  eg:"gate/gate_context.xml".
      * @param thisClass the reference to the invoke class.
-     * @param idBeanDocumentProcessor string name/id of the bean refrence to DocumentProcessor on the gate context.
+     * @param idBeanDocumentProcessor string name/id of the bean reference to DocumentProcessor on the gate context.
      * @return the DocumentProcessor Controller.
      */
     public DocumentProcessor setUpGateEmbeddedWithSpring(
