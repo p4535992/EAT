@@ -225,7 +225,11 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
             }else {
                 logger.error( e.getMessage(), e);
             }
+        }catch(Exception e){
+            logger.warn("Some error (probably a syntax error):"+e.getMessage(),e);
         }
+        /*try {Thread.sleep(1000);
+        } catch (InterruptedException ignored) {}*/
         return b;
     }
 

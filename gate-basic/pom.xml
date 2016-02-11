@@ -70,8 +70,8 @@
         <!-- GATE API -->
         <gate.version>8.1</gate.version>
         <!-- Logging -->
-        <logback.version>1.0.13</logback.version>
-        <org.slf4j.version>1.7.12</org.slf4j.version>
+       <!-- <logback.version>1.0.13</logback.version>-->
+        <org.slf4j.version>1.7.13</org.slf4j.version>
         <commons-logging.version>1.1.1</commons-logging.version>
         <!-- SPRING FRAMEWORK -->
         <io.spring.platform-version>1.1.2.RELEASE</io.spring.platform-version>
@@ -105,7 +105,7 @@
                     </exclusion>
                 </exclusions>
             </dependency>
-            <dependency>
+            <!--<dependency>
                 <groupId>com.github.p4535992</groupId>
                 <artifactId>utility</artifactId>
                 <version>${com.github.p4535992.utility.version}</version>
@@ -116,15 +116,45 @@
                     </exclusion>
                 </exclusions>
                 <scope>provided</scope>
+            </dependency>-->
+            <!-- LOGGING -->
+            <!-- jul-to-slf4j + jcl-over-slf4j + log4j-over-slf4j + logback-classic -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-logging</artifactId>
+                <version>${spring-boot-starter-logging.version}</version>
+                <!-- <exclusions>
+                     <exclusion>
+                         <groupId>org.slf4j</groupId>
+                         <artifactId>slf4j-api</artifactId>
+                     </exclusion>
+                 </exclusions>-->
+            </dependency>
+            <!-- The SLF4J - take out because already present in logback classic -->
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${org.slf4j.version}</version>
+                <optional>true</optional>
+            </dependency>
+            <!-- Since slf4j is a bridge, you need an implementation of it that would
+            redirect all calls to slf4j or JCL. Following is to perform logging using
+            the basic implementation, choose your preferred implementation
+            (it seems you were using logback). -->
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-simple</artifactId>
+                <version>${slf4j.version}</version>
+                <scope>runtime</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>
 
     <dependencies>
-        <dependency>
+       <!-- <dependency>
             <groupId>com.github.p4535992</groupId>
             <artifactId>utility</artifactId>
-        </dependency>
+        </dependency>-->
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>servlet-api</artifactId>
@@ -178,7 +208,7 @@
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
-            <version>1.7.14</version>
+            <optional>true</optional>
         </dependency>
 
     </dependencies>

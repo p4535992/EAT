@@ -302,11 +302,10 @@ public class ExtractInfoSpring {
                 files.add(file);
                 mapFile.put(file,urlFile);
             }*/
-            try {
-                urlFile = FileUtilities.toURL(file).toString();
-            } catch (MalformedURLException e) {
-                urlFile = "";
-            }
+
+            urlFile = FileUtilities.toURL(file).toString();
+            if(urlFile == null)urlFile = "";
+
             if (urlFile.isEmpty() || geoDocumentDao2.verifyDuplicate("url", urlFile)) {
                 files.remove(file);
                 //mapFile.put(file,urlFile);

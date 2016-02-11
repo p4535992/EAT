@@ -1,6 +1,5 @@
 package com.github.p4535992.gatebasic.gate.gate8;
 
-import com.github.p4535992.util.string.StringUtilities;
 import gate.*;
 
 
@@ -77,7 +76,7 @@ public class GateAnnotation8Kit {
                     String content; //empty string
                     content = getSingleAnnotationInfo(document, nameAnnotation, nameAnnotationSet);
                     //get the annotation on the first annotation set is have it without check the other annnotation set...
-                    if (!StringUtilities.isNullOrEmpty(content)) {
+                    if (!(content == null || content.isEmpty())) {
                         if(firstAndExit) {
                             //found it the annotation on this annotationSet...
                             mapAnn.put(nameAnnotation,content);
@@ -119,10 +118,10 @@ public class GateAnnotation8Kit {
                     break;
                 }
             }
-            if(StringUtilities.isNullOrEmpty(content)){
+            if(content == null || content.isEmpty()){
                 content ="";
             }else{
-                content = StringUtilities.cleanHTML(content);
+                content = cleanHTML(content);
             }          
             //content =  getContentLastSingleAnnotationOnAnnotationSet(document, nameAnnotation, annSet);
         }catch(NullPointerException ne){
@@ -237,7 +236,8 @@ public class GateAnnotation8Kit {
             annotationSet = annotationSet.get(nameAnnotation);
             int i = 0;
             for(Annotation annotation: annotationSet){
-                if (annotation == null || StringUtilities.isNullOrEmpty(Utils.stringFor(doc, annotation))) continue;
+                String annotationForDoc = Utils.stringFor(doc, annotation);
+                if (annotationForDoc == null || annotationForDoc.isEmpty()) continue;
                 if(annotation.getType().equals(nameAnnotation)) {
                     begOffset = annotation.getStartNode().getOffset().intValue();
                     endOffset = annotation.getEndNode().getOffset().intValue();
@@ -260,7 +260,7 @@ public class GateAnnotation8Kit {
                 }
                 i++;
             }
-            if(StringUtilities.isNullOrEmpty(content)){
+            if(content == null || content.isEmpty()){
                 return null;
             }else{
                 return content;
@@ -334,7 +334,7 @@ public class GateAnnotation8Kit {
         return annotTypes;
     }*/
     
-    public static <K,V> boolean isMapValueNullOrInexistent(Map<K,V> map,K key){
+    private <K,V> boolean isMapValueNullOrInexistent(Map<K,V> map,K key){
         V value = map.get(key);
         if (value != null) {
             return false;
@@ -348,6 +348,16 @@ public class GateAnnotation8Kit {
             return true;
             
         }
+    }
+
+    /**
+     * Method to clean a html text to a string text.
+     * @param stringHtml the {@link String} html string of text.
+     * @return the {@link String}  text cleaned.
+     */
+    private String cleanHTML(String stringHtml){
+        return stringHtml.replaceAll("\\r\\n|\\r|\\n", " ").trim();
+        //.replace("\\n\\r", "").replace("\\n","").replace("\\r","").trim())
     }
 
 }//ManageAnnotationAndContent.java

@@ -12,22 +12,15 @@ import ch.qos.logback.core.rolling.FixedWindowRollingPolicy;
 import ch.qos.logback.core.rolling.RollingFileAppender;
 import ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy;
 import ch.qos.logback.core.util.StatusPrinter;
-import com.github.p4535992.util.file.FileUtilities;
-import com.github.p4535992.util.string.StringUtilities;
-
-
-
+import uk.org.lidalia.sysoutslf4j.context.LogLevel;
 
 import java.io.*;
-import java.net.MalformedURLException;
-import java.net.URISyntaxException;
-import java.net.URL;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 
 /**
  * Created by 4535992 on 09/12/2015.
@@ -43,7 +36,7 @@ public class LogBackUtil {
     protected static File logfile;
 
 
-    protected static LoggerContext loggerContext;
+    protected static ch.qos.logback.classic.LoggerContext loggerContext;
 
     protected static LOGPATTERN logpattern = LOGPATTERN.PATTERN_CLASSIC;
     protected static LOGPATTERN logpatternConsole ;
@@ -69,7 +62,7 @@ public class LogBackUtil {
         }
 
         public String getValue() {
-            return new String(value.getBytes(), StringUtilities.DEFAULT_ENCODING);
+            return new String(value.getBytes(), Charset.defaultCharset());
         }
 
         @Override
@@ -85,6 +78,7 @@ public class LogBackUtil {
     private static LogBackUtil instance = null;
 
     /**
+     * @return the {@link LogBackUtil}
      * @deprecated use {@link #ConsoleAndFile()} instead.
      */
     @Deprecated
@@ -93,6 +87,8 @@ public class LogBackUtil {
     }
 
     /**
+     * @param logpattern the {@link LOGPATTERN}
+     * @return the {@link LogBackUtil}
      * @deprecated use {@link #ConsoleAndFile()} instead.
      */
     @Deprecated
@@ -101,6 +97,8 @@ public class LogBackUtil {
     }
 
     /**
+     * @param pathFileOutputLog the {@link String} path to the outputlog file.
+     * @return the {@link LogBackUtil}
      * @deprecated use {@link #ConsoleAndFile()} instead.
      */
     @Deprecated
@@ -109,6 +107,8 @@ public class LogBackUtil {
     }
 
     /**
+     * @param fileOutputLog the {@link File} path to the outputlog file.
+     * @return the {@link LogBackUtil}
      * @deprecated use {@link #ConsoleAndFile()} instead.
      */
     @Deprecated
@@ -117,6 +117,9 @@ public class LogBackUtil {
     }
 
     /**
+     * @param fileOutputLog the {@link File} path to the outputlog file.
+     * @param xmlConfigLogBack the {@link File} xml configuration.
+     * @return the {@link LogBackUtil}
      * @deprecated use {@link #ConsoleAndFile()} instead.
      */
     @Deprecated
@@ -125,6 +128,10 @@ public class LogBackUtil {
     }
 
     /**
+     * @param fileOutputLog the {@link File} path to the outputlog file.
+     * @param logpattern the {@link LOGPATTERN}
+     * @param xmlConfigLogBack the {@link File} xml configuration.
+     * @return the {@link LogBackUtil}
      * @deprecated use {@link #ConsoleAndFile()} instead.
      */
     @Deprecated
@@ -133,6 +140,9 @@ public class LogBackUtil {
     }
 
     /**
+     * @param fileOutputLog the {@link File} path to the outputlog file.
+     * @param logpattern the {@link LOGPATTERN}
+     * @return the {@link LogBackUtil}
      * @deprecated use {@link #ConsoleAndFile()} instead.
      */
     @Deprecated
@@ -141,6 +151,9 @@ public class LogBackUtil {
     }
 
     /**
+     * @param pathFileOutputLog the {@link String} path to the outputlog file.
+     * @param logpattern the {@link LOGPATTERN}
+     * @return the {@link LogBackUtil}
      * @deprecated use {@link #ConsoleAndFile()} instead.
      */
     @Deprecated
@@ -149,6 +162,10 @@ public class LogBackUtil {
     }
 
     /**
+     * @param pathFileOutputLog the {@link String} path to the outputlog file.
+     * @param xmlConfigLogBack the {@link String} path to the XML configuration file.
+     * @param logpattern the {@link LOGPATTERN}
+     * @return the {@link LogBackUtil}
      * @deprecated use {@link #ConsoleAndFile()} instead.
      */
     @Deprecated
@@ -157,6 +174,10 @@ public class LogBackUtil {
     }
 
     /**
+    * @param pathFileOutputLog the {@link String} path to the outputlog file.
+     * @param suffixPathFileOutputLog the {@link String} suffix of the log file.
+     * @param xmlConfigLogBack the {@link File} path to the XML configuration file.
+     * @return the {@link LogBackUtil}
      * @deprecated use {@link #ConsoleAndFile()} instead.
      */
     @Deprecated
@@ -166,6 +187,11 @@ public class LogBackUtil {
     }
 
     /**
+     * @param pathFileOutputLog the {@link String} path to the outputlog file.
+     * @param suffixPathFileOutputLog the {@link String} suffix of the log file.
+     * @param xmlConfigLogBack the {@link File} path to the XML configuration file.
+     * @param logpattern the {@link LOGPATTERN}
+     * @return the {@link LogBackUtil}
      * @deprecated use {@link #ConsoleAndFile()} instead.
      */
     @Deprecated
@@ -240,16 +266,21 @@ public class LogBackUtil {
             System.err.println(e.getMessage()+","+e.getCause());
         }
         if (sFile == null || consoleFile == null) {
-            InputStream inputStreamDobs =
-                    ClassLoader.class.getResourceAsStream("logback/logback_base_console.xml");
-            consoleFile = FileUtilities.toFile(inputStreamDobs,"./logback_base_console.xml");
+            try {
+                InputStream inputStreamDobs =
+                        LogBackUtil.class.getResourceAsStream("logback/logback_base_console.xml");
+                Files.copy(inputStreamDobs,consoleFile.toPath());
+                //consoleFile = FileUtilities.toFile(inputStreamDobs,"./logback_base_console.xml");
+            } catch (IOException ex) {
+                System.err.println(ex.getMessage());
+            }
         }
 
         if(consoleFile == null) {
             System.err.println("missing resources folder");
             return instance;
         } else {
-            if(FileUtilities.isDirectoryExists(consoleFile)) {
+            if(consoleFile.isDirectory() && consoleFile.exists()) {
                 //noinspection ConstantConditions
                 for (File nextFile : consoleFile.listFiles()) {
                     if (nextFile.getName().equalsIgnoreCase("logback_base_console.xml")) {
@@ -316,25 +347,29 @@ public class LogBackUtil {
     //METHOD
 
     private static void prepareLogFile(String LOGNAME, String SUFFIX){
-        String logTimestampFile = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
-        if (StringUtilities.isNullOrEmpty(LOGNAME)) LOGNAME = "createdAutomaticLog";
+        String logTimeStampFile = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
+        if (LOGNAME == null || LOGNAME.isEmpty()) LOGNAME = "createdAutomaticLog";
         if(!(LOGNAME.contains("/")||LOGNAME.contains("\\"))) {
-            LOGNAME = StringUtilities.PROJECT_DIR + File.separator + LOGNAME;
+            try {
+                LOGNAME = new File(".").getCanonicalPath() + File.separator + LOGNAME;
+            } catch (IOException ignored) {}
         }
-        if (StringUtilities.isNullOrEmpty(SUFFIX)) SUFFIX = "log";
-        logfile = new File(LOGNAME + "_" + logTimestampFile + "." + SUFFIX);
+        if (SUFFIX == null || SUFFIX.isEmpty()) SUFFIX = "log";
+        logfile = new File(LOGNAME + "_" + logTimeStampFile + "." + SUFFIX);
     }
 
     private static void prepareLogFile(File LOGNAME){
-        String logTimestampFile = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
+        String logTimeStampFile = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
         if(LOGNAME == null){
-            String file = StringUtilities.PROJECT_DIR + File.separator + "createdAutomaticLog";
-            logfile = new File(file + "_" + logTimestampFile + ".log");
+            try {
+            String file = new File(".").getCanonicalPath() + File.separator + "createdAutomaticLog";    
+            logfile = new File(file + "_" + logTimeStampFile + ".log");
+             } catch (IOException ignored) {}
         }else {
-            String SUFFIX = FileUtilities.getExtension(LOGNAME);
+            String SUFFIX = ".txt";
             //Set default value
-            if (StringUtilities.isNullOrEmpty(SUFFIX)) SUFFIX = "log";
-            logfile = new File(LOGNAME + "_" + logTimestampFile + "." + SUFFIX);
+            if (SUFFIX.isEmpty()) SUFFIX = "log";
+            logfile = new File(LOGNAME + "_" + logTimeStampFile + "." + SUFFIX);
         }
     }
 
@@ -373,7 +408,7 @@ public class LogBackUtil {
         Logger myLogger = createLogger(nameLogger);
         PatternLayoutEncoder ple = createPatternLayoutEncoder();
 
-        FileAppender<ILoggingEvent> fileAppender = new FileAppender<ILoggingEvent>();
+        FileAppender<ILoggingEvent> fileAppender = new FileAppender<>();
         fileAppender.setContext(loggerContext);
         fileAppender.setName(nameLogger);
         fileAppender.setAppend(false);
@@ -391,7 +426,7 @@ public class LogBackUtil {
         Logger myLogger = createLogger(nameLogger);
         PatternLayoutEncoder ple = createPatternLayoutEncoder();
 
-        RollingFileAppender<ILoggingEvent> rfAppender = new RollingFileAppender<ILoggingEvent>();
+        RollingFileAppender<ILoggingEvent> rfAppender = new RollingFileAppender<>();
         rfAppender.setContext(loggerContext);
         rfAppender.setFile(fileName);
 
@@ -402,7 +437,7 @@ public class LogBackUtil {
         rollingPolicy.setFileNamePattern(fileName + ".%i.log");
         rollingPolicy.start();
 
-        SizeBasedTriggeringPolicy<ILoggingEvent> triggeringPolicy = new SizeBasedTriggeringPolicy<ILoggingEvent>();
+        SizeBasedTriggeringPolicy<ILoggingEvent> triggeringPolicy = new SizeBasedTriggeringPolicy<>();
         triggeringPolicy.setMaxFileSize("5MB");
         triggeringPolicy.start();
 
@@ -431,89 +466,169 @@ public class LogBackUtil {
     }
 
     protected static void start(String pathToLogBackXML,boolean justConsole){
+        JoranConfigurator configurator = new JoranConfigurator();
         try {
             //String pathToLogBackXML = "C:\\Users\\tenti\\Desktop\\EAT\\utility\\src\\main\\resources\\logback.xml";
-
-            //Redirect all System.out and System.err to SLF4J.
-            uk.org.lidalia.sysoutslf4j.context.SysOutOverSLF4J.sendSystemOutAndErrToSLF4J();
-
+            System.out.println("222222222222222222222222222222222");
+            boolean noError = true;
+            try {
+                uk.org.lidalia.sysoutslf4j.context.SysOutOverSLF4J.registerLoggingSystem("com.github.p4535992");
+                //Redirect all System.out and System.err to SLF4J.
+                uk.org.lidalia.sysoutslf4j.context.SysOutOverSLF4J.sendSystemOutAndErrToSLF4J(LogLevel.INFO, LogLevel.ERROR);
+            } catch (java.lang.NoSuchMethodError e) {
+                if (e.getMessage().contains("" +
+                        "org.slf4j.spi.LocationAwareLogger.log(Lorg/slf4j/Marker;Ljava/lang/String;ILjava/lang" +
+                        "/String;[Ljava/lang/Object;Ljava/lang/Throwable;)")) {
+                    System.err.println("[1] Probably you use a wrong version of SLF4j for work with sysoutslf4j:" + e.getMessage());
+                    noError = false;
+                } else {
+                    System.err.println("[2] Some error not expected:" + e.getMessage());
+                    noError = false;
+                }
+            } catch (Exception e) {
+                System.err.println("[3] Some error not expected:" + e.getMessage());
+                noError = false;
+            }
             //org.apache.log4j.Logger logger = LogManager.getLogger(LogBackUtil.class.getName());
-
 
             //Redirect all java util logging to SLF4J
             java.util.logging.LogManager.getLogManager().reset();
+
             // Optionally remove existing handlers attached to j.u.l root logger (since SLF4J 1.6.5)
-            org.slf4j.bridge.SLF4JBridgeHandler.removeHandlersForRootLogger();
-            // add SLF4JBridgeHandler to j.u.l's root logger, should be done once during
-            // the initialization phase of your application
-            org.slf4j.bridge.SLF4JBridgeHandler.install();
-            java.util.logging.Logger.getLogger("global").setLevel(java.util.logging.Level.FINEST);
+            try {
+                org.slf4j.bridge.SLF4JBridgeHandler.removeHandlersForRootLogger();
+                // add SLF4JBridgeHandler to j.u.l's root logger, should be done once during
+                // the initialization phase of your application
+                org.slf4j.bridge.SLF4JBridgeHandler.install();
+                java.util.logging.Logger.getLogger("global").setLevel(java.util.logging.Level.FINEST);
+            } catch (java.lang.NoSuchMethodError e) {
+                if (e.getMessage().contains("" +
+                        "org.slf4j.spi.LocationAwareLogger.log(Lorg/slf4j/Marker;Ljava/lang/String;ILjava/lang" +
+                        "/String;[Ljava/lang/Object;Ljava/lang/Throwable;)")) {
+                    System.err.println("[4] Probably you use a wrong version of SLF4j for work with JUL:" + e.getMessage());
+                    noError = false;
+                } else {
+                    System.err.println("[5] Some error not expected:" + e.getMessage());
+                    noError = false;
+                }
+            } catch (Exception e) {
+                System.err.println("[5.5] Some error not expected:" + e.getMessage());
+                noError = false;
+            }
 
-            // assume SLF4J is bound to logback in the current environment
-            loggerContext = (LoggerContext) org.slf4j.LoggerFactory.getILoggerFactory();
-            // print logback's internal status
-            //StatusPrinter.print(loggerContext);
-
-            JoranConfigurator configurator = new JoranConfigurator();
-            configurator.setContext(loggerContext);
-            // Call context.reset() to clear any previous configuration, e.g. default
-            // configuration. For multi-step configuration, omit calling context.reset().
-            loggerContext.reset();
-            if(!justConsole) {
-                // inject the name of the current application as "application-name"
-                // property of the LoggerContext
-                loggerContext.putProperty("DEV_HOME", System.getProperty("user.dir"));
-                //context.putProperty("application-name", "NAME_OF_CURRENT_APPLICATION");
-                loggerContext.putProperty("logFileName",
-                        logfile.getName());
-                loggerContext.putProperty("logPatternConsole",
-                        logpatternConsole == null ? logpattern.getValue() : logpatternConsole.getValue());
-                loggerContext.putProperty("logPatternFile",
-                        logpatternFile == null ? logpattern.getValue() : logpatternFile.getValue());
-                loggerContext.putProperty("logPatternFileError",
-                        logpatternFileError == null ? logpattern.getValue() : logpatternFileError.getValue());
+            try {
+                // assume SLF4J is bound to logback in the current environment (not work)
+                try {
+                    //loggerContext = (LoggerContext) org.slf4j.LoggerFactory.getILoggerFactory();
+                    loggerContext = new LoggerContext();
+                }catch(Exception e) {
+                    System.err.println("5.5.2"+e.getMessage());
+                    //loggerContext = new LoggerContext();
+                }
+                // print logback's internal status
+                //StatusPrinter.print(loggerContext);
+                //JoranConfigurator configurator = new JoranConfigurator();
+                configurator.setContext(loggerContext);
+                // Call context.reset() to clear any previous configuration, e.g. default
+                // configuration. For multi-step configuration, omit calling context.reset().
+                loggerContext.reset();
+            } catch (Exception e) {
+                System.err.println("[5.6] Some error not expected:" + e.getMessage());
+                noError = false;
+            }
+            if (noError) {
+                if (!justConsole) {
+                    // inject the name of the current application as "application-name"
+                    // property of the LoggerContext
+                    loggerContext.putProperty("DEV_HOME", System.getProperty("user.dir"));
+                    //context.putProperty("application-name", "NAME_OF_CURRENT_APPLICATION");
+                    loggerContext.putProperty("logFileName",
+                            logfile.getName());
+                    loggerContext.putProperty("logPatternConsole",
+                            logpatternConsole == null ? logpattern.getValue() : logpatternConsole.getValue());
+                    loggerContext.putProperty("logPatternFile",
+                            logpatternFile == null ? logpattern.getValue() : logpatternFile.getValue());
+                    loggerContext.putProperty("logPatternFileError",
+                            logpatternFileError == null ? logpattern.getValue() : logpatternFileError.getValue());
                 /*Logger rootLogger = loggerContext.getLogger("com.github.p4535992.util");
                 rootLogger.setLevel(Level.INFO);*/
 
                 /*Logger LOG = (Logger) org.slf4j.LoggerFactory.getLogger(ch.qos.logback.classic.Logger.ROOT_LOGGER_NAME);
                 LOG.setLevel(Level.WARN);*/
-            }else{
-                // go to the console logback.xml
+                } else {
+                    // go to the console logback.xml
+                    System.out.println("[5.7] USE JUST THE CONSOLE FOR THE LOGGING");
+                }
+            } else {
+                //continue without custmoization;
+                System.err.println("[5.8] USE JUST THE BASIC STANDARD CONFIGURATION OF JORA");
             }
             try {
-                if(pathToLogBackXML.contains("resources")) {
-                    configurator.doConfigure(ClassLoader.getSystemClassLoader().getResource(pathToLogBackXML).getFile());
-                }else{
+                if (pathToLogBackXML.contains("resources")) {
+                    //noinspection ConstantConditions,AccessStaticViaInstance
+                    configurator.doConfigure(LogBackUtil.class.getClassLoader().
+                            getSystemClassLoader().getResource(pathToLogBackXML).getFile());
+                } else {
                     try {
                         configurator.doConfigure(pathToLogBackXML);
-                    }catch(Exception e){
-                        System.err.println(e.getMessage());
+                    } catch (Exception e) {
+                        System.err.println("[6] " + e.getMessage());
                     }
                 }
 
             } catch (JoranException je) {
-                StatusPrinter.print(loggerContext);
-            } catch(NullPointerException ne){
+                System.err.print("[7] " + je.getMessage());
+                //StatusPrinter.print(loggerContext);
+            } catch (NullPointerException ne) {
                 //The context XML File is not on the Resource Folder
                 try {
-                    pathToLogBackXML = new File(FileUtilities.getDirectoryUser()+pathToLogBackXML).getAbsolutePath();
+                    pathToLogBackXML = new File(new File(".").getCanonicalPath() +
+                            File.separator + pathToLogBackXML).getAbsolutePath();
                     configurator.doConfigure(pathToLogBackXML);
-                }catch(Exception e){
+                } catch (IOException | JoranException e) {
+                    System.err.println("[8] CAN'T SET THE XML:" + e.getMessage());
                     e.printStackTrace();
+                } catch(Exception e){
+                    System.err.println("[8.2] CAN'T SET THE XML:" + e.getMessage());
                 }
             }
-               // configurator.doConfigure(pathToLogBackXML);
+            // configurator.doConfigure(pathToLogBackXML);
             //optional
             //StatusPrinter.printInCaseOfErrorsOrWarnings(loggerContext);
             //StatusPrinter.print(loggerContext);
+        }catch(java.lang.NoSuchMethodError e){
+                if(e.getMessage().contains("" +
+                        "org.slf4j.spi.LocationAwareLogger.log(Lorg/slf4j/Marker;Ljava/lang/String;ILjava/lang" +
+                        "/String;[Ljava/lang/Object;Ljava/lang/Throwable;)")){
+                    System.err.println("[8.5] Probably you use a wrong version of SLF4j for work with JUL:"+e.getMessage());
+
+                }else {
+                    System.err.println("[8.7] Some error not expected:" + e.getMessage());
+                }
         } catch (Exception e) {
-           e.printStackTrace();
+            System.err.println("[9] CAN'T SET THE XML:"+e.getMessage());
+            //e.printStackTrace();
+            try {
+                configurator.doConfigure("logback/logback.xml");
+            } catch (JoranException e1) {
+                System.err.println("[10] CAN'T SET THE XML:"+e.getMessage());
+                e1.printStackTrace();
+            }
         }
     }
 
     //-----------------------------------------------------------------------------------------------------------------
     // CUSTOMIZE LOGGING
     //-----------------------------------------------------------------------------------------------------------------
+
+   /* public static <T> T withSystemOutAndErrSentToSLF4J(Callable<T> work) throws Exception {
+        try {
+            sendSystemOutAndErrToSLF4J();
+            return work.call();
+        } finally {
+            restoreOriginalSystemOutputs();
+        }
+    }*/
 
     public static void logException(org.slf4j.Logger logger, Exception e) {
         StringWriter sw = new StringWriter();
@@ -536,14 +651,15 @@ public class LogBackUtil {
 
 
     public static File getMySQLScript(){
-        String basePath = "utility\\src\\main\\java\\com\\github\\p4535992" +
-                "\\util\\log\\logback\\script\\mysql.sql";
-        return new File(FileUtilities.getDirectoryUser()+basePath);
+        try {
+            String basePath = "utility\\src\\main\\java\\com\\github\\p4535992" +
+                    "\\util\\log\\logback\\script\\mysql.sql";
+            return new File(new File(".").getCanonicalPath() + File.separator+basePath);
+        } catch (IOException ex) {
+            System.err.println(ex.getMessage());
+            return null;
+        }
     }
 
-    public static File getMySQLScript(String pathResourceFileName,Class<?> thisClass,File outputFile){
-        return FileUtilities.getFromResourceAsFile(pathResourceFileName,thisClass,outputFile);
-    }
-
-
+  
 }

@@ -1,9 +1,7 @@
 package com.github.p4535992.gatebasic.gate.gate8;
 
-import com.github.p4535992.util.bean.BeansKit;
-import com.github.p4535992.util.file.FileUtilities;
+import com.github.p4535992.gatebasic.util.BeansKit;
 import gate.*;
-import gate.corpora.RepositioningInfo;
 import gate.gui.MainFrame;
 import gate.util.DocumentProcessor;
 import gate.util.GateException;
@@ -11,9 +9,7 @@ import gate.util.persistence.PersistenceManager;
 import org.springframework.context.ApplicationContext;
 
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.util.*;
 
 /**
  * Created by 4535992 on 17/04/2015.
@@ -168,8 +164,18 @@ public class Gate8Kit {
         }catch(GateException e){
             //..Usuallly you got here for bad reading of the session file
             try {
-                FileUtilities.toFile(configFileSession);
-                Gate.init();
+                //FileUtilities.toFile(configFileSession);
+                File config = new File(configFileSession);
+                if(!(config.isFile() && config.exists())) {
+                    try {
+                        if(config.createNewFile()){
+                            Gate.init();
+                        }
+                    } catch (IOException e1) {
+                        logger.error("Can't set the configuration session file:"
+                                +config.getAbsolutePath()+"->"+e.getMessage(),e);
+                    }
+                }
             }catch(GateException ex){
                 logger.error(e.getMessage(),e);
             }
@@ -297,6 +303,8 @@ public class Gate8Kit {
         }
     }
 
+    //--------------------------------------------------------------------------------------------
+    // SOME UTILITY FOR LOAD THE SPRING CONFIGURATION FILE FOR GATE
     //--------------------------------------------------------------------------------------------
 
 

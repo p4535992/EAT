@@ -2,7 +2,8 @@ package com.github.p4535992.gatebasic.gate;
 
 import com.github.p4535992.gatebasic.gate.gate8.GateCorpus8Kit;
 import com.github.p4535992.gatebasic.gate.jms.GATEProcessor;
-import com.github.p4535992.util.bean.BeansKit;
+
+import com.github.p4535992.gatebasic.util.BeansKit;
 import gate.*;
 import gate.creole.ResourceInstantiationException;
 import gate.util.DocumentProcessor;
@@ -57,14 +58,12 @@ public class Test_intiGateSpring {
          // duplicate this controller in the default way - this handles subclasses nicely
          Controller c = (Controller) Factory.defaultDuplicate((Resource) this, ctx);
             // duplicate each of our PRs
-             List<ProcessingResource> newPRs = new ArrayList<ProcessingResource>();
+             List<ProcessingResource> newPRs = new ArrayList<>();
             for(ProcessingResource pr : prList) {
-                 newPRs.add((ProcessingResource)Factory.duplicate(
-                         pr, ctx));
+                 newPRs.add((ProcessingResource)Factory.duplicate(pr, ctx));
             }
              // and set this duplicated list as the PRs of the copy
             c.setPRs(newPRs);
-
         return c;
     }
 

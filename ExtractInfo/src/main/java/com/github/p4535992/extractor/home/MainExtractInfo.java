@@ -29,6 +29,7 @@ public class MainExtractInfo {
             //SwingUtilities.invokeAndWait(new Runnable() {
             public void run() {
                 try {
+                    System.out.println("111111111111111111111111111111111");
                     LogBackUtil.setLogpatternConsole(LogBackUtil.LOGPATTERN.PATTERN_COLORED1_METHOD_NOTIME);
                     LogBackUtil.ConsoleAndFile(LogBackUtil.LOGPATTERN.PATTERN_CLASSIC_NOTIME);
                     logger.info("===== START THE PROGRAMM =========");

@@ -662,13 +662,9 @@ public class ExtractInfoWeb {
         }else{
             //..is a single file
             URL url;
-            try {
-                url = FileUtilities.toURL(fileOrDirectory);
-                listGeo.add(ExtractGeoDocumentFromUrl(url,TABLE_INPUT,TABLE_OUTPUT,createNewTable,dropOldTable));
-            } catch (MalformedURLException e) {
-                logger.warn(e.getMessage(), e);
-                return null;
-            }
+            url = FileUtilities.toURL(fileOrDirectory);
+            if(url != null)listGeo.add(ExtractGeoDocumentFromUrl(url,TABLE_INPUT,TABLE_OUTPUT,createNewTable,dropOldTable));
+
         }
         return listGeo;
     }
@@ -686,15 +682,11 @@ public class ExtractInfoWeb {
             List<File> listFiles, String TABLE_INPUT,String TABLE_OUTPUT,boolean createNewTable,boolean dropOldTable) {
         List<URL> listUrls = new ArrayList<>();
         for(File file: listFiles) {
-            try {
-                if(!FileUtilities.isDirectoryExists(file.getAbsolutePath())) {
-                    URL url = FileUtilities.toURL(file);
-                    listUrls.add(url);
-                } else {
-                    logger.warn("The file:" + FileUtilities.toURL(file) + " so is ignored!!");
-                }
-            } catch (MalformedURLException e) {
-                logger.warn(e.getMessage(),e);
+            if(!FileUtilities.isDirectoryExists(file.getAbsolutePath())) {
+                URL url = FileUtilities.toURL(file);
+                if(url != null)listUrls.add(url);
+            } else {
+                logger.warn("The file:" + FileUtilities.toURL(file) + " so is ignored!!");
             }
         }
         return ExtractGeoDocumentFromListUrls(listUrls,TABLE_INPUT,TABLE_OUTPUT,createNewTable,dropOldTable);

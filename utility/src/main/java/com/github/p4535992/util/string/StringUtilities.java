@@ -858,8 +858,8 @@ public class StringUtilities {
     //--------------------------------------------------------------------
     /**
      * Method to clean a html text to a string text.
-     * @param stringHtml html string of text.
-     * @return string text.
+     * @param stringHtml the {@link String} html string of text.
+     * @return the {@link String}  text cleaned.
      */
     public static String cleanHTML(String stringHtml){
         return stringHtml.replaceAll("\\r\\n|\\r|\\n", " ").trim();

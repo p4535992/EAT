@@ -1,5 +1,5 @@
 package com.github.p4535992.gatebasic.gate.gate8;
-import com.github.p4535992.util.file.FileUtilities;
+
 
 import gate.*;
 import gate.corpora.DocumentImpl;
@@ -7,6 +7,11 @@ import gate.creole.ResourceInstantiationException;
 import gate.persist.PersistenceException;
 import java.io.*;
 import java.net.URL;
+import java.nio.file.DirectoryStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 /**
@@ -92,12 +97,12 @@ public class GateCorpus8Kit {
      * @throws IOException throw if any error is occurred.
      */
     public Corpus createCorpusByFile(File fileOrDirectory,String nameCorpus) throws ResourceInstantiationException, IOException {
-        if(FileUtilities.isDirectoryExists(fileOrDirectory.getAbsolutePath())){
-            List<File> listFiles = FileUtilities.getFilesFromDirectory(fileOrDirectory);
+        if(fileOrDirectory.isDirectory() && fileOrDirectory.isDirectory()){
+            List<File> listFiles = getFilesFromDirectory(fileOrDirectory);
             return createCorpusByFile(listFiles,nameCorpus);
         }else {
             corpus = Factory.newCorpus(nameCorpus);
-            doc = createDocByUrl(FileUtilities.toUri(fileOrDirectory.getAbsolutePath()).toURL());
+            doc = createDocByUrl(fileOrDirectory.toURI().toURL());
             if (doc != null) {
                 corpus.add(doc);//add a document to the corpus
             }
@@ -117,7 +122,7 @@ public class GateCorpus8Kit {
         corpus = Factory.newCorpus(nameCorpus);
         Integer indice = 0;
         for(File file : listFiles) {
-            doc = createDocByUrl(FileUtilities.toUri(file.getAbsolutePath()).toURL(),indice);
+            doc = createDocByUrl(file.toURI().toURL(),indice);
             //Document doc = Factory.newDocument(docFile.toURL(), "utf-8");
             if (doc != null) {
                 corpus.add(doc);//add a document to the corpus
@@ -336,6 +341,24 @@ public class GateCorpus8Kit {
         out = new OutputStreamWriter(bos, "utf-8");
         out.write(docXMLString);
         out.close();
+    }
+
+    /**
+     * Method to read all file ina directory/folder.
+     *
+     * @param directory the {@link File} directory/folder.
+     * @return the  {@link List} of {@link File} in the directory.
+     */
+    private List<File> getFilesFromDirectory(File directory) {
+        List<File> paths = new ArrayList<>();
+        try (DirectoryStream<Path> directoryStream = Files.newDirectoryStream(Paths.get(directory.toURI()))) {
+            for (Path path : directoryStream) {
+                paths.add(path.toFile());
+            }
+        } catch (IOException e) {
+            logger.error("Listing files in directory: {}", directory, e);
+        }
+        return paths;
     }
   
 }//class pipeline

@@ -184,8 +184,46 @@ Example 6: Matching triple beetween Sesame repositories with SILK
 + Integration [Spring MVC](http://docs.spring.io/spring/docs/current/spring-framework-reference/html/mvc.html) (in a private project for more info you can contact me)
 + Integration [JSOUP](http://jsoup.org/)
 
-######RUN WITH MAVEN COMMAND
-mvn exec:java -Dexec.mainClass="com.github.p4535992.extractor.home.ExtractInfoCompany" -Dexec.args=""
+#####RUN WITH MAVEN COMMAND
+
+######RUN A JAVA MAIN CLASS METHOD
+mvn exec:java -Dexec.mainClass="com.github.p4535992.extractor.home.Main"
+######RUN A JAVA MAIN CLASS METHOD WITH DEBUG ENABLE
+mvn -X exec:java -Dexec.mainClass="com.github.p4535992.extractor.home.Main"
+######RUN A JAVA MAIN CLASS METHOD WITH DEBUG REMOTE ENABLE
+mvn exec:exec -Dexec.executable="java" -Dexec.args="-classpath %classpath 
+-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=1044 com.mycompany.app.App"
+
+#####SET UP MAVEN_OPTS 
+@REM set MAVEN_OPTS=
+    -Xdebug -Xnoagent -Djava.compiler=NONE -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=8000 
+    -Xdebug -Xnoagent -Djava.compiler=NONE -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=8666
+
+#####SET DEBUG MODE FOR$ MAVEN PROJECT ON NETBEANS
+NOTE: You can avoid these passage if you use IntellijIDEA. 
+    + Open your console. 
+    + Navigate to your app folder.
+    + Start your app with “mvnDebug” (i.e. mvnDebug tomcat7:run, mvnDebug jetty:run)
+    + In NetBeans, select “Debug->Attach Debugger“
+    + Be sure to enter the following values, then click OK
+       - Debugger: Java Debugger (JDPA)
+       - Connector: SocketAttach (Attaches by socket to other VMs)
+       - Transport: dt_socket
+       - Host: localhost
+       - Port: 8000
+    + Go to you console window, and check if the app started.
+    + Add some breakpoints to you code.
+    + Open your app in your favorite browser.
+    + Navigate to the functionality you want to test.
+
+###if still not work try:
+Not sure if this is the answer you want.
+
+    Your multi-module application must have one maven module (jar type) which contains the code (the main class) to launch your application.
+    Right click that module and see the properties page as you show above. (I think what you opened is a POM type module.)
+    You should have a Run Category to allow you to add JVM arguments.
+    Add the JVM parameter (something like: -Xdebug -Xnoagent -Xrunjdwp:transport=dt_socket,address=8000,server=y,suspend=y)
+    Run your application in NetBeans.
 
 
 

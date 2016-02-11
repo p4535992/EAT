@@ -4,12 +4,6 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <modules>
-        <!--<module>gate-basic</module>-->
-        <!--<module>ExtractInfo</module>-->
-        <!--<module>utility</module>-->
-    </modules>
-
     <groupId>com.github.p4535992</groupId>
     <artifactId>EAT</artifactId>
     <version>1.6.8</version>
@@ -66,20 +60,70 @@
         <maven-javadoc-plugin.version>2.3</maven-javadoc-plugin.version>
         <maven-exec-plugin.version>1.1.1</maven-exec-plugin.version>
         <maven-dependency-plugin.version>2.10</maven-dependency-plugin.version>
-        <!-- UTILITY Github -->
-        <com.github.p4535992.utility.version>1.6.8</com.github.p4535992.utility.version>
         <!--<com.github.p4535992.gate-basic.version>1.6.8</com.github.p4535992.gate-basic.version>-->
         <com.github.p4535992.ExtractInfo.version>1.6.8</com.github.p4535992.ExtractInfo.version>
+        <!-- LOGGING -->
+        <spring-boot-starter-logging.version>1.3.0.RELEASE</spring-boot-starter-logging.version>
+        <org.slf4j.version>1.7.13</org.slf4j.version>
     </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- LOGGING -->
+            <!-- jul-to-slf4j + jcl-over-slf4j + log4j-over-slf4j + logback-classic -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-logging</artifactId>
+                <version>${spring-boot-starter-logging.version}</version>
+                <!-- <exclusions>
+                     <exclusion>
+                         <groupId>org.slf4j</groupId>
+                         <artifactId>slf4j-api</artifactId>
+                     </exclusion>
+                 </exclusions>-->
+            </dependency>
+            <!-- The SLF4J - take out because already present in logback classic -->
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${org.slf4j.version}</version>
+                <optional>true</optional>
+            </dependency>
+            <!-- Since slf4j is a bridge, you need an implementation of it that would
+            redirect all calls to slf4j or JCL. Following is to perform logging using
+            the basic implementation, choose your preferred implementation
+            (it seems you were using logback). -->
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-simple</artifactId>
+                <version>${slf4j.version}</version>
+                <scope>runtime</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.github.p4535992</groupId>
+                <artifactId>extractInfo</artifactId>
+                <version>${com.github.p4535992.ExtractInfo.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <dependencies>
 
         <dependency>
             <groupId>com.github.p4535992</groupId>
             <artifactId>extractInfo</artifactId>
-            <version>${com.github.p4535992.ExtractInfo.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-logging</artifactId>
+        </dependency>
+        <!-- The SLF4J - take out because already present in logback classic -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <optional>true</optional>
+        </dependency>
 
         <!-- MAVEN PLUGIN DEPENDENCY-->
         <dependency>
@@ -93,12 +137,6 @@
             <artifactId>spring-beans</artifactId>
             <version>4.1.6.RELEASE</version>
         </dependency>
-        <dependency>
-            <groupId>org.apache.httpcomponents</groupId>
-            <artifactId>httpclient</artifactId>
-            <version>4.5.1</version>
-        </dependency>
-
 
     </dependencies>
 
@@ -110,32 +148,7 @@
                 <version>3.7</version>
                 <extensions>true</extensions>
             </plugin>
-            <!-- mvn exec:java -Dexec.mainClass="com.github.p4535992.extractor.home.ExtractInfoCompany"-->
-            <!-- mvn -Dexec.args=\"-classpath %classpath
-            com.github.p4535992.extractor.home.ExtractInfoCompany\"
-            -Dexec.executable=java
-            -Dexec.classpathScope=runtime
-            -Dmaven.ext.class.path=\"C:\\Program Files\\NetBeans 8.1\\java\\maven-nblib\\netbeans-eventspy.jar\"
-            -Dfile.encoding=UTF-8 process-classes org.codehaus.mojo:exec-maven-plugin:1.2.1:exec\""
--->
-            <!-- mvn exec:java -Dexec.mainClass="com.github.p4535992.extractor.home.ExtractInfoCompany" -->
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>exec-maven-plugin</artifactId>
-                <version>${maven-exec-plugin.version}</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>java</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <executable>java</executable>
-                    <mainClass>com.github.p4535992.extractor.home.ExtractInfoCompany</mainClass>
-                </configuration>
-            </plugin>
-
+           
             <plugin>
                 <artifactId>maven-eclipse-plugin</artifactId>
                 <version>${maven-eclipse-plugin.version}</version>
@@ -235,6 +248,46 @@
                 </executions>
             </plugin>
             -->
+
+            <!--
+          mvn exec:java -Dexec.mainClass="com.github.p4535992.main.home.Main"
+          mvn -X exec:java -Dexec.mainClass="com.github.p4535992.main.home.Main"
+          mvn -X clean install exec:java -Dexec.mainClass="com.github.p4535992.main.home.Main" -Dexec.classpathScope=test -e
+          http://stackoverflow.com/questions/27518544/running-a-class-file-through-mvn-execexec
+           org.apache.maven.lifecycle.internal.MojoExecutor.execute
+          -->
+            <!-- mvn exec:java -Dexec.mainClass="com.github.p4535992.extractor.home.Main"-->
+            <!-- mvn -Dexec.args=\"-classpath %classpath com.github.p4535992.extractor.home.ExtractInfoCompany\"
+             -Dexec.executable=java
+            -Dexec.classpathScope=runtime
+            -Dmaven.ext.class.path=\"C:\\Program Files\\NetBeans 8.1\\java\\maven-nblib\\netbeans-eventspy.jar\"
+            -Dfile.encoding=UTF-8 process-classes org.codehaus.mojo:exec-maven-plugin:1.2.1:exec\""
+-->
+            <!-- mvn exec:java -Dexec.mainClass="com.github.p4535992.main.home.Main" -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.4.0</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>java</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <includePluginDependencies>true</includePluginDependencies>
+                    <mainClass>com.github.p4535992.main.home.Main</mainClass>
+                    <arguments>
+                    </arguments>
+                    <!--<systemProperties>
+                        <systemProperty>
+                            <key>myproperty</key>
+                            <value>myvalue</value>
+                        </systemProperty>
+                    </systemProperties>-->
+                </configuration>
+            </plugin>
 
         </plugins>
     </build>

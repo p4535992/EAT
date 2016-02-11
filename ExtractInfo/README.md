@@ -97,3 +97,4 @@ You can the dependency to this github repository With jitpack (https://jitpack.i
           document.getElementById("latest_release").innerHTML = release;
       }
 </script>
+
