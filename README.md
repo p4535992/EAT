@@ -197,8 +197,9 @@ mvn exec:exec -Dexec.executable="java" -Dexec.args="-classpath %classpath
 #####SET UP MAVEN_OPTS 
 @REM set MAVEN_OPTS=
     -Xdebug -Xnoagent -Djava.compiler=NONE -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=8000 
-    -Xdebug -Xnoagent -Djava.compiler=NONE -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=8666
-
+#####SET UP MAVEN_DEBUG_OPTS 
+@REM set MAVEN_DEBUG_OPTS=
+    -Xdebug -Xnoagent -Djava.compiler=NONE -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=8000
 #####SET DEBUG MODE FOR$ MAVEN PROJECT ON NETBEANS
 NOTE: You can avoid these passage if you use IntellijIDEA. 
     + Open your console. 
@@ -217,7 +218,6 @@ NOTE: You can avoid these passage if you use IntellijIDEA.
     + Navigate to the functionality you want to test.
 
 ###if still not work try:
-Not sure if this is the answer you want.
 
     Your multi-module application must have one maven module (jar type) which contains the code (the main class) to launch your application.
     Right click that module and see the properties page as you show above. (I think what you opened is a POM type module.)

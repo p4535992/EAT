@@ -141,6 +141,18 @@
     </dependencies>
 
     <build>
+        <!-- To define the plugin version in your parent POM -->
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.tomcat.maven</groupId>
+          <artifactId>tomcat7-maven-plugin</artifactId>
+          <version>2.2</version>
+        </plugin> 
+      </plugins>
+    </pluginManagement>
+        
+        
         <plugins>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
@@ -271,12 +283,15 @@
                 <executions>
                     <execution>
                         <goals>
-                            <goal>java</goal>
+                            <goal>exec</goal>
                         </goals>
                     </execution>
                 </executions>
                 <configuration>
-                    <includePluginDependencies>true</includePluginDependencies>
+                    <executable>java</executable>
+                    <includeProjectDependencies>true</includeProjectDependencies>
+                    <includePluginDependencies>false</includePluginDependencies>
+                    <classpathScope>compile</classpathScope>
                     <mainClass>com.github.p4535992.main.home.Main</mainClass>
                     <arguments>
                     </arguments>
@@ -287,6 +302,13 @@
                         </systemProperty>
                     </systemProperties>-->
                 </configuration>
+            </plugin>
+            
+            <!-- To use the plugin goals in your POM or parent POM -->
+            <plugin>
+              <groupId>org.apache.tomcat.maven</groupId>
+              <artifactId>tomcat7-maven-plugin</artifactId>
+              <version>2.2</version>
             </plugin>
 
         </plugins>
