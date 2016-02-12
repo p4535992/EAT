@@ -16,7 +16,7 @@
     <orderEntry type="library" name="Maven: mysql:mysql-connector-java:5.1.38" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: com.jolbox:bonecp:0.8.0.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: com.google.guava:guava:15.0" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: com.github.uniVocity:univocity-parsers:-v1.5.6-gdefc3ff-168" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: com.github.uniVocity:univocity-parsers:-v1.5.6-g73e484a-169" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.hibernate:hibernate-osgi:5.0.7.Final" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.osgi:org.osgi.core:4.3.1" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.osgi:org.osgi.compendium:4.3.1" level="project" />
@@ -45,7 +45,6 @@
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.jadira.usertype:usertype.core:5.0.0.GA" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.jadira.usertype:usertype.spi:5.0.0.GA" level="project" />
     <orderEntry type="module" module-name="utility" />
-    <orderEntry type="library" name="Maven: org.json:json:20140107" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.5.3" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.5.3" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-core:2.5.3" level="project" />
@@ -59,6 +58,7 @@
     <orderEntry type="library" name="Maven: org.apache.lucene:lucene-sandbox:4.9.1" level="project" />
     <orderEntry type="library" name="Maven: com.spatial4j:spatial4j:0.4.1" level="project" />
     <orderEntry type="library" name="Maven: org.apache.solr:solr-solrj:4.9.1" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpcore:4.3" level="project" />
     <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpmime:4.3.1" level="project" />
     <orderEntry type="library" name="Maven: org.apache.zookeeper:zookeeper:3.4.6" level="project" />
     <orderEntry type="library" name="Maven: org.codehaus.woodstox:wstx-asl:3.2.7" level="project" />
@@ -109,8 +109,6 @@
     <orderEntry type="library" name="Maven: org.openrdf.sesame:sesame-sail-api:2.8.8" level="project" />
     <orderEntry type="library" name="Maven: org.openrdf.sesame:sesame-query:2.8.8" level="project" />
     <orderEntry type="library" name="Maven: virtuoso.sesame2:driver:2.7.3-build1.12" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpclient:4.5.1" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpcore:4.4.3" level="project" />
     <orderEntry type="library" name="Maven: org.apache.tika:tika-core:1.11" level="project" />
     <orderEntry type="library" name="Maven: org.apache.tika:tika-parsers:1.11" level="project" />
     <orderEntry type="library" name="Maven: org.gagravarr:vorbis-java-tika:0.6" level="project" />
@@ -194,8 +192,6 @@
     <orderEntry type="library" name="Maven: javax.interceptor:javax.interceptor-api:1.2" level="project" />
     <orderEntry type="library" name="Maven: org.fusesource.jansi:jansi:1.11" level="project" />
     <orderEntry type="library" name="Maven: uk.org.lidalia:sysout-over-slf4j:1.0.2" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.logging.log4j:log4j-core:2.5" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.logging.log4j:log4j-api:2.5" level="project" />
     <orderEntry type="library" name="Maven: com.univocity:univocity-parsers:2.0.0-SNAPSHOT" level="project" />
     <orderEntry type="module" module-name="gate-basic" />
     <orderEntry type="library" name="Maven: javax.servlet:servlet-api:2.5" level="project" />
@@ -298,6 +294,7 @@
     <orderEntry type="library" name="Maven: org.reflections:reflections:0.9.8" level="project" />
     <orderEntry type="library" name="Maven: javassist:javassist:3.12.1.GA" level="project" />
     <orderEntry type="library" name="Maven: net.sf.opencsv:opencsv:2.3" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpclient:4.2.4" level="project" />
     <orderEntry type="library" name="Maven: commons-httpclient:commons-httpclient:3.1" level="project" />
     <orderEntry type="library" name="Maven: org.apache.avro:avro:1.7.7" level="project" />
     <orderEntry type="library" name="Maven: org.codehaus.jackson:jackson-core-asl:1.9.13" level="project" />
@@ -367,14 +364,13 @@
     <orderEntry type="library" name="Maven: xom:xom:1.0" level="project" />
     <orderEntry type="library" name="Maven: xerces:xmlParserAPIs:2.6.2" level="project" />
     <orderEntry type="library" name="Maven: xalan:xalan:2.6.0" level="project" />
+    <orderEntry type="library" name="Maven: org.json:json:20131018" level="project" />
     <orderEntry type="library" name="Maven: org.scala-lang:scala-library:2.10.3" level="project" />
     <orderEntry type="library" name="Maven: org.jooq:jooq:3.7.2" level="project" />
     <orderEntry type="library" name="Maven: org.jooq:jooq-meta:3.7.2" level="project" />
     <orderEntry type="library" name="Maven: org.jooq:jooq-codegen:3.7.2" level="project" />
     <orderEntry type="library" name="Maven: org.jsoup:jsoup:1.8.3" level="project" />
     <orderEntry type="library" name="Maven: org.apache.jena:jena-tdb:3.0.1" level="project" />
-    <orderEntry type="library" name="Maven: org.slf4j:slf4j-log4j12:1.7.12" level="project" />
-    <orderEntry type="library" name="Maven: log4j:log4j:1.2.17" level="project" />
-    <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.14" level="project" />
+    <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.13" level="project" />
   </component>
 </module>

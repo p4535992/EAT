@@ -65,6 +65,20 @@
         <processorPath useClasspath="true" />
         <module name="gate-basic" />
       </profile>
+      <profile default="false" name="Annotation profile for ExtractInfo" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="ExtractInfo" />
+      </profile>
+      <profile default="false" name="Annotation profile for EAT" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="EAT" />
+      </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.8">
       <module name="EAT" target="1.8" />

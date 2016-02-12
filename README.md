@@ -190,6 +190,8 @@ Example 6: Matching triple beetween Sesame repositories with SILK
 mvn exec:java -Dexec.mainClass="com.github.p4535992.extractor.home.Main"
 ######RUN A JAVA MAIN CLASS METHOD WITH DEBUG ENABLE
 mvn -X exec:java -Dexec.mainClass="com.github.p4535992.extractor.home.Main"
+The compiled classes get deleted & the error is apparent.
+mvn -X clean install exec:java -Dexec.mainClass="com.github.p4535992.main.home.Main" -Dexec.classpathScope=test -e
 ######RUN A JAVA MAIN CLASS METHOD WITH DEBUG REMOTE ENABLE
 mvn exec:exec -Dexec.executable="java" -Dexec.args="-classpath %classpath 
 -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=1044 com.mycompany.app.App"
@@ -200,6 +202,20 @@ mvn exec:exec -Dexec.executable="java" -Dexec.args="-classpath %classpath
 #####SET UP MAVEN_DEBUG_OPTS 
 @REM set MAVEN_DEBUG_OPTS=
     -Xdebug -Xnoagent -Djava.compiler=NONE -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=8000
+
+#####SET UP ACTION OMN NETBEANS
+#Run file (via main)
+exec.args=-classpath %classpath ${packageClassName}
+exec.executable=java
+exec.classpathScope=${classPathScope}
+#Debug project
+skipTests=true
+exec.args=-Dmaven.tomcat.port=8666 tomcat:run
+#Debug file (via main)
+exec.args=-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=8000 -classpath %classpath com.github.p4535992.main.home.Main -Dexec.classpathScope=test -e -Dmaven.tomcat.port=8666 tomcat:run
+exec.executable=java
+exec.classpathScope=${classPathScope}
+
 #####SET DEBUG MODE FOR$ MAVEN PROJECT ON NETBEANS
 NOTE: You can avoid these passage if you use IntellijIDEA. 
     + Open your console. 
@@ -219,11 +235,24 @@ NOTE: You can avoid these passage if you use IntellijIDEA.
 
 ###if still not work try:
 
-    Your multi-module application must have one maven module (jar type) which contains the code (the main class) to launch your application.
-    Right click that module and see the properties page as you show above. (I think what you opened is a POM type module.)
++   Your multi-module application must have one maven module (jar type) 
+    which contains the code (the main class) to launch your application.
+    Right click that module and see the properties page as you show above. 
+    (I think what you opened is a POM type module.)
     You should have a Run Category to allow you to add JVM arguments.
-    Add the JVM parameter (something like: -Xdebug -Xnoagent -Xrunjdwp:transport=dt_socket,address=8000,server=y,suspend=y)
+    Add the JVM parameter (something like: 
+    -Xdebug -Xnoagent -Xrunjdwp:transport=dt_socket,address=8000,server=y,suspend=y)
     Run your application in NetBeans.
 
++   You should check the Maven
+    preference tab in the options (quick tip: at least with 7.2 - I don't know
+    for older versions - you get the Maven settings by right clicking the
+    output console and picking the proper menu) and remove all references of
+    offline options (you have --offline twice, so I think there are two places
+    in which it's specified). 
+
++  In your Eclipse, Run-->Run Configurations --> on left you will see "Maven 
+   Build".on right please mention your goal in the goals tab. for 
+   eg:-Dmaven.tomcat.port=8080 tomcat:run
 
 

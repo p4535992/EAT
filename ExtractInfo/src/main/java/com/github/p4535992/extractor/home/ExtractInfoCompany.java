@@ -1,6 +1,6 @@
 package com.github.p4535992.extractor.home;
 
-import com.github.p4535992.extractor.estrattori.ExtractInfoSpring;;
+import com.github.p4535992.extractor.estrattori.ExtractInfoSpring;
 import com.github.p4535992.extractor.estrattori.silk.SilkUtilities;
 import com.github.p4535992.util.file.FileUtilities;
 import com.github.p4535992.util.file.SimpleParameters;
@@ -18,10 +18,11 @@ import java.io.FileNotFoundException;
  *
  * @author 4535992.
  */
+
 public class ExtractInfoCompany {
 
-    private static final org.slf4j.Logger logger =
-            org.slf4j.LoggerFactory.getLogger(ExtractInfoCompany.class);
+    private static final org.slf4j.Logger logger
+            = org.slf4j.LoggerFactory.getLogger(ExtractInfoCompany.class);
 
     public static void main(String[] args) {
         try {
@@ -98,8 +99,8 @@ public class ExtractInfoCompany {
             //LogBackUtil.init(LogBackUtil.LOGPATTERN.PATTERN_CLASSIC_NOTIME);
             logger.info("===== START THE PROGRAMM EXTRACTION TRIPLE FROM DATABASE =========");
             logger.info("START TRIPLIFY");
-            File r2rml = new File("" +
-                    "C:\\Users\\tenti\\Desktop\\R2RML_infodocument-model_2015-07-08.ttl");
+            File r2rml = new File(""
+                    + "C:\\Users\\tenti\\Desktop\\R2RML_infodocument-model_2015-07-08.ttl");
 
             File output = new File(FileUtilities.getDirectoryFile(r2rml) + File.separator + "output.n3");
             ExtractInfoSpring m = ExtractInfoSpring.getInstance();
@@ -120,8 +121,8 @@ public class ExtractInfoCompany {
             //LogBackUtil.init(LogBackUtil.LOGPATTERN.PATTERN_CLASSIC_NOTIME);
             logger.info("===== START THE PROGRAMM IMPORT FILE WITH SESAME =========");
             logger.info("START TRIPLIFY");
-            File output = new File("" +
-                    "C:\\Users\\tenti\\Desktop\\output-c.Turtle");
+            File output = new File(""
+                    + "C:\\Users\\tenti\\Desktop\\output-c.Turtle");
             Sesame2Utilities sesame = Sesame2Utilities.getInstance();
             Repository rep = sesame.connectToHTTPRepository("http://localhost:8080/openrdf-sesame/repositories/repKm4c1");
             sesame.setPrefixes();
@@ -139,8 +140,8 @@ public class ExtractInfoCompany {
             //LogBackUtil.init(LogBackUtil.LOGPATTERN.PATTERN_CLASSIC_NOTIME);
             logger.info("===== START THE PROGRAMM LINKING WITH SILK =========");
             logger.info("START TRIPLIFY");
-            File xmlConfig = new File("" +
-                    "C:\\Users\\tenti\\Desktop\\output-c.xml");
+            File xmlConfig = new File(""
+                    + "C:\\Users\\tenti\\Desktop\\output-c.xml");
             SilkUtilities.getInstance().generateRDF(xmlConfig, "interlink_id", 2, false);
         } catch (Exception e) {
             e.printStackTrace();
@@ -161,9 +162,9 @@ public class ExtractInfoCompany {
             } else {
                 //C:\Users\tenti\Desktop\EAT\src\main\resources\input.properties
                 //C:\Users\tenti\Desktop\EAT\ExtractInfo\src\main\resources\input.properties
-                params = new SimpleParameters(new File(System.getProperty("user.dir") + File.separator +
-                        "src" + File.separator + "main" + File.separator + "resources" + File.separator +
-                        "input.properties"), '=');
+                params = new SimpleParameters(new File(System.getProperty("user.dir") + File.separator
+                        + "src" + File.separator + "main" + File.separator + "resources" + File.separator
+                        + "input.properties"), '=');
             }
             logger.info("Using parameters:");
             logger.info(params.toString());
@@ -178,6 +179,5 @@ public class ExtractInfoCompany {
         }
 
     }
-
 
 }

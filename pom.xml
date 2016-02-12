@@ -7,8 +7,9 @@
     <groupId>com.github.p4535992</groupId>
     <artifactId>EAT</artifactId>
     <version>1.6.8</version>
+    <packaging>jar</packaging>
 
-    <packaging>pom</packaging>
+    
     <name>${project.artifactId}</name>
     <url>http://maven.apache.org</url>
 
@@ -141,6 +142,8 @@
     </dependencies>
 
     <build>
+        
+  
         <!-- To define the plugin version in your parent POM -->
     <pluginManagement>
       <plugins>
@@ -190,9 +193,11 @@
                     <debug>true</debug>
                     <debuglevel>lines,vars,source</debuglevel>
                     <!-- DO NOT include log4j.properties file in your Jar -->
+                    <!--
                     <excludes>
                         <exclude>**/log4j.properties</exclude>
                     </excludes>
+                    -->
                     <!-- <archive>
                          <manifest>
                              &lt;!&ndash; Jar file entry point &ndash;&gt;
@@ -276,6 +281,7 @@
             -Dfile.encoding=UTF-8 process-classes org.codehaus.mojo:exec-maven-plugin:1.2.1:exec\""
 -->
             <!-- mvn exec:java -Dexec.mainClass="com.github.p4535992.main.home.Main" -->
+            <!-- mvn -X clean install exec:java -Dexec.mainClass="com.github.p4535992.main.home.Main" -Dexec.classpathScope=test -e-->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
@@ -291,7 +297,9 @@
                     <executable>java</executable>
                     <includeProjectDependencies>true</includeProjectDependencies>
                     <includePluginDependencies>false</includePluginDependencies>
-                    <classpathScope>compile</classpathScope>
+                    <classpathScope>compile</classpathScope>  
+                    <!--<mainClass>C:\Users\tenti\Desktop\EAT\src\main\java\com\github\p4535992\main\home\Main.java</mainClass>               
+                    -->
                     <mainClass>com.github.p4535992.main.home.Main</mainClass>
                     <arguments>
                     </arguments>
