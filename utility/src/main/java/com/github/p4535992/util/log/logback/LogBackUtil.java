@@ -566,7 +566,7 @@ public class LogBackUtil {
             try {
                 if (pathToLogBackXML.contains("resources")) {
                     //noinspection ConstantConditions,AccessStaticViaInstance
-                    configurator.doConfigure(LogBackUtil.class.getClassLoader().
+                    configurator.doConfigure(ClassLoader.
                             getSystemClassLoader().getResource(pathToLogBackXML).getFile());
                 } else {
                     try {
@@ -587,7 +587,6 @@ public class LogBackUtil {
                     configurator.doConfigure(pathToLogBackXML);
                 } catch (IOException | JoranException e) {
                     System.err.println("[8] CAN'T SET THE XML:" + e.getMessage());
-                    e.printStackTrace();
                 } catch(Exception e){
                     System.err.println("[8.2] CAN'T SET THE XML:" + e.getMessage());
                 }

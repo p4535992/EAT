@@ -67,15 +67,15 @@
             <url>https://jitpack.io</url>
         </repository>
         <!-- Jena-Sesame-CumulusRDF Driver -->
-        <repository>
+        <!--<repository>
             <snapshots>
                 <enabled>true</enabled>
             </snapshots>
             <id>cumulusrdf-repo</id>
             <url>http://cumulusrdf.googlecode.com/svn/repository</url>
-        </repository>
+        </repository>-->
         <!-- Jena-Virtuoso Driver-->
-        <repository>
+       <!-- <repository>
             <id>maven.aksw.internal</id>
             <name>University Leipzig, AKSW Maven2 Repository</name>
             <url>http://maven.aksw.org/archiva/repository/internal</url>
@@ -84,12 +84,12 @@
             <id>maven.aksw.snapshots</id>
             <name>University Leipzig, AKSW Maven2 Repository</name>
             <url>http://maven.aksw.org/archiva/repository/snapshots</url>
-        </repository>
+        </repository>-->
         <!-- Sesame-Virtuoso Driver -->
-        <repository>
+        <!--<repository>
             <id>ldstack</id>
             <url>http://mvn.linkeddata.org/content/groups/linkeddata.org/</url>
-        </repository>
+        </repository>-->
         <!-- Alternative repository for import dependency not present on the maven central -->
         <!--
         <repository>

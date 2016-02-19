@@ -19,7 +19,13 @@ public class MapAnnotation {
     private String annotationName;
     private int index;
 
-    public MapAnnotation(){}
+    public MapAnnotation(){
+        this.index = 0;
+        this.listContents = new ArrayList<>();
+        this.annotationName = setUpDefaultName();
+        this.mapAnnotations = new LinkedMultiValueMap<>();
+        this.mapStringAnnotations = new LinkedMultiValueMap<>();
+    }
 
     public MapAnnotation(MapContent mapContent){
         this.index = 0;
@@ -119,6 +125,29 @@ public class MapAnnotation {
         this.mapStringAnnotations.add(annotationName,mapContent.getContent());
     }
 
+    public void add(MapAnnotation mapAnnotation){
+        setIfNull();
+        this.listContents.addAll( mapAnnotation.getListContents());
+        addAll(mapAnnotation);
+        addAllString(mapAnnotation);
+    }
+
+    private void addAll(MapAnnotation mapAnnotation){
+        for(Map.Entry<String,List<MapContent>> entry: mapAnnotation.getMapAnnotations().entrySet()){
+            for(MapContent mapContent: entry.getValue()) {
+                this.mapAnnotations.add(entry.getKey(),mapContent);
+            }
+        }
+    }
+
+    private void addAllString(MapAnnotation mapAnnotation){
+        for(Map.Entry<String,List<String>> entry: mapAnnotation.getMap().entrySet()){
+            for(String entry2 : entry.getValue()){
+                this.mapStringAnnotations.add(entry.getKey(),entry2);
+            }
+        }
+    }
+
     public void put(MapContent mapContent){
         setIfNull();
         this.listContents.add(mapContent);
@@ -168,6 +197,12 @@ public class MapAnnotation {
         if(listContents == null || listContents.isEmpty()){
             listContents = new ArrayList<>();
         }
+        if(mapAnnotations == null || mapAnnotations.isEmpty()){
+            mapAnnotations = new LinkedMultiValueMap<>();
+        }
+        if(mapStringAnnotations == null || mapStringAnnotations.isEmpty()){
+            mapStringAnnotations = new LinkedMultiValueMap<>();
+        }
     }
 
     public void clear(){
@@ -178,6 +213,11 @@ public class MapAnnotation {
 
     public int size(){
         return mapAnnotations.size();
+    }
+
+    public boolean isEmpty(){
+        return mapAnnotations.isEmpty();
+        //return values().size();
     }
 
     public List<MapContent> values(){
@@ -195,7 +235,12 @@ public class MapAnnotation {
 
 
     public List<MapContent> get(String annotationName){
-        return mapAnnotations.get(annotationName);
+        for(Map.Entry<String,List<MapContent>> entry: mapAnnotations.entrySet()){
+            if(entry.getKey().toLowerCase().contains(annotationName.toLowerCase())){
+                return entry.getValue();
+            }
+        }
+        return null;
     }
 
     public List<MapContent> get(Integer indexAnnotation){
@@ -272,13 +317,34 @@ public class MapAnnotation {
         return theMapContent;
     }
 
+    public String getName(Integer indexAnnotation) {
+        int i = 0;
+        for (Map.Entry<String, List<MapContent>> entry : mapAnnotations.entrySet()) {
+            if (i == indexAnnotation) {
+                return entry.getKey();
+            }
+            i++;
+        }
+        return null;
+    }
 
+    public String getName(String nameAnnotation) {
+        for (Map.Entry<String, List<MapContent>> entry : mapAnnotations.entrySet()) {
+            if (Objects.equals(entry.getKey(), nameAnnotation)) {
+                return entry.getKey();
+            }
+        }
+        return null;
+    }
+
+    public String getName() {
+        return annotationName;
+    }
 
     @Override
     public String toString() {
         return "MapAnnotation{" +
-                "listContents=" + listContents +
-                ", mapAnnotations=" + mapAnnotations +
+                "mapAnnotations=" + mapAnnotations +
                 '}';
     }
 }

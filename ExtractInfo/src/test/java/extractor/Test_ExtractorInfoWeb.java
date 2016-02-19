@@ -2,8 +2,8 @@ package extractor;
 
 import com.github.p4535992.extractor.estrattori.ExtractInfoWeb;
 import com.github.p4535992.extractor.object.model.GeoDocument;
-import com.github.p4535992.gatebasic.gate.gate8.ExtractorInfoGate8;
-import com.github.p4535992.gatebasic.gate.gate8.GateSupport;
+import com.github.p4535992.gatebasic.gate.gate8.ExtractorInfoGate81;
+import com.github.p4535992.gatebasic.gate.gate8.GateSupport2;
 import gate.CorpusController;
 
 import java.lang.reflect.InvocationTargetException;
@@ -27,7 +27,7 @@ public class Test_ExtractorInfoWeb {
         CorpusController controller = (CorpusController) web.getController();
         //Class for process a document with GATE and get a result with only the st ring value
         //name Document -> name AnnotationSet -> name Annotation -> string content.
-        ExtractorInfoGate8 eig8 = ExtractorInfoGate8.getInstance();
+        ExtractorInfoGate81 eig8 = ExtractorInfoGate81.getInstance();
         //create a list of annotation (you know they exists on the gate document,otherwise you get null result).....
         List<String> listAnn =  new ArrayList<>(Arrays.asList("MyRegione","MyPhone","MyFax","MyEmail","MyPartitaIVA",
                 "MyLocalita","MyIndirizzo","MyEdificio","MyProvincia"));
@@ -37,17 +37,17 @@ public class Test_ExtractorInfoWeb {
         //METHOD 1: extract all the information given from a URL in a specific object GeoDocument,
         // there are method for works with java.io.File File or Directory
         //Store the result on of the extraction on a GateSupport Object
-        GateSupport support = GateSupport.getInstance(
+        GateSupport2 support = GateSupport2.getInstance(
                 eig8.extractorGATE(
                         new URL("http://www.unifi.it"),controller,"corpus_test_1",listAnn,listAnnSet,true)
         );
 
         //Now you can get the content from a specific document, specific AnnotationSet, specific Annotation.
-        String contnet0 = support.getContent("doc1", "MyAnnSet", "MyIndirizzo"); // "P.azza Guido Monaco"
-        String content1 = support.getContent(0,"MyAnnSet", "MyIndirizzo"); // "P.azza Guido Monaco"
-        String content2 = support.getContent(0,0,"MyIndirizzo"); // "P.azza Guido Monaco"
-        String content3 = support.getContent(0,0,0); // "P.azza Guido Monaco"
-        GeoDocument geoDoc = web.convertGateSupportToGeoDocument(support,new URL("http://www.unifi.it"),0);
+        String contnet0 = support.getSingleContent("doc1", "MyAnnSet", "MyIndirizzo"); // "P.azza Guido Monaco"
+        String content1 = support.getSingleContent(0,"MyAnnSet", "MyIndirizzo"); // "P.azza Guido Monaco"
+        String content2 = support.getSingleContent(0,0,"MyIndirizzo"); // "P.azza Guido Monaco"
+        String content3 = support.getSingleContent(0,0,0); // "P.azza Guido Monaco"
+        GeoDocument geoDoc = web.convertGateSupport2ToGeoDocument(support,new URL("http://www.unifi.it"),0);
 
         //METHOD 2: and we want to save the geoDocument in a table on the database.
 

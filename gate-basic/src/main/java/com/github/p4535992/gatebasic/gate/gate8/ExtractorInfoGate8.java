@@ -26,7 +26,9 @@ import java.util.Map;
  * Created by 4535992 on 24/06/2015.
  * @author 4535992.
  * @version 2015-11-12.
+ * @deprecated use instead {@link ExtractorInfoGate81}
  */
+@Deprecated
 @SuppressWarnings("unused")
 public class ExtractorInfoGate8 {
 
@@ -110,9 +112,9 @@ public class ExtractorInfoGate8 {
         try{
             if(url!=null){
                 if(nameCorpus == null || nameCorpus.isEmpty()) {
-                    corpus = gc8.createCorpusByUrl(url, "GeoDocuments Corpus");
+                    corpus = gc8.createCorpusByURL(url, "GeoDocuments Corpus");
                 }else{
-                    corpus = gc8.createCorpusByUrl(url, nameCorpus);
+                    corpus = gc8.createCorpusByURL(url, nameCorpus);
                 }
             }//if url!=null
             if(corpus == null){return null;}
@@ -201,9 +203,9 @@ public class ExtractorInfoGate8 {
         try{
             logger.info("Execute of GATE in process for a list of  " + listUrl.size() + " urls...");
             if (nameCorpus == null || nameCorpus.isEmpty()) {
-                corpus = gc8.createCorpusByUrl(listUrl, "GeoDocuments Corpus");
+                corpus = gc8.createCorpusByURL(listUrl, "GeoDocuments Corpus");
             } else {
-                corpus = gc8.createCorpusByUrl(listUrl, nameCorpus);
+                corpus = gc8.createCorpusByURL(listUrl, nameCorpus);
             }
             if(corpus == null){return null;}
             else{

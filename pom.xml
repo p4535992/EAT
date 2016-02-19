@@ -9,7 +9,7 @@
     <version>1.6.8</version>
     <packaging>jar</packaging>
 
-    
+
     <name>${project.artifactId}</name>
     <url>http://maven.apache.org</url>
 
@@ -59,8 +59,10 @@
         <maven-compiler-plugin.version>2.3.2</maven-compiler-plugin.version>
         <maven-source-plugin.version>2.3</maven-source-plugin.version>
         <maven-javadoc-plugin.version>2.3</maven-javadoc-plugin.version>
-        <maven-exec-plugin.version>1.1.1</maven-exec-plugin.version>
+        <maven-exec-plugin.version>1.4.0</maven-exec-plugin.version>
         <maven-dependency-plugin.version>2.10</maven-dependency-plugin.version>
+        <tomcat7-maven-plugin.version>2.2</tomcat7-maven-plugin.version>
+        <nbm-maven-plugin.version>4.1</nbm-maven-plugin.version>
         <!--<com.github.p4535992.gate-basic.version>1.6.8</com.github.p4535992.gate-basic.version>-->
         <com.github.p4535992.ExtractInfo.version>1.6.8</com.github.p4535992.ExtractInfo.version>
         <!-- LOGGING -->
@@ -76,19 +78,12 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-logging</artifactId>
                 <version>${spring-boot-starter-logging.version}</version>
-                <!-- <exclusions>
-                     <exclusion>
-                         <groupId>org.slf4j</groupId>
-                         <artifactId>slf4j-api</artifactId>
-                     </exclusion>
-                 </exclusions>-->
             </dependency>
             <!-- The SLF4J - take out because already present in logback classic -->
             <dependency>
                 <groupId>org.slf4j</groupId>
                 <artifactId>slf4j-api</artifactId>
                 <version>${org.slf4j.version}</version>
-                <optional>true</optional>
             </dependency>
             <!-- Since slf4j is a bridge, you need an implementation of it that would
             redirect all calls to slf4j or JCL. Following is to perform logging using
@@ -126,6 +121,13 @@
             <optional>true</optional>
         </dependency>
 
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-beans</artifactId>
+            <version>4.1.6.RELEASE</version>
+            <optional>true</optional>
+        </dependency>
+
         <!-- MAVEN PLUGIN DEPENDENCY-->
         <dependency>
             <groupId>org.codehaus.mojo</groupId>
@@ -133,37 +135,63 @@
             <version>${maven-exec-plugin.version}</version>
             <optional>true</optional>
         </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-beans</artifactId>
-            <version>4.1.6.RELEASE</version>
-        </dependency>
 
     </dependencies>
 
     <build>
-        
-  
         <!-- To define the plugin version in your parent POM -->
-    <pluginManagement>
-      <plugins>
-        <plugin>
-          <groupId>org.apache.tomcat.maven</groupId>
-          <artifactId>tomcat7-maven-plugin</artifactId>
-          <version>2.2</version>
-        </plugin> 
-      </plugins>
-    </pluginManagement>
-        
-        
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.tomcat.maven</groupId>
+                    <artifactId>tomcat7-maven-plugin</artifactId>
+                    <version>${tomcat7-maven-plugin.version}</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+
         <plugins>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>${maven-exec-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <executable>java</executable>
+                    <includeProjectDependencies>true</includeProjectDependencies>
+                    <includePluginDependencies>false</includePluginDependencies>
+                    <classpathScope>compile</classpathScope>
+                    <mainClass>com.github.p4535992.main.home.Main</mainClass>
+                    <arguments>
+                    </arguments>
+                    <!--<systemProperties>
+                        <systemProperty>
+                            <key>myproperty</key>
+                            <value>myvalue</value>
+                        </systemProperty>
+                    </systemProperties>-->
+                </configuration>
+            </plugin>
+
+            <!-- To use the plugin goals in your POM or parent POM -->
+            <plugin>
+                <groupId>org.apache.tomcat.maven</groupId>
+                <artifactId>tomcat7-maven-plugin</artifactId>
+            </plugin>
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
                 <artifactId>nbm-maven-plugin</artifactId>
-                <version>3.7</version>
+                <version>${nbm-maven-plugin.version}</version>
                 <extensions>true</extensions>
             </plugin>
-           
+
             <plugin>
                 <artifactId>maven-eclipse-plugin</artifactId>
                 <version>${maven-eclipse-plugin.version}</version>
@@ -282,43 +310,6 @@
 -->
             <!-- mvn exec:java -Dexec.mainClass="com.github.p4535992.main.home.Main" -->
             <!-- mvn -X clean install exec:java -Dexec.mainClass="com.github.p4535992.main.home.Main" -Dexec.classpathScope=test -e-->
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>exec-maven-plugin</artifactId>
-                <version>1.4.0</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>exec</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <executable>java</executable>
-                    <includeProjectDependencies>true</includeProjectDependencies>
-                    <includePluginDependencies>false</includePluginDependencies>
-                    <classpathScope>compile</classpathScope>  
-                    <!--<mainClass>C:\Users\tenti\Desktop\EAT\src\main\java\com\github\p4535992\main\home\Main.java</mainClass>               
-                    -->
-                    <mainClass>com.github.p4535992.main.home.Main</mainClass>
-                    <arguments>
-                    </arguments>
-                    <!--<systemProperties>
-                        <systemProperty>
-                            <key>myproperty</key>
-                            <value>myvalue</value>
-                        </systemProperty>
-                    </systemProperties>-->
-                </configuration>
-            </plugin>
-            
-            <!-- To use the plugin goals in your POM or parent POM -->
-            <plugin>
-              <groupId>org.apache.tomcat.maven</groupId>
-              <artifactId>tomcat7-maven-plugin</artifactId>
-              <version>2.2</version>
-            </plugin>
-
         </plugins>
     </build>
 </project>

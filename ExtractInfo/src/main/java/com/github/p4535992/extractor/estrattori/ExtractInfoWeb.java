@@ -2,9 +2,8 @@ package com.github.p4535992.extractor.estrattori;
 import com.github.p4535992.extractor.estrattori.karma.GenerationRDFSupport;
 import com.github.p4535992.extractor.object.dao.jdbc.IWebsiteDao;
 import com.github.p4535992.extractor.object.impl.jdbc.WebsiteDaoImpl;
-import com.github.p4535992.gatebasic.gate.gate8.ExtractorInfoGate8;
-import com.github.p4535992.gatebasic.gate.gate8.Gate8Kit;
-import com.github.p4535992.gatebasic.gate.gate8.GateSupport;
+import com.github.p4535992.gatebasic.gate.gate8.*;
+import com.github.p4535992.gatebasic.object.MapAnnotationSet;
 import com.github.p4535992.util.file.FileUtilities;
 import com.github.p4535992.util.html.JSoupUtilities;
 
@@ -259,7 +258,7 @@ public class ExtractInfoWeb {
                 }*/
                 checkIfCreateANewTable(geoDocumentDao,createNewTable,dropOldTable);
             }
-            ExtractorInfoGate8 egate = ExtractorInfoGate8.getInstance();
+            ExtractorInfoGate81 egate = ExtractorInfoGate81.getInstance();
             ExtractorGeoDocumentSupport egs = new ExtractorGeoDocumentSupport();
             ExtractorJSOUP j = new ExtractorJSOUP();
 
@@ -297,7 +296,7 @@ public class ExtractInfoWeb {
             //create a list of annotationSet (you know they exists on the gate document,otherwise you get null result).....
             List<String> listAnnSet = new ArrayList<>(Arrays.asList("MyFOOTER", "MyHEAD", "MySpecialID", "MyAnnSet"));
             //Store the result on of the extraction on a GateSupport Object
-            GateSupport support = null;
+            GateSupport2 support = null;
             //Use GATE for Extract Information...
             if(!listUrls.isEmpty()) {
                 if (controller != null) {
@@ -306,15 +305,15 @@ public class ExtractInfoWeb {
                         URL url = listUrls.get(0);
                         String content = JSoupUtilities.getContent(url.toString());
                         if (!StringUtilities.isNullOrEmpty(content)) {
-                            support = GateSupport.getInstance(
+                            support = GateSupport2.getInstance(
                                     egate.extractorGATE(content, (CorpusController) controller, "corpus_test_1", listAnn, listAnnSet, true), true);
                         } else {
-                            support = GateSupport.getInstance(
+                            support = GateSupport2.getInstance(
                                     egate.extractorGATE(url, (CorpusController) controller, "corpus_test_1", listAnn, listAnnSet, true), true);
                         }
                         //geoDoc = convertGateSupportToGeoDocument(support, url, 0); //0 because is just a unique document...
                     } else {
-                        support = GateSupport.getInstance(
+                        support = GateSupport2.getInstance(
                                 egate.extractorGATE(listUrls, (CorpusController) controller, "corpus_test_1", listAnn, listAnnSet, true));
                     }
                 }
@@ -323,21 +322,21 @@ public class ExtractInfoWeb {
                         URL url = listUrls.get(0);
                         String content = JSoupUtilities.getContent(url.toString());
                         if (content != null) {
-                            support = GateSupport.getInstance(
+                            support = GateSupport2.getInstance(
                                     egate.extractorGATE(content, procDoc, "corpus_test_1", listAnn, listAnnSet, true), true);
                         } else {
-                            support = GateSupport.getInstance(
+                            support = GateSupport2.getInstance(
                                     egate.extractorGATE(url, procDoc, "corpus_test_1", listAnn, listAnnSet, true), true);
                         }
                     } else {
-                        support = GateSupport.getInstance(
+                        support = GateSupport2.getInstance(
                                 egate.extractorGATE(listUrls, procDoc, "corpus_test_1", listAnn, listAnnSet, true));
                     }
                 }
                 if (listUrls.size() == 1) {
                     try {
                         logger.info("(" + indGDoc + ")URL:" + listUrls.get(0));
-                        geoDoc = convertGateSupportToGeoDocument(support, listUrls.get(0), 0); //0 because is just a unique document...
+                        geoDoc = convertGateSupport2ToGeoDocument(support, listUrls.get(0), 0); //0 because is just a unique document...
                         indGDoc++;
                         logger.info("*******************Run JSOUP**************************");
                         geo2 = j.GetTitleAndHeadingTags(listUrls.get(0).toString(), geo2);
@@ -355,7 +354,7 @@ public class ExtractInfoWeb {
                     for (Document doc : corpus) {
                         try {
                             logger.info("(" + indGDoc + ")URL:" + doc.getSourceUrl());
-                            geoDoc = convertGateSupportToGeoDocument(support, doc.getSourceUrl(), indGDoc);
+                            geoDoc = convertGateSupport2ToGeoDocument(support, doc.getSourceUrl(), indGDoc);
                             indGDoc++;
                             logger.info("*******************Run JSOUP**************************");
                             geo2 = j.GetTitleAndHeadingTags(doc.getSourceUrl().toString(), geo2);
@@ -521,18 +520,18 @@ public class ExtractInfoWeb {
      * @param listAnnSet list of string annotationSets of GATE you want to extract.
      * @return a List Collection of GeoDocuments, but the geoDocuments are already put in the database.
      */
-    public GateSupport ExtractSupportGateFromUrl(URL url,List<String> listAnn, List<String> listAnnSet){
-        ExtractorInfoGate8 egate = ExtractorInfoGate8.getInstance();
+    public GateSupport2 ExtractSupportGateFromUrl(URL url,List<String> listAnn, List<String> listAnnSet){
+        ExtractorInfoGate81 egate = ExtractorInfoGate81.getInstance();
         try {
             //Store the result on of the extraction on a GateSupport Object
-            GateSupport support;
+            GateSupport2 support;
             if(controller!=null) {
-                support = GateSupport.getInstance(
+                support = GateSupport2.getInstance(
                         egate.extractorGATE(url, (CorpusController) controller, "corpus_test_1", listAnn, listAnnSet, true),true);
                 return support;
             }
             if(procDoc!=null){
-                support = GateSupport.getInstance(
+                support = GateSupport2.getInstance(
                         egate.extractorGATE(url, procDoc, "corpus_test_1", listAnn, listAnnSet, true),true);
                 return support;
             }
@@ -701,7 +700,7 @@ public class ExtractInfoWeb {
      *              the document given from the user.
      * @return a GeoDocument Object.
      */
-    public GeoDocument convertGateSupportToGeoDocument(GateSupport support,URL url,Integer index){
+    public GeoDocument convertGateSupport2ToGeoDocument(GateSupport2 support,URL url,Integer index){
         GeoDocument geoDoc = new GeoDocument();
         String[] anntotations = new String[]{"MyRegione","MyPhone","MyFax","MyEmail","MyPartitaIVA",
                 "MyLocalita","MyIndirizzo","MyEdificio","MyProvincia"};
@@ -709,15 +708,15 @@ public class ExtractInfoWeb {
             geoDoc.setUrl(url);
             for(String nameAnnotation: anntotations ){
                 //get list of all annotation set...
-                List<Map<String,Map<String,String>>> list = new ArrayList<>(support.getMapDocs().values());
+                List<MapAnnotationSet> listAnnSet = support.getDocument();
                 //for each annotation set....
                 //boolean flag1 = false;
                 //for(int i=0; i< list.size(); i++){
                 boolean flag2 = false;
-                if(!list.isEmpty() && list.get(index).size()>0) {
+                if(!listAnnSet.isEmpty() && listAnnSet.get(index).size()>0) {
                     try {
-                        for (int j = 0; j < list.get(index).size(); j++) {
-                            String content = support.getContent(index, j, nameAnnotation);
+                        for (int j = 0; j < listAnnSet.get(index).size(); j++) {
+                            String content = support.getSingleContent(index, j, nameAnnotation);
                             switch (nameAnnotation) {
                                 case "MyRegione": {
                                     if (!StringUtilities.isNullOrEmpty(content) && StringUtilities.isNullOrEmpty(geoDoc.getRegione())) {
@@ -797,12 +796,12 @@ public class ExtractInfoWeb {
     /**
      * Method to support the Extraction of a List of URLS from a Table of the database.
      * @param DRIVER_DATABASE driver of the database eg: "com.mysql.jdbc.Driver".
-     * @param DIALECT_DATABASE dialect of the databse eg: "jdbc:mysql".
+     * @param DIALECT_DATABASE dialect of the database eg: "jdbc:mysql".
      * @param HOST_DATABASE host of the database eg: "localhost".
-     * @param PORT_DATABASE port of the databse eg: "3306".
+     * @param PORT_DATABASE port of the database eg: "3306".
      * @param USER username of the database eg: "username".
-     * @param PASS passwrod of the database eg: "password".
-     * @param DB_INPUT strig name of the database eg: "database".
+     * @param PASS password of the database eg: "password".
+     * @param DB_INPUT string name of the database eg: "database".
      * @param TABLE_INPUT string name of the table where make the select  eg: "table".
      * @param COLUMN_TABLE_INPUT string name of the column of the table where make th select eg:"url".
      * @param LIMIT LIMIT of the select query SQL.

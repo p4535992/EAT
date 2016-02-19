@@ -17,7 +17,13 @@ public class MapDocument {
     private String docName;
     private int index;
 
-    public MapDocument(){}
+    public MapDocument(){
+        this.index = 0;
+        this.listAnnotationSets = new ArrayList<>();
+        this.docName = setUpDefaultName();
+        this.mapDocs = new LinkedMultiValueMap<>();
+        this.mapStringDocs = new LinkedMultiValueMap<>();
+    }
 
     public MapDocument(MapAnnotationSet mapAnnotationSet){
         this.index = 0;
@@ -76,6 +82,33 @@ public class MapDocument {
         return result;
     }
 
+    @Deprecated
+         //Map<String,Map<String,Map<String,String>>>
+    public Map<String,Map<String,Map<String,String>>> getMap2(){
+        if(mapDocs== null)return new LinkedHashMap<>();
+        Map<String,Map<String,Map<String,Map<String,String>>>> map = new LinkedHashMap<>(mapDocs.size());
+        Map<String,Map<String,Map<String,String>>> result = new LinkedHashMap<>();
+        for (Map.Entry<String, List<MapAnnotationSet>> entry : mapDocs.entrySet()) {
+            for(MapAnnotationSet mapAnnotationSet : entry.getValue()) {
+                Map<String,Map<String,String>> result2 = new LinkedHashMap<>();
+                for (Map.Entry<String, List<MapAnnotation>> entry2 : mapAnnotationSet.entrySet()) {
+                    for(MapAnnotation mapAnnotation : entry2.getValue()) {
+                        Map<String,String> result3 = new LinkedHashMap<>();
+                        for(Map.Entry<String,List<MapContent>> entry3: mapAnnotation.entrySet()){
+                            for(MapContent mapContent: entry3.getValue()){
+                                result3.put(entry3.getKey(),mapContent.getContent());
+                            }
+                        }
+                        result2.put(entry2.getKey(),result3);
+                    }
+                }
+                result.put(entry.getKey(),result2);
+            }
+            //map.put(entry.getKey(),result);
+        }
+        return result;
+    }
+
     //OTHER
 
     private String setUpDefaultName(){
@@ -115,6 +148,29 @@ public class MapDocument {
         this.mapStringDocs.add(annotationSetName,mapAnnotationSet.getMap());
     }
 
+    public void add(MapDocument mapDocument){
+        setIfNull();
+        this.listAnnotationSets.addAll(mapDocument.getListAnnotationSets());
+        addAll(mapDocument);
+        addAllString(mapDocument);
+    }
+
+    private void addAll(MapDocument mapDocument){
+        for(Map.Entry<String,List<MapAnnotationSet>> entry: mapDocument.getMapDocs().entrySet()){
+            for(MapAnnotationSet mapAnnotationSet: entry.getValue()) {
+                this.mapDocs.add(entry.getKey(),mapAnnotationSet);
+            }
+        }
+    }
+
+    private void addAllString(MapDocument mapDocument){
+        for(Map.Entry<String,Map<String,Map<String,List<String>>>> entry: mapDocument.getMap().entrySet()){
+          for(Map.Entry<String,Map<String,List<String>>> entry2 : entry.getValue().entrySet()){
+              this.mapStringDocs.add(entry.getKey(),entry.getValue());
+          }
+        }
+    }
+
     public void put(MapAnnotationSet mapAnnotationSet){
         setIfNull();
         this.listAnnotationSets.add(mapAnnotationSet);
@@ -135,6 +191,12 @@ public class MapDocument {
         if(listAnnotationSets == null || listAnnotationSets.isEmpty()){
             listAnnotationSets = new ArrayList<>();
         }
+        if(mapDocs == null || mapDocs.isEmpty()){
+            mapDocs = new LinkedMultiValueMap<>();
+        }
+        if(mapStringDocs == null || mapStringDocs.isEmpty()){
+            mapStringDocs = new LinkedMultiValueMap<>();
+        }
     }
 
     public void clear(){
@@ -145,6 +207,11 @@ public class MapDocument {
 
     public int size(){
        return mapDocs.size();
+        //return values().size();
+    }
+
+    public boolean isEmpty(){
+        return mapDocs.isEmpty();
         //return values().size();
     }
 
@@ -162,7 +229,12 @@ public class MapDocument {
     }
 
     public List<MapAnnotationSet> get(String documentName){
-        return mapDocs.get(documentName);
+        for(Map.Entry<String,List<MapAnnotationSet>> entry: mapDocs.entrySet()){
+            if(entry.getKey().toLowerCase().contains(documentName.toLowerCase())){
+                return entry.getValue();
+            }
+        }
+        return null;
     }
 
     public List<MapAnnotationSet> get(Integer indexDocument){
@@ -188,15 +260,18 @@ public class MapDocument {
 
     public MapAnnotationSet find(String nameDocument,String nameAnnotationSet){
         //Search annotationSet
-        MapAnnotationSet theMapAnnotationSet = null;
-        for(MapAnnotationSet annSet : get(nameDocument)){
-            for(Map.Entry<String,List<MapAnnotation>> entry : annSet.entrySet()){
-                if(entry.getKey().equals(nameAnnotationSet)){
-                    theMapAnnotationSet = annSet;
-                    break;
+        MapAnnotationSet theMapAnnotationSet =null;
+        List<MapAnnotationSet> list = get(nameDocument);
+        if(list != null && list.size() > 0) {
+            for (MapAnnotationSet annSet : list) {
+                for (Map.Entry<String, List<MapAnnotation>> entry : annSet.entrySet()) {
+                    if (entry.getKey().equals(nameAnnotationSet)) {
+                        theMapAnnotationSet = annSet;
+                        break;
+                    }
                 }
+                if (theMapAnnotationSet != null) break;
             }
-            if(theMapAnnotationSet!=null)break;
         }
         return theMapAnnotationSet;
     }
@@ -264,11 +339,35 @@ public class MapDocument {
         return theMapAnnotationSet;
     }
 
+    public String getName(Integer indexDocument) {
+        int i = 0;
+        for (Map.Entry<String, List<MapAnnotationSet>> entry : mapDocs.entrySet()) {
+            if (i == indexDocument) {
+                return entry.getKey();
+            }
+            i++;
+        }
+        return null;
+    }
+
+    public String getName(String nameAnnotationSet) {
+        for (Map.Entry<String, List<MapAnnotationSet>> entry : mapDocs.entrySet()) {
+            if (Objects.equals(entry.getKey(), nameAnnotationSet)) {
+                return entry.getKey();
+            }
+        }
+        return null;
+    }
+
+    public String getName() {
+        return docName;
+    }
+
+
     @Override
     public String toString() {
         return "MapDocument{" +
                 "mapDocs=" + mapDocs +
-                ", listAnnotationSets=" + listAnnotationSets +
                 '}';
     }
 }

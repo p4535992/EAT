@@ -9,7 +9,7 @@ import java.util.*;
  * Created by 4535992 on 10/02/2016.
  * @author 4535992.
  */
-public class MapAnnotationSet {
+public class MapAnnotationSet{
 
     private List<MapAnnotation> listAnnotations;
     private MultiValueMap<String, MapAnnotation> mapAnnotationSets;
@@ -17,7 +17,13 @@ public class MapAnnotationSet {
     private String annotationSetName;
     private int index;
 
-    public MapAnnotationSet(){}
+    public MapAnnotationSet(){
+        this.index = 0;
+        this.listAnnotations = new ArrayList<>();
+        this.annotationSetName = setUpDefaultName();
+        this.mapAnnotationSets = new LinkedMultiValueMap<>();
+        this.mapStringAnnotationSets = new LinkedMultiValueMap<>();
+    }
 
     public MapAnnotationSet(MapAnnotation mapAnnotation){
         this.index = 0;
@@ -115,6 +121,36 @@ public class MapAnnotationSet {
         this.mapStringAnnotationSets.add(annotationSetName,mapAnnotation.getMap());
     }
 
+    public void add(MapAnnotationSet mapAnnotationSet){
+        setIfNull();
+        this.listAnnotations.addAll( mapAnnotationSet.getListAnnotations());
+        addAll(mapAnnotationSet);
+        addAllString(mapAnnotationSet);
+    }
+
+    public void add(List<MapAnnotationSet> mapAnnotationSet){
+        for(MapAnnotationSet annSet: mapAnnotationSet){
+            add(annSet);
+        }
+    }
+
+    private void addAll(MapAnnotationSet mapAnnotationSet){
+        for(Map.Entry<String,List<MapAnnotation>> entry: mapAnnotationSet.getMapAnnotationSets().entrySet()){
+            for(MapAnnotation mapAnnotation: entry.getValue()) {
+                this.mapAnnotationSets.add(entry.getKey(),mapAnnotation);
+            }
+        }
+    }
+
+    private void addAllString(MapAnnotationSet mapAnnotationSet){
+        for(Map.Entry<String,Map<String,List<String>>> entry: mapAnnotationSet.getMap().entrySet()){
+            for(Map.Entry<String,List<String>> entry2 : entry.getValue().entrySet()){
+                this.mapStringAnnotationSets.add(entry.getKey(),entry.getValue());
+            }
+        }
+    }
+
+
     public void put(MapAnnotation mapAnnotation){
         setIfNull();
         this.listAnnotations.add(mapAnnotation);
@@ -135,6 +171,12 @@ public class MapAnnotationSet {
         if(listAnnotations == null || listAnnotations.isEmpty()){
             listAnnotations = new ArrayList<>();
         }
+        if(mapAnnotationSets == null || mapAnnotationSets.isEmpty()){
+            mapAnnotationSets = new LinkedMultiValueMap<>();
+        }
+        if(mapStringAnnotationSets == null || mapStringAnnotationSets.isEmpty()){
+            mapStringAnnotationSets = new LinkedMultiValueMap<>();
+        }
     }
 
     public void clear(){
@@ -145,6 +187,11 @@ public class MapAnnotationSet {
 
     public int size(){
         return mapAnnotationSets.size();
+    }
+
+    public boolean isEmpty(){
+        return mapAnnotationSets.isEmpty();
+        //return values().size();
     }
 
     public List<MapAnnotation> values(){
@@ -161,11 +208,20 @@ public class MapAnnotationSet {
     }
 
     public List<MapAnnotation> get(String annotationSetName){
-        return mapAnnotationSets.get(annotationSetName);
+        for(Map.Entry<String,List<MapAnnotation>> entry: mapAnnotationSets.entrySet()){
+            if(entry.getKey().toLowerCase().contains(annotationSetName.toLowerCase())){
+                return entry.getValue();
+            }
+        }
+        return null;
     }
 
     public List<MapAnnotation> get(Integer indexAnnotationSet){
-        return new ArrayList<>(mapAnnotationSets.values()).get(indexAnnotationSet);
+        if(!mapAnnotationSets.isEmpty()) {
+            return new ArrayList<>(mapAnnotationSets.values()).get(indexAnnotationSet);
+        }else{
+            return new ArrayList<>();
+        }
     }
 
     public MapAnnotation find(String nameAnnotationSet,String nameAnnotation){
@@ -244,11 +300,34 @@ public class MapAnnotationSet {
         return theMapAnnotation;
     }
 
+    public String getName(Integer indexAnnotationSet) {
+        int i = 0;
+        for (Map.Entry<String, List<MapAnnotation>> entry : mapAnnotationSets.entrySet()) {
+            if (i == indexAnnotationSet) {
+                return entry.getKey();
+            }
+            i++;
+        }
+        return null;
+    }
+
+    public String getName(String nameAnnotationSet) {
+        for (Map.Entry<String, List<MapAnnotation>> entry : mapAnnotationSets.entrySet()) {
+            if (Objects.equals(entry.getKey(), nameAnnotationSet)) {
+                return entry.getKey();
+            }
+        }
+        return null;
+    }
+
+    public String getName() {
+        return annotationSetName;
+    }
+
     @Override
     public String toString() {
         return "MapAnnotationSet{" +
-                "listAnnotations=" + listAnnotations +
-                ", mapAnnotationSets=" + mapAnnotationSets +
+                "mapAnnotationSets=" + mapAnnotationSets +
                 '}';
     }
 }

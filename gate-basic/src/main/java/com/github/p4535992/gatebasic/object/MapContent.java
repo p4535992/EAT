@@ -23,7 +23,7 @@ public class MapContent {
     }
 
     public void setContent(String content) {
-        this.content = content;
+        this.content = cleanText(encodingToUTF8(content));
     }
 
     // OTHER
@@ -42,8 +42,7 @@ public class MapContent {
 
     @Override
     public String toString() {
-        return "MapContent{" +
-                "content='" + content + '\'' +
-                '}';
+        return content;
+
     }
 }
