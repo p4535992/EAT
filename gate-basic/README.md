@@ -26,7 +26,7 @@ you want change ou must invoke setBaseDirectory(String pathToTheDirectory) befor
         //there are method for works with java.io.File File or Directory
         //Store the result on of the extraction on a GateSupport Object
         Gate8Kit gate8Kit = Gate8Kit.getInstance();
-        CorpusController controller = gate8Kit.setUpGateEmbedded(System.getProperty("user.dir")+"gate_files", "plugins", "gate.xml", "user-gate.xml", "gate.session",
+        CorpusController controller = gate8Kit.setUpGateEmbedded(System.getProperty("user.dir")+File.separator+"gate_files", "plugins", "gate.xml", "user-gate.xml", "gate.session",
                 "custom/gapp/geoLocationPipeline06102014v7_fastMode.xgapp");
         GateSupport2 support = GateSupport2.getInstance(
                 eig8.extractorGATE(

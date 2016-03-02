@@ -2,471 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4eed5089-243f-4674-95da-e9b02ca45a2c" name="Default" comment="mmmmmm">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/Datastore/datastore_001/gate.corpora.DocumentImpl/doc_0_http___www.ec.unipi.it___1414318258817___8966" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/Datastore/datastore_001/gate.corpora.DocumentImpl/doc_0_http___www.epidemiologia.it___1414323257321___5982" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/Datastore/datastore_001/gate.corpora.DocumentImpl/doc_14_http___www.fondazionecaritro.it___1414398694109___3040" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/Datastore/datastore_001/gate.corpora.DocumentImpl/doc_15_http___www.fondazionecrui.it___1414398694127___4264" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/Datastore/datastore_001/gate.corpora.SerialCorpusImpl/[171-172](1)_GeoDocuments_Corpus___1414323257298___6843" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/Datastore/datastore_001/gate.corpora.SerialCorpusImpl/[172-182](10)_GeoDocuments_Corpus___1414402329633___5562" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/Datastore/datastore_001/gate.corpora.SerialCorpusImpl/[172-192](20)_GeoDocuments_Corpus___1414398692476___626" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/japes/myEdificio.jape" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/pos_tagger_IT/TreeTagger/cmd/filter-chunker-output-french.perl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/pos_tagger_IT/TreeTagger/cmd/mwl-lookup-greek.perl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/pos_tagger_IT/TreeTagger/lib/french-abbreviations" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/pos_tagger_IT/TreeTagger/lib/german-abbreviations" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/pos_tagger_IT/TreeTagger/lib/italian.par" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/pos_tagger_IT/TreeTagger/lib/spanish-mwls" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/.annie-defaults-metadata/ann-job-annie.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/.annie-defaults-metadata/icon.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/companies_uk.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/date_other.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/government/constituencies-wales.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/government/constituencies.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/government/legislation-pre.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/government/non-cabinet-ministers.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/government/wars.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/government_base.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/post.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/othomatcher/chinese_alias.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/Gazetteer_LKB/doc/images/close.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/Gazetteer_LKB/doc/images/collapsed.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/Gazetteer_LKB/doc/images/expanded.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__backport_util_concurrent_backport_util_concurrent_3_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_jcraft_jsch_0_1_38.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_httpclient_commons_httpclient_3_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_pool_commons_pool_1_6.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__nekohtml_nekohtml_1_9_6_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__nekohtml_xercesMinimal_1_9_6_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_pool2_2_4_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_jackrabbit_jackrabbit_jcr_commons_1_5_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_jackrabbit_jackrabbit_webdav_1_5_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_doxia_doxia_logging_api_1_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_doxia_doxia_sink_api_1_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_maven_artifact_2_2_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_maven_artifact_manager_2_2_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_maven_core_2_2_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_maven_error_diagnostics_2_2_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_maven_model_2_2_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_maven_monitor_2_2_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_maven_plugin_api_2_2_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_maven_plugin_descriptor_2_2_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_maven_plugin_parameter_documenter_2_2_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_maven_plugin_registry_2_2_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_maven_profile_2_2_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_maven_project_2_2_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_maven_repository_metadata_2_2_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_maven_settings_2_2_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_reporting_maven_reporting_api_2_2_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_wagon_wagon_file_1_0_beta_6.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_wagon_wagon_http_1_0_beta_6.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_wagon_wagon_http_lightweight_1_0_beta_6.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_wagon_wagon_http_shared_1_0_beta_6.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_wagon_wagon_provider_api_1_0_beta_6.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_wagon_wagon_ssh_1_0_beta_6.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_wagon_wagon_ssh_common_1_0_beta_6.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_wagon_wagon_ssh_external_1_0_beta_6.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_wagon_wagon_webdav_jackrabbit_1_0_beta_6.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_plexus_plexus_container_default_1_0_alpha_9_stable_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_plexus_plexus_interpolation_1_11.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_plexus_plexus_utils_3_0_20.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_jdk14_1_5_6.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_nop_1_5_3.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_sonatype_plexus_plexus_cipher_1_4.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_sonatype_plexus_plexus_sec_dispatcher_1_3.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/Datastore/datastore_001/__GATE_SerialDataStore__" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/gapp/geoLocationPipeline06102014v7.xgapp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/gapp/geoLocationPipeline06102014v7_fastMode.xgapp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/gapp/old gapp/geoLocationPipeline.xgapp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/gapp/old gapp/geoLocationPipeline04102014.xgapp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/gapp/old gapp/geoLocationPipeline06102014.xgapp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/gapp/old gapp/geoLocationPipeline06102014v2.xgapp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/gapp/old gapp/geoLocationPipeline06102014v3.xgapp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/gapp/old gapp/geoLocationPipeline06102014v4.xgapp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/gapp/old gapp/geoLocationPipeline06102014v5.xgapp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/gapp/old gapp/geoLocationPipeline06102014v6.xgapp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/gapp/old gapp/geoLocationPipeline19092014.xgapp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/gapp/old gapp/geoLocationPipeline22092014.xgapp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/gapp/old gapp/marcoPipelineWithTaggerENv2.xgapp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/gapp/old gapp/marcoPipelineWithTaggerITv3.xgapp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/gapp/old gapp/marcoPipelineWithTaggerLI+ITv3+ENv2.xgapp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/gapp_Ontology/ontorootgazetteer.xgapp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/gazetter/articoloDeterminativo.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/gazetter/articoloIndeterminativo.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/gazetter/assicurazioniITA.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/gazetter/avverbiDiLuogo.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/gazetter/aziendeITA.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/gazetter/aziendeIndustrialiITA.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/gazetter/bancheITA.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/gazetter/cittaITA.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/gazetter/cittaITA_ENG.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/gazetter/congiunzione.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/gazetter/conjunction.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/gazetter/edificioITA.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/gazetter/email.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/gazetter/fax.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/gazetter/finanziarie.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/gazetter/geolocalizzazione.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/gazetter/idFooter.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/gazetter/indirizzo.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/gazetter/locuzioni.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/gazetter/main.def" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/gazetter/myIdSpecial.def" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/gazetter/partitaIVAeCodFiscale.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/gazetter/preposizioni.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/gazetter/provincieITA_ENG.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/gazetter/regioniITA_ENG.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/gazetter/telefono.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/gazetter/trash.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/gazetter/universitaITA_ENG.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/japes/languageIdentificator.jape" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/japes/myEmailv2.jape" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/japes/myFax.jape" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/japes/myIndirizzov14.jape" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/japes/myIndirizzov15.jape" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/japes/myLocalita.jape" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/japes/myMain.jape" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/japes/myPartitaIVA.jape" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/japes/myPreprocessing1.jape" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/japes/myProvincia.jape" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/japes/myRegione.jape" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/japes/myTelefono.jape" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/japes_Ontology/indirizzo-onto-matching.jape" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/japes_Ontology/person-onto-matching.jape" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/japes_Ontology/rename-lookup-features.jape" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/other_Japes (old)/myEmail.jape" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/other_Japes (old)/myFax.jape" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/other_Japes (old)/myGeolocation.jape" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/other_Japes (old)/myGeolocation2.jape" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/other_Japes (old)/myHTMLGeolocation.jape" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/other_Japes (old)/myHtmlMarkUpWithList.jape" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/other_Japes (old)/myIndirizzo.jape" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/other_Japes (old)/myIndirizzov10.jape" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/other_Japes (old)/myIndirizzov11.jape" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/other_Japes (old)/myIndirizzov12.jape" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/other_Japes (old)/myIndirizzov13.jape" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/other_Japes (old)/myIndirizzov2.jape" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/other_Japes (old)/myIndirizzov3.jape" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/other_Japes (old)/myIndirizzov4.jape" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/other_Japes (old)/myIndirizzov5.jape" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/other_Japes (old)/myIndirizzov6.jape" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/other_Japes (old)/myIndirizzov7.jape" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/other_Japes (old)/myIndirizzov8.jape" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/other_Japes (old)/myIndirizzov9.jape" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/other_Japes (old)/myPartitaIVA.jape" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/other_Japes (old)/myPreprocessing0.jape" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/other_Japes (old)/mySetAnnFooterv5(old).jape" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/other_Japes (old)/mySpecialId.jape" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/other_Japes (old)/myTelefono.jape" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/owl_Ontology/test-ontology-instances.owl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/pos_tagger_IT/TreeTagger/cmd/filter-chunker-output-german.perl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/pos_tagger_IT/TreeTagger/cmd/filter-chunker-output.perl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/pos_tagger_IT/TreeTagger/cmd/mwl-lookup.perl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/pos_tagger_IT/TreeTagger/cmd/tokenize.pl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/pos_tagger_IT/TreeTagger/lib/dutch-abbreviations" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/pos_tagger_IT/TreeTagger/lib/english-abbreviations" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/pos_tagger_IT/TreeTagger/lib/italian-abbreviations" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/pos_tagger_IT/TreeTagger/lib/spanish-abbreviations" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/custom/pos_tagger_IT/tree-tagger-italian-gate" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/gate-copy.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/gate.session" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/gate.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/.annie-defaults-metadata/long-desc.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/.annie-defaults-metadata/metadata.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/.annie-defaults-metadata/short-desc.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/ANNIE_with_defaults.gapp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/build.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/creole.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/NE/address.jape" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/NE/clean.jape" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/NE/date.jape" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/NE/date_pre.jape" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/NE/document_date.jape" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/NE/email.jape" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/NE/final.jape" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/NE/first.jape" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/NE/firstname.jape" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/NE/gender.jape" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/NE/identifier.jape" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/NE/jobtitle.jape" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/NE/loc_context.jape" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/NE/main-twitter.jape" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/NE/main.jape" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/NE/name-twitter.jape" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/NE/name.jape" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/NE/name_context.jape" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/NE/name_post.jape" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/NE/number.jape" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/NE/numberletter.jape" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/NE/org_context.jape" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/NE/reldate.jape" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/NE/unknown.jape" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/NE/url.jape" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/NE/url_pre.jape" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/VP/VerbGroups.jape" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/abbreviations.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/adbc.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/agency.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/airport.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/airports.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/cabinet_ministers.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/cdg.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/charities.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/city.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/city_cap.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/city_lower.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/city_uk.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/colours.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/company.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/company_ambig.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/company_cap.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/country.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/country_abbrev.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/country_adj.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/country_cap.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/country_code.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/country_lower.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/currency_prefix.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/currency_unit.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/date.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/date_key.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/date_post.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/date_pre.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/date_unit.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/datespan.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/day.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/day_cap.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/department.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/determiner.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/facility.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/facility_key.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/facility_key_ext.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/festival.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/foreign_ministers.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/govern_key.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/government.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/government/cabinet-ministers.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/government/cabinet-positions.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/government/constituencies-england.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/government/constituencies-n.ireland.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/government/constituencies-scotland.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/government/document-pre.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/government/document_ending_other.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/government/executive-agencies-abbreviations.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/government/executive-agencies-old.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/government/executive-agencies.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/government/govt-departments-ministerial-abbreviations.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/government/govt-departments-ministerial.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/government/govt-departments-non-ministerial-abbreviations.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/government/govt-departments-non-ministerial-old.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/government/govt-departments-non-ministerial.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/government/govt-responsibility-categories.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/government/laws.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/government/legislation-ending.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/government/list-case-sensitive.def" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/government/lists.def" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/government/military-operations-abbrev.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/government/military-operations.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/government/ministers-attending-cabinet.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/government/non-cabinet-minister-posts.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/government/org-law.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/government/org-military.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/government/org-other.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/government/org-political.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/government/project.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/government/project_keyword.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/government/public-bodies-non-departmental.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/government/report-ending.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/government/title-airforce.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/government/title-army.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/government/title-medical.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/government/title-navy.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/government/titles-other.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/government/war_key.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/greeting.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/hour.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/idFooter.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/ident_prekey.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/jobtitles.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/lists.def" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/lists2.def" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/loc_generalkey.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/loc_key.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/loc_other.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/loc_prekey.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/loc_prekey_lower.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/loc_relig.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/mapping.def" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/ministry.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/minutes.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/months.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/months_lower.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/more_company.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/mountain.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/new_adj.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/newspapers.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/non_company.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/nonspec_date.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/not_org.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/number_fold.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/numbers.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/ordinal.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/org_base.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/org_ending.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/org_key.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/org_key_cap.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/org_pre.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/org_spur.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/organization.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/organization_nouns.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/other_people.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/othorg_key.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/percent.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/person_ambig.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/person_ambig.old.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/person_ambig2.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/person_ambig_lower.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/person_ending.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/person_female.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/person_female_ambig.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/person_female_cap.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/person_female_lower.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/person_first.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/person_full.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/person_male.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/person_male_ambig.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/person_male_cap.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/person_male_lower.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/person_relig.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/person_sci.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/person_spur.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/phone_prefix.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/planet.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/province.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/province_aa.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/province_ab.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/racecourse.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/radio_stations_uk.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/region.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/region_cap.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/region_uk.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/rivers.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/say.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/sports.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/spur.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/spur_ident.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/state_us.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/stop.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/street.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/surname_prefix.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/team.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/time.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/time_ampm.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/time_key.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/time_modifier.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/time_unit.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/timeofday.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/times.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/timespan.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/timex_pre.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/timezone.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/title.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/title_female.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/title_lower.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/title_lowercase.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/title_male.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/title_mil.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/title_pol.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/tvcompany.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/university_uk.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/url_key.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/water.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/gazetteer/year.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/heptag/lexicon" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/heptag/lexicon_all" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/heptag/lexicon_cap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/heptag/lexicon_lower" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/heptag/old_lexicon" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/heptag/rules_cap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/heptag/ruleset" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/othomatcher/acelists.def" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/othomatcher/alias.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/othomatcher/alias_ace.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/othomatcher/cdg.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/othomatcher/connnector.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/othomatcher/def_art.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/othomatcher/listsNM.def" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/othomatcher/nickname.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/othomatcher/prepos.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/othomatcher/spur_match.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/regex-splitter/external-split-patterns.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/regex-splitter/internal-split-patterns.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/regex-splitter/non-split-patterns.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/schema/ANNIE-Schemas.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/schema/AddressSchema.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/schema/DateSchema.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/schema/IdentifierSchema.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/schema/LocationSchema.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/schema/MoneySchema.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/schema/OrganizationSchema.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/schema/PercentSchema.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/schema/PersonSchema.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/schema/PhoneSchema.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/schema/SentenceSchema.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/sentenceSplitter/gazetteer/abbreviations.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/sentenceSplitter/gazetteer/lists.def" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/sentenceSplitter/grammar/cleanup.jape" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/sentenceSplitter/grammar/find-single-nl.jape" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/sentenceSplitter/grammar/find.jape" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/sentenceSplitter/grammar/main-single-nl.jape" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/sentenceSplitter/grammar/main.jape" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/sentenceSplitter/grammar/no-splits.jape" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/sentenceSplitter/grammar/prepare.jape" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/sentenceSplitter/grammar/split.jape" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/tokeniser/AlternateTokeniser.rules" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/tokeniser/DefaultTokeniser.rules" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/ANNIE/resources/tokeniser/postprocess.jape" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/Gazetteer_LKB/.classpath" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/Gazetteer_LKB/.project" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/Gazetteer_LKB/build.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/Gazetteer_LKB/creole-bin.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/Gazetteer_LKB/creole.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/Gazetteer_LKB/doc/comparison.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/Gazetteer_LKB/doc/css/maven-base.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/Gazetteer_LKB/doc/css/maven-theme.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/Gazetteer_LKB/doc/css/print.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/Gazetteer_LKB/doc/css/site.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/Gazetteer_LKB/doc/dictionary_lifecycle.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/Gazetteer_LKB/doc/doc-source/apt/comparison.apt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/Gazetteer_LKB/doc/doc-source/apt/dictionary_lifecycle.apt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/Gazetteer_LKB/doc/doc-source/apt/gate_compatibility.apt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/Gazetteer_LKB/doc/doc-source/apt/index.apt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/Gazetteer_LKB/doc/doc-source/apt/samples.apt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/Gazetteer_LKB/doc/doc-source/apt/semantic_encrichment_pr.apt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/Gazetteer_LKB/doc/doc-source/apt/usage.apt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/Gazetteer_LKB/doc/doc-source/fml/general.fml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/Gazetteer_LKB/doc/doc-source/site.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/Gazetteer_LKB/doc/gate_compatibility.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gate-basic/gate_files/plugins/Gazetteer_LKB/doc/general.html" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_1_3.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_11.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_14.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/gate/jms/GATEProcessor.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/gate/jms/README" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/gate/object/GateEmbedded.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gate-basic/src/test/java/com/github/p4535992/gatebasic/gate/Test_intiGateSpring.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/bean/InitBean.java" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_uniVocity_univocity_parsers__v1_5_6_g73e484a_169.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_uniVocity_univocity_parsers__v2_0_0_g6df51fd_1.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_mojo_exec_maven_plugin_1_1_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_mojo_exec_maven_plugin_1_4_0.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/resources/logback/logback.xml" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/resources/logback/logback_customize.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_univocity_univocity_parsers_2_0_0_SNAPSHOT.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_univocity_univocity_parsers_2_0_0_SNAPSHOT.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_p4535992_gate_basic_1_6_8.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_findbugs_jsr305_3_0_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__log4j_log4j_1_2_17.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__cglib_cglib_3_2_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_uniVocity_univocity_parsers__v1_5_6_gdefc3ff_168.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_pool_commons_pool_1_5_4.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__joda_time_joda_time_2_3.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_ant_ant_1_9_4.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_ant_ant_launcher_1_9_4.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_ow2_asm_asm_5_0_3.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_12.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/gate/gate8/GateBag.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/gate/gate8/GateFactory.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/EAT.iml" afterPath="$PROJECT_DIR$/EAT.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/ExtractInfo.iml" afterPath="$PROJECT_DIR$/ExtractInfo/ExtractInfo.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/pom.xml" afterPath="$PROJECT_DIR$/ExtractInfo/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/estrattori/ExtractInfoWeb.java" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/estrattori/ExtractInfoWeb.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/resources/logback.xml" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/resources/logback.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/test/java/extractor/Test_ExtractorInfoWeb.java" afterPath="$PROJECT_DIR$/ExtractInfo/src/test/java/extractor/Test_ExtractorInfoWeb.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gate-basic/README.md" afterPath="$PROJECT_DIR$/gate-basic/README.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gate-basic/gate-basic.iml" afterPath="$PROJECT_DIR$/gate-basic/gate-basic.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gate-basic/pom.xml" afterPath="$PROJECT_DIR$/gate-basic/pom.xml" />
@@ -476,24 +28,15 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/gate/gate8/GateAnnotation81Kit.java" afterPath="$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/gate/gate8/GateAnnotation81Kit.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/gate/gate8/GateAnnotation8Kit.java" afterPath="$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/gate/gate8/GateAnnotation8Kit.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/gate/gate8/GateCorpus8Kit.java" afterPath="$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/gate/gate8/GateCorpus8Kit.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/gate/gate8/GateSupport2.java" afterPath="$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/gate/gate8/GateSupport2.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/object/MapAnnotation.java" afterPath="$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/object/MapAnnotation.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/object/MapAnnotationSet.java" afterPath="$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/object/MapAnnotationSet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/object/MapContent.java" afterPath="$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/object/MapContent.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/object/MapCorpus.java" afterPath="$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/object/MapCorpus.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/object/MapDocument.java" afterPath="$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/object/MapDocument.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/gate/gate8/GateDataStore8Kit.java" afterPath="$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/gate/gate8/GateDataStore8Kit.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/gate/gate8/GateSupport.java" afterPath="$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/gate/gate8/GateSupport.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/gate/gate8/GateUtils.java" afterPath="$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/gate/gate8/GateUtils.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/gate/impl/xml/GateXML.java" afterPath="$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/gate/impl/xml/GateXML.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/util/BeansKit.java" afterPath="$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/util/BeansKit.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gate-basic/src/main/resources/gate/gate-beans.xml" afterPath="$PROJECT_DIR$/gate-basic/src/main/resources/gate/gate-beans.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gate-basic/src/main/resources/gate/gate.properties" afterPath="$PROJECT_DIR$/gate-basic/src/main/resources/gate/gate.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gate_files/gate.xml" afterPath="$PROJECT_DIR$/gate_files/gate.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gate-basic/src/test/java/com/github/p4535992/gatebasic/gate/Test_initGate.java" afterPath="$PROJECT_DIR$/gate-basic/src/test/java/com/github/p4535992/gatebasic/gate/Test_initGate.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/collection/ListUtilities.java" afterPath="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/collection/ListUtilities.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/file/FileUtilities.java" afterPath="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/file/FileUtilities.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/file/archive/ArchiveUtilities.java" afterPath="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/file/archive/ArchiveUtilities.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/log/logback/LogBackUtil.java" afterPath="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/log/logback/LogBackUtil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/string/StringUtilities.java" afterPath="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/string/StringUtilities.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/src/main/resources/logback/logback.xml" afterPath="$PROJECT_DIR$/utility/src/main/resources/logback/logback.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/src/main/resources/logback/logback_simple.xml" afterPath="$PROJECT_DIR$/utility/src/main/resources/logback/logback_simple.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/pom.xml" afterPath="$PROJECT_DIR$/utility/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/utility.iml" afterPath="$PROJECT_DIR$/utility/utility.iml" />
     </list>
     <ignored path="EAT.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -548,99 +91,134 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Test_initGate.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/gate-basic/src/test/java/com/github/p4535992/gatebasic/gate/Test_initGate.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.52459013">
-              <caret line="61" column="22" selection-start-line="61" selection-start-column="22" selection-end-line="61" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GateSupport2.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/gate/gate8/GateSupport2.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="32" column="20" selection-start-line="32" selection-start-column="20" selection-end-line="32" selection-end-column="20" />
-              <folding>
-                <element signature="e#842#843#0" expanded="true" />
-                <element signature="e#869#870#0" expanded="true" />
-                <element signature="e#5762#5763#0" expanded="true" />
-                <element signature="e#5816#5817#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ExtractorInfoGate81.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/gate/gate8/ExtractorInfoGate81.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="149" column="25" selection-start-line="149" selection-start-column="25" selection-end-line="149" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GateAnnotation81Kit.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/gate/gate8/GateAnnotation81Kit.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="104" column="0" selection-start-line="104" selection-start-column="0" selection-end-line="104" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gate-basic/README.md">
-          <provider editor-type-id="MarkdownPreviewEditor">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="54" column="7" selection-start-line="54" selection-start-column="7" selection-end-line="54" selection-end-column="7" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GateUtils.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/gate/gate8/GateUtils.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="198" column="0" selection-start-line="198" selection-start-column="0" selection-end-line="198" selection-end-column="0" />
-              <folding>
-                <element signature="e#8529#8530#0" expanded="true" />
-                <element signature="e#8565#8566#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Gate8Kit.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/gate/gate8/Gate8Kit.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="117" column="0" selection-start-line="117" selection-start-column="0" selection-end-line="117" selection-end-column="0" />
+              <caret line="314" column="17" selection-start-line="314" selection-start-column="17" selection-end-line="314" selection-end-column="17" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1902#1903#0" expanded="true" />
-                <element signature="e#1938#1939#0" expanded="true" />
+                <element signature="imports" expanded="false" />
+                <element signature="e#1902#1903#0" expanded="false" />
+                <element signature="e#1938#1939#0" expanded="false" />
+                <element signature="e#1996#1997#0" expanded="false" />
+                <element signature="e#2046#2047#0" expanded="false" />
+                <element signature="e#2082#2083#0" expanded="false" />
+                <element signature="e#2113#2114#0" expanded="false" />
+                <element signature="e#2162#2163#0" expanded="false" />
+                <element signature="e#2202#2203#0" expanded="false" />
+                <element signature="e#2236#2237#0" expanded="false" />
+                <element signature="e#2267#2268#0" expanded="false" />
+                <element signature="e#2415#2416#0" expanded="false" />
+                <element signature="e#2445#2446#0" expanded="false" />
+                <element signature="e#2502#2503#0" expanded="false" />
+                <element signature="e#2540#2541#0" expanded="false" />
+                <element signature="e#2587#2588#0" expanded="false" />
+                <element signature="e#2620#2621#0" expanded="false" />
+                <element signature="e#2688#2689#0" expanded="false" />
+                <element signature="e#2732#2733#0" expanded="false" />
+                <element signature="e#22445#22446#0" expanded="false" />
+                <element signature="e#22493#22494#0" expanded="false" />
+                <element signature="e#22535#22536#0" expanded="false" />
+                <element signature="e#22580#22581#0" expanded="false" />
+                <element signature="e#22930#22931#0" expanded="false" />
+                <element signature="e#22987#22988#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ConditionalSerialController.java" pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/uk/ac/gate/gate-core/8.1/gate-core-8.1-sources.jar!/gate/creole/ConditionalSerialController.java">
+      <file leaf-file-name="Test_initGate.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gate-basic/src/test/java/com/github/p4535992/gatebasic/gate/Test_initGate.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="41" column="9" selection-start-line="41" selection-start-column="9" selection-end-line="41" selection-end-column="9" />
+              <caret line="66" column="43" selection-start-line="66" selection-start-column="43" selection-end-line="66" selection-end-column="43" />
               <folding>
-                <element signature="e#1648#1649#0" expanded="true" />
-                <element signature="e#1707#1708#0" expanded="true" />
+                <element signature="imports" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gate-basic/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-162.15384">
+              <caret line="248" column="38" selection-start-line="248" selection-start-column="38" selection-end-line="248" selection-end-column="38" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/utility/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-4.576923">
+              <caret line="13" column="18" selection-start-line="13" selection-start-column="18" selection-end-line="13" selection-end-column="18" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ExtractInfo/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-73.23077">
+              <caret line="112" column="17" selection-start-line="112" selection-start-column="17" selection-end-line="112" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-6.5384617">
+              <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GateEmbedded.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/object/GateEmbedded.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GateXML.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/gate/impl/xml/GateXML.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="168" column="5" selection-start-line="168" selection-start-column="5" selection-end-line="168" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GateDataStore8Kit.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/gate/gate8/GateDataStore8Kit.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="363" column="30" selection-start-line="363" selection-start-column="30" selection-end-line="363" selection-end-column="30" />
+              <folding>
+                <element signature="e#15468#15469#0" expanded="true" />
+                <element signature="e#15504#15505#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GateCorpus8Kit.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/gate/gate8/GateCorpus8Kit.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="4.675774">
+              <caret line="233" column="73" selection-start-line="233" selection-start-column="73" selection-end-line="233" selection-end-column="73" />
+              <folding>
+                <marker date="1455879042344" expanded="true" signature="15075:15089" placeholder="/**...*/" />
               </folding>
             </state>
           </provider>
@@ -670,26 +248,19 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/utility/pom.xml" />
-        <option value="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/log/logback/LogBackUtil.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/github/p4535992/extractor/home/ExtractInfoCompany.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/github/p4535992/extractor/home/Main.java" />
         <option value="$PROJECT_DIR$/ExtractInfo/README.md" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/main/java/com/github/p4535992/main/home/Main.java" />
         <option value="$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/home/ExtractInfoCompany.java" />
         <option value="$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/object/GateEmbedded.java" />
-        <option value="$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/gate/gate8/GateAnnotation8Kit.java" />
         <option value="$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/gate/gate8/GateBag.java" />
         <option value="$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/gate/gate8/GateControllerr81.java" />
         <option value="$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/gate/gate8/GateController81.java" />
         <option value="$PROJECT_DIR$/utility/src/main/resources/logback/logback_simple.xml" />
         <option value="$PROJECT_DIR$/ExtractInfo/src/main/resources/logback/logback.xml" />
         <option value="$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/object/MapContent.java" />
-        <option value="$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/gate/gate8/GateAnnotation81Kit.java" />
         <option value="$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/gate/jms/GATEProcessor.java" />
         <option value="$PROJECT_DIR$/gate-basic/src/main/resources/gate/gate-beans-jms.xml" />
-        <option value="$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/gate/gate8/GateFactory.java" />
         <option value="$PROJECT_DIR$/gate-basic/src/test/resources/gate/gate.properties" />
         <option value="$PROJECT_DIR$/gate-basic/src/main/resources/gate/gate.properties" />
         <option value="$PROJECT_DIR$/gate-basic/src/test/resources/gate/gate-beans.xml" />
@@ -699,16 +270,12 @@
         <option value="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/string/StringUtilities.java" />
         <option value="$PROJECT_DIR$/ExtractInfo/src/test/java/extractor/Test_ExtractorInfoWeb.java" />
         <option value="$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/estrattori/ExtractInfoWeb.java" />
-        <option value="$PROJECT_DIR$/ExtractInfo/pom.xml" />
         <option value="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/file/FileUtilities.java" />
         <option value="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/collection/ListUtilities.java" />
-        <option value="$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/gate/gate8/ExtractorInfoGate8.java" />
         <option value="$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/object/impl/jdbc/generic/GenericDaoImpl.java" />
-        <option value="$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/gate/gate8/GateCorpus8Kit.java" />
         <option value="$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/gate/gate8/ExtractorInfoGate81.java" />
         <option value="$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/object/MapCorpus.java" />
         <option value="$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/util/BeansKit.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/object/MapAnnotation.java" />
         <option value="$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/object/MapDocument.java" />
         <option value="$PROJECT_DIR$/ExtractInfo/src/main/resources/logback.xml" />
@@ -717,10 +284,21 @@
         <option value="$PROJECT_DIR$/gate-basic/src/main/resources/logback/logback.xml" />
         <option value="$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/object/MapAnnotationSet.java" />
         <option value="$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/gate/gate8/GateSupport2.java" />
-        <option value="$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/gate/gate8/GateUtils.java" />
-        <option value="$PROJECT_DIR$/gate-basic/README.md" />
         <option value="$PROJECT_DIR$/gate-basic/src/test/java/com/github/p4535992/gatebasic/gate/Test_initGate.java" />
+        <option value="$PROJECT_DIR$/gate-basic/README.md" />
+        <option value="$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/gate/gate8/GateSupport.java" />
+        <option value="$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/gate/gate8/GateFactory.java" />
+        <option value="$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/gate/gate8/GateUtils.java" />
+        <option value="$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/gate/gate8/GateDataStore8Kit.java" />
+        <option value="$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/gate/impl/xml/GateXML.java" />
+        <option value="$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/gate/gate8/GateAnnotation8Kit.java" />
+        <option value="$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/gate/gate8/GateAnnotation81Kit.java" />
+        <option value="$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/gate/gate8/GateCorpus8Kit.java" />
+        <option value="$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/gate/gate8/ExtractorInfoGate8.java" />
         <option value="$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/gate/gate8/Gate8Kit.java" />
+        <option value="$PROJECT_DIR$/utility/pom.xml" />
+        <option value="$PROJECT_DIR$/ExtractInfo/pom.xml" />
+        <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
   </component>
@@ -748,14 +326,8 @@
           <option name="myItemId" value="" />
           <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
         </PATH_ELEMENT>
-      </PATH>
-      <PATH>
         <PATH_ELEMENT>
-          <option name="myItemId" value="" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="gate-basic" />
+          <option name="myItemId" value="utility" />
           <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
         </PATH_ELEMENT>
         <PATH_ELEMENT>
@@ -763,7 +335,7 @@
           <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$DependenciesNode" />
         </PATH_ELEMENT>
         <PATH_ELEMENT>
-          <option name="myItemId" value="org.codehaus.mojo:exec-maven-plugin:1.4.0" />
+          <option name="myItemId" value="org.onebusaway:onebusaway-gtfs-realtime-api:1.2.0" />
           <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$DependencyNode" />
         </PATH_ELEMENT>
       </PATH>
@@ -773,7 +345,7 @@
           <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
         </PATH_ELEMENT>
         <PATH_ELEMENT>
-          <option name="myItemId" value="gate-basic" />
+          <option name="myItemId" value="utility" />
           <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
         </PATH_ELEMENT>
         <PATH_ELEMENT>
@@ -781,37 +353,11 @@
           <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$DependenciesNode" />
         </PATH_ELEMENT>
         <PATH_ELEMENT>
-          <option name="myItemId" value="org.codehaus.mojo:exec-maven-plugin:1.4.0" />
+          <option name="myItemId" value="org.onebusaway:onebusaway-collections:1.2.0" />
           <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$DependencyNode" />
         </PATH_ELEMENT>
         <PATH_ELEMENT>
-          <option name="myItemId" value="org.apache.maven:maven-core:2.2.1" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$DependencyNode" />
-        </PATH_ELEMENT>
-      </PATH>
-      <PATH>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="gate-basic" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="Dependencies" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$DependenciesNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="org.codehaus.mojo:exec-maven-plugin:1.4.0" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$DependencyNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="org.apache.maven:maven-core:2.2.1" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$DependencyNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="org.apache.maven.wagon:wagon-ssh-external:1.0-beta-6" />
+          <option name="myItemId" value="junit:junit:4.12" />
           <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$DependencyNode" />
         </PATH_ELEMENT>
       </PATH>
@@ -821,99 +367,7 @@
           <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
         </PATH_ELEMENT>
         <PATH_ELEMENT>
-          <option name="myItemId" value="gate-basic" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="Dependencies" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$DependenciesNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="org.codehaus.mojo:exec-maven-plugin:1.4.0" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$DependencyNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="org.apache.maven:maven-core:2.2.1" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$DependencyNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="org.apache.maven.reporting:maven-reporting-api:2.2.1" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$DependencyNode" />
-        </PATH_ELEMENT>
-      </PATH>
-      <PATH>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="gate-basic" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="Dependencies" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$DependenciesNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="org.codehaus.mojo:exec-maven-plugin:1.4.0" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$DependencyNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="org.apache.maven:maven-core:2.2.1" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$DependencyNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="org.apache.maven.wagon:wagon-webdav-jackrabbit:1.0-beta-6" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$DependencyNode" />
-        </PATH_ELEMENT>
-      </PATH>
-      <PATH>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="gate-basic" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="Dependencies" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$DependenciesNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="org.codehaus.mojo:exec-maven-plugin:1.4.0" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$DependencyNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="org.apache.maven:maven-artifact-manager:2.2.1" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$DependencyNode" />
-        </PATH_ELEMENT>
-      </PATH>
-      <PATH>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="gate-basic" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="Dependencies" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$DependenciesNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="org.springframework.boot:spring-boot-starter-logging:1.3.0.RELEASE" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$DependencyNode" />
-        </PATH_ELEMENT>
-      </PATH>
-      <PATH>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="gate-basic" />
+          <option name="myItemId" value="utility" />
           <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
         </PATH_ELEMENT>
         <PATH_ELEMENT>
@@ -927,7 +381,7 @@
           <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
         </PATH_ELEMENT>
         <PATH_ELEMENT>
-          <option name="myItemId" value="gate-basic" />
+          <option name="myItemId" value="utility" />
           <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
         </PATH_ELEMENT>
         <PATH_ELEMENT>
@@ -935,7 +389,7 @@
           <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$DependenciesNode" />
         </PATH_ELEMENT>
         <PATH_ELEMENT>
-          <option name="myItemId" value="uk.ac.gate:gate-core:8.1" />
+          <option name="myItemId" value="org.onebusaway:onebusaway-gtfs:1.3.3" />
           <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$DependencyNode" />
         </PATH_ELEMENT>
       </PATH>
@@ -945,7 +399,7 @@
           <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
         </PATH_ELEMENT>
         <PATH_ELEMENT>
-          <option name="myItemId" value="gate-basic" />
+          <option name="myItemId" value="utility" />
           <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
         </PATH_ELEMENT>
         <PATH_ELEMENT>
@@ -953,11 +407,7 @@
           <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$DependenciesNode" />
         </PATH_ELEMENT>
         <PATH_ELEMENT>
-          <option name="myItemId" value="uk.ac.gate:gate-core:8.1" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$DependencyNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="com.fasterxml.jackson.core:jackson-databind:2.3.2" />
+          <option name="myItemId" value="edu.kit.aifb:cumulusrdf:1.0.1" />
           <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$DependencyNode" />
         </PATH_ELEMENT>
       </PATH>
@@ -967,7 +417,7 @@
           <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
         </PATH_ELEMENT>
         <PATH_ELEMENT>
-          <option name="myItemId" value="gate-basic" />
+          <option name="myItemId" value="utility" />
           <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
         </PATH_ELEMENT>
         <PATH_ELEMENT>
@@ -975,11 +425,7 @@
           <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$DependenciesNode" />
         </PATH_ELEMENT>
         <PATH_ELEMENT>
-          <option name="myItemId" value="uk.ac.gate:gate-core:8.1" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$DependencyNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="org.apache.ant:ant:1.9.3" />
+          <option name="myItemId" value="com.github.p4535992:database-basic:1.6.8" />
           <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$DependencyNode" />
         </PATH_ELEMENT>
       </PATH>
@@ -989,130 +435,14 @@
           <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
         </PATH_ELEMENT>
         <PATH_ELEMENT>
-          <option name="myItemId" value="gate-basic" />
+          <option name="myItemId" value="utility" />
           <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="Dependencies" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$DependenciesNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="uk.ac.gate:gate-core:8.1" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$DependencyNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="org.codehaus.woodstox:woodstox-core-lgpl:4.2.0" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$DependencyNode" />
         </PATH_ELEMENT>
       </PATH>
       <PATH>
         <PATH_ELEMENT>
           <option name="myItemId" value="" />
           <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="gate-basic" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="Dependencies" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$DependenciesNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="uk.ac.gate:gate-core:8.1" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$DependencyNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="org.apache.tika:tika-parsers:1.7" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$DependencyNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="org.apache.poi:poi-ooxml:3.11" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$DependencyNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="org.apache.poi:poi-ooxml-schemas:3.11" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$DependencyNode" />
-        </PATH_ELEMENT>
-      </PATH>
-      <PATH>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="gate-basic" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="Dependencies" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$DependenciesNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="uk.ac.gate:gate-core:8.1" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$DependencyNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="org.apache.tika:tika-parsers:1.7" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$DependencyNode" />
-        </PATH_ELEMENT>
-      </PATH>
-      <PATH>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="gate-basic" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="Dependencies" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$DependenciesNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="uk.ac.gate:gate-core:8.1" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$DependencyNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="org.apache.tika:tika-parsers:1.7" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$DependencyNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="org.apache.pdfbox:pdfbox:1.8.8" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$DependencyNode" />
-        </PATH_ELEMENT>
-      </PATH>
-      <PATH>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="gate-basic" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="Dependencies" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$DependenciesNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="uk.ac.gate:gate-core:8.1" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$DependencyNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="net.sourceforge.nekohtml:nekohtml:1.9.14" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$DependencyNode" />
-        </PATH_ELEMENT>
-      </PATH>
-      <PATH>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="gate-basic" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
         </PATH_ELEMENT>
       </PATH>
       <PATH>
@@ -1294,9 +624,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -1312,6 +641,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="EAT" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EAT" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EAT" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="utility" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1442,6 +785,36 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="logback" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EAT" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EAT" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gate-basic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gate" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1539,7 +912,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="gate" />
+              <option name="myItemId" value="jms" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1576,8 +949,18 @@
               <option name="myItemId" value="gate" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+          </PATH>
+          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="gate8" />
+              <option name="myItemId" value="EAT" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EAT" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ExtractInfo" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1594,9 +977,66 @@
               <option name="myItemId" value="ExtractInfo" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EAT" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EAT" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ExtractInfo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EAT" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EAT" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ExtractInfo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="extractor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1614,12 +1054,8 @@
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java/com/github/p4535992/extractor/home" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\tenti\Desktop\EAT\ExtractInfo\src\main\resources" />
-      <recent name="C:\Users\tenti\Desktop\EAT\ExtractInfo\src\main\resources\logback" />
-      <recent name="C:\Users\tenti\Desktop\EAT\utility\src\test" />
-      <recent name="C:\Users\tenti\Desktop\EAT\utility\src\test\java\old_test" />
-      <recent name="C:\Users\tenti\Desktop\EAT\utility\src\main\resources\logback" />
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.github.p4535992.util.repositoryRDF.jenaAndSesame.impl" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\tenti\Desktop\EAT\gate-basic\src\main\resources" />
@@ -1635,8 +1071,12 @@
       <recent name="com.github.p4535992.extractor.home" />
       <recent name="com.github.p4535992.util.hibernate.impl" />
     </key>
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="com.github.p4535992.util.repositoryRDF.jenaAndSesame.impl" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\tenti\Desktop\EAT\ExtractInfo\src\main\resources" />
+      <recent name="C:\Users\tenti\Desktop\EAT\ExtractInfo\src\main\resources\logback" />
+      <recent name="C:\Users\tenti\Desktop\EAT\utility\src\test" />
+      <recent name="C:\Users\tenti\Desktop\EAT\utility\src\test\java\old_test" />
+      <recent name="C:\Users\tenti\Desktop\EAT\utility\src\main\resources\logback" />
     </key>
   </component>
   <component name="RunManager" selected="JUnit.Test_initGate.setUpGateEmbedded">
@@ -2433,7 +1873,12 @@
       <workItem from="1455695056032" duration="642000" />
       <workItem from="1455695755441" duration="10798000" />
       <workItem from="1455785454092" duration="18671000" />
-      <workItem from="1455868082057" duration="57000" />
+      <workItem from="1455868082057" duration="7015000" />
+      <workItem from="1455881433356" duration="5525000" />
+      <workItem from="1455902612327" duration="1981000" />
+      <workItem from="1456392157762" duration="610000" />
+      <workItem from="1456739000251" duration="1169000" />
+      <workItem from="1456820255560" duration="1281000" />
     </task>
     <servers />
   </component>
@@ -2470,7 +1915,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1629757000" />
+    <option name="totallyTimeSpent" value="1647281000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -2482,11 +1927,12 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="0" width="1364" height="736" extended-state="1" />
-    <editor active="true" />
+    <frame x="-8" y="0" width="1364" height="736" extended-state="0" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32991454" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2963605" sideWeight="0.4870427" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32820514" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.44444445" sideWeight="0.5122699" order="7" side_tool="true" content_ui="tabs" />
@@ -2495,7 +1941,7 @@
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32478634" sideWeight="0.49581748" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25996932" sideWeight="0.46153846" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25996932" sideWeight="0.46153846" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.327454" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.327454" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31595093" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -2509,7 +1955,6 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43154246" sideWeight="0.48773006" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="simpleUML" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297546" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.296875" sideWeight="0.4870427" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35243055" sideWeight="0.48773006" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292683" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
@@ -3728,31 +3173,31 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/gate/gate8/ExtractorInfoGate81.java</url>
-          <line>204</line>
+          <line>202</line>
           <properties />
           <option name="timeStamp" value="516" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/gate-basic/src/test/java/com/github/p4535992/gatebasic/gate/Test_initGate.java</url>
-          <line>77</line>
+          <line>71</line>
           <properties />
           <option name="timeStamp" value="518" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/gate-basic/src/test/java/com/github/p4535992/gatebasic/gate/Test_initGate.java</url>
-          <line>106</line>
+          <line>100</line>
           <properties />
           <option name="timeStamp" value="519" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/gate-basic/src/test/java/com/github/p4535992/gatebasic/gate/Test_initGate.java</url>
-          <line>66</line>
+          <line>60</line>
           <properties />
           <option name="timeStamp" value="520" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/gate-basic/src/test/java/com/github/p4535992/gatebasic/gate/Test_initGate.java</url>
-          <line>43</line>
+          <line>37</line>
           <properties />
           <option name="timeStamp" value="521" />
         </line-breakpoint>
@@ -3764,7 +3209,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/gate-basic/src/test/java/com/github/p4535992/gatebasic/gate/Test_initGate.java</url>
-          <line>56</line>
+          <line>50</line>
           <properties />
           <option name="timeStamp" value="530" />
         </line-breakpoint>
@@ -3776,133 +3221,133 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/gate-basic/src/test/java/com/github/p4535992/gatebasic/gate/Test_initGate.java</url>
-          <line>62</line>
+          <line>56</line>
           <properties />
           <option name="timeStamp" value="548" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/gate-basic/src/test/java/com/github/p4535992/gatebasic/gate/Test_initGate.java</url>
-          <line>63</line>
+          <line>57</line>
           <properties />
           <option name="timeStamp" value="549" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/gate-basic/src/test/java/com/github/p4535992/gatebasic/gate/Test_initGate.java</url>
-          <line>64</line>
+          <line>58</line>
           <properties />
           <option name="timeStamp" value="550" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/gate-basic/src/test/java/com/github/p4535992/gatebasic/gate/Test_initGate.java</url>
-          <line>152</line>
+          <line>146</line>
           <properties />
           <option name="timeStamp" value="551" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/gate-basic/src/test/java/com/github/p4535992/gatebasic/gate/Test_initGate.java</url>
-          <line>153</line>
+          <line>147</line>
           <properties />
           <option name="timeStamp" value="552" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/gate-basic/src/test/java/com/github/p4535992/gatebasic/gate/Test_initGate.java</url>
-          <line>156</line>
+          <line>150</line>
           <properties />
           <option name="timeStamp" value="553" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/gate-basic/src/test/java/com/github/p4535992/gatebasic/gate/Test_initGate.java</url>
-          <line>157</line>
+          <line>151</line>
           <properties />
           <option name="timeStamp" value="554" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/gate-basic/src/test/java/com/github/p4535992/gatebasic/gate/Test_initGate.java</url>
-          <line>163</line>
+          <line>157</line>
           <properties />
           <option name="timeStamp" value="555" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/gate-basic/src/test/java/com/github/p4535992/gatebasic/gate/Test_initGate.java</url>
-          <line>162</line>
+          <line>156</line>
           <properties />
           <option name="timeStamp" value="556" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/gate-basic/src/test/java/com/github/p4535992/gatebasic/gate/Test_initGate.java</url>
-          <line>161</line>
+          <line>155</line>
           <properties />
           <option name="timeStamp" value="557" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/gate-basic/src/test/java/com/github/p4535992/gatebasic/gate/Test_initGate.java</url>
-          <line>74</line>
+          <line>68</line>
           <properties />
           <option name="timeStamp" value="559" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/gate-basic/src/test/java/com/github/p4535992/gatebasic/gate/Test_initGate.java</url>
-          <line>83</line>
+          <line>77</line>
           <properties />
           <option name="timeStamp" value="562" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/gate-basic/src/test/java/com/github/p4535992/gatebasic/gate/Test_initGate.java</url>
-          <line>87</line>
+          <line>81</line>
           <properties />
           <option name="timeStamp" value="564" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/gate-basic/src/test/java/com/github/p4535992/gatebasic/gate/Test_initGate.java</url>
-          <line>86</line>
+          <line>80</line>
           <properties />
           <option name="timeStamp" value="567" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/gate-basic/src/test/java/com/github/p4535992/gatebasic/gate/Test_initGate.java</url>
-          <line>103</line>
+          <line>97</line>
           <properties />
           <option name="timeStamp" value="569" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/gate-basic/src/test/java/com/github/p4535992/gatebasic/gate/Test_initGate.java</url>
-          <line>104</line>
+          <line>98</line>
           <properties />
           <option name="timeStamp" value="570" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/gate-basic/src/test/java/com/github/p4535992/gatebasic/gate/Test_initGate.java</url>
-          <line>112</line>
+          <line>106</line>
           <properties />
           <option name="timeStamp" value="571" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/gate/gate8/GateCorpus8Kit.java</url>
-          <line>320</line>
+          <line>341</line>
           <properties />
           <option name="timeStamp" value="575" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/gate-basic/src/test/java/com/github/p4535992/gatebasic/gate/Test_initGate.java</url>
-          <line>119</line>
+          <line>113</line>
           <properties />
           <option name="timeStamp" value="577" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/gate-basic/src/test/java/com/github/p4535992/gatebasic/gate/Test_initGate.java</url>
-          <line>126</line>
+          <line>120</line>
           <properties />
           <option name="timeStamp" value="581" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/gate-basic/src/test/java/com/github/p4535992/gatebasic/gate/Test_initGate.java</url>
-          <line>137</line>
+          <line>131</line>
           <properties />
           <option name="timeStamp" value="582" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/gate-basic/src/test/java/com/github/p4535992/gatebasic/gate/Test_initGate.java</url>
-          <line>53</line>
+          <line>47</line>
           <properties />
           <option name="timeStamp" value="584" />
         </line-breakpoint>
@@ -3925,7 +3370,7 @@
           <option name="timeStamp" value="333" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="587" />
+      <option name="time" value="588" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -3934,105 +3379,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_66/src.zip!/java/lang/System.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="829" column="51" selection-start-line="829" selection-start-column="51" selection-end-line="829" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_66/src.zip!/java/util/PropertyPermission.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="158" column="11" selection-start-line="158" selection-start-column="11" selection-end-line="158" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ExtractInfo/src/test/java/extractor/Test_ExtractorInfoWeb.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="34" column="51" selection-start-line="34" selection-start-column="51" selection-end-line="34" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ExtractInfo/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="75" column="24" selection-start-line="75" selection-start-column="24" selection-end-line="75" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/collection/ListUtilities.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="104" column="37" selection-start-line="104" selection-start-column="37" selection-end-line="104" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/reflection/ReflectionUtilities.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="401" column="26" selection-start-line="401" selection-start-column="26" selection-end-line="401" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/estrattori/ExtractInfoWeb.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="877" column="19" selection-start-line="877" selection-start-column="19" selection-end-line="877" selection-end-column="19" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/file/FileUtilities.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="3636" column="55" selection-start-line="3636" selection-start-column="19" selection-end-line="3636" selection-end-column="55" />
-          <folding>
-            <element signature="method#contentEquals#1;class#FileUtilities#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/bean/InitBean.java.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/uk/ac/gate/gate-core/8.1/gate-core-8.1-sources.jar!/gate/util/SimpleFeatureMapImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-20.616161">
-          <caret line="29" column="13" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/uk/ac/gate/gate-core/8.1/gate-core-8.1-sources.jar!/gate/FeatureMap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="59" column="31" selection-start-line="59" selection-start-column="31" selection-end-line="59" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_66/src.zip!/java/nio/charset/Charset.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="312" column="40" selection-start-line="312" selection-start-column="40" selection-end-line="312" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/uk/ac/gate/gate-core/8.1/gate-core-8.1-sources.jar!/gate/Document.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/uk/ac/gate/gate-core/8.1/gate-core-8.1-sources.jar!/gate/TextualDocument.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -4061,13 +3407,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/gate/gate8/ExtractorInfoGate8.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="206" column="20" selection-start-line="206" selection-start-column="20" selection-end-line="206" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/object/impl/jdbc/generic/GenericDaoImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -4088,44 +3427,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/object/MapContent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding>
-            <element signature="e#275#276#0" expanded="false" />
-            <element signature="e#340#341#0" expanded="false" />
-            <element signature="e#399#400#0" expanded="false" />
-            <element signature="e#429#430#0" expanded="false" />
-            <element signature="e#475#476#0" expanded="false" />
-            <element signature="e#540#541#0" expanded="false" />
-            <element signature="e#739#740#0" expanded="false" />
-            <element signature="e#813#814#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="141.38461">
-          <caret line="73" column="22" selection-start-line="73" selection-start-column="22" selection-end-line="73" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/object/MapAnnotation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="341" column="5" selection-start-line="319" selection-start-column="4" selection-end-line="341" selection-end-column="5" />
-          <folding>
-            <element signature="e#8156#8157#0" expanded="true" />
-            <element signature="e#8204#8205#0" expanded="true" />
-            <element signature="e#11507#11508#0" expanded="true" />
-            <element signature="e#11544#11545#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -4161,7 +3462,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.4375">
           <caret line="67" column="9" selection-start-line="62" selection-start-column="3" selection-end-line="75" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4179,27 +3479,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gate-basic/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.9615384">
-          <caret line="251" column="24" selection-start-line="251" selection-start-column="24" selection-end-line="251" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gate-basic/src/test/resources/logback/logback.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.3461537">
           <caret line="12" column="37" selection-start-line="12" selection-start-column="37" selection-end-line="12" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/object/MapCorpus.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="102" column="27" selection-start-line="102" selection-start-column="27" selection-end-line="102" selection-end-column="27" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4214,7 +3497,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="5.4615383">
           <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4246,19 +3528,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/object/MapAnnotationSet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="222" column="37" selection-start-line="222" selection-start-column="37" selection-end-line="222" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/object/MapDocument.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="239" column="47" selection-start-line="239" selection-start-column="46" selection-end-line="239" selection-end-column="47" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4266,35 +3539,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="79" column="13" selection-start-line="79" selection-start-column="13" selection-end-line="79" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/gate/gate8/GateCorpus8Kit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="47" column="33" selection-start-line="47" selection-start-column="19" selection-end-line="47" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gate-basic/src/test/java/com/github/p4535992/gatebasic/gate/Test_initGate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.52459013">
-          <caret line="61" column="22" selection-start-line="61" selection-start-column="22" selection-end-line="61" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/gate/gate8/GateSupport2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="32" column="20" selection-start-line="32" selection-start-column="20" selection-end-line="32" selection-end-column="20" />
-          <folding>
-            <element signature="e#842#843#0" expanded="true" />
-            <element signature="e#869#870#0" expanded="true" />
-            <element signature="e#5762#5763#0" expanded="true" />
-            <element signature="e#5816#5817#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -4306,11 +3550,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/gate/gate8/GateAnnotation81Kit.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/uk/ac/gate/gate-core/8.1/gate-core-8.1-sources.jar!/gate/creole/ConditionalSerialController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="104" column="0" selection-start-line="104" selection-start-column="0" selection-end-line="104" selection-end-column="0" />
-          <folding />
+          <caret line="41" column="9" selection-start-line="41" selection-start-column="9" selection-end-line="41" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ExtractInfo/README.md">
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -4319,42 +3572,229 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.4827585">
+          <caret line="23" column="39" selection-start-line="23" selection-start-column="39" selection-end-line="23" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/uk/ac/gate/gate-core/8.1/gate-core-8.1-sources.jar!/gate/SimpleAnnotationSet.java">
+      <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="54" column="7" selection-start-line="54" selection-start-column="7" selection-end-line="54" selection-end-column="7" />
-          <folding />
+          <caret line="132" column="23" selection-start-line="132" selection-start-column="23" selection-end-line="132" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/uk/ac/gate/gate-core/8.1/gate-core-8.1-sources.jar!/gate/Utils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="265" column="43" selection-start-line="265" selection-start-column="40" selection-end-line="265" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/gate/gate8/GateSupport2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="32" column="20" selection-start-line="32" selection-start-column="20" selection-end-line="32" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/gate/gate8/GateSupport.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="11" column="49" selection-start-line="11" selection-start-column="49" selection-end-line="11" selection-end-column="49" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/gate/gate8/GateUtils.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="198" column="0" selection-start-line="198" selection-start-column="0" selection-end-line="198" selection-end-column="0" />
-          <folding>
-            <element signature="e#8529#8530#0" expanded="true" />
-            <element signature="e#8565#8566#0" expanded="true" />
-          </folding>
+          <caret line="294" column="7" selection-start-line="294" selection-start-column="7" selection-end-line="294" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/gate/gate8/GateAnnotation8Kit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="171" column="17" selection-start-line="171" selection-start-column="17" selection-end-line="171" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/object/MapCorpus.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="102" column="27" selection-start-line="102" selection-start-column="27" selection-end-line="102" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/object/MapContent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/object/MapAnnotationSet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="222" column="37" selection-start-line="222" selection-start-column="37" selection-end-line="222" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/object/MapAnnotation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="341" column="5" selection-start-line="319" selection-start-column="4" selection-end-line="341" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/gate/gate8/ExtractorInfoGate8.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="38" column="44" selection-start-line="38" selection-start-column="44" selection-end-line="38" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gate-basic/src/main/resources/gate/gate-beans.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="57" column="17" selection-start-line="57" selection-start-column="17" selection-end-line="57" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/gate/servlet/Gate8Handler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/gate/gate8/GateAnnotation81Kit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="120" column="31" selection-start-line="120" selection-start-column="31" selection-end-line="120" selection-end-column="31" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/gate/gate8/Gate8Kit.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="117" column="0" selection-start-line="117" selection-start-column="0" selection-end-line="117" selection-end-column="0" />
+          <caret line="314" column="17" selection-start-line="314" selection-start-column="17" selection-end-line="314" selection-end-column="17" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1902#1903#0" expanded="true" />
-            <element signature="e#1938#1939#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#1902#1903#0" expanded="false" />
+            <element signature="e#1938#1939#0" expanded="false" />
+            <element signature="e#1996#1997#0" expanded="false" />
+            <element signature="e#2046#2047#0" expanded="false" />
+            <element signature="e#2082#2083#0" expanded="false" />
+            <element signature="e#2113#2114#0" expanded="false" />
+            <element signature="e#2162#2163#0" expanded="false" />
+            <element signature="e#2202#2203#0" expanded="false" />
+            <element signature="e#2236#2237#0" expanded="false" />
+            <element signature="e#2267#2268#0" expanded="false" />
+            <element signature="e#2415#2416#0" expanded="false" />
+            <element signature="e#2445#2446#0" expanded="false" />
+            <element signature="e#2502#2503#0" expanded="false" />
+            <element signature="e#2540#2541#0" expanded="false" />
+            <element signature="e#2587#2588#0" expanded="false" />
+            <element signature="e#2620#2621#0" expanded="false" />
+            <element signature="e#2688#2689#0" expanded="false" />
+            <element signature="e#2732#2733#0" expanded="false" />
+            <element signature="e#22445#22446#0" expanded="false" />
+            <element signature="e#22493#22494#0" expanded="false" />
+            <element signature="e#22535#22536#0" expanded="false" />
+            <element signature="e#22580#22581#0" expanded="false" />
+            <element signature="e#22930#22931#0" expanded="false" />
+            <element signature="e#22987#22988#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/uk/ac/gate/gate-core/8.1/gate-core-8.1-sources.jar!/gate/creole/ConditionalSerialController.java">
+    <entry file="file://$PROJECT_DIR$/gate-basic/src/test/java/com/github/p4535992/gatebasic/gate/Test_initGate.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="41" column="9" selection-start-line="41" selection-start-column="9" selection-end-line="41" selection-end-column="9" />
+          <caret line="66" column="43" selection-start-line="66" selection-start-column="43" selection-end-line="66" selection-end-column="43" />
           <folding>
-            <element signature="e#1648#1649#0" expanded="true" />
-            <element signature="e#1707#1708#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$MAVEN_REPOSITORY$/com/google/code/findbugs/jsr305/3.0.1/jsr305-3.0.1.pom">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.583174">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gate-basic/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-162.15384">
+          <caret line="248" column="38" selection-start-line="248" selection-start-column="38" selection-end-line="248" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utility/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.576923">
+          <caret line="13" column="18" selection-start-line="13" selection-start-column="18" selection-end-line="13" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ExtractInfo/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-73.23077">
+          <caret line="112" column="17" selection-start-line="112" selection-start-column="17" selection-end-line="112" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.5384617">
+          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/object/GateEmbedded.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/gate/impl/xml/GateXML.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="168" column="5" selection-start-line="168" selection-start-column="5" selection-end-line="168" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/gate/gate8/GateDataStore8Kit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="363" column="30" selection-start-line="363" selection-start-column="30" selection-end-line="363" selection-end-column="30" />
+          <folding>
+            <element signature="e#15468#15469#0" expanded="true" />
+            <element signature="e#15504#15505#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gate-basic/src/main/java/com/github/p4535992/gatebasic/gate/gate8/GateCorpus8Kit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="4.675774">
+          <caret line="233" column="73" selection-start-line="233" selection-start-column="73" selection-end-line="233" selection-end-column="73" />
+          <folding>
+            <marker date="1455879042344" expanded="true" signature="15075:15089" placeholder="/**...*/" />
           </folding>
         </state>
       </provider>

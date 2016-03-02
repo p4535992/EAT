@@ -127,7 +127,7 @@ public class Gate8Kit {
      *                          if null is stoed on the user folder on the system.
      * @param gappFile sting absolute path to the file gapp.
      * @param useOnlyAbsoluteReference the {@link Boolean} if true you use absolute reference for set the element of gate.
-     * @return the gate controller full setted.
+     * @return the gate controller full set.
      */
     public CorpusController setUpGateEmbedded(String directoryFolderHome,String directoryFolderPlugin,
                             String configFileGate,String configFileUser,String configFileSession,
@@ -150,7 +150,7 @@ public class Gate8Kit {
             }
             logger.warn("The base directory you using is :"+baseDirectory);
 
-            if (!new File(directoryFolderHome).exists())
+            if (!Files.exists(Paths.get(directoryFolderHome))|| Files.isDirectory(Paths.get(directoryFolderHome)) )
                 throw new IOException("The folder directoryFolderHome " + directoryFolderHome + " of GATE not exists!");
             Gate.setGateHome(new File(directoryFolderHome));
 
@@ -250,9 +250,9 @@ public class Gate8Kit {
 
     /**
      * Method for load a gapp file and generate the controller for this session of gate.
-     * @param base string base directory/folder.
-     * @param fileGapp string filepath ot the gapp file.
-     * @return corpus controller of the gapp file.
+     * @param base the {@link String} base directory/folder.
+     * @param fileGapp the {@link String} filepath ot the gapp file.
+     * @return the {@link Controller} of gate of the gapp file.
      */
     public Controller loadGapp(String base,String fileGapp){
         if(!base.startsWith(File.separator)) base = File.separator + base;
@@ -265,8 +265,8 @@ public class Gate8Kit {
 
     /**
      * Method for load a gapp file and generate the controller for this session of gate.
-     * @param fileGapp string filepath ot the gapp file.
-     * @return corpus controller of the gapp file.
+     * @param fileGapp the {@link String} filepath ot the gapp file.
+     * @return the {@link Controller} of gate of the gapp file.
      */
     public Controller loadGapp(String fileGapp){
         logger.info("Loading file .gapp/.xgapp...");
@@ -305,7 +305,15 @@ public class Gate8Kit {
             //GATE provides a DocumentProcessor interface suitable for use with Spring pooling
             //procDoc = BeansKit.getBeanFromContext("documentProcessor",DocumentProcessor.class,ctx);
             //procDoc = BeansKit.getBeanFromContext(idBeanDocumentProcessor,DocumentProcessor.class,ctx);
-            procDoc = ctx.getBean(idBeanDocumentProcessor, DocumentProcessor.class);
+            try{
+                procDoc = ctx.getBean(idBeanDocumentProcessor, DocumentProcessor.class);
+            }catch(java.lang.IllegalStateException e){
+                try {
+                    procDoc = ctx.getBean(DocumentProcessor.class);
+                }catch(Exception e2){
+                    logger.error(e2.getMessage(),e2);
+                }
+            }
         } catch (IOException e) {
             logger.warn(e.getMessage(), e);
         }

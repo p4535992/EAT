@@ -1,20 +1,14 @@
 package com.github.p4535992.gatebasic.gate;
 
 import com.github.p4535992.gatebasic.gate.gate8.*;
-import com.github.p4535992.gatebasic.jms.GATEProcessor;
 import com.github.p4535992.gatebasic.object.MapAnnotation;
 import com.github.p4535992.gatebasic.object.MapAnnotationSet;
 import com.github.p4535992.gatebasic.object.MapDocument;
-import com.github.p4535992.gatebasic.util.BeansKit;
-import gate.AnnotationSet;
 import gate.CorpusController;
 import gate.Document;
-import gate.annotation.AnnotationSetImpl;
 import gate.util.DocumentProcessor;
 import gate.util.GateException;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.context.ApplicationContext;
 
 import java.io.File;
 import java.io.IOException;

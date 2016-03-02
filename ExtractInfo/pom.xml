@@ -6,7 +6,7 @@
 
     <groupId>com.github.p4535992</groupId>
     <artifactId>extractInfo</artifactId>
-    <version>1.6.8</version>
+    <version>1.6.9</version>
     <packaging>jar</packaging>
 
     <name>${project.artifactId}</name>
@@ -47,69 +47,28 @@
         <repository>
             <id>Web-Karma</id>
             <url>https://github.com/usc-isi-i2/Web-Karma</url>
-            <snapshots>
+           <!-- <snapshots>
                 <enabled>true</enabled>
                 <updatePolicy>always</updatePolicy>
-            </snapshots>
+            </snapshots>-->
         </repository>
         <!-- Web-Karma Offline  repository -->
         <repository>
             <id>Karma-offline</id>
             <url>https://github.com/usc-isi-i2/Web-Karma/tree/master/karma-offline</url>
-            <snapshots>
+            <!--<snapshots>
                 <enabled>true</enabled>
                 <updatePolicy>always</updatePolicy>
-            </snapshots>
+            </snapshots>-->
         </repository>
         <!-- Jitpack repository -->
         <repository>
             <id>jitpack.io</id>
             <url>https://jitpack.io</url>
         </repository>
-        <!-- Jena-Sesame-CumulusRDF Driver -->
-        <!--<repository>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-            <id>cumulusrdf-repo</id>
-            <url>http://cumulusrdf.googlecode.com/svn/repository</url>
-        </repository>-->
-        <!-- Jena-Virtuoso Driver-->
-       <!-- <repository>
-            <id>maven.aksw.internal</id>
-            <name>University Leipzig, AKSW Maven2 Repository</name>
-            <url>http://maven.aksw.org/archiva/repository/internal</url>
-        </repository>
-        <repository>
-            <id>maven.aksw.snapshots</id>
-            <name>University Leipzig, AKSW Maven2 Repository</name>
-            <url>http://maven.aksw.org/archiva/repository/snapshots</url>
-        </repository>-->
-        <!-- Sesame-Virtuoso Driver -->
-        <!--<repository>
-            <id>ldstack</id>
-            <url>http://mvn.linkeddata.org/content/groups/linkeddata.org/</url>
-        </repository>-->
-        <!-- Alternative repository for import dependency not present on the maven central -->
-        <!--
-        <repository>
-            <id>fortytwo</id>
-            <name>fortytwo.net Maven repository</name>
-            <url>http://fortytwo.net/maven2</url>
-        </repository>
-        -->
-        <!-- Alternative repository for import dependency not present on the maven central -->
-        <!--
-        <repository>
-            <id>ossrh</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-        </repository>
-        -->
         <repository>
             <id>ossrh2</id>
-            <url>
-                https://oss.sonatype.org/content/repositories/snapshots/com/univocity/univocity-parsers/2.0.0-SNAPSHOT/
-            </url>
+            <url>https://oss.sonatype.org/content/repositories/snapshots/com/univocity/univocity-parsers/2.0.0-SNAPSHOT/</url>
         </repository>
     </repositories>
 
@@ -143,8 +102,8 @@
         <!-- Version of the libray we used on the project, 4.2.0.Final,-->
         <org.hibernate.version>4.3.10.Final</org.hibernate.version>
         <!-- UTILITY -->
-        <com.github.p4535992.utility.version>1.6.8</com.github.p4535992.utility.version>
-        <com.github.p4535992.gate-basic.version>1.6.8</com.github.p4535992.gate-basic.version>
+        <com.github.p4535992.utility.version>1.6.9</com.github.p4535992.utility.version>
+        <com.github.p4535992.gate-basic.version>1.6.9</com.github.p4535992.gate-basic.version>
         <com.github.p4535992.database-basic.version>1.6.8</com.github.p4535992.database-basic.version>
         <!-- SCALA -->
         <scala-library.version>2.10.3</scala-library.version>
