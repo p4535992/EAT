@@ -45,8 +45,8 @@ public class ExtractorGeoDocumentSupport {
 
     public GeoDocument UpgradeTheDocumentWithOtherInfo(GeoDocument geo) throws URISyntaxException {
         try{
-            logger.info("**************DOCUMENT*********************");
-            HttpUtilities http = HttpUtilities.getInstance();
+            logger.info("**************UPDATE DOCUMENT*********************");
+
             //*************************************************************************************
             //INTEGRAZIONE FINALE CON IL DATABASE KEYWORDDB
             //SET CITY IF YOU DON'T HAVE
@@ -84,8 +84,9 @@ public class ExtractorGeoDocumentSupport {
             }
             geo.setNazione(nazione);
             //PULIAMO NUOVAMENTE LA STRINGA EDIFICIO E INDIRIZZO (UTILE NEL CASO DI SearchMonkey e Tika)
-            geo = pulisciDiNuovoLaStringaEdificio(geo);
-            geo = pulisciDiNuovoLaStringaIndirizzo(geo);
+            //geo = pulisciDiNuovoLaStringaEdificio(geo);
+            //geo = pulisciDiNuovoLaStringaIndirizzo(geo);
+            geo = cleanGeoDocument(geo);
             //AGGIUNGIAMO POSTALCODE E INDIRIZZONOCAP
             geo = new GeoDocument(geo.getUrl(), geo.getRegione(), geo.getProvincia(), geo.getCity(), geo.getIndirizzo(), geo.getIva(), geo.getEmail(), geo.getTelefono(),geo.getFax(), geo.getEdificio(),
                     geo.getLat(), geo.getLng(),geo.getNazione(),geo.getDescription(),null, null,null);
@@ -120,6 +121,8 @@ public class ExtractorGeoDocumentSupport {
             }else{
                 geo.setIndirizzo(null);
             }
+
+
             //INTEGRAZIONE DEI CAMPI DELLE COORDINATE CON GOOGLE MAPS
             LatLng coord = j.getCoords(geo);
             geo.setLat(coord.getLat());
@@ -138,7 +141,7 @@ public class ExtractorGeoDocumentSupport {
      * @param geo GeoDocument fornito come input
      * @return il GeoDocument con il campo Edificio settato in un nuovo modo
      */
-    public GeoDocument pulisciDiNuovoLaStringaEdificio(GeoDocument geo){
+    private GeoDocument pulisciDiNuovoLaStringaEdificio(GeoDocument geo){
         //Le seguenti righe di codice aiutano ad evitare un'errore di sintassi
         //in fase di inserimento dei record nel database.
 
@@ -153,15 +156,17 @@ public class ExtractorGeoDocumentSupport {
                         set = set.replaceAll("(https?|ftp)://", "");
                         set = set.replaceAll("(www(\\d)?)", "");
                         set = set.replace(".", " ");
-                        set = set.replace("/", " ");
+                        //set = cleanString(set);
+
                     }catch (URISyntaxException e) {
                         logger.warn("Edificio is a malformed url:"+set,e.getMessage(),e);
                     }
                 }
                 set = set.replaceAll("[^a-zA-Z\\u00c0-\\u00f6\\u00f8-\\u00FF\\d\\s:]","");
-                set = set.replaceAll("\\s+", " ");
+                //set = set.replaceAll("\\s+", " ");
                 //set = set.replaceAll("http", "");
                 set = set.replace(":", "");
+                set = cleanString(set);
                 if(set!= null){
                     geo.setEdificio(set.toUpperCase());
                 }
@@ -175,7 +180,7 @@ public class ExtractorGeoDocumentSupport {
      * @param geo GeoDocument fornito come input
      * @return il GeoDocument con il campo indirizzo settato in un nuovo modo
      */
-    public GeoDocument pulisciDiNuovoLaStringaIndirizzo(GeoDocument geo){
+    private GeoDocument pulisciDiNuovoLaStringaIndirizzo(GeoDocument geo){
         try{
             String address = geo.getIndirizzo();
             // address = "’Orario di Lavoro - Piazza San Marco, 4 - 50121";
@@ -183,7 +188,7 @@ public class ExtractorGeoDocumentSupport {
                 if(StringUtilities.setNullForEmptyString(address)!=null){
                     //Rimuovi gli SpaceToken
                     //set = geo.getIndirizzo().replaceAll("[^a-zA-Z\\d\\s:]","");
-                    address = address.replaceAll("\\s+", " ");
+                    address = cleanString(address);
                     //set = set.replaceAll("...", "");
 
                     List<String> addressWords = Arrays.asList(
@@ -220,6 +225,22 @@ public class ExtractorGeoDocumentSupport {
 
         return geo;
     }
+
+    private GeoDocument cleanGeoDocument(GeoDocument geo){
+        geo = pulisciDiNuovoLaStringaEdificio(geo);
+        geo = pulisciDiNuovoLaStringaIndirizzo(geo);
+        geo.setDescription(cleanString(geo.getDescription()));
+        return geo;
+    }
+
+    private String cleanString(String text){
+        text = text.replaceAll("\\\\", " ");
+        text = text.replaceAll("/", " ");
+        text = text.replaceAll(";", " ");
+        text = text.replaceAll("\\s+", " ");
+        return text;
+    }
+
 
 
     /**

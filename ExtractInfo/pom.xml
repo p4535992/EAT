@@ -66,10 +66,6 @@
             <id>jitpack.io</id>
             <url>https://jitpack.io</url>
         </repository>
-        <repository>
-            <id>ossrh2</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots/com/univocity/univocity-parsers/2.0.0-SNAPSHOT/</url>
-        </repository>
     </repositories>
 
     <properties>
@@ -210,11 +206,11 @@
 
     <dependencies>
         <!-- Module databse-basic  -->
-        <dependency>
+<!--        <dependency>
             <groupId>com.github.p4535992</groupId>
             <artifactId>database-basic</artifactId>
             <version>${com.github.p4535992.database-basic.version}</version>
-        </dependency>
+        </dependency>-->
 
         <!-- Module utility  -->
         <dependency>

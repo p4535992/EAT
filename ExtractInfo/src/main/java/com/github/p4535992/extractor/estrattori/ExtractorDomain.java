@@ -19,6 +19,8 @@ import java.util.logging.Logger;
 
 import com.github.p4535992.extractor.object.support.LatLng;
 import com.github.p4535992.util.collection.ListUtilities;
+import com.github.p4535992.util.http.HttpUtilities;
+import com.github.p4535992.util.string.StringUtilities;
 
 /**
  * MainEstrazioneGeoDomainDocumentPerElaborato.java
@@ -69,7 +71,7 @@ public class ExtractorDomain {
   
     public void CreateTableOfGeoDomainDocument(String tipo){
         try{
-        ExtractorDomain m = new ExtractorDomain();
+        //ExtractorDomain m = new ExtractorDomain();
         List<GeoDocument> listGeoDoc = new ArrayList<>();
         if(tipo.equals("sql")){
             //listGeoDoc = geoDomainDocDao.selectAllGeoDocument("*", LIMIT.toString(), OFFSET.toString());
@@ -80,13 +82,14 @@ public class ExtractorDomain {
              i++;
              //TENTA DI ESTRARRE IL DOMINIO HOST DELL'INDIRIZZO URL
              try{
-                 String domain = m.getDomainName(geoDoc.getUrl().toString());
+                 //String domain = getDomainName(geoDoc.getUrl().toString());
+                 String domain = HttpUtilities.getDomainName(geoDoc.getUrl());
                  logger.info("(" + i + ")" + "DOMAIN:" + domain);
                  if(!listFinalDomains.contains(domain)){
-                   m.applyTheMemorizeRecordCordinatesRules(domain,geoDoc,tipo);  
+                   applyTheMemorizeRecordCordinatesRules(domain,geoDoc,tipo);
                  }
                  //*********************************************************************************       
-             } catch (URISyntaxException e) {
+             } catch (Exception e) {
                  logger.error(e.getMessage(),e);
              }
          }//for
@@ -285,16 +288,24 @@ public class ExtractorDomain {
         else{return null;}
     } 
  
-    /**
+    /*
      * Semplice metodo che estare il domino org.p4535992.mvc.webapp di appartenenza dell'url analizzato
      * @param u url di ingresso in fromato stringa
      * @return il dominio org.p4535992.mvc.webapp dell'url in formato stringa
      * @throws URISyntaxException 
      */
-   private String getDomainName(String u) throws URISyntaxException {     
-          URI uri = new URI(u);
-          return uri.getHost();
-   }
+   /*private String getDomainName(String u) throws URISyntaxException {
+       try {
+           URI uri = new URI(u);
+           return uri.getHost();
+       }catch(URISyntaxException e){
+           try{
+               return HttpUtilities.getDomainName(u);
+           }catch(Exception e){
+
+           }
+       }
+   }*/
 
 
     /**

@@ -29,10 +29,6 @@ public class ManageJsonWithOpenStreetMap {
     private static final org.slf4j.Logger logger =
             org.slf4j.LoggerFactory.getLogger( ManageJsonWithOpenStreetMap.class);
 
-    private static String gm() {
-        return Thread.currentThread().getStackTrace()[1].getMethodName()+":: ";
-    }
-
     private static final String LATITUDE = "lat";
     private static final String LONGITUDE = "lon";
 
@@ -68,10 +64,10 @@ public class ManageJsonWithOpenStreetMap {
                     coordinate = new LatLng(lat, lng);
                  }
              } else {
-                logger.warn(gm() + "NO RESULT");
+                logger.warn("NO RESULT");
              }
          } catch (Exception e) {
-            logger.error(gm() + e.getMessage(),e);
+            logger.error(e.getMessage(),e);
          }
     return coordinate;
     }
@@ -83,7 +79,7 @@ public class ManageJsonWithOpenStreetMap {
             try {
                 address = URLEncoder.encode(rawAddress, "utf-8");
             } catch (UnsupportedEncodingException e) {
-                logger.error(gm() + e.getMessage(),e);
+                logger.error(e.getMessage(),e);
                 return null;
             }
             //String geocodeURL = "http://nominatim.openstreetmap.org/search?format=json&amp;limit=1&amp;polygon=0&amp;addressdetails=0&amp;email=contact@EMAIL.ME&amp;countrycodes=us&amp;q=";
@@ -98,7 +94,7 @@ public class ManageJsonWithOpenStreetMap {
             try (InputStream is = new URL(formattedUrl).openStream()){
                 coords = parseInputStream(is);
             } catch (IOException ex) {
-                Logger.getLogger(ManageJsonWithOpenStreetMap.class.getName()).log(Level.SEVERE, null, ex);
+                logger.error(ex.getMessage(),ex);
             }
         }
         return coords;

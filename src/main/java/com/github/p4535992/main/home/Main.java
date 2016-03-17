@@ -18,13 +18,13 @@ import java.lang.reflect.InvocationTargetException;
 
 /**
  * Created by 4535992 on 28/01/2016.
- *
+ * example maven goals for debug: process-classes org.codehaus.mojo:exec-maven-plugin:1.4.0:exec
  * @author 4535992.
  */
 public class Main {
 
     private static final org.slf4j.Logger logger =
-            org.slf4j.LoggerFactory.getLogger(ExtractInfoCompany.class);
+            org.slf4j.LoggerFactory.getLogger(Main.class);
 
     public static void main(String[] args) throws InvocationTargetException, InterruptedException {
         try {
@@ -38,15 +38,6 @@ public class Main {
             //reload the code
             logger.error("java.lang.OutOfMemoryError, Ricarica il programma modificando LIMIT e OFFSET.\n GATE execute in timeout");
         }
-    }
-
-    private static ExtractInfoCompany instance = null;
-
-    public static ExtractInfoCompany getInstance() {
-        if (instance == null) {
-            instance = new ExtractInfoCompany();
-        }
-        return instance;
     }
 
     public static void extractBySingleURL() {
@@ -153,9 +144,9 @@ public class Main {
 
     public static void extractByFileProperties(final File file, final char separator) {
         try {
-            //LogBackUtil.setLogpatternConsole(LogBackUtil.LOGPATTERN.PATTERN_COLORED1_METHOD_NOTIME);
+            LogBackUtil.setLogpatternConsole(LogBackUtil.LOGPATTERN.PATTERN_COLORED1_METHOD_NOTIME);
             //LogBackUtil.init(LogBackUtil.LOGPATTERN.PATTERN_CLASSIC_NOTIME);
-            //LogBackUtil.console();
+            LogBackUtil.console();
             logger.info("===== START THE PROGRAMM EXTRACTION WITH FILE PROPERTIES =========");
             SimpleParameters params;
             if (file != null && file.exists()) {
@@ -164,7 +155,8 @@ public class Main {
             } else {
                 //C:\Users\tenti\Desktop\EAT\src\main\resources\input.properties
                 //C:\Users\tenti\Desktop\EAT\ExtractInfo\src\main\resources\input.properties
-                params = new SimpleParameters(new File(System.getProperty("user.dir") + File.separator +
+                params = new SimpleParameters(
+                        new File(System.getProperty("user.dir") + File.separator +
                         "src" + File.separator + "main" + File.separator + "resources" + File.separator +
                         "input.properties"), '=');
             }

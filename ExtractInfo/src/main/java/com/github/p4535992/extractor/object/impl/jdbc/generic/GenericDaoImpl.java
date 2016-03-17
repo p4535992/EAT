@@ -188,7 +188,7 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
     @Override
     public void create(String SQL, boolean erase) {
         if(myInsertTable.isEmpty()) {
-            logger.error( "Name of the table is empty!!!");
+            logger.error( "Name of the table is empty, you can't create the table!!!");
         }
         if(erase) {
             query = "DROP TABLE IF EXISTS "+myInsertTable+";";

@@ -191,7 +191,13 @@ public class GeoDomainDocumentDaoImpl extends GenericDaoImpl<GeoDomainDocument> 
                     if (entry.getValue() != null) value = entry.getValue().toString();
                     switch (entry.getKey()) {
                         case "url":
-                            if(!StringUtilities.isNullOrEmpty(value))g.setUrl(new URL(value));
+                            if(!StringUtilities.isNullOrEmpty(value)){
+                                if(StringUtilities.isURLWithProtocol(value)) {
+                                    g.setUrl(new URL(value));
+                                }else{
+                                    g.setUrl(new URL("http://"+value));
+                                }
+                            }
                             else g.setUrl(null);
                             break;
                         case "doc_id":
