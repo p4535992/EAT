@@ -3,6 +3,9 @@
   <component name="EntryPointsManager">
     <entry_points version="2.0" />
   </component>
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/springMVC10" />
+  </component>
   <component name="MavenBuildProjectComponent">
     <option name="mavenExecutable" value="" />
     <option name="Settings File" value="C:\Users\tenti\.m2\settings.xml" />
@@ -39,6 +42,8 @@
         <option value="$PROJECT_DIR$/modelWebKarma/karma-jdbc/pom.xml" />
         <option value="$PROJECT_DIR$/modelWebKarma/karma-common/pom.xml" />
         <option value="$PROJECT_DIR$/utility/pom.xml" />
+        <option value="$PROJECT_DIR$/springMVC10/pom.xml" />
+        <option value="$PROJECT_DIR$/database-basic/pom.xml" />
       </list>
     </option>
   </component>
@@ -52,7 +57,7 @@
     <ConfirmationsSetting value="0" id="Add" />
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_7" default="false" assert-keyword="true" jdk-15="true" project-jdk-name="1.8 (1)" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_7" default="false" assert-keyword="true" jdk-15="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
 </project>

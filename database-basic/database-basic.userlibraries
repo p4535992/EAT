@@ -1,0 +1,493 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eclipse-userlibraries>
+  <library name="Gradle: aopalliance:aopalliance:1.0">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/aopalliance/aopalliance/1.0/235ba8b489512805ac13a8f9ea77a1ca5ebe3e8/aopalliance-1.0.jar" />
+  </library>
+  <library name="Gradle: com.jolbox:bonecp:0.8.0.RELEASE">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/com.jolbox/bonecp/0.8.0.RELEASE/cec24ee9345b3678472bb1b8fdd6aa6b9428beb8/bonecp-0.8.0.RELEASE.jar" />
+  </library>
+  <library name="Gradle: commons-logging:commons-logging:1.2">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/commons-logging/commons-logging/1.2/4bfc12adfe4842bf07b657f0369c4cb522955686/commons-logging-1.2.jar" />
+  </library>
+  <library name="Gradle: joda-time:joda-time:2.9.2">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/joda-time/joda-time/2.9.2/36d6e77a419cb455e6fd5909f6f96b168e21e9d0/joda-time-2.9.2.jar" />
+  </library>
+  <library name="Gradle: junit:junit:4.11">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/junit/junit/4.11/4e031bb61df09069aeb2bffb4019e7a5034a4ee0/junit-4.11.jar" />
+  </library>
+  <library name="Gradle: mysql:mysql-connector-java:5.1.38">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/mysql/mysql-connector-java/5.1.38/dbbd7cd309ce167ec8367de4e41c63c2c8593cc5/mysql-connector-java-5.1.38.jar" />
+  </library>
+  <library name="Gradle: org.codehaus.groovy:groovy-all:2.3.11">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.codehaus.groovy/groovy-all/2.3.11/f6b34997d04c1538ce451d3955298f46fdb4dbd4/groovy-all-2.3.11.jar" />
+  </library>
+  <library name="Gradle: org.hamcrest:hamcrest-core:1.3">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.hamcrest/hamcrest-core/1.3/42a25dc3219429f0e5d060061f71acb49bf010a0/hamcrest-core-1.3.jar" />
+  </library>
+  <library name="Gradle: org.jboss.logging:jboss-logging:3.3.0.Final">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.jboss.logging/jboss-logging/3.3.0.Final/3616bb87707910296e2c195dc016287080bba5af/jboss-logging-3.3.0.Final.jar" />
+  </library>
+  <library name="Gradle: org.jooq:jooq:3.7.2">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.jooq/jooq/3.7.2/23d0327b7b66c7f4e1d3a7cbac4d06a6e353105a/jooq-3.7.2.jar" />
+  </library>
+  <library name="Gradle: org.jooq:jooq-codegen:3.7.2">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.jooq/jooq-codegen/3.7.2/96e9a5334c7b047da264803e5c02a6c32397a41f/jooq-codegen-3.7.2.jar" />
+  </library>
+  <library name="Gradle: org.jooq:jooq-meta:3.7.2">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.jooq/jooq-meta/3.7.2/92bf96888e809d1def11c2aee9cb02cffaf6fae9/jooq-meta-3.7.2.jar" />
+  </library>
+  <library name="Gradle: org.slf4j:slf4j-api:1.7.14">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.7.14/862a5bc736005d68727d1387844d09d62efdb6cb/slf4j-api-1.7.14.jar" />
+  </library>
+  <library name="Gradle: org.springframework:spring-aop:4.2.4.RELEASE">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.springframework/spring-aop/4.2.4.RELEASE/3329cf71b4bc49c9767ca4f0704ed7b773f29fba/spring-aop-4.2.4.RELEASE.jar" />
+  </library>
+  <library name="Gradle: org.springframework:spring-beans:4.2.4.RELEASE">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.springframework/spring-beans/4.2.4.RELEASE/dc8e0874b53435f3e277d9da5aebd8b93cc7cf64/spring-beans-4.2.4.RELEASE.jar" />
+  </library>
+  <library name="Gradle: org.springframework:spring-context:4.2.4.RELEASE">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.springframework/spring-context/4.2.4.RELEASE/23cd0109e4eafc5629547e3680b0c4031e82efdd/spring-context-4.2.4.RELEASE.jar" />
+  </library>
+  <library name="Gradle: org.springframework:spring-core:4.2.4.RELEASE">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.springframework/spring-core/4.2.4.RELEASE/160ccd89230753d4f49477a967f5876b034d9745/spring-core-4.2.4.RELEASE.jar" />
+  </library>
+  <library name="Gradle: org.springframework:spring-expression:4.2.4.RELEASE">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.springframework/spring-expression/4.2.4.RELEASE/15b6f6d61bc68fe2cc6cbd63e2329601afb8b39/spring-expression-4.2.4.RELEASE.jar" />
+  </library>
+  <library name="Gradle: org.springframework:spring-jdbc:4.2.4.RELEASE">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.springframework/spring-jdbc/4.2.4.RELEASE/7aa1c3c817b0a04796e6570a2c07ac23248c1ee0/spring-jdbc-4.2.4.RELEASE.jar" />
+  </library>
+  <library name="Gradle: org.springframework:spring-tx:4.2.4.RELEASE">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.springframework/spring-tx/4.2.4.RELEASE/66e1a131263f5f9ba95943061b22ff2666930ca6/spring-tx-4.2.4.RELEASE.jar" />
+  </library>
+  <library name="Gradle: org.springframework:spring-web:4.2.4.RELEASE">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.springframework/spring-web/4.2.4.RELEASE/d4bcc6f4d8b64d7af9b67bc17f0d5106dce97926/spring-web-4.2.4.RELEASE.jar" />
+  </library>
+  <library name="Gradle: dom4j:dom4j:1.6.1">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/dom4j/dom4j/1.6.1/5d3ccc056b6f056dbf0dddfdf43894b9065a8f94/dom4j-1.6.1.jar" />
+  </library>
+  <library name="Gradle: org.hibernate.common:hibernate-commons-annotations:5.0.1.Final">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.hibernate.common/hibernate-commons-annotations/5.0.1.Final/71e1cff3fcb20d3b3af4f3363c3ddb24d33c6879/hibernate-commons-annotations-5.0.1.Final.jar" />
+  </library>
+  <library name="Gradle: org.jboss:jandex:2.0.0.Final">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.jboss/jandex/2.0.0.Final/3e899258936f94649c777193e1be846387ed54b3/jandex-2.0.0.Final.jar" />
+  </library>
+  <library name="Gradle: org.hibernate:hibernate-entitymanager:5.0.7.Final">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.hibernate/hibernate-entitymanager/5.0.7.Final/9717b9de7455e4c2d31fe074f86f8e3447482f70/hibernate-entitymanager-5.0.7.Final.jar" />
+  </library>
+  <library name="Gradle: org.hibernate:hibernate-core:5.0.7.Final">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.hibernate/hibernate-core/5.0.7.Final/3665e33895fa3d9c34e8330743508a2227d3b0db/hibernate-core-5.0.7.Final.jar" />
+  </library>
+  <library name="Gradle: org.hibernate:hibernate-envers:5.0.7.Final">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.hibernate/hibernate-envers/5.0.7.Final/94214980177242b59c77b5d28fa7034e368a73f6/hibernate-envers-5.0.7.Final.jar" />
+  </library>
+  <library name="Gradle: org.hibernate:hibernate-osgi:5.0.7.Final">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.hibernate/hibernate-osgi/5.0.7.Final/d53730abfd450f4870e54652056d589e4f5b1a9d/hibernate-osgi-5.0.7.Final.jar" />
+  </library>
+  <library name="Gradle: org.hibernate:hibernate-proxool:5.0.7.Final">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.hibernate/hibernate-proxool/5.0.7.Final/1e69caa6a46ae7e25ccb8e9978a1fbbaffd25cb/hibernate-proxool-5.0.7.Final.jar" />
+  </library>
+  <library name="Gradle: org.hibernate:hibernate-c3p0:5.0.7.Final">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.hibernate/hibernate-c3p0/5.0.7.Final/abdf4f72259ac4360b82e690f6e6c948b374889b/hibernate-c3p0-5.0.7.Final.jar" />
+  </library>
+  <library name="Gradle: org.hibernate:hibernate-ehcache:5.0.7.Final">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.hibernate/hibernate-ehcache/5.0.7.Final/7172eb8c310e7676aae53066eb22bbb02b55f12f/hibernate-ehcache-5.0.7.Final.jar" />
+  </library>
+  <library name="Gradle: org.hibernate:hibernate-infinispan:5.0.7.Final">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.hibernate/hibernate-infinispan/5.0.7.Final/b56f573a6006b86ccc6bf9dbbce8fa699ae0f9a8/hibernate-infinispan-5.0.7.Final.jar" />
+  </library>
+  <library name="Gradle: org.eclipse.persistence:eclipselink:2.5.1">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.eclipse.persistence/eclipselink/2.5.1/13bdbd486b15c1c7fd2d8392fe5d62d5a5ac10d6/eclipselink-2.5.1.jar" />
+  </library>
+  <library name="Gradle: org.hibernate.javax.persistence:hibernate-jpa-2.1-api:1.0.0.Final">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.hibernate.javax.persistence/hibernate-jpa-2.1-api/1.0.0.Final/5e731d961297e5a07290bfaf3db1fbc8bbbf405a/hibernate-jpa-2.1-api-1.0.0.Final.jar" />
+  </library>
+  <library name="Gradle: org.jadira.usertype:usertype.core:5.0.0.GA">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.jadira.usertype/usertype.core/5.0.0.GA/5c8a36976125b64976db746e0c22979ba89678d/usertype.core-5.0.0.GA.jar" />
+  </library>
+  <library name="Gradle: net.sf.ehcache:ehcache-core:2.4.3">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/net.sf.ehcache/ehcache-core/2.4.3/fd258ef6959f27fb678b04f90139ded4588e2d15/ehcache-core-2.4.3.jar" />
+  </library>
+  <library name="Gradle: org.infinispan:infinispan-core:7.2.1.Final">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.infinispan/infinispan-core/7.2.1.Final/38a465cbdd0e7a81e0c3cface3b3d486ff750f45/infinispan-core-7.2.1.Final.jar" />
+  </library>
+  <library name="Gradle: proxool:proxool:0.8.3">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/proxool/proxool/0.8.3/e6867ba5b64e9fa4ed8c33fc89887105e90d003b/proxool-0.8.3.jar" />
+  </library>
+  <library name="Gradle: com.mchange:c3p0:0.9.2.1">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/com.mchange/c3p0/0.9.2.1/11b29ccb286d34eb804b7f6a3786809c9bd2e1b7/c3p0-0.9.2.1.jar" />
+  </library>
+  <library name="Gradle: org.jadira.usertype:usertype.spi:5.0.0.GA">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.jadira.usertype/usertype.spi/5.0.0.GA/fcefd7bc79100409c2f83bc699e26ae06eabc198/usertype.spi-5.0.0.GA.jar" />
+  </library>
+  <library name="Gradle: org.eclipse.persistence:commonj.sdo:2.1.1">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.eclipse.persistence/commonj.sdo/2.1.1/90d4c89ce0a69f58619f1a247bbf420122139ff5/commonj.sdo-2.1.1.jar" />
+  </library>
+  <library name="Gradle: org.osgi:org.osgi.compendium:4.3.1">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.osgi/org.osgi.compendium/4.3.1/d1c9d7819de47d938a96ac2a3813bfd914684cf4/org.osgi.compendium-4.3.1.jar" />
+  </library>
+  <library name="Gradle: org.osgi:org.osgi.core:4.3.1">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.osgi/org.osgi.core/4.3.1/5458ffe2ba049e76c29f2df2dc3ffccddf8b839e/org.osgi.core-4.3.1.jar" />
+  </library>
+  <library name="Gradle: org.infinispan:infinispan-commons:7.2.1.Final">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.infinispan/infinispan-commons/7.2.1.Final/c8fa044942e240363375670b55542fa6f4967cad/infinispan-commons-7.2.1.Final.jar" />
+  </library>
+  <library name="Gradle: org.jgroups:jgroups:3.6.2.Final">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.jgroups/jgroups/3.6.2.Final/63c08b45cba574e00fdcb4473425a07d985c4d2e/jgroups-3.6.2.Final.jar" />
+  </library>
+  <library name="Gradle: com.mchange:mchange-commons-java:0.2.3.4">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/com.mchange/mchange-commons-java/0.2.3.4/5eb5a801d96f65912bcf418a831fa23c663b029b/mchange-commons-java-0.2.3.4.jar" />
+  </library>
+  <library name="Gradle: org.jboss.spec.javax.transaction:jboss-transaction-api_1.1_spec:1.0.1.Final">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.jboss.spec.javax.transaction/jboss-transaction-api_1.1_spec/1.0.1.Final/18f0e1d42f010a8b53aa447bf274a706d5148852/jboss-transaction-api_1.1_spec-1.0.1.Final.jar" />
+  </library>
+  <library name="Gradle: org.jboss.marshalling:jboss-marshalling-osgi:1.4.10.Final">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.jboss.marshalling/jboss-marshalling-osgi/1.4.10.Final/42eb92e4827d5b852d2640147991f6ac2a9f232c/jboss-marshalling-osgi-1.4.10.Final.jar" />
+  </library>
+  <library name="Gradle: org.eclipse.persistence:javax.persistence:2.1.0">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.eclipse.persistence/javax.persistence/2.1.0/5bab675816dbe0f64bb86004b108bf2a00292358/javax.persistence-2.1.0.jar" />
+  </library>
+  <library name="Gradle: org.javassist:javassist:3.18.1-GA">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.javassist/javassist/3.18.1-GA/d9a09f7732226af26bf99f19e2cffe0ae219db5b/javassist-3.18.1-GA.jar" />
+  </library>
+  <library name="Gradle: org.apache.geronimo.specs:geronimo-jta_1.1_spec:1.1.1">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.apache.geronimo.specs/geronimo-jta_1.1_spec/1.1.1/aabab3165b8ea936b9360abbf448459c0d04a5a4/geronimo-jta_1.1_spec-1.1.1.jar" />
+  </library>
+  <library name="Gradle: antlr:antlr:2.7.7">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/antlr/antlr/2.7.7/83cd2cd674a217ade95a4bb83a8a14f351f48bd0/antlr-2.7.7.jar" />
+  </library>
+  <library name="Gradle: org.openrdf.sesame:sesame-sail-inferencer:2.8.8">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.openrdf.sesame/sesame-sail-inferencer/2.8.8/fcad13b5f250cf7829e39818568bebcb13b6682c/sesame-sail-inferencer-2.8.8.jar" />
+  </library>
+  <library name="Gradle: org.openrdf.sesame:sesame-sail-base:2.8.8">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.openrdf.sesame/sesame-sail-base/2.8.8/af43eba7ade3cab516165d583fa0f1fdd4fa1042/sesame-sail-base-2.8.8.jar" />
+  </library>
+  <library name="Gradle: com.github.p4535992:utility:1.6.8-SNAPSHOT">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/com.github.p4535992/utility/1.6.8-SNAPSHOT/babb78c949725d1b464a4b28bf6533e89be4deaf/utility-1.6.8-SNAPSHOT.jar" />
+  </library>
+  <library name="Gradle: org.openrdf.sesame:sesame-queryalgebra-evaluation:2.8.8">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.openrdf.sesame/sesame-queryalgebra-evaluation/2.8.8/a0dab9f24fb2869a705c2e8596e29af448114a08/sesame-queryalgebra-evaluation-2.8.8.jar" />
+  </library>
+  <library name="Gradle: org.openrdf.sesame:sesame-queryalgebra-model:2.8.8">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.openrdf.sesame/sesame-queryalgebra-model/2.8.8/9814456853ca4fa34ebea7be3f7e033c31e17365/sesame-queryalgebra-model-2.8.8.jar" />
+  </library>
+  <library name="Gradle: org.openrdf.sesame:sesame-util:2.8.8">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.openrdf.sesame/sesame-util/2.8.8/6cd3276e4709a26264e31ed4ea1a32dab2c61f49/sesame-util-2.8.8.jar" />
+  </library>
+  <library name="Gradle: org.openrdf.sesame:sesame-rio-trig:2.8.8">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.openrdf.sesame/sesame-rio-trig/2.8.8/c74ce31f18c7e28aa06ed312397f618201adec7d/sesame-rio-trig-2.8.8.jar" />
+  </library>
+  <library name="Gradle: org.openrdf.sesame:sesame-rio-turtle:2.8.8">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.openrdf.sesame/sesame-rio-turtle/2.8.8/3348c18b7ae172fd91043ecdd9263db9d98041d4/sesame-rio-turtle-2.8.8.jar" />
+  </library>
+  <library name="Gradle: org.openrdf.sesame:sesame-http-client:2.8.8">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.openrdf.sesame/sesame-http-client/2.8.8/47cc70a9f9e0caf921e0cfb2aea9c97ce3d6ef14/sesame-http-client-2.8.8.jar" />
+  </library>
+  <library name="Gradle: org.openrdf.sesame:sesame-queryparser-api:2.8.8">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.openrdf.sesame/sesame-queryparser-api/2.8.8/dec57f172e534444a09cd6db6435b2207a862848/sesame-queryparser-api-2.8.8.jar" />
+  </library>
+  <library name="Gradle: org.json:json:20140107">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.json/json/20140107/d1ffca6e2482b002702c6a576166fd685e3370e3/json-20140107.jar" />
+  </library>
+  <library name="Gradle: org.openrdf.sesame:sesame-queryresultio-api:2.8.8">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.openrdf.sesame/sesame-queryresultio-api/2.8.8/fa65c4bf361b978b59948783cb3af9d893dade9/sesame-queryresultio-api-2.8.8.jar" />
+  </library>
+  <library name="Gradle: com.fasterxml.jackson.core:jackson-annotations:2.5.3">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-annotations/2.5.3/ade455ede4797ed450ca6a56e589a81278fc8f45/jackson-annotations-2.5.3.jar" />
+  </library>
+  <library name="Gradle: com.opencsv:opencsv:3.2">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/com.opencsv/opencsv/3.2/11986807ecb3288728bdb33a3165ce84f057d7a4/opencsv-3.2.jar" />
+  </library>
+  <library name="Gradle: com.fasterxml.jackson.core:jackson-databind:2.5.3">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.5.3/c37875ff66127d93e5f672708cb2dcc14c8232ab/jackson-databind-2.5.3.jar" />
+  </library>
+  <library name="Gradle: org.openrdf.sesame:sesame-http-protocol:2.8.8">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.openrdf.sesame/sesame-http-protocol/2.8.8/accc88336815e873250f74f1c7e7ff7bbb6d691a/sesame-http-protocol-2.8.8.jar" />
+  </library>
+  <library name="Gradle: com.fasterxml.jackson.core:jackson-core:2.5.3">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.5.3/a8b8a6dfc8a17890e4c7ff8aed810763d265b68b/jackson-core-2.5.3.jar" />
+  </library>
+  <library name="Gradle: org.apache.jena:apache-jena-libs:3.0.1:pom">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.apache.jena/apache-jena-libs/3.0.1/44c5246aca99f6463c2c4e74c2778a4fbaed4b45/apache-jena-libs-3.0.1.pom" />
+  </library>
+  <library name="Gradle: org.apache.jena:jena-spatial:3.0.1">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.apache.jena/jena-spatial/3.0.1/daaeb8a28f471013cc55c2d8d93193c5061a3ea6/jena-spatial-3.0.1.jar" />
+  </library>
+  <library name="Gradle: org.jsoup:jsoup:1.8.2">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.jsoup/jsoup/1.8.2/64238922c4006c3d0a9951c4c03983ecc6a1e1a0/jsoup-1.8.2.jar" />
+  </library>
+  <library name="Gradle: com.google.code.gson:gson:2.3.1">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.3.1/ecb6e1f8e4b0e84c4b886c2f14a1500caf309757/gson-2.3.1.jar" />
+  </library>
+  <library name="Gradle: org.openrdf.sesame:sesame-model:2.8.8">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.openrdf.sesame/sesame-model/2.8.8/8bbc872f5e0741bcbf830a5f77cab683ab5f90e8/sesame-model-2.8.8.jar" />
+  </library>
+  <library name="Gradle: org.apache.jena:jena-sdb:3.0.1">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.apache.jena/jena-sdb/3.0.1/55751274e0535c89a4a58ea5fe797aee9d78546c/jena-sdb-3.0.1.jar" />
+  </library>
+  <library name="Gradle: org.apache.lucene:lucene-queries:4.9.1">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.apache.lucene/lucene-queries/4.9.1/acd2b8601b2c0835d7e2a83637b69222a2719143/lucene-queries-4.9.1.jar" />
+  </library>
+  <library name="Gradle: org.apache.logging.log4j:log4j-api:2.5">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.apache.logging.log4j/log4j-api/2.5/e7fd981408caba8a0c0fb276413562468d260160/log4j-api-2.5.jar" />
+  </library>
+  <library name="Gradle: org.slf4j:log4j-over-slf4j:1.7.13">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.slf4j/log4j-over-slf4j/1.7.13/b5f4685073a6ffba6bf7e1d51e2b5fb83bdfa953/log4j-over-slf4j-1.7.13.jar" />
+  </library>
+  <library name="Gradle: org.apache.lucene:lucene-sandbox:4.9.1">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.apache.lucene/lucene-sandbox/4.9.1/e696594c2b5168d6e314a0c77da92db6066019a3/lucene-sandbox-4.9.1.jar" />
+  </library>
+  <library name="Gradle: org.apache.zookeeper:zookeeper:3.4.6">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.apache.zookeeper/zookeeper/3.4.6/1b2502e29da1ebaade2357cd1de35a855fa3755/zookeeper-3.4.6.jar" />
+  </library>
+  <library name="Gradle: org.apache.httpcomponents:httpmime:4.3.1">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents/httpmime/4.3.1/f7899276dddd01d8a42ecfe27e7031fcf9824422/httpmime-4.3.1.jar" />
+  </library>
+  <library name="Gradle: org.noggit:noggit:0.5">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.noggit/noggit/0.5/8e6e65624d2e09a30190c6434abe23b7d4e5413c/noggit-0.5.jar" />
+  </library>
+  <library name="Gradle: org.codehaus.woodstox:wstx-asl:3.2.7">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.codehaus.woodstox/wstx-asl/3.2.7/252c7faae9ce98cb9c9d29f02db88f7373e7f407/wstx-asl-3.2.7.jar" />
+  </library>
+  <library name="Gradle: org.apache.httpcomponents:httpcore:4.4.3">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents/httpcore/4.4.3/e876a79d561e5c6207b78d347e198c8c4531a5e5/httpcore-4.4.3.jar" />
+  </library>
+  <library name="Gradle: org.openrdf.sesame:sesame-repository-event:2.8.8">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.openrdf.sesame/sesame-repository-event/2.8.8/bd6bcf0492056767f8db8defb869c861f0e51ddb/sesame-repository-event-2.8.8.jar" />
+  </library>
+  <library name="Gradle: org.openrdf.sesame:sesame-rio-binary:2.8.8">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.openrdf.sesame/sesame-rio-binary/2.8.8/946fc5da07b9d8432be8fb15c167a4368620ce9c/sesame-rio-binary-2.8.8.jar" />
+  </library>
+  <library name="Gradle: org.openrdf.sesame:sesame-repository-sail:2.8.8">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.openrdf.sesame/sesame-repository-sail/2.8.8/faaf19cc34c42848e578d7ec7aac37137db71ee5/sesame-repository-sail-2.8.8.jar" />
+  </library>
+  <library name="Gradle: ch.qos.logback:logback-classic:1.1.3">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/ch.qos.logback/logback-classic/1.1.3/d90276fff414f06cb375f2057f6778cd63c6082f/logback-classic-1.1.3.jar" />
+  </library>
+  <library name="Gradle: org.openrdf.sesame:sesame-sail-memory:2.8.8">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.openrdf.sesame/sesame-sail-memory/2.8.8/fda54aeef97a01e2e55da73aa6f10707b0ca4bee/sesame-sail-memory-2.8.8.jar" />
+  </library>
+  <library name="Gradle: org.slf4j:jcl-over-slf4j:1.7.13">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.slf4j/jcl-over-slf4j/1.7.13/d78d2242e14e4182625152d225f76ae52b43491d/jcl-over-slf4j-1.7.13.jar" />
+  </library>
+  <library name="Gradle: org.slf4j:jul-to-slf4j:1.7.13">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.slf4j/jul-to-slf4j/1.7.13/43759e986de5fec7045e35e9533e5ad2f6cd1b05/jul-to-slf4j-1.7.13.jar" />
+  </library>
+  <library name="Gradle: org.openrdf.sesame:sesame-queryresultio-text:2.8.8">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.openrdf.sesame/sesame-queryresultio-text/2.8.8/5f072d69568173003c1c52020f8bec7c9052ac1b/sesame-queryresultio-text-2.8.8.jar" />
+  </library>
+  <library name="Gradle: org.apache.poi:poi-ooxml-schemas:3.10-FINAL">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.apache.poi/poi-ooxml-schemas/3.10-FINAL/835fac8134ae4a02e00de8bda2dcc4b46d7aeec2/poi-ooxml-schemas-3.10-FINAL.jar" />
+  </library>
+  <library name="Gradle: org.openrdf.sesame:sesame-rio-languages:2.8.8">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.openrdf.sesame/sesame-rio-languages/2.8.8/249f6e35e73d9d5b66c7ba720aa12335c374c8af/sesame-rio-languages-2.8.8.jar" />
+  </library>
+  <library name="Gradle: org.openrdf.sesame:sesame-rio-datatypes:2.8.8">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.openrdf.sesame/sesame-rio-datatypes/2.8.8/6b073b10d755b7ee4d0241e01d71a621b938082e/sesame-rio-datatypes-2.8.8.jar" />
+  </library>
+  <library name="Gradle: org.openrdf.sesame:sesame-rio-ntriples:2.8.8">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.openrdf.sesame/sesame-rio-ntriples/2.8.8/e54267806717174b079baad4d9848fb1ad88d0fe/sesame-rio-ntriples-2.8.8.jar" />
+  </library>
+  <library name="Gradle: org.openrdf.sesame:sesame-repository-manager:2.8.8">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.openrdf.sesame/sesame-repository-manager/2.8.8/c7cc005c621e0935d60ff56265d1c8192ee66b1a/sesame-repository-manager-2.8.8.jar" />
+  </library>
+  <library name="Gradle: org.openrdf.sesame:sesame-rio-api:2.8.8">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.openrdf.sesame/sesame-rio-api/2.8.8/b88668c0be9445803dc305d34faebd1ecc1afb3a/sesame-rio-api-2.8.8.jar" />
+  </library>
+  <library name="Gradle: org.openrdf.sesame:sesame-queryresultio-sparqljson:2.8.8">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.openrdf.sesame/sesame-queryresultio-sparqljson/2.8.8/13a9d74e1b97206dcfedd0adcdc4ff6fd7ed2065/sesame-queryresultio-sparqljson-2.8.8.jar" />
+  </library>
+  <library name="Gradle: org.openrdf.sesame:sesame-queryparser-serql:2.8.8">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.openrdf.sesame/sesame-queryparser-serql/2.8.8/ff5cb4d005bdf82467a621c8d28cdd2e455be302/sesame-queryparser-serql-2.8.8.jar" />
+  </library>
+  <library name="Gradle: org.openrdf.sesame:sesame-repository-http:2.8.8">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.openrdf.sesame/sesame-repository-http/2.8.8/63a2f524d7979bed1705f0e966f43fd1314fbd78/sesame-repository-http-2.8.8.jar" />
+  </library>
+  <library name="Gradle: org.mapdb:mapdb:1.0.7">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.mapdb/mapdb/1.0.7/a4d6cad9402e671b0a547275dee40294eba8a5c5/mapdb-1.0.7.jar" />
+  </library>
+  <library name="Gradle: org.openrdf.sesame:sesame-sail-nativerdf:2.8.8">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.openrdf.sesame/sesame-sail-nativerdf/2.8.8/d1999a51510d0662797c35bc94fe46d63d0916b3/sesame-sail-nativerdf-2.8.8.jar" />
+  </library>
+  <library name="Gradle: org.openrdf.sesame:sesame-repository-sparql:2.8.8">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.openrdf.sesame/sesame-repository-sparql/2.8.8/907219e3b09fc77475448d65a3015404d7a7563/sesame-repository-sparql-2.8.8.jar" />
+  </library>
+  <library name="Gradle: org.openrdf.sesame:sesame-sail-model:2.8.8">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.openrdf.sesame/sesame-sail-model/2.8.8/bbe6c584a7652ca6ac439cd2cfe7c51997c47e6f/sesame-sail-model-2.8.8.jar" />
+  </library>
+  <library name="Gradle: commons-cli:commons-cli:1.3">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/commons-cli/commons-cli/1.3/a48653b6bcd06b5e61ed63739ca601701fcb6a6c/commons-cli-1.3.jar" />
+  </library>
+  <library name="Gradle: xerces:xercesImpl:2.11.0">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/xerces/xercesImpl/2.11.0/9bb329db1cfc4e22462c9d6b43a8432f5850e92c/xercesImpl-2.11.0.jar" />
+  </library>
+  <library name="Gradle: org.apache.jena:jena-iri:3.0.1">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.apache.jena/jena-iri/3.0.1/228af22fda7249191956ac8113b31910d732ce0a/jena-iri-3.0.1.jar" />
+  </library>
+  <library name="Gradle: org.apache.jena:jena-base:3.0.1">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.apache.jena/jena-base/3.0.1/6ed216553731d38f1a7226bc551de7afc3c0b0b4/jena-base-3.0.1.jar" />
+  </library>
+  <library name="Gradle: org.apache.xmlbeans:xmlbeans:2.3.0">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.apache.xmlbeans/xmlbeans/2.3.0/8704dcf5c9f10265a08f5020b0fab70eb64ac3c4/xmlbeans-2.3.0.jar" />
+  </library>
+  <library name="Gradle: ch.qos.logback:logback-core:1.1.3">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/ch.qos.logback/logback-core/1.1.3/e3c02049f2dbbc764681b40094ecf0dcbc99b157/logback-core-1.1.3.jar" />
+  </library>
+  <library name="Gradle: org.apache.httpcomponents:httpclient-cache:4.2.6">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents/httpclient-cache/4.2.6/21dc2e715f7177fb218579bd5fc8aba135efa29a/httpclient-cache-4.2.6.jar" />
+  </library>
+  <library name="Gradle: com.github.jsonld-java:jsonld-java:0.7.0">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/com.github.jsonld-java/jsonld-java/0.7.0/8e5b63444ddaf911358dc66966617454f3590353/jsonld-java-0.7.0.jar" />
+  </library>
+  <library name="Gradle: org.apache.thrift:libthrift:0.9.2">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.apache.thrift/libthrift/0.9.2/9b067e2e2c5291e9f0d8b3561b1654286e6d81ee/libthrift-0.9.2.jar" />
+  </library>
+  <library name="Gradle: org.apache.commons:commons-csv:1.0">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-csv/1.0/8a0796ad6541a144eb1c00b93e06fbac03a9f313/commons-csv-1.0.jar" />
+  </library>
+  <library name="Gradle: org.openrdf.sesame:sesame-repository-api:2.8.8">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.openrdf.sesame/sesame-repository-api/2.8.8/656172e5d75769e9ca904a16eb8324b4fcdea5/sesame-repository-api-2.8.8.jar" />
+  </library>
+  <library name="Gradle: org.apache.jena:jena-core:3.0.1">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.apache.jena/jena-core/3.0.1/9efd02f4436bc2110ba6bb3252609a487dc7543e/jena-core-3.0.1.jar" />
+  </library>
+  <library name="Gradle: org.apache.jena:jena-shaded-guava:3.0.1">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.apache.jena/jena-shaded-guava/3.0.1/416447747131a8f90cea0c45b6aaae3b160d9461/jena-shaded-guava-3.0.1.jar" />
+  </library>
+  <library name="Gradle: org.apache.commons:commons-lang3:3.3.2">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-lang3/3.3.2/90a3822c38ec8c996e84c16a3477ef632cbc87a3/commons-lang3-3.3.2.jar" />
+  </library>
+  <library name="Gradle: org.openrdf.sesame:sesame-sail-api:2.8.8">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.openrdf.sesame/sesame-sail-api/2.8.8/183dc95a604370efd205655766c6395134a041a2/sesame-sail-api-2.8.8.jar" />
+  </library>
+  <library name="Gradle: org.openrdf.sesame:sesame-query:2.8.8">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.openrdf.sesame/sesame-query/2.8.8/d0a9c3481329ca25c3a319bfceb88d8f6dd2e2ee/sesame-query-2.8.8.jar" />
+  </library>
+  <library name="Gradle: org.apache.httpcomponents:httpclient:4.5.1">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents/httpclient/4.5.1/7e3cecc566df91338c6c67883b89ddd05a17db43/httpclient-4.5.1.jar" />
+  </library>
+  <library name="Gradle: stax:stax-api:1.0.1">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/stax/stax-api/1.0.1/49c100caf72d658aca8e58bd74a4ba90fa2b0d70/stax-api-1.0.1.jar" />
+  </library>
+  <library name="Gradle: com.github.andrewoma.dexx:dexx-collections:0.2">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/com.github.andrewoma.dexx/dexx-collections/0.2/a1cff10827ee471c215a99585b99f00d3a602194/dexx-collections-0.2.jar" />
+  </library>
+  <library name="Gradle: org.openrdf.sesame:sesame-queryparser-sparql:2.8.8">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.openrdf.sesame/sesame-queryparser-sparql/2.8.8/723f5aeb0a1174c0aa76ad1f9f4c377a177894d9/sesame-queryparser-sparql-2.8.8.jar" />
+  </library>
+  <library name="Gradle: org.openrdf.sesame:sesame-queryresultio-sparqlxml:2.8.8">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.openrdf.sesame/sesame-queryresultio-sparqlxml/2.8.8/47d7372df7f1c29ed5b5ba7ae39ae728a25983fc/sesame-queryresultio-sparqlxml-2.8.8.jar" />
+  </library>
+  <library name="Gradle: uk.org.lidalia:sysout-over-slf4j:1.0.2">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/uk.org.lidalia/sysout-over-slf4j/1.0.2/225779e5be0ad47f7a632423b5526ed95d4a6783/sysout-over-slf4j-1.0.2.jar" />
+  </library>
+  <library name="Gradle: org.fusesource.jansi:jansi:1.11">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.fusesource.jansi/jansi/1.11/655c643309c2f45a56a747fda70e3fadf57e9f11/jansi-1.11.jar" />
+  </library>
+  <library name="Gradle: org.springframework.boot:spring-boot-starter-logging:1.3.0.RELEASE">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-logging/1.3.0.RELEASE/17e106a8a13a9c98515a8eb0dae2d3d80420d666/spring-boot-starter-logging-1.3.0.RELEASE.jar" />
+  </library>
+  <library name="Gradle: javax.interceptor:javax.interceptor-api:1.2">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/javax.interceptor/javax.interceptor-api/1.2/a5c058610aebacc1eb89c89e8fde2a978090e374/javax.interceptor-api-1.2.jar" />
+  </library>
+  <library name="Gradle: net.sf.sevenzipjbinding:sevenzipjbinding-all-platforms:9.20-2.00beta">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/net.sf.sevenzipjbinding/sevenzipjbinding-all-platforms/9.20-2.00beta/3b7f8ce33994650f5a2c826843146ba71526fd3b/sevenzipjbinding-all-platforms-9.20-2.00beta.jar" />
+  </library>
+  <library name="Gradle: net.sf.sevenzipjbinding:sevenzipjbinding:9.20-2.00beta">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/net.sf.sevenzipjbinding/sevenzipjbinding/9.20-2.00beta/955419d9a6fc9608052226964cb0ecf8f59f91f9/sevenzipjbinding-9.20-2.00beta.jar" />
+  </library>
+  <library name="Gradle: org.apache.logging.log4j:log4j-core:2.5">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.apache.logging.log4j/log4j-core/2.5/7ed845de1dfe070d43511fab321784e6c4118398/log4j-core-2.5.jar" />
+  </library>
+  <library name="Gradle: xml-apis:xml-apis:1.4.01">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/xml-apis/xml-apis/1.4.01/3789d9fada2d3d458c4ba2de349d48780f381ee3/xml-apis-1.4.01.jar" />
+  </library>
+  <library name="Gradle: org.apache.poi:poi-ooxml:3.10-FINAL">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.apache.poi/poi-ooxml/3.10-FINAL/42b365f90a4bedbf95944a409c8a25d5952bc3af/poi-ooxml-3.10-FINAL.jar" />
+  </library>
+  <library name="Gradle: org.apache.poi:poi:3.10-FINAL">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.apache.poi/poi/3.10-FINAL/e22fd3bb6a7152bd7d07c7e8901c2451b601725f/poi-3.10-FINAL.jar" />
+  </library>
+  <library name="Gradle: commons-io:commons-io:2.4">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/commons-io/commons-io/2.4/b1b6ea3b7e4aa4f492509a4952029cd8e48019ad/commons-io-2.4.jar" />
+  </library>
+  <library name="Gradle: commons-codec:commons-codec:1.10">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/commons-codec/commons-codec/1.10/4b95f4897fa13f2cd904aee711aeafc0c5295cd8/commons-codec-1.10.jar" />
+  </library>
+  <library name="Gradle: com.google.guava:guava:18.0">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/com.google.guava/guava/18.0/cce0823396aa693798f8882e64213b1772032b09/guava-18.0.jar" />
+  </library>
+  <library name="Gradle: org.apache.jena:jena-arq:3.0.1">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.apache.jena/jena-arq/3.0.1/f81314b356ff976b2b5dd4e7e8de85a3a999b4f1/jena-arq-3.0.1.jar" />
+  </library>
+  <library name="Gradle: org.apache.solr:solr-solrj:4.9.1">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.apache.solr/solr-solrj/4.9.1/d30dda2f309dfb1012645cc9d1eb7b9cbdf96808/solr-solrj-4.9.1.jar" />
+  </library>
+  <library name="Gradle: org.apache.lucene:lucene-spatial:4.9.1">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.apache.lucene/lucene-spatial/4.9.1/d759e63b90ec9b12831bc7c7a3bbd75aad66e666/lucene-spatial-4.9.1.jar" />
+  </library>
+  <library name="Gradle: org.apache.lucene:lucene-analyzers-common:4.9.1">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.apache.lucene/lucene-analyzers-common/4.9.1/fca03794541eaa134b468bb19b0677d57be5530c/lucene-analyzers-common-4.9.1.jar" />
+  </library>
+  <library name="Gradle: org.apache.lucene:lucene-queryparser:4.9.1">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.apache.lucene/lucene-queryparser/4.9.1/5abe23ee8ece2a812726ea31781952eff442f8d/lucene-queryparser-4.9.1.jar" />
+  </library>
+  <library name="Gradle: com.spatial4j:spatial4j:0.4.1">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/com.spatial4j/spatial4j/0.4.1/4234d12b1ba4d4b539fb3e29edd948a99539d9eb/spatial4j-0.4.1.jar" />
+  </library>
+  <library name="Gradle: org.apache.lucene:lucene-core:4.9.1">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.apache.lucene/lucene-core/4.9.1/c4c89b4e212e5af3b19b169a2695e9a4c1ab6e59/lucene-core-4.9.1.jar" />
+  </library>
+  <library name="Gradle: org.apache.jena:jena-tdb:3.0.1">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.apache.jena/jena-tdb/3.0.1/7a4ac095275587c2fe2f9b0fdc23dde502fe2622/jena-tdb-3.0.1.jar" />
+  </library>
+  <library name="Gradle: org.springframework:spring-orm:4.2.4.RELEASE">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.springframework/spring-orm/4.2.4.RELEASE/f8cc11443ea62a189c4574e54116465960c490eb/spring-orm-4.2.4.RELEASE.jar" />
+  </library>
+  <library name="Gradle: com.github.uniVocity:univocity-parsers:-SNAPSHOT">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/com.github.uniVocity/univocity-parsers/-SNAPSHOT/dcaecc3e398358c3086b244236d6da7965eb4609/univocity-parsers--SNAPSHOT.jar" />
+  </library>
+  <library name="Gradle: org.hibernate:hibernate-validator:5.3.0.Alpha1">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/org.hibernate/hibernate-validator/5.3.0.Alpha1/bb74231e02e96f0a9a479699d3c827530ffc8ec8/hibernate-validator-5.3.0.Alpha1.jar" />
+  </library>
+  <library name="Gradle: com.fasterxml:classmate:1.1.0">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/com.fasterxml/classmate/1.1.0/dbbd699a1486ad0f2ed6f5af6cfed66acacb9056/classmate-1.1.0.jar" />
+  </library>
+  <library name="Gradle: javax.validation:validation-api:1.1.0.Final">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/javax.validation/validation-api/1.1.0.Final/8613ae82954779d518631e05daa73a6a954817d5/validation-api-1.1.0.Final.jar" />
+  </library>
+  <library name="Gradle: com.univocity:univocity-parsers:2.0.0-SNAPSHOT">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/com.univocity/univocity-parsers/2.0.0-SNAPSHOT/911cd478639a743e00298856415e673948601800/univocity-parsers-2.0.0-SNAPSHOT.jar" />
+  </library>
+  <library name="Gradle: virtuoso.sesame2:driver:2.7.3-build1.12">
+    <archive path="C:/Users/tenti/.gradle/caches/modules-2/files-2.1/virtuoso.sesame2/driver/2.7.3-build1.12/6ddd5a970eda0e8190b7f81f8381cdfb6029140/driver-2.7.3-build1.12.jar" />
+  </library>
+  <library name="d3">
+    <archive path="C:/Users/tenti/.IntelliJIdea15/config/javascript/extLibs/http_cdn.rawgit.com_mbostock_d3_master_d3.js" />
+  </library>
+  <library name="GPX">
+    <archive path="C:/Users/tenti/.IntelliJIdea15/config/javascript/extLibs/http_cdn.rawgit.com_shramov_leaflet-plugins_d74d67_layer_vector_GPX.js" />
+  </library>
+  <library name="jquery-1.10.1">
+    <archive path="C:/Users/tenti/.IntelliJIdea14/system/extLibs/http_code.jquery.com_jquery-1.10.1.js" />
+  </library>
+  <library name="jquery-migrate-1.2.1">
+    <archive path="C:/Users/tenti/.IntelliJIdea14/system/extLibs/http_code.jquery.com_jquery-migrate-1.2.1.js" />
+  </library>
+  <library name="jquery-ui">
+    <archive path="C:/Users/tenti/.IntelliJIdea14/system/extLibs/http_code.jquery.com_ui_1.10.4_jquery-ui.js" />
+  </library>
+  <library name="loader">
+    <archive path="C:/Users/tenti/.IntelliJIdea14/system/extLibs/http_jspm.io_loader.js" />
+  </library>
+  <library name="mapbox">
+    <archive path="C:/Users/tenti/.IntelliJIdea14/system/extLibs/http_api.tiles.mapbox.com_mapbox.js_v2.1.4_mapbox.js" />
+  </library>
+  <library name="papaparse">
+    <archive path="C:/Users/tenti/.IntelliJIdea15/config/javascript/extLibs/http_cdn.rawgit.com_mholt_PapaParse_master_papaparse.js" />
+  </library>
+  <library name="togeojson">
+    <archive path="C:/Users/tenti/.IntelliJIdea15/config/javascript/extLibs/http_cdn.rawgit.com_mapbox_togeojson_master_togeojson.js" />
+  </library>
+</eclipse-userlibraries>
+

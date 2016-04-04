@@ -234,11 +234,19 @@ public class ExtractorGeoDocumentSupport {
     }
 
     private String cleanString(String text){
-        text = text.replaceAll("\\\\", " ");
-        text = text.replaceAll("/", " ");
-        text = text.replaceAll(";", " ");
-        text = text.replaceAll("\\s+", " ");
-        return text;
+        try {
+            if(StringUtilities.isNullOrEmpty(text)){
+                return text;
+            }else {
+                text = text.replaceAll("\\\\", " ");
+                text = text.replaceAll("/", " ");
+                text = text.replaceAll(";", " ");
+                text = text.replaceAll("\\s+", " ");
+                return text;
+            }
+        }catch(java.lang.NullPointerException e){
+            return text;
+        }
     }
 
 

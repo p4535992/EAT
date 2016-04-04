@@ -57,6 +57,10 @@ public class ExtractInfoWeb {
     private String TABLE_INPUT,TABLE_OUTPUT,DRIVER_DATABASE,DIALECT_DATABASE, HOST_DATABASE, PORT_DATABASE,
             USER, PASS, DB_INPUT, DB_OUTPUT;
 
+    private String TABLE_REF_OFFLINE,COLUMN_OFFLINE_REF_URL,GATE_CORPUS_NAME;
+
+    private String[] GATE_ANN_LIST,GATE_ANNSET_LIST;
+
     private static ExtractInfoWeb instance = null;
     protected ExtractInfoWeb(){}
 
@@ -72,17 +76,15 @@ public class ExtractInfoWeb {
         this.connectionToADatabase = connectionToADatabase;
     }
 
-
-
     /**
      * Constructor.
-     * @param DRIVER_DATABASE driver of the database eg: "com.mysql.jdbc.Driver".
-     * @param DIALECT_DATABASE dialect of the database eg: "jdbc:mysql".
-     * @param HOST_DATABASE the String  host of the database eg: "localhost".
-     * @param PORT_DATABASE the String port of the database eg: "3306".
-     * @param USER the String username of the database eg: "username".
-     * @param PASS the String password of the database eg: "password".
-     * @param DB_OUTPUT string name of the database eg: "database".
+     * @param DRIVER_DATABASE the {@link String} of the driver of the database eg: "com.mysql.jdbc.Driver".
+     * @param DIALECT_DATABASE the {@link String} of dialect of the database eg: "jdbc:mysql".
+     * @param HOST_DATABASE the {@link String} of  host of the database eg: "localhost".
+     * @param PORT_DATABASE the {@link String} of port of the database eg: "3306".
+     * @param USER the {@link String} of  username of the database eg: "username".
+     * @param PASS the {@link String} of  password of the database eg: "password".
+     * @param DB_OUTPUT the {@link String} of  name of the database eg: "database".
      */
     protected ExtractInfoWeb(String DRIVER_DATABASE,String DIALECT_DATABASE,String HOST_DATABASE,
                           String PORT_DATABASE,String USER,String PASS,String DB_OUTPUT){
@@ -93,6 +95,16 @@ public class ExtractInfoWeb {
         this.USER = USER;
         this.PASS = PASS;
         this.DB_OUTPUT=DB_OUTPUT;
+        //Other Variables
+        this.TABLE_REF_OFFLINE ="offlinesite";
+        this.COLUMN_OFFLINE_REF_URL ="url";
+
+        this.GATE_ANN_LIST = new String[]{"MyRegione", "MyPhone", "MyFax", "MyEmail", "MyPartitaIVA",
+                "MyLocalita", "MyIndirizzo", "MyEdificio", "MyProvincia"};
+        this.GATE_ANNSET_LIST = new String[]{"MyFOOTER", "MyHEAD", "MySpecialID", "MyAnnSet"};
+        this.GATE_CORPUS_NAME = "corpus_test_1";
+
+
         //Gate8Kit gate8 = Gate8Kit.getInstance();
         //this.controller = gate8.setUpGateEmbedded("gate_files", "plugins", "gate.xml", "user-gate.xml", "gate.session",
         //        "custom/gapp/geoLocationPipeline06102014v7_fastMode.xgapp");
@@ -100,10 +112,61 @@ public class ExtractInfoWeb {
         //procDoc = gate8.setUpGateEmbeddedWithSpring("gate/gate-beans.xml",this.getClass(),"documentProcessor");
     }
 
+    /**
+     * Constructor.
+     * @param DRIVER_DATABASE the {@link String} of the driver of the database eg: "com.mysql.jdbc.Driver".
+     * @param DIALECT_DATABASE the {@link String} of dialect of the database eg: "jdbc:mysql".
+     * @param HOST_DATABASE the {@link String} of  host of the database eg: "localhost".
+     * @param PORT_DATABASE the {@link String} of port of the database eg: "3306".
+     * @param USER the {@link String} of  username of the database eg: "username".
+     * @param PASS the {@link String} of  password of the database eg: "password".
+     * @param DB_OUTPUT the {@link String} of  name of the database eg: "database".
+     * @param TABLE_REF_OFFLINE the {@link String} name of the table used for store the not existent web pages
+     * @param COLUMN_OFFLINE_REF_URL the {@link String} the name of the column with reference
+     *                               to the urls on the table used for store the not existent web pages.
+     * @param GATE_CORPUS_NAME the {@link String} name of the Corpus used with GATE.
+     * @param GATE_ANNSET_LIST the {@link Arrays} of {@link String} of the Annotation used on GATE.
+     * @param GATE_ANN_LIST the {@link Arrays} of {@link String} of the AnnotationSet used on GATE.
+     */
+    protected ExtractInfoWeb(String DRIVER_DATABASE,String DIALECT_DATABASE,String HOST_DATABASE,
+                             String PORT_DATABASE,String USER,String PASS,String DB_OUTPUT,
+                             String TABLE_REF_OFFLINE,String COLUMN_OFFLINE_REF_URL,
+                             String GATE_CORPUS_NAME,String[] GATE_ANNSET_LIST,String[] GATE_ANN_LIST){
+        this.DRIVER_DATABASE = DRIVER_DATABASE;
+        this.DIALECT_DATABASE = DIALECT_DATABASE;
+        this.HOST_DATABASE = HOST_DATABASE;
+        this.PORT_DATABASE = PORT_DATABASE;
+        this.USER = USER;
+        this.PASS = PASS;
+        this.DB_OUTPUT=DB_OUTPUT;
+        //Other Variables
+        this.TABLE_REF_OFFLINE ="offlinesite";
+        this.COLUMN_OFFLINE_REF_URL ="url";
+
+        this.GATE_ANN_LIST = new String[]{"MyRegione", "MyPhone", "MyFax", "MyEmail", "MyPartitaIVA",
+                "MyLocalita", "MyIndirizzo", "MyEdificio", "MyProvincia"};
+        this.GATE_ANNSET_LIST = new String[]{"MyFOOTER", "MyHEAD", "MySpecialID", "MyAnnSet"};
+        this.GATE_CORPUS_NAME = "corpus_test_1";
+
+    }
+
 
     public static ExtractInfoWeb getInstance(){
         if(instance == null) {
             instance = new ExtractInfoWeb();
+        }
+        return instance;
+    }
+
+    public static ExtractInfoWeb getInstance(String DRIVER_DATABASE,String DIALECT_DATABASE,String HOST_DATABASE,
+                                             String PORT_DATABASE,String USER,String PASS,String DB_OUTPUT,
+                                             String TABLE_REF_OFFLINE,String COLUMN_OFFLINE_REF_URL,
+                                             String GATE_CORPUS_NAME,String[] GATE_ANNSET_LIST,String[] GATE_ANN_LIST){
+        if(instance == null) {
+            instance = new ExtractInfoWeb(DRIVER_DATABASE,DIALECT_DATABASE,HOST_DATABASE,
+                    PORT_DATABASE,USER,PASS,DB_OUTPUT,
+                    TABLE_REF_OFFLINE,COLUMN_OFFLINE_REF_URL,
+                    GATE_CORPUS_NAME,GATE_ANNSET_LIST,GATE_ANN_LIST);
         }
         return instance;
     }
@@ -197,6 +260,26 @@ public class ExtractInfoWeb {
         return geoDoc;
     }
 
+    /**
+     * Method to Extract GeoDocuments from a string as url.
+     * @param url the {@link String} of a url address.
+     * @return the {@link List} Collection of GeoDocuments, but the geoDocuments are already put in the database.
+     */
+    public GeoDocument ExtractGeoDocumentFromString(String url){
+        GeoDocument geoDoc = new GeoDocument();
+        try {
+            if(StringUtilities.isURLWithoutProtocol(url)){
+                url = "http://" + url;
+            }
+            geoDoc = ExtractGeoDocumentFromUrl(new URL(url));
+        }catch(MalformedURLException e){
+            logger.error(
+                    "You have insert a not valid url for the extraction of information:"+ url+" is not valid:"
+                            + e.getMessage(),e);
+        }
+        return geoDoc;
+    }
+
 
     /**
      * Method to Extract GeoDocuments from a List of string as url.
@@ -266,11 +349,11 @@ public class ExtractInfoWeb {
             GeoDocument geoDoc;
             //check if the site is already present like offline or unreachable
 
-            geoDocumentDao.setTableInsert("offlinesite");
+            geoDocumentDao.setTableInsert(TABLE_REF_OFFLINE);
             List<URL> supportList = new ArrayList<>();
             for(URL url : listUrls) {
                 //Check is not already present on the table.....
-                if (geoDocumentDao.verifyDuplicate("url", url.toString())) {
+                if (geoDocumentDao.verifyDuplicate(COLUMN_OFFLINE_REF_URL, url.toString())) {
                     supportList.add(url);
                 }
                 //Check if the web page exists....
@@ -281,8 +364,8 @@ public class ExtractInfoWeb {
             for(URL url: supportList){
                 //Try to insert in the offline table
                 logger.warn("The site "+url+" can't be reach...");
-                geoDocumentDao.setTableInsert("offlinesite");
-                geoDocumentDao.insertAndTrim(new String[]{"url"}, new Object[]{url}, new int[]{Types.VARCHAR});
+                geoDocumentDao.setTableInsert(TABLE_REF_OFFLINE);
+                geoDocumentDao.insertAndTrim(new String[]{COLUMN_OFFLINE_REF_URL}, new Object[]{url}, new int[]{Types.VARCHAR});
                 listUrls.remove(url);
             }
             supportList.clear();
@@ -291,10 +374,12 @@ public class ExtractInfoWeb {
 
             logger.info("*******************Run GATE**************************");
             //create a list of annotation (you know they exists on the gate document,otherwise you get null result).....
-            List<String> listAnn = new ArrayList<>(Arrays.asList("MyRegione", "MyPhone", "MyFax", "MyEmail", "MyPartitaIVA",
-                    "MyLocalita", "MyIndirizzo", "MyEdificio", "MyProvincia"));
+            /*List<String> listAnn = new ArrayList<>(Arrays.asList("MyRegione", "MyPhone", "MyFax", "MyEmail", "MyPartitaIVA",
+                    "MyLocalita", "MyIndirizzo", "MyEdificio", "MyProvincia"));*/
             //create a list of annotationSet (you know they exists on the gate document,otherwise you get null result).....
-            List<String> listAnnSet = new ArrayList<>(Arrays.asList("MyFOOTER", "MyHEAD", "MySpecialID", "MyAnnSet"));
+           /* List<String> listAnnSet = new ArrayList<>(Arrays.asList("MyFOOTER", "MyHEAD", "MySpecialID", "MyAnnSet"));*/
+            List<String> listAnn = new ArrayList<>(Arrays.asList(GATE_ANN_LIST));
+            List<String> listAnnSet = new ArrayList<>(Arrays.asList(GATE_ANNSET_LIST));
             //Store the result on of the extraction on a GateSupport Object
             GateSupport2 support = null;
             //Use GATE for Extract Information...
@@ -306,15 +391,15 @@ public class ExtractInfoWeb {
                         String content = JSoupUtilities.getContent(url.toString());
                         if (!StringUtilities.isNullOrEmpty(content)) {
                             support = GateSupport2.getInstance(
-                                    egate.extractorGATE(content, (CorpusController) controller, "corpus_test_1", listAnn, listAnnSet, true), true);
+                                    egate.extractorGATE(content, (CorpusController) controller, GATE_CORPUS_NAME, listAnnSet, listAnn,  true), true);
                         } else {
                             support = GateSupport2.getInstance(
-                                    egate.extractorGATE(url, (CorpusController) controller, "corpus_test_1", listAnn, listAnnSet, true), true);
+                                    egate.extractorGATE(url, (CorpusController) controller, GATE_CORPUS_NAME, listAnnSet, listAnn, true), true);
                         }
                         //geoDoc = convertGateSupportToGeoDocument(support, url, 0); //0 because is just a unique document...
                     } else {
                         support = GateSupport2.getInstance(
-                                egate.extractorGATE(listUrls, (CorpusController) controller, "corpus_test_1", listAnn, listAnnSet, true));
+                                egate.extractorGATE(listUrls, (CorpusController) controller, GATE_CORPUS_NAME, listAnnSet, listAnn, true));
                     }
                 }
                 else if (procDoc != null) {
@@ -323,14 +408,14 @@ public class ExtractInfoWeb {
                         String content = JSoupUtilities.getContent(url.toString());
                         if (content != null) {
                             support = GateSupport2.getInstance(
-                                    egate.extractorGATE(content, procDoc, "corpus_test_1", listAnn, listAnnSet, true), true);
+                                    egate.extractorGATE(content, procDoc, GATE_CORPUS_NAME, listAnnSet, listAnn, true), true);
                         } else {
                             support = GateSupport2.getInstance(
-                                    egate.extractorGATE(url, procDoc, "corpus_test_1", listAnn, listAnnSet, true), true);
+                                    egate.extractorGATE(url, procDoc, GATE_CORPUS_NAME, listAnnSet, listAnn, true), true);
                         }
                     } else {
                         support = GateSupport2.getInstance(
-                                egate.extractorGATE(listUrls, procDoc, "corpus_test_1", listAnn, listAnnSet, true));
+                                egate.extractorGATE(listUrls, procDoc, GATE_CORPUS_NAME, listAnnSet, listAnn,  true));
                     }
                 }
                 if (listUrls.size() == 1) {
@@ -390,6 +475,126 @@ public class ExtractInfoWeb {
     }
 
     /**
+     * Method to Extract GeoDocuments from a List of urls.
+     * @param listUrls List Collection of URLs address.
+     * @return a List Collection of GeoDocuments, but the geoDocuments are already put in the database.
+     */
+    public List<GeoDocument> ExtractGeoDocumentFromListUrls(List<URL> listUrls){
+        List<GeoDocument> listGeo = new ArrayList<>();
+        try {
+            ExtractorInfoGate81 egate = ExtractorInfoGate81.getInstance();
+            ExtractorGeoDocumentSupport egs = new ExtractorGeoDocumentSupport();
+            ExtractorJSOUP j = new ExtractorJSOUP();
+
+            GeoDocument geo2 = new GeoDocument();
+            GeoDocument geoDoc;
+            List<URL> supportList = new ArrayList<>();
+            for(URL url : listUrls) {
+                //Check if the web page exists....
+                if (!HttpUtilities.isWebPageExists(url.toString())) {
+                    supportList.add(url);
+                }
+            }
+            for(URL url: supportList){
+                logger.warn("The site "+url+" can't be reach...");
+                listUrls.remove(url);
+            }
+            supportList.clear();
+            logger.info("*******************Run GATE**************************");
+            //create a list of annotation (you know they exists on the gate document,otherwise you get null result).....
+            /*List<String> listAnn = new ArrayList<>(Arrays.asList("MyRegione", "MyPhone", "MyFax", "MyEmail", "MyPartitaIVA",
+                    "MyLocalita", "MyIndirizzo", "MyEdificio", "MyProvincia"));*/
+            //create a list of annotationSet (you know they exists on the gate document,otherwise you get null result).....
+           /* List<String> listAnnSet = new ArrayList<>(Arrays.asList("MyFOOTER", "MyHEAD", "MySpecialID", "MyAnnSet"));*/
+            List<String> listAnn = new ArrayList<>(Arrays.asList(GATE_ANN_LIST));
+            List<String> listAnnSet = new ArrayList<>(Arrays.asList(GATE_ANNSET_LIST));
+            //Store the result on of the extraction on a GateSupport Object
+            GateSupport2 support = null;
+            //Use GATE for Extract Information...
+            if(!listUrls.isEmpty()) {
+                if (controller != null) {
+                    if (listUrls.size() == 1) {
+                        //Better performance method for just one url at the time
+                        URL url = listUrls.get(0);
+                        String content = JSoupUtilities.getContent(url.toString());
+                        if (!StringUtilities.isNullOrEmpty(content)) {
+                            support = GateSupport2.getInstance(
+                                    egate.extractorGATE(content, (CorpusController) controller, GATE_CORPUS_NAME, listAnnSet, listAnn,  true), true);
+                        } else {
+                            support = GateSupport2.getInstance(
+                                    egate.extractorGATE(url, (CorpusController) controller, GATE_CORPUS_NAME, listAnnSet, listAnn, true), true);
+                        }
+                        //geoDoc = convertGateSupportToGeoDocument(support, url, 0); //0 because is just a unique document...
+                    } else {
+                        support = GateSupport2.getInstance(
+                                egate.extractorGATE(listUrls, (CorpusController) controller, GATE_CORPUS_NAME, listAnnSet, listAnn, true));
+                    }
+                }
+                else if (procDoc != null) {
+                    if (listUrls.size() == 1) {
+                        URL url = listUrls.get(0);
+                        String content = JSoupUtilities.getContent(url.toString());
+                        if (content != null) {
+                            support = GateSupport2.getInstance(
+                                    egate.extractorGATE(content, procDoc, GATE_CORPUS_NAME, listAnnSet, listAnn, true), true);
+                        } else {
+                            support = GateSupport2.getInstance(
+                                    egate.extractorGATE(url, procDoc, GATE_CORPUS_NAME, listAnnSet, listAnn, true), true);
+                        }
+                    } else {
+                        support = GateSupport2.getInstance(
+                                egate.extractorGATE(listUrls, procDoc, GATE_CORPUS_NAME, listAnnSet, listAnn,  true));
+                    }
+                }
+                if (listUrls.size() == 1) {
+                    try {
+                        logger.info("(" + indGDoc + ")URL:" + listUrls.get(0));
+                        geoDoc = convertGateSupport2ToGeoDocument(support, listUrls.get(0), 0); //0 because is just a unique document...
+                        indGDoc++;
+                        logger.info("*******************Run JSOUP**************************");
+                        geo2 = j.GetTitleAndHeadingTags(listUrls.get(0).toString(), geo2);
+                        logger.info("*******************Run Support GeoDocument**************************");
+                        geoDoc = ExtractorGeoDocumentSupport.compareInfo3(geoDoc, geo2);
+                        //AGGIUNGIAMO ALTRE INFORMAZIONI AL GEODOCUMENT
+                        geoDoc = egs.UpgradeTheDocumentWithOtherInfo(geoDoc);
+                        geoDoc = egs.pulisciDiNuovoGeoDocument(geoDoc);
+                        listGeo.add(geoDoc);
+                    } catch (IOException | InterruptedException | URISyntaxException e) {
+                        logger.error(e.getMessage(), e);
+                    }
+                } else {
+                    Corpus corpus = egate.getCorpus();
+                    for (Document doc : corpus) {
+                        try {
+                            logger.info("(" + indGDoc + ")URL:" + doc.getSourceUrl());
+                            geoDoc = convertGateSupport2ToGeoDocument(support, doc.getSourceUrl(), indGDoc);
+                            indGDoc++;
+                            logger.info("*******************Run JSOUP**************************");
+                            geo2 = j.GetTitleAndHeadingTags(doc.getSourceUrl().toString(), geo2);
+                            logger.info("*******************Run Support GeoDocument**************************");
+                            geoDoc = ExtractorGeoDocumentSupport.compareInfo3(geoDoc, geo2);
+                            //AGGIUNGIAMO ALTRE INFORMAZIONI AL GEODOCUMENT
+                            geoDoc = egs.UpgradeTheDocumentWithOtherInfo(geoDoc);
+                            geoDoc = egs.pulisciDiNuovoGeoDocument(geoDoc);
+                            listGeo.add(geoDoc);
+                        } catch (IOException | InterruptedException | URISyntaxException e) {
+                            logger.error(e.getMessage(), e);
+                        }
+                    }
+                }
+            }//id list is empty
+            else{
+                logger.warn("The List of URL to analyze is empty or populate with unreachable or offline site");
+                return listGeo;
+            }
+        }finally{
+            tableAlreadyCreated = true;
+            //indGDoc = 0;
+        }
+        return listGeo;
+    }
+
+    /**
      * Method to Extract GeoDocuments from a single url. 2015-09-26
      * @param url url address to a web document.
      * @param TABLE_INPUT String name of the table where do the operation of Select.
@@ -412,6 +617,25 @@ public class ExtractInfoWeb {
             return null;
         }
     }
+
+    /**
+     * Method to Extract GeoDocuments from a single url. 2015-09-26
+     * @param url the {@link URL} address to a web document.
+     * @return the {@link List} Collection of GeoDocuments, but the geoDocuments are already put in the database.
+     */
+    public GeoDocument ExtractGeoDocumentFromUrl(URL url){
+        try {
+            List<GeoDocument> listGeo = ExtractGeoDocumentFromListUrls(
+                    new ArrayList<>(Collections.singletonList(url)));
+            if(!listGeo.isEmpty()) return listGeo.get(0);
+            else return null;
+        }catch(java.lang.NullPointerException e){
+            logger.error("The URL, is not reachable or already analyzed from a previous process, the return is '"+
+                    e.getMessage()+"'",e);
+            return null;
+        }
+    }
+
     /*public GeoDocument ExtractGeoDocumentFromUrl(
             URL url, String TABLE_INPUT,String TABLE_OUTPUT,boolean createNewTable,boolean dropOldTable){
         IGeoDocumentDao geoDocumentDao = new GeoDocumentDaoImpl();
@@ -515,24 +739,24 @@ public class ExtractInfoWeb {
 
     /**
      * Method to Extract GeoDocuments from a single url.
-     * @param url url address to a web document.
-     * @param listAnn list of string Annotations of GATE you want to extract.
-     * @param listAnnSet list of string annotationSets of GATE you want to extract.
-     * @return a List Collection of GeoDocuments, but the geoDocuments are already put in the database.
+     * @param url the {@link URL} address to a web document.
+     * @param listAnnSet the {@link List} of {@link String} of the name annotationSets of GATE you want to extract.
+     * @param listAnn the {@link List} of {@link String} of the name Annotations of GATE you want to extract.
+     * @return the {@link List} of GeoDocuments, but the geoDocuments are already put in the database.
      */
-    public GateSupport2 ExtractSupportGateFromUrl(URL url,List<String> listAnn, List<String> listAnnSet){
+    public GateSupport2 ExtractSupportGateFromUrl(URL url,  List<String> listAnnSet ,List<String> listAnn){
         ExtractorInfoGate81 egate = ExtractorInfoGate81.getInstance();
         try {
             //Store the result on of the extraction on a GateSupport Object
             GateSupport2 support;
             if(controller!=null) {
                 support = GateSupport2.getInstance(
-                        egate.extractorGATE(url, (CorpusController) controller, "corpus_test_1", listAnn, listAnnSet, true),true);
+                        egate.extractorGATE(url, (CorpusController) controller, GATE_CORPUS_NAME, listAnnSet, listAnn, true),true);
                 return support;
             }
             if(procDoc!=null){
                 support = GateSupport2.getInstance(
-                        egate.extractorGATE(url, procDoc, "corpus_test_1", listAnn, listAnnSet, true),true);
+                        egate.extractorGATE(url, procDoc, GATE_CORPUS_NAME, listAnnSet, listAnn, true),true);
                 return support;
             }
         }catch(Exception e ){

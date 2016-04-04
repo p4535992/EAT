@@ -7,7 +7,12 @@ import com.github.p4535992.util.file.FileUtilities;
 import com.github.p4535992.util.file.SimpleParameters;
 import com.github.p4535992.extractor.object.model.GeoDocument;
 import com.github.p4535992.util.string.StringUtilities;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Configurable;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.core.env.Environment;
 
+import javax.annotation.Resource;
 import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -21,6 +26,7 @@ import java.util.*;
  * @version 2015-07-06.
  */
 @SuppressWarnings("unused")
+@Configuration
 public class ExtractInfoSpring {
 
     private static final org.slf4j.Logger logger =
@@ -48,6 +54,12 @@ public class ExtractInfoSpring {
 
     private String DIRECTORY_FILES, SILK_SLS_FILE;
 
+    private String TABLE_REF_OFFLINE,COLUMN_OFFLINE_REF_URL ,GATE_CORPUS_NAME;
+
+    /*http://stackoverflow.com/questions/6212898/spring-properties-file-get-element-as-an-array*/
+    /*http://stackoverflow.com/questions/12576156/reading-a-list-from-properties-file-and-load-with-spring-annotation-value*/
+    private String[] GATE_ANN_LIST,GATE_ANNSET_LIST;
+
     private static IDocumentDao Docdao = new DocumentDaoImpl();
     private static IWebsiteDao websiteDao = new WebsiteDaoImpl();
     private static IGeoDocumentDao geoDocumentDao = new GeoDocumentDaoImpl();
@@ -61,6 +73,13 @@ public class ExtractInfoSpring {
         return instance;
     }
 
+    public static ExtractInfoSpring getInstance(Environment env) {
+        if (instance == null) {
+            instance = new ExtractInfoSpring(env);
+        }
+        return instance;
+    }
+
     public static ExtractInfoSpring getInstance() {
         if (instance == null) {
             instance = new ExtractInfoSpring();
@@ -69,6 +88,106 @@ public class ExtractInfoSpring {
     }
 
     protected ExtractInfoSpring() {
+    }
+
+    protected ExtractInfoSpring(Environment env) {
+        try {
+            //this.TYPE_EXTRACTION = par.getValue("PARAM_TYPE_EXTRACTION");
+            this.PROCESS_PROGAMM = Integer.parseInt(env.getProperty("PARAM_PROCESS_PROGAMM"));
+
+            this.CREATE_NEW_GEODOCUMENT_TABLE = Boolean.parseBoolean(env.getProperty("PARAM_CREA_NUOVA_TABELLA_GEODOCUMENT").toLowerCase());
+            this.ERASE = Boolean.parseBoolean(env.getProperty("PARAM_ERASE").toLowerCase());
+            this.LIMIT = Integer.parseInt(env.getProperty("PARAM_LIMIT"));
+            this.OFFSET = Integer.parseInt(env.getProperty("PARAM_OFFSET"));
+
+            this.ONTOLOGY_PROGRAMM = Boolean.parseBoolean(env.getProperty("PARAM_ONTOLOGY_PROGRAMM").toLowerCase());
+            this.GENERATION_TRIPLE_KARMA_PROGRAMM = Boolean.parseBoolean(env.getProperty("PARAM_GENERATION_TRIPLE_KARMA_PROGRAMM").toLowerCase());
+            this.GEODOMAIN_PROGRAMM = Boolean.parseBoolean(env.getProperty("PARAM_GEODOMAIN_PROGRAMM").toLowerCase());
+
+            //this.FILTER = Boolean.parseBoolean(par.getValue("PARAM_FILTER").toLowerCase());
+            //this.API_KEY_GM = par.getValue("PARAM_API_KEY_GM");
+
+            this.USER = env.getProperty("PARAM_USER");
+            this.PASS = env.getProperty("PARAM_PASS");
+            this.DB_INPUT = env.getProperty("PARAM_DB_INPUT");
+            this.DB_OUTPUT = env.getProperty("PARAM_DB_OUTPUT");
+            this.TABLE_INPUT = env.getProperty("PARAM_TABLE_INPUT");
+            this.TABLE_OUTPUT = env.getProperty("PARAM_TABLE_OUTPUT");
+            this.COLUMN_TABLE_INPUT = env.getProperty("PARAM_COLUMN_TABLE_INPUT");
+
+            this.TABLE_KEYWORD_DOCUMENT = env.getProperty("PARAM_TABLE_KEYWORD_DOCUMENT");
+            this.DB_KEYWORD = env.getProperty("PARAM_DB_KEYWORD");
+
+            this.DRIVER_DATABASE = env.getProperty("PARAM_DRIVER_DATABASE");
+            this.DIALECT_DATABASE = env.getProperty("PARAM_DIALECT_DATABASE");
+            this.HOST_DATABASE = env.getProperty("PARAM_HOST_DATABASE");
+            this.PORT_DATABASE = Integer.parseInt(env.getProperty("PARAM_PORT_DATABASE"));
+
+            //this.SAVE_DATASTORE = Boolean.parseBoolean(par.getValue("PARAM_SAVE_DATASTORE").toLowerCase());
+
+            if (PROCESS_PROGAMM == 3) {
+                this.DIRECTORY_FILES = env.getProperty("PARAM_DIRECTORY_FILES");
+            }
+
+            if (Boolean.parseBoolean(env.getProperty("PARAM_SAVE_DATASTORE").toLowerCase())) {
+                String NOME_DATASTORE = env.getProperty("PARAM_NOME_DATASTORE");
+                String DS_DIR = env.getProperty("PARAM_DS_DIR");
+                //this.RANGE = Integer.parseInt(par.getValue("PARAM_RANGE"));
+                //this.tentativiOutMemory = Integer.parseInt(par.getValue("PARAM_TENTATIVI_OUT_OF_MEMORY"));
+                GateDataStore8Kit gds8 = GateDataStore8Kit.getInstance(DS_DIR, NOME_DATASTORE);
+            }
+
+            if (GENERATION_TRIPLE_KARMA_PROGRAMM) {
+                //this.TYPE_DATABASE_KARMA = par.getValue("PARAM_TYPE_DATABASE_KARMA");//MySQL
+                this.FILE_MAP_TURTLE_KARMA = env.getProperty("PARAM_FILE_MAP_TURTLE_KARMA"); //PATH: karma_files/model/
+                this.FILE_OUTPUT_TRIPLE_KARMA = env.getProperty("PARAM_FILE_OUTPUT_TRIPLE_KARMA");//PATH: karma_files/output/
+                //this.ID_DATABASE_KARMA = par.getValue("PARAM_ID_DATABASE_KARMA");//DB
+                //this.TABLE_INPUT_KARMA = par.getValue("PARAM_TABLE_INPUT_KARMA");
+                this.OUTPUT_FORMAT_KARMA = env.getProperty("PARAM_OUTPUT_FORMAT_KARMA");
+                //this.KARMA_HOME = par.getValue("PARAM_KARMA_HOME");
+            }
+
+
+            this.CREA_NUOVA_TABELLA_INFODOCUMENT_ONTOLOGY = Boolean.parseBoolean(env.getProperty("PARAM_CREA_NUOVA_TABELLA_INFODOCUMENT_ONTOLOGY").toLowerCase());
+            this.ERASE_ONTOLOGY = Boolean.parseBoolean(env.getProperty("PARAM_ERASE_ONTOLOGY").toLowerCase());
+            this.TABLE_OUTPUT_ONTOLOGY = env.getProperty("PARAM_TABLE_OUTPUT_ONTOLOGY");
+            this.TABLE_INPUT_ONTOLOGY = env.getProperty("PARAM_TABLE_INPUT_ONTOLOGY");
+
+
+            this.LIMIT_GEODOMAIN = Integer.parseInt(env.getProperty("PARAM_LIMIT_GEODOMAIN"));
+            this.OFFSET_GEODOMAIN = Integer.parseInt(env.getProperty("PARAM_OFFSET_GEODOMAIN"));
+            this.FREQUENZA_URL_GEODOMAIN = Integer.parseInt(env.getProperty("PARAM_FREQUENZA_URL_GEODOMAIN"));
+            this.TABLE_INPUT_GEODOMAIN = env.getProperty("PARAM_TABLE_INPUT_GEODOMAIN");
+            this.TABLE_OUTPUT_GEODOMAIN = env.getProperty("PARAM_TABLE_OUTPUT_GEODOMAIN");
+            //this.DB_INPUT_GEODOMAIN = par.getValue("PARAM_DB_OUTPUT");
+            this.DB_OUTPUT_GEODOMAIN = env.getProperty("PARAM_DB_OUTPUT");
+            this.CREA_NUOVA_TABELLA_GEODOMAIN = Boolean.parseBoolean(env.getProperty("PARAM_CREA_NUOVA_TABELLA_GEODOMAIN").toLowerCase());
+            this.ERASE_GEODOMAIN = Boolean.parseBoolean(env.getProperty("PARAM_ERASE_GEODOMAIN").toLowerCase());
+
+            this.SILK_LINKING_TRIPLE_PROGRAMM = Boolean.parseBoolean(env.getProperty("PARAM_SILK_LINKING_TRIPLE_PROGRAMM").toLowerCase());
+            this.SILK_SLS_FILE = env.getProperty("PARAM_SILK_SLS_FILE");
+
+            this.TABLE_REF_OFFLINE = env.getProperty("PARAM_TABLE_REF_OFFLINE");
+            this.COLUMN_OFFLINE_REF_URL = env.getProperty("PARAM_COLUMN_OFFLINE_REF_URL");
+
+            this.GATE_ANN_LIST = env.getProperty("PARAM_GATE_ANN_LIST").split(",");
+            this.GATE_ANNSET_LIST = env.getProperty("PARAM_GATE_ANNSET_LIST").split(",");
+            this.GATE_CORPUS_NAME = env.getProperty("PARAM_GATE_CORPUS_NAME");
+
+        } catch (java.lang.NullPointerException ne) {
+            logger.warn("Attention: make sure all the parameter on the input.properties file are setted correctly");
+            logger.error(ne.getMessage(), ne);
+            System.exit(0);
+        }
+        //Set the onbjects so we not call them again after each url
+        Docdao.setTableSelect(TABLE_KEYWORD_DOCUMENT);
+        Docdao.setDriverManager(DRIVER_DATABASE, DIALECT_DATABASE, HOST_DATABASE, PORT_DATABASE.toString(), USER, PASS, DB_KEYWORD);
+        geoDocumentDao.setTableInsert(TABLE_OUTPUT);
+        geoDocumentDao.setTableSelect(TABLE_OUTPUT);
+        geoDocumentDao.setDriverManager(DRIVER_DATABASE, DIALECT_DATABASE, HOST_DATABASE, PORT_DATABASE.toString(), USER, PASS, DB_OUTPUT);
+        //websiteDao.setTableSelect(TABLE_INPUT);
+        //websiteDao.setDriverManager(DRIVER_DATABASE, DIALECT_DATABASE, HOST_DATABASE, PORT_DATABASE.toString(), USER, PASS, DB_INPUT);
+
     }
 
     protected ExtractInfoSpring(SimpleParameters par) {
@@ -147,6 +266,14 @@ public class ExtractInfoSpring {
 
             this.SILK_LINKING_TRIPLE_PROGRAMM = Boolean.parseBoolean(par.getValue("PARAM_SILK_LINKING_TRIPLE_PROGRAMM").toLowerCase());
             this.SILK_SLS_FILE = par.getValue("PARAM_SILK_SLS_FILE");
+
+            this.TABLE_REF_OFFLINE = par.getValue("PARAM_TABLE_REF_OFFLINE");
+            this.COLUMN_OFFLINE_REF_URL = par.getValue("PARAM_COLUMN_OFFLINE_REF_URL");
+
+            this.GATE_ANN_LIST = par.getValue("PARAM_GATE_ANN_LIST").split(",");
+            this.GATE_ANNSET_LIST = par.getValue("PARAM_GATE_ANNSET_LIST").split(",");
+            this.GATE_CORPUS_NAME = par.getValue("PARAM_GATE_CORPUS_NAME");
+
         } catch (java.lang.NullPointerException ne) {
             logger.warn("Attention: make sure all the parameter on the input.properties file are setted correctly");
             logger.error(ne.getMessage(), ne);
@@ -306,7 +433,7 @@ public class ExtractInfoSpring {
             urlFile = FileUtilities.toURL(file).toString();
             if(urlFile == null)urlFile = "";
 
-            if (urlFile.isEmpty() || geoDocumentDao2.verifyDuplicate("url", urlFile)) {
+            if (urlFile.isEmpty() || geoDocumentDao2.verifyDuplicate(COLUMN_TABLE_INPUT, urlFile)) {
                 files.remove(file);
                 //mapFile.put(file,urlFile);
             }
@@ -345,7 +472,7 @@ public class ExtractInfoSpring {
         geoDocumentDao2.setTableInsert("offlinesite");
         List<URL> supportList = new ArrayList<>();
         for (URL url : _listUrl) {
-            if (geoDocumentDao2.verifyDuplicate("url", url.toString())) {
+            if (geoDocumentDao2.verifyDuplicate(COLUMN_TABLE_INPUT, url.toString())) {
                 supportList.add(url);
             }
         }
@@ -498,11 +625,14 @@ public class ExtractInfoSpring {
         }
     }
 
+    @Resource
+    private Environment env;
 
     /**
      * Run all the functions of the project by use a properties file.
      */
     public void Extraction() {
+        logger.info(env.toString());
         try {
             ExtractInfoWeb web = ExtractInfoWeb.getInstance(
                     DRIVER_DATABASE, DIALECT_DATABASE, HOST_DATABASE, PORT_DATABASE.toString(), USER, PASS, DB_OUTPUT);
@@ -516,7 +646,7 @@ public class ExtractInfoSpring {
                 geoDocumentDao.setTableInsert("offlinesite");
                 List<URL> supportList = new ArrayList<>();
                 for (URL url : listUrl) {
-                    if (geoDocumentDao.verifyDuplicate("url", url.toString())) {
+                    if (geoDocumentDao.verifyDuplicate(COLUMN_TABLE_INPUT, url.toString())) {
                         supportList.add(url);
                     }
                 }
@@ -579,8 +709,8 @@ public class ExtractInfoSpring {
                             subFiles.add(new File(DIRECTORY_FILES));
                         }   //avoid already present on the database url of the file...
                         for (File file : subFiles) {
-                            String urlFile = (String) websiteDao.select("url", "file_path", file.getName());
-                            if (!(urlFile == null || (geoDocumentDao.verifyDuplicate("url", urlFile))
+                            String urlFile = (String) websiteDao.select(COLUMN_TABLE_INPUT, "file_path", file.getName());
+                            if (!(urlFile == null || (geoDocumentDao.verifyDuplicate(COLUMN_TABLE_INPUT, urlFile))
                                     )) {
                                 files.add(file);
                                 mapFile.put(file, urlFile);

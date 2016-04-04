@@ -1,0 +1,205 @@
+plugins {
+    id 'nebula.optional-base' version '3.0.3' // if you want optional-base
+    id 'nebula.provided-base' version '3.0.3' // if you want provided-base
+}
+
+group 'com.github.p4535992'
+version '1.6.8'
+
+apply plugin: 'groovy'
+apply plugin: 'java'
+apply plugin: 'application'
+apply plugin: 'maven-publish'
+/*https://github.com/nebula-plugins/gradle-extra-configurations-plugin*/
+apply plugin: 'nebula.optional-base'
+apply plugin: 'nebula.provided-base'
+
+/*http://stackoverflow.com/questions/25345804/optional-gradle-dependencies-for-maven-libraries*/
+publishing {
+    publications {
+        //myPublicationName(MavenPublication) {
+        maven(MavenPublication) {
+            groupId 'com.github.p4535992'
+            artifactId 'database-basic'
+            version '1.6.8'
+            from components.java
+        }
+    }
+}
+
+configurations {
+    compile {
+        description = 'compile classpath'
+        transitive = true
+    }
+    runtime {
+        extendsFrom compile
+    }
+}
+
+compileJava {
+    // This only works when forking and passing 'javac' as an executable
+    options.compilerArgs << '-XDignore.symbol.file'
+    options.fork = true
+    options.forkOptions.executable = 'javac'
+    // enable all compiler warnings (GRADLE-1077); eliminate path warnings
+    options.compilerArgs = ['-Xlint:all,-path']
+}
+
+javadoc {
+    options.addStringOption('XDignore.symbol.file', '-quiet')
+    options.addStringOption("sourcepath", "")
+}
+
+mainClassName = "com.github.p4535992.database.home.TestMain"
+sourceCompatibility = '1.7'
+targetCompatibility = '1.7'
+
+
+ext.slf4jVersion = '1.7.14'
+ext.springFrameWorkVersion = '4.2.4.RELEASE'
+
+repositories {
+    mavenCentral()
+    maven { url 'https://jitpack.io' }
+    maven { url 'https://oss.sonatype.org/content/repositories/snapshots'} /*univocity parsers snapshot*/
+    maven { url 'http://maven.aksw.org/archiva/repository/internal'} /*Jena-Virtuoso driver mirror 1*/
+    maven { url 'http://maven.aksw.org/archiva/repository/snapshots'} /*Jena-Virtuoso driver mirror 2*/
+    maven { url 'http://mvn.linkeddata.org/content/groups/linkeddata.org/'} /*Sesame-Virtuoso mirror 3*/
+}
+
+dependencies {
+    compile 'org.codehaus.groovy:groovy-all:2.3.11'
+    compile group: 'org.slf4j', name: 'slf4j-api', version: slf4jVersion
+    /* =============   */
+    /* SPRINGFRAMEWORK */
+    /* =============   */
+    testCompile group:'org.springframework',name:'spring-test',version:springFrameWorkVersion
+    compile(
+            [group:'org.springframework',name:'spring-jdbc',version: springFrameWorkVersion],
+            [group:'org.springframework',name:'spring-core',version: springFrameWorkVersion],
+            [group:'org.springframework',name:'spring-context',version: springFrameWorkVersion],
+            [group:'org.springframework',name:'spring-web',version: springFrameWorkVersion],
+            [group:'org.springframework',name:'spring-orm',version: springFrameWorkVersion],
+            [group:'org.springframework',name:'spring-webmvc',version: springFrameWorkVersion]
+    )
+
+    /* ============= */
+    /* JOOQ          */
+    /* ============= */
+    compile 'org.jooq:jooq:3.7.2',optional
+    compile 'org.jooq:jooq-meta:3.7.2',optional
+    compile 'org.jooq:jooq-codegen:3.7.2',optional
+
+    /* ============= */
+    /* TIKA          */
+    /* (not sure why i get a java.lang.NoClassDefFoundError: org/apache/tika/exception/TikaException without it )*/
+    /* ============= */
+    compile 'org.apache.tika:tika-app:1.11',optional
+    compile 'org.apache.tika:tika-core:1.11',optional
+    compile 'org.apache.tika:tika-parsers:1.11',optional
+
+    /* ============= */
+    /* DRIVER JDBC   */
+    /* ============= */
+    compile(
+            ['mysql:mysql-connector-java:5.1.38'],
+            ['org.hsqldb:hsqldb:2.3.3'],
+            ['com.h2database:h2:1.4.191']
+    )
+
+    compile 'com.jolbox:bonecp:0.8.0.RELEASE',optional
+
+    /* ============= */
+    /* HIBERNATE     */
+    /* ============= */
+    compile 'org.hibernate:hibernate-core:5.0.7.Final'
+    /* for JPA, use hibernate-entitymanager instead of hibernate-core */
+    compile 'org.hibernate:hibernate-entitymanager:5.0.7.Final'
+    /* optional dependency */
+    compile 'org.hibernate:hibernate-osgi:5.0.7.Final'
+    compile 'org.hibernate:hibernate-envers:5.0.7.Final'
+    compile 'org.hibernate:hibernate-c3p0:5.0.7.Final'
+    compile 'org.hibernate:hibernate-proxool:5.0.7.Final'
+    compile 'org.hibernate:hibernate-infinispan:5.0.7.Final'
+    compile 'org.hibernate:hibernate-ehcache:5.0.7.Final'
+    compile 'org.hibernate:hibernate-validator:5.3.0.Alpha1'
+    /* Support Hibernate and javax.persistence */
+    compile 'org.hibernate.javax.persistence:hibernate-jpa-2.1-api:1.0.0.Final'
+    compile 'org.eclipse.persistence:eclipselink:2.5.1',optional
+    compile 'org.eclipse.persistence:javax.persistence:2.0.0',optional
+    /* support time on hibernate */
+    compile 'joda-time:joda-time:2.9.2',optional
+    /*  To map JodaTime with database type */
+    compile 'org.jadira.usertype:usertype.core:5.0.0.GA',optional
+
+
+    /* ============= */
+    /* TEXT SUPPORT  */
+    /* ============= */
+    compile(
+        ['com.univocity:univocity-parsers:2.0.0-SNAPSHOT'],
+        ['com.opencsv:opencsv:3.7']
+    )
+
+    compile 'com.fasterxml.jackson.core:jackson-databind:2.7.1',optional
+
+    /* ============= */
+    /* MVC SUPPORT   */
+    /* ============= */
+    compile 'javax.servlet:javax.servlet-api:4.0.0-b01',optional
+
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+
+}
+
+/* ============= */
+/* TASKS         */
+/* ============= */
+
+task sourcesJar(type: Jar, dependsOn: classes) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
+artifacts {
+    archives sourcesJar
+    archives javadocJar
+}
+
+/*tasks.withType(Compile).allTasks { Compile compile ->
+    compile.options.debug = true
+    compile.options.compilerArgs = ['-Xlint:all']
+}*/
+tasks.withType(JavaCompile) {
+    options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation" << '-Xlint:all'
+}
+
+
+project.tasks.withType(Javadoc) {
+    if (JavaVersion.current().isJava8Compatible()) {
+        options.addStringOption('Xdoclint:none', '-quiet')
+    }
+}
+
+/*We also add a distribution, that gets shipped to the client:*/
+task dist(type: Zip) {
+    dependsOn jar
+    from 'src/dist'
+    into('libs') {
+        from jar.archivePath
+        from configurations.runtime
+    }
+}
+
+
+
+
+
+
+

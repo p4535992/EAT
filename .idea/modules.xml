@@ -4,7 +4,9 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/EAT.iml" filepath="$PROJECT_DIR$/EAT.iml" />
       <module fileurl="file://$PROJECT_DIR$/ExtractInfo/ExtractInfo.iml" filepath="$PROJECT_DIR$/ExtractInfo/ExtractInfo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/database-basic/database-basic.iml" filepath="$PROJECT_DIR$/database-basic/database-basic.iml" />
       <module fileurl="file://$PROJECT_DIR$/gate-basic/gate-basic.iml" filepath="$PROJECT_DIR$/gate-basic/gate-basic.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springMVC10/springMVC10.iml" filepath="$PROJECT_DIR$/springMVC10/springMVC10.iml" />
       <module fileurl="file://$PROJECT_DIR$/utility/utility.iml" filepath="$PROJECT_DIR$/utility/utility.iml" />
     </modules>
   </component>

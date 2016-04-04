@@ -31,12 +31,6 @@
         <processorPath useClasspath="true" />
         <module name="karma-util" />
       </profile>
-      <profile default="false" name="Annotation profile for karma-offline" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-      </profile>
       <profile default="false" name="Annotation profile for karma-jdbc" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
@@ -51,40 +45,28 @@
         <processorPath useClasspath="true" />
         <module name="karma-common" />
       </profile>
-      <profile default="false" name="Annotation profile for utility" enabled="true">
+      <profile default="false" name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="utility" />
-      </profile>
-      <profile default="false" name="Annotation profile for gate-basic" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-        <module name="gate-basic" />
-      </profile>
-      <profile default="false" name="Annotation profile for ExtractInfo" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-        <module name="ExtractInfo" />
-      </profile>
-      <profile default="false" name="Annotation profile for EAT" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
+        <module name="database-basic" />
         <module name="EAT" />
+        <module name="ExtractInfo" />
+        <module name="gate-basic" />
+        <module name="jsp-demo" />
+        <module name="springMVC10" />
+        <module name="utility" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.8">
+      <module name="database-basic" target="1.8" />
       <module name="EAT" target="1.8" />
-      <module name="extractInfo" target="1.8" />
       <module name="ExtractInfo" target="1.8" />
       <module name="gate-basic" target="1.8" />
+      <module name="jsp-demo" target="1.8" />
+      <module name="springMVC10" target="1.8" />
+      <module name="springMVC12" target="1.8" />
       <module name="utility" target="1.8" />
     </bytecodeTargetLevel>
   </component>
