@@ -954,7 +954,14 @@ public class ExtractInfoWeb {
             geoDoc.setUrl(url);
             for(String nameAnnotation: anntotations ){
                 //get list of all annotation set...
-                List<MapAnnotationSet> listAnnSet = support.getDocument();
+                List<MapAnnotationSet> listAnnSet = new ArrayList<>();
+                try {
+                    listAnnSet = support.getDocument();
+                }catch(Exception e){
+                    logger.error("SOMETHING GO WRONG WITH GATE CHECK IT OUT");
+                    logger.error(e.getMessage(),e);
+                    return geoDoc;
+                }
                 //for each annotation set....
                 //boolean flag1 = false;
                 //for(int i=0; i< list.size(); i++){

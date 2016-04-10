@@ -9,8 +9,11 @@ import com.github.p4535992.util.file.FileUtilities;
 import com.github.p4535992.util.file.PropertiesUtilities;
 import com.github.p4535992.util.file.SimpleParameters;
 import com.github.p4535992.extractor.object.model.GeoDocument;
+import com.github.p4535992.util.http.HttpUtilities;
+import com.github.p4535992.util.repositoryRDF.sesame.Sesame2Utilities;
 import com.github.p4535992.util.string.StringUtilities;
 
+import org.openrdf.repository.Repository;
 import org.springframework.context.annotation.Configuration;
 
 import java.io.File;
@@ -64,6 +67,7 @@ public class ExtractInfoSpring {
     /*http://stackoverflow.com/questions/12576156/reading-a-list-from-properties-file-and-load-with-spring-annotation-value*/
     private String[] GATE_ANN_LIST,GATE_ANNSET_LIST;
     private String GATE_PLUGIN_PATH,GATE_SITE_CONFIG,GATE_USER_CONFIG,GATE_SESSION_CONFIG,GATE_GAPP_FILE,GATE_HOME_PATH;
+    private String SESAME_URL_REPOSITORY,SESAME_FILE_TO_IMPORT;
 
     private static IDocumentDao Docdao = new DocumentDaoImpl();
     private static IWebsiteDao websiteDao = new WebsiteDaoImpl();
@@ -219,6 +223,9 @@ public class ExtractInfoSpring {
             this.GATE_SESSION_CONFIG=env.getProperty("PARAM_GATE_SESSION_CONFIG");
             this.GATE_GAPP_FILE=env.getProperty("PARAM_GATE_GAPP_FILE");
 
+            this.SESAME_URL_REPOSITORY = env.getProperty("PARAM_SESAME_URL_REPOSITORY");
+            this.SESAME_FILE_TO_IMPORT = env.getProperty("PARAM_SESAME_FILE_TO_IMPORT");
+
         } catch (NullPointerException | SQLException ne) {
             logger.warn("Attention: make sure all the parameter on the input.properties file are setted correctly");
             logger.error(ne.getMessage(), ne);
@@ -346,6 +353,8 @@ public class ExtractInfoSpring {
             this.GATE_SESSION_CONFIG=par.getValue("PARAM_GATE_SESSION_CONFIG");
             this.GATE_GAPP_FILE=par.getValue("PARAM_GATE_GAPP_FILE");
 
+            this.SESAME_URL_REPOSITORY = par.getValue("PARAM_SESAME_URL_REPOSITORY");
+            this.SESAME_FILE_TO_IMPORT = par.getValue("PARAM_SESAME_FILE_TO_IMPORT");
         } catch (java.lang.NullPointerException|SQLException ne) {
             logger.warn("Attention: make sure all the parameter on the input.properties file are setted correctly");
             logger.error(ne.getMessage(), ne);
@@ -931,6 +940,25 @@ public class ExtractInfoSpring {
 
                 egd.deleteOverrideRecord(map);
             }*/
+            if(PROCESS_PROGAMM == 7){
+                //Repository repo = Sesame2Utilities.getInstance().connectToHTTPRepository(SESAME_URL_REPOSITORY);
+                Sesame2Utilities sesame = Sesame2Utilities.getInstance();
+                Repository rep;
+                try {
+                    rep = sesame.connectToHTTPRepository(SESAME_URL_REPOSITORY);
+                }catch(Exception e){
+                    String repoID = HttpUtilities.getLastBitFromUrl(SESAME_URL_REPOSITORY);
+                    rep = sesame.connectToHTTPRepositoryWithDefaultServer(repoID);
+                }
+                //Repository rep = sesame.connectToHTTPRepository("http://localhost:8080/openrdf-sesame/repositories/repKm4c1");
+                //Repository rep = sesame.connectToHTTPRepositoryWithDefaultServer(repositoryID);
+                sesame.setPrefixes();
+                try {
+                    sesame.importIntoRepository(new File(SESAME_FILE_TO_IMPORT), rep);
+                }catch(Exception e){
+                    logger.error(e.getMessage(),e);
+                }
+            }
         } catch (OutOfMemoryError e) {
             logger.error("java.lang.OutOfMemoryError, Reload the programm please");
         }

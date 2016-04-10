@@ -151,7 +151,12 @@ public class MainApp {
             File output = new File(filepath);
             Sesame2Utilities sesame = Sesame2Utilities.getInstance();
             //Repository rep = sesame.connectToHTTPRepository("http://localhost:8080/openrdf-sesame/repositories/repKm4c1");
-            Repository rep = sesame.connectToHTTPRepositoryWithDefaultServer(repositoryID);
+            Repository rep;
+            try {
+                rep = sesame.connectToHTTPRepositoryWithDefaultServer(repositoryID);
+            }catch(Exception e){
+                rep = sesame.connectToHTTPRepositoryWithDefaultServer("gtfs2");
+            }
             sesame.setPrefixes();
             sesame.importIntoRepository(output, rep);
         } catch (Exception e) {
