@@ -9,7 +9,7 @@ import java.sql.*;
 import java.util.*;
 import java.util.Map.Entry;
 
-import com.github.p4535992.database.datasource.database.MyDatabase;
+import com.github.p4535992.database.datasource.database.DatabaseBasic;
 import org.slf4j.*;
 import org.springframework.dao.*;
 import org.springframework.jdbc.core.*;
@@ -18,11 +18,11 @@ public class Dao {
 
 	private static final Logger log = LoggerFactory.getLogger(Dao.class);
 
-	private final MyDatabase database;
+	private final DatabaseBasic database;
 	private final String tableName;
 	private Set<String> primaryKeys;
 
-	public Dao(MyDatabase database, String tableName) {
+	public Dao(DatabaseBasic database, String tableName) {
 		this.database = database;
 		this.tableName = tableName;
 	}

@@ -1,7 +1,7 @@
 package com.github.p4535992.database.home;
 
 import com.github.p4535992.database.datasource.DataSourceFactory;
-import com.github.p4535992.database.datasource.database.MyDatabase;
+import com.github.p4535992.database.datasource.database.DatabaseBasic;
 import com.github.p4535992.database.datasource.database.MySqlDatabase;
 
 import javax.sql.DataSource;
@@ -22,7 +22,7 @@ public class TestMain {
         //test2 jdbc:postgresql://host:port/database?user=userName&password=pass
         //LogBackUtil.console(Paths.get("logback.xml"));
 
-        MyDatabase database = new MySqlDatabase("localhost", "3306", "siimobility", "siimobility", "geodb");
+        DatabaseBasic database = new MySqlDatabase("localhost", "3306", "siimobility", "siimobility", "geodb");
 
         //MyDataSource dataSource = (MyDataSource) new MySqlDatabase("lovalhost","3306","siimobility","siimobility","geodb");
 

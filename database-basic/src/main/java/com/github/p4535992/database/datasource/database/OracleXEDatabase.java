@@ -3,7 +3,7 @@ package com.github.p4535992.database.datasource.database;
 import com.github.p4535992.database.datasource.DataSourceFactory;
 import com.github.p4535992.database.datasource.jooq.JOOQUtilities;
 import com.github.p4535992.database.datasource.sql.SQLEnum;
-import com.github.p4535992.database.datasource.sql.SQLUtilities;
+import com.github.p4535992.database.datasource.sql.SQLUtility;
 
 import com.github.p4535992.database.util.StringUtilities;
 import org.jooq.DSLContext;
@@ -20,7 +20,7 @@ import java.sql.SQLException;
  * Created by 4535992 on 03/02/2016.
  * @author 4535992.
  */
-public class OracleXEDatabase extends AbstractDatabase<MySqlDatabase> {
+public class OracleXEDatabase extends AbstractDatabaseBasic<MySqlDatabase> {
 
     private static final org.slf4j.Logger logger =
             org.slf4j.LoggerFactory.getLogger(OracleXEDatabase.class);
@@ -49,7 +49,7 @@ public class OracleXEDatabase extends AbstractDatabase<MySqlDatabase> {
 
     public OracleXEDatabase(String host, String port, String user, String pass, String database) {
         try {
-            SQLUtilities.invokeClassDriverForDbType(SQLEnum.DBDialect.ORACLE);
+            SQLUtility.invokeClassDriverForDbType(SQLEnum.DBDialect.ORACLE);
             super.dataSource = DataSourceFactory.createDataSource(
                     DriverManager.getConnection(prepareURL(host,port,database),user,pass),user,pass);
             super.connection = super.dataSource.getConnection();

@@ -69,12 +69,18 @@
         <org.springframework.boot.version>1.3.3.RELEASE</org.springframework.boot.version>
 
         <org.slf4j.version>1.7.16</org.slf4j.version>
+        <logback.version>1.1.5</logback.version>
 
         <start-class>com.github.p4535992.main.home.Application</start-class>
     </properties>
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-core</artifactId>
+                <version>${logback.version}</version>
+            </dependency>
             <!-- Spring Boot Dependency -->
             <dependency>
                 <!-- Import dependency management from Spring Boot -->
@@ -143,12 +149,27 @@
             <artifactId>spring-boot-devtools</artifactId>
             <optional>true</optional>
         </dependency>
-        <!-- Other -->
+        <!-- Spring boot web support -->
         <!--<dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
             <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-jasper</artifactId>
+            &lt;!&ndash; <scope>provided</scope>&ndash;&gt;
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-core</artifactId>
         </dependency>-->
+
+        <!-- Spring boot support database -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-jdbc</artifactId>
@@ -164,9 +185,6 @@
             <artifactId>spring-boot-starter-jooq</artifactId>
             <optional>true</optional>
         </dependency>
-
-
-
 
         <dependency>
             <groupId>org.springframework.boot</groupId>

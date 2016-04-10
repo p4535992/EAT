@@ -158,6 +158,11 @@ public class ExtractInfoWeb {
         return instance;
     }
 
+    public static ExtractInfoWeb getNewInstance(){
+        instance = new ExtractInfoWeb();
+        return instance;
+    }
+
     public static ExtractInfoWeb getInstance(String DRIVER_DATABASE,String DIALECT_DATABASE,String HOST_DATABASE,
                                              String PORT_DATABASE,String USER,String PASS,String DB_OUTPUT,
                                              String TABLE_REF_OFFLINE,String COLUMN_OFFLINE_REF_URL,
@@ -177,6 +182,24 @@ public class ExtractInfoWeb {
             instance = new ExtractInfoWeb(DRIVER_DATABASE,DIALECT_DATABASE,HOST_DATABASE,
                     PORT_DATABASE,USER,PASS,DB_OUTPUT);
         }
+        return instance;
+    }
+
+    public static ExtractInfoWeb getNewInstance(String DRIVER_DATABASE,String DIALECT_DATABASE,String HOST_DATABASE,
+                                             String PORT_DATABASE,String USER,String PASS,String DB_OUTPUT,
+                                             String TABLE_REF_OFFLINE,String COLUMN_OFFLINE_REF_URL,
+                                             String GATE_CORPUS_NAME,String[] GATE_ANNSET_LIST,String[] GATE_ANN_LIST){
+        instance = new ExtractInfoWeb(DRIVER_DATABASE,DIALECT_DATABASE,HOST_DATABASE,
+                PORT_DATABASE,USER,PASS,DB_OUTPUT,
+                TABLE_REF_OFFLINE,COLUMN_OFFLINE_REF_URL,
+                GATE_CORPUS_NAME,GATE_ANNSET_LIST,GATE_ANN_LIST);
+        return instance;
+    }
+
+    public static ExtractInfoWeb getNewInstance(String DRIVER_DATABASE,String DIALECT_DATABASE,String HOST_DATABASE,
+                                             String PORT_DATABASE,String USER,String PASS,String DB_OUTPUT){
+        instance = new ExtractInfoWeb(DRIVER_DATABASE,DIALECT_DATABASE,HOST_DATABASE,
+                PORT_DATABASE,USER,PASS,DB_OUTPUT);
         return instance;
     }
 

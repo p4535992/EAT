@@ -14,11 +14,13 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.concurrent.TimeUnit;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 import java.util.zip.GZIPInputStream;
-
-import static java.util.Arrays.sort;
 
 /**
  * Class with many utilities method for manage the file object.
@@ -43,65 +45,22 @@ public class FileUtilities {
     //private static char extensionSeparator = '.';
     //private static String extensionSeparatorS = ".";
     //public final static String DEFAULT_ENCODING = StandardCharsets.UTF_8.name();
-    private static FileUtilities instance = null;
+    //private static String tmpDir =  File.createTempFile("tmp","").getParentFile().getAbsolutePath();
+    private static FileUtilities instance = new FileUtilities();
     //------------------------------------------------------------------------------------------------------
     private static Map<String, String> unicodeCodePoint = new HashMap<>();
 
-    protected FileUtilities() {
-    }
-
-    /**
-     * Constructor .
-     *
-     * @param f file of input
-     */
-    public FileUtilities(File f) {
-        FileUtilities.fullPath = f.getAbsolutePath();
-    }
-
-    /**
-     * Constructor.
-     *
-     * @param filePath string of the path to the file
-     */
-    public FileUtilities(String filePath) {
-        FileUtilities.fullPath = filePath;
-    }
-
-    /**
-     * Constructor.
-     *
-     * @param str       string of the path to the file
-     * @param separator path separator
-     * @param extension extension separator (usually '.')
-     */
-    public FileUtilities(String str, char separator, char extension) {
-        FileUtilities.fullPath = str;
-        FileUtilities.pathSeparator = separator;
-        //FileUtilities.extensionSeparator = extension;
-    }
-
-    /**
-     * Check the file separator to see if we're on a Windows platform.
-     *
-     * @return boolean True if the platform is Windows, false otherwise.
-     */
-    private static boolean platformIsWindows() {
-        return File.separatorChar == '\\';
-    }
+    protected FileUtilities() {}
 
     public static FileUtilities getInstance() {
-        if (instance == null) {
-            instance = new FileUtilities();
-        }
         return instance;
     }
 
     /**
      * Method for get the extension from a file.
      *
-     * @param f file of input
-     * @return string of the extension of the file
+     * @param f the {@link File} of input.
+     * @return the {@link String} of the extension of the file.
      */
     public static String getExtension(File f) {
         return getExtension(f.getAbsolutePath());
@@ -110,8 +69,18 @@ public class FileUtilities {
     /**
      * Method for get the extension from a file.
      *
-     * @param fullPath string of the path to the file
-     * @return string of the extension of the file
+     * @param f the {@link Path} of input.
+     * @return the {@link String} of the extension of the file.
+     */
+    public static String getExtension(Path f) {
+        return getExtension(f.toAbsolutePath().toString());
+    }
+
+    /**
+     * Method for get the extension from a file.
+     *
+     * @param fullPath the the {@link String} of the path to the file
+     * @return the {@link String} of the extension of the file
      */
     public static String getExtension(String fullPath) {
         String extension;
@@ -120,13 +89,11 @@ public class FileUtilities {
         int iExt = fullPath.lastIndexOf( '.' );
         if (iBack > iSlash) iSlash = iBack;
         extension = iExt > iSlash ? fullPath.substring( iExt+1 ) : "";
-
         //WORK
         if(extension.isEmpty()) {
             if (!fullPath.contains(".")) fullPath = fullPath + ". ";
             extension = fullPath.substring(fullPath.lastIndexOf('.') + 1);
         }
-
         if(extension.isEmpty()) {
             int i = fullPath.lastIndexOf('.');
             if (i > 0 &&  i < fullPath.length() - 1) {
@@ -139,8 +106,8 @@ public class FileUtilities {
     /**
      * Method for get the filename without extension.
      *
-     * @param f file of input
-     * @return name of the file without the extension
+     * @param f the {@link File} of input
+     * @return the {@link String} name of the file without the extension
      */
     public static String getFilenameWithoutExt(File f) {
         return getFilenameWithoutExt(f.getAbsolutePath());
@@ -149,8 +116,18 @@ public class FileUtilities {
     /**
      * Method for get the filename without extension.
      *
-     * @param fullPath string of the path to the file
-     * @return name of the file without the extension
+     * @param f the {@link Path} of input
+     * @return the {@link String} name of the file without the extension
+     */
+    public static String getFilenameWithoutExt(Path f) {
+        return getFilenameWithoutExt(f.toAbsolutePath().toString());
+    }
+
+    /**
+     * Method for get the filename without extension.
+     *
+     * @param fullPath the the {@link String} of the path to the file
+     * @return the {@link String} name of the file without the extension
      */
     public static String getFilenameWithoutExt(String fullPath) {
         if (!fullPath.contains(".")) fullPath = fullPath + ". ";
@@ -162,33 +139,34 @@ public class FileUtilities {
     /**
      * Method for get the name of the file (with extensions).
      *
-     * @return name of the file
-     */
-    public static String getFilename() {
-        return new File(fullPath).getName();
-    }
-
-    /**
-     * Method for get the name of the file (with extensions).
-     *
-     * @param f file of input
-     * @return name of the file
+     * @param f the {@link File} of input
+     * @return the {@link String} name of the file
      */
     public static String getFilename(File f) {
         return f.getName();
     }
 
+
     /**
      * Method for get the name of the file (with extensions).
      *
-     * @param fullPath string of the path to the file
-     * @return name of the file
+     * @param path the {@link Path} of input
+     * @return the {@link String} name of the file
+     */
+    public static String getFilename(Path path) {
+        return path.getFileName().toString();
+    }
+
+    /**
+     * Method for get the name of the file (with extensions).
+     *
+     * @param fullPath the {@link String} of the path to the file
+     * @return the {@link String} name of the file
      */
     public static String getFilename(String fullPath) {
         String name;
         if (fullPath.contains(File.separator)) name = fullPath.replace(getPath(fullPath), "");
         else name = fullPath;
-
         name = name.replace(File.separator, "");
         return name;
     }
@@ -196,10 +174,10 @@ public class FileUtilities {
     /**
      * Method for convert a absolute path to the file to a relative path.
      *
-     * @param base         the base of the absolute path where you want start the
+     * @param base         the {@link String} base of the absolute path where you want start the
      *                     relative path e.g. /var/data
-     * @param absolutePath the full pth to the file e.g. /var/data/stuff/xyz.dat
-     * @return the relative path to the file e.g. stuff/xyz.dat
+     * @param absolutePath the {@link String} full path to the file e.g. /var/data/stuff/xyz.dat
+     * @return the {@link String} relative path to the file e.g. stuff/xyz.dat
      */
     public static String getRelativePath(String base, String absolutePath) {
         return new File(base).toURI().relativize(new File(absolutePath).toURI()).getPath();
@@ -208,11 +186,21 @@ public class FileUtilities {
     /**
      * Method or get the local path in the project.
      *
-     * @param file File object.
-     * @return the local path to the file in the project.
+     * @param file the {@link File} object.
+     * @return the {@link String} local path to the file in the project.
      */
     public static String getLocalPath(File file) {
         return getLocalPath("", file.getAbsolutePath());
+    }
+
+    /**
+     * Method or get the local path in the project.
+     *
+     * @param file File object.
+     * @return the local path to the file in the project.
+     */
+    public static String getLocalPath(Path file) {
+        return getLocalPath("", file.toAbsolutePath().toString());
     }
 
     /**
@@ -240,10 +228,11 @@ public class FileUtilities {
     /**
      * Method for get the path of a file.
      *
+     * @param f file of input
      * @return the path to the file
      */
-    public static String getPath() {
-        return fullPath.substring(0, fullPath.lastIndexOf(File.separator));
+    public static String getPath(File f) {
+        return getPath(f.getAbsolutePath());
     }
 
     /**
@@ -252,8 +241,8 @@ public class FileUtilities {
      * @param f file of input
      * @return the path to the file
      */
-    public static String getPath(File f) {
-        return getPath(f.getAbsolutePath());
+    public static String getPath(Path f) {
+        return getPath(f.toAbsolutePath().toString());
     }
 
     /**
@@ -279,15 +268,38 @@ public class FileUtilities {
     /**
      * Method to create a new File Object in a specific path.
      *
-     * @param file File output location of the new File .
-     * @return the new File object.
+     * @param file the {@link File} output location of the new File .
+     * @return the {@link File} object.
      */
     public static File toFile(File file) {
+        return toFile(file,false);
+    }
+
+    /**
+     * Method to create a new File Object in a specific path.
+     *
+     * @param file the {@link File} output location of the new File .
+     * @param replaceIfExists  {@link Boolean} if true replace the already existent file.
+     * @return the {@link File} object.
+     */
+    public static File toFile(File file,boolean replaceIfExists) {
         try {
-            if (file.createNewFile()) return file;
-            else {
-                logger.warn("Can't create the file" + file.getName());
-                return null;
+            if(!isFileExists(file)) { //if file already exists.
+                if (isFileValid(file.getAbsolutePath())) {
+                    boolean b = file.createNewFile();
+                    if (b) return file;
+                    else {
+                        logger.warn("Can't create the file" + file.getName());
+                        return null;
+                    }
+                } else {
+                    logger.error("The Path :" + file.getAbsolutePath() + " is not valid!");
+                    return null;
+                }
+            }else{
+                if(replaceIfExists) delete(file);
+                logger.warn("The file :"+file.getAbsolutePath()+" already exists, is not created");
+                return file;
             }
         } catch (IOException e) {
             logger.error(e.getMessage(), e);
@@ -313,73 +325,88 @@ public class FileUtilities {
      * @return if true all the operation are done.
      */
     public static boolean copy(String fullPathInput, String fullPathOutput) {
-        return copy(new File(fullPathInput), new File(fullPathOutput));
+        return copy(Paths.get(fullPathInput), Paths.get(fullPathOutput));
     }
 
-    /**
-     * Method to copy a file.
-     *
-     * @param destination the String destination for the copy of the file.
-     * @param source      the String source of the File to copy.
-     * @return if true all the operation are done.
-     */
-    public static boolean copy(File destination, File source) {
+   /* public static boolean copy(String fullPathInput, String fullPathOutput) {
+        return copy(new File(fullPathInput), new File(fullPathOutput));
+    }*/
+
+
+    /*public static boolean copy(File destination, File source) {
         if (!destination.exists()) toFile(destination);
         try (OutputStream out = new FileOutputStream(destination);
              InputStream in = new FileInputStream(source)) {
-            copy(in, out, StandardCharsets.UTF_8);
+            IOUtilities.copy(in, out, StandardCharsets.UTF_8);
             logger.info("Done copying contents of " + source.getName() + " to " + destination.getName());
             return true;
         } catch (IOException e) {
             logger.error("Copying file/folder: " + source + " to " + destination + ":"+e.getMessage(), e);
             return false;
         }
+    }*/
+
+    /**
+     * Method to copy a file.
+     * @param source      the {@link String} path to the source of the File to copy.
+     * @param destination the {@link String} path to the destination for the copy of the file.
+     * @return the {@link Boolean} if true all the operation are done.
+     */
+    public static boolean copy(Path source,Path destination) {
+        return copy(source,destination,false);
     }
 
-    public static boolean copy(Path src, Path dest) {
+    /**
+    * Method to copy a file.
+    * @param source      the {@link String} path to the source of the File to copy.
+    * @param destination the {@link String} path to the destination for the copy of the file.
+    * @param replaceExistingDestination the {@link Boolean} is true if you want replace the existing file.
+    * @return the {@link Boolean} if true all the operation are done.
+    */
+    public static boolean copy( Path source,Path destination,boolean replaceExistingDestination) {
+        //if (!Files.exists(destination)) createNewFile(destination);
+      /*  try (OutputStream out = Files.newOutputStream(destination);
+             InputStream in = Files.newInputStream(source)) {
+            IOUtilities.copy(in, out, StandardCharsets.UTF_8);*/
+        try{
+            try {
+                if(replaceExistingDestination)Files.copy(source, destination, StandardCopyOption.ATOMIC_MOVE,StandardCopyOption.REPLACE_EXISTING);
+                else Files.copy(source, destination, StandardCopyOption.ATOMIC_MOVE);
+            }catch(UnsupportedOperationException e){
+                if(replaceExistingDestination)Files.copy(source, destination, StandardCopyOption.COPY_ATTRIBUTES, StandardCopyOption.REPLACE_EXISTING);
+                else Files.copy(source, destination, StandardCopyOption.COPY_ATTRIBUTES);
+            }
+            logger.info("Done copying contents of " + source.getFileName().toString()+
+                    " to " + destination.getFileName().toString());
+            return true;
+        } catch(FileAlreadyExistsException ef){
+            logger.warn(ef.getMessage()+", by defauult the file:"+destination+" is been replaced!!!");
+            return copy(source,destination,true);
+        } catch (IOException e) {
+            logger.error("Copying file/folder: " + source + " to " + destination + ":"+e.getMessage(), e);
+            return false;
+        }
+    }
+
+    /*public static boolean copyWithTreeCopier(Path src, Path dest) {
         try {
-            //Method 1
             dest = Files.isDirectory(src) ? dest.resolve(src) : dest;
             EnumSet<FileVisitOption> opts = EnumSet.of(FileVisitOption.FOLLOW_LINKS);
             TreeCopier tc = new TreeCopier(src, dest, false, false);
             Files.walkFileTree(src, opts, Integer.MAX_VALUE, tc);
-            //Method 2
-            /*
-            Path newPath = dest.resolve(src);
-            Files.createDirectories(newPath.getParent());
-            try (OutputStream output = Files.newOutputStream(
-                    newPath, StandardOpenOption.CREATE, StandardOpenOption.WRITE)) {
-                output.write(FileUtilities.toBytes(src));
-            }
-            */
             logger.info("Done copying contents of " + src + " to " + dest);
             return true;
         } catch (IOException e) {
             logger.error("Copying file/folder: " + src + " to " + dest + ":"+e.getMessage(), e);
         }
         return false;
-    }
+    }*/
 
-    /**
-     * Method to copy a file.
-     *
-     * @param input    the InputStream to copy.
-     * @param output   the OutputStream where put the copy.
-     * @param encoding the Charset encoding of the Stream.
-     * @return if true all the operation are done.
-     */
-    public static boolean copy(InputStream input, OutputStream output, Charset encoding) {
-        InputStreamReader in = new InputStreamReader(input, encoding);
-        OutputStreamWriter out = new OutputStreamWriter(output, encoding);
-        long count = copyLarge(in, out);
-        return !(count == -1 || count > Integer.MAX_VALUE);
-    }
-
-    public static void copyFileToDirectory(File srcFile, File destDir) throws IOException {
+   /* public static void copyFileToDirectory(File srcFile, File destDir) throws IOException {
         copyFileToDirectory(srcFile, destDir, true);
-    }
+    }*/
 
-    public static void copyFileToDirectory(File srcFile, File destDir, boolean preserveFileDate) throws IOException {
+    /*public static void copyFileToDirectory(File srcFile, File destDir, boolean preserveFileDate) throws IOException {
         if(destDir == null) {
             throw new NullPointerException("Destination must not be null");
         } else if(destDir.exists() && !destDir.isDirectory()) {
@@ -387,58 +414,83 @@ public class FileUtilities {
         } else {
             copyFile(srcFile, new File(destDir, srcFile.getName()), preserveFileDate);
         }
+    }*/
+
+    public static void copyFileToDirectory(Path srcFile, Path destDir) throws IOException {
+        copyFileToDirectory(srcFile, destDir, true);
     }
 
-    public static void copy(File file, OutputStream out) throws IOException {
+    public static void copyFileToDirectory(Path srcFile, Path destDir, boolean preserveFileDate) throws IOException {
+        if(destDir == null) {
+            throw new NullPointerException("Destination must not be null");
+        } else if(Files.exists(destDir) && !Files.isDirectory(destDir)) {
+            throw new IllegalArgumentException("Destination \'" + destDir + "\' is not a directory");
+        } else {
+            copyFile(srcFile, Paths.get(destDir.toString(), srcFile.getFileName().toString()), preserveFileDate);
+        }
+    }
+
+    public static Boolean copy(Path path, OutputStream out){
+        try {
+            Files.copy(path,out);
+            return true;
+        } catch (IOException e) {
+            return false;
+        }
+    }
+
+    public static Boolean copy(InputStream in,Path path){
+        try {
+            Files.copy(in,path);
+            return true;
+        } catch (IOException e) {
+            return false;
+        }
+    }
+
+    /*public static void copy(File file, OutputStream out) throws IOException {
         FileInputStream in = new FileInputStream(file);
         try {
             IOUtilities.copy(new BufferedInputStream(in), out);
         } finally {
             IOUtilities.closeQuietly(in);
         }
-    }
+    }*/
 
-    public static void copy(InputStream in, File file) throws IOException {
+    /*public static void copy(InputStream in, File file) throws IOException {
         BufferedOutputStream out = new BufferedOutputStream(new FileOutputStream(file));
         try {
             IOUtilities.copy(in, out);
         } finally {
             IOUtilities.closeQuietly(out);
         }
+    }*/
 
-    }
-
-    public static void copyFile(File srcFile, File destFile) throws IOException {
+    /*public static void copyFile(File srcFile, File destFile) throws IOException {
         copyFile(srcFile, destFile, true);
-    }
+    }*/
 
-    public static void copyFile(File srcFile, File destFile, boolean preserveFileDate) throws IOException {
-        if(srcFile == null) {
-            throw new NullPointerException("Source must not be null");
-        } else if(destFile == null) {
-            throw new NullPointerException("Destination must not be null");
-        } else if(!srcFile.exists()) {
-            throw new FileNotFoundException("Source \'" + srcFile + "\' does not exist");
-        } else if(srcFile.isDirectory()) {
-            throw new IOException("Source \'" + srcFile + "\' exists but is a directory");
-        } else if(srcFile.getCanonicalPath().equals(destFile.getCanonicalPath())) {
+    /*public static void copyFile(File srcFile, File destFile, boolean preserveFileDate) throws IOException {
+        if(srcFile == null)  throw new NullPointerException("Source must not be null");
+        else if(destFile == null) throw new NullPointerException("Destination must not be null");
+        else if(!srcFile.exists()) throw new FileNotFoundException("Source \'" + srcFile + "\' does not exist");
+        else if(srcFile.isDirectory()) throw new IOException("Source \'" + srcFile + "\' exists but is a directory");
+        else if(srcFile.getCanonicalPath().equals(destFile.getCanonicalPath())) {
             throw new IOException("Source \'" + srcFile + "\' and destination \'" + destFile + "\' are the same");
         } else if(destFile.getParentFile() != null && !destFile.getParentFile().exists() && !destFile.getParentFile().mkdirs()) {
             throw new IOException("Destination \'" + destFile + "\' directory cannot be created");
         } else if(destFile.exists() && !destFile.canWrite()) {
             throw new IOException("Destination \'" + destFile + "\' exists but is read-only");
-        } else {
-            doCopyFile(srcFile, destFile, preserveFileDate);
-        }
-    }
+        } else doCopyFile(srcFile, destFile, preserveFileDate);
+    }*/
 
-    private static void doCopyFile(File srcFile, File destFile, boolean preserveFileDate) throws IOException {
+    /*private static void doCopyFile(File srcFile, File destFile, boolean preserveFileDate) throws IOException {
         if(destFile.exists() && destFile.isDirectory()) {
             throw new IOException("Destination \'" + destFile + "\' exists but is a directory");
         } else {
-            FileInputStream input = new FileInputStream(srcFile);
+            InputStream input = new FileInputStream(srcFile);
             try {
-                FileOutputStream output = new FileOutputStream(destFile);
+                OutputStream output = new FileOutputStream(destFile);
                 try {
                     IOUtilities.copy(input, output);
                 } finally {
@@ -458,32 +510,116 @@ public class FileUtilities {
 
             }
         }
+    }*/
+
+    public static void copyFile(Path srcFile, Path destFile) throws IOException {
+        copyFile(srcFile, destFile, true);
     }
 
-    public static void copyDirectory(File srcDir, File destDir) throws IOException {
-        copyDirectory(srcDir, destDir, true);
+    public static void copyFile(Path srcFile, Path destFile, boolean preserveFileDate) throws IOException {
+        if(srcFile == null)  throw new NullPointerException("Source must not be null");
+        else if(destFile == null) throw new NullPointerException("Destination must not be null");
+        else if(!Files.exists(srcFile)) throw new FileNotFoundException("Source \'" + srcFile + "\' does not exist");
+        else if(Files.isDirectory(srcFile)) throw new IOException("Source \'" + srcFile + "\' exists but is a directory");
+        else if(getCanonicalPath(srcFile).equals(getCanonicalPath(destFile))) {
+            throw new IOException("Source \'" + srcFile + "\' and destination \'" + destFile + "\' are the same");
+        } else if(getParentFile(destFile) != null && !getParentFile(destFile).exists() && !getParentFile(destFile).mkdirs()) {
+            throw new IOException("Destination \'" + destFile + "\' directory cannot be created");
+        } else if(Files.exists(destFile) && !canWrite(destFile)) {
+            throw new IOException("Destination \'" + destFile + "\' exists but is read-only");
+        } else doCopyFile(srcFile, destFile, preserveFileDate);
     }
 
-    public static void copyDirectory(File srcDir, File destDir, boolean preserveFileDate) throws IOException {
+    private static void doCopyFile(Path srcFile, Path destFile, boolean preserveFileDate) throws IOException {
+        if(Files.exists(destFile) && Files.isDirectory(destFile)) {
+            throw new IOException("Destination \'" + destFile + "\' exists but is a directory");
+        } else {
+            InputStream input = Files.newInputStream(srcFile);
+            try {
+                OutputStream output = Files.newOutputStream(destFile);
+                try {
+                    IOUtilities.copy(input, output);
+                } finally {
+                    IOUtilities.closeQuietly(output);
+                }
+            } finally {
+                IOUtilities.closeQuietly(input);
+            }
+            if(Files.size(srcFile) != Files.size(destFile)) {
+                throw new IOException("Failed to copy full contents from \'" + srcFile + "\' to \'" + destFile + "\'");
+            } else {
+                if(preserveFileDate) {
+                    if(!setLastModified(destFile,lastModified(srcFile))){
+                        logger.warn("Can't set the last modified on the file.");
+                    }
+                }
+
+            }
+        }
+    }
+
+    public static void copyDirectory(Path srcDir, Path destDir) throws IOException {
+        copyDirectory(srcDir, destDir,null, true);
+    }
+
+    /*public static void copyDirectory(File srcDir, File destDir) throws IOException {
+        copyDirectory(srcDir.toPath(), destDir.toPath(),null, true);
+    }*/
+
+    /*public static void copyDirectory(File srcDir, File destDir, boolean preserveFileDate) throws IOException {
+        copyDirectory(srcDir, destDir, null, preserveFileDate);
+    }*/
+
+    public static void copyDirectory(Path srcDir, Path destDir, boolean preserveFileDate) throws IOException {
         copyDirectory(srcDir, destDir, null, preserveFileDate);
     }
 
-    public static void copyDirectory(File srcDir, File destDir, FileFilter filter, boolean preserveFileDate) throws IOException {
-        if(srcDir == null) {
-            throw new NullPointerException("Source must not be null");
-        } else if(destDir == null) {
-            throw new NullPointerException("Destination must not be null");
-        } else if(!srcDir.exists()) {
-            throw new FileNotFoundException("Source \'" + srcDir + "\' does not exist");
-        } else if(!srcDir.isDirectory()) {
-            throw new IOException("Source \'" + srcDir + "\' exists but is not a directory");
-        } else if(srcDir.getCanonicalPath().equals(destDir.getCanonicalPath())) {
+    public static Boolean copyDirectory(Path srcDir,Path destDir,DirectoryStream.Filter<? super Path> filter,boolean preserveFileDate){
+        try {
+            if (srcDir == null) {
+                throw new NullPointerException("Source must not be null");
+            } else if (destDir == null) {
+                throw new NullPointerException("Destination must not be null");
+            } else if (!Files.exists(srcDir)) {
+                throw new FileNotFoundException("Source \'" + srcDir + "\' does not exist");
+            } else if (!Files.isDirectory(srcDir)) {
+                throw new IOException("Source \'" + srcDir + "\' exists but is not a directory");
+            } else if (srcDir.toString().equals(destDir.toString())) {
+                throw new IOException("Source \'" + srcDir + "\' and destination \'" + destDir + "\' are the same");
+            } else {
+                ArrayList<String> exclusionList = null;
+                if (destDir.toAbsolutePath().startsWith(srcDir.toAbsolutePath())) {
+                    Path[] srcPaths = filter == null ? listFiles(srcDir) : listFiles(srcDir, filter);
+                    //File[] srcFiles = filter == null?srcDir.listFiles():srcDir.listFiles(filter);
+                    if (srcPaths.length > 0) {
+                        exclusionList = new ArrayList<>(srcPaths.length);
+                        for (Path srcFile : srcPaths) {
+                            Path copiedFile = Paths.get(destDir.toString(), srcFile.getFileName().toString());
+                            exclusionList.add(copiedFile.toAbsolutePath().toString());
+                        }
+                    }
+                }
+                doCopyDirectory(srcDir, destDir, filter, preserveFileDate, exclusionList);
+            }
+            return true;
+        }catch(IOException e){
+            logger.error("Can't do the copy of the directory from "+srcDir.toString()+ " to "+destDir.toString()+ ":"+e.getMessage());
+            return false;
+        }
+    }
+
+    /*public static void copyDirectory(File  srcDir, File destDir, FileFilter filter, boolean preserveFileDate) throws IOException {
+        if (srcDir == null) throw new NullPointerException("Source must not be null");
+        else if (destDir == null) throw new NullPointerException("Destination must not be null");
+        else if (!srcDir.exists()) throw new FileNotFoundException("Source \'" + srcDir + "\' does not exist");
+        else if (!srcDir.isDirectory()) throw new IOException("Source \'" + srcDir + "\' exists but is not a directory");
+        else if (srcDir.getCanonicalPath().equals(destDir.getCanonicalPath()))
             throw new IOException("Source \'" + srcDir + "\' and destination \'" + destDir + "\' are the same");
-        } else {
+        else {
             ArrayList<String> exclusionList = null;
-            if(destDir.getCanonicalPath().startsWith(srcDir.getCanonicalPath())) {
-                File[] srcFiles = filter == null?srcDir.listFiles():srcDir.listFiles(filter);
-                if(srcFiles != null && srcFiles.length > 0) {
+            if (destDir.getCanonicalPath().startsWith(srcDir.getCanonicalPath())) {
+                File[] srcFiles = filter == null ? srcDir.listFiles() : srcDir.listFiles(filter);
+                if (srcFiles != null && srcFiles.length > 0) {
                     exclusionList = new ArrayList<>(srcFiles.length);
                     for (File srcFile : srcFiles) {
                         File copiedFile = new File(destDir, srcFile.getName());
@@ -491,34 +627,26 @@ public class FileUtilities {
                     }
                 }
             }
-
             doCopyDirectory(srcDir, destDir, filter, preserveFileDate, exclusionList);
         }
-    }
+    }*/
 
-    private static void doCopyDirectory(File srcDir, File destDir, FileFilter filter, boolean preserveFileDate, List<String> exclusionList) throws IOException {
+    /*private static void doCopyDirectory(File srcDir, File destDir, FileFilter filter, boolean preserveFileDate, List<String> exclusionList) throws IOException {
         if(destDir.exists()) {
-            if(!destDir.isDirectory()) {
-                throw new IOException("Destination \'" + destDir + "\' exists but is not a directory");
-            }
+            if(!destDir.isDirectory())  throw new IOException("Destination \'" + destDir + "\' exists but is not a directory");
         } else {
-            if(!destDir.mkdirs()) {
-                throw new IOException("Destination \'" + destDir + "\' directory cannot be created");
-            }
+            if(!destDir.mkdirs()) throw new IOException("Destination \'" + destDir + "\' directory cannot be created");
             if(preserveFileDate) {
                 if(!destDir.setLastModified(srcDir.lastModified())){
                     logger.warn("Can't set the last modified on the file.");
                 }
             }
         }
-
-        if(!destDir.canWrite()) {
-            throw new IOException("Destination \'" + destDir + "\' cannot be written to");
-        } else {
+        if(!destDir.canWrite()) throw new IOException("Destination \'" + destDir + "\' cannot be written to");
+        else {
             File[] files = filter == null?srcDir.listFiles():srcDir.listFiles(filter);
-            if(files == null) {
-                throw new IOException("Failed to list contents of " + srcDir);
-            } else {
+            if(files == null) throw new IOException("Failed to list contents of " + srcDir);
+            else {
                 for (File file : files) {
                     File copiedFile = new File(destDir, file.getName());
                     if (exclusionList == null || !exclusionList.contains(file.getCanonicalPath())) {
@@ -532,76 +660,96 @@ public class FileUtilities {
 
             }
         }
-    }
+    }*/
 
-    public static boolean contentEquals(File file1, File file2) throws IOException {
-        boolean file1Exists = file1.exists();
-        if(file1Exists != file2.exists()) {
-            return false;
-        } else if(!file1Exists) {
-            return true;
-        } else if(!file1.isDirectory() && !file2.isDirectory()) {
-            if(file1.length() != file2.length()) {
-                return false;
-            } else if(file1.getCanonicalFile().equals(file2.getCanonicalFile())) {
-                return true;
-            } else {
-                FileInputStream input1 = null;
-                FileInputStream input2 = null;
-
-                boolean var5;
-                try {
-                    input1 = new FileInputStream(file1);
-                    input2 = new FileInputStream(file2);
-                    var5 = IOUtilities.contentEquals(input1, input2);
-                } finally {
-                    IOUtilities.closeQuietly(input1);
-                    IOUtilities.closeQuietly(input2);
+    private static void doCopyDirectory(Path srcDir, Path destDir,DirectoryStream.Filter<? super Path>  filter, boolean preserveFileDate, List<String> exclusionList) throws IOException {
+        if(Files.exists(destDir)) {
+            if(!Files.isDirectory(destDir))  throw new IOException("Destination \'" + destDir + "\' exists but is not a directory");
+        } else {
+            if(!mkdirs(destDir)) throw new IOException("Destination \'" + destDir + "\' directory cannot be created");
+            if(preserveFileDate) {
+                if(!setLastModified(destDir,(lastModified(srcDir)))){
+                    logger.warn("Can't set the last modified on the file.");
+                }
+            }
+        }
+        if(!canWrite(destDir)) throw new IOException("Destination \'" + destDir + "\' cannot be written to");
+        else {
+            Path[] paths = filter == null?listFiles(srcDir):listFiles(srcDir,filter);
+            if(paths.length == 0) throw new IOException("Failed to list contents of " + srcDir);
+            else {
+                for (Path path : paths) {
+                    Path copiedFile = Paths.get(destDir.toString(), path.getFileName().toString());
+                    if (exclusionList == null || !exclusionList.contains(getCanonicalPath(path))) {
+                        if (Files.isDirectory(path)){
+                            doCopyDirectory(path, copiedFile, filter, preserveFileDate, exclusionList);
+                        } else {
+                            doCopyFile(path, copiedFile, preserveFileDate);
+                        }
+                    }
                 }
 
-                return var5;
             }
-        } else {
-            throw new IOException("Can\'t compare directories, only files");
         }
     }
 
-
     /**
-     * Method to copy a file.
-     *
-     * @param input  the Reader input.
-     * @param output the Writer Output
-     * @return the count of the characters in the Stream.
+     * Method to check the cotnent fo two files.
+     * @param file1 the {@link Path} source.
+     * @param file2 the {@link Path} target.
+     * @return the {@link Boolean} if true the content of the two files is the same.
      */
-    private static long copyLarge(Reader input, Writer output) {
-        //copyLarge(input, output, new char[DEFAULT_BUFFER_SIZE])
-        char[] buffer = new char[1024 * 4];
-        long count = 0;
-        int n; // n = 0;
+    public static Boolean contentEquals(File file1, File file2){
+        return contentEquals(file1.toPath(),file2.toPath());
+    }
+
+    public static Boolean contentEquals(Path file1,Path file2){
         try {
-            while (-1 != (n = input.read(buffer))) {
-                output.write(buffer, 0, n);
-                count += n;
+            boolean file1Exists = Files.exists(file1);
+            if (file1Exists != Files.exists(file2)) return false;
+            else if (!file1Exists) return true;
+            else if (!Files.isDirectory(file1) && !Files.isDirectory(file2)) {
+                if (Files.size(file1) != Files.size(file2)) return false;
+                else if (getCanonicalFile(file1).equals(getCanonicalFile(file1))) return true;
+                else {
+                    InputStream input1 = null;
+                    InputStream input2 = null;
+                    boolean var5;
+                    try {
+                        input1 = Files.newInputStream(file1);
+                        input2 = Files.newInputStream(file2);
+                        var5 = IOUtilities.contentEquals(input1, input2);
+                    } finally {
+                        IOUtilities.closeQuietly(input1);
+                        IOUtilities.closeQuietly(input2);
+                    }
+                    return var5;
+                }
+            } else {
+                throw new IOException("Can\'t compare directories, only files");
             }
-            return count;
-        } catch (IOException e) {
-            logger.error(e.getMessage(), e);
-            return -1;
+        }catch(IOException e){
+            logger.error(e.getMessage(),e);
+            return false;
         }
     }
 
-    /**
-     * Method to create a directory.
-     *
-     * @param fullPathDir string path to the location of the directory.
-     * @return if true you have created the directory.
-     */
-    public static boolean createDirectory(String fullPathDir) {
-        return new File(fullPathDir).mkdirs();
+    public static Boolean deleteDirectory(Path directory){
+        try {
+            if (Files.exists(directory)) {
+                cleanDirectory(directory);
+                if (!Files.deleteIfExists(directory)) {
+                    throw new IOException("Unable to delete directory " + directory + ".");
+                }
+            }
+            return true;
+        }catch(IOException e){
+            logger.error(e.getMessage());
+            return false;
+        }
     }
 
-    public static void deleteDirectory(File directory) throws IOException {
+    /*public static void deleteDirectory(File directory) throws IOException {
         if(directory.exists()) {
             cleanDirectory(directory);
             if(!directory.delete()) {
@@ -609,16 +757,13 @@ public class FileUtilities {
                 throw new IOException(message);
             }
         }
-    }
+    }*/
 
-    public static boolean deleteQuietly(File file) {
-        if(file == null) {
-            return false;
-        } else {
+    /*public static boolean deleteQuietly(File file) {
+        if(file == null) return false;
+        else {
             try {
-                if(file.isDirectory()) {
-                    cleanDirectory(file);
-                }
+                if(file.isDirectory()) cleanDirectory(file);
             } catch (Exception ignored) {}
             try {
                 return file.delete();
@@ -626,9 +771,23 @@ public class FileUtilities {
                 return false;
             }
         }
+    }*/
+
+    public static Boolean deleteQuietly(Path file) {
+        if(file == null) return false;
+        else {
+            try {
+                if(Files.isDirectory(file)) cleanDirectory(file);
+            } catch (Exception ignored) {}
+            try {
+                return delete(file);
+            } catch (Exception var2) {
+                return false;
+            }
+        }
     }
 
-    public static void cleanDirectory(File directory) throws IOException {
+    /*public static void cleanDirectory(File directory) throws IOException {
         String var7;
         if(!directory.exists()) {
             var7 = directory + " does not exist";
@@ -649,15 +808,44 @@ public class FileUtilities {
                         exception = var6;
                     }
                 }
+                if(null != exception) throw exception;
+            }
+        }
+    }*/
 
-                if(null != exception) {
-                    throw exception;
+    public static Boolean cleanDirectory(Path directory){
+        String var7;
+        try {
+            if (!Files.exists(directory)) {
+                var7 = directory + " does not exist";
+                throw new IllegalArgumentException(var7);
+            } else if (!Files.isDirectory(directory)) {
+                var7 = directory + " is not a directory";
+                throw new IllegalArgumentException(var7);
+            } else {
+                Path[] files = listFiles(directory);
+                if (files.length > 0) {
+                    throw new IOException("Failed to list contents of " + directory);
+                } else {
+                    IOException exception = null;
+                    for (Path file : files) {
+                        try {
+                            forceDelete(file);
+                        } catch (IOException var6) {
+                            exception = var6;
+                        }
+                    }
+                    if (null != exception) throw exception;
                 }
             }
+            return true;
+        }catch(IOException e){
+            logger.error("Can't clean the directory in "+directory.toString()+":"+e.getMessage());
+            return false;
         }
     }
 
-    public static void forceDelete(File file) throws IOException {
+    /*public static void forceDelete(File file) throws IOException {
         if(file.isDirectory()) {
             deleteDirectory(file);
         } else {
@@ -666,31 +854,53 @@ public class FileUtilities {
                 if(!filePresent) {
                     throw new FileNotFoundException("File does not exist: " + file);
                 }
-
                 String message = "Unable to delete file: " + file;
                 throw new IOException(message);
             }
         }
 
-    }
+    }*/
 
-    public static void forceDeleteOnExit(File file) throws IOException {
-        if(file.isDirectory()) {
-            deleteDirectoryOnExit(file);
+    public static void forceDelete(Path file) throws IOException {
+        if(Files.isDirectory(file)) {
+            deleteDirectory(file);
         } else {
-            file.deleteOnExit();
+            boolean filePresent = Files.exists(file);
+            if(!delete(file)) {
+                if(!filePresent) {
+                    throw new FileNotFoundException("File does not exist: " + file);
+                }
+                String message = "Unable to delete file: " + file;
+                throw new IOException(message);
+            }
         }
-
     }
 
-    private static void deleteDirectoryOnExit(File directory) throws IOException {
+   /* public static void forceDeleteOnExit(File file) throws IOException {
+        if(file.isDirectory()) deleteDirectoryOnExit(file);
+        else file.deleteOnExit();
+    }*/
+
+    /*private static void deleteDirectoryOnExit(File directory) throws IOException {
         if(directory.exists()) {
             cleanDirectoryOnExit(directory);
             directory.deleteOnExit();
         }
+    }*/
+
+    public static void forceDeleteOnExit(Path path) throws IOException {
+        if(Files.isDirectory(path)) deleteDirectoryOnExit(path);
+        else path.toFile().deleteOnExit();
     }
 
-    private static void cleanDirectoryOnExit(File directory) throws IOException {
+    private static void deleteDirectoryOnExit(Path directory) throws IOException {
+        if(Files.exists(directory)) {
+            cleanDirectoryOnExit(directory);
+            directory.toFile().deleteOnExit();
+        }
+    }
+
+/*    private static void cleanDirectoryOnExit(File directory) throws IOException {
         String var7;
         if(!directory.exists()) {
             var7 = directory + " does not exist";
@@ -711,10 +921,33 @@ public class FileUtilities {
                         exception = var6;
                     }
                 }
+                if(null != exception) throw exception;
+            }
+        }
+    }*/
 
-                if(null != exception) {
-                    throw exception;
+    private static void cleanDirectoryOnExit(Path directory) throws IOException {
+        String var7;
+        if(!Files.exists(directory)){
+            var7 = directory + " does not exist";
+            throw new IllegalArgumentException(var7);
+        }else if(!Files.isDirectory(directory)) {
+            var7 = directory + " is not a directory";
+            throw new IllegalArgumentException(var7);
+        } else {
+            Path[] paths = listFiles(directory);
+            if(paths.length > 0) {
+                throw new IOException("Failed to list contents of " + directory);
+            } else {
+                IOException exception = null;
+                for (Path path : paths) {
+                    try {
+                        forceDeleteOnExit(path);
+                    } catch (IOException var6) {
+                        exception = var6;
+                    }
                 }
+                if(null != exception) throw exception;
             }
         }
     }
@@ -730,7 +963,6 @@ public class FileUtilities {
             message = "Unable to create directory " + directory;
             throw new IOException(message);
         }
-
     }
 
     public static long sizeOfDirectory(File directory) {
@@ -744,23 +976,18 @@ public class FileUtilities {
         } else {
             long size = 0L;
             File[] files = directory.listFiles();
-            if(files == null) {
-                return 0L;
-            } else {
+            if(files == null)  return 0L;
+            else {
                 for (File file : files) {
-                    if (file.isDirectory()) {
-                        size += sizeOfDirectory(file);
-                    } else {
-                        size += file.length();
-                    }
+                    if (file.isDirectory()) size += sizeOfDirectory(file);
+                    else  size += file.length();
                 }
-
                 return size;
             }
         }
     }
 
-    public static void moveDirectory(File srcDir, File destDir) throws IOException {
+    /*public static void moveDirectory(File srcDir, File destDir) throws IOException {
         if(srcDir == null) {
             throw new NullPointerException("Source must not be null");
         } else if(destDir == null) {
@@ -782,9 +1009,9 @@ public class FileUtilities {
             }
 
         }
-    }
+    }*/
 
-    public static void moveFile(File srcFile, File destFile) throws IOException {
+    /*public static void moveFile(File srcFile, File destFile) throws IOException {
         if(srcFile == null) {
             throw new NullPointerException("Source must not be null");
         } else if(destFile == null) {
@@ -808,29 +1035,48 @@ public class FileUtilities {
             }
 
         }
+    }*/
+
+    public static void moveFile(Path srcFile, Path destFile) throws IOException {
+        if(srcFile == null) throw new NullPointerException("Source must not be null");
+        else if(destFile == null) throw new NullPointerException("Destination must not be null");
+        else if(!Files.exists(srcFile)) throw new FileNotFoundException("Source \'" + srcFile + "\' does not exist");
+        else if(Files.isDirectory(srcFile)) throw new IOException("Source \'" + srcFile + "\' is a directory");
+        else if(Files.exists(destFile)) throw new IOException("Destination \'" + destFile + "\' already exists");
+        else if(Files.isDirectory(destFile)) throw new IOException("Destination \'" + destFile + "\' is a directory");
+        else {
+            boolean rename = renameTo(srcFile,destFile);
+            if(!rename) {
+                copyFile(srcFile, destFile);
+                if(!delete(srcFile)) {
+                    deleteQuietly(destFile);
+                    throw new IOException("Failed to delete original file \'" + srcFile + "\' after copy to \'" + destFile + "\'");
+                }
+            }
+
+        }
     }
 
     /**
      * Recursively traverse a directory hierachy and obtain a list of all
      * absolute file names.
-     * <p>Regular expression patterns can be provided to explicitly include
+     * Regular expression patterns can be provided to explicitly include
      * and exclude certain file names.
      *
-     * @param file     the directory whose file hierarchy will be traversed
-     * @param included an array of regular expression patterns that will be
+     * @param   file the {@link File} directory whose file hierarchy will be traversed
+     * @param included the {@link Pattern} an array of regular expression patterns that will be
      *                 used to determine which files should be included; or
      *                 <p><code>null</code> if all files should be included
-     * @param excluded an array of regular expression patterns that will be
+     * @param excluded the {@link Pattern} an array of regular expression patterns that will be
      *                 used to determine which files should be excluded; or
      *                 <p><code>null</code> if no files should be excluded
-     * @return the list of absolute file names
-     * @since 1.0
+     * @return the {@link List} of {@link String} of absolute file names
      */
-    public static List<String> getFileList(File file, Pattern[] included, Pattern[] excluded) {
-        return getFileList(file, included, excluded, true);
+    public static List<String> getFilesList(File file, Pattern[] included, Pattern[] excluded) {
+        return getFilesList(file, included, excluded, true);
     }
 
-    private static List<String> getFileList(File file, Pattern[] included, Pattern[] excluded, boolean root) {
+    private static List<String> getFilesList(File file, Pattern[] included, Pattern[] excluded, boolean root) {
         if (null == file) return new ArrayList<>();
         ArrayList<String> filelist = new ArrayList<>();
         if (file.isDirectory()) {
@@ -840,7 +1086,7 @@ public class FileUtilities {
                 for (String aList : list) {
                     list_entry = aList;
                     File next_file = new File(file.getAbsolutePath() + File.separator + list_entry);
-                    List<String> dir = getFileList(next_file, included, excluded, false);
+                    List<String> dir = getFilesList(next_file, included, excluded, false);
                     Iterator<String> dir_it = dir.iterator();
                     String file_name;
                     while (dir_it.hasNext()) {
@@ -878,13 +1124,40 @@ public class FileUtilities {
     }
 
     /**
+     * Recursively traverse a directory hierachy and obtain a list of all
+     * absolute file names.
+     * Regular expression patterns can be provided to explicitly include
+     * and exclude certain file names.
+     *
+     * @param  directory  the {@link Path} directory whose file hierarchy will be traversed
+     * @param included the {@link Pattern} an array of regular expression patterns that will be
+     *                 used to determine which files should be included; or
+     *                 <p><code>null</code> if all files should be included
+     * @param excluded the {@link Pattern} an array of regular expression patterns that will be
+     *                 used to determine which files should be excluded; or
+     *                 <p><code>null</code> if no files should be excluded
+     * @return the {@link List} of {@link String} of absolute file names
+     */
+    public static List<File> getFilesFromDirectory(Path directory,Pattern[] included, Pattern[] excluded) {
+        List<File> files = getFilesFromDirectory(directory);
+        List<String> filesName = getFilesList(directory.toFile(),included,excluded);
+        List<File> filterFiles = new ArrayList<>();
+        for(File file: files){
+            if(filesName.contains(file.getName())){
+                filterFiles.add(file);
+            }
+        }
+        return filterFiles;
+    }
+
+    /**
      * Method to read all file ina directory/folder.
      *
      * @param directory file of the directory/folder.
      * @return list of files in the directory.
      */
     public static List<File> getFilesFromDirectory(File directory) {
-        return getFilesFromDirectory(directory.getAbsolutePath());
+        return toFiles(getPathsFromDirectory(directory.toPath()));
     }
 
     /**
@@ -894,7 +1167,7 @@ public class FileUtilities {
      * @return list of files in the directory.
      */
     public static List<File> getFilesFromDirectory(Path directory) {
-        return getFilesFromDirectory(directory.toFile().getAbsolutePath());
+        return toFiles(getPathsFromDirectory(directory));
     }
 
     /**
@@ -904,8 +1177,9 @@ public class FileUtilities {
      * @return list of files in the directory.
      */
     public static List<File> getFilesFromDirectory(String fullPathDir) {
-       return getFilesFromDirectory(fullPathDir,null,null);
+       return toFiles(getPathsFromDirectory(fullPathDir));
     }
+
     /**
      * Method to read all file ina directory/folder.
      *
@@ -915,18 +1189,31 @@ public class FileUtilities {
      * @return list of files in the directory.
      */
     public static List<File> getFilesFromDirectory(String fullPathDir,Integer offset,Integer limit) {
-        String[] paths;
-        List<File> files = new ArrayList<>();
+        return toFiles(getPathsFromDirectory(Paths.get(fullPathDir),offset,limit));
+    }
+
+    /**
+     * Method to read all file ina directory/folder.
+     *
+     * @param fullPathDir string path to the location of the directory/folder.
+     * @param offset the {@link Integer} offset iundex of the Files.
+     * @param limit the {@link Integer} limit iundex of the Files.
+     * @return list of files in the directory.
+     */
+    public static List<Path> getPathsFromDirectory(Path fullPathDir,Integer offset,Integer limit) {
+       //return toPaths(getFilesFromDirectory(fullPathDir,offset,limit));
+        String[] names;
+        List<Path> paths = new ArrayList<>();
         try {
-            paths = new File(fullPathDir).list();
+            names = list(fullPathDir);
             if (offset != null && limit != null &&
-                    offset + limit > paths.length) limit = paths.length;
-            for (int i =0; i < paths.length; i++) {
+                    offset + limit > names.length) limit = names.length;
+            for (int i =0; i < names.length; i++) {
                 if(offset != null){
-                    if(i >= offset )files.add(new File(fullPathDir + File.separator + paths[i]));
+                    if(i >= offset )paths.add(Paths.get(fullPathDir.toAbsolutePath().toString(),names[i]));
                     else continue;
                 }else{
-                    files.add(new File(fullPathDir + File.separator + paths[i]));
+                    paths.add(Paths.get(fullPathDir.toAbsolutePath().toString(),names[i]));
                 }
                 if(limit != null){
                     if(i >= limit-1)break;
@@ -935,9 +1222,15 @@ public class FileUtilities {
         } catch (Exception e) {
             logger.error(e.getMessage(), e);
         }
-        return files;
+        return paths;
     }
 
+    /**
+     * Method to read all file ina directory/folder.
+     *
+     * @param directory the {@link File} directory/folder.
+     * @return the  {@link List} of {@link File} in the directory.
+     */
     public static List<Path> getPathsFromDirectory(Path directory) {
         List<Path> paths = new ArrayList<>();
         try (DirectoryStream<Path> directoryStream = Files.newDirectoryStream(Paths.get(directory.toUri()))) {
@@ -958,10 +1251,6 @@ public class FileUtilities {
         return getPathsFromDirectory(directory.toPath());
     }
 
-    public static List<Path> getPathsDirectoriesFromDirectory(Path dir) throws IOException {
-        return getPathsFromDirectory(dir, null, null);
-    }
-
     public static List<Path> getPathsFromDirectory(Path dir, DirectoryStream.Filter<? super Path> filter) throws IOException {
         return getPathsFromDirectory(dir, filter, null);
     }
@@ -971,7 +1260,7 @@ public class FileUtilities {
         return getPathsFromDirectory(dir, null, glob);
     }
 
-    private static List<Path> getPathsFromDirectory(Path directory, DirectoryStream.Filter<? super Path> filter, String glob) {
+    public static List<Path> getPathsFromDirectory(Path directory, DirectoryStream.Filter<? super Path> filter, String glob) {
         List<Path> paths = new ArrayList<>();
         DirectoryStream<Path> directoryStream;
         try {
@@ -988,12 +1277,22 @@ public class FileUtilities {
         return paths;
     }
 
+    public static File getFromResourceAsFile(String fileNameResource, Class<?> thisClass) {
+        //Get file from resources folder
+        ClassLoader classLoader = thisClass.getClassLoader();
+        //noinspection ConstantConditions
+        String resourcePath = classLoader.getResource(fileNameResource).getFile();
+        resourcePath = resourcePath.replace("%20"," ");
+        return new File(resourcePath);
+    }
+
     public static File getFromResourceAsFile(String fileNameResource, Class<?> thisClass, File outputFile) {
         StringBuilder result = new StringBuilder("");
         //Get file from resources folder
         ClassLoader classLoader = thisClass.getClassLoader();
         //noinspection ConstantConditions
         String resourcePath = classLoader.getResource(fileNameResource).getFile();
+        resourcePath = resourcePath.replace("%20"," ");
         File file = new File(resourcePath);
         try (Scanner scanner = new Scanner(file)) {
             while (scanner.hasNextLine()) {
@@ -1039,6 +1338,27 @@ public class FileUtilities {
         return ClassLoaderUtil.getResourceListing(callingClass, path);
     }
 
+    public InputStream getFromResourceAsStream(String name) {
+        return ClassLoaderUtil.getResourceAsStream(name);
+    }
+
+    /**
+     * Returns a human-readable version of the file size (original is in
+     * bytes).
+     *
+     * @param size The number of bytes.
+     * @return A human-readable display value (includes units).
+     */
+    public static String byteCountToDisplaySize( int size ) {
+        String displaySize;
+        //int ONE_KB = 1024,ONE_MB = ONE_KB * ONE_KB,ONE_GB = ONE_MB * ONE_KB;
+        if ( size / ONE_GB > 0 ) displaySize = String.valueOf( size / ONE_GB ) + " GB";
+        else if ( size / ONE_MB > 0 ) displaySize = String.valueOf( size / ONE_MB ) + " MB";
+        else if ( size / ONE_KB > 0 )displaySize = String.valueOf( size / ONE_KB ) + " KB";
+        else displaySize = String.valueOf( size ) + " bytes";
+        return displaySize;
+    }
+
     /**
      * Removes all files from a given folder.
      * href: http://www.adam-bien.com/roller/abien/entry/java_7_deleting_recursively_a.
@@ -1046,19 +1366,18 @@ public class FileUtilities {
      * @param filePathToTheFile string of the path to the file
      * @return if true all the operation are done.
      */
-    public static boolean deleteDirectory(String filePathToTheFile) {
-        File filePath = new File(filePathToTheFile);
-        if (filePath.exists()) {
-            if (filePath.isDirectory()) {
-                Path path = filePath.toPath();
+    public static boolean deleteFilesOnDirectory(String filePathToTheFile) {
+        //File filePath = new File(filePathToTheFile);
+        Path filePath = Paths.get(filePathToTheFile);
+        if (Files.exists(filePath)) {
+            if (Files.isDirectory(filePath)){
                 try {
-                    Files.walkFileTree(path, new SimpleFileVisitor<Path>() {
+                    Files.walkFileTree(filePath, new SimpleFileVisitor<Path>() {
                         @Override
                         public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
                             Files.delete(file);
                             return FileVisitResult.CONTINUE;
                         }
-
                         @Override
                         public FileVisitResult postVisitDirectory(Path dir, IOException exc) throws IOException {
                             Files.delete(dir);
@@ -1078,20 +1397,24 @@ public class FileUtilities {
             logger.warn("Not exists the file to the path:" + filePathToTheFile);
             return false;
         }
-        /*if (filePath.exists()) {
-            for (String fileInDirectory : filePath.list()) {
-                File tmpFile = new File(path + "/" + fileInDirectory);
-                if(!tmpFile.delete()){
-                    logger.warn("Can't delete the file:" + tmpFile.getAbsolutePath());
+        /*if (Files.exists(filePath)) {
+            try {
+                for (String fileInDirectory : list(filePath)) {
+                    Path tmpFile = Files.createTempFile(filePath,fileInDirectory,null);
+                    if (!Files.deleteIfExists(tmpFile)) {
+                        logger.warn("Can't delete the file:" + tmpFile.toAbsolutePath());
+                        return false;
+                    }
+                }
+                if (!Files.deleteIfExists(filePath)) {
+                    logger.warn("Can't delete the file:" + filePath.toAbsolutePath());
                     return false;
                 }
-            }
-            if(!filePath.delete()){
-                logger.warn("Can't delete the file:" + filePath.getAbsolutePath());
+            }catch(IOException e){
+                logger.error(e.getMessage(), e);
                 return false;
             }
-        }
-        return true;*/
+        }*/
     }
 
     /**
@@ -1119,10 +1442,13 @@ public class FileUtilities {
      *
      * @param file the File to convert.
      * @return the URL.
-     * @throws MalformedURLException if any error is occurred.
      */
-    public static URL toURL(File file) throws MalformedURLException {
-        return toUri(file).toURL();
+    public static URL toURL(File file){
+        try {
+            return toUri(file).toURL();
+        } catch (MalformedURLException e) {
+            return null;
+        }
     }
 
     /**
@@ -1130,9 +1456,8 @@ public class FileUtilities {
      *
      * @param filePath the String to the File to convert.
      * @return the URL.
-     * @throws MalformedURLException if any error is occurrred.
      */
-    public static URL toURL(String filePath) throws MalformedURLException {
+    public static URL toURL(String filePath){
         return toURL(new File(filePath));
     }
 
@@ -1141,12 +1466,15 @@ public class FileUtilities {
      *
      * @param uri the URI to convert.
      * @return the File.
-     * @throws MalformedURLException throw if any error is occurred.
      */
-    public static File toFile(URI uri) throws MalformedURLException {
-        File file = new File(uri.toURL().getFile());
-        if(file.exists()) return file;
-        else return null;
+    public static File toFile(URI uri){
+        try {
+            File file = new File(uri.toURL().getFile());
+            if(file.exists()) return file;
+            else return null;
+        }catch(MalformedURLException e){
+            return null;
+        }
     }
 
     /**
@@ -1154,10 +1482,8 @@ public class FileUtilities {
      *
      * @param url the URL to convert.
      * @return the File.
-     * @throws MalformedURLException throw if any error is occurred.
-     * @throws URISyntaxException    throw if any error is occurred.
      */
-    public static File toFile(URL url) throws URISyntaxException, MalformedURLException {
+    public static File toFile(URL url){
         return toFile(url,false);
     }
 
@@ -1167,14 +1493,16 @@ public class FileUtilities {
      * @param url the URL to convert.
      * @param getLikeURIResource the {@link Boolean} if true the URL is a reference to a URI resource.
      * @return the File.
-     * @throws MalformedURLException throw if any error is occurred.
-     * @throws URISyntaxException    throw if any error is occurred.
      */
-    public static File toFile(URL url,boolean getLikeURIResource) throws URISyntaxException, MalformedURLException {
-        if(getLikeURIResource) return toFile(url.toURI());
-
-        if ( url == null) return null;
-        File file = toFile(url.toURI());
+    public static File toFile(URL url,boolean getLikeURIResource){
+        File file;
+        try {
+            if (getLikeURIResource) return toFile(url.toURI());
+            if (url == null) return null;
+            file = toFile(url.toURI());
+        }catch(URISyntaxException e){
+            return null;
+        }
         if(file == null){ //try again with a different approach...
             if (!url.getProtocol().equalsIgnoreCase( "file" ) ) return null;
             String filename = url.getFile().replace( '/', File.separatorChar );
@@ -1223,7 +1551,6 @@ public class FileUtilities {
             if(file.isDirectory()) {
                 throw new IOException("File \'" + file + "\' exists but is a directory");
             }
-
             if(!file.canWrite()) {
                 throw new IOException("File \'" + file + "\' cannot be written to");
             }
@@ -1266,14 +1593,14 @@ public class FileUtilities {
         return URI.create(toStringUriWithPrefix(file.getAbsolutePath()));
     }
 
-    /**
+    /*
      * Method for convert a reference path to a resource in the classpath to a file with path in the system.
      *
      * @param referenceResourcePath string of the reference path to the resource.
      * @param thisClass             thi class.
      * @return file correspondent to the reference file of the resources.
      */
-    public static File toFile(String referenceResourcePath, Class<?> thisClass) {
+    /*public static File toResourceFile(String referenceResourcePath, Class<?> thisClass) {
         try {
             //noinspection ConstantConditions
             return new File(thisClass.getClassLoader().getResource(referenceResourcePath).getFile());
@@ -1281,7 +1608,7 @@ public class FileUtilities {
             logger.error(e.getMessage(), e);
             return null;
         }
-    }
+    }*/
 
 
 
@@ -1312,7 +1639,7 @@ public class FileUtilities {
      *
      * @return string of the path to the user directory of the project
      */
-    public static String getDirectoryUser() {
+    public static String getCurrentDirectoryUser() {
         String dir;
         try {
             //1 Method
@@ -1378,6 +1705,21 @@ public class FileUtilities {
         }
     }
 
+    public static String getAndCreateDirectoryFullPath(File file) {
+        String tmpDir = getDirectoryFullPath(file)+File.separator+"tmp_"+getFilenameWithoutExt(file);
+        if(isDirectoryExists(tmpDir)) {
+            logger.warn("Can't create the file directory because already exists, we retrieve the path ot that");
+            return tmpDir;
+        }
+        if(mkdir(tmpDir)){
+            return tmpDir;
+        }else{
+            logger.error("Can't create the file directory:"+tmpDir);
+            return "NULL";
+        }
+
+    }
+
     public static String getDirectoryFullPath(String fullPathFile) {
         return getDirectoryFullPath(new File(fullPathFile));
     }
@@ -1388,10 +1730,46 @@ public class FileUtilities {
      * @return the letter of the disk.
      */
     public static String getCurrentDisk() {
-        String dir = getDirectoryUser();
+        String dir = getCurrentDirectoryUser();
         String[] split = dir.split(":");
         dir = split[0];
         return dir + ":".toLowerCase();
+    }
+
+    /**
+     * Method to get the path to the AppData\Temp path of the user.
+     */
+    public static String getCurrentTempDirectory(){
+        try {
+            return File.createTempFile("tmp","").getParentFile().getAbsolutePath();
+        } catch (IOException e) {
+            logger.error(e.getMessage(),e);
+            return "N/A";
+        }
+    }
+
+    /**
+     * Method to convert a String content to a Temporary File.
+     *
+     * @param content  the String content.
+     * @param fullPath the String output path for the temporary File.
+     * @return the temporary File.
+     * @deprecated use {@link #createTempFile(String, String)}
+     */
+    @Deprecated
+    public static File toTempFile(String content, String fullPath) {
+        return createTempFile(content,fullPath);
+    }
+
+    public static File createTempFile(String filename){
+        try {
+            //file with no extenstion and no directory is saved on C:\\temp\\file.tmp
+            Path tempFile = Files.createTempFile(filename, null);
+            return  tempFile.toFile();
+        } catch (IOException e) {
+            logger.error(e.getMessage(),e);
+            return null;
+        }
     }
 
     /**
@@ -1401,7 +1779,7 @@ public class FileUtilities {
      * @param fullPath the String output path for the temporary File.
      * @return the temporary File.
      */
-    public static File toTempFile(String content, String fullPath) {
+    public static File createTempFile(String content, String fullPath) {
         try {
             //create a temp file
             File temp = File.createTempFile(
@@ -1424,8 +1802,20 @@ public class FileUtilities {
             }
         }
     }
-
-    public static File toTempFile() {
+    /**
+     * Method to create a temporary file.
+     * @return the {@link File} object.
+     * @deprecated use {@link #createTempFile()} instead.
+     */
+    @Deprecated
+    public static File toTempFile(){
+        return createTempFile();
+    }
+    /**
+     * Method to create a temporary file.
+     * @return the {@link File} object.
+     */
+    public static File createTempFile() {
         File temp = null;
         try {
             temp = File.createTempFile(
@@ -1441,7 +1831,23 @@ public class FileUtilities {
         return temp;
     }
 
-    public static File toTempFile(File file) {
+    /**
+     * Method to create a temporary file from file object.
+     * @param file the {@link File}.
+     * @return the {@link File} object.
+     * @deprecated use {@link #createTempFile(File)} instead.
+     */
+    @Deprecated
+    public static File toTempFile(File file){
+        return createTempFile(file);
+    }
+
+    /**
+     * Method to create a temporary file from file object.
+     * @param file the {@link File}.
+     * @return the {@link File} object.
+     */
+    public static File createTempFile(File file) {
         File parent = file.getParentFile();
         String name = file.getName();
         int index = 0;
@@ -1449,19 +1855,47 @@ public class FileUtilities {
         do {
             result = new File(parent, name + "_" + index++);
         } while(result.exists());
+        if(result==null || !result.exists()){
+            logger.error("Can't create the temporary file "+file.getAbsolutePath());
+        }
         return result;
     }
 
+    /**
+     * Method to create a temporary file from a array of bytes.
+     * @param bytes the {@link Arrays} of {@link Byte}.
+     * @return the {@link File} object.
+     * @deprecated use {@link #createTempFile(byte[])} instead.
+     */
+    @Deprecated
     public static File toTempFile(byte[] bytes){
+        return createTempFile(bytes);
+    }
+
+    /**
+     * Method to create a temporary file from a array of bytes.
+     * @param bytes the {@link Arrays} of {@link Byte}.
+     * @return the {@link File} object.
+     */
+    public static File createTempFile(byte[] bytes){
         File tempFile = null;
         try {
-            //file with no extenstion and no directory is saved on C:\\temp\\file.tmp
-            tempFile = File.createTempFile(generateRandomStringSimple(6), null, null);
-            // Delete temp file when program exits.
-            tempFile.deleteOnExit();
-            FileOutputStream fos = new FileOutputStream(tempFile);
-            fos.write(bytes);
-            return  tempFile;
+            try {
+                //WITH FILE
+                //file with no extenstion and no directory is saved on C:\\temp\\file.tmp
+                tempFile = File.createTempFile(generateRandomStringSimple(6), null, null);
+                // Delete temp file when program exits.
+                tempFile.deleteOnExit();
+                FileOutputStream fos = new FileOutputStream(tempFile);
+                fos.write(bytes);
+                return tempFile;
+            }catch(Exception e) {
+                //WITH PATH
+                //file with no extenstion and no directory is saved on C:\\temp\\file.tmp
+                Path tempFile2 = Files.createTempFile(generateAlphaNumericString(6), null);
+                Files.write(tempFile2, bytes, StandardOpenOption.DELETE_ON_CLOSE);
+                return tempFile2.toFile();
+            }
         } catch (IOException e) {
             logger.error(e.getMessage(),e);
             return tempFile;
@@ -1510,6 +1944,80 @@ public class FileUtilities {
         return result;
     }
 
+    public static Boolean createTempFile(Path path){
+        try {
+            Files.createTempFile(path,generateRandomStringSimple(6),null);
+            return true;
+        } catch (IOException e) {
+            logger.error(e.getMessage());
+            return false;
+        }
+    }
+
+    /**
+     * Method to create a temporary directory.
+     * @return the {@link File}.
+     */
+    public static File createTempDirectory(){
+        File dir=null;
+        try {
+           /* String test = File.createTempFile("tmp","").getAbsolutePath();
+            dir = Files.createTempDirectory(Paths.get("tmp"+ File.separator),generateAlphaNumericString(6)).toFile();*/
+            String tmpDir = File.createTempFile("tmp","").getParentFile().getAbsolutePath();
+            dir = Files.createTempDirectory(Paths.get(tmpDir+File.separator),generateAlphaNumericString(6)).toFile();
+            //dir.deleteOnExit();
+        } catch (IOException e) {
+            logger.error(e.getMessage(),e);
+        }
+        return dir;
+    }
+
+    /**
+     * Method to create a temporary directory.
+     * @param dir the {@link File}.
+     * @return the {@link File}.
+     */
+    public static File createTempDirectory(File dir){
+        try {
+            //dir = File.createTempFile(dir.getAbsolutePath(),"");
+            String sDir = dir.getAbsolutePath();
+            if(!sDir.endsWith(File.separator)) sDir = sDir +File.separator;
+            dir = Files.createTempDirectory(Paths.get(sDir),generateAlphaNumericString(6)).toFile();
+            return dir;
+        } catch (IOException e) {
+            logger.error(e.getMessage(),e);
+        }
+        return dir;
+    }
+
+    /**
+     * Method to create a temporary directory.
+     * @param dir the {@link Path}.
+     * @return the {@link Path}.
+     */
+    public static Path createTempDirectory(Path dir){
+        try {
+            return Files.createTempDirectory(dir,generateAlphaNumericString(6));
+        } catch (IOException e) {
+            logger.error(e.getMessage(),e);
+            return null;
+        }
+    }
+
+    /**
+     * Method to create a temporary directory.
+     * @param dir the {@link String}.
+     * @return the {@link File}.
+     */
+    public static File createTempDirectory(String dir){
+        try {
+            Path path = Files.createTempDirectory(dir);
+            return path.toFile();
+        } catch (IOException e) {
+            logger.error(e.getMessage(),e);
+            return null;
+        }
+    }
 
     /**
      * Method to convert a resource file to a Stream.
@@ -1559,8 +2067,8 @@ public class FileUtilities {
      * @param filePathOutput the String path the the new location of the file.
      * @return the File Object.
      */
-    public static File toFile(InputStream inStream, String filePathOutput) {
-        try (OutputStream outputStream = new FileOutputStream(new File(filePathOutput))) {
+    public static Path toPath(InputStream inStream, String filePathOutput) {
+        /*try (OutputStream outputStream = new FileOutputStream(new File(filePathOutput))) {
             int read;
             byte[] bytes = new byte[1024];
             while ((read = inStream.read(bytes)) != -1) {
@@ -1574,68 +2082,86 @@ public class FileUtilities {
         else {
             logger.warn("The file:" + new File(filePathOutput).getAbsolutePath() + " not exists.");
             return null;
+        }*/
+        Path path = Paths.get(filePathOutput);
+        try{
+            Files.copy(inStream,path);
+        } catch (IOException e) {
+            logger.error(e.getMessage(), e);
+            return path;
+        }
+        if (Files.exists(path)) return path;
+        else {
+            logger.warn("The file:" + filePathOutput + " not exists.");
+            return path;
         }
     }
 
+    public static File toFile(InputStream inStream, String filePathOutput) {
+        return toPath(inStream,filePathOutput).toFile();
+    }
+
     /**
-     * Method to convert a resource file to a Stream.
+     * Method to convert a Stream to a File.
      *
-     * @param fileName String name of the Resource File to read(reference path).
-     * @param clazz    the Class who call this method.
-     * @return the Stream of the File..
+     * @param inStream       the InputStream to decode.
+     * @param filePathOutput the String path the the new location of the file.
+     * @return the File Object.
      */
-    public static String toString(String fileName, Class<?> clazz) {
-        try {
-            StringBuilder result = new StringBuilder("");
-            //Get file from resources folder
-            //noinspection ConstantConditions
-            File file = new File(clazz.getClassLoader().getResource(fileName).getFile());
-            try (Scanner scanner = new Scanner(file)) {
-                while (scanner.hasNextLine()) {
-                    String line = scanner.nextLine();
-                    result.append(line).append("\n");
-                }
-            } catch (IOException e) {
-                logger.error(e.getMessage(), e);
-                return null;
+    public static File toFile(InputStream inStream,File filePathOutput) {
+        return toPath(inStream,filePathOutput.toPath()).toFile();
+    }
+
+    /**
+     * Method to convert a Stream to a File.
+     *
+     * @param inStream       the InputStream to decode.
+     * @param filePathOutput the String path the the new location of the file.
+     * @return the File Object.
+     */
+    public static Path toPath(InputStream inStream,Path filePathOutput) {
+       /* try (OutputStream outputStream = new FileOutputStream(new File(filePathOutput))) {
+            int read;
+            byte[] bytes = new byte[1024];
+            while ((read = inStream.read(bytes)) != -1) {
+                outputStream.write(bytes, 0, read);
             }
-            return result.toString();
-        } catch (NullPointerException e) {
+        } catch (IOException e) {
             logger.error(e.getMessage(), e);
             return null;
         }
-    }
-
-    /**
-     * Method to convert a resource file to a Stream.
-     *
-     * @param name  String name of the class
-     * @param clazz the Class who call this method.
-     * @return the Stream of the File.
-     */
-    public static InputStream toStream(String name, Class<?> clazz) {
-        name = resolveName(name);
+        if (new File(filePathOutput).exists()) return new File(filePathOutput);
+        else {
+            logger.warn("The file:" + new File(filePathOutput).getAbsolutePath() + " not exists.");
+            return null;
+        }*/
         try {
-            // A system class.
-            return ClassLoader.getSystemResourceAsStream(name);
-        } catch (NullPointerException e) {
-            try {
-                return clazz.getClassLoader().getResourceAsStream(name);
-            } catch (NullPointerException ex) {
-                logger.error(ex.getMessage(), ex);
-                return null;
-            }
+            Files.copy(inStream,filePathOutput);
+            return filePathOutput;
+        } catch (IOException e) {
+            logger.error(e.getMessage(),e);
+            return filePathOutput;
         }
     }
 
     /**
+     * Method to convert a Stream to a File.
+     *
+     * @param inputStream      the {@link OutputStream} to decode.
+     * @return the File Object.
+     */
+    public static File toFile(InputStream inputStream) {
+        return toPath(inputStream,Paths.get("/temp")).toFile();
+    }
+
+    /*
      * Add a package name prefix if the name is not absolute Remove leading "/"
      * if name is absolute.
      *
      * @param name string name of the class
      * @return the full name package+class
      */
-    private static String resolveName(String name) {
+    /*private static String resolveName(String name) {
         if (isNullOrEmpty(name)) return name;
         if (!name.startsWith("/")) {
             Class<?> clazz = FileUtilities.class;
@@ -1649,7 +2175,7 @@ public class FileUtilities {
             name = name.substring(1);
         }
         return name;
-    }
+    }*/
 
     /**
      * Method for compress file of triple before upload to thte repository make
@@ -1685,8 +2211,8 @@ public class FileUtilities {
      * @param algorithm the Hash algorithm you use.
      * @return the String content of the file coded.
      */
-    private static String hashFile(File file, String algorithm) {
-        try (FileInputStream inputStream = new FileInputStream(file)) {
+    private static String hashFile(Path file, String algorithm) {
+        try (InputStream inputStream = Files.newInputStream(file)) {
             MessageDigest digest = MessageDigest.getInstance(algorithm);
             byte[] bytesBuffer = new byte[1024];
             int bytesRead;//= -1
@@ -1697,7 +2223,7 @@ public class FileUtilities {
             return toHexString(hashedBytes);
         } catch (NoSuchAlgorithmException | IOException e) {
             logger.error(e.getMessage(), e);
-            return null;
+            return toString(file);
         }
     }
 
@@ -1707,8 +2233,16 @@ public class FileUtilities {
      * @param file the input File to codify to hash.
      * @return the string of the hash.
      */
-    public static String toMD5(File file) {
-        return hashFile(file, "MD5");
+    public static File toMD5(File file) {
+        return toMD5(file.toPath()).toFile();
+    }
+    public static Path toMD5(Path file) {
+        try {
+            Files.write(file,hashFile(file, "MD5").getBytes(),StandardOpenOption.WRITE);
+        } catch (IOException e) {
+            logger.error(e.getMessage(),e);
+        }
+        return file;
     }
 
     /**
@@ -1717,8 +2251,17 @@ public class FileUtilities {
      * @param file the input File to codify to hash.
      * @return the string of the hash.
      */
-    public static String toSHA1(File file) {
-        return hashFile(file, "SHA-1");
+    public static File toSHA1(File file) {
+        return toSHA1(file.toPath()).toFile();
+    }
+
+    public static Path toSHA1(Path file) {
+        try {
+            Files.write(file,hashFile(file, "SHA-1").getBytes(),StandardOpenOption.WRITE);
+        } catch (IOException e) {
+            logger.error(e.getMessage(),e);
+        }
+        return file;
     }
 
     /**
@@ -1727,8 +2270,17 @@ public class FileUtilities {
      * @param file the input File to codify to hash.
      * @return the string of the hash.
      */
-    public static String toSHA256(File file) {
-        return hashFile(file, "SHA-256");
+    public static File toSHA256(File file) {
+        return toSHA256(file.toPath()).toFile();
+    }
+
+    public static Path toSHA256(Path file) {
+        try {
+            Files.write(file,hashFile(file, "SHA-256").getBytes(),StandardOpenOption.WRITE);
+        } catch (IOException e) {
+            logger.error(e.getMessage(),e);
+        }
+        return file;
     }
 
     /**
@@ -1786,6 +2338,17 @@ public class FileUtilities {
             return null;
         }
     }
+
+    /**
+     * Check the file separator to see if we're on a Windows platform.
+     *
+     * @return boolean True if the platform is Windows, false otherwise.
+     */
+    private static boolean platformIsWindows() {
+        return File.separatorChar == '\\';
+    }
+
+
 
     /**
      * Locate the specific file.
@@ -2010,6 +2573,7 @@ public class FileUtilities {
         /*convFile.createNewFile();
         FileOutputStream fos = new FileOutputStream(convFile); fos.write(multiPartFile.getBytes());fos.close();*/
         try {
+            // Handle file content - multipartFile.getInputStream()
             multiPartFile.transferTo(convFile);
             return convFile;
         } catch (IOException e) {
@@ -2026,8 +2590,7 @@ public class FileUtilities {
      * @return the Path object populate with the Array of Bytes.
      */
     public static Path toPath(byte[] bytes, String pathToTheFile) {
-        Path path = Paths.get(pathToTheFile);
-        return toPath(bytes, path);
+        return toPath(bytes,Paths.get(pathToTheFile));
     }
 
     /**
@@ -2058,47 +2621,270 @@ public class FileUtilities {
         return toPath(bytes, pathToTheFile).toFile();
     }
 
-    /**
-     * Method to 'walk' within many directory under a root directory and load alll files in these.
-     *
-     * @param preload the String path to the root directory.
-     * @return the List of File prsent in the Directory preload.
-     */
-    public static List<File> walk(String preload) {
-        return walk(new File(preload));
-    }
+    ////////////////////////////////////////////////////////////////////////////////////////////
 
     /**
-     * Method to 'walk' within many directory under a root directory and load alll files in these..
-     *
-     * @param preload the File root directory
-     * @return the List of File prsent in the Directory preload.
+     * Map for brute force replace of all unicode escape on the text
      */
-    public static List<File> walk(File preload) {
-        final List<File> listFiles = new ArrayList<>();
-        FileWalker.Handler handler = new FileWalker.Handler() {
-            @Override
-            public void file(File file) throws Exception {
-                listFiles.add(file);
-            }
+    private static void setMapUnicodeEscaped() {
+        unicodeCodePoint.put("U+0000", "");
+        unicodeCodePoint.put("U+0001", "");
+        unicodeCodePoint.put("U+0002", "");
+        unicodeCodePoint.put("U+0003", "");
+        unicodeCodePoint.put("U+0004", "");
+        unicodeCodePoint.put("U+0005", "");
+        unicodeCodePoint.put("U+0006", "");
+        unicodeCodePoint.put("U+0007", "");
+        unicodeCodePoint.put("U+0008", "");
+        unicodeCodePoint.put("U+0009", "");
+        unicodeCodePoint.put("U+000A", "");
+        unicodeCodePoint.put("U+000B", "");
+        unicodeCodePoint.put("U+000C", "");
+        unicodeCodePoint.put("U+000D", "");
+        unicodeCodePoint.put("U+000E", "");
+        unicodeCodePoint.put("U+000F", "");
+        unicodeCodePoint.put("U+0010", "");
+        unicodeCodePoint.put("U+0011", "");
+        unicodeCodePoint.put("U+0012", "");
+        unicodeCodePoint.put("U+0013", "");
+        unicodeCodePoint.put("U+0014", "");
+        unicodeCodePoint.put("U+0015", "");
+        unicodeCodePoint.put("U+0016", "");
+        unicodeCodePoint.put("U+0017", "");
+        unicodeCodePoint.put("U+0018", "");
+        unicodeCodePoint.put("U+0019", "");
+        unicodeCodePoint.put("U+001A", "");
+        unicodeCodePoint.put("U+001B", "");
+        unicodeCodePoint.put("U+001C", "");
+        unicodeCodePoint.put("U+001D", "");
+        unicodeCodePoint.put("U+001E", "");
+        unicodeCodePoint.put("U+001F", "");
+        unicodeCodePoint.put("U+0020", " ");
+        unicodeCodePoint.put("U+0021", "!");
+        unicodeCodePoint.put("U+0022", "\"");
+        unicodeCodePoint.put("U+0023", "#");
+        unicodeCodePoint.put("U+0024", "$");
+        unicodeCodePoint.put("U+0025", "%");
+        unicodeCodePoint.put("U+0026", "&");
+        unicodeCodePoint.put("U+0027", "'");
+        unicodeCodePoint.put("U+0028", "(");
+        unicodeCodePoint.put("U+0029", ")");
+        unicodeCodePoint.put("U+002A", "*");
+        unicodeCodePoint.put("U+002B", "+");
+        unicodeCodePoint.put("U+002C", ",");
+        unicodeCodePoint.put("U+002D", "-");
+        unicodeCodePoint.put("U+002E", ".");
+        unicodeCodePoint.put("U+002F", "/");
+        unicodeCodePoint.put("U+0030", "0");
+        unicodeCodePoint.put("U+0031", "1");
+        unicodeCodePoint.put("U+0032", "2");
+        unicodeCodePoint.put("U+0033", "3");
+        unicodeCodePoint.put("U+0034", "4");
+        unicodeCodePoint.put("U+0035", "5");
+        unicodeCodePoint.put("U+00FF", "ÿ");
+        unicodeCodePoint.put("U+FEFF", "");
+        unicodeCodePoint.put("U+0036", "6");
+        unicodeCodePoint.put("U+0037", "7");
+        unicodeCodePoint.put("U+0038", "8");
+        unicodeCodePoint.put("U+0039", "9");
+        unicodeCodePoint.put("U+003A", ":");
+        unicodeCodePoint.put("U+003B", ";");
+        unicodeCodePoint.put("U+003C", "<");
+        unicodeCodePoint.put("U+003D", "=");
+        unicodeCodePoint.put("U+003E", ">");
+        unicodeCodePoint.put("U+003F", "?");
+        unicodeCodePoint.put("U+0040", "@");
+        unicodeCodePoint.put("U+0041", "A");
+        unicodeCodePoint.put("U+0042", "B");
+        unicodeCodePoint.put("U+0043", "C");
+        unicodeCodePoint.put("U+0044", "D");
+        unicodeCodePoint.put("U+0045", "E");
+        unicodeCodePoint.put("U+0046", "F");
+        unicodeCodePoint.put("U+0047", "G");
+        unicodeCodePoint.put("U+0048", "H");
+        unicodeCodePoint.put("U+0049", "I");
+        unicodeCodePoint.put("U+004A", "J");
+        unicodeCodePoint.put("U+004B", "K");
+        unicodeCodePoint.put("U+004C", "L");
+        unicodeCodePoint.put("U+004D", "M");
+        unicodeCodePoint.put("U+004E", "N");
+        unicodeCodePoint.put("U+004F", "O");
+        unicodeCodePoint.put("U+0050", "P");
+        unicodeCodePoint.put("U+0051", "Q");
+        unicodeCodePoint.put("U+0052", "R");
+        unicodeCodePoint.put("U+0053", "S");
+        unicodeCodePoint.put("U+0054", "T");
+        unicodeCodePoint.put("U+0055", "U");
+        unicodeCodePoint.put("U+0056", "V");
+        unicodeCodePoint.put("U+0057", "W");
+        unicodeCodePoint.put("U+0058", "X");
+        unicodeCodePoint.put("U+0059", "Y");
+        unicodeCodePoint.put("U+005A", "Z");
+        unicodeCodePoint.put("U+005B", "[");
+        unicodeCodePoint.put("U+005C", "\\");
+        unicodeCodePoint.put("U+005D", "]");
+        unicodeCodePoint.put("U+005E", "^");
+        unicodeCodePoint.put("U+005F", "_");
+        unicodeCodePoint.put("U+0060", "`");
+        unicodeCodePoint.put("U+0061", "a");
+        unicodeCodePoint.put("U+0062", "b");
+        unicodeCodePoint.put("U+0063", "c");
+        unicodeCodePoint.put("U+0064", "d");
+        unicodeCodePoint.put("U+0065", "e");
+        unicodeCodePoint.put("U+0066", "f");
+        unicodeCodePoint.put("U+0067", "g");
+        unicodeCodePoint.put("U+0068", "h");
+        unicodeCodePoint.put("U+0069", "i");
+        unicodeCodePoint.put("U+006A", "j");
+        unicodeCodePoint.put("U+006B", "k");
+        unicodeCodePoint.put("U+006C", "l");
+        unicodeCodePoint.put("U+006D", "m");
+        unicodeCodePoint.put("U+006E", "n");
+        unicodeCodePoint.put("U+006F", "o");
+        unicodeCodePoint.put("U+0070", "p");
+        unicodeCodePoint.put("U+0071", "q");
+        unicodeCodePoint.put("U+0072", "r");
+        unicodeCodePoint.put("U+0073", "s");
+        unicodeCodePoint.put("U+0074", "t");
+        unicodeCodePoint.put("U+0075", "u");
+        unicodeCodePoint.put("U+0076", "v");
+        unicodeCodePoint.put("U+0077", "w");
+        unicodeCodePoint.put("U+0078", "x");
+        unicodeCodePoint.put("U+0079", "y");
+        unicodeCodePoint.put("U+007A", "z");
+        unicodeCodePoint.put("U+007B", "{");
+        unicodeCodePoint.put("U+007C", "|");
+        unicodeCodePoint.put("U+007D", "}");
+        unicodeCodePoint.put("U+007E", "~");
+        unicodeCodePoint.put("U+007F", "");
+        unicodeCodePoint.put("U+0080", "");
+        unicodeCodePoint.put("U+0081", "");
+        unicodeCodePoint.put("U+0082", "");
+        unicodeCodePoint.put("U+0083", "");
+        unicodeCodePoint.put("U+0084", "");
+        unicodeCodePoint.put("U+0085", "");
+        unicodeCodePoint.put("U+0086", "");
+        unicodeCodePoint.put("U+0087", "");
+        unicodeCodePoint.put("U+0088", "");
+        unicodeCodePoint.put("U+0089", "");
+        unicodeCodePoint.put("U+008A", "");
+        unicodeCodePoint.put("U+008C", "");
+        unicodeCodePoint.put("U+008D", "");
+        unicodeCodePoint.put("U+008E", "");
+        unicodeCodePoint.put("U+008F", "");
+        unicodeCodePoint.put("U+0090", "");
+        unicodeCodePoint.put("U+0091", "");
+        unicodeCodePoint.put("U+0092", "");
+        unicodeCodePoint.put("U+0093", "");
+        unicodeCodePoint.put("U+0094", "");
+        unicodeCodePoint.put("U+0095", "");
+        unicodeCodePoint.put("U+0096", "");
+        unicodeCodePoint.put("U+0097", "");
+        unicodeCodePoint.put("U+0098", "");
+        unicodeCodePoint.put("U+0099", "");
+        unicodeCodePoint.put("U+009A", "");
+        unicodeCodePoint.put("U+009B", "");
+        unicodeCodePoint.put("U+009C", "");
+        unicodeCodePoint.put("U+009D", "");
+        unicodeCodePoint.put("U+009E", "");
+        unicodeCodePoint.put("U+009F", "");
+        unicodeCodePoint.put("U+00A0", "");
+        unicodeCodePoint.put("U+00A1", "¡");
+        unicodeCodePoint.put("U+00A2", "¢");
+        unicodeCodePoint.put("U+00A3", "£");
+        unicodeCodePoint.put("U+00A4", "¤");
+        unicodeCodePoint.put("U+00A5", "¥");
+        unicodeCodePoint.put("U+00A6", "¦");
+        unicodeCodePoint.put("U+00A7", "§");
+        unicodeCodePoint.put("U+00A8", "¨");
+        unicodeCodePoint.put("U+00A9", "©");
+        unicodeCodePoint.put("U+00AA", "ª");
+        unicodeCodePoint.put("U+00AB", "«");
+        unicodeCodePoint.put("U+00AC", "¬");
+        unicodeCodePoint.put("U+00AD", "­");
+        unicodeCodePoint.put("U+00AE", "®");
+        unicodeCodePoint.put("U+00AF", "¯");
+        unicodeCodePoint.put("U+00B0", "°");
+        unicodeCodePoint.put("U+00B1", "±");
+        unicodeCodePoint.put("U+00B2", "²");
+        unicodeCodePoint.put("U+00B3", "³");
+        unicodeCodePoint.put("U+00B4", "´");
+        unicodeCodePoint.put("U+00B5", "µ");
+        unicodeCodePoint.put("U+00B6", "¶");
+        unicodeCodePoint.put("U+00B7", "·");
+        unicodeCodePoint.put("U+00B8", "¸");
+        unicodeCodePoint.put("U+00B9", "¹");
+        unicodeCodePoint.put("U+00BA", "º");
+        unicodeCodePoint.put("U+00BB", "»");
+        unicodeCodePoint.put("U+00BC", "¼");
+        unicodeCodePoint.put("U+00BD", "½");
+        unicodeCodePoint.put("U+00BE", "¾");
+        unicodeCodePoint.put("U+00BF", "¿");
+        unicodeCodePoint.put("U+00C0", "À");
+        unicodeCodePoint.put("U+00C1", "Á");
+        unicodeCodePoint.put("U+00C2", "Â");
+        unicodeCodePoint.put("U+00C3", "Ã");
+        unicodeCodePoint.put("U+00C4", "Ä");
+        unicodeCodePoint.put("U+00C5", "Å");
+        unicodeCodePoint.put("U+00C6", "Æ");
+        unicodeCodePoint.put("U+00C7", "Ç");
+        unicodeCodePoint.put("U+00C8", "È");
+        unicodeCodePoint.put("U+00C9", "É");
+        unicodeCodePoint.put("U+00CA", "Ê");
+        unicodeCodePoint.put("U+00CB", "Ë");
+        unicodeCodePoint.put("U+00CC", "Ì");
+        unicodeCodePoint.put("U+00CD", "Í");
+        unicodeCodePoint.put("U+00CE", "Î");
+        unicodeCodePoint.put("U+00CF", "Ï");
+        unicodeCodePoint.put("U+00D0", "Ð");
+        unicodeCodePoint.put("U+00D1", "Ñ");
+        unicodeCodePoint.put("U+00D2", "Ò");
+        unicodeCodePoint.put("U+00D3", "Ó");
+        unicodeCodePoint.put("U+00D4", "Ô");
+        unicodeCodePoint.put("U+00D5", "Õ");
+        unicodeCodePoint.put("U+00D6", "Ö");
+        unicodeCodePoint.put("U+00D7", "×");
+        unicodeCodePoint.put("U+00D8", "Ø");
+        unicodeCodePoint.put("U+00D9", "Ù");
+        unicodeCodePoint.put("U+00DA", "Ú");
+        unicodeCodePoint.put("U+00DB", "Û");
+        unicodeCodePoint.put("U+00DC", "Ü");
+        unicodeCodePoint.put("U+00DD", "Ý");
+        unicodeCodePoint.put("U+00DE", "Þ");
+        unicodeCodePoint.put("U+00DF", "ß");
+        unicodeCodePoint.put("U+00E0", "à");
+        unicodeCodePoint.put("U+00E1", "á");
+        unicodeCodePoint.put("U+00E2", "â");
+        unicodeCodePoint.put("U+00E3", "ã");
+        unicodeCodePoint.put("U+00E4", "ä");
+        unicodeCodePoint.put("U+00E5", "å");
+        unicodeCodePoint.put("U+00E6", "æ");
+        unicodeCodePoint.put("U+00E7", "ç");
+        unicodeCodePoint.put("U+00E8", "è");
+        unicodeCodePoint.put("U+00E9", "é");
+        unicodeCodePoint.put("U+00EA", "ê");
+        unicodeCodePoint.put("U+00EB", "ë");
+        unicodeCodePoint.put("U+00EC", "ì");
+        unicodeCodePoint.put("U+00ED", "í");
+        unicodeCodePoint.put("U+00EE", "î");
+        unicodeCodePoint.put("U+00EF", "ï");
+        unicodeCodePoint.put("U+00F0", "ð");
+        unicodeCodePoint.put("U+00F1", "ñ");
+        unicodeCodePoint.put("U+00F2", "ò");
+        unicodeCodePoint.put("U+00F3", "ó");
+        unicodeCodePoint.put("U+00F4", "ô");
+        unicodeCodePoint.put("U+00F5", "õ");
+        unicodeCodePoint.put("U+00F6", "ö");
+        unicodeCodePoint.put("U+00F7", "÷");
+        unicodeCodePoint.put("U+00F8", "ø");
+        unicodeCodePoint.put("U+00F9", "ù");
+        unicodeCodePoint.put("U+00FA", "ú");
+        unicodeCodePoint.put("U+00FB", "û");
+        unicodeCodePoint.put("U+00FC", "ü");
+        unicodeCodePoint.put("U+00FD", "ý");
+        unicodeCodePoint.put("U+00FE", "þ");
 
-            @Override
-            public void directory(File directory) throws Exception {
-                System.out.println("Loading files from: " + directory.getAbsolutePath());
-            }
-        };
-        FileWalker walker = new FileWalker();
-        walker.setHandler(handler);
-        try {
-            walker.walk(preload);
-        } catch (Exception e) {
-            System.out.println("Error during the Search");
-        }
-        return listFiles;
     }
-
-
-    //////////////////////////////////////////////////////////////////////////////////////////////
 
     /**
      * Read small and large file of text
@@ -2185,25 +2971,7 @@ public class FileUtilities {
      * @return ASCII encoding of output.
      */
     public static List<String> toAscii(File UTF8) {
-        try {
-            List<String> list = new ArrayList<>();
-            if (UTF8 == null) {
-                logger.info("=== Usage: java UTF8ToAscii <filename> ===");
-                return null;
-            }
-            try (BufferedReader r = new BufferedReader(new InputStreamReader(new FileInputStream(UTF8), "UTF-8"))) {
-                String line = r.readLine();
-                while (line != null) {
-                    logger.info(unicodeEscape(line));
-                    line = r.readLine();
-                    list.add(line);
-                }
-            }
-            return list;
-        } catch (IOException e) {
-            logger.error(e.getMessage(), e);
-            return null;
-        }
+        return read(UTF8,StandardCharsets.US_ASCII);
     }
 
     /**
@@ -2214,26 +2982,12 @@ public class FileUtilities {
      * @param ASCII file of input in ASCII encoding.
      * @return UTF8 file of input in UTF8 encoding.
      */
+    public static List<String> toUTF8(Path ASCII) {
+        return read(ASCII,StandardCharsets.UTF_8);
+    }
+
     public static List<String> toUTF8(File ASCII) {
-        try {
-            List<String> list = new ArrayList<>();
-            if (ASCII == null) {
-                logger.info(" === Usage: java UnicodeEscape2UTF8 <filename> ===");
-                return null;
-            }
-            try (BufferedReader r = new BufferedReader(new FileReader(ASCII))) {
-                String line = r.readLine();
-                while (line != null) {
-                    line = convertUnicodeEscapeToASCII(line);
-                    byte[] bytes = line.getBytes("UTF-8");
-                    list.add(toString(bytes));
-                }
-            }
-            return list;
-        } catch (IOException e) {
-            logger.error(e.getMessage(), e);
-            return null;
-        }
+        return toUTF8(ASCII.toPath());
     }
 
     /**
@@ -2243,12 +2997,31 @@ public class FileUtilities {
      * @return the File converted to UTF8 encoding.
      */
     public static File writeToUTF8(File fileASCII) {
-        List<String> list = toUTF8(fileASCII);
-        File fileUTF8 = new File(fileASCII.getAbsolutePath());
-        //fileASCII = new File(filePathASCII);
+      /*  List<String> list = toUTF8(fileASCII);
+        Path fileUTF8 = Paths.get(fileASCII.getAbsolutePath());
         write(list, fileUTF8, StandardCharsets.US_ASCII, StandardCharsets.UTF_8);
-        boolean delete = fileASCII.delete();
-        return fileUTF8;
+        if(!fileASCII.delete()) {
+            logger.warn("Can't delete the file:"+fileASCII.getAbsolutePath());
+            return null;
+        }
+        return fileUTF8.toFile();*/
+        return writeToUTF8(fileASCII.toPath());
+    }
+
+    public static File writeToUTF8(Path fileASCII) {
+        List<String> list = toUTF8(fileASCII);
+        Path fileUTF8 = Paths.get(fileASCII.toAbsolutePath().toString());
+        write(list, fileUTF8, StandardCharsets.US_ASCII, StandardCharsets.UTF_8);
+        try {
+            if(!Files.deleteIfExists(fileASCII)) {
+                logger.warn("Can't delete the file:"+fileASCII.toAbsolutePath().toString());
+                return null;
+            }
+        } catch (IOException e) {
+            logger.error(e.getMessage(),e);
+            return null;
+        }
+        return fileUTF8.toFile();
     }
 
     /**
@@ -2259,11 +3032,14 @@ public class FileUtilities {
      */
     public static File writeToASCII(File fileUTF8) {
         List<String> list = toAscii(fileUTF8);
-        File fileAscii = new File(fileUTF8.getAbsolutePath());
+        //File fileAscii = new File(fileUTF8.getAbsolutePath());
+        Path fileAscii = Paths.get(fileUTF8.getAbsolutePath());
         write(list, fileAscii, null, StandardCharsets.US_ASCII);
-        boolean b = fileUTF8.delete();
-        if(!b) return null;
-        return fileAscii;
+        if(!fileUTF8.delete()) {
+            logger.warn("Can't delete the file:"+fileUTF8.getAbsolutePath());
+            return null;
+        }
+        return fileAscii.toFile();
     }
 
    /* private static final char[] hexChar = {'0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'};
@@ -2368,27 +3144,28 @@ public class FileUtilities {
      * @param fileOutput string name of the file.
      */
     private static File writeToFile(String str, File fileOutput) {
-        write(Collections.singletonList(str), fileOutput, Charset.defaultCharset(), StandardCharsets.UTF_8);
+        write(Collections.singletonList(str), fileOutput.toPath(), StandardCharsets.UTF_8, StandardCharsets.UTF_8);
         return fileOutput;
     }
 
     public static File write(String str, File fileOutput) {
-        write(Collections.singletonList(str), fileOutput, Charset.defaultCharset(), StandardCharsets.UTF_8);
+        write(Collections.singletonList(str), fileOutput.toPath(), StandardCharsets.UTF_8, StandardCharsets.UTF_8);
         return fileOutput;
     }
 
     public static boolean write(Collection<String> collectionContent, File fileOutput) {
-        return write(collectionContent, fileOutput, null, null);
+        return write(collectionContent, fileOutput.toPath(), null, null);
     }
 
     public static boolean write(Collection<String> collectionContent, File fileOutput, Charset encodingOutput) {
-        return write(collectionContent, fileOutput, null, encodingOutput);
+        return write(collectionContent, fileOutput.toPath(), null, encodingOutput);
     }
 
-    public static boolean write(Collection<String> collectionContent, File fileOutput, Charset encodingInput, Charset encodingOutput) {
+/*    public static boolean write(Collection<String> collectionContent, File fileOutput, Charset encodingInput, Charset encodingOutput) {
         boolean replace = false;
         if (encodingInput != null) {
             Collection<String> newCol = new ArrayList<>();
+            //Brute force encoding conversion.....
             for (String s : collectionContent) {
                 if (encodingInput.name().equals(StandardCharsets.US_ASCII.name())) s = toASCII(s);
                 if (encodingInput.name().equals(StandardCharsets.UTF_8.name())) s = toUTF8(s);
@@ -2403,6 +3180,52 @@ public class FileUtilities {
         if (encodingOutput.name().toUpperCase().startsWith("UTF")) replace = true;
         logger.info("Try to writing to file named " + fileOutput.getAbsolutePath() + " with Encoding: " + encodingOutput.name());
         Path path = Paths.get(fileOutput.getAbsolutePath());
+        try (BufferedWriter writer = Files.newBufferedWriter(path, encodingOutput)) {
+            for (String line : collectionContent) {
+                if (replace) {
+                    for (Map.Entry<String, String> entry : unicodeCodePoint.entrySet()) {
+                        try {
+                            String s = entry.getKey().replace("U+", "\\u");
+                            if (line.contains(s)) line = line.replace(s, entry.getValue());
+                        } catch (java.lang.NullPointerException ne) {
+                            break;
+                        }
+                    } //foreach entry
+                }
+                //With printwriter..
+                *//*try (PrintWriter outWriter = new PrintWriter(writer)) {
+                    outWriter.println(line);
+                }*//*
+                writer.write(line + System.getProperty("line.separator"));
+                //writer.newLine();
+                writer.flush();
+            }
+            return true;
+        } catch (java.lang.NullPointerException | IOException e) {
+            logger.error(e.getMessage(), e);
+            return false;
+        }
+    }*/
+
+    public static boolean write(Collection<String> collectionContent, Path fileOutput, Charset encodingInput, Charset encodingOutput) {
+        boolean replace = false;
+        if (encodingInput != null) {
+            Collection<String> newCol = new ArrayList<>();
+            //Brute force encoding conversion.....
+            for (String s : collectionContent) {
+                if (encodingInput.name().equals(StandardCharsets.US_ASCII.name())) s = toASCII(s);
+                if (encodingInput.name().equals(StandardCharsets.UTF_8.name())) s = toUTF8(s);
+                newCol.add(s);
+            }
+            if (encodingInput.name().equals(StandardCharsets.UTF_8.name())) replace = true;
+            collectionContent = new ArrayList<>();
+            collectionContent.addAll(newCol);
+            newCol.clear();
+        }
+        if (encodingOutput == null) encodingOutput = StandardCharsets.UTF_8;
+        if (encodingOutput.name().toUpperCase().startsWith("UTF")) replace = true;
+        logger.info("Try to writing to file named " + fileOutput.toAbsolutePath().toString() + " with Encoding: " + encodingOutput.name());
+        Path path = Paths.get(fileOutput.toAbsolutePath().toString());
         try (BufferedWriter writer = Files.newBufferedWriter(path, encodingOutput)) {
             for (String line : collectionContent) {
                 if (replace) {
@@ -2430,38 +3253,33 @@ public class FileUtilities {
         }
     }
 
+    public static boolean write(Collection<String> collectionContent, File fileOutput, Charset encodingInput, Charset encodingOutput) {
+        return write(collectionContent, fileOutput.toPath(), encodingInput, encodingOutput);
+    }
+
     public static boolean write(File fileInput, File fileOutput, Charset encodingInput, Charset encodingOutput) {
         return write(read(fileInput, encodingInput), fileOutput, encodingInput, encodingOutput);
     }
 
-    public static Collection<String> read(File fileInput, Charset encodingInput) {
+    public static List<String> read(File fileInput, Charset encodingInput) {
+       return read(fileInput.toPath(),encodingInput);
+    }
+
+    public static List<String> read(Path fileInput, Charset encodingInput) {
+        if(fileInput == null){
+            logger.warn("The fileInput we try to read is a NULL object.");
+            return new ArrayList<>();
+        }
         if (encodingInput == null) encodingInput = StandardCharsets.UTF_8;
-        Collection<String> collection = new ArrayDeque<>();
+        List<String> collection = new ArrayList<>();
         try {
-            //FileInputStream fis = new FileInputStream(fileInput);
-            // try (Scanner scanner = new Scanner(new FileInputStream(aFile), encoding.name())) {
-            // try (BufferedReader reader = Files.newBufferedReader(path, encoding)) {
-            //try (BufferedReader bufferedReader = new BufferedReader(new FileReader(file))) {
-            try (BufferedReader in = new BufferedReader(new InputStreamReader(new FileInputStream(fileInput), encodingInput))) {
-                //with bytes...
-                /*int ch;
-                while ((ch = in.read()) > -1) {
-                    collection.add((char) ch);
-                }*/
-                //with Scanner...
-                /*while (scanner.hasNextLine()) {
-                    collection.add(scanner.nextLine() + System.getProperty("line.separator"));
-                }*/
-                //with stream for...
-               /* for(String line; (line = in.readLine()) != null;) {
-                    collection.add(line+System.getProperty("line.separator"));
-                }*/
-                //with stream while...
+           /* try (BufferedReader in = new BufferedReader(new InputStreamReader(new FileInputStream(fileInput), encodingInput))) {
                 String line;
-                while ((line = in.readLine()) != null) {
-                    //process each line in some way
-                    collection.add(line);
-                }
+                while ((line = in.readLine()) != null) {collection.add(line);}
+            }*/
+            //read file into stream, try-with-resources
+            try (Stream<String> stream = Files.lines(fileInput,encodingInput)) {
+               collection.addAll(stream.collect(Collectors.toList()));
             }
             return collection;
         } catch (IOException e) {
@@ -2470,26 +3288,51 @@ public class FileUtilities {
         }
     }
 
+    public static String readAll(File fileInput, Charset encodingInput) {
+        return readAll(fileInput.toPath(),encodingInput);
+    }
+
+    public static String readAll(Path fileInput, Charset encodingInput) {
+        List<String> list = read(fileInput,encodingInput);
+        StringBuilder sb = new StringBuilder();
+        for(String s: list){
+            sb.append(s).append(System.getProperty("line.separator"));
+        }
+        return sb.toString();
+    }
+
+    public static List<String> read(File fileInput) {
+        return read(fileInput.toPath(),StandardCharsets.UTF_8);
+    }
+
+    public static List<String> read(Path fileInput) {
+        return read(fileInput,StandardCharsets.UTF_8);
+    }
+
+    public static String readAll(File fileInput) {
+        return readAll(fileInput.toPath(),StandardCharsets.UTF_8);
+    }
+
+    public static String readAll(Path fileInput) {
+        return readAll(fileInput,StandardCharsets.UTF_8);
+    }
+
     /**
      * Method to read a {@link File}
      * @param file the {@link File}.
      * @return the {@link InputStreamReader}.
      */
-    public static InputStreamReader read(File file) {
-        FileInputStream inputSreamfile;
+    public static InputStreamReader readInputStream(File file) {
+        return readInputStream(file.toPath());
+    }
+
+    public static InputStreamReader readInputStream(Path file){
         try {
-            inputSreamfile = new FileInputStream(file);
-        } catch (FileNotFoundException e) {
-            logger.info(e.getMessage(),e);
+            return new InputStreamReader(Files.newInputStream(file), "UTF-8");
+        } catch (IOException e) {
+            logger.error(e.getMessage(),e);
             return null;
         }
-        InputStreamReader in = null;
-        try {
-            in = new InputStreamReader(inputSreamfile, "UTF-8");
-        } catch (UnsupportedEncodingException e) {
-            logger.error(e.getMessage(),e);
-        }
-        return in;
     }
 
     /**
@@ -2506,7 +3349,7 @@ public class FileUtilities {
     }
 
     public static String toString(File file) {
-        return toString(file.toPath(),Charset.defaultCharset());
+        return toString(file.toPath(),StandardCharsets.UTF_8);
     }
     /**
      * Method to get the String content of the File.
@@ -2519,11 +3362,28 @@ public class FileUtilities {
      */
     public static String toString(Path path, Charset encoding) {
         try {
-            return new String(Files.readAllBytes(path), encoding);
+            if(isFileExists(path)) {
+                return new String(Files.readAllBytes(path), encoding);
+            }else{
+                logger.error("The file "+path.toAbsolutePath().toString());
+                return "N/A";
+            }
         } catch (IOException e) {
             logger.error(e.getMessage(), e);
-            return null;
+            return "N/A";
         }
+    }
+
+    /**
+     * Method to get the String content of the File.
+     * href: http://www.adam-bien.com/roller/abien/entry/java_8_reading_a_file
+     * href: http://stackoverflow.com/questions/16919501/create-a-path-from-string-in-java7
+     *
+     * @param path     the Path top the File to copy.
+     * @return the String of the content of the File.
+     */
+    public static String toString(Path path) {
+        return toString(path,StandardCharsets.UTF_8);
     }
 
     /**
@@ -2581,20 +3441,6 @@ public class FileUtilities {
      */
     public static byte[] toBytes(File fileInput) {
         return toBytes(fileInput.toPath());
-        //OLD_METHOD
-        /*ByteArrayOutputStream bs;
-        try (BufferedInputStream in = new BufferedInputStream(new FileInputStream(fileInput))) {
-            bs = new ByteArrayOutputStream();
-            try (BufferedOutputStream out = new BufferedOutputStream(bs)) {
-                byte[] ioBuf = new byte[4096];
-                int bytesRead;
-                while ((bytesRead = in.read(ioBuf)) != -1) out.write(ioBuf, 0, bytesRead);
-            }
-            return bs.toByteArray();
-        }catch(IOException e){
-            logger.error(e.getMessage(),e);
-            return null;
-        }*/
     }
 
     /**
@@ -2606,12 +3452,8 @@ public class FileUtilities {
      * @return if true all the operation are done.
      */
     public static boolean write(File fileOutput, byte[] bbuf) {
-        try (BufferedInputStream in = new BufferedInputStream(new ByteArrayInputStream(bbuf))) {
-            try (BufferedOutputStream out = new BufferedOutputStream(new FileOutputStream(fileOutput))) {
-                byte[] ioBuf = new byte[4096];
-                int bytesRead;
-                while ((bytesRead = in.read(ioBuf)) != -1) out.write(ioBuf, 0, bytesRead);
-            }
+        try{
+            Files.write(fileOutput.toPath(),bbuf,StandardOpenOption.WRITE);
             return true;
         }//try
         catch (IOException e) {
@@ -2626,23 +3468,15 @@ public class FileUtilities {
      *
      * @param fileToUpdate the File to update.
      * @param textToAppend the String text to append.
+     * @return the {@link Boolean} is true if all the operations are done.
      */
-    public static void appendToFile(File fileToUpdate, String textToAppend) {
-        BufferedWriter bw = null;
+    public static Boolean appendToFile(File fileToUpdate, String textToAppend) {
         try {
-            bw = new BufferedWriter(new FileWriter(fileToUpdate, true));
-            bw.write(textToAppend);
-            bw.flush();
+            Files.write(fileToUpdate.toPath(),textToAppend.getBytes(),StandardOpenOption.APPEND);
+            return true;
         } catch (IOException e) {
-            logger.error(e.getMessage(), e);
-        } finally { // always close the file
-            if (bw != null)
-                try {
-                    bw.close();
-                } catch (IOException ignored) {
-                }
+            return false;
         }
-
     }
 
     /**
@@ -2652,47 +3486,34 @@ public class FileUtilities {
      * @return if true the String path reference to a File.
      */
     public static boolean isFileValid(String file) {
-        try {
+        /*try {
             File f = new File(file);
             if (f.isFile() && !f.isDirectory()) return true;
             f = new File(getDirectoryUser() + file);
             if (f.isFile() && !f.isDirectory()) return true;
-            /*f = new File(getDirectoryUser() + file);
-            if (f.isFile() && !f.isDirectory()) return true;*/
+            *//*f = new File(getDirectoryUser() + file);
+            if (f.isFile() && !f.isDirectory()) return true;*//*
             if (f.exists())return f.canWrite();
             //else
             if(f.createNewFile()){
-                if(f.delete()){
-                    return true;
-                }
+                if(f.delete())return true;
             }
             if (f.isDirectory()) logger.warn("The path:" + file + " is a directory");
             return false;
         } catch (Exception e) {
             logger.error(e.getMessage(), e);
             return false;
+        }*/
+        try {
+            //The toRealPath() method returns the real path of an existing file.
+            //Note that a real file is required in the file system, otherwise there will be an exception:
+            Path path = Paths.get(file);
+            Path real = path.toRealPath();
+            return true;
         }
-    }
-
-    public InputStream getFromResourceAsStream(String name) {
-        return ClassLoaderUtil.getResourceAsStream(name);
-    }
-
-    /**
-     * Returns a human-readable version of the file size (original is in
-     * bytes).
-     *
-     * @param size The number of bytes.
-     * @return A human-readable display value (includes units).
-     */
-    public static String byteCountToDisplaySize( int size ) {
-        String displaySize;
-        int ONE_KB = 1024,ONE_MB = ONE_KB * ONE_KB,ONE_GB = ONE_MB * ONE_KB;
-        if ( size / ONE_GB > 0 ) displaySize = String.valueOf( size / ONE_GB ) + " GB";
-        else if ( size / ONE_MB > 0 ) displaySize = String.valueOf( size / ONE_MB ) + " MB";
-        else if ( size / ONE_KB > 0 )displaySize = String.valueOf( size / ONE_KB ) + " KB";
-        else displaySize = String.valueOf( size ) + " bytes";
-        return displaySize;
+        catch (IOException e) {
+            return false;
+        }
     }
 
     /**
@@ -2707,10 +3528,7 @@ public class FileUtilities {
      * @return the {@link Boolean} is true the file exists and is valid.
      */
     public static Boolean isFileExists(String  pathToFile) {
-       /* File file = new File(pathToFile);
-        Path path = Paths.get(pathToFile);
-        return file.isFile() && file.exists() || Files.exists(path) && Files.isRegularFile(path);*/
-        return isFileExists(new File(pathToFile));
+        return isFileExists(Paths.get(pathToFile));
     }
 
     /**
@@ -2719,8 +3537,16 @@ public class FileUtilities {
      * @return the {@link Boolean} is true the file exists and is valid.
      */
     public static Boolean isFileExists(File file) {
-        Path path = Paths.get(file.getAbsolutePath());
-        return file.isFile() && file.exists() || Files.exists(path) && Files.isRegularFile(path);
+        return file!=null && file.isFile() && file.exists();
+    }
+
+    /**
+     * Method to check is a directory file exists and is valid.
+     * @param path tje {@link Path} path to the file to check.
+     * @return the {@link Boolean} is true the file exists and is valid.
+     */
+    public static Boolean isFileExists(Path path) {
+        return path !=null && Files.exists(path) && Files.isRegularFile(path);
     }
 
     /**
@@ -2729,10 +3555,7 @@ public class FileUtilities {
      * @return the {@link Boolean} is true the file exists and is valid.
      */
     public static Boolean isDirectoryExists(String pathToFile) {
-        /*File file = new File(pathToFile);
-        Path path = Paths.get(pathToFile);
-        return file.isDirectory() && file.exists() || Files.exists(path) && Files.isDirectory(path);*/
-        return isDirectoryExists(new File(pathToFile));
+        return isDirectoryExists(Paths.get((pathToFile)));
     }
 
     /**
@@ -2741,18 +3564,130 @@ public class FileUtilities {
      * @return the {@link Boolean} is true the file exists and is valid.
      */
     public static Boolean isDirectoryExists(File file) {
-        Path path = Paths.get(file.getAbsolutePath());
-        return file.isDirectory() && file.exists() || Files.exists(path) && Files.isDirectory(path);
+        return file != null && file.isDirectory() && file.exists();
     }
 
-    /*public static boolean isDirectory(File file) {
-        if (file.exists()) {
-            return !file.isFile() && file.isDirectory();
-        } else {
-            logger.warn("The file:" + file.getAbsolutePath() + " not exists!");
-            return false;
-        }
-    }*/
+    /**
+     * Method to check is a directory file exists and is valid.
+     * @param path tje {@link Path} path to the file to check.
+     * @return the {@link Boolean} is true the file exists and is valid.
+     */
+    public static Boolean isDirectoryExists(Path path) {
+        return path != null && Files.exists(path) && Files.isDirectory(path);
+    }
+
+    /**
+     * Method to check the file is pointed to a absolute reference.
+     * @param pathToFile the {@link String} path to the file.
+     * @return the {@link Boolean} is true if the file is referenced from absolute reference.
+     */
+    public static Boolean isAbsolute(String pathToFile){
+        return isAbsolute(new File(pathToFile));
+    }
+
+    /**
+     * Method to check the file is pointed to a absolute reference.
+     * @param file the {@link File} to analyze..
+     * @return the {@link Boolean} is true if the file is referenced from absolute reference.
+     */
+    public static Boolean isAbsolute(File file){
+         return file.isAbsolute() || isAbsolute(file.toPath());
+    }
+
+    /**
+     * Method to check the file is pointed to a absolute reference.
+     * @param path the {@link Path} to the file.
+     * @return the {@link Boolean} is true if the file is referenced from absolute reference.
+     */
+    public static Boolean isAbsolute(Path path){
+        return path.isAbsolute();
+    }
+
+    /**
+     * Method to check the file is pointed to a relative reference.
+     * @param pathToFile the {@link String} path to the file.
+     * @return the {@link Boolean} is true if the file is referenced from relative reference.
+     */
+    public static Boolean isRelative(String pathToFile){
+        return !isAbsolute(pathToFile);
+    }
+
+    /**
+     * Method to check the file is pointed to a relative reference.
+     * @param file the {@link File} path to the file.
+     * @return the {@link Boolean} is true if the file is referenced from relative reference.
+     */
+    public static Boolean isRelative(File file){
+        return !isAbsolute(file);
+    }
+
+    /**
+     * Method to check the file is pointed to a relative reference.
+     * @param path the {@link Path} path to the file.
+     * @return the {@link Boolean} is true if the file is referenced from relative reference.
+     */
+    public static Boolean isRelative(Path path){
+        return !isAbsolute(path);
+    }
+
+    /**
+     * Method to check if  a file is direct son of the parent directory.
+     * @param directory the {@link File} directory.
+     * @param child the {@link String} path of the son.
+     * @return the {@link Boolean} is true if the file is founded and exists.
+     */
+    public static Boolean isFileOnDirectory(File directory,String child){
+        if(child.startsWith(File.separator)) child = child.substring(1,child.length());
+        if(child.endsWith(File.separator)) child = child.substring(0,child.length()-1);
+        return new File(directory,child).exists();
+    }
+
+    /**
+     * Method to check if  a file is direct son of the parent directory.
+     * @param directory the {@link String} directory.
+     * @param child the {@link String} path of the son.
+     * @return the {@link Boolean} is true if the file is founded and exists.
+     */
+    public static Boolean isFileOnDirectory(String directory,String child){
+        if(child.startsWith(File.separator)) child = child.substring(1,child.length());
+        if(child.endsWith(File.separator)) child = child.substring(0,child.length()-1);
+        if(directory.endsWith(File.separator)) directory = directory.substring(0,directory.length()-1);
+        return new File(directory,child).exists();
+    }
+
+    /**
+     * Method to check if  a file is direct son of the parent directory.
+     * @param directory the {@link Path} directory.
+     * @param child the {@link String} path of the son.
+     * @return the {@link Boolean} is true if the file is founded and exists.
+     */
+    public static Boolean isFileOnDirectory(Path directory,String child){
+        if(child.startsWith(File.separator)) child = child.substring(1,child.length());
+        if(child.endsWith(File.separator)) child = child.substring(0,child.length()-1);
+        return Files.exists(Paths.get(getPath(directory),child));
+    }
+
+    /**
+     * Method to rename the extension of a file.
+     * @param source the {@link File} the file.
+     * @param newExtension the {@link String} name o f the new extension.
+     * @param tempMode the {@link Boolean} rename the file only on java memory not on the disk.
+     * @return the {@link String} name of the file without extension.
+     */
+    public static File renameExtensionFile(File source, String newExtension,boolean tempMode){
+        return new File(renameExtension(source.getAbsolutePath(),newExtension,tempMode));
+    }
+
+    /**
+     * Method to rename the extension of a file.
+     * @param source the {@link Path} the file.
+     * @param newExtension the {@link String} name o f the new extension.
+     * @param tempMode the {@link Boolean} rename the file only on java memory not on the disk.
+     * @return the {@link String} name of the file without extension.
+     */
+    public static Path renameExtensionPath(Path source, String newExtension,boolean tempMode){
+        return Paths.get(renameExtension(source.toAbsolutePath().toString(),newExtension,tempMode));
+    }
 
     /**
      * Method to rename the extension of a file.
@@ -2763,6 +3698,17 @@ public class FileUtilities {
      */
     public static String renameExtension(File source, String newExtension,boolean tempMode){
         return renameExtension(source.getAbsolutePath(),newExtension,tempMode);
+    }
+
+    /**
+     * Method to rename the extension of a file.
+     * @param source the {@link Path} the file.
+     * @param newExtension the {@link String} name o f the new extension.
+     * @param tempMode the {@link Boolean} rename the file only on java memory not on the disk.
+     * @return the {@link String} name of the file without extension.
+     */
+    public static String renameExtension(Path source, String newExtension,boolean tempMode){
+        return renameExtension(source.toAbsolutePath().toString(),newExtension,tempMode);
     }
 
     /**
@@ -2785,7 +3731,7 @@ public class FileUtilities {
         }
         File file = new File(source);
         if(tempMode) return target;
-        if(file.renameTo(new File(target))){
+        if(isFileExists(file) && file.renameTo(new File(target))){
             if(isFileExists(target)) {
                 return target;
             }else{
@@ -2819,6 +3765,25 @@ public class FileUtilities {
 
     /**
      * Method to remove the extension from a file
+     * @param file the {@link File} path to the file.
+     * @return the {@link File} name of the file without extension.
+     */
+    public static Path removeExtension(Path file) {
+        String fileName = file.toAbsolutePath().toString();
+        int extPos = fileName.lastIndexOf(".");
+        if(extPos == -1) return file;
+        else{
+            if(renameTo(file,Paths.get(fileName.substring(0, extPos)))){
+                return file;
+            }else{
+                logger.error("Can't remove the extension of the file:"+file.toAbsolutePath());
+                return file;
+            }
+        }
+    }
+
+    /**
+     * Method to remove the extension from a file
      * @param fileName the {@link String} path to the file.
      * @return the {@link String} name of the file without extension.
      */
@@ -2827,6 +3792,346 @@ public class FileUtilities {
         if(extPos == -1)return fileName;
         else return fileName.substring(0, extPos);
     }
+
+    /**
+     * Method to convert a collection of path to a collection of File.
+     * @param paths the {@link List} of {@link Path} to convert.
+     * @return  the {@link List} of {@link File}.
+     */
+    public static List<File> toFiles(List<Path> paths){
+        List<File> files = new ArrayList<>();
+        for(Path path: paths){
+            files.add(path.toFile());
+        }
+        return files;
+    }
+
+    /**
+     * Method to convert a collection of path to a collection of File.
+     * @param files the {@link List} of {@link File} to convert.
+     * @return the {@link List} of {@link Path}.
+     */
+    public static List<Path> toPaths(List<File> files){
+        List<Path> paths = new ArrayList<>();
+        for(File file: files){
+            paths.add(file.toPath());
+        }
+        return paths;
+    }
+
+    ///////////////////////////////////////////////////////////////////////////////////
+    // REPLICATED FILE METHODS WITH JAVA NIO
+    // HELP MYSELF TO UPDATE MY CODE FORM THE USE OF FILE TO PATH
+    ///////////////////////////////////////////////////////////////////////////////////
+
+    public static Path[] listFilesDirectories(Path path) {
+        DirectoryStream.Filter<? super Path> filter = new DirectoryStream.Filter<Path>() {
+            @Override
+            public boolean accept(Path entry) throws IOException {
+                return Files.isDirectory(entry);
+            }
+        };
+        return listFiles(path,filter);
+    }
+
+    public static Path[] listFiles(Path path) {
+        return listFiles(path,null);
+    }
+
+    public static Path[] listFiles(Path path,DirectoryStream.Filter<? super Path> filter){
+        List<Path> list = new ArrayList<>();
+        try (DirectoryStream<Path>  stream =
+                     filter!=null?Files.newDirectoryStream(path,filter):Files.newDirectoryStream(path)){
+            for(Path path2 : stream){
+                list.add(path2);
+            }
+            return list.toArray(new Path[list.size()]);
+        } catch (IOException e) {
+            return list.toArray(new Path[list.size()]);
+        }
+    }
+    public static Path[] listFilesRecursively(Path path){
+        return listFilesRecursively(path,null);
+    }
+
+    public static Path[] listFilesRecursively(Path path,DirectoryStream.Filter<? super Path> filter){
+        List<Path> list = new ArrayList<>();
+        try (DirectoryStream<Path>  stream =
+                     filter!=null?Files.newDirectoryStream(path,filter):Files.newDirectoryStream(path)){
+            for(Path path2 : stream){
+                if (Files.isDirectory(path2))
+                    if(filter!=null)
+                        listFilesRecursively(path2,filter);
+                    else
+                        listFilesRecursively(path2);
+                else list.add(path2);
+            }
+            return list.toArray(new Path[list.size()]);
+        } catch (IOException e) {
+            logger.error(e.getMessage());
+            return list.toArray(new Path[list.size()]);
+        }
+    }
+
+    public static Path[] listFilesWithVisitor(Path path){
+        /*http://stackoverflow.com/questions/20987214/recursively-list-all-files-within-a-directory-using-nio-file-directorystream*/
+        final List<Path> list = new ArrayList<>();
+        try {
+            Files.walkFileTree(path, new SimpleFileVisitor<Path>(){
+                @Override
+                public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
+                    if(!attrs.isDirectory()){
+                        list.add(file);
+                    }
+                    return FileVisitResult.CONTINUE;
+                }
+            });
+        } catch (IOException e) {
+            logger.error(e.getMessage(),e);
+        }
+        return list.toArray(new Path[list.size()]);
+    }
+
+    public static String[] list(Path path){
+        DirectoryStream.Filter<? super Path> filter = new DirectoryStream.Filter<Path>() {
+            @Override
+            public boolean accept(Path entry) throws IOException
+            {
+                return Files.isDirectory(entry);
+            }
+        };
+        try(DirectoryStream<Path> stream = Files.newDirectoryStream(path,filter)) {
+            List<String> list = new ArrayList<>();
+            for (Path path2 : stream) {
+                list.add(path2.getFileName().toString());
+            }
+            return list.toArray(new String[list.size()]);
+        }catch(IOException e){
+            logger.error(e.getMessage(),e);
+            return new String[0];
+        }
+    }
+
+    /**
+     * Method to create a directories.
+     *
+     * @param path the {@link Path}  location of the directory.
+     * @return if true you have created the directory.
+     */
+    public static Boolean mkdirs(Path path) {
+        try {
+            Files.createDirectories(path.getParent());
+            return true;
+        } catch (IOException e) {
+            return false;
+        }
+    }
+
+    /**
+     * Method to create a directory.
+     *
+     * @param path the {@link Path}  location of the directory.
+     * @return if true you have created the directory.
+     */
+    public static Boolean mkdir(Path path){
+        try {
+            Files.createDirectory(path);
+            return true;
+        } catch (IOException e) {
+            logger.error(e.getMessage());
+            return false;
+        }
+    }
+
+    /**
+     * Method to create a directory.
+     *
+     * @param file the {@link File}  location of the directory.
+     * @return if true you have created the directory.
+     * @deprecated use {@link #mkdir(Path)} instead.
+     */
+    @Deprecated
+    public static Boolean mkdir(File file){
+        boolean b =file.mkdir();
+        if(!b)logger.error("Can't create the directory "+file.getAbsolutePath());
+        return b;
+    }
+
+    /**
+     * Method to create a directory.
+     *
+     * @param fullPathDir string path to the location of the directory.
+     * @return if true you have created the directory.
+     * @deprecated use {@link #mkdir(Path)} instead.
+     */
+    @Deprecated
+    public static Boolean createDirectory(String fullPathDir) {
+        return mkdir(fullPathDir);
+    }
+
+    /**
+     * Method to create a directory.
+     *
+     * @param fullPathDir string path to the location of the directory.
+     * @return if true you have created the directory.
+     */
+    public static Boolean mkdir(String fullPathDir){
+        //return new File(fullPathDir).mkdirs();
+        return mkdir(Paths.get(fullPathDir));
+    }
+
+    public static Boolean createNewFile(Path path){
+        try {
+            Files.createFile(path);
+            return true;
+        } catch (IOException e) {
+            logger.error(e.getMessage());
+            return false;
+        }
+    }
+
+    public static Boolean delete(Path path) {
+        try {
+            return Files.deleteIfExists(path);
+        } catch (IOException e) {
+            logger.error(e.getMessage());
+            return false;
+        }
+    }
+
+    public static Boolean delete(String path) {
+        return delete(Paths.get(path));
+    }
+
+    /**
+     * Method for delete a file.
+     * @param file the {@link File} to delete.
+     * @return the {@link Boolean} if true the file is delete with success.
+     * @deprecated use {@link #delete(Path)} instead.
+     */
+    @Deprecated
+    public static Boolean delete(File file) {
+        return file.delete();
+    }
+
+    /**
+     * Method for delete a file.
+     * @param file the {@link File} to delete.
+     * @deprecated use {@link #delete(Path)} instead.
+     */
+    @Deprecated
+    public static void deleteOnExit(File file) {
+        file.deleteOnExit();
+    }
+
+    public static Boolean setLastModified(Path path,FileTime fileTime){
+        //FileTime fileTime = FileTime.from(1600, TimeUnit.DAYS);
+        try {
+            Files.setLastModifiedTime(path,fileTime);
+            return true;
+        } catch (IOException e) {
+            return false;
+        }
+    }
+
+    public static FileTime lastModified(Path path){
+        //FileTime fileTime = FileTime.from(1600, TimeUnit.DAYS);
+        try {
+            return Files.getLastModifiedTime(path);
+        } catch (IOException e) {
+            return FileTime.from(1600, TimeUnit.DAYS);
+        }
+    }
+
+    public static Boolean canWrite(Path path){
+        return Files.isWritable(path);
+    }
+
+    public static Boolean canRead(Path path){
+        return Files.isReadable(path);
+    }
+
+    public static Boolean canExecute(Path path){
+        return Files.isExecutable(path);
+    }
+
+    public static String getCanonicalPath(Path path){
+        try {
+            return new URI(path.toUri().toString()).normalize().getPath();
+        } catch (URISyntaxException e) {
+            try {
+                return path.toFile().getCanonicalPath();
+            } catch (IOException e1) {
+                return path.toUri().toString();
+            }
+        }
+    }
+
+    public static String getAbsolutePath(Path path){
+        return path.toAbsolutePath().toString();
+    }
+
+    public static File getAbsoluteFile(Path path){
+        return path.toAbsolutePath().toFile();
+    }
+
+    public static File getCanonicalFile(Path path){
+        return new File(getCanonicalPath(path));
+    }
+
+    public static File getParentFile(File file){
+        return file.getParentFile();
+    }
+
+    public static File getParentFile(Path path){
+        return path.getParent().toFile();
+    }
+
+    public static Path getParentPath(String path){
+        return getParentPath(Paths.get(path));
+    }
+
+    public static Path getParentPath(Path path){
+        return path.getParent();
+    }
+
+    public static Path getParentPath(File file){
+        return Paths.get(file.getParent());
+    }
+
+    public static File getParentFile(String file){
+        return getParentFile(new File(file));
+    }
+
+    public static Boolean renameTo(Path source,Path target,String newName){
+        try {
+            Files.move(source, target.resolve(newName),StandardCopyOption.REPLACE_EXISTING);
+            return true;
+        } catch (IOException e) {
+            return false;
+        }
+    }
+
+    public static Boolean renameTo(Path source,Path target){
+        try {
+            Files.move(source,target,StandardCopyOption.REPLACE_EXISTING);
+            return true;
+        } catch (IOException e) {
+            return false;
+        }
+    }
+
+   /* public Boolean deleteOnExit(Path path){
+        try {
+            Files.newOutputStream(path, StandardOpenOption.DELETE_ON_CLOSE);
+            return true;
+        } catch (IOException e) {
+            return false;
+        }
+    }*/
+
+
+
     /////////////////////////////////////////////////////////////////////////////////////////////////////////
     // LOCAL StringUtilities Methods for avoid the dependency
     /////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -2848,7 +4153,7 @@ public class FileUtilities {
             Pattern pattern;
             for (Pattern anIncluded : included) {
                 pattern = anIncluded;
-                if (pattern != null && pattern.matcher(name).matches()) {
+                if (pattern != null && (pattern.matcher(name).matches() || pattern.matcher(name).find())) {
                     accepted = true;
                     break;
                 }
@@ -2859,7 +4164,7 @@ public class FileUtilities {
             Pattern pattern;
             for(Pattern anExcluded : excluded) {
                 pattern = anExcluded;
-                if (pattern != null && pattern.matcher(name).matches()) {
+                if (pattern != null && (pattern.matcher(name).matches() || pattern.matcher(name).find())) {
                     accepted = false;
                     break;
                 }
@@ -2880,29 +4185,6 @@ public class FileUtilities {
     }
 
     /**
-     * Method for convert a string UTF-8 to HEX
-     * @param s string of text you want to convert to HEX
-     * @return the text in HEX encoding
-     */
-    private static String unicodeEscape(String s) {
-        char[] hexChar ={'0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'};
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < s.length(); i++) {
-            char c = s.charAt(i);
-            if ((c >> 7) > 0) {
-                sb.append("\\u");
-                sb.append(hexChar[(c >> 12) & 0xF]); // append the hex character for the left-most 4-bits
-                sb.append(hexChar[(c >> 8) & 0xF]); // hex for the second group of 4-bits from the left
-                sb.append(hexChar[(c >> 4) & 0xF]); // hex for the third group
-                sb.append(hexChar[c & 0xF]); // hex for the last group, e.home., the right most 4-bits
-            }else {
-                sb.append(c);
-            }
-        }
-        return sb.toString();
-    }
-
-    /**
      * Reads file in UTF-8 encoding and output to STDOUT in ASCII with unicode
      * escaped sequence for characters outside of ASCII.
      * It is equivalent to: native2ascii -encoding utf-8
@@ -2911,15 +4193,15 @@ public class FileUtilities {
      */
     private static String toASCII(String stringUTF8) {
         if (stringUTF8==null) return null;
-        Reader reader = new StringReader(toHexString(stringUTF8.getBytes(StandardCharsets.UTF_8)));
-        return unicodeEscape(reader.toString());
-
+        StringReader reader = new StringReader(toHexString(stringUTF8.getBytes(StandardCharsets.UTF_8)));
+        //return unicodeEscape(reader.toString());
+        return new String(reader.toString().getBytes(),StandardCharsets.US_ASCII);
     }
 
     /**
      * Method to convert a array of bytes to a string.
-     * @param arrayBytes array Collection of bytes.
-     * @return the string of the hash.
+     * @param arrayBytes the {@link Byte} array Collection of bytes.
+     * @return the {@link String} of the hash.
      */
     private static String toHexString(byte[] arrayBytes) {
         StringBuilder stringBuffer = new StringBuilder();
@@ -2939,77 +4221,22 @@ public class FileUtilities {
      */
     private static String toUTF8(String stringASCII) {
         if (stringASCII == null) return null;
-        Reader reader = new StringReader(toHexString(stringASCII.getBytes(StandardCharsets.US_ASCII)));
-        String line = convertUnicodeEscapeToASCII(reader.toString());
+        StringReader reader = new StringReader(toHexString(stringASCII.getBytes(StandardCharsets.US_ASCII)));
+       /* String line = convertUnicodeEscapeToASCII(reader.toString());
         byte[] bytes = line.getBytes(StandardCharsets.UTF_8);
-        return toHexString(bytes);
+        return toHexString(bytes);*/
+        String utf8 = new String(reader.toString().getBytes(),StandardCharsets.UTF_8);
+        return toHexString(utf8.getBytes());
     }
 
-    private enum ParseState {NORMAL,ESCAPE,UNICODE_ESCAPE}
     /**
-     *  convert unicode escapes back to char.
-     * @param s string to convert to ascii.
-     * @return string ascii.
+     * Converts a byte array to a String, taking the
+     * eight bits of each byte as the lower eight bits of the chars
+     * in the String.
+     * @param arrayBytes the {@link Byte} array to convert to char array.
+     * @return the {@link String} converted from a byte array.
      */
-    private static String convertUnicodeEscapeToASCII(String s) {
-        char[] out = new char[s.length()];
-        ParseState state = ParseState.NORMAL;
-        int j = 0, k = 0, unicode = 0;
-        char c = ' ';
-        for (int i = 0; i < s.length(); i++) {
-            c = s.charAt(i);
-            if (state == ParseState.ESCAPE) {
-                if (c == 'u') {
-                    state = ParseState.UNICODE_ESCAPE;
-                    unicode = 0;
-                }
-                else { // we don't care about other escapes
-                    out[j++] = '\\';
-                    out[j++] = c;
-                    state = ParseState.NORMAL;
-                }
-            }
-            else if (state == ParseState.UNICODE_ESCAPE) {
-                if ((c >= '0') && (c <= '9')) {
-                    unicode = (unicode << 4) + c - '0';
-                }
-                else if ((c >= 'a') && (c <= 'f')) {
-                    unicode = (unicode << 4) + 10 + c - 'a';
-                }
-                else if ((c >= 'A') && (c <= 'F')) {
-                    unicode = (unicode << 4) + 10 + c - 'A';
-                }
-                else {
-                    throw new IllegalArgumentException("Malformed unicode escape");
-                }
-                k++;
-                if (k == 4) {
-                    out[j++] = (char) unicode;
-                    k = 0;
-                    state = ParseState.NORMAL;
-                }
-            }
-            else if (c == '\\') {
-                state = ParseState.ESCAPE;
-            }
-            else {
-                out[j++] = c;
-            }
-        }//for
-        if (state == ParseState.ESCAPE) {
-            out[j++] = c;
-        }
-        return new String(out, 0, j);
-    }
-
     private static String toString(byte[] arrayBytes){
-        /*
-         * Converts a byte array to a String, taking the
-         * eight bits of each byte as the lower eight bits of the chars
-         * in the String.
-         * @param bytes the byte array to convert to char array.
-         * @return the new String converted from a byte array.
-         */
         //return new String(toChars(bytes));
         StringBuilder sb = new StringBuilder(2*arrayBytes.length);
         for (byte b : arrayBytes) {
@@ -3026,8 +4253,87 @@ public class FileUtilities {
     private static boolean isNullOrEmpty(String text) {
         return (text == null) || text.equals("") || text.isEmpty() || text.trim().isEmpty() ;
     }
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    /**
+     * Method simple to generate a alphanumerical String.
+     * @param length the {@link Integer} length of the String.
+     * @return the {@link String} generate.
+     */
+    private static String generateAlphaNumericString(int length){
+        int leftLimit = 97; // letter 'a'
+        int rightLimit = 122; // letter 'z'
+        StringBuilder buffer = new StringBuilder(length);
+        for (int i = 0; i < length; i++) {
+            int randomLimitedInt = leftLimit + (int)
+                    (new Random().nextFloat() * (rightLimit - leftLimit));
+            buffer.append((char) randomLimitedInt);
+        }
+        return buffer.toString();
+    }
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /**
+     * Recursive function to descend into the directory tree and find all the files.
+     *
+     * @param dir the {@link File} object defining the top directory
+     * @param pattern the {@link Pattern} for use regular expression on filter the file in the directory file.
+     * @return the {@link List} of the {@link Path} found on the file directory.
+     */
+    public static List<Path> getPathsFromDirectory(Path dir,Pattern pattern) {
+        Path[] listFile = listFiles(dir);
+        List<Path> list = new ArrayList<>();
+        for (Path aListFile : listFile) {
+            if (Files.isDirectory(aListFile)) {
+                list.addAll(getPathsFromDirectory(aListFile, pattern));
+            } else {
+                if(pattern == null){
+                    list.add(aListFile);
+                }else if(pattern.matcher(aListFile.getFileName().toString()).matches()) {
+                    list.add(aListFile);
+                }else if(pattern.matcher(aListFile.getFileName().toString()).find()){
+                    list.add(aListFile);
+                }
+            }
+        }
+        return list;
+    }
+
+    /**
+     * Recursive function to descend into the directory tree and find all the files.
+     *
+     * @param dir the {@link File} object defining the top directory
+     * @param pattern the {@link Pattern} for use regular expression on filter the file in the directory file.
+     * @return the {@link List} of the {@link Path} found on the file directory.
+     */
+    public static List<Path> getPathsFromDirectoryWithWalkFileTree(Path dir,Pattern pattern) {
+        List<Path> list = new ArrayList<>();
+        try {
+            Files.walkFileTree(dir, new SimpleFileVisitor<Path>() {
+                @Override
+                public FileVisitResult visitFile(Path file,
+                                                 BasicFileAttributes attrs) throws IOException {
+                    if(pattern == null) list.add(file);
+                    else if(pattern.matcher(file.getFileName().toString()).matches()) list.add(file);
+                    return FileVisitResult.CONTINUE;
+                }
+            });
+            //JAVA 8 UPGRADE
+            /*Files.walk(start)
+                    .filter( path -> path.toFile().isFile())
+                    .filter( path -> path.toString().endsWith(".mp3"))
+                    .forEach( System.out::println );*/
+        } catch (IOException e) {
+            logger.error(e.getMessage(),e);
+        }
+        return list;
+    }
+
+    public static String addSuffixTimeStampToFileName(String fileName){
+        String time = new SimpleDateFormat("yyyy-MM-dd_hh-mm-ss").format(new Date());
+        String extension = getExtension(fileName);
+        String fileName2 = fileName.replace(extension,"").replace(".","");
+        fileName2 = fileName2+"_"+time+"."+extension;
+        return fileName2;
+    }
 
 
     /**
@@ -3047,6 +4353,50 @@ public class FileUtilities {
      */
     static public class FileWalker {
         private Handler handler;
+
+         /**
+     * Method to 'walk' within many directory under a root directory and load all files in these.
+     *
+     * @param preload the String path to the root directory.
+     * @return the List of File prsent in the Directory preload.
+     */
+     public static List<File> getFileFromDirectory(String preload) {
+         return getFileFromDirectory(new File(preload));
+     }
+
+    /**
+     * Method to 'walk' within many directory under a root directory and load alll files in these..
+     *
+     * @param preload the File root directory
+     * @return the List of File prsent in the Directory preload.
+     */
+    public static List<File> getFileFromDirectory(File preload) {
+        if(FileUtilities.isFileExists(preload)) {
+            final List<File> listFiles = new ArrayList<>();
+            FileWalker.Handler handler = new FileWalker.Handler() {
+                @Override
+                public void file(File file) throws Exception {
+                    listFiles.add(file);
+                }
+
+                @Override
+                public void directory(File directory) throws Exception {
+                    System.out.println("Loading files from: " + directory.getAbsolutePath());
+                }
+            };
+            FileWalker walker = new FileWalker();
+            walker.setHandler(handler);
+            try {
+                walker.walk(preload);
+            } catch (Exception e) {
+                System.out.println("Error during the Search");
+            }
+            return listFiles;
+        }else{
+            return null;
+        }
+    }
+
 
         /**
          * Set the notification handler.
@@ -3070,7 +4420,7 @@ public class FileUtilities {
                 File[] children = node.listFiles();
                 //Arrays.sort --> sort
                 if (children != null) {
-                    sort(children, new Comparator<File>() {
+                    Arrays.sort(children, new Comparator<File>() {
                         @Override
                         public int compare(File lhs, File rhs) {
                             return lhs.getName().compareTo(rhs.getName());
@@ -3110,7 +4460,7 @@ public class FileUtilities {
     /**
      * A {@code FileVisitor} that copies a file-tree ("cp -r")
      */
-    static public class TreeCopier implements FileVisitor<Path> {
+    /*static public class TreeCopier implements FileVisitor<Path> {
         private final Path source;
         private final Path target;
         private final boolean prompt;
@@ -3123,11 +4473,11 @@ public class FileUtilities {
             this.preserve = preserve;
         }
 
-        /**
+        *//**
          * Copy source file to target location. If {@code prompt} is true then
          * prompt user to overwrite target if it exists. The {@code preserve}
          * parameter determines if file attributes should be copied/preserved.
-         */
+         *//*
         private static void copyFile(Path source, Path target, boolean prompt, boolean preserve) {
             CopyOption[] options = (preserve) ? new CopyOption[]{
                     StandardCopyOption.COPY_ATTRIBUTES,
@@ -3198,7 +4548,7 @@ public class FileUtilities {
             }
             return FileVisitResult.CONTINUE;
         }
-    }
+    }*/
 
 
 

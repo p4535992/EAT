@@ -1,6 +1,6 @@
 package com.github.p4535992.database.datasource.jooq;
 
-import com.github.p4535992.database.datasource.database.MyDatabase;
+import com.github.p4535992.database.datasource.database.DatabaseBasic;
 import com.github.p4535992.database.datasource.database.MySqlDatabase;
 import com.github.p4535992.database.datasource.sql.SQLConverter;
 import com.github.p4535992.database.util.ArrayUtilities;
@@ -802,7 +802,7 @@ public class JOOQUtilities {
      */
     public static DSLContext getMySQLConnection(String host, String port, String database, String username, String password){
         //connection = SQLUtilities.getMySqlConnection(host, port, database, username, password);
-        MyDatabase dat = new MySqlDatabase(host,port,username,password,database);
+        DatabaseBasic dat = new MySqlDatabase(host,port,username,password,database);
         connection = dat.getConnection();
         connProvider= new DefaultConnectionProvider(connection);
         connProvider.acquire();

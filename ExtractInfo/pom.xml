@@ -105,10 +105,16 @@
         <scala-library.version>2.10.3</scala-library.version>
 
         <org.slf4j.version>1.7.16</org.slf4j.version>
+        <logback.version>1.1.5</logback.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-core</artifactId>
+                <version>${logback.version}</version>
+            </dependency>
             <!-- Spring Boot Dependency -->
             <dependency>
                 <!-- Import dependency management from Spring Boot -->

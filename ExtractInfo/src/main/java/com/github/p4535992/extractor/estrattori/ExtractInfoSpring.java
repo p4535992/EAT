@@ -4,6 +4,7 @@ import com.github.p4535992.extractor.object.dao.jdbc.*;
 import com.github.p4535992.extractor.object.impl.jdbc.*;
 import com.github.p4535992.gatebasic.gate.gate8.GateDataStore8Kit;
 import com.github.p4535992.util.file.FileUtilities;
+import com.github.p4535992.util.file.PropertiesUtilities;
 import com.github.p4535992.util.file.SimpleParameters;
 import com.github.p4535992.extractor.object.model.GeoDocument;
 import com.github.p4535992.util.string.StringUtilities;
@@ -59,6 +60,7 @@ public class ExtractInfoSpring {
     /*http://stackoverflow.com/questions/6212898/spring-properties-file-get-element-as-an-array*/
     /*http://stackoverflow.com/questions/12576156/reading-a-list-from-properties-file-and-load-with-spring-annotation-value*/
     private String[] GATE_ANN_LIST,GATE_ANNSET_LIST;
+    private String GATE_PLUGIN_PATH,GATE_SITE_CONFIG,GATE_USER_CONFIG,GATE_SESSION_CONFIG,GATE_GAPP_FILE,GATE_HOME_PATH;
 
     private static IDocumentDao Docdao = new DocumentDaoImpl();
     private static IWebsiteDao websiteDao = new WebsiteDaoImpl();
@@ -73,7 +75,7 @@ public class ExtractInfoSpring {
         return instance;
     }
 
-    public static ExtractInfoSpring getInstance(Environment env) {
+    public static ExtractInfoSpring getInstance(Properties env) {
         if (instance == null) {
             instance = new ExtractInfoSpring(env);
         }
@@ -87,11 +89,23 @@ public class ExtractInfoSpring {
         return instance;
     }
 
+    public static ExtractInfoSpring getNewInstance(Properties env) {
+        instance = new ExtractInfoSpring(env);
+        return instance;
+    }
+
+    public static ExtractInfoSpring getNewInstance() {
+        instance = new ExtractInfoSpring();
+        return instance;
+    }
+
     protected ExtractInfoSpring() {
     }
 
-    protected ExtractInfoSpring(Environment env) {
+    protected ExtractInfoSpring(Properties env) {
         try {
+            env = PropertiesUtilities.prepareProperties(env);
+
             //this.TYPE_EXTRACTION = par.getValue("PARAM_TYPE_EXTRACTION");
             this.PROCESS_PROGAMM = Integer.parseInt(env.getProperty("PARAM_PROCESS_PROGAMM"));
 
@@ -173,6 +187,14 @@ public class ExtractInfoSpring {
             this.GATE_ANN_LIST = env.getProperty("PARAM_GATE_ANN_LIST").split(",");
             this.GATE_ANNSET_LIST = env.getProperty("PARAM_GATE_ANNSET_LIST").split(",");
             this.GATE_CORPUS_NAME = env.getProperty("PARAM_GATE_CORPUS_NAME");
+
+
+            this.GATE_HOME_PATH=env.getProperty("PARAM_GATE_HOME_PATH");
+            this.GATE_PLUGIN_PATH=env.getProperty("PARAM_GATE_PLUGIN_PATH");
+            this.GATE_SITE_CONFIG=env.getProperty("PARAM_GATE_SITE_CONFIG");
+            this.GATE_USER_CONFIG=env.getProperty("PARAM_GATE_USER_CONFIG");
+            this.GATE_SESSION_CONFIG=env.getProperty("PARAM_GATE_SESSION_CONFIG");
+            this.GATE_GAPP_FILE=env.getProperty("PARAM_GATE_GAPP_FILE");
 
         } catch (java.lang.NullPointerException ne) {
             logger.warn("Attention: make sure all the parameter on the input.properties file are setted correctly");
@@ -274,6 +296,13 @@ public class ExtractInfoSpring {
             this.GATE_ANNSET_LIST = par.getValue("PARAM_GATE_ANNSET_LIST").split(",");
             this.GATE_CORPUS_NAME = par.getValue("PARAM_GATE_CORPUS_NAME");
 
+            this.GATE_HOME_PATH=par.getValue("PARAM_GATE_HOME_PATH");
+            this.GATE_PLUGIN_PATH=par.getValue("PARAM_GATE_PLUGIN_PATH");
+            this.GATE_SITE_CONFIG=par.getValue("PARAM_GATE_SITE_CONFIG");
+            this.GATE_USER_CONFIG=par.getValue("PARAM_GATE_USER_CONFIG");
+            this.GATE_SESSION_CONFIG=par.getValue("PARAM_GATE_SESSION_CONFIG");
+            this.GATE_GAPP_FILE=par.getValue("PARAM_GATE_GAPP_FILE");
+
         } catch (java.lang.NullPointerException ne) {
             logger.warn("Attention: make sure all the parameter on the input.properties file are setted correctly");
             logger.error(ne.getMessage(), ne);
@@ -330,8 +359,6 @@ public class ExtractInfoSpring {
             ExtractInfoWeb web = prepareListAndGATE(directoryFiles, driverDatabase, dialectDatabase, hostDatabase, portDatabase, user,
                     pass, dbOutput, tableOutput, offset, limit);
             if (_listFile.isEmpty()) {
-           /* logger.info("The list of urls you get from the table:" + TABLE_INPUT +
-                    " from the columns " + COLUMN_TABLE_INPUT + " empty!!!");*/
                 logger.warn("The list of files you get is empty!!");
             } else {
                 logger.info("Loaded a list of: " + _listFile.size() + " files");
@@ -402,8 +429,17 @@ public class ExtractInfoSpring {
         geoDocumentDao2.setDriverManager(driverDatabase, dialectDatabase, hostDatabase, portDatabase, user, pass, dbOutput);
         setGeoDocumentDao(geoDocumentDao2);
 
-        ExtractInfoWeb web = ExtractInfoWeb.getInstance(
-                driverDatabase, dialectDatabase, hostDatabase, portDatabase, user, pass, dbOutput);
+        ExtractInfoWeb web;
+        //Check out if the user setted manually support table offline and manually setted the gate annotations
+        if(StringUtilities.isCollectionStringsNullOrEmpty(TABLE_REF_OFFLINE,COLUMN_OFFLINE_REF_URL,GATE_CORPUS_NAME) &&
+                GATE_ANN_LIST.length > 0 && GATE_ANNSET_LIST.length > 0){
+            web = ExtractInfoWeb.getNewInstance(
+                    driverDatabase, dialectDatabase, hostDatabase, portDatabase, user, pass, dbOutput,
+                    TABLE_REF_OFFLINE,COLUMN_OFFLINE_REF_URL,GATE_CORPUS_NAME,GATE_ANN_LIST,GATE_ANNSET_LIST);
+        }else {
+            web = ExtractInfoWeb.getNewInstance(
+                    driverDatabase, dialectDatabase, hostDatabase, portDatabase, user, pass, dbOutput);
+        }
 
         Integer iOffset = StringUtilities.toInteger(offset);
         Integer iLimit = StringUtilities.toInteger(limit);
@@ -441,8 +477,13 @@ public class ExtractInfoSpring {
         _listFile.addAll(files);
         files.clear();
         //Initialize GATE...
-        web.setGate("gate_files", "plugins", "gate.xml", "user-gate.xml", "gate.session",
-                "custom/gapp/geoLocationPipeline06102014v7_fastMode.xgapp");
+        if(StringUtilities.isNullOrEmpty(GATE_SESSION_CONFIG)) {
+            web.setGate("gate_files", "plugins", "gate.xml", "user-gate.xml", "gate.session",
+                    "custom/gapp/geoLocationPipeline06102014v7_fastMode.xgapp");
+        }else{
+            web.setGate(GATE_HOME_PATH, GATE_PLUGIN_PATH, GATE_SITE_CONFIG, GATE_USER_CONFIG, GATE_SESSION_CONFIG,
+                    GATE_GAPP_FILE);
+        }
         return web;
     }
 
@@ -457,11 +498,18 @@ public class ExtractInfoSpring {
         geoDocumentDao2.setDriverManager(driverDatabase, dialectDatabase, hostDatabase, portDatabase, user, pass, dbOutput);
 
         setGeoDocumentDao(geoDocumentDao2);
+        ExtractInfoWeb web;
+        //Check out if the user setted manually support table offline and manually setted the gate annotations
+        if(StringUtilities.isCollectionStringsNullOrEmpty(TABLE_REF_OFFLINE,COLUMN_OFFLINE_REF_URL,GATE_CORPUS_NAME) &&
+                GATE_ANN_LIST.length > 0 && GATE_ANNSET_LIST.length > 0){
+            web = ExtractInfoWeb.getNewInstance(
+                    driverDatabase, dialectDatabase, hostDatabase, portDatabase, user, pass, dbOutput,
+                    TABLE_REF_OFFLINE,COLUMN_OFFLINE_REF_URL,GATE_CORPUS_NAME,GATE_ANN_LIST,GATE_ANNSET_LIST);
+        }else {
+            web = ExtractInfoWeb.getNewInstance(
+                    driverDatabase, dialectDatabase, hostDatabase, portDatabase, user, pass, dbOutput);
+        }
 
-        ExtractInfoWeb web = ExtractInfoWeb.getInstance(
-                driverDatabase, dialectDatabase, hostDatabase, portDatabase, user, pass, dbOutput);
-
-        //ExtractInfoWeb web = ExtractInfoWeb.getInstance();
         logger.info("Run the extraction method.");
         _listUrl =  web.getListURLFromDatabase(
                 driverDatabase, dialectDatabase, hostDatabase,
@@ -469,7 +517,7 @@ public class ExtractInfoSpring {
                 StringUtilities.toInteger(limit), StringUtilities.toInteger(offset));
 
         //Filter and remove all unreachable or errate address web...
-        geoDocumentDao2.setTableInsert("offlinesite");
+        geoDocumentDao2.setTableInsert(TABLE_REF_OFFLINE);
         List<URL> supportList = new ArrayList<>();
         for (URL url : _listUrl) {
             if (geoDocumentDao2.verifyDuplicate(COLUMN_TABLE_INPUT, url.toString())) {
@@ -488,8 +536,13 @@ public class ExtractInfoSpring {
         geoDocumentDao2.setTableInsert(tableInput);
         supportList.clear();
         //Initialize GATE...
-        web.setGate("gate_files", "plugins", "gate.xml", "user-gate.xml", "gate.session",
-                "custom/gapp/geoLocationPipeline06102014v7_fastMode.xgapp");
+        if(StringUtilities.isNullOrEmpty(GATE_SESSION_CONFIG)) {
+            web.setGate("gate_files", "plugins", "gate.xml", "user-gate.xml", "gate.session",
+                    "custom/gapp/geoLocationPipeline06102014v7_fastMode.xgapp");
+        }else{
+            web.setGate(GATE_HOME_PATH, GATE_PLUGIN_PATH, GATE_SITE_CONFIG, GATE_USER_CONFIG, GATE_SESSION_CONFIG,
+                    GATE_GAPP_FILE);
+        }
         return web;
     }
 
@@ -570,8 +623,17 @@ public class ExtractInfoSpring {
         logger.info("RUN ONTOLOGY PROGRAMM: Create Table of infodocument from a geodocument/geodomaindocument table!");
         logger.info("RUN KARMA PROGRAMM: Generation of triple with Web-karma!!");
 
-        ExtractInfoWeb web = ExtractInfoWeb.getInstance(
-                driverDatabase, dialectDatabase, hostDatabase, portDatabase, user, pass, dbOutput);
+        ExtractInfoWeb web;
+        //Check out if the user setted manually support table offline and manually setted the gate annotations
+        if(StringUtilities.isCollectionStringsNullOrEmpty(TABLE_REF_OFFLINE,COLUMN_OFFLINE_REF_URL,GATE_CORPUS_NAME) &&
+                GATE_ANN_LIST.length > 0 && GATE_ANNSET_LIST.length > 0){
+            web = ExtractInfoWeb.getNewInstance(
+                    driverDatabase, dialectDatabase, hostDatabase, portDatabase, user, pass, dbOutput,
+                    TABLE_REF_OFFLINE,COLUMN_OFFLINE_REF_URL,GATE_CORPUS_NAME,GATE_ANN_LIST,GATE_ANNSET_LIST);
+        }else {
+            web = ExtractInfoWeb.getNewInstance(
+                    driverDatabase, dialectDatabase, hostDatabase, portDatabase, user, pass, dbOutput);
+        }
 
         return web.triplifyGeoDocumentFromDatabase(
                 tableInputOntology, tableOutputOntology,
@@ -625,17 +687,28 @@ public class ExtractInfoSpring {
         }
     }
 
-    @Resource
-    private Environment env;
+
 
     /**
      * Run all the functions of the project by use a properties file.
      */
     public void Extraction() {
-        logger.info(env.toString());
+        //logger.info(env.toString());
         try {
-            ExtractInfoWeb web = ExtractInfoWeb.getInstance(
-                    DRIVER_DATABASE, DIALECT_DATABASE, HOST_DATABASE, PORT_DATABASE.toString(), USER, PASS, DB_OUTPUT);
+            ExtractInfoWeb web;
+            //Check out if the user setted manually support table offline and manually setted the gate annotations
+            if(StringUtilities.isCollectionStringsNullOrEmpty(TABLE_REF_OFFLINE,COLUMN_OFFLINE_REF_URL,GATE_CORPUS_NAME) &&
+                    GATE_ANN_LIST.length > 0 && GATE_ANNSET_LIST.length > 0){
+                web = ExtractInfoWeb.getNewInstance(
+                        DRIVER_DATABASE, DIALECT_DATABASE, HOST_DATABASE, PORT_DATABASE.toString(), USER, PASS, DB_OUTPUT,
+                        TABLE_REF_OFFLINE,COLUMN_OFFLINE_REF_URL,GATE_CORPUS_NAME,GATE_ANN_LIST,GATE_ANNSET_LIST);
+            }else {
+                web = ExtractInfoWeb.getNewInstance(
+                        DRIVER_DATABASE, DIALECT_DATABASE, HOST_DATABASE, PORT_DATABASE.toString(), USER, PASS, DB_OUTPUT);
+            }
+            //OLd method
+          /*  ExtractInfoWeb web = ExtractInfoWeb.getInstance(
+                    DRIVER_DATABASE, DIALECT_DATABASE, HOST_DATABASE, PORT_DATABASE.toString(), USER, PASS, DB_OUTPUT);*/
             if (PROCESS_PROGAMM < 4) {
                 logger.info("Run the extraction method.");
                 List<URL> listUrl = ExtractInfoWeb.getInstance().getListURLFromDatabase(
@@ -643,7 +716,7 @@ public class ExtractInfoSpring {
                         PORT_DATABASE.toString(), USER, PASS, DB_INPUT, TABLE_INPUT, COLUMN_TABLE_INPUT, LIMIT, OFFSET);
 
                 //Filter and remove all unreachable or errate address web...
-                geoDocumentDao.setTableInsert("offlinesite");
+                geoDocumentDao.setTableInsert(TABLE_REF_OFFLINE);
                 List<URL> supportList = new ArrayList<>();
                 for (URL url : listUrl) {
                     if (geoDocumentDao.verifyDuplicate(COLUMN_TABLE_INPUT, url.toString())) {
@@ -664,8 +737,13 @@ public class ExtractInfoSpring {
 
                 //Initialize GATE...
                 List<GeoDocument> listGeo = new ArrayList<>();
-                web.setGate("gate_files", "plugins", "gate.xml", "user-gate.xml", "gate.session",
-                        "custom/gapp/geoLocationPipeline06102014v7_fastMode.xgapp");
+                if(StringUtilities.isNullOrEmpty(GATE_SESSION_CONFIG)) {
+                    web.setGate("gate_files", "plugins", "gate.xml", "user-gate.xml", "gate.session",
+                            "custom/gapp/geoLocationPipeline06102014v7_fastMode.xgapp");
+                }else{
+                    web.setGate(GATE_HOME_PATH, GATE_PLUGIN_PATH, GATE_SITE_CONFIG, GATE_USER_CONFIG, GATE_SESSION_CONFIG,
+                            GATE_GAPP_FILE);
+                }
                 if (null != PROCESS_PROGAMM) switch (PROCESS_PROGAMM) {
                     case 1:
                         logger.info("RUN PROCESS 1: Abilitate for each single url");

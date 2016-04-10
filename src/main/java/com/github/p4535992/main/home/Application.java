@@ -1,6 +1,10 @@
 package com.github.p4535992.main.home;
 
 import java.io.File;
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.Properties;
+
 import com.github.p4535992.extractor.estrattori.ExtractInfoSpring;
 import com.github.p4535992.extractor.estrattori.silk.SilkUtilities;
 import com.github.p4535992.util.file.FileUtilities;
@@ -13,6 +17,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.context.web.SpringBootServletInitializer;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.EnvironmentAware;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -22,6 +29,11 @@ import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.core.env.Environment;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
+import org.springframework.core.io.support.PropertiesLoaderUtils;
+
+
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
 
 
 @SpringBootApplication
@@ -32,17 +44,25 @@ public class Application{
     private static final org.slf4j.Logger logger =
             org.slf4j.LoggerFactory.getLogger(Application.class);
 
-    @Bean
+    /*@Bean
     public static PropertySourcesPlaceholderConfigurer properties() {
         PropertySourcesPlaceholderConfigurer props = new PropertySourcesPlaceholderConfigurer();
         props.setLocations(new ClassPathResource("application.properties"));
         return props;
+    }*/
+
+    @Bean
+    public static PropertySourcesPlaceholderConfigurer propertyPlaceHolderConfigurer() {
+        return new PropertySourcesPlaceholderConfigurer();
     }
+
+    @Autowired
+    public static Environment env;
 
 
     public static void main(String[] args) {
         //JUST FOR TEST
-        /*ApplicationContext ctx = SpringApplication.run(Application.class, args);
+       /* ApplicationContext ctx = SpringApplication.run(Application.class, args);
 
         System.out.println("Let's inspect the beans provided by Spring Boot:");
 
@@ -55,8 +75,8 @@ public class Application{
 
         //GO FOR THE PROJECT
         try {
-            //EventQueue.invokeLater(new Runnable() {
-            extractByFileProperties();
+            extractByFilePropertiesWithSpring("application.properties"); //WORK
+            //importFileToSesameRepository("gtfs2","C:\\Users\\Utente\\Desktop\\ac-transit_20150218_1708.n3");
         } catch (OutOfMemoryError e) {
             //reload the code
             logger.error("java.lang.OutOfMemoryError, Ricarica il programma modificando LIMIT e OFFSET.\n GATE execute in timeout");
@@ -131,18 +151,19 @@ public class Application{
         }
     }
 
-    public void importFileToSesameRepository() {
+    public static void importFileToSesameRepository(String repositoryID, String filepath) {
         try {
             //LogBackUtil.setLogpatternConsole(LogBackUtil.LOGPATTERN.PATTERN_COLORED1_METHOD_NOTIME);
             //LogBackUtil.init(LogBackUtil.LOGPATTERN.PATTERN_CLASSIC_NOTIME);
             logger.info("===== START THE PROGRAMM IMPORT FILE WITH SESAME =========");
             logger.info("START TRIPLIFY");
-            File output = new File("" +
-                    "C:\\Users\\tenti\\Desktop\\output-c.Turtle");
+          /*  File output = new File("" +
+                    "C:\\Users\\tenti\\Desktop\\output-c.Turtle");*/
+            File output = new File(filepath);
             Sesame2Utilities sesame = Sesame2Utilities.getInstance();
-            Repository rep = sesame.connectToHTTPRepository("http://localhost:8080/openrdf-sesame/repositories/repKm4c1");
+            //Repository rep = sesame.connectToHTTPRepository("http://localhost:8080/openrdf-sesame/repositories/repKm4c1");
+            Repository rep = sesame.connectToHTTPRepositoryWithDefaultServer(repositoryID);
             sesame.setPrefixes();
-
             sesame.importIntoRepository(output, rep);
         } catch (Exception e) {
             e.printStackTrace();
@@ -197,19 +218,28 @@ public class Application{
 
     }
 
-    public static void extractByFileProperties() {
+    public static void extractByFilePropertiesWithSpring(String resourcePath) {
         try {
             LogBackUtil.setLogpatternConsole(LogBackUtil.LOGPATTERN.PATTERN_COLORED1_METHOD_NOTIME);
             //LogBackUtil.init(LogBackUtil.LOGPATTERN.PATTERN_CLASSIC_NOTIME);
             LogBackUtil.console();
             logger.info("===== START THE PROGRAMM EXTRACTION WITH FILE PROPERTIES =========");
             logger.info("Using parameters:");
-            //logger.info(env.toString());
-            //if (env.getProperty("PARAM_TYPE_EXTRACTION").equals("SPRING")) {
-                ExtractInfoSpring m = ExtractInfoSpring.getInstance();
+            //EventQueue.invokeLater(new Runnable() {
+            Resource resource = new ClassPathResource(resourcePath);
+            Properties props = new Properties();
+            try {
+                props = PropertiesLoaderUtils.loadProperties(resource);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            logger.info(props.toString());
+
+            if (props.getProperty("PARAM_TYPE_EXTRACTION").equals("SPRING")) {
+                ExtractInfoSpring m = ExtractInfoSpring.getInstance(props);
                 logger.info("START EXTRACT");
                 m.Extraction();
-            //}
+            }
         } catch (Exception e) {
             e.printStackTrace();
             logger.error(e.getMessage(), e);

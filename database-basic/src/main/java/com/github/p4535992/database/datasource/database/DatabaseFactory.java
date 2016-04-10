@@ -1,7 +1,5 @@
 package com.github.p4535992.database.datasource.database;
 
-import com.github.p4535992.database.datasource.database.HsqlDatabase;
-import com.github.p4535992.database.datasource.database.MySqlDatabase ;
 import java.util.*;
 
 /**
@@ -9,7 +7,7 @@ import java.util.*;
  */
 public class DatabaseFactory {
     @SuppressWarnings("rawtypes")
-	private final Map<String, Class<? extends AbstractDatabase>> databases;
+	private final Map<String, Class<? extends AbstractDatabaseBasic>> databases;
 	private final Properties properties = new Properties();
 
 	private static final DatabaseFactory instance = new DatabaseFactory();
@@ -29,13 +27,13 @@ public class DatabaseFactory {
 	}
 
 	/**
-	 * Creates a new instance of a given implementation of {@link AbstractDatabase}.
+	 * Creates a new instance of a given implementation of {@link AbstractDatabaseBasic}.
 	 *
-	 * @param databaseClass a class that extends {@link AbstractDatabase}.
-	 * @return the {@link AbstractDatabase} instance.
+	 * @param databaseClass a class that extends {@link AbstractDatabaseBasic}.
+	 * @return the {@link AbstractDatabaseBasic} instance.
 	 */
 	@SuppressWarnings("rawtypes")
-	private static AbstractDatabase newInstance(Class<? extends AbstractDatabase> databaseClass) {
+	private static AbstractDatabaseBasic newInstance(Class<? extends AbstractDatabaseBasic> databaseClass) {
 		try {
 			return databaseClass.newInstance();
 		} catch (Exception e) {
@@ -44,11 +42,11 @@ public class DatabaseFactory {
 	}
 
 	/**
-	 * Adds a new {@link AbstractDatabase} implementation to the factory.
-	 * @param databaseClass a class that extends {@link AbstractDatabase}.
+	 * Adds a new {@link AbstractDatabaseBasic} implementation to the factory.
+	 * @param databaseClass a class that extends {@link AbstractDatabaseBasic}.
 	 */
 	@SuppressWarnings("rawtypes")
-	public void registerDatabase(Class<? extends AbstractDatabase> databaseClass) {
+	public void registerDatabase(Class<? extends AbstractDatabaseBasic> databaseClass) {
 		databases.put(newInstance(databaseClass).getDatabaseName().toLowerCase(), databaseClass);
 	}
 

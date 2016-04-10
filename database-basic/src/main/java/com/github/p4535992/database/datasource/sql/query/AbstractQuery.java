@@ -1,6 +1,6 @@
 package com.github.p4535992.database.datasource.sql.query;
 
-import com.github.p4535992.database.datasource.database.AbstractDatabase;
+import com.github.p4535992.database.datasource.database.AbstractDatabaseBasic;
 import com.github.p4535992.database.datasource.spring.jdbcTemplate.JdbcTemplateUtilities;
 import com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException;
 import org.jooq.Condition;
@@ -13,7 +13,7 @@ import java.util.*;
  * Created by 4535992 on 02/02/2016.
  * @author 4535992.
  */
-public abstract class AbstractQuery<T> extends AbstractDatabase<T> implements MyQuery<T>{
+public abstract class AbstractQuery<T> extends AbstractDatabaseBasic<T> implements MyQuery<T>{
 
     private static final org.slf4j.Logger logger =
             org.slf4j.LoggerFactory.getLogger(AbstractQuery.class);

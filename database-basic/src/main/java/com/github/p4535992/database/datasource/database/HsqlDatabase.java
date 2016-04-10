@@ -3,7 +3,7 @@ package com.github.p4535992.database.datasource.database;
 import com.github.p4535992.database.datasource.DataSourceFactory;
 import com.github.p4535992.database.datasource.jooq.JOOQUtilities;
 import com.github.p4535992.database.datasource.sql.SQLEnum;
-import com.github.p4535992.database.datasource.sql.SQLUtilities;
+import com.github.p4535992.database.datasource.sql.SQLUtility;
 
 import com.github.p4535992.database.util.StringUtilities;
 import org.jooq.DSLContext;
@@ -18,7 +18,7 @@ import java.sql.SQLException;
 
 /**
  */
-public class HsqlDatabase extends AbstractDatabase<HsqlDatabase> {
+public class HsqlDatabase extends AbstractDatabaseBasic<HsqlDatabase> {
 
     private static final org.slf4j.Logger logger =
             org.slf4j.LoggerFactory.getLogger(HsqlDatabase.class);
@@ -47,7 +47,7 @@ public class HsqlDatabase extends AbstractDatabase<HsqlDatabase> {
 
     public HsqlDatabase(String host, String port, String user, String pass, String database) {
         try {
-            SQLUtilities.invokeClassDriverForDbType(SQLEnum.DBDialect.HSQLDB);
+            SQLUtility.invokeClassDriverForDbType(SQLEnum.DBDialect.HSQLDB);
             new HsqlDatabase(DriverManager.getConnection(prepareURL(host,port,database), user, pass));
         } catch (SQLException e) {
             logger.error("The URL is not correct:" + e.getMessage(), e);
@@ -121,7 +121,7 @@ public class HsqlDatabase extends AbstractDatabase<HsqlDatabase> {
     public Connection getHSQLDBConnection(String host, String port, String database, String username, String password) {
         // The newInstance() call is a work around for some broken Java implementations
         try {
-            SQLUtilities.invokeClassDriverForDbType(SQLEnum.DBDialect.HSQLDB);
+            SQLUtility.invokeClassDriverForDbType(SQLEnum.DBDialect.HSQLDB);
             super.connection = DriverManager.getConnection(prepareURL(host,port,database), username, password);
         }catch (InstantiationException e) {
             logger.error("Unable to instantiate driver!:" + e.getMessage(), e);

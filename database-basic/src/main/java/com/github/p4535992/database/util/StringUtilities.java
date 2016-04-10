@@ -85,7 +85,7 @@ public class StringUtilities {
     public static final String LINE_SEP = System.getProperty("line.separator");
     public static final String LINE_SEPARATOR = System.getProperty("line.separator");
     //public static final String PROJECT_DIR = System.getProperty("user.dir");
-    public static final String PROJECT_DIR = FileUtilities.getDirectoryUser();
+    public static final String PROJECT_DIR = FileUtilities.getCurrentDirectoryUser();
     public static final String EMPTY_STR = "";
     public static final String LT = "<";
     public static final String GT = ">";

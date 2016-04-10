@@ -6,7 +6,7 @@ import com.github.p4535992.database.datasource.sql.SQLEnum;
 import com.github.p4535992.database.datasource.context.DatabaseContextFactory;
 import com.github.p4535992.database.datasource.context.LocalContext;
 import com.github.p4535992.database.datasource.context.LocalContextFactory;
-import com.github.p4535992.database.datasource.sql.SQLUtilities;
+import com.github.p4535992.database.datasource.sql.SQLUtility;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.jdbc.datasource.SimpleDriverDataSource;
 import org.springframework.jdbc.datasource.SingleConnectionDataSource;
@@ -184,8 +184,8 @@ public class DataSourceFactory {
     private static DataSource createDataSourceBase(String dataSourceName,Connection conn){
         try {
             DatabaseMetaData meta = conn.getMetaData();
-            String password = SQLUtilities.getPasswordFromUrl(meta.getURL());
-            String username = SQLUtilities.getUsernameFromUrl(meta.getURL());
+            String password = SQLUtility.getPasswordFromUrl(meta.getURL());
+            String username = SQLUtility.getUsernameFromUrl(meta.getURL());
             if (password == null || password.isEmpty()) password = "";
             if (username == null || username.isEmpty()){
                 username = meta.getUserName();

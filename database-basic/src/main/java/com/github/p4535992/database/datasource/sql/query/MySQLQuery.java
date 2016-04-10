@@ -1,6 +1,6 @@
 package com.github.p4535992.database.datasource.sql.query;
 
-import com.github.p4535992.database.datasource.sql.SQLUtilities;
+import com.github.p4535992.database.datasource.sql.SQLUtility;
 import com.github.p4535992.database.util.StringUtilities;
 
 import java.sql.Connection;
@@ -28,7 +28,7 @@ public class MySQLQuery extends SQLQuery{
         try {
             //Ensure that statement and stage instrumentation is enabled by updating the
             //setup_instruments table. Some instruments may already be enabled by default.
-            SQLUtilities.executeSQL(
+            SQLUtility.executeSQL(
                     "UPDATE performance_schema.setup_instruments SET ENABLED = 'YES', TIMED = 'YES'\n" +
                             "WHERE NAME LIKE '%statement/%';\n" +
                     "UPDATE performance_schema.setup_instruments SET ENABLED = 'YES', TIMED = 'YES'\n" +
@@ -36,7 +36,7 @@ public class MySQLQuery extends SQLQuery{
             );
             //Ensure that events_statements_* and events_stages_* consumers are enabled.
             //Some consumers may already be enabled by default.
-            SQLUtilities.executeSQL(
+            SQLUtility.executeSQL(
                     "UPDATE performance_schema.setup_consumers SET ENABLED = 'YES'\n" +
                             "WHERE NAME LIKE '%events_statements_%';\n" +
                     "UPDATE performance_schema.setup_consumers SET ENABLED = 'YES'\n" +
@@ -60,18 +60,18 @@ public class MySQLQuery extends SQLQuery{
         preparePerformanceSchema(conn);
         String duration = "0";
         try {
-            SQLUtilities.executeSQL(sql,conn);
+            SQLUtility.executeSQL(sql,conn);
             if(sql.endsWith(";")) sql = sql.substring(0, sql.length() - 1);
             ResultSet resultSet;
             try{
                 //sql = sql.replaceAll("''","''''");
-                resultSet = SQLUtilities.executeSQL(
+                resultSet = SQLUtility.executeSQL(
                         "SELECT EVENT_ID, TRUNCATE(TIMER_WAIT/1000000000000,6) as Duration, SQL_TEXT\n" +
                         "FROM performance_schema.events_statements_history_long WHERE SQL_TEXT like\n '%"+
                          sql+"%'");
             }catch(Exception e){
                 sql = sql.replaceAll("''","''''");
-                resultSet = SQLUtilities.executeSQL(
+                resultSet = SQLUtility.executeSQL(
                         "SELECT EVENT_ID, TRUNCATE(TIMER_WAIT/1000000000000,6) as Duration, SQL_TEXT\n" +
                                 "FROM performance_schema.events_statements_history_long WHERE SQL_TEXT like\n '%"+
                                 sql+"%'");
@@ -82,7 +82,7 @@ public class MySQLQuery extends SQLQuery{
             );*/
             //noinspection LoopStatementThatDoesntLoop
             if(resultSet.getFetchSize()==0){
-                resultSet = SQLUtilities.executeSQL(
+                resultSet = SQLUtility.executeSQL(
                         "SELECT EVENT_ID, TRUNCATE(TIMER_WAIT/1000000000000,6) as Duration, SQL_TEXT\n" +
                                 "FROM performance_schema.events_statements_history_long");
             }

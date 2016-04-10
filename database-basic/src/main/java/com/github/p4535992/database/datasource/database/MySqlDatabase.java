@@ -3,7 +3,7 @@ package com.github.p4535992.database.datasource.database;
 import com.github.p4535992.database.datasource.DataSourceFactory;
 import com.github.p4535992.database.datasource.jooq.JOOQUtilities;
 import com.github.p4535992.database.datasource.sql.SQLEnum;
-import com.github.p4535992.database.datasource.sql.SQLUtilities;
+import com.github.p4535992.database.datasource.sql.SQLUtility;
 import com.github.p4535992.database.util.StringUtilities;
 import org.jooq.DSLContext;
 import org.jooq.SQLDialect;
@@ -18,7 +18,7 @@ import java.sql.SQLException;
 /**
  *
  */
-public class MySqlDatabase extends AbstractDatabase<MySqlDatabase> {
+public class MySqlDatabase extends AbstractDatabaseBasic<MySqlDatabase> {
 
     private static final org.slf4j.Logger logger =
             org.slf4j.LoggerFactory.getLogger(MySqlDatabase.class);
@@ -47,7 +47,7 @@ public class MySqlDatabase extends AbstractDatabase<MySqlDatabase> {
 
     public MySqlDatabase(String host, String port, String user, String pass, String database) {
         try {
-            SQLUtilities.invokeClassDriverForDbType(SQLEnum.DBDialect.MYSQL);
+            SQLUtility.invokeClassDriverForDbType(SQLEnum.DBDialect.MYSQL);
             super.dataSource = DataSourceFactory.createDataSource(
                     DriverManager.getConnection(prepareURL(host,port,database),user,pass),user,pass);
             super.connection = super.dataSource.getConnection();
@@ -138,7 +138,7 @@ public class MySqlDatabase extends AbstractDatabase<MySqlDatabase> {
             String host, String port, String database, String username, String password) {
         // The newInstance() call is a work around for some broken Java implementations
         try {
-            SQLUtilities.invokeClassDriverForDbType(SQLEnum.DBDialect.MYSQL);
+            SQLUtility.invokeClassDriverForDbType(SQLEnum.DBDialect.MYSQL);
             String url = prepareURL(host, port, database);
             try {
                 //DriverManager.getConnection("jdbc:mysql://localhost/test?" +"user=minty&password=greatsqldb");
@@ -190,7 +190,7 @@ public class MySqlDatabase extends AbstractDatabase<MySqlDatabase> {
     public Connection getMySqlConnection(String fullUrl) {
         //e.g. "jdbc:mysql://localhost:3306/geodb?noDatetimeStringSync=true&user=siimobility&password=siimobility"
         try {
-            SQLUtilities.invokeClassDriverForDbType(SQLEnum.DBDialect.MYSQL);
+            SQLUtility.invokeClassDriverForDbType(SQLEnum.DBDialect.MYSQL);
             try {
                 //DriverManager.getConnection("jdbc:mysql://localhost/test?" +"user=minty&password=greatsqldb");
                 super.connection = DriverManager.getConnection(fullUrl);

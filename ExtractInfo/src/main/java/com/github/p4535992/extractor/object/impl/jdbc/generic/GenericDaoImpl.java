@@ -89,7 +89,7 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T> {
         logger.info("DRIVER[:" + driver + "] ,URL[" + dialectDB + "://" + host + ":" + port + "/" + database + "]");
         DriverManagerDataSource driverManag = new DriverManagerDataSource();
         driverManag.setDriverClassName(driver);//"com.mysql.jdbc.Driver"
-        driverManag.setUrl("" + dialectDB + "://" + host + ":" + port + "/" + database); //"jdbc:mysql://localhost:3306/jdbctest"
+        driverManag.setUrl("" + dialectDB + "://" + host + ":" + port + "/" + database+"?characterEncoding=UTF-8&useSSL=false"); //"jdbc:mysql://localhost:3306/jdbctest"
         driverManag.setUsername(user);
         driverManag.setPassword(pass);
         this.dataSource = driverManag;

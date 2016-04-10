@@ -2,17 +2,17 @@ package com.github.p4535992.database.datasource.database.data;
 
 import java.util.*;
 
-import com.github.p4535992.database.datasource.database.MyDatabase;
+import com.github.p4535992.database.datasource.database.DatabaseBasic;
 import org.springframework.jdbc.support.rowset.*;
 
 public class Data {
-	protected final MyDatabase database;
+	protected final DatabaseBasic database;
 	private final String selectScript;
 
 	private final List<Object[]> data;
 	private String[] columnNames;
 
-	public Data(MyDatabase database, String selectScript) {
+	public Data(DatabaseBasic database, String selectScript) {
 		this.database = database;
 		this.selectScript = selectScript;
 
