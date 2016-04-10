@@ -1,17 +1,17 @@
 package com.github.p4535992.extractor.home;
 
 import com.github.p4535992.extractor.estrattori.ExtractInfoSpring;
+
 import com.github.p4535992.extractor.estrattori.silk.SilkUtilities;
 import com.github.p4535992.util.file.FileUtilities;
 import com.github.p4535992.util.file.SimpleParameters;
-import com.github.p4535992.util.log.logback.LogBackUtil;
 import com.github.p4535992.util.repositoryRDF.sesame.Sesame2Utilities;
 import org.openrdf.repository.Repository;
 import org.openrdf.rio.RDFFormat;
 
 import java.awt.*;
 import java.io.File;
-import java.io.FileNotFoundException;
+
 
 /**
  * Created by 4535992 on 28/01/2016.
@@ -57,7 +57,7 @@ public class ExtractInfoCompany {
             m.extractInfoSingleURL("com.mysql.jdbc.Driver", "jdbc:mysql", "localhost", "3306", "siimobility",
                     "siimobility", "geodb", "geodb", "geodocument_2015_09_18", "websitehtml", "url", "60000", "3", false, false);
         } catch (Exception e) {
-            e.printStackTrace();
+
             logger.error(e.getMessage(), e);
         }
     }
@@ -72,7 +72,6 @@ public class ExtractInfoCompany {
             m.extractInfoMultipleURL("com.mysql.jdbc.Driver", "jdbc:mysql", "localhost", "3306", "siimobility",
                     "siimobility", "geodb", "geodb", "geodocument_2015_09_18", "websitehtml", "url", "60003", "3", false, false);
         } catch (Exception e) {
-            e.printStackTrace();
             logger.error(e.getMessage(), e);
         }
     }
@@ -88,7 +87,6 @@ public class ExtractInfoCompany {
                     "com.mysql.jdbc.Driver", "jdbc:mysql", "localhost", "3306", "siimobility", "siimobility", "geoDb",
                     "geodocument_2015_09_18", "0", "3", false, false);
         } catch (Exception e) {
-            e.printStackTrace();
             logger.error(e.getMessage(), e);
         }
     }
@@ -110,7 +108,6 @@ public class ExtractInfoCompany {
                     RDFFormat.TURTLE.getName().toLowerCase(),
                     r2rml.getAbsolutePath(), output.getAbsolutePath(), true, true);
         } catch (Exception e) {
-            e.printStackTrace();
             logger.error(e.getMessage(), e);
         }
     }
@@ -129,7 +126,6 @@ public class ExtractInfoCompany {
 
             sesame.importIntoRepository(output, rep);
         } catch (Exception e) {
-            e.printStackTrace();
             logger.error(e.getMessage(), e);
         }
     }
@@ -144,7 +140,6 @@ public class ExtractInfoCompany {
                     + "C:\\Users\\tenti\\Desktop\\output-c.xml");
             SilkUtilities.getInstance().generateRDF(xmlConfig, "interlink_id", 2, false);
         } catch (Exception e) {
-            e.printStackTrace();
             logger.error(e.getMessage(), e);
         }
     }
@@ -174,7 +169,6 @@ public class ExtractInfoCompany {
                 m.Extraction();
             }
         } catch (Exception e) {
-            e.printStackTrace();
             logger.error(e.getMessage(), e);
         }
 

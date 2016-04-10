@@ -229,8 +229,8 @@ public class FileUtilities {
     /**
      * Method for get the path of a file.
      *
-     * @param f file of input
-     * @return the path to the file
+     * @param f the {@link File} of input
+     * @return the {@link String} to the file
      */
     public static String getPath(File f) {
         return getPath(f.getAbsolutePath());
@@ -239,8 +239,8 @@ public class FileUtilities {
     /**
      * Method for get the path of a file.
      *
-     * @param f file of input
-     * @return the path to the file
+     * @param f the {@link Path} of input
+     * @return the {@link String} to the file
      */
     public static String getPath(Path f) {
         return getPath(f.toAbsolutePath().toString());
@@ -249,8 +249,8 @@ public class FileUtilities {
     /**
      * Method for get the path of a file.
      *
-     * @param fullPath string of the path to the file
-     * @return the path to the file
+     * @param fullPath the {@link String} of the path to the file
+     * @return the {@link String} to the file
      */
     public static String getPath(String fullPath) {
         return fullPath.substring(0, fullPath.lastIndexOf(File.separator));

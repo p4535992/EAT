@@ -197,12 +197,12 @@
             <optional>true</optional>
         </dependency>
 
-       <!-- <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-beans</artifactId>
-            <version>4.1.6.RELEASE</version>
-            <optional>true</optional>
-        </dependency>-->
+        <!-- <dependency>
+             <groupId>org.springframework</groupId>
+             <artifactId>spring-beans</artifactId>
+             <version>4.1.6.RELEASE</version>
+             <optional>true</optional>
+         </dependency>-->
 
         <!-- MAVEN PLUGIN DEPENDENCY-->
         <dependency>

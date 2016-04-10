@@ -269,7 +269,7 @@ public class GTFSUtilities {
 
         //CONVERT TO RDF
         File output2 = new File("C:\\Users\\Utente\\Desktop\\ac-transit_20150218_1708.n3");
-        GTFSUtilities.getInstance().convertGTFSZipToRDF(zip,"http://baseuri#",output2,RDFFormat.RDFXML);
+        GTFSUtilities.getInstance().convertGTFSZipToRDF(zip,"http://baseuri#",output2,RDFFormat.TURTLE);
     }
 
 

@@ -37,20 +37,20 @@
         <version>1.0</version>
     </parent>-->
 
-  <!--  <modules>
-        <module>../utility</module>
-        <module>../gate-basic</module>
-    </modules>-->
+    <!--  <modules>
+          <module>../utility</module>
+          <module>../gate-basic</module>
+      </modules>-->
 
     <repositories>
         <!-- Web-Karma repository -->
         <repository>
             <id>Web-Karma</id>
             <url>https://github.com/usc-isi-i2/Web-Karma</url>
-           <!-- <snapshots>
-                <enabled>true</enabled>
-                <updatePolicy>always</updatePolicy>
-            </snapshots>-->
+            <!-- <snapshots>
+                 <enabled>true</enabled>
+                 <updatePolicy>always</updatePolicy>
+             </snapshots>-->
         </repository>
         <!-- Web-Karma Offline  repository -->
         <repository>
@@ -249,14 +249,14 @@
                     <groupId>log4j</groupId>
                     <artifactId>log4j</artifactId>
                 </exclusion>
-                <exclusion>
+                <!--<exclusion>
                     <groupId>org.apache.jena</groupId>
                     <artifactId>jena-core</artifactId>
                 </exclusion>
                 <exclusion>
                     <groupId>org.apache.jena</groupId>
                     <artifactId>jena-arq</artifactId>
-                </exclusion>
+                </exclusion>-->
             </exclusions>
         </dependency>
 
@@ -399,7 +399,7 @@
             <version>${org.jsoup.jsoup.version}</version>
         </dependency>
 
-        <dependency>
+        <!--<dependency>
             <groupId>org.apache.jena</groupId>
             <artifactId>apache-jena-libs</artifactId>
             <type>pom</type>
@@ -414,7 +414,71 @@
                     <artifactId>log4j</artifactId>
                 </exclusion>
             </exclusions>
+        </dependency>-->
+
+        <dependency>
+            <groupId>org.apache.jena</groupId>
+            <artifactId>jena-core</artifactId>
+            <version>2.11.0</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-log4j12</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-api</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>log4j</groupId>
+                    <artifactId>log4j</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
+
+        <dependency>
+            <groupId>org.apache.jena</groupId>
+            <artifactId>jena-arq</artifactId>
+            <version>2.11.0</version>
+             <exclusions>
+              <exclusion>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-log4j12</artifactId>
+              </exclusion>
+             <exclusion>
+                 <groupId>org.slf4j</groupId>
+                 <artifactId>slf4j-api</artifactId>
+             </exclusion>
+              <exclusion>
+                <groupId>log4j</groupId>
+                <artifactId>log4j</artifactId>
+              </exclusion>
+            </exclusions>
+        </dependency>
+
+        <!--<dependency>
+            <groupId>org.apache.jena</groupId>
+            <artifactId>jena-core</artifactId>
+            <version>3.0.1</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-log4j12</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-api</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>log4j</groupId>
+                    <artifactId>log4j</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>-->
+
+
+
+
 
         <dependency>
             <groupId>org.apache.commons</groupId>
@@ -427,6 +491,8 @@
             <artifactId>slf4j-api</artifactId>
             <optional>true</optional>
         </dependency>
+
+
 
     </dependencies>
 

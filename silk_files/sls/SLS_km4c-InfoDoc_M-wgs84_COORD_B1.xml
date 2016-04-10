@@ -28,7 +28,7 @@
             <Param name="pageSize" value="1000"></Param>
             <Param name="pauseTime" value="0"></Param>
             <Param name="retryCount" value="3"></Param>         
-            <Param name="file" value="C:\Users\Marco\Desktop\SILK_COORDINATES_2\km4c-InfoDoc_M-wgs84_COORD_B1\triple_geodomaindocument_coord_SiiMobility_05052014.ttl"/>
+            <Param name="file" value="H:\Marco 2016-04\EAT 1.6.10\eat\silk_files\triple_geodomaindocument_coord_SiiMobility_05052014.ttl"/>
             <Param name="format" value="TTL" />
             <Param name="retryPause" value="1000"></Param>
             <Param name="graph" value=""></Param>
@@ -57,7 +57,7 @@
             <Param name="pageSize" value="1000"></Param>
             <Param name="pauseTime" value="0"></Param>
             <Param name="retryCount" value="3"></Param>         
-            <Param name="file" value="C:\Users\Marco\Desktop\SILK_COORDINATES_2\km4c-InfoDoc_M-wgs84_COORD_B1\triple_geodomaindocument_coord_omogeneo_05052014.ttl"/>
+            <Param name="file" value="H:\Marco 2016-04\EAT 1.6.10\eat\silk_files\triple_geodomaindocument_coord_omogeneo_05052014.ttl"/>
             <Param name="format" value="TTL" />
             <Param name="retryPause" value="1000"></Param>
             <Param name="graph" value=""></Param>
@@ -142,7 +142,7 @@
             <Filter limit="10000" />
             <Outputs>           
                 <Output type="file" minConfidence="0.9">
-                    <Param name="file" value="C:\Users\Marco\Desktop\SILK_COORDINATES_2\km4c-InfoDoc_M-wgs84_COORD_B1\result_silk_km4c-InfoDoc_M-wgs84_COORD_B1.nt"/>
+                    <Param name="file" value="H:\Marco 2016-04\EAT 1.6.10\eat\silk_files\sls\result_silk_km4c-InfoDoc_M-wgs84_COORD_B1.nt"/>
                     <Param name="format" value="ntriples"/>
                 </Output>              
             </Outputs>          

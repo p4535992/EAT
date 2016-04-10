@@ -594,17 +594,17 @@ public class Jena3Utilities {
                 try {
                     m.read(in, null, rdfSyntax);
                 } catch (Exception e1) {
-                   /* try {
+                    try {
                         RDFDataMgr.read(m, in, INLANGFORMAT);
                     } catch (Exception e2) {
                         try {
                             //If you are just opening the stream from a file (or URL) then Apache Jena
-                            RDFDataMgr.read(m, fileInput.toURI().toString());
+                            RDFDataMgr.read(m, file.toURI().toString());
                         } catch (Exception e3) {
                             logger.error("Failed read the file of triples from the path:" +
-                                    fileInput.getAbsolutePath() + ":" + e.getMessage(), e);
+                                    file.getAbsolutePath() + ":" + e.getMessage(), e);
                         }
-                    }*/
+                    }
                     logger.error("Can't read the InputStream for the file:"+file.getAbsolutePath());
                     return null;
                 }
@@ -658,7 +658,7 @@ public class Jena3Utilities {
             return m;
         }
         else if(filenameOrURI instanceof String){
-            return loadFileTripleToModel(new File(String.valueOf(filenameOrURI)),null,null);
+            return loadFileTripleToModel(new File(String.valueOf(filenameOrURI)),null,rdfSyntax);
         }else{
             logger.warn("Can't load the File of Triple to the Jena Model, make sure the input is a File or a String or a URI," +
                     " your current param is a :"+filenameOrURI.getClass().getName());

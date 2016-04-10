@@ -1,13 +1,28 @@
 package com.github.p4535992.extractor.estrattori;
 
+import com.github.p4535992.util.file.FileUtilities;
 import com.github.p4535992.util.repositoryRDF.jena.Jena3Utilities;
-import org.apache.jena.datatypes.xsd.XSDDatatype;
-import org.apache.jena.rdf.model.*;
+import com.github.p4535992.util.string.StringUtilities;
+import com.hp.hpl.jena.datatypes.RDFDatatype;
+import com.hp.hpl.jena.datatypes.xsd.XSDDatatype;
+import com.hp.hpl.jena.query.Query;
+import com.hp.hpl.jena.query.QueryExecution;
+import com.hp.hpl.jena.query.QueryExecutionFactory;
+import com.hp.hpl.jena.query.QueryFactory;
+import com.hp.hpl.jena.rdf.model.*;
+import com.hp.hpl.jena.rdf.model.impl.PropertyImpl;
+import com.hp.hpl.jena.rdf.model.impl.ResourceImpl;
+import com.hp.hpl.jena.util.FileManager;
+import org.apache.jena.riot.Lang;
+import org.apache.jena.riot.RDFDataMgr;
+import org.apache.jena.riot.RDFFormat;
+/*import org.apache.jena.datatypes.xsd.XSDDatatype;
 import org.apache.jena.rdf.model.impl.PropertyImpl;
-import org.apache.jena.rdf.model.impl.ResourceImpl;
+import org.apache.jena.rdf.model.impl.ResourceImpl;*/
 
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
+import java.net.MalformedURLException;
+import java.net.URI;
 
 /**
  * Created by 4535992 on 20/04/2015.
@@ -22,7 +37,7 @@ public class JenaInfoDocument {
 
     protected JenaInfoDocument(){}
     private static JenaInfoDocument instance = null;
-    public static  JenaInfoDocument getInstance(){
+    public static JenaInfoDocument getInstance(){
         if(instance == null) {
             instance = new JenaInfoDocument();
         }
@@ -99,11 +114,25 @@ public class JenaInfoDocument {
 
         logger.info(SPARQL_NO_WGS84COORDS);
         //CREA IL TUO MODELLO DI JENA A PARTIRE DA UN FILE
-        Model model = Jena3Utilities.toModel(filenameInput, filepath, inputFormat);
+        //*********************************************************************************************
+        //With 3.0.1
+        //Model model = Jena3Utilities.toModel(filenameInput, filepath, inputFormat);
+        //With 2.11
+        Model model = read(new File(filepath+File.separator+filenameInput+"."+inputFormat),inputFormat);
+        //*********************************************************************************************
         //ESEGUI LA QUERY SPARQL
-        Model myGraph = Jena3Utilities.execSparqlConstructorOnModel(SPARQL_NO_WGS84COORDS, model);
+        //*********************************************************************************************
+        //With 3.0.1
+        //Model myGraph = Jena3Utilities.execSparqlConstructorOnModel(SPARQL_NO_WGS84COORDS, model);
+        //With 2.11
+        Model myGraph = ModelFactory.createDefaultModel();
+        Query query = QueryFactory.create(SPARQL_NO_WGS84COORDS);
+        Model resultModel ;
+        QueryExecution qexec = QueryExecutionFactory.create(query, model);
+        myGraph = qexec.execConstruct();
+        //*********************************************************************************************
+        logger.info("Exec query CONSTRUCT SPARQL :" + SPARQL_NO_WGS84COORDS);
         StmtIterator iter = myGraph.listStatements();
-
         while (iter.hasNext()) {
             try{
                 Statement stmt  = iter.nextStatement();  // get next statement
@@ -214,6 +243,44 @@ public class JenaInfoDocument {
         //Execute the SPARQL_WSG84COORDS and add the geometry statement without modification
         //*************************************************************************************
         String output = filepath + File.separator + fileNameOutput + "." + outputFormat;
-        Jena3Utilities.writeModelToFile(output, model2, outputFormat);
+        //*********************************************************************************************
+        //With 3.0.1
+        //Jena3Utilities.writeModelToFile(output, model2, outputFormat);
+        //With 2.11
+        write(new File(output),model2,Lang.TURTLE);
+        //*********************************************************************************************
+    }
+
+    private static boolean write(File file, Model model, Lang outputFormat) {
+        try {
+            logger.info("Try to write the new file of triple from:" + file.getAbsolutePath() + "...");
+            FileOutputStream outputStream = new FileOutputStream(file);
+            model.write(outputStream, outputFormat.getName());
+            logger.info("... the file of triple to:" + file.getAbsolutePath() + " is been wrote!");
+            return true;
+        } catch (FileNotFoundException e) {
+            logger.error(e.getMessage(), e);
+            return false;
+        }
+    }
+
+    private static Model read(File file,String inputFormat){
+        if(FileUtilities.isFileExists(file)) {
+            Model m = ModelFactory.createDefaultModel();
+            try {
+                RDFDataMgr.read(m, file.toURI().toString());
+            } catch (Exception e2) {
+                try {
+                    //If you are just opening the stream from a file (or URL) then Apache Jena
+                    RDFDataMgr.read(m, file.toURI().toString(), Lang.N3);
+                } catch (Exception e) {
+                    logger.error("Failed read the file of triples from the path:" +
+                            file.getAbsolutePath() + ":" + e.getMessage(), e);
+                }
+            }
+            return m;
+        }else{
+            return null;
+        }
     }
 }

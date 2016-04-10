@@ -1,22 +1,22 @@
 package com.github.p4535992.extractor.estrattori;
 
+import com.github.p4535992.extractor.estrattori.silk.SilkUtilities;
 import com.github.p4535992.extractor.object.dao.jdbc.*;
 import com.github.p4535992.extractor.object.impl.jdbc.*;
 import com.github.p4535992.gatebasic.gate.gate8.GateDataStore8Kit;
+import com.github.p4535992.util.database.sql.SQLUtilities;
 import com.github.p4535992.util.file.FileUtilities;
 import com.github.p4535992.util.file.PropertiesUtilities;
 import com.github.p4535992.util.file.SimpleParameters;
 import com.github.p4535992.extractor.object.model.GeoDocument;
 import com.github.p4535992.util.string.StringUtilities;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Configurable;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.core.env.Environment;
 
-import javax.annotation.Resource;
+import org.springframework.context.annotation.Configuration;
+
 import java.io.File;
-import java.net.MalformedURLException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.*;
 
 /**
@@ -53,9 +53,12 @@ public class ExtractInfoSpring {
     private String TABLE_INPUT_GEODOMAIN, TABLE_OUTPUT_GEODOMAIN, DB_OUTPUT_GEODOMAIN;
     private boolean CREA_NUOVA_TABELLA_GEODOMAIN, ERASE_GEODOMAIN;
 
-    private String DIRECTORY_FILES, SILK_SLS_FILE;
+    private String DIRECTORY_FILES, SILK_SLS_FILE,SILK_INTERLINK_ID;
+    private Integer SILK_NUM_THREADS;
+    private boolean SILK_LOGQUERIES,SILK_RELOAD;
 
     private String TABLE_REF_OFFLINE,COLUMN_OFFLINE_REF_URL ,GATE_CORPUS_NAME;
+    private boolean CREA_NUOVA_TABELLA_OFFLINE,ERASE_OFFLINE;
 
     /*http://stackoverflow.com/questions/6212898/spring-properties-file-get-element-as-an-array*/
     /*http://stackoverflow.com/questions/12576156/reading-a-list-from-properties-file-and-load-with-spring-annotation-value*/
@@ -180,9 +183,29 @@ public class ExtractInfoSpring {
 
             this.SILK_LINKING_TRIPLE_PROGRAMM = Boolean.parseBoolean(env.getProperty("PARAM_SILK_LINKING_TRIPLE_PROGRAMM").toLowerCase());
             this.SILK_SLS_FILE = env.getProperty("PARAM_SILK_SLS_FILE");
+            this.SILK_INTERLINK_ID = env.getProperty("PARAM_SILK_INTERLINK_ID");
+            this.SILK_NUM_THREADS = Integer.parseInt(env.getProperty("PARAM_SILK_NUM_THREADS"));
+            this.SILK_LOGQUERIES = Boolean.parseBoolean(env.getProperty("PARAM_SILK_LOGQUERIES").toLowerCase());
+            this.SILK_RELOAD = Boolean.parseBoolean(env.getProperty("PARAM_SILK_RELOAD").toLowerCase());
 
             this.TABLE_REF_OFFLINE = env.getProperty("PARAM_TABLE_REF_OFFLINE");
             this.COLUMN_OFFLINE_REF_URL = env.getProperty("PARAM_COLUMN_OFFLINE_REF_URL");
+            this.ERASE_OFFLINE = Boolean.parseBoolean(env.getProperty("PARAM_ERASE_OFFLINE").toLowerCase());
+            this.CREA_NUOVA_TABELLA_OFFLINE = Boolean.parseBoolean(env.getProperty("PARAM_CREA_NUOVA_TABELLA_OFFLINE").toLowerCase());
+
+            if(CREA_NUOVA_TABELLA_OFFLINE){
+                Connection conn = SQLUtilities.getMySqlConnection(HOST_DATABASE,PORT_DATABASE.toString(),USER,PASS);
+                if(ERASE_OFFLINE){
+                    SQLUtilities.executeSQL("DROP TABLE "+DB_OUTPUT+"."+TABLE_REF_OFFLINE,conn);
+                }
+                SQLUtilities.executeSQL(
+                        "CREATE TABLE `"+TABLE_REF_OFFLINE+"` (\n" +
+                        "  `id` int(10) DEFAULT NULL,\n" +
+                        "  `url` varchar(1000) DEFAULT NULL\n" +
+                        ")",conn);
+                SQLUtilities.closeConnection();
+                conn.close();
+            }
 
             this.GATE_ANN_LIST = env.getProperty("PARAM_GATE_ANN_LIST").split(",");
             this.GATE_ANNSET_LIST = env.getProperty("PARAM_GATE_ANNSET_LIST").split(",");
@@ -196,7 +219,7 @@ public class ExtractInfoSpring {
             this.GATE_SESSION_CONFIG=env.getProperty("PARAM_GATE_SESSION_CONFIG");
             this.GATE_GAPP_FILE=env.getProperty("PARAM_GATE_GAPP_FILE");
 
-        } catch (java.lang.NullPointerException ne) {
+        } catch (NullPointerException | SQLException ne) {
             logger.warn("Attention: make sure all the parameter on the input.properties file are setted correctly");
             logger.error(ne.getMessage(), ne);
             System.exit(0);
@@ -288,9 +311,29 @@ public class ExtractInfoSpring {
 
             this.SILK_LINKING_TRIPLE_PROGRAMM = Boolean.parseBoolean(par.getValue("PARAM_SILK_LINKING_TRIPLE_PROGRAMM").toLowerCase());
             this.SILK_SLS_FILE = par.getValue("PARAM_SILK_SLS_FILE");
+            this.SILK_INTERLINK_ID = par.getValue("PARAM_SILK_INTERLINK_ID");
+            this.SILK_NUM_THREADS = Integer.parseInt(par.getValue("PARAM_SILK_NUM_THREADS"));
+            this.SILK_LOGQUERIES = Boolean.parseBoolean(par.getValue("PARAM_SILK_LOGQUERIES").toLowerCase());
+            this.SILK_RELOAD = Boolean.parseBoolean(par.getValue("PARAM_SILK_RELOAD").toLowerCase());
 
             this.TABLE_REF_OFFLINE = par.getValue("PARAM_TABLE_REF_OFFLINE");
             this.COLUMN_OFFLINE_REF_URL = par.getValue("PARAM_COLUMN_OFFLINE_REF_URL");
+            this.ERASE_OFFLINE = Boolean.parseBoolean(par.getValue("PARAM_ERASE_OFFLINE").toLowerCase());
+            this.CREA_NUOVA_TABELLA_OFFLINE = Boolean.parseBoolean(par.getValue("PARAM_CREA_NUOVA_TABELLA_OFFLINE").toLowerCase());
+
+            if(CREA_NUOVA_TABELLA_OFFLINE){
+                Connection conn = SQLUtilities.getMySqlConnection(HOST_DATABASE,PORT_DATABASE.toString(),USER,PASS);
+                if(ERASE_OFFLINE){
+                    SQLUtilities.executeSQL("DROP TABLE "+DB_OUTPUT+"."+TABLE_REF_OFFLINE,conn);
+                }
+                SQLUtilities.executeSQL(
+                        "CREATE TABLE `"+TABLE_REF_OFFLINE+"` (\n" +
+                                "  `id` int(10) DEFAULT NULL,\n" +
+                                "  `url` varchar(1000) DEFAULT NULL\n" +
+                                ")",conn);
+                SQLUtilities.closeConnection();
+                conn.close();
+            }
 
             this.GATE_ANN_LIST = par.getValue("PARAM_GATE_ANN_LIST").split(",");
             this.GATE_ANNSET_LIST = par.getValue("PARAM_GATE_ANNSET_LIST").split(",");
@@ -303,7 +346,7 @@ public class ExtractInfoSpring {
             this.GATE_SESSION_CONFIG=par.getValue("PARAM_GATE_SESSION_CONFIG");
             this.GATE_GAPP_FILE=par.getValue("PARAM_GATE_GAPP_FILE");
 
-        } catch (java.lang.NullPointerException ne) {
+        } catch (java.lang.NullPointerException|SQLException ne) {
             logger.warn("Attention: make sure all the parameter on the input.properties file are setted correctly");
             logger.error(ne.getMessage(), ne);
             System.exit(0);
@@ -841,7 +884,14 @@ public class ExtractInfoSpring {
                 }
                 if (SILK_LINKING_TRIPLE_PROGRAMM) {
                     if (new File(SILK_SLS_FILE).exists()) {
-                        de.fuberlin.wiwiss.silk.Silk.executeFile(new File(SILK_SLS_FILE), "interlink_location", 2, true);
+                        try {
+                               /* de.fuberlin.wiwiss.silk.Silk.executeFile(
+                                    new File(SILK_SLS_FILE), SILK_INTERLINK_ID, SILK_NUM_THREADS, SILK_LOGQUERIES);*/
+                            SilkUtilities.getNewInstance().generateRDF(
+                                    new File(SILK_SLS_FILE), SILK_INTERLINK_ID, SILK_NUM_THREADS, SILK_LOGQUERIES);
+                        }catch(Exception e){
+                            logger.error(e.getMessage(),e);
+                        }
                     } else {
                         logger.error("The " + new File(SILK_SLS_FILE).getAbsolutePath() + " not exists!!");
                     }

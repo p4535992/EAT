@@ -140,13 +140,12 @@ public class ExtractInfoWeb {
         this.PASS = PASS;
         this.DB_OUTPUT=DB_OUTPUT;
         //Other Variables
-        this.TABLE_REF_OFFLINE ="offlinesite";
-        this.COLUMN_OFFLINE_REF_URL ="url";
+        this.TABLE_REF_OFFLINE =TABLE_REF_OFFLINE;
+        this.COLUMN_OFFLINE_REF_URL =COLUMN_OFFLINE_REF_URL;
 
-        this.GATE_ANN_LIST = new String[]{"MyRegione", "MyPhone", "MyFax", "MyEmail", "MyPartitaIVA",
-                "MyLocalita", "MyIndirizzo", "MyEdificio", "MyProvincia"};
-        this.GATE_ANNSET_LIST = new String[]{"MyFOOTER", "MyHEAD", "MySpecialID", "MyAnnSet"};
-        this.GATE_CORPUS_NAME = "corpus_test_1";
+        this.GATE_ANN_LIST = GATE_ANN_LIST;
+        this.GATE_ANNSET_LIST = GATE_ANNSET_LIST;
+        this.GATE_CORPUS_NAME = GATE_CORPUS_NAME;
 
     }
 
@@ -205,7 +204,7 @@ public class ExtractInfoWeb {
 
     /**
      * Method to set the GATE Embedded API.
-     * @param directoryFolderHome the root diretory where all files of gate are stored eg:"gate_files".
+     * @param directoryFolderHome the root directory where all files of gate are stored eg:"gate_files".
      * @param directoryFolderPlugin  the root directory of all plugin of gate under the directoryFolderHome eg: "plugins".
      * @param configFileGate the path to the config file of gate under the directoryFolderHome eg:"gate.xml".
      * @param configFileUser the path to the config file user of gate under the directoryFolderHome eg:"user-gate.xml".
@@ -873,7 +872,7 @@ public class ExtractInfoWeb {
                     TABLE_OUTPUT
             );
             //code for clean up the triple file generate from karma.
-            JenaInfoDocument.readQueryAndCleanTripleInfoDocument(
+           JenaInfoDocument.readQueryAndCleanTripleInfoDocument(
                     FileUtilities.getFilenameWithoutExt(f), //filenameInput
                     FileUtilities.getPath(f), //filepath
                     FileUtilities.getFilenameWithoutExt(f) + "-c", //fileNameOutput

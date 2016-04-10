@@ -65,6 +65,10 @@
       <module name="ExtractInfo" target="1.8" />
       <module name="gate-basic" target="1.8" />
       <module name="jsp-demo" target="1.8" />
+      <module name="silk-basic" target="1.8" />
+      <module name="silk-core" target="1.5" />
+      <module name="silk-jena" target="1.5" />
+      <module name="silk-singlemachine" target="1.5" />
       <module name="springMVC10" target="1.8" />
       <module name="springMVC12" target="1.8" />
       <module name="utility" target="1.8" />
