@@ -4,6 +4,13 @@
     <list default="true" id="4eed5089-243f-4674-95da-e9b02ca45a2c" name="Default" comment="2016-04-09 v4">
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/estrattori/gtfs/gtfs doc/linked-gtfs_spec.md at master · OpenTransport_linked-gtfs.pdf" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/estrattori/gtfs/old.rar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/utility/src/main/resources/jar/lib_openlink/driver-2.7.3-build1.12.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/utility/src/main/resources/jar/lib_openlink/virt_jena3.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/utility/src/main/resources/jar/lib_openlink/virtjdbc4.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/utility/src/main/resources/jar/lib_owlim/graphdb-lite-6.0.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/utility/src/main/resources/jar/lib_owlim/graphdb-notifications-6.1.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/utility/src/main/resources/jar/lib_owlim/graphdb-se-6.1.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/utility/src/main/resources/jar/lib_owlim/migration-adapter-4.x.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/estrattori/gtfs/GTFSUtilities.java" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/estrattori/gtfs/README.md" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/estrattori/gtfs/database/load_gtfs.sql" />
@@ -28,8 +35,13 @@
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/estrattori/gtfs/tordf/transformer/impl/TransfersTransformer.java" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/estrattori/gtfs/tordf/transformer/impl/TripsTransformer.java" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/estrattori/util2/Jena2Utilities.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/karma_files/output/output_karma_2016-04-10v23.n3" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/silk_files/sls/result_silk_km4c-InfoDoc_M-wgs84_COORD_B1.nt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/utility/LIB/lib_openlink/driver-2.7.3-build1.12.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/utility/LIB/lib_openlink/virt_jena3.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/utility/LIB/lib_openlink/virtjdbc4.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/utility/LIB/lib_owlim/graphdb-lite-6.0.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/utility/LIB/lib_owlim/graphdb-notifications-6.1.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/utility/LIB/lib_owlim/graphdb-se-6.1.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/utility/LIB/lib_owlim/migration-adapter-4.x.jar" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/utility/lib/OWL2VOWL-0.2.0.jar" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/utility/lib/antlr-2.7.6.jar" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/utility/lib/antlr-2.7.7.jar" afterPath="" />
@@ -376,15 +388,12 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/utility/lib/zookeeper-3.4.6.jar" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/utility/lib/zt-zip-1.9.jar" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/EAT.iml" afterPath="$PROJECT_DIR$/EAT.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/ExtractInfo.iml" afterPath="$PROJECT_DIR$/ExtractInfo/ExtractInfo.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/pom.xml" afterPath="$PROJECT_DIR$/ExtractInfo/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/estrattori/ExtractInfoSpring.java" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/estrattori/ExtractInfoSpring.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/estrattori/ExtractorDomain.java" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/estrattori/ExtractorDomain.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/estrattori/JenaInfoDocument.java" afterPath="$PROJECT_DIR$/ExtractInfo/src/main/java/com/github/p4535992/extractor/estrattori/JenaInfoDocument.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database-basic/src/main/java/com/github/p4535992/database/datasource/sql/SQLUtility.java" afterPath="$PROJECT_DIR$/database-basic/src/main/java/com/github/p4535992/database/datasource/sql/SQLUtility.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/log/log4j.log" afterPath="$PROJECT_DIR$/log/log4j.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/application.properties" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/.gitignore" afterPath="$PROJECT_DIR$/utility/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/pom.xml" afterPath="$PROJECT_DIR$/utility/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/database/sql/SQLUtilities.java" afterPath="$PROJECT_DIR$/utility/src/main/java/com/github/p4535992/util/database/sql/SQLUtilities.java" />
@@ -509,8 +518,8 @@
       <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/utility/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="47" column="11" selection-start-line="47" selection-start-column="11" selection-end-line="47" selection-end-column="11" />
+            <state relative-caret-position="204">
+              <caret line="48" column="6" selection-start-line="48" selection-start-column="6" selection-end-line="48" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -837,6 +846,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EAT" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="eat" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="utility" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -868,11 +891,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="H:\Marco 2016-04\EAT 1.6.10\eat\utility\src\main\resources\jar" />
       <recent name="H:\Marco 2016-04\EAT 1.6.10\EAT\src\main\resources\old" />
       <recent name="H:\Marco 2016-04\EAT 1.6.10\EAT\utility\src\main\resources\fileForTest" />
       <recent name="H:\Marco 2016-04\EAT 1.6.10\EAT\springMVC10\src\main\resources\META-INF\resources" />
       <recent name="H:\Marco 2016-04\EAT 1.6.10\EAT\springMVC10\src\main\webapp\WEB-INF\views" />
-      <recent name="H:\Marco 2016-04\EAT 1.6.10\EAT\springMVC10\src\main\resources\templates" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
@@ -1665,7 +1688,7 @@
       <workItem from="1460291306650" duration="12714000" />
       <workItem from="1460320018003" duration="3010000" />
       <workItem from="1460323208913" duration="1035000" />
-      <workItem from="1460355497861" duration="12810000" />
+      <workItem from="1460355497861" duration="13157000" />
     </task>
     <task id="LOCAL-00001" summary="2016-04-08 v3">
       <created>1460121921695</created>
@@ -1717,7 +1740,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1863917000" />
+    <option name="totallyTimeSpent" value="1864264000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -4149,8 +4172,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/utility/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="47" column="11" selection-start-line="47" selection-start-column="11" selection-end-line="47" selection-end-column="11" />
+        <state relative-caret-position="204">
+          <caret line="48" column="6" selection-start-line="48" selection-start-column="6" selection-end-line="48" selection-end-column="6" />
           <folding />
         </state>
       </provider>
