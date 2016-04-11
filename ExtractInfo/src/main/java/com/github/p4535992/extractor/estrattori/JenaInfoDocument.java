@@ -1,5 +1,6 @@
 package com.github.p4535992.extractor.estrattori;
 
+import com.github.p4535992.extractor.estrattori.util2.Jena2Utilities;
 import com.github.p4535992.util.file.FileUtilities;
 import com.github.p4535992.util.repositoryRDF.jena.Jena3Utilities;
 import com.github.p4535992.util.string.StringUtilities;
@@ -118,18 +119,20 @@ public class JenaInfoDocument {
         //With 3.0.1
         //Model model = Jena3Utilities.toModel(filenameInput, filepath, inputFormat);
         //With 2.11
-        Model model = read(new File(filepath+File.separator+filenameInput+"."+inputFormat),inputFormat);
+        Model model = Jena2Utilities.toModel(filenameInput, filepath, inputFormat);
+        //Model model = read(new File(filepath+File.separator+filenameInput+"."+inputFormat),inputFormat);
         //*********************************************************************************************
         //ESEGUI LA QUERY SPARQL
         //*********************************************************************************************
         //With 3.0.1
         //Model myGraph = Jena3Utilities.execSparqlConstructorOnModel(SPARQL_NO_WGS84COORDS, model);
         //With 2.11
-        Model myGraph = ModelFactory.createDefaultModel();
+        Model myGraph = Jena2Utilities.execSparqlConstructorOnModel(SPARQL_NO_WGS84COORDS, model);
+        /*Model myGraph = ModelFactory.createDefaultModel();
         Query query = QueryFactory.create(SPARQL_NO_WGS84COORDS);
         Model resultModel ;
         QueryExecution qexec = QueryExecutionFactory.create(query, model);
-        myGraph = qexec.execConstruct();
+        myGraph = qexec.execConstruct();*/
         //*********************************************************************************************
         logger.info("Exec query CONSTRUCT SPARQL :" + SPARQL_NO_WGS84COORDS);
         StmtIterator iter = myGraph.listStatements();
@@ -247,11 +250,12 @@ public class JenaInfoDocument {
         //With 3.0.1
         //Jena3Utilities.writeModelToFile(output, model2, outputFormat);
         //With 2.11
-        write(new File(output),model2,Lang.TURTLE);
+        Jena2Utilities.writeModelToFile(output, model2, outputFormat);
+        //write(new File(output),model2,Lang.TURTLE);
         //*********************************************************************************************
     }
 
-    private static boolean write(File file, Model model, Lang outputFormat) {
+    /*private static boolean write(File file, Model model, Lang outputFormat) {
         try {
             logger.info("Try to write the new file of triple from:" + file.getAbsolutePath() + "...");
             FileOutputStream outputStream = new FileOutputStream(file);
@@ -282,5 +286,5 @@ public class JenaInfoDocument {
         }else{
             return null;
         }
-    }
+    }*/
 }

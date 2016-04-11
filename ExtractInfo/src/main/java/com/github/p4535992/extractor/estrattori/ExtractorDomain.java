@@ -342,14 +342,14 @@ public class ExtractorDomain {
         }
     }
 
-    public void deleteOverrideRecord(Map<String,String> map){
-         String[] columns_where = new String[]{"url"};
+    public void deleteOverrideRecord(Map<String,String> map,String nameTableToSelect,String columnToSelect,String nameTableToInsert){
+         String[] columns_where = new String[]{columnToSelect};//url
          Object[] values_where;
         try {
             List<GeoDomainDocument> finalList = new ArrayList <>();
             for (Map.Entry<String,String> entry: map.entrySet()) {
                 values_where = new Object[]{entry.getValue()};
-                geoDomainDocDao.setTableSelect("geodomaindocument_h"); //464
+                geoDomainDocDao.setTableSelect(nameTableToSelect); //464 -> geodomaindocument_h
                 List<GeoDomainDocument> list = geoDomainDocDao.selectGeoDomainWihNoCoords(
                         new String[]{"*"},columns_where,values_where, 1, 0, null);
                 GeoDomainDocument geo = list.get(0);
@@ -357,7 +357,7 @@ public class ExtractorDomain {
                 finalList.add(geo);
             }
             //geodomaindocument_coord_omogeneo_05052014,geodomaindocument_coord_omogeneo_120
-            geoDomainDocDao.setTableInsert("geodomaindocument_coord_omogeneo_05052014"); //120
+            geoDomainDocDao.setTableInsert(nameTableToInsert); //120
             for (GeoDomainDocument geoDoc : finalList) {
                 //geoDoc.setUrl(new URL(geoDoc.getUrl().toString().replace("http://","")));
                 geoDomainDocDao.insertAndTrim(geoDoc);

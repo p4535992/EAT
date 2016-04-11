@@ -1,5 +1,6 @@
 package com.github.p4535992.extractor.estrattori;
 
+import com.github.p4535992.extractor.estrattori.gtfs.GTFSUtilities;
 import com.github.p4535992.extractor.estrattori.silk.SilkUtilities;
 import com.github.p4535992.extractor.object.dao.jdbc.*;
 import com.github.p4535992.extractor.object.impl.jdbc.*;
@@ -68,6 +69,7 @@ public class ExtractInfoSpring {
     private String[] GATE_ANN_LIST,GATE_ANNSET_LIST;
     private String GATE_PLUGIN_PATH,GATE_SITE_CONFIG,GATE_USER_CONFIG,GATE_SESSION_CONFIG,GATE_GAPP_FILE,GATE_HOME_PATH;
     private String SESAME_URL_REPOSITORY,SESAME_FILE_TO_IMPORT;
+    private String GTFS_FILE_RDF_GENERATE;
 
     private static IDocumentDao Docdao = new DocumentDaoImpl();
     private static IWebsiteDao websiteDao = new WebsiteDaoImpl();
@@ -225,6 +227,7 @@ public class ExtractInfoSpring {
 
             this.SESAME_URL_REPOSITORY = env.getProperty("PARAM_SESAME_URL_REPOSITORY");
             this.SESAME_FILE_TO_IMPORT = env.getProperty("PARAM_SESAME_FILE_TO_IMPORT");
+            this.GTFS_FILE_RDF_GENERATE = env.getProperty("PARAM_GTFS_FILE_RDF_GENERATE");
 
         } catch (NullPointerException | SQLException ne) {
             logger.warn("Attention: make sure all the parameter on the input.properties file are setted correctly");
@@ -355,6 +358,7 @@ public class ExtractInfoSpring {
 
             this.SESAME_URL_REPOSITORY = par.getValue("PARAM_SESAME_URL_REPOSITORY");
             this.SESAME_FILE_TO_IMPORT = par.getValue("PARAM_SESAME_FILE_TO_IMPORT");
+            this.GTFS_FILE_RDF_GENERATE = par.getValue("PARAM_GTFS_FILE_RDF_GENERATE");
         } catch (java.lang.NullPointerException|SQLException ne) {
             logger.warn("Attention: make sure all the parameter on the input.properties file are setted correctly");
             logger.error(ne.getMessage(), ne);
@@ -906,8 +910,8 @@ public class ExtractInfoSpring {
                     }
                 }
             }
-           /* if(PROCESS_PROGAMM == 5){
-                SystemLog.message("RUN PROCESS PROGRAMM 5: UPDATE COORDINATES ON GEODOMAIN TABLE");
+            if(PROCESS_PROGAMM == 5){
+                logger.info("RUN PROCESS PROGRAMM 5: UPDATE COORDINATES ON GEODOMAIN TABLE");
                 IGeoDomainDocumentDao geoDomainDocumentDao = new GeoDomainDocumentDaoImpl();
                 geoDomainDocumentDao.setTableInsert(TABLE_OUTPUT_GEODOMAIN);
                 geoDomainDocumentDao.setTableSelect(TABLE_OUTPUT_GEODOMAIN);
@@ -916,12 +920,13 @@ public class ExtractInfoSpring {
                 if (CREA_NUOVA_TABELLA_GEODOMAIN) {
                     geoDomainDocumentDao.create(ERASE_GEODOMAIN);
                 }
-                egd = new ExtractorDomain((GeoDomainDocumentDaoImpl) geoDomainDocumentDao, LIMIT_GEODOMAIN, OFFSET_GEODOMAIN, FREQUENZA_URL_GEODOMAIN);
+                ExtractorDomain egd = new ExtractorDomain((GeoDomainDocumentDaoImpl) geoDomainDocumentDao,
+                        LIMIT_GEODOMAIN, OFFSET_GEODOMAIN, FREQUENZA_URL_GEODOMAIN);
                 egd.reloadNullCoordinates();
-            }*/
-            /*if(PROCESS_PROGAMM == 6){
-                SystemLog.message("RUN PROCESS PROGRAMM 6:
-                DELETE OVERRRIDE RECORD GEODOMAINDOCUMENT TABLE WITH SIIMOBILITY COORDINATES");
+            }
+            if(PROCESS_PROGAMM == 6){
+                logger.info("RUN PROCESS PROGRAMM 6:"+
+                "DELETE OVERRRIDE RECORD GEODOMAINDOCUMENT TABLE WITH SIIMOBILITY COORDINATES");
                 IGeoDomainDocumentDao geoDomainDocumentDao = new GeoDomainDocumentDaoImpl();
                 geoDomainDocumentDao.setTableInsert(TABLE_OUTPUT_GEODOMAIN);
                 geoDomainDocumentDao.setTableSelect(TABLE_INPUT_GEODOMAIN);
@@ -930,21 +935,22 @@ public class ExtractInfoSpring {
                 if (CREA_NUOVA_TABELLA_GEODOMAIN) {
                     geoDomainDocumentDao.create(ERASE_GEODOMAIN);
                 }
-                egd = new ExtractorDomain((GeoDomainDocumentDaoImpl) geoDomainDocumentDao, LIMIT_GEODOMAIN, OFFSET_GEODOMAIN, FREQUENZA_URL_GEODOMAIN);
-                List<String> listUrlGM = geoDomainDocumentDao.trySelect("url", 500, 0);
+                ExtractorDomain egd = new ExtractorDomain((GeoDomainDocumentDaoImpl) geoDomainDocumentDao, LIMIT_GEODOMAIN, OFFSET_GEODOMAIN, FREQUENZA_URL_GEODOMAIN);
+                List<Object> listUrlGM = geoDomainDocumentDao.select(COLUMN_TABLE_INPUT, 500, 0,String.class);//url
                 Map<String,String> map = new HashMap<>();
-                for(String url: listUrlGM){
-                    String ids = (String)geoDomainDocumentDao.select("doc_id", "url", url);
-                    map.put(ids,url);
+                for(Object url: listUrlGM){
+                    String ids = (String)geoDomainDocumentDao.select("doc_id", COLUMN_TABLE_INPUT, url);//url
+                    map.put(ids,String.valueOf(url));
                 }
-
-                egd.deleteOverrideRecord(map);
-            }*/
+                egd.deleteOverrideRecord(map,TABLE_INPUT_GEODOMAIN,COLUMN_TABLE_INPUT,TABLE_OUTPUT_GEODOMAIN);
+            }
             if(PROCESS_PROGAMM == 7){
+                logger.info("RUN PROCESS PROGRAMM 7: Import data to Sesame Repository");
                 //Repository repo = Sesame2Utilities.getInstance().connectToHTTPRepository(SESAME_URL_REPOSITORY);
                 Sesame2Utilities sesame = Sesame2Utilities.getInstance();
                 Repository rep;
                 try {
+                    String repoID = HttpUtilities.getLastBitFromUrl(SESAME_URL_REPOSITORY);
                     rep = sesame.connectToHTTPRepository(SESAME_URL_REPOSITORY);
                 }catch(Exception e){
                     String repoID = HttpUtilities.getLastBitFromUrl(SESAME_URL_REPOSITORY);
@@ -952,12 +958,24 @@ public class ExtractInfoSpring {
                 }
                 //Repository rep = sesame.connectToHTTPRepository("http://localhost:8080/openrdf-sesame/repositories/repKm4c1");
                 //Repository rep = sesame.connectToHTTPRepositoryWithDefaultServer(repositoryID);
-                sesame.setPrefixes();
-                try {
-                    sesame.importIntoRepository(new File(SESAME_FILE_TO_IMPORT), rep);
+                sesame.setPrefixes(rep);
+                try{
+                    sesame.importIntoRepositoryFileChunked(new File(SESAME_FILE_TO_IMPORT),rep);
                 }catch(Exception e){
-                    logger.error(e.getMessage(),e);
+                    try{
+                        sesame.importIntoRepository(new File(SESAME_FILE_TO_IMPORT), rep);
+                    }catch(Exception e2){
+                        logger.error(e2.getMessage(),e2);
+                    }
                 }
+            }
+            if(PROCESS_PROGAMM == 8){
+                logger.info("RUN PROCESS PROGRAMM 8: Convert a GTFS database to the RDF Triple.");
+                Connection conn =
+                        SQLUtilities.getMySqlConnection(
+                                HOST_DATABASE,PORT_DATABASE.toString(),DB_INPUT,USER,PASS,false,false,false);
+                File file = new File(GTFS_FILE_RDF_GENERATE);
+                GTFSUtilities.getInstance().exportGTFSDatabaseToRDF(conn,file);
             }
         } catch (OutOfMemoryError e) {
             logger.error("java.lang.OutOfMemoryError, Reload the programm please");
