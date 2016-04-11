@@ -3001,14 +3001,15 @@ public class Jena2Utilities {
         return dataset;
     }
 
-    /**
+    //ERROR REMOVE METHOD
+    /*
      * Method to get a Dataset from a existent List of Jena Models.
      * old_name: getDataSetFromListOfModel
      * @param baseModel the Jena Model.
      * @param listModel the Map of Model with the specific uri to add to the new Dataset.
      * @return the Dataset extract from a list of Jena Model.
      */
-    public static Dataset toDataset(Model baseModel, Map<String, Model> listModel) {
+    /*public static Dataset toDataset(Model baseModel, Map<String, Model> listModel) {
         //Dataset dataset = DatasetFactory.createGeneral();
         //dataset.setDefaultModel(baseModel);
         Dataset dataset = DatasetFactory.create(baseModel);
@@ -3018,7 +3019,7 @@ public class Jena2Utilities {
         //});
         }
         return dataset;
-    }
+    }*/
 
     /**
      * Method to convert a Model to a DataSet.
@@ -3030,15 +3031,16 @@ public class Jena2Utilities {
         return new DatasetImpl(toModel(graph));
     }
 
-    /**
+    //ERRROR REMOVE METHOD
+    /*
      * Method to add a List of jena Graph triple to a Jena Graph Object.
      *
      * @param triples the List of jena Graph triples.
      * @param graph   the jena Graph Object.
      */
-    public void addTriplesToGraph(List<Triple> triples, Graph graph) {
+    /*public void addTriplesToGraph(List<Triple> triples, Graph graph) {
         GraphUtil.add(graph,triples);
-    }
+    }*/
 
     //----------------------------------------
     //NEW METHODS
@@ -3096,7 +3098,8 @@ public class Jena2Utilities {
         }
     }
 
-    /**
+    //ERRROR REMOVE METHOD
+    /*
      * This Jena example re-uses named graphs stored in a TDB model as the imports in an ontology.
      * href: https://gist.github.com/ijdickinson/3830267
      *
@@ -3104,7 +3107,7 @@ public class Jena2Utilities {
      * @param model     the Model Jena.
      * @return the OntologyModel.
      */
-    public static OntModel importModelToTDBModel(String graphName, Model model) {
+    /*public static OntModel importModelToTDBModel(String graphName, Model model) {
         //Model model = createModel();
         //Initialise the local TDB image if necessary.
         String tdbPath = "./target/data/tdb";
@@ -3122,7 +3125,7 @@ public class Jena2Utilities {
             //loadExampleGraph( ONT1, ds, "The Dread Pirate Roberts" );
         }
         return importingOntologyToModel(ds, model);
-    }
+    }*/
 
     //--------------------------------
     //Ontology methods
@@ -3669,7 +3672,7 @@ public class Jena2Utilities {
             if (m == null) {
                 m = ModelFactory.createDefaultModel();
                 loadIfAbsent.readModel(m, uri);
-                ds.addNamedModel(uri, m);
+                //ds.addNamedModel(uri, m); //ERRROR COMMENT THIS LINE
             }
             return m;
         }
